@@ -637,6 +637,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="7. Run the complete order and trace nested calls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-your-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check your results
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -649,9 +664,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#troubleshoot-a-nested-call" class="md-nav__link">
+  <a href="#troubleshoot-subflows" class="md-nav__link">
     <span class="md-ellipsis">
-      Troubleshoot a nested call
+      Troubleshoot subflows
     </span>
   </a>
   
@@ -5436,6 +5451,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="7. Run the complete order and trace nested calls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-your-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check your results
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -5448,9 +5478,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#troubleshoot-a-nested-call" class="md-nav__link">
+  <a href="#troubleshoot-subflows" class="md-nav__link">
     <span class="md-ellipsis">
-      Troubleshoot a nested call
+      Troubleshoot subflows
     </span>
   </a>
   
@@ -5813,46 +5843,71 @@
 </tr>
 </tbody>
 </table>
-<p>Also test an empty orderId and country ZZ; both should fail. The documented tests cover these cases, not every possible order.</p>
-<h2 id="8-review-dependencies-before-release">8. Review dependencies before release</h2>
-<p>Save all intended drafts and inspect <strong>Dependencies</strong> and the change-set comparison. Check the main Flow, charges subflow, shipping table, review tree, and regional data together.</p>
-<p>The release lifecycle is <strong>merge → create release → activate environment</strong>. A release captures compiled asset dependencies and reference-data snapshots; merely saving the child does not update an already active runtime release. See <a href="../releases/">Releases</a>.</p>
-<h2 id="troubleshoot-a-nested-call">Troubleshoot a nested call</h2>
+<p>Also test an empty orderId and country ZZ; both should fail.</p>
+<h3 id="check-your-results">Check your results</h3>
+<p>If your result differs from the expected values above, use <strong>Trace</strong> to find the first step with an unexpected value.</p>
 <table>
 <thead>
 <tr>
-<th>Symptom</th>
-<th>Check</th>
+<th>What you see</th>
+<th>What to check</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Child gets the wrong subtotal</td>
-<td>Map parent local.subtotal, not local.priorityValue</td>
+<td>Subtotal is 160 instead of 170</td>
+<td>Calculate the full subtotal before <strong>Trim List</strong>. Only the priority value should use the top three lines.</td>
 </tr>
 <tr>
-<td>Parent cannot see a child's local field</td>
-<td>Return the value through the child's output contract</td>
+<td>Charges use the priority value</td>
+<td>In <strong>Calculate order charges</strong>, map the child's <code>subtotal</code> to parent <code>local.subtotal</code>, not <code>local.priorityValue</code>.</td>
 </tr>
 <tr>
-<td>Changes in the child are absent</td>
-<td>Save its draft; check whether the parent calls a pinned version or same-set draft</td>
+<td>Country lookup fails for CA</td>
+<td>Inspect the child's <strong>Start</strong> input: <code>country</code> should be <code>CA</code>. Check that the selected regional data contains a CA row. Failure for ZZ is expected.</td>
 </tr>
 <tr>
-<td>Country lookup fails</td>
-<td>Check the mapped country and an existing reference-data row</td>
+<td>Shipping fee differs from 0 for the sample</td>
+<td>Inspect the shipping table call: its subtotal should be 170. Check the selected table's conditions and fee outputs.</td>
 </tr>
 <tr>
-<td>Wrong shipping fee</td>
-<td>Inspect the nested table's subtotal and selected dependency version</td>
+<td>Final total differs from 172</td>
+<td>Inspect the charges subflow: subtotal 170 + shipping fee 0 + handling fee 2. Then check that the parent maps <code>local.charges.total</code> to <code>output.total</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="8-review-dependencies-before-release">8. Review dependencies before release</h2>
+<p>Save all intended drafts and inspect <strong>Dependencies</strong> and the change-set comparison. Check the main Flow, charges subflow, shipping table, review tree, and regional data together.</p>
+<p>The release lifecycle is <strong>merge → create release → activate environment</strong>. A release captures compiled asset dependencies and reference-data snapshots; merely saving the child does not update an already active runtime release. See <a href="../releases/">Releases</a>.</p>
+<h2 id="troubleshoot-subflows">Troubleshoot subflows</h2>
+<p>Start with the <strong>Call Flow</strong> step in the parent's Trace, then inspect the child steps beneath it.</p>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Subflow receives incorrect or missing input</td>
+<td>Inspect the child's <strong>Start</strong> input and compare it with the <strong>Call Flow</strong> input mappings. Map each required child input to the intended parent field or expression.</td>
 </tr>
 <tr>
-<td>Contract changed warning</td>
-<td>Reselect the dependency version or draft and review all mappings</td>
+<td>Parent cannot use a value calculated by the subflow</td>
+<td>Return the value through the child's output contract and Response. Check the parent's result mapping and destination path; the child's <code>local</code> fields are scoped to the child.</td>
 </tr>
 <tr>
-<td>Total only includes three lines</td>
-<td>Calculate the full subtotal before Trim List</td>
+<td>Subflow returns an unexpected result</td>
+<td>Follow the child steps in <strong>Trace</strong> to locate the first unexpected value. Check that step's inputs and configuration before changing the parent.</td>
+</tr>
+<tr>
+<td>Changes to the subflow are not reflected</td>
+<td>For draft testing, save the child and check whether the parent selects its draft or a published version. For deployed execution, check the environment's active release; saving a draft does not change that release.</td>
+</tr>
+<tr>
+<td>A contract-changed warning appears</td>
+<td>Reselect the intended dependency version or draft, review the input and result mappings, then validate and rerun the parent Flow.</td>
 </tr>
 </tbody>
 </table>
