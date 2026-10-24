@@ -50,6 +50,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/guides.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -74,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#work-in-a-change-set" class="md-skip">
+        <a href="#save-and-merge-a-change-set" class="md-skip">
           Skip to content
         </a>
       
@@ -526,18 +528,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#understand-isolation" class="md-nav__link">
+  <a href="#1-select-an-editable-change-set" class="md-nav__link">
     <span class="md-ellipsis">
-      Understand isolation
+      1. Select an editable change set
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#save-merge-release-activate" class="md-nav__link">
+  <a href="#2-save-and-test-the-intended-edits" class="md-nav__link">
     <span class="md-ellipsis">
-      Save, merge, release, activate
+      2. Save and test the intended edits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-review-and-merge" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Review and merge
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#if-merge-is-blocked" class="md-nav__link">
+    <span class="md-ellipsis">
+      If merge is blocked
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isolation-and-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Isolation and lifecycle
     </span>
   </a>
   
@@ -910,18 +939,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#understand-isolation" class="md-nav__link">
+  <a href="#1-select-an-editable-change-set" class="md-nav__link">
     <span class="md-ellipsis">
-      Understand isolation
+      1. Select an editable change set
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#save-merge-release-activate" class="md-nav__link">
+  <a href="#2-save-and-test-the-intended-edits" class="md-nav__link">
     <span class="md-ellipsis">
-      Save, merge, release, activate
+      2. Save and test the intended edits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-review-and-merge" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Review and merge
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#if-merge-is-blocked" class="md-nav__link">
+    <span class="md-ellipsis">
+      If merge is blocked
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isolation-and-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Isolation and lifecycle
     </span>
   </a>
   
@@ -943,20 +999,24 @@
 
 
 
-<h1 id="work-in-a-change-set">Work in a change set</h1>
-<p>Main is the shared integrated state and is read-only in the editors. A change set stores your touched drafts and organizational edits until merge.</p>
-<ol>
-<li>Create and select a change set.</li>
-<li>Edit and <strong>Save Draft</strong> for each intended asset or model.</li>
-<li>Test and validate.</li>
-<li>Inspect the comparison against Main.</li>
-<li>Resolve content conflicts, then merge.</li>
-</ol>
-<p>Merge validates and creates immutable versions of changed executable assets. Shared model changes can also require revalidation and recompilation of consumers. Failed validation must be fixed before merge succeeds.</p>
-<h2 id="understand-isolation">Understand isolation</h2>
-<p>A change set does not copy every asset and folder when it is created. It stores overrides for touched resources. Untouched folders follow later Main merges; your unmerged folder edits remain private. Do not treat a change set as a fully frozen copy of the workspace.</p>
-<p>Folder structure changes do not present content-conflict resolution; the merge applies recorded organizational edits with structural validation. Asset and model content conflicts still require resolution. See <a href="../catalog/">Catalog</a>.</p>
-<h2 id="save-merge-release-activate">Save, merge, release, activate</h2>
+<h1 id="save-and-merge-a-change-set">Save and merge a change set</h1>
+<p>Use a change set to prepare edits before making them visible on Main. Saving and merging are separate actions.</p>
+<p><strong>Before you begin:</strong> you need edit and merge permissions in the workspace.</p>
+<h2 id="1-select-an-editable-change-set">1. Select an editable change set</h2>
+<p>Open the change-set selector in the workspace header. Choose <strong>New change set</strong> to create one, or select an existing editable set. Confirm its name replaces Main in the header.</p>
+<p><a href="../../images/select-change-set.png"><img alt="Workspace selector showing Main and an editable change set" src="../../images/select-change-set.png" /></a></p>
+<p><em>Main is read-only. The selected change set determines where your drafts are saved. Select the image to open it at full size.</em></p>
+<h2 id="2-save-and-test-the-intended-edits">2. Save and test the intended edits</h2>
+<p>Edit an asset, choose <strong>Save Draft</strong>, and run its tests. Repeat for every asset you intend to merge. For Models, save the model draft and retest its consumers.</p>
+<p><strong>Check your work:</strong> no intended changes remain only in an unsaved editor. A test can include unsaved work; merge cannot rely on that unsaved state.</p>
+<h2 id="3-review-and-merge">3. Review and merge</h2>
+<p>Open <strong>Change Sets</strong>, open your set, and inspect the comparison against Main. Review added, modified, and removed resources, including contract and rule changes. Resolve any content conflicts and validation issues, then merge.</p>
+<p><strong>Expected result:</strong> the changes become available on Main. Runtime traffic remains on its active release until you <a href="../releases/">create and activate a release</a>.</p>
+<h2 id="if-merge-is-blocked">If merge is blocked</h2>
+<p>Read the affected asset or model in the validation result. A changed shared field may invalidate a consumer even when you did not edit that consumer directly. Fix and save those drafts, then retry the review.</p>
+<h2 id="isolation-and-lifecycle">Isolation and lifecycle</h2>
+<p>A change set does not copy every asset and folder. It stores overrides for touched resources. Untouched folders follow later Main merges; it is not a fully frozen workspace copy.</p>
+<p>Folder edits undergo structural validation without content-conflict resolution. Asset and model content conflicts still require resolution.</p>
 <table>
 <thead>
 <tr>
@@ -979,11 +1039,11 @@
 </tr>
 <tr>
 <td>Activate</td>
-<td>Selects a release for an environment's runtime calls</td>
+<td>Selects the release an environment runs</td>
 </tr>
 </tbody>
 </table>
-<p>Do not use “published version” as a synonym for “currently running in Production.”</p>
+<p>A published asset version does not necessarily mean that version is running in Production.</p>
 
 
 

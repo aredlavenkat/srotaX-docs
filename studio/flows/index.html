@@ -50,6 +50,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/guides.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -74,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#build-a-flow" class="md-skip">
+        <a href="#build-a-flow-that-calculates-a-total" class="md-skip">
           Skip to content
         </a>
       
@@ -480,29 +482,71 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#keep-the-original-input" class="md-nav__link">
+  <a href="#1-add-and-connect-steps" class="md-nav__link">
     <span class="md-ellipsis">
-      Keep the original input
+      1. Add and connect steps
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configure-each-step" class="md-nav__link">
+  <a href="#2-configure-the-calculation" class="md-nav__link">
     <span class="md-ellipsis">
-      Configure each step
+      2. Configure the calculation
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#branch-and-return" class="md-nav__link">
+  <a href="#3-test-the-complete-route" class="md-nav__link">
     <span class="md-ellipsis">
-      Branch and return
+      3. Test the complete route
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flow-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flow behavior
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Flow behavior">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preserve-the-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preserve the request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-expressions-and-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add expressions and dependencies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complete-each-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complete each branch
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -919,29 +963,71 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#keep-the-original-input" class="md-nav__link">
+  <a href="#1-add-and-connect-steps" class="md-nav__link">
     <span class="md-ellipsis">
-      Keep the original input
+      1. Add and connect steps
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configure-each-step" class="md-nav__link">
+  <a href="#2-configure-the-calculation" class="md-nav__link">
     <span class="md-ellipsis">
-      Configure each step
+      2. Configure the calculation
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#branch-and-return" class="md-nav__link">
+  <a href="#3-test-the-complete-route" class="md-nav__link">
     <span class="md-ellipsis">
-      Branch and return
+      3. Test the complete route
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flow-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flow behavior
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Flow behavior">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preserve-the-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preserve the request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-expressions-and-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add expressions and dependencies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complete-each-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complete each branch
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -961,23 +1047,40 @@
 
 
 
-<h1 id="build-a-flow">Build a Flow</h1>
-<p>Use a Flow to transform one request, call reusable decisions, branch, and return a response. It is not a collection ETL pipeline.</p>
-<h2 id="keep-the-original-input">Keep the original input</h2>
-<p><code>input.*</code> is immutable. Read from it and write working values into <code>local.*</code>. Reuse a local variable when its previous value is no longer needed. For example:</p>
+<h1 id="build-a-flow-that-calculates-a-total">Build a Flow that calculates a total</h1>
+<p>Start with one calculation: add a shipping fee of 9 to the request subtotal, then return the total. For a subtotal of 75, the result is 84.</p>
+<p><strong>Before you begin:</strong> create a Flow named <code>Order total</code> in an editable change set. In Data Contract, declare input <code>subtotal</code> as Number and output <code>total</code> as Number.</p>
+<h2 id="1-add-and-connect-steps">1. Add and connect steps</h2>
 <ol>
-<li>Transform <code>input.items</code> into <code>local.items</code>.</li>
-<li>Filter or sort <code>local.items</code> in place.</li>
-<li>Aggregate <code>local.items</code> into a local total.</li>
-<li>Assign the result to an output field.</li>
+<li>Open <strong>Design → Add Steps</strong>.</li>
+<li>Add a <strong>Set Fields</strong> step and name it <code>Add shipping fee</code>.</li>
+<li>Add a <strong>Response</strong> step named <code>Return total</code>.</li>
+<li>Connect Start → Add shipping fee → Return total.</li>
 </ol>
-<p>You do not need <code>originalInput</code>: the original request remains in <code>input.*</code>. In-place list operations must target a compatible local list. Set Fields and Choose Fields must not modify the input namespace.</p>
-<h2 id="configure-each-step">Configure each step</h2>
-<p>Select a step to open its drawer. Choose source fields, output destination, and operation-specific options. Field choices depend on the contract and preceding steps. An expression's current item is scoped to its list operation; it is not a workspace variable.</p>
-<p>When calling a Table, Tree, or Flow, map the called asset's input fields from available sources and map its result into the caller. Review dependency selection before merging; a published dependency and a same-change-set draft are different choices.</p>
-<h2 id="branch-and-return">Branch and return</h2>
-<p>Give each branch a complete route to a Response. Current graph editing permits one incoming connection per step; branches do not merge into a shared downstream step. Validate disconnected paths and test both sides of conditions.</p>
-<p>Use the Test Panel's trace to inspect ordered steps and nested calls. The canvas highlights the executed path. See the <a href="../../reference/steps/">step reference</a> for the supported operations.</p>
+<p><a href="../../images/flow-order-total.png"><img alt="Simple Flow from Start through Set Fields to Response" src="../../images/flow-order-total.png" /></a></p>
+<p><em>Begin with a short complete route before adding lists, branches, or dependencies. Select the image to open it at full size.</em></p>
+<h2 id="2-configure-the-calculation">2. Configure the calculation</h2>
+<p>Open Add shipping fee, add an assignment targeting <code>output.total</code>, and select <strong>Use expression</strong>. In <strong>Edit expression</strong>, choose Add (<code>$add</code>) with a field argument <code>input.subtotal</code> and a numeric fixed-value argument <code>9</code>. Complete the expression and close the step drawer.</p>
+<p>The summary should read <code>output.total = (input.subtotal + 9)</code>. In Response, return the declared output fields.</p>
+<h2 id="3-test-the-complete-route">3. Test the complete route</h2>
+<p>Open <strong>Test → Test Input</strong> and run:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"subtotal"</span><span class="p">:</span><span class="mi">75</span><span class="p">}</span>
+</code></pre></div>
+<p>In Result, expect:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"total"</span><span class="p">:</span><span class="mi">84</span><span class="p">}</span>
+</code></pre></div>
+<p>Use Trace to inspect the steps executed. Save Draft and Validate.</p>
+<p><strong>If a field selector is empty:</strong> confirm the field exists in Data Contract, the preceding connections are complete, and the chosen target is Local or Output. Inputs cannot be assignment targets.</p>
+<p>Next, explore the <a href="../../reference/steps/">step reference</a> when adding a list operation or a call to another decision.</p>
+<h2 id="flow-behavior">Flow behavior</h2>
+<h3 id="preserve-the-request">Preserve the request</h3>
+<p><code>input.*</code> is immutable. Use <code>local.*</code> for working values and <code>output.*</code> for response fields. You do not need a separate originalInput copy.</p>
+<p>For a list, transform <code>input.items</code> into <code>local.items</code>, filter or sort that local list, aggregate it, then assign the final output. Reuse <code>local.items</code> when its previous value is no longer needed. In-place operations must target a compatible Local list.</p>
+<h3 id="add-expressions-and-dependencies">Add expressions and dependencies</h3>
+<p>Visual and JSON expression modes keep separate expressions; only the selected mode is used. Changing modes does not convert the expression.</p>
+<p>When calling a Table, Tree, or Flow, map the called asset's inputs from available fields and map its result into the caller. Review dependency selection before merge: a published dependency and a same-change-set draft are different choices.</p>
+<h3 id="complete-each-branch">Complete each branch</h3>
+<p>Give every branch a complete route to a Response. Current graph editing permits one incoming connection per step; branches do not merge into a shared downstream step. Test both sides of each condition.</p>
 
 
 

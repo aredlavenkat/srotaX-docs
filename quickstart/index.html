@@ -50,6 +50,8 @@
       
     
     
+      <link rel="stylesheet" href="../stylesheets/guides.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1053,7 +1055,9 @@
 <p>Create a policy that charges 9 below a subtotal of 100 and offers free shipping at 100 or above. Both rules return the shipping method <code>Standard</code>.</p>
 <p>You need an accessible workspace, permission to edit assets, and permission to release/activate and create an API key for the final integration steps. Ask your workspace administrator if these actions are unavailable.</p>
 <h2 id="1-start-a-change-set">1. Start a change set</h2>
-<p>Open <strong>Change Sets</strong>, create a change set named <strong>Shipping quickstart</strong>, and select it in the workspace header. Main is read-only. In <strong>Catalog</strong>, choose <strong>New Asset</strong>, enter <strong>Shipping quickstart</strong>, and choose <strong>Decision Table</strong>.</p>
+<p>Open <strong>Change Sets</strong>, create a change set named <strong>Shipping quickstart</strong>, and select it in the workspace header. Main is read-only. In <strong>Catalog</strong>, choose <strong>New Asset → Decision Table</strong>, then enter <strong>Shipping quickstart</strong>.</p>
+<p><a href="../images/select-change-set.png"><img alt="Select an editable change set" src="../images/select-change-set.png" /></a></p>
+<p><em>Choose an editable change set before creating the table. Select any screenshot to open it at full size.</em></p>
 <h2 id="2-define-the-contract">2. Define the contract</h2>
 <p>Open <strong>Data Contract</strong>. Under <strong>Inputs</strong>, expand <code>input</code> and add:</p>
 <table>
@@ -1100,7 +1104,7 @@
 </tbody>
 </table>
 <p>The payload is <code>{"subtotal":75}</code>, not <code>{"input":{"subtotal":75}}</code>. The <code>input.</code> prefix identifies a field inside Studio; it is not an extra envelope your caller supplies.</p>
-<p><img alt="Input schema in Studio" src="../images/shipping-contract.png" /></p>
+<p><a href="../images/shipping-contract.png"><img alt="Input schema in Studio" src="../images/shipping-contract.png" /></a></p>
 <h2 id="3-define-two-rules">3. Define two rules</h2>
 <p>Open <strong>Design</strong>. Add a condition column for <code>input.subtotal</code> and result columns for <code>output.fee</code> and <code>output.method</code>. Enter the rows in this order:</p>
 <table>
@@ -1128,7 +1132,7 @@
 </tbody>
 </table>
 <p>The table returns the <strong>first matching row</strong>. These conditions do not overlap and cover numeric subtotals. This example does not reject negative amounts; add an explicit business rule if that is required.</p>
-<p><img alt="Shipping table with two rules" src="../images/shipping-table.png" /></p>
+<p><a href="../images/shipping-table.png"><img alt="Shipping table with two rules" src="../images/shipping-table.png" /></a></p>
 <h2 id="4-test-boundary-values">4. Test boundary values</h2>
 <p>Open <strong>Test Panel → Test Input</strong>, enter the JSON below, and choose <strong>Run Test</strong>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"subtotal"</span><span class="p">:</span><span class="mi">75</span><span class="p">}</span>
@@ -1137,13 +1141,13 @@
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">"fee"</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span><span class="nt">"method"</span><span class="p">:</span><span class="s2">"Standard"</span><span class="p">}</span>
 </code></pre></div>
 <p><strong>Trace</strong> identifies row 2 as matched. Also test 0, 99.99, 100, and 150. Subtotals 0, 75, and 99.99 charge 9; 100 and 150 charge 0. Test <code>{"subtotal":"wrong"}</code> and confirm a validation failure. On a change set, testing includes unsaved editor changes.</p>
-<p><img alt="Trace showing row 2 matched for subtotal 75" src="../images/shipping-trace.png" /></p>
+<p><a href="../images/shipping-trace.png"><img alt="Trace showing row 2 matched for subtotal 75" src="../images/shipping-trace.png" /></a></p>
 <h2 id="5-save-and-merge">5. Save and merge</h2>
 <p>Choose <strong>Save Draft</strong>, then <strong>Validate</strong>. Open the change set's comparison, check that only your intended rules and contract changed, and merge into Main. Resolve any content conflicts before merging. The asset now has an immutable published version; this is not yet a deployment.</p>
 <h2 id="6-create-and-activate-a-release">6. Create and activate a release</h2>
 <p>Open <strong>Releases</strong> on Main and create a release from its current revision. A release includes <strong>the whole workspace Main snapshot</strong>, not just this table. For your first walkthrough, use a dedicated workspace or review everything included.</p>
 <p>Activate the release in <strong>Development</strong>. Activation selects the complete release for that environment. It does not change Production.</p>
-<p><img alt="Development activated; Production unchanged" src="../images/shipping-release.png" /></p>
+<p><a href="../images/shipping-release.png"><img alt="Development activated; Production unchanged" src="../images/shipping-release.png" /></a></p>
 <h2 id="7-call-it-from-java">7. Call it from Java</h2>
 <p>Create a Development API key, copy the asset ID from the asset's API integration information, and run the <a href="../integration/java/">Java example</a>. Keep the key server-side. The runtime returns an envelope; check <code>success</code> before reading <code>data</code>.</p>
 <h2 id="reproducible-example">Reproducible example</h2>

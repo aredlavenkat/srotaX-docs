@@ -50,6 +50,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/guides.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -74,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#organize-the-catalog" class="md-skip">
+        <a href="#organize-assets-in-folders" class="md-skip">
           Skip to content
         </a>
       
@@ -324,6 +326,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Catalog and folders
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -335,6 +350,70 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-create-a-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Create a location
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-create-or-move-an-asset" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Create or move an asset
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-find-it-again" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Find it again
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#if-delete-folder-is-unavailable" class="md-nav__link">
+    <span class="md-ellipsis">
+      If Delete folder is unavailable
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#folder-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Folder behavior
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -853,6 +932,59 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-create-a-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Create a location
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-create-or-move-an-asset" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Create or move an asset
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-find-it-again" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Find it again
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#if-delete-folder-is-unavailable" class="md-nav__link">
+    <span class="md-ellipsis">
+      If Delete folder is unavailable
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#folder-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Folder behavior
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -867,11 +999,30 @@
 
 
 
-<h1 id="organize-the-catalog">Organize the Catalog</h1>
-<p>Group assets by business purpose, such as Orders / Shipping, Orders / Fulfillment, and Pricing. Nested folders are supported. <strong>Assets</strong> is the root location.</p>
-<p>Open a folder to see its immediate contents, and use breadcrumbs to return to a parent. Workspace search helps locate assets and folders across the hierarchy. Asset identity is an ID; moving an asset does not change its references or executable content.</p>
-<p>Create, rename, or move folders inside an editable change set. Only empty folders can be deleted; assets outside the current editing view can still make a folder nonempty. Deletion is also checked by the server.</p>
-<p>Untouched folders reflect Main. Your folder edits stay in the selected change set until merged. A folder-only merge changes organization without creating new executable asset versions.</p>
+<h1 id="organize-assets-in-folders">Organize assets in folders</h1>
+<p>Create <code>Orders / Shipping</code>, then keep shipping rules together without changing their IDs.</p>
+<p><strong>Before you begin:</strong> select an editable change set. Folder edits remain there until merge.</p>
+<h2 id="1-create-a-location">1. Create a location</h2>
+<ol>
+<li>Open <strong>Catalog</strong> from the workspace sidebar.</li>
+<li>At <strong>Assets</strong>, select <strong>New folder</strong>, enter <code>Orders</code>, and create it.</li>
+<li>Open Orders, then create a folder named <code>Shipping</code>.</li>
+<li>Open Shipping. The breadcrumb should read <strong>Assets / Orders / Shipping</strong>.</li>
+</ol>
+<p><a href="../../images/catalog-shipping-folder.png"><img alt="Catalog showing Orders / Shipping and its immediate assets" src="../../images/catalog-shipping-folder.png" /></a></p>
+<p><em>Breadcrumbs show your current location. Select a parent to move back up. Select the image to open it at full size.</em></p>
+<h2 id="2-create-or-move-an-asset">2. Create or move an asset</h2>
+<p>Use <strong>New Asset</strong> while inside Shipping to create an asset there. Choose its type, then enter its name. To relocate an existing asset, open its <strong>…</strong> menu and choose <strong>Move</strong>.</p>
+<p><a href="../../images/new-asset-menu.png"><img alt="New Asset menu with Table, Tree, and Flow options" src="../../images/new-asset-menu.png" /></a></p>
+<p><em>Choose the decision type before entering the asset details. Select the image to open it at full size.</em></p>
+<h2 id="3-find-it-again">3. Find it again</h2>
+<p>Use the Catalog search to find assets and folders across the workspace. Inspect the result's location, then open it. Clear the search to resume folder browsing.</p>
+<p><strong>Check your work:</strong> the asset appears in Shipping and still opens normally. Moving it does not change references to its ID.</p>
+<h2 id="if-delete-folder-is-unavailable">If Delete folder is unavailable</h2>
+<p>The folder must be empty. Assets in other change sets can still prevent deletion even when the current view appears empty.</p>
+<h2 id="folder-behavior">Folder behavior</h2>
+<p>Nested folders are supported; Assets is the root. Organize by purpose, for example Orders / Shipping and Orders / Fulfillment.</p>
+<p>A change set stores touched folder overrides. Untouched folders follow later changes merged into Main; your unmerged folder edits remain private to your set. A folder-only merge changes organization without creating new executable asset versions.</p>
 
 
 

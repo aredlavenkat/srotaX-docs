@@ -1,0 +1,55 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Shipping models",
+    "version": "1.0.0"
+  },
+  "paths": {},
+  "components": {
+    "schemas": {
+      "Address": {
+        "type": "object",
+        "properties": {
+          "street": {
+            "type": "string",
+            "example": "123 King Street"
+          },
+          "city": {
+            "type": "string",
+            "example": "Toronto"
+          },
+          "postalCode": {
+            "type": "string",
+            "example": "M5V 1A1"
+          },
+          "country": {
+            "type": "string",
+            "example": "CA"
+          }
+        },
+        "required": [
+          "street",
+          "city",
+          "postalCode",
+          "country"
+        ]
+      },
+      "Customer": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Alex"
+          },
+          "address": {
+            "$ref": "#/components/schemas/Address"
+          }
+        },
+        "required": [
+          "name",
+          "address"
+        ]
+      }
+    }
+  }
+}

@@ -50,6 +50,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/guides.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -74,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#test-decisions" class="md-skip">
+        <a href="#run-a-test-and-understand-the-result" class="md-skip">
           Skip to content
         </a>
       
@@ -503,9 +505,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#minimum-test-set" class="md-nav__link">
+  <a href="#1-enter-a-request-and-run-it" class="md-nav__link">
     <span class="md-ellipsis">
-      Minimum test set
+      1. Enter a request and run it
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-explain-the-result-with-trace" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Explain the result with Trace
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-test-a-failure-deliberately" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Test a failure deliberately
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-scope-and-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test scope and coverage
     </span>
   </a>
   
@@ -901,9 +930,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#minimum-test-set" class="md-nav__link">
+  <a href="#1-enter-a-request-and-run-it" class="md-nav__link">
     <span class="md-ellipsis">
-      Minimum test set
+      1. Enter a request and run it
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-explain-the-result-with-trace" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Explain the result with Trace
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-test-a-failure-deliberately" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Test a failure deliberately
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-scope-and-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test scope and coverage
     </span>
   </a>
   
@@ -925,27 +981,44 @@
 
 
 
-<h1 id="test-decisions">Test decisions</h1>
-<p>The same Test Panel is used by Tables, Trees, and Flows; its contents adapt to the asset.</p>
+<h1 id="run-a-test-and-understand-the-result">Run a test and understand the result</h1>
+<p>Use the same Test Panel for Tables, Trees, and Flows. Start with a known input and compare the actual output with an expected value.</p>
+<p><strong>Before you begin:</strong> open an asset with a defined contract and executable rules. The <a href="../../quickstart/">shipping quickstart</a> provides one.</p>
+<h2 id="1-enter-a-request-and-run-it">1. Enter a request and run it</h2>
+<ol>
+<li>Select <strong>Test</strong> to open the Test Panel.</li>
+<li>Open <strong>Test Input</strong> and enter <code>{"subtotal":75}</code> for the shipping table.</li>
+<li>Select <strong>Run test</strong>.</li>
+<li>Open <strong>Result</strong> and confirm fee 9 and method Standard.</li>
+</ol>
+<h2 id="2-explain-the-result-with-trace">2. Explain the result with Trace</h2>
+<p>For a Decision Table, open <strong>Trace</strong>. The shipping example reports <strong>Row 2 matched</strong>. Use <strong>View row</strong> to locate the rule in the table.</p>
+<p><a href="../../images/shipping-trace.png"><img alt="Test Panel Trace showing the matching shipping row" src="../../images/shipping-trace.png" /></a></p>
+<p><em>Result answers what was returned; Trace identifies where that result came from. Select the image to open it at full size.</em></p>
+<p>For a Tree, inspect the executed branch. For a Flow, inspect ordered steps and nested calls. The tabs stay consistent; their contents reflect the asset type.</p>
+<h2 id="3-test-a-failure-deliberately">3. Test a failure deliberately</h2>
+<p>Run <code>{"subtotal":"wrong"}</code>. Open <strong>Issues</strong> and confirm the request fails type validation. Also test <code>{}</code> to check the required subtotal.</p>
+<p><strong>Check your work:</strong> test both shipping outcomes and the exact boundary. A successful run for 75 alone does not prove that 100 behaves correctly.</p>
+<h2 id="test-scope-and-coverage">Test scope and coverage</h2>
 <table>
 <thead>
 <tr>
 <th>Tab</th>
-<th>Use it for</th>
+<th>Purpose</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Test Input</td>
-<td>Enter a JSON request and run it</td>
+<td>Enter and execute the request</td>
 </tr>
 <tr>
 <td>Result</td>
-<td>Inspect the returned output</td>
+<td>Read the returned output</td>
 </tr>
 <tr>
 <td>Trace</td>
-<td>Inspect the matched table row, tree path, or Flow execution steps</td>
+<td>Inspect the matched row, tree path, or Flow steps</td>
 </tr>
 <tr>
 <td>Issues</td>
@@ -953,11 +1026,9 @@
 </tr>
 </tbody>
 </table>
-<p>Use example input as a starting point, then edit it to test boundary values. Examples are not a coverage guarantee.</p>
-<p>On <strong>Main</strong>, the label beside Run Test identifies the version being executed. In a <strong>change set</strong>, the test uses the current draft, including unsaved changes. Saving after a test is still necessary to persist the draft.</p>
-<h2 id="minimum-test-set">Minimum test set</h2>
-<p>Test a normal case, each condition boundary, every branch or row you expect to reach, missing required fields, incorrect types, and empty lists where relevant. For Models, repeat affected tests after changing a shared field.</p>
-<p>A green validation result proves structural acceptance, not that the rule matches business intent. A valid but shadowed table row can still produce the wrong business outcome.</p>
+<p>On Main, the label beside Run test identifies the version. In a change set, the run uses the current draft, including unsaved changes.</p>
+<p>Test normal cases, exact thresholds, every intended branch or row, missing required fields, incorrect types, and empty lists where relevant. Repeat affected tests after editing a shared Model.</p>
+<p>A valid configuration can still implement the wrong business rule. Validation is structural acceptance, not proof of business correctness.</p>
 
 
 

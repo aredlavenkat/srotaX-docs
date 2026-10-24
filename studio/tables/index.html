@@ -50,6 +50,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/guides.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -74,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#write-a-decision-table" class="md-skip">
+        <a href="#write-and-test-a-decision-table" class="md-skip">
           Skip to content
         </a>
       
@@ -434,18 +436,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#evaluation-order-matters" class="md-nav__link">
+  <a href="#1-configure-columns-and-rows" class="md-nav__link">
     <span class="md-ellipsis">
-      Evaluation order matters
+      1. Configure columns and rows
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#inspect-and-test" class="md-nav__link">
+  <a href="#2-run-a-test" class="md-nav__link">
     <span class="md-ellipsis">
-      Inspect and test
+      2. Run a test
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-check-the-boundary-and-save" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Check the boundary and save
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table behavior
     </span>
   </a>
   
@@ -910,18 +930,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#evaluation-order-matters" class="md-nav__link">
+  <a href="#1-configure-columns-and-rows" class="md-nav__link">
     <span class="md-ellipsis">
-      Evaluation order matters
+      1. Configure columns and rows
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#inspect-and-test" class="md-nav__link">
+  <a href="#2-run-a-test" class="md-nav__link">
     <span class="md-ellipsis">
-      Inspect and test
+      2. Run a test
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-check-the-boundary-and-save" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Check the boundary and save
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table behavior
     </span>
   </a>
   
@@ -943,14 +981,53 @@
 
 
 
-<h1 id="write-a-decision-table">Write a Decision Table</h1>
-<p>Use a table when business rules fit rows of conditions and results. Define Inputs and Outputs in Data Contract first, then choose those fields when adding columns.</p>
-<h2 id="evaluation-order-matters">Evaluation order matters</h2>
-<p>Rows run top-to-bottom. The first matching row supplies the result. A rule <code>subtotal &lt; 50</code> placed below <code>subtotal &lt; 100</code> cannot win for a subtotal of 25: the broader earlier row already matches. Put the more specific rule first or make the conditions disjoint.</p>
-<p>Result cells can assign values or use the supported editing modes. Choose types that match the output contract. Do not rely on JSON strings being silently converted into numbers at runtime.</p>
-<h2 id="inspect-and-test">Inspect and test</h2>
-<p>Use the shared Test Panel. <strong>Result</strong> shows output, <strong>Trace</strong> identifies the matched row, and <strong>Issues</strong> explains failures. Test each rule and exact thresholds, plus missing and wrong-type inputs. See the <a href="../../quickstart/">shipping walkthrough</a>.</p>
-<p>On Main, adding rows and columns is disabled. Search remains available for inspection. Select an editable change set to change the table. Save Draft persists editor changes; Run Test in a change set includes unsaved changes.</p>
+<h1 id="write-and-test-a-decision-table">Write and test a Decision Table</h1>
+<p>Build two ordered rules: free shipping for subtotals of 100 or more, and a fee of 9 otherwise.</p>
+<p><strong>Before you begin:</strong> create a Decision Table in a change set and <a href="../contracts/">define its contract</a>: input <code>subtotal</code> (Number); outputs <code>fee</code> (Number) and <code>method</code> (String).</p>
+<h2 id="1-configure-columns-and-rows">1. Configure columns and rows</h2>
+<ol>
+<li>Open <strong>Design</strong>.</li>
+<li>Add a condition column for <code>input.subtotal</code> and result columns for <code>output.fee</code> and <code>output.method</code>.</li>
+<li>Add the two rows below, using fixed values for the result cells.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Row</th>
+<th>subtotal condition</th>
+<th>fee</th>
+<th>method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Greater than or equal to 100</td>
+<td>0</td>
+<td>Standard</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Less than 100</td>
+<td>9</td>
+<td>Standard</td>
+</tr>
+</tbody>
+</table>
+<p><a href="../../images/shipping-table.png"><img alt="Two-rule shipping Decision Table" src="../../images/shipping-table.png" /></a></p>
+<p><em>Each row combines a condition with the output values returned when it matches. Select the image to open it at full size.</em></p>
+<h2 id="2-run-a-test">2. Run a test</h2>
+<p>Open <strong>Test → Test Input</strong>, enter <code>{"subtotal":75}</code>, and select <strong>Run test</strong>. In Result, expect <code>{"fee":9,"method":"Standard"}</code>. Open Trace to identify the matched row.</p>
+<p><a href="../../images/shipping-trace.png"><img alt="Trace identifying row 2 as the matching rule" src="../../images/shipping-trace.png" /></a></p>
+<p><em>Trace links the returned result to the rule that supplied it. Select the image to open it at full size.</em></p>
+<h2 id="3-check-the-boundary-and-save">3. Check the boundary and save</h2>
+<p>Test <code>100</code>: row 1 should match and return fee 0. Test <code>99.99</code>: row 2 should return fee 9. Choose <strong>Save Draft</strong>, then <strong>Validate</strong>.</p>
+<p><strong>If the wrong row wins:</strong> inspect row order first. The first match stops evaluation. A rule for <code>&lt; 50</code> below <code>&lt; 100</code> will never win for 25.</p>
+<p>Continue with <a href="../change-sets/">reviewing and merging your change set</a>.</p>
+<h2 id="table-behavior">Table behavior</h2>
+<p>Rows run top-to-bottom and the first match supplies the result. Put specific rules before broad rules, or make their conditions disjoint.</p>
+<p>Result values must match their output types. Do not rely on strings being silently converted into numbers at runtime.</p>
+<p>On Main, adding rows and columns is disabled, but search remains available. In a change set, Run test includes unsaved editor changes; Save Draft is still needed to persist them.</p>
 
 
 

@@ -50,6 +50,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/guides.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -416,6 +418,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Decision Trees
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -427,6 +442,61 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-create-the-condition-and-outcomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Create the condition and outcomes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-configure-the-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Configure the question
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-set-and-test-each-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Set and test each result
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tree-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tree behavior
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -853,6 +923,50 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-create-the-condition-and-outcomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Create the condition and outcomes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-configure-the-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Configure the question
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-set-and-test-each-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Set and test each result
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tree-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tree behavior
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -868,10 +982,55 @@
 
 
 <h1 id="build-a-decision-tree">Build a Decision Tree</h1>
-<p>Use a tree when decisions are naturally expressed as branches. Begin with the start node, add conditions, connect each outcome to a result or another condition, and define the returned output fields on result nodes.</p>
-<p>For a shipping example, branch on <code>input.subtotal &gt;= 100</code>: the yes result returns fee 0, and the no result returns fee 9. Both return method Standard.</p>
-<p>Test one input for every result leaf, including exact thresholds. Use <strong>Result</strong> to verify returned values and <strong>Trace</strong> to inspect execution. The graph indicates the executed path; do not interpret tile colour alone as evidence of execution.</p>
-<p>On Main, graph zoom and navigation remain available. Adding conditions or results requires an editable change set. A missing branch or invalid output is a validation problem, not an instruction for the runtime to invent a result.</p>
+<p>Express the shipping policy as one question with two outcomes: is the subtotal at least 100?</p>
+<p><strong>Before you begin:</strong> create a Decision Tree in a change set. Define input <code>subtotal</code> as Number and outputs <code>fee</code> as Number and <code>method</code> as String.</p>
+<h2 id="1-create-the-condition-and-outcomes">1. Create the condition and outcomes</h2>
+<ol>
+<li>Open <strong>Design</strong> and add a condition named <code>Free shipping eligible?</code>.</li>
+<li>Connect Start to the condition.</li>
+<li>Add a result named <code>Free shipping</code> on the Yes branch.</li>
+<li>Add a result named <code>Standard shipping</code> on the No branch.</li>
+</ol>
+<p><a href="../../images/tree-shipping-branches.png"><img alt="Decision Tree with Yes and No branches leading to shipping results" src="../../images/tree-shipping-branches.png" /></a></p>
+<p><em>A complete tree routes each condition outcome to a result. Select the image to open it at full size.</em></p>
+<h2 id="2-configure-the-question">2. Configure the question</h2>
+<p>Open the condition's edit control. Select <code>input.subtotal</code>, <strong>Greater than or equal to</strong>, and enter <code>100</code>.</p>
+<p><a href="../../images/tree-condition.png"><img alt="Condition drawer with input.subtotal greater than or equal to 100" src="../../images/tree-condition.png" /></a></p>
+<p><em>The condition drawer holds the field, operator, and comparison value. Select the image to open it at full size.</em></p>
+<h2 id="3-set-and-test-each-result">3. Set and test each result</h2>
+<p>Set Free shipping to <code>fee = 0</code> and <code>method = Standard</code>. Set Standard shipping to <code>fee = 9</code> and <code>method = Standard</code>.</p>
+<p>Open <strong>Test</strong>, run each input, and compare Result:</p>
+<table>
+<thead>
+<tr>
+<th>Input subtotal</th>
+<th>Expected branch</th>
+<th>Expected fee</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>75</td>
+<td>No → Standard shipping</td>
+<td>9</td>
+</tr>
+<tr>
+<td>100</td>
+<td>Yes → Free shipping</td>
+<td>0</td>
+</tr>
+<tr>
+<td>150</td>
+<td>Yes → Free shipping</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Check your work:</strong> the executed path agrees with the result. Save Draft and Validate before <a href="../change-sets/">merging</a>.</p>
+<p><strong>If a route fails:</strong> check that both condition outcomes are connected and each result supplies the declared outputs.</p>
+<h2 id="tree-behavior">Tree behavior</h2>
+<p>Test every reachable result leaf and exact condition boundaries. The graph indicates the executed path; tile colour alone is not execution evidence.</p>
+<p>On Main, zoom and navigation remain available. Adding conditions or results requires an editable change set. Missing branches and invalid outputs must be fixed before merge.</p>
 
 
 

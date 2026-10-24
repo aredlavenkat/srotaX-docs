@@ -50,6 +50,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/guides.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -74,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#release-and-activate" class="md-skip">
+        <a href="#create-and-activate-a-release" class="md-skip">
           Skip to content
         </a>
       
@@ -549,18 +551,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#activate-an-environment" class="md-nav__link">
+  <a href="#1-create-a-release-from-main" class="md-nav__link">
     <span class="md-ellipsis">
-      Activate an environment
+      1. Create a release from Main
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#roll-back" class="md-nav__link">
+  <a href="#2-activate-development" class="md-nav__link">
     <span class="md-ellipsis">
-      Roll back
+      2. Activate Development
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-verify-a-runtime-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Verify a runtime request
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#release-behavior-and-rollback" class="md-nav__link">
+    <span class="md-ellipsis">
+      Release behavior and rollback
     </span>
   </a>
   
@@ -910,18 +930,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#activate-an-environment" class="md-nav__link">
+  <a href="#1-create-a-release-from-main" class="md-nav__link">
     <span class="md-ellipsis">
-      Activate an environment
+      1. Create a release from Main
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#roll-back" class="md-nav__link">
+  <a href="#2-activate-development" class="md-nav__link">
     <span class="md-ellipsis">
-      Roll back
+      2. Activate Development
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-verify-a-runtime-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Verify a runtime request
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#release-behavior-and-rollback" class="md-nav__link">
+    <span class="md-ellipsis">
+      Release behavior and rollback
     </span>
   </a>
   
@@ -943,15 +981,29 @@
 
 
 
-<h1 id="release-and-activate">Release and activate</h1>
-<p>A release is an immutable snapshot of one complete workspace Main revision. Merge your change set before creating it. Creating again for the same Main revision returns the existing release.</p>
-<p>Review all included assets and dependencies. A release is not a selected subset of just the Flow you were editing. It captures the exact compiled definitions and model snapshots used by its assets.</p>
-<h2 id="activate-an-environment">Activate an environment</h2>
-<p>Development and Production each select one release. Activation replaces the environment's active release atomically. Runtime API keys are scoped to an environment, so the same decision ID may produce different results in Development and Production.</p>
-<p>Creating a release alone does not activate it. An asset unavailable in the environment's active release cannot be executed there.</p>
-<h2 id="roll-back">Roll back</h2>
-<p>Activate a previous release for that environment. Rollback switches the complete snapshot; it does not selectively undo one asset. To combine an older rule with newer unrelated rules, author the desired combination in a change set, merge, and create a new release.</p>
-<p>Main and existing releases are not edited by activation. Requests already executing use the release snapshot they resolved for that invocation.</p>
+<h1 id="create-and-activate-a-release">Create and activate a release</h1>
+<p>Make a tested Main revision available to runtime callers by creating a release and activating it in an environment.</p>
+<p><strong>Before you begin:</strong> merge your intended changes, review the complete workspace, and confirm you have release and activation permissions. Use Development for this walkthrough.</p>
+<h2 id="1-create-a-release-from-main">1. Create a release from Main</h2>
+<ol>
+<li>Select <strong>Main</strong> in the workspace header.</li>
+<li>Open <strong>Releases</strong> in the sidebar.</li>
+<li>Create a release from the current Main revision.</li>
+<li>Review the included assets and dependencies.</li>
+</ol>
+<p>A release captures the whole workspace snapshot. It is not limited to the last asset you edited.</p>
+<h2 id="2-activate-development">2. Activate Development</h2>
+<p>Activate the release for <strong>Development</strong>. Confirm Development points to that release and Production remains unchanged.</p>
+<p><a href="../../images/shipping-release.png"><img alt="Release screen showing Development activation and unchanged Production" src="../../images/shipping-release.png" /></a></p>
+<p><em>Creating a release records a snapshot. Activating it selects what an environment runs. Select the image to open it at full size.</em></p>
+<h2 id="3-verify-a-runtime-request">3. Verify a runtime request</h2>
+<p>Use a Development API key with the <a href="../../integration/java/">Java example</a> or <a href="../../integration/runtime/">Runtime API</a>. For the shipping policy, subtotal 75 should return fee 9 and Standard.</p>
+<p><strong>If a new change is missing:</strong> confirm it was saved, merged, included in the release, and activated in the API key's environment. A successful draft test does not change runtime behavior.</p>
+<h2 id="release-behavior-and-rollback">Release behavior and rollback</h2>
+<p>A release captures exact compiled definitions and model snapshots. Creating another release for the same Main revision returns the existing release.</p>
+<p>Development and Production each select one release. Runtime API keys are environment-scoped, so the same decision ID can produce different results in each environment.</p>
+<p>To roll back, activate a previous release for the environment. This switches the complete snapshot, not one asset. To combine an older rule with newer unrelated rules, prepare that combination in a change set, merge it, and create a new release.</p>
+<p>Activation does not edit Main or existing releases. Requests already executing retain the release snapshot resolved for that invocation.</p>
 
 
 

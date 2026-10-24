@@ -50,6 +50,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/guides.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -74,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#reuse-models" class="md-skip">
+        <a href="#create-and-reuse-a-model" class="md-skip">
           Skip to content
         </a>
       
@@ -411,27 +413,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#create-and-reference" class="md-nav__link">
+  <a href="#1-create-address" class="md-nav__link">
     <span class="md-ellipsis">
-      Create and reference
+      1. Create Address
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-a-model-changes" class="md-nav__link">
+  <a href="#2-reference-address-in-a-contract" class="md-nav__link">
     <span class="md-ellipsis">
-      When a model changes
+      2. Reference Address in a contract
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#import-openapi-components" class="md-nav__link">
+  <a href="#3-import-several-models-together" class="md-nav__link">
     <span class="md-ellipsis">
-      Import OpenAPI components
+      3. Import several models together
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#if-import-fails" class="md-nav__link">
+    <span class="md-ellipsis">
+      If import fails
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference-and-update-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reference and update behavior
     </span>
   </a>
   
@@ -919,27 +939,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#create-and-reference" class="md-nav__link">
+  <a href="#1-create-address" class="md-nav__link">
     <span class="md-ellipsis">
-      Create and reference
+      1. Create Address
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-a-model-changes" class="md-nav__link">
+  <a href="#2-reference-address-in-a-contract" class="md-nav__link">
     <span class="md-ellipsis">
-      When a model changes
+      2. Reference Address in a contract
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#import-openapi-components" class="md-nav__link">
+  <a href="#3-import-several-models-together" class="md-nav__link">
     <span class="md-ellipsis">
-      Import OpenAPI components
+      3. Import several models together
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#if-import-fails" class="md-nav__link">
+    <span class="md-ellipsis">
+      If import fails
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference-and-update-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reference and update behavior
     </span>
   </a>
   
@@ -961,25 +999,43 @@
 
 
 
-<h1 id="reuse-models">Reuse Models</h1>
-<p>A Model is a named object schema in a workspace. Use it when multiple contracts or nested objects share a structure, such as an Address. Models have a flat namespace; there are no model packages in this version.</p>
-<h2 id="create-and-reference">Create and reference</h2>
+<h1 id="create-and-reuse-a-model">Create and reuse a Model</h1>
+<p>Create an Address once and reference it from multiple contracts. This walkthrough also shows how to import related OpenAPI schemas.</p>
+<p><strong>Before you begin:</strong> select an editable change set. Models are shared within a workspace.</p>
+<h2 id="1-create-address">1. Create Address</h2>
 <ol>
-<li>Select an editable change set and open <strong>Models</strong>.</li>
-<li>Create a model, give it a name, and define its fields using <strong>Fields</strong> or <strong>JSON</strong>.</li>
-<li>Save the model draft.</li>
-<li>Open an asset's Data Contract and choose the model on an object row or as the item schema of an object list.</li>
+<li>Open <strong>Models</strong> in the workspace sidebar and select <strong>New model</strong>.</li>
+<li>Enter <code>Address</code> as the name.</li>
+<li>Expand the <code>model</code> root and use <strong>+</strong> to add <code>street</code>, <code>city</code>, <code>postalCode</code>, and <code>country</code>.</li>
+<li>Choose String for each field, check Required, and add sample values.</li>
+<li>Select <strong>Save model draft</strong>.</li>
 </ol>
-<p>Studio and Models use the same field editor. Referenced children are shown for inspection, not copied into the consuming contract's authoring definition.</p>
-<h2 id="when-a-model-changes">When a model changes</h2>
-<p>Consumers resolve the current model in their selected change set, falling back to Main when it has not been edited there. The editor refreshes referenced fields on focus and periodically while a change-set editor is active; this is not instant collaborative streaming.</p>
-<p>Merging a model change validates and recompiles affected Main consumers. A field removal or incompatible type change can block the merge until its consuming rules are fixed. Existing executable versions and releases retain their resolved model definitions.</p>
-<p>There is no <strong>Update from model</strong> button or user-facing version selector. Internal immutable revisions still exist for reproducibility.</p>
-<h2 id="import-openapi-components">Import OpenAPI components</h2>
-<p>Open the import dialog, supply an OpenAPI document, select component schemas with the checkboxes (or <strong>Select all</strong>), and import the selected models. The eye icon previews a schema. Select every referenced component that is not already available under a matching name.</p>
-<p>If matching names exist, <strong>Overwrite existing models</strong> replaces their fields and description inside the current change set while preserving their IDs. Review consumers before merging. Import is atomic: unsupported keywords, missing references, or cycles reject the operation.</p>
-<p>Import translates component names into stable model-ID <code>$ref</code> values. Export translates those IDs back to readable component names in one OpenAPI document. Renaming a model therefore does not change its consumers' stored references.</p>
-<p>Only the <a href="../../reference/schemas/">supported schema subset</a> is accepted; “OpenAPI import” does not mean all OpenAPI schema features are supported.</p>
+<p><a href="../../images/model-address-fields.png"><img alt="Address model with four inline string fields" src="../../images/model-address-fields.png" /></a></p>
+<p><em>Name, type, required status, example, and description are edited in the same field editor as Data Contract. Select the image to open it at full size.</em></p>
+<p><strong>Check your work:</strong> Address appears in the Models list. It should also be available in a contract's object model selector.</p>
+<h2 id="2-reference-address-in-a-contract">2. Reference Address in a contract</h2>
+<p>Open an asset's <strong>Data Contract</strong>. Add an Object field named <code>deliveryAddress</code>, then choose Address in that row's model dropdown. Its children appear read-only. Save the asset draft.</p>
+<p><a href="../../images/contract-model-reference.png"><img alt="Contract referencing Address" src="../../images/contract-model-reference.png" /></a></p>
+<p><em>The contract stores a reference; it does not own a second editable copy of these fields. Select the image to open it at full size.</em></p>
+<h2 id="3-import-several-models-together">3. Import several models together</h2>
+<p>Download the <a href="../../downloads/shipping-models.openapi.json">Address and Customer OpenAPI example</a>.</p>
+<ol>
+<li>Open <strong>Models → Import OpenAPI</strong> and supply the file or paste its JSON.</li>
+<li>Check <strong>Address</strong> and <strong>Customer</strong>, or choose <strong>Select all</strong>.</li>
+<li>Use the eye icon to inspect a model before importing.</li>
+<li>If Address already exists and you intend to replace it, check <strong>Overwrite existing models</strong>. Otherwise deselect it and retain the existing model.</li>
+<li>Select <strong>Import selected</strong>.</li>
+</ol>
+<p><a href="../../images/models-import-selection.png"><img alt="OpenAPI import with compact schema checkboxes and preview icons" src="../../images/models-import-selection.png" /></a></p>
+<p><em>Select related schemas together. Overwrite preserves the ID of an existing matching model. Select the image to open it at full size.</em></p>
+<p><strong>Check your work:</strong> both names appear under Models, and Customer's address refers to Address. Open <strong>Export OpenAPI</strong> to inspect the exported component references.</p>
+<h2 id="if-import-fails">If import fails</h2>
+<p>Check the named schema in the error. Include missing referenced components, remove unsupported schema keywords, and resolve cycles. Import accepts the <a href="../../reference/schemas/">supported schema subset</a>, not every OpenAPI feature.</p>
+<h2 id="reference-and-update-behavior">Reference and update behavior</h2>
+<p>Models have a flat workspace namespace; there are no model packages. Object fields and object-list items can reference another model.</p>
+<p>Consumers resolve the current model in their selected change set, falling back to Main when it has not been edited there. The editor refreshes referenced fields on focus and periodically while an editable change set is active; updates are not instant collaborative streaming.</p>
+<p>Merging validates and recompiles affected consumers. Removing a field or changing its type can block merge until those consumers are fixed. Existing executable versions and releases retain their resolved definitions. There is no Update from model button or user-facing model version selector.</p>
+<p>Import translates component names to stable model-ID <code>$ref</code> values; export translates IDs back to component names. A rename does not break a consumer's stored reference. Import is atomic: invalid schemas reject the operation.</p>
 
 
 

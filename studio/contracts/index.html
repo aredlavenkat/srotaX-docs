@@ -50,6 +50,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/guides.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -388,27 +390,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#edit-fields" class="md-nav__link">
+  <a href="#1-add-the-request-field" class="md-nav__link">
     <span class="md-ellipsis">
-      Edit fields
+      1. Add the request field
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#switch-between-fields-and-json" class="md-nav__link">
+  <a href="#2-add-response-fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Switch between Fields and JSON
+      2. Add response fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#use-a-model" class="md-nav__link">
+  <a href="#3-reuse-an-object-when-needed" class="md-nav__link">
     <span class="md-ellipsis">
-      Use a Model
+      3. Reuse an object when needed
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#if-a-field-is-unavailable" class="md-nav__link">
+    <span class="md-ellipsis">
+      If a field is unavailable
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contract-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contract behavior
     </span>
   </a>
   
@@ -919,27 +939,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#edit-fields" class="md-nav__link">
+  <a href="#1-add-the-request-field" class="md-nav__link">
     <span class="md-ellipsis">
-      Edit fields
+      1. Add the request field
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#switch-between-fields-and-json" class="md-nav__link">
+  <a href="#2-add-response-fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Switch between Fields and JSON
+      2. Add response fields
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#use-a-model" class="md-nav__link">
+  <a href="#3-reuse-an-object-when-needed" class="md-nav__link">
     <span class="md-ellipsis">
-      Use a Model
+      3. Reuse an object when needed
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#if-a-field-is-unavailable" class="md-nav__link">
+    <span class="md-ellipsis">
+      If a field is unavailable
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contract-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contract behavior
     </span>
   </a>
   
@@ -962,7 +1000,27 @@
 
 
 <h1 id="define-a-data-contract">Define a Data Contract</h1>
-<p>A contract declares the shape and types of the values your decision accepts and returns. Define it before adding condition columns or mapping fields.</p>
+<p>In this task, declare a shipping request with a numeric subtotal and a response with a fee and method. You will use these fields in the decision editor and in tests.</p>
+<p><strong>Before you begin:</strong> open a Decision Table in an editable change set. If the editor is read-only, <a href="../change-sets/">select a change set</a>.</p>
+<h2 id="1-add-the-request-field">1. Add the request field</h2>
+<ol>
+<li>Select <strong>Data Contract</strong>, then <strong>Inputs → Fields</strong>.</li>
+<li>Expand the <code>input</code> row and select its <strong>+</strong> button.</li>
+<li>Enter <code>subtotal</code>, choose <strong>Number</strong>, and check <strong>Required</strong>.</li>
+<li>Set <strong>Example</strong> to <code>75</code>.</li>
+</ol>
+<p><a href="../../images/shipping-contract.png"><img alt="Inputs field editor with subtotal declared as a required number" src="../../images/shipping-contract.png" /></a></p>
+<p><em>The root row contains the add-field action; each child row defines one field. Select the image to open it at full size.</em></p>
+<h2 id="2-add-response-fields">2. Add response fields</h2>
+<p>Select <strong>Outputs</strong> and add <code>fee</code> as a required Number with example <code>9</code>, and <code>method</code> as a required String with example <code>Standard</code>. Choose <strong>Save Draft</strong>.</p>
+<p><strong>Check your work:</strong> the Design field selectors should offer <code>input.subtotal</code>, <code>output.fee</code>, and <code>output.method</code>. The request JSON is <code>{"subtotal":75}</code>; do not wrap it in an extra <code>input</code> object.</p>
+<h2 id="3-reuse-an-object-when-needed">3. Reuse an object when needed</h2>
+<p>For an address, add an Object field named <code>deliveryAddress</code> and choose <strong>Address</strong> in its model selector. Create that model first using the <a href="../models/">Models guide</a>.</p>
+<p><a href="../../images/contract-model-reference.png"><img alt="An Address model referenced by deliveryAddress in the contract" src="../../images/contract-model-reference.png" /></a></p>
+<p><em>Model children are an inspection preview. Edit their shared definition under Models. Select the image to open it at full size.</em></p>
+<h2 id="if-a-field-is-unavailable">If a field is unavailable</h2>
+<p>Confirm that it belongs to the correct Inputs, Local, or Outputs section. If switching from JSON is blocked, fix the displayed JSON errors first. Then select Fields again.</p>
+<h2 id="contract-behavior">Contract behavior</h2>
 <table>
 <thead>
 <tr>
@@ -975,29 +1033,24 @@
 <tr>
 <td>Inputs</td>
 <td><code>input.subtotal</code></td>
-<td>Incoming request; immutable in Flows</td>
+<td>Request fields; immutable in Flows</td>
 </tr>
 <tr>
 <td>Local (Flows)</td>
 <td><code>local.items</code></td>
-<td>Intermediate values that steps may replace</td>
+<td>Intermediate values steps may replace</td>
 </tr>
 <tr>
 <td>Outputs</td>
 <td><code>output.fee</code></td>
-<td>Declared response fields</td>
+<td>Response fields</td>
 </tr>
 </tbody>
 </table>
-<h2 id="edit-fields">Edit fields</h2>
-<p>Select a section, expand its root row, and use <strong>+</strong> to add a field. Set its name, type, Required checkbox, example, and optional description. Objects contain child fields; lists declare an item type. Object lists can contain nested fields or refer to a Model.</p>
-<p>Required means the value must be supplied where validated. An example helps construct test input; it is <strong>not a default value</strong> and does not populate missing production input.</p>
-<h2 id="switch-between-fields-and-json">Switch between Fields and JSON</h2>
-<p>Both views edit the same schema. Switching from JSON to Fields validates and applies valid JSON automatically. If it is invalid, stay in JSON, fix the displayed errors, and switch again. There is no separate Apply to Fields action.</p>
-<p>The editor uses <code>input</code>, <code>local</code>, and <code>output</code> sections. The authoring API uses <code>contract.inputs</code>, <code>contract.variables</code>, and <code>contract.outputs</code>. Each section is a nested schema object, not positional field arrays. See <a href="../../reference/schemas/">schema reference</a>.</p>
-<h2 id="use-a-model">Use a Model</h2>
-<p>Choose a model in the root or object row's Type area. Its fields appear as a read-only preview. Choosing a model replaces custom descendants under that object. Adding a manual child clears the model binding; detaching removes the reference and its displayed descendants. Neither action is a safe way to keep a copied snapshot of the model fields.</p>
-<p>References follow the current model in the selected change set. See <a href="../models/">Models</a> before changing a shared definition.</p>
+<p>An example helps construct test input. It is <strong>not a default value</strong> for missing production input.</p>
+<p>Fields and JSON edit the same schema. Switching to Fields applies valid JSON automatically. Invalid JSON must be fixed before switching; there is no separate Apply action.</p>
+<p>Selecting a model replaces custom descendants. Adding a manual child clears the binding. Detaching removes the reference and its displayed descendants; it does not keep a copied snapshot.</p>
+<p>The authoring API calls these sections <code>contract.inputs</code>, <code>contract.variables</code>, and <code>contract.outputs</code>. Each is a nested schema object. See <a href="../../reference/schemas/">schema format</a>.</p>
 
 
 
