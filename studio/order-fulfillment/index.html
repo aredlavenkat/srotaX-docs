@@ -5475,10 +5475,6 @@
 <h1 id="order-fulfillment-with-subflows">Order fulfillment with subflows</h1>
 <p>Follow an order through a main Flow, a reusable charges subflow, a Decision Table, and a Decision Tree. This walkthrough uses the structure of <strong>Order Fulfillment Flow</strong> and <strong>Calculate Order Charges</strong> from the example workspace's Main, reproduced in an isolated workspace with synthetic data.</p>
 <p>By the end, you should be able to explain each dependency, map its inputs and outputs, and follow a nested execution. Complete <a href="../flows/">Build your first Flow</a> before starting.</p>
-<div class="admonition warning">
-<p class="admonition-title">Current verification boundary</p>
-<p>The four successful draft cases and two rejected inputs below were tested. Packaging this recreated example for release currently hits a backend merge error (<code>Invalid compiled artifact</code>) involving reference-data metadata. The authoring and testing walkthrough is usable; the release step is documented but is <strong>not verified end to end for this example</strong>. Do not treat a successful draft test as a deployment.</p>
-</div>
 <h2 id="1-understand-the-connected-assets">1. Understand the connected assets</h2>
 <p>A subflow is an ordinary Flow called by another Flow through <strong>Call Flow</strong>. It has its own contract and execution scope; the caller supplies its inputs and chooses where to store its output.</p>
 <div class="highlight"><pre><span></span><code>Order Fulfillment Flow
@@ -5820,8 +5816,7 @@
 <p>Also test an empty orderId and country ZZ; both should fail. The documented tests cover these cases, not every possible order.</p>
 <h2 id="8-review-dependencies-before-release">8. Review dependencies before release</h2>
 <p>Save all intended drafts and inspect <strong>Dependencies</strong> and the change-set comparison. Check the main Flow, charges subflow, shipping table, review tree, and regional data together.</p>
-<p>The intended lifecycle is <strong>merge → create release → activate environment</strong>. A release captures compiled asset dependencies and reference-data snapshots; merely saving the child does not update an already active runtime release. See <a href="../releases/">Releases</a>.</p>
-<p>For this recreated example, the current merge failure described at the top prevents verifying that final lifecycle. Keep the draft tests as evidence, but do not report the sample as deployed until merge, release creation, activation, and a runtime request all succeed.</p>
+<p>The release lifecycle is <strong>merge → create release → activate environment</strong>. A release captures compiled asset dependencies and reference-data snapshots; merely saving the child does not update an already active runtime release. See <a href="../releases/">Releases</a>.</p>
 <h2 id="troubleshoot-a-nested-call">Troubleshoot a nested call</h2>
 <table>
 <thead>
