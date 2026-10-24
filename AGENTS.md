@@ -1,0 +1,2 @@
+# Documentation standard
+Verify behavior against current backend and Studio code and runnable examples. Never infer MongoDB compatibility from an operator name. Separate engine registration, compiler acceptance, and visual editor availability. Do not publish secrets, customer data, or private screenshots. Keep examples executable and run `python scripts/check.py` and `mkdocs build --strict` before delivery. Do not replace production release activations for documentation tests. Use the disposable backend BrowserFixture.

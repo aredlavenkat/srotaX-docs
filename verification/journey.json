@@ -1,0 +1,22 @@
+{
+  "verifiedAt": "2026-10-24T02:21:41.485Z",
+  "environment": "Disposable PostgreSQL; fixture identity; real management/compiler/runtime HTTP",
+  "checks": [
+    "create change set",
+    "create and save nested-schema table",
+    "validate",
+    "five preview boundary cases",
+    "invalid preview input",
+    "merge creates version 1",
+    "release complete Main snapshot",
+    "execution unavailable before activation",
+    "activate Development",
+    "five runtime boundary cases",
+    "release-linked execution history",
+    "invalid key denied",
+    "invalid runtime input rejected",
+    "Java HTTP example executed"
+  ],
+  "cases": 5,
+  "java": "passed"
+}

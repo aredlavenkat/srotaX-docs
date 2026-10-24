@@ -1,0 +1,235 @@
+[
+  {
+    "operator": "$abs",
+    "expression": {
+      "$abs": -4
+    },
+    "expected": 4
+  },
+  {
+    "operator": "$add",
+    "expression": {
+      "$add": [
+        1,
+        2,
+        3
+      ]
+    },
+    "expected": 6
+  },
+  {
+    "operator": "$subtract",
+    "expression": {
+      "$subtract": [
+        10,
+        3
+      ]
+    },
+    "expected": 7
+  },
+  {
+    "operator": "$multiply",
+    "expression": {
+      "$multiply": [
+        3,
+        4
+      ]
+    },
+    "expected": 12
+  },
+  {
+    "operator": "$divide",
+    "expression": {
+      "$divide": [
+        12,
+        3
+      ]
+    },
+    "expected": 4
+  },
+  {
+    "operator": "$mod",
+    "expression": {
+      "$mod": [
+        10,
+        3
+      ]
+    },
+    "expected": 1
+  },
+  {
+    "operator": "$round",
+    "expression": {
+      "$round": [
+        2.5
+      ]
+    },
+    "expected": 2
+  },
+  {
+    "operator": "$ceil",
+    "expression": {
+      "$ceil": 2.2
+    },
+    "expected": 3
+  },
+  {
+    "operator": "$floor",
+    "expression": {
+      "$floor": 2.8
+    },
+    "expected": 2
+  },
+  {
+    "operator": "$eq",
+    "expression": {
+      "$eq": [
+        5,
+        5
+      ]
+    },
+    "expected": true
+  },
+  {
+    "operator": "$gt",
+    "expression": {
+      "$gt": [
+        100,
+        100
+      ]
+    },
+    "expected": false
+  },
+  {
+    "operator": "$gte",
+    "expression": {
+      "$gte": [
+        100,
+        100
+      ]
+    },
+    "expected": true
+  },
+  {
+    "operator": "$lt",
+    "expression": {
+      "$lt": [
+        75,
+        100
+      ]
+    },
+    "expected": true
+  },
+  {
+    "operator": "$lte",
+    "expression": {
+      "$lte": [
+        100,
+        100
+      ]
+    },
+    "expected": true
+  },
+  {
+    "operator": "$and",
+    "expression": {
+      "$and": [
+        true,
+        false
+      ]
+    },
+    "expected": false
+  },
+  {
+    "operator": "$or",
+    "expression": {
+      "$or": [
+        false,
+        true
+      ]
+    },
+    "expected": true
+  },
+  {
+    "operator": "$concat",
+    "expression": {
+      "$concat": [
+        "Order ",
+        "ready"
+      ]
+    },
+    "expected": "Order ready"
+  },
+  {
+    "operator": "$toUpper",
+    "expression": {
+      "$toUpper": "order"
+    },
+    "expected": "ORDER"
+  },
+  {
+    "operator": "$toLower",
+    "expression": {
+      "$toLower": "ORDER"
+    },
+    "expected": "order"
+  },
+  {
+    "operator": "$strLenCP",
+    "expression": {
+      "$strLenCP": "Order"
+    },
+    "expected": 5
+  },
+  {
+    "operator": "$ifNull",
+    "expression": {
+      "$ifNull": [
+        null,
+        "fallback"
+      ]
+    },
+    "expected": "fallback"
+  },
+  {
+    "operator": "$size",
+    "expression": {
+      "$size": [
+        [
+          1,
+          2,
+          3
+        ]
+      ]
+    },
+    "expected": 3,
+    "expectedError": "$size requires one argument"
+  },
+  {
+    "operator": "$arrayElemAt",
+    "expression": {
+      "$arrayElemAt": [
+        [
+          10,
+          20
+        ],
+        1
+      ]
+    },
+    "expected": 20
+  },
+  {
+    "operator": "$in",
+    "expression": {
+      "$in": [
+        2,
+        [
+          1,
+          2,
+          3
+        ]
+      ]
+    },
+    "expected": true
+  }
+]

@@ -1,0 +1,26 @@
+{
+  "srotax-backend": {
+    "commit": "4af7053c0d0c2baa2b6290d50703f7eaf7ff33ac",
+    "workingTreeModified": true,
+    "sha256": {
+      "srotax-core/src/main/java/com/srotax/core/SchemaContracts.java": "a6093f9a0169b3920f4d1b6e953b3860ab8e81da4fda8b60b740cda2737bc563",
+      "srotax-compiler/src/main/java/com/srotax/compiler/Expressions.java": "70a4c8c20d8760395b4172e739a2631b539a33db209d6bebfcda92804aaf8e54",
+      "srotax-engine-adapter/src/main/java/com/srotax/engine/FluxionOperatorCatalog.java": "8cc065c8bd251a588baa670eaa7af1598f1deef33346f25dfccd357e0a4c8ad1",
+      "srotax-api-contract/src/main/openapi/runtime.yaml": "6052019ac4ed00a905f8cc0c6a02f8ae97f3ba3b767f56e5835c95261ad99248",
+      "srotax-management-app/src/main/java/com/srotax/management/OperatorCatalogService.java": "62bd95090b524e42c6e721faf48b2d4eaf5d20157a86d700c543d3a0aa1e5835"
+    }
+  },
+  "srotax-studio": {
+    "commit": "f4333beae0133e374b8fb12f0466a1bcbdf265d4",
+    "workingTreeModified": true,
+    "sha256": {
+      "src/components/SchemaFieldsEditor.tsx": "026e0261c246e3a631e0b9ecefcbaf99012b8a97187caf0019e9d012606d8941",
+      "src/App.tsx": "6b3f0c5c80f5f7da675d43818e9f1b9badfb84d7c75a3ba4389fe2125a732fcf",
+      "src/components/DecisionFlow.tsx": "8c2aaf2db8eb71ffbc357e59e77ddb7fa3faa4834608b51a4e5b97a257b59e52"
+    }
+  },
+  "engineArtifact": {
+    "coordinate": "ai.fluxion:fluxion-core:0.1.5",
+    "sha256": "eecd9f5784a3376cdea19968ad0699744d0dd03af804e1472710ab212a8512a5"
+  }
+}

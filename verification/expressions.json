@@ -1,0 +1,97 @@
+[ {
+  "executed" : true,
+  "compiled" : true,
+  "operator" : "$abs"
+}, {
+  "executed" : true,
+  "compiled" : true,
+  "operator" : "$add"
+}, {
+  "executed" : true,
+  "compiled" : true,
+  "operator" : "$subtract"
+}, {
+  "executed" : true,
+  "compiled" : true,
+  "operator" : "$multiply"
+}, {
+  "executed" : true,
+  "compiled" : true,
+  "operator" : "$divide"
+}, {
+  "executed" : true,
+  "compiled" : true,
+  "operator" : "$mod"
+}, {
+  "executed" : true,
+  "compiled" : true,
+  "operator" : "$round"
+}, {
+  "executed" : true,
+  "compiled" : true,
+  "operator" : "$ceil"
+}, {
+  "executed" : true,
+  "compiled" : true,
+  "operator" : "$floor"
+}, {
+  "executed" : true,
+  "compiled" : true,
+  "operator" : "$eq"
+}, {
+  "executed" : true,
+  "compiled" : true,
+  "operator" : "$gt"
+}, {
+  "executed" : true,
+  "compiled" : true,
+  "operator" : "$gte"
+}, {
+  "executed" : true,
+  "compiled" : true,
+  "operator" : "$lt"
+}, {
+  "executed" : true,
+  "compiled" : true,
+  "operator" : "$lte"
+}, {
+  "executed" : true,
+  "compiled" : true,
+  "operator" : "$and"
+}, {
+  "executed" : true,
+  "compiled" : true,
+  "operator" : "$or"
+}, {
+  "executed" : true,
+  "compiled" : true,
+  "operator" : "$concat"
+}, {
+  "executed" : true,
+  "compiled" : true,
+  "operator" : "$toUpper"
+}, {
+  "executed" : true,
+  "compiled" : true,
+  "operator" : "$toLower"
+}, {
+  "executed" : true,
+  "compiled" : true,
+  "operator" : "$strLenCP"
+}, {
+  "executed" : true,
+  "compiled" : true,
+  "operator" : "$ifNull"
+}, {
+  "knownFailure" : "$size requires one argument",
+  "executed" : false,
+  "operator" : "$size"
+}, {
+  "executed" : true,
+  "compiled" : true,
+  "operator" : "$arrayElemAt"
+}, {
+  "executed" : true,
+  "compiled" : true,
+  "operator" : "$in"
+} ]

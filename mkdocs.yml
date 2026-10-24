@@ -1,0 +1,43 @@
+site_name: SrotaX Docs
+site_url: https://docs.srotax.com/
+repo_url: https://github.com/aredlavenkat/srotaX-docs
+repo_name: aredlavenkat/srotaX-docs
+site_description: Build, test, and release business decisions with SrotaX.
+theme:
+  name: material
+  palette:
+    primary: deep purple
+    accent: deep purple
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - content.code.copy
+plugins:
+  - search
+markdown_extensions:
+  - admonition
+  - tables
+  - pymdownx.superfences
+nav:
+  - Start here: index.md
+  - Shipping quickstart: quickstart.md
+  - Studio:
+    - Catalog and folders: studio/catalog.md
+    - Data Contracts: studio/contracts.md
+    - Models: studio/models.md
+    - Decision Tables: studio/tables.md
+    - Decision Trees: studio/trees.md
+    - Flows: studio/flows.md
+    - Testing: studio/testing.md
+    - Change sets: studio/change-sets.md
+    - Releases: studio/releases.md
+  - Integration:
+    - Java HTTP client: integration/java.md
+    - Runtime API: integration/runtime.md
+  - Reference:
+    - Schema format: reference/schemas.md
+    - Flow steps: reference/steps.md
+    - Expressions: reference/expressions.md
+    - Conditions: reference/conditions.md
+    - Operators: reference/operators.md
+  - Verification: verification.md
