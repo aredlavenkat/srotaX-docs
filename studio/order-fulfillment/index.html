@@ -1,0 +1,5919 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Build, test, and release business decisions with SrotaX.">
+      
+      
+      
+        <link rel="canonical" href="https://docs.srotax.com/studio/order-fulfillment/">
+      
+      
+        <link rel="prev" href="../flows/">
+      
+      
+        <link rel="next" href="../testing/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+    
+    
+      
+        <title>Order fulfillment with subflows - SrotaX Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/guides.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#order-fulfillment-with-subflows" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="SrotaX Docs" class="md-header__button md-logo" aria-label="SrotaX Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SrotaX Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Order fulfillment with subflows
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="SrotaX Docs" class="md-nav__button md-logo" aria-label="SrotaX Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    SrotaX Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Start here
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Shipping quickstart
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Studio
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Studio
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../catalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Catalog and folders
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contracts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Contracts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Models
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Decision Tables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../trees/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Decision Trees
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Flows
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Flows
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Build your first Flow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Order fulfillment with subflows
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Order fulfillment with subflows
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-understand-the-connected-assets" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Understand the connected assets
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-define-the-order-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Define the order contract
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-prepare-items-and-preserve-the-full-subtotal" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Prepare items and preserve the full subtotal
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-configure-the-charges-subflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Configure the charges subflow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Configure the charges subflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#call-the-decision-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Call the Decision Table
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-the-subflow-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build the subflow response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-call-the-subflow-from-the-main-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Call the subflow from the main Flow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-call-the-review-decision-and-select-a-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Call the review decision and select a response
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-run-the-complete-order-and-trace-nested-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Run the complete order and trace nested calls
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-review-dependencies-before-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Review dependencies before release
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshoot-a-nested-call" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshoot a nested call
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Testing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../change-sets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Change sets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../releases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Releases
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Integration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Integration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/java/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Java HTTP client
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Runtime API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/schemas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schema format
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/steps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Flow steps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/expressions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Expressions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/conditions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Conditions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Operators
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            Operators
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5_2" id="__nav_5_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Advanced
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Advanced
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/expr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $expr
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/function/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $function
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5_3" id="__nav_5_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Arithmetic
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Arithmetic
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/abs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $abs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/acos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $acos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/acosh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $acosh
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/add/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $add
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/asin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $asin
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/asinh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $asinh
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/atan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $atan
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/atan2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $atan2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/atanh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $atanh
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/avg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $avg
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/bitAnd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $bitAnd
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/bitOr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $bitOr
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/bitXor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $bitXor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/ceil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $ceil
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/cos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $cos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/cosh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $cosh
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/degreesToRadians/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $degreesToRadians
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/divide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $divide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/exp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $exp
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/floor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $floor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/ln/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $ln
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/log/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $log
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/log10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $log10
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/minDistance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $minDistance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/mod/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $mod
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/multiply/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $multiply
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/pow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $pow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/radiansToDegrees/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $radiansToDegrees
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/round/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $round
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/sin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $sin
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/sinh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $sinh
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/sqrt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $sqrt
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/subtract/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $subtract
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/sum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $sum
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/tan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $tan
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/tanh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $tanh
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/trunc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $trunc
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5_4" id="__nav_5_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Arrays
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            Arrays
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/arrayElemAt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $arrayElemAt
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/arrayToObject/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $arrayToObject
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/concatArrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $concatArrays
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/filter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $filter
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/first/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $first
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/indexOfArray/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $indexOfArray
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/isArray/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $isArray
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/last/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $last
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $map
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/max/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $max
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/min/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $min
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/objectToArray/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $objectToArray
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/range/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $range
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/reduce/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $reduce
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/reverseArray/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $reverseArray
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/size/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $size
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/slice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $slice
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/zip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $zip
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5_5" id="__nav_5_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Comparison
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            Comparison
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/cmp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $cmp
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/eq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $eq
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/gt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $gt
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/gte/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $gte
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/in/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $in
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/lt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $lt
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/lte/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $lte
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/ne/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $ne
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/nin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $nin
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5_6" id="__nav_5_5_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Conditional
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5_6">
+            <span class="md-nav__icon md-icon"></span>
+            Conditional
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/coalesce/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $coalesce
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/cond/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $cond
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/ifNull/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $ifNull
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/let/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $let
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/switch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $switch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5_7" id="__nav_5_5_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Dates
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_5_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5_7">
+            <span class="md-nav__icon md-icon"></span>
+            Dates
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/dateAdd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $dateAdd
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/dateDiff/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $dateDiff
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/dateFromParts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $dateFromParts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/dateFromString/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $dateFromString
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/dateSubtract/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $dateSubtract
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/dateToParts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $dateToParts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/dateToString/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $dateToString
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/dateTrunc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $dateTrunc
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/dayOfMonth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $dayOfMonth
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/dayOfWeek/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $dayOfWeek
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/dayOfYear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $dayOfYear
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/hour/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $hour
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/isoDayOfWeek/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $isoDayOfWeek
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/isoWeek/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $isoWeek
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/isoWeekYear/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $isoWeekYear
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/millisecond/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $millisecond
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/minute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $minute
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/month/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $month
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/second/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $second
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/tsIncrement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $tsIncrement
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/tsSecond/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $tsSecond
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/week/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $week
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/year/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $year
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5_8" id="__nav_5_5_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Logic
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_5_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5_8">
+            <span class="md-nav__icon md-icon"></span>
+            Logic
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/and/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $and
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/nor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $nor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/not/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $not
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/or/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $or
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5_9" id="__nav_5_5_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Objects
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_5_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5_9">
+            <span class="md-nav__icon md-icon"></span>
+            Objects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/getField/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $getField
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/mergeObjects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $mergeObjects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/setField/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $setField
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/unsetField/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $unsetField
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5_10" id="__nav_5_5_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Sets
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_5_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5_10">
+            <span class="md-nav__icon md-icon"></span>
+            Sets
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/allElementsTrue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $allElementsTrue
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/anyElementTrue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $anyElementTrue
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/setDifference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $setDifference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/setEquals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $setEquals
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/setIntersection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $setIntersection
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/setIsSubset/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $setIsSubset
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/setIsSuperset/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $setIsSuperset
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/setUnion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $setUnion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5_11" id="__nav_5_5_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Text
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_5_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5_11">
+            <span class="md-nav__icon md-icon"></span>
+            Text
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/concat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $concat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/endsWith/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $endsWith
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/indexOfBytes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $indexOfBytes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/indexOfCP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $indexOfCP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/ltrim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $ltrim
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/regexFind/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $regexFind
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/regexFindAll/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $regexFindAll
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/regexMatch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $regexMatch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/replaceAll/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $replaceAll
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/replaceOne/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $replaceOne
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/rtrim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $rtrim
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/split/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $split
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/startsWith/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $startsWith
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/strcasecmp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $strcasecmp
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/strLenBytes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $strLenBytes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/strLenCP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $strLenCP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/substr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $substr
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/substrBytes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $substrBytes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/substrCP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $substrCP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/toLower/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $toLower
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/toUpper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $toUpper
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/trim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $trim
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5_12" id="__nav_5_5_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Types and conversion
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_5_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5_12">
+            <span class="md-nav__icon md-icon"></span>
+            Types and conversion
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/binarySize/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $binarySize
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/bsonSize/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $bsonSize
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/convert/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $convert
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/isNumber/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $isNumber
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/literal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $literal
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/toBool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $toBool
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/toDate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $toDate
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/toDecimal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $toDecimal
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/toDouble/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $toDouble
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/toInt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $toInt
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/toLong/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $toLong
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/toObjectId/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $toObjectId
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/toString/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $toString
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/operators/type/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    $type
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../verification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Verification
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-understand-the-connected-assets" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Understand the connected assets
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-define-the-order-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Define the order contract
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-prepare-items-and-preserve-the-full-subtotal" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Prepare items and preserve the full subtotal
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-configure-the-charges-subflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Configure the charges subflow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Configure the charges subflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#call-the-decision-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Call the Decision Table
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-the-subflow-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build the subflow response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-call-the-subflow-from-the-main-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Call the subflow from the main Flow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-call-the-review-decision-and-select-a-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Call the review decision and select a response
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-run-the-complete-order-and-trace-nested-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Run the complete order and trace nested calls
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-review-dependencies-before-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Review dependencies before release
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshoot-a-nested-call" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshoot a nested call
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="order-fulfillment-with-subflows">Order fulfillment with subflows</h1>
+<p>Follow an order through a main Flow, a reusable charges subflow, a Decision Table, and a Decision Tree. This walkthrough uses the structure of <strong>Order Fulfillment Flow</strong> and <strong>Calculate Order Charges</strong> from the example workspace's Main, reproduced in an isolated workspace with synthetic data.</p>
+<p>By the end, you should be able to explain each dependency, map its inputs and outputs, and follow a nested execution. Complete <a href="../flows/">Build your first Flow</a> before starting.</p>
+<div class="admonition warning">
+<p class="admonition-title">Current verification boundary</p>
+<p>The four successful draft cases and two rejected inputs below were tested. Packaging this recreated example for release currently hits a backend merge error (<code>Invalid compiled artifact</code>) involving reference-data metadata. The authoring and testing walkthrough is usable; the release step is documented but is <strong>not verified end to end for this example</strong>. Do not treat a successful draft test as a deployment.</p>
+</div>
+<h2 id="1-understand-the-connected-assets">1. Understand the connected assets</h2>
+<p>A subflow is an ordinary Flow called by another Flow through <strong>Call Flow</strong>. It has its own contract and execution scope; the caller supplies its inputs and chooses where to store its output.</p>
+<div class="highlight"><pre><span></span><code>Order Fulfillment Flow
+  ├─ prepare items and calculate subtotal
+  ├─ Call Flow → Calculate Order Charges
+  │               ├─ look up regional handling fee
+  │               ├─ Decision Table → Order Shipping Policy
+  │               └─ return shipping, handling, and total
+  ├─ Decision Tree → Order Review Policy
+  └─ return Approved or Review required
+</code></pre></div>
+<p><a href="../../images/fulfillment-main-flow.png"><img alt="Complete fulfillment Flow" src="../../images/fulfillment-main-flow.png" /></a></p>
+<p><em>The purple Call Flow step invokes the reusable charges calculation. Select any screenshot to open it at full size.</em></p>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Order Fulfillment Flow</td>
+<td>Prepare the order, call dependencies, select the response</td>
+</tr>
+<tr>
+<td>Calculate Order Charges</td>
+<td>Combine subtotal, shipping, and regional handling</td>
+</tr>
+<tr>
+<td>Order Shipping Policy</td>
+<td>Return fee 0 when subtotal ≥ 100; otherwise 9; method Standard</td>
+</tr>
+<tr>
+<td>Order Review Policy</td>
+<td>Require review for restricted items or subtotal &gt; 500</td>
+</tr>
+<tr>
+<td>Regional handling fees</td>
+<td>Look up handlingFee by country; tutorial rows are CA → 2 and US → 4</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Before you begin:</strong> use a dedicated workspace or change set. If your workspace already contains these example assets, open their Main versions for inspection, then create drafts before editing. Version numbers in your workspace may differ from the screenshots.</p>
+<p>If building from scratch, create the reference data and decision assets first, then the charges Flow, then the fulfillment Flow. Define each contract before configuring its call mappings. The repository's <code>examples/fulfillment/assets.json</code> and <code>scripts/verify-fulfillment.mjs</code> reproduce the example through the API in a fresh disposable fixture; they are not a whole-workspace import button in Studio.</p>
+<h2 id="2-define-the-order-contract">2. Define the order contract</h2>
+<p>The main Flow takes three required inputs:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>input.orderId</td>
+<td>String</td>
+<td>Nonempty order identifier</td>
+</tr>
+<tr>
+<td>input.country</td>
+<td>String</td>
+<td>Regional handling lookup key</td>
+</tr>
+<tr>
+<td>input.items</td>
+<td>List of objects</td>
+<td>Each item requires sku, quantity, unitPrice, active, restricted</td>
+</tr>
+</tbody>
+</table>
+<p>Each item has String <code>sku</code>, Number <code>quantity</code> and <code>unitPrice</code>, and Boolean <code>active</code> and <code>restricted</code>.</p>
+<p>In <strong>Data Contract → Local</strong>, declare the working values: <code>items</code> (the item list plus numeric <code>lineTotal</code>), <code>subtotal</code> (Number), <code>hasRestricted</code> (Boolean), <code>priorityValue</code> (Number), <code>charges</code> (the subflow output object), and <code>review</code> (the review policy output object).</p>
+<p>Declare outputs <code>orderId</code>, <code>status</code>, <code>shippingMethod</code>, and <code>reason</code> as String; <code>total</code> and <code>priorityValue</code> as Number. See <a href="../contracts/">Data Contracts</a> for adding nested fields.</p>
+<p><strong>Check your work:</strong> field selectors offer the declared input, local, and output paths. Inputs remain unchanged during execution; all list updates below target <code>local.items</code>.</p>
+<h2 id="3-prepare-items-and-preserve-the-full-subtotal">3. Prepare items and preserve the full subtotal</h2>
+<p>Open the main Flow's <strong>Design</strong> and configure these steps in execution order. Select each tile to open its drawer.</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Configuration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Validate order</td>
+<td>input.orderId is not equal to an empty string</td>
+<td>Reject a blank ID</td>
+</tr>
+<tr>
+<td>Initialize working items</td>
+<td>Transform Each Item: input.items → a separate local.items list; copy the five item fields</td>
+<td>Preserve the original input list</td>
+</tr>
+<tr>
+<td>Keep active items</td>
+<td>Filter List: active = true AND quantity &gt; 0</td>
+<td>Retain eligible local items</td>
+</tr>
+<tr>
+<td>Calculate line totals</td>
+<td>Transform Each Item in place on local.items; lineTotal = quantity × unitPrice</td>
+<td>Add a total to each working item</td>
+</tr>
+<tr>
+<td>Calculate order subtotal</td>
+<td>Aggregate List: sum lineTotal into local.subtotal</td>
+<td>Total for <strong>all</strong> eligible items</td>
+</tr>
+<tr>
+<td>Check restricted goods</td>
+<td>Check Exists: any local item has restricted = true</td>
+<td>Set local.hasRestricted</td>
+</tr>
+<tr>
+<td>Rank packing priority</td>
+<td>Sort local.items by lineTotal descending</td>
+<td>Most valuable lines first</td>
+</tr>
+<tr>
+<td>Keep top 3 priority lines</td>
+<td>Trim local.items to its first 3 entries</td>
+<td>Select the priority packing batch</td>
+</tr>
+<tr>
+<td>Summarize priority packing batch</td>
+<td>Sum remaining lineTotal into local.priorityValue</td>
+<td>Value of that batch only</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why this order matters:</strong> calculate the subtotal and restricted-item flag <strong>before</strong> trimming. Otherwise the shipping charge or review decision could ignore a line outside the top three. Reusing <code>local.items</code> is intentional: the earlier full subtotal is already stored separately.</p>
+<h2 id="4-configure-the-charges-subflow">4. Configure the charges subflow</h2>
+<p>Open <strong>Calculate Order Charges</strong>. Its route is Start → Look up regional handling fee → Apply shipping policy → Calculate charges and total → Return order charges.</p>
+<p><a href="../../images/fulfillment-charges-flow.png"><img alt="Charges subflow" src="../../images/fulfillment-charges-flow.png" /></a></p>
+<p><em>This Flow encapsulates pricing work so another caller can reuse it with a country and subtotal.</em></p>
+<p>Its contract is:</p>
+<table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Fields</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inputs</td>
+<td>country: String; subtotal: Number</td>
+</tr>
+<tr>
+<td>Local</td>
+<td>policy: {country: String, handlingFee: Number}; shipping: {fee: Number, method: String}</td>
+</tr>
+<tr>
+<td>Outputs</td>
+<td>shippingFee: Number; shippingMethod: String; handlingFee: Number; total: Number</td>
+</tr>
+</tbody>
+</table>
+<p>Configure <strong>Look up regional handling fee</strong> to read the regional dataset using key <code>country</code> and source <code>input.country</code>. Assign the row to <code>local.policy</code>. Set no-match behavior to error. In this tutorial, an unknown country must fail rather than silently charge zero.</p>
+<h3 id="call-the-decision-table">Call the Decision Table</h3>
+<ol>
+<li>Open <strong>Apply shipping policy</strong> (Decision Table).</li>
+<li>Select <strong>Order Shipping Policy</strong>.</li>
+<li>Choose a published version, or <strong>Draft · this change set</strong> when authoring the connected assets together.</li>
+<li>Map the table's <code>input.subtotal</code> from the subflow's <code>input.subtotal</code>.</li>
+<li>Select <strong>Entire output</strong> and assign it to <code>local.shipping</code>.</li>
+</ol>
+<p><a href="../../images/fulfillment-table-call.png"><img alt="Decision Table input mapping inside the subflow" src="../../images/fulfillment-table-call.png" /></a></p>
+<p>The table returns <code>{ "fee": 0, "method": "Standard" }</code> for 170. It does not calculate the final total.</p>
+<h3 id="build-the-subflow-response">Build the subflow response</h3>
+<p>In <strong>Calculate charges and total</strong> (Set Fields), configure:</p>
+<table>
+<thead>
+<tr>
+<th>Output target</th>
+<th>Source or expression</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>output.shippingFee</td>
+<td>local.shipping.fee</td>
+</tr>
+<tr>
+<td>output.shippingMethod</td>
+<td>local.shipping.method</td>
+</tr>
+<tr>
+<td>output.handlingFee</td>
+<td>local.policy.handlingFee</td>
+</tr>
+<tr>
+<td>output.total</td>
+<td>input.subtotal + local.shipping.fee + local.policy.handlingFee</td>
+</tr>
+</tbody>
+</table>
+<p>Use Add (<code>$add</code>) in the expression editor for total, then finish the route with Response. Save the subflow draft.</p>
+<p><strong>Check your work:</strong> testing the subflow with <code>{"country":"CA","subtotal":170}</code> should return shippingFee 0, shippingMethod Standard, handlingFee 2, and total 172.</p>
+<h2 id="5-call-the-subflow-from-the-main-flow">5. Call the subflow from the main Flow</h2>
+<p>Return to <strong>Order Fulfillment Flow</strong> and open <strong>Calculate order charges</strong> (Call Flow).</p>
+<ol>
+<li>Select <strong>Calculate Order Charges</strong> in the Flow dropdown.</li>
+<li>Choose the published version you intend to call, or its saved draft in the same change set.</li>
+<li>Configure the two input mappings below.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Called Flow input</th>
+<th>Source in the main Flow</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>input.country</td>
+<td>input.country</td>
+</tr>
+<tr>
+<td>input.subtotal</td>
+<td>local.subtotal</td>
+</tr>
+</tbody>
+</table>
+<p><a href="../../images/fulfillment-subflow-inputs.png"><img alt="Subflow input mappings" src="../../images/fulfillment-subflow-inputs.png" /></a></p>
+<p><strong>The two input namespaces belong to different executions.</strong> On the left, input.subtotal is the child's request field. On the right, local.subtotal is the value calculated by the parent. The child does not automatically inherit the parent's local variables.</p>
+<p>Set <strong>Result to assign</strong> to <strong>Entire output · object</strong> and <strong>Assign result to</strong> to <code>local.charges</code>.</p>
+<p>After the call, the parent reads <code>local.charges.total</code>, <code>local.charges.shippingMethod</code>, <code>local.charges.shippingFee</code>, and <code>local.charges.handlingFee</code>. The child's <code>local.shipping</code> and <code>local.policy</code> remain internal to the child.</p>
+<p>A published-version selection remains pinned to that version. A same-change-set draft selection uses the dependency's <strong>saved draft</strong>, so save changes in the child before testing the parent. Review mappings whenever you change the selected dependency or contract.</p>
+<h2 id="6-call-the-review-decision-and-select-a-response">6. Call the review decision and select a response</h2>
+<p>Open <strong>Evaluate order review</strong> (Decision Tree), select <strong>Order Review Policy</strong>, and configure:</p>
+<table>
+<thead>
+<tr>
+<th>Called Tree input</th>
+<th>Parent source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>input.subtotal</td>
+<td>local.subtotal</td>
+</tr>
+<tr>
+<td>input.hasRestricted</td>
+<td>local.hasRestricted</td>
+</tr>
+</tbody>
+</table>
+<p>Assign the entire result to <code>local.review</code>. The tree returns <code>requiresReview</code> (Boolean) and <code>reason</code> (String): restricted items require review first; otherwise a subtotal strictly above 500 requires review; the remaining orders are approved.</p>
+<p>Configure <strong>Review or approve</strong> (If / Else) to test <code>local.review.requiresReview = true</code>.</p>
+<p>Both response-building steps use these mappings:</p>
+<table>
+<thead>
+<tr>
+<th>Output</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>output.orderId</td>
+<td>input.orderId</td>
+</tr>
+<tr>
+<td>output.total</td>
+<td>local.charges.total</td>
+</tr>
+<tr>
+<td>output.shippingMethod</td>
+<td>local.charges.shippingMethod</td>
+</tr>
+<tr>
+<td>output.priorityValue</td>
+<td>local.priorityValue</td>
+</tr>
+<tr>
+<td>output.reason</td>
+<td>local.review.reason</td>
+</tr>
+</tbody>
+</table>
+<p>Set <code>output.status</code> to <strong>Review required</strong> on the review branch and <strong>Approved</strong> on the other branch. Finish each branch with its own Response. The example does not merge both branches into a shared downstream tile.</p>
+<h2 id="7-run-the-complete-order-and-trace-nested-calls">7. Run the complete order and trace nested calls</h2>
+<p>Download the <a href="../../downloads/fulfillment-input.json">sample request</a>, paste it into <strong>Test → Test Input</strong>, and select <strong>Run test</strong>.</p>
+<p>The request includes four active lines worth 100, 40, 20, and 10, plus an inactive line worth 999. Therefore:</p>
+<ul>
+<li>Full eligible subtotal: <strong>170</strong>.</li>
+<li>Top-three priority value: <strong>160</strong>.</li>
+<li>Shipping fee: <strong>0</strong>.</li>
+<li>CA handling fee: <strong>2</strong>.</li>
+<li>Final total: <strong>172</strong>.</li>
+</ul>
+<p>Expected Result:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DOC-1001"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Approved"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">172</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"shippingMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Standard"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Automatic approval"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"priorityValue"</span><span class="p">:</span><span class="w"> </span><span class="mi">160</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><a href="../../images/fulfillment-result.png"><img alt="Fulfillment test result" src="../../images/fulfillment-result.png" /></a></p>
+<p>Open <strong>Trace</strong>, locate <strong>Calculate order charges</strong>, and inspect the indented child steps underneath it. Select the child <strong>Start</strong> entry to see its mapped request. Check the child's mapped input first, then the regional lookup, table call, and returned output. The parent continues to Evaluate order review after the child completes.</p>
+<p><a href="../../images/fulfillment-trace.png"><img alt="Nested subflow trace" src="../../images/fulfillment-trace.png" /></a></p>
+<p>Try these additional inputs by replacing the items list with one active item of quantity 1, keeping country CA:</p>
+<table>
+<thead>
+<tr>
+<th>unitPrice / restricted</th>
+<th>Expected total</th>
+<th>Expected status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20 / false</td>
+<td>31 (20 + 9 + 2)</td>
+<td>Approved</td>
+</tr>
+<tr>
+<td>20 / true</td>
+<td>31</td>
+<td>Review required</td>
+</tr>
+<tr>
+<td>600 / false</td>
+<td>602</td>
+<td>Review required</td>
+</tr>
+</tbody>
+</table>
+<p>Also test an empty orderId and country ZZ; both should fail. The documented tests cover these cases, not every possible order.</p>
+<h2 id="8-review-dependencies-before-release">8. Review dependencies before release</h2>
+<p>Save all intended drafts and inspect <strong>Dependencies</strong> and the change-set comparison. Check the main Flow, charges subflow, shipping table, review tree, and regional data together.</p>
+<p>The intended lifecycle is <strong>merge → create release → activate environment</strong>. A release captures compiled asset dependencies and reference-data snapshots; merely saving the child does not update an already active runtime release. See <a href="../releases/">Releases</a>.</p>
+<p>For this recreated example, the current merge failure described at the top prevents verifying that final lifecycle. Keep the draft tests as evidence, but do not report the sample as deployed until merge, release creation, activation, and a runtime request all succeed.</p>
+<h2 id="troubleshoot-a-nested-call">Troubleshoot a nested call</h2>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Check</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Child gets the wrong subtotal</td>
+<td>Map parent local.subtotal, not local.priorityValue</td>
+</tr>
+<tr>
+<td>Parent cannot see a child's local field</td>
+<td>Return the value through the child's output contract</td>
+</tr>
+<tr>
+<td>Changes in the child are absent</td>
+<td>Save its draft; check whether the parent calls a pinned version or same-set draft</td>
+</tr>
+<tr>
+<td>Country lookup fails</td>
+<td>Check the mapped country and an existing reference-data row</td>
+</tr>
+<tr>
+<td>Wrong shipping fee</td>
+<td>Inspect the nested table's subtotal and selected dependency version</td>
+</tr>
+<tr>
+<td>Contract changed warning</td>
+<td>Reselect the dependency version or draft and review all mappings</td>
+</tr>
+<tr>
+<td>Total only includes three lines</td>
+<td>Calculate the full subtotal before Trim List</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.indexes", "content.code.copy"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
