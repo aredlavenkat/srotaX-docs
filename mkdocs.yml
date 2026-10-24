@@ -3,6 +3,8 @@ site_url: https://docs.srotax.com/
 site_description: Build, test, and release business decisions with SrotaX.
 theme:
   name: material
+  custom_dir: overrides
+  logo: images/brand/srotax-white.png
   palette:
     primary: deep purple
     accent: deep purple
