@@ -203,7 +203,19 @@ Try these additional inputs by replacing the items list with one active item of 
 | 20 / true | 31 | Review required |
 | 600 / false | 602 | Review required |
 
-Also test an empty orderId and country ZZ; both should fail. The documented tests cover these cases, not every possible order.
+Also test an empty orderId and country ZZ; both should fail.
+
+### Check your results
+
+If your result differs from the expected values above, use **Trace** to find the first step with an unexpected value.
+
+| What you see | What to check |
+| --- | --- |
+| Subtotal is 160 instead of 170 | Calculate the full subtotal before **Trim List**. Only the priority value should use the top three lines. |
+| Charges use the priority value | In **Calculate order charges**, map the child's `subtotal` to parent `local.subtotal`, not `local.priorityValue`. |
+| Country lookup fails for CA | Inspect the child's **Start** input: `country` should be `CA`. Check that the selected regional data contains a CA row. Failure for ZZ is expected. |
+| Shipping fee differs from 0 for the sample | Inspect the shipping table call: its subtotal should be 170. Check the selected table's conditions and fee outputs. |
+| Final total differs from 172 | Inspect the charges subflow: subtotal 170 + shipping fee 0 + handling fee 2. Then check that the parent maps `local.charges.total` to `output.total`. |
 
 ## 8. Review dependencies before release
 
@@ -211,14 +223,14 @@ Save all intended drafts and inspect **Dependencies** and the change-set compari
 
 The release lifecycle is **merge → create release → activate environment**. A release captures compiled asset dependencies and reference-data snapshots; merely saving the child does not update an already active runtime release. See [Releases](releases.md).
 
-## Troubleshoot a nested call
+## Troubleshoot subflows
 
-| Symptom | Check |
+Start with the **Call Flow** step in the parent's Trace, then inspect the child steps beneath it.
+
+| Symptom | What to do |
 | --- | --- |
-| Child gets the wrong subtotal | Map parent local.subtotal, not local.priorityValue |
-| Parent cannot see a child's local field | Return the value through the child's output contract |
-| Changes in the child are absent | Save its draft; check whether the parent calls a pinned version or same-set draft |
-| Country lookup fails | Check the mapped country and an existing reference-data row |
-| Wrong shipping fee | Inspect the nested table's subtotal and selected dependency version |
-| Contract changed warning | Reselect the dependency version or draft and review all mappings |
-| Total only includes three lines | Calculate the full subtotal before Trim List |
+| Subflow receives incorrect or missing input | Inspect the child's **Start** input and compare it with the **Call Flow** input mappings. Map each required child input to the intended parent field or expression. |
+| Parent cannot use a value calculated by the subflow | Return the value through the child's output contract and Response. Check the parent's result mapping and destination path; the child's `local` fields are scoped to the child. |
+| Subflow returns an unexpected result | Follow the child steps in **Trace** to locate the first unexpected value. Check that step's inputs and configuration before changing the parent. |
+| Changes to the subflow are not reflected | For draft testing, save the child and check whether the parent selects its draft or a published version. For deployed execution, check the environment's active release; saving a draft does not change that release. |
+| A contract-changed warning appears | Reselect the intended dependency version or draft, review the input and result mappings, then validate and rerun the parent Flow. |
