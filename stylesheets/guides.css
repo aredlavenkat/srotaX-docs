@@ -11,3 +11,11 @@
 @media (min-width: 60em) {
   .md-search__form { background-color: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.3); }
 }
+
+/* White wordmark replaces the header icon; retain the existing purple theme. */
+.md-header .md-logo img { width: 6rem; height: auto; max-height: 1.6rem; object-fit: contain; }
+
+/* Keep the wordmark visible beside the active section on smaller screens. */
+@media (max-width: 76.234375em) {
+  .md-header .md-logo { display: block; }
+}
