@@ -5,11 +5,8 @@
 
 /* Keep the current page easy to locate in a long reference tree. */
 .md-nav--primary .md-nav__link--active {
-  background: #eee8fa;
-  border-radius: 4px;
-  box-shadow: inset 3px 0 #673ab7;
-  padding: .35rem .55rem;
-  font-weight: 700;
+  color: #673ab7;
+  font-weight: 500;
 }
 @media (min-width: 60em) {
   .md-search__form { background-color: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.3); }
