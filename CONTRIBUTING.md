@@ -52,3 +52,9 @@ For real Studio screenshots, start a separate Studio instance with `SROTAX_MANAG
 ## Release coordination
 
 Before publishing a docs release, refresh the source fingerprints, operator catalog and verification evidence against the actual released application build. The current evidence includes a working-tree state with uncommitted changes; it is not a tagged product support matrix. CI checks documentation structure, while the fixture journey needs the sibling backend. After those checks pass on `main`, the deployment job publishes to `gh-pages`, which GitHub Pages serves at `docs.srotax.com`. Pull requests never deploy.
+
+## Illustrated Studio guides
+
+Use real Studio screenshots from the disposable BrowserFixture, never customer data. Start each guide with an outcome and prerequisites; place screenshots next to numbered actions, then include an expected result and common failure. Link each image to its original so labels remain readable. Keep operator references focused on executable examples rather than decorative screenshots.
+
+After running `scripts/verify-journey.mjs <port-file>` against a fresh fixture, run `scripts/seed-visual-guides.mjs <port-file>` once to prepare the Tree, Flow, shared Address model, and Catalog examples. This verifies Tree and Flow preview outputs and writes ignored `target/visual-guide-context.json`. Capture through Studio against that fixture. The seed script is for a disposable database, not an existing workspace.

@@ -1,15 +1,44 @@
-# Write a Decision Table
+# Write and test a Decision Table
 
-Use a table when business rules fit rows of conditions and results. Define Inputs and Outputs in Data Contract first, then choose those fields when adding columns.
+Build two ordered rules: free shipping for subtotals of 100 or more, and a fee of 9 otherwise.
 
-## Evaluation order matters
+**Before you begin:** create a Decision Table in a change set and [define its contract](contracts.md): input `subtotal` (Number); outputs `fee` (Number) and `method` (String).
 
-Rows run top-to-bottom. The first matching row supplies the result. A rule `subtotal < 50` placed below `subtotal < 100` cannot win for a subtotal of 25: the broader earlier row already matches. Put the more specific rule first or make the conditions disjoint.
+## 1. Configure columns and rows
 
-Result cells can assign values or use the supported editing modes. Choose types that match the output contract. Do not rely on JSON strings being silently converted into numbers at runtime.
+1. Open **Design**.
+2. Add a condition column for `input.subtotal` and result columns for `output.fee` and `output.method`.
+3. Add the two rows below, using fixed values for the result cells.
 
-## Inspect and test
+| Row | subtotal condition | fee | method |
+| --- | --- | --- | --- |
+| 1 | Greater than or equal to 100 | 0 | Standard |
+| 2 | Less than 100 | 9 | Standard |
 
-Use the shared Test Panel. **Result** shows output, **Trace** identifies the matched row, and **Issues** explains failures. Test each rule and exact thresholds, plus missing and wrong-type inputs. See the [shipping walkthrough](../quickstart.md).
+[![Two-rule shipping Decision Table](../images/shipping-table.png)](../images/shipping-table.png)
 
-On Main, adding rows and columns is disabled. Search remains available for inspection. Select an editable change set to change the table. Save Draft persists editor changes; Run Test in a change set includes unsaved changes.
+*Each row combines a condition with the output values returned when it matches. Select the image to open it at full size.*
+
+## 2. Run a test
+
+Open **Test → Test Input**, enter `{"subtotal":75}`, and select **Run test**. In Result, expect `{"fee":9,"method":"Standard"}`. Open Trace to identify the matched row.
+
+[![Trace identifying row 2 as the matching rule](../images/shipping-trace.png)](../images/shipping-trace.png)
+
+*Trace links the returned result to the rule that supplied it. Select the image to open it at full size.*
+
+## 3. Check the boundary and save
+
+Test `100`: row 1 should match and return fee 0. Test `99.99`: row 2 should return fee 9. Choose **Save Draft**, then **Validate**.
+
+**If the wrong row wins:** inspect row order first. The first match stops evaluation. A rule for `< 50` below `< 100` will never win for 25.
+
+Continue with [reviewing and merging your change set](change-sets.md).
+
+## Table behavior
+
+Rows run top-to-bottom and the first match supplies the result. Put specific rules before broad rules, or make their conditions disjoint.
+
+Result values must match their output types. Do not rely on strings being silently converted into numbers at runtime.
+
+On Main, adding rows and columns is disabled, but search remains available. In a change set, Run test includes unsaved editor changes; Save Draft is still needed to persist them.

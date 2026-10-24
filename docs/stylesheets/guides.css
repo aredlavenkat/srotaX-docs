@@ -1,0 +1,4 @@
+/* Keep screenshots readable while retaining navigation and the task outline. */
+.md-grid { max-width: 90rem; }
+.md-typeset a > img { border: 1px solid #e2e5ed; border-radius: 6px; cursor: zoom-in; }
+.md-typeset p:has(> a > img) + p > em { display: block; color: #626b7c; font-size: .8rem; }

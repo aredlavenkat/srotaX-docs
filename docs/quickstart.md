@@ -6,7 +6,11 @@ You need an accessible workspace, permission to edit assets, and permission to r
 
 ## 1. Start a change set
 
-Open **Change Sets**, create a change set named **Shipping quickstart**, and select it in the workspace header. Main is read-only. In **Catalog**, choose **New Asset**, enter **Shipping quickstart**, and choose **Decision Table**.
+Open **Change Sets**, create a change set named **Shipping quickstart**, and select it in the workspace header. Main is read-only. In **Catalog**, choose **New Asset → Decision Table**, then enter **Shipping quickstart**.
+
+[![Select an editable change set](images/select-change-set.png)](images/select-change-set.png)
+
+*Choose an editable change set before creating the table. Select any screenshot to open it at full size.*
 
 ## 2. Define the contract
 
@@ -25,7 +29,7 @@ Under **Outputs**, add:
 
 The payload is `{"subtotal":75}`, not `{"input":{"subtotal":75}}`. The `input.` prefix identifies a field inside Studio; it is not an extra envelope your caller supplies.
 
-![Input schema in Studio](images/shipping-contract.png)
+[![Input schema in Studio](images/shipping-contract.png)](images/shipping-contract.png)
 
 ## 3. Define two rules
 
@@ -38,7 +42,7 @@ Open **Design**. Add a condition column for `input.subtotal` and result columns 
 
 The table returns the **first matching row**. These conditions do not overlap and cover numeric subtotals. This example does not reject negative amounts; add an explicit business rule if that is required.
 
-![Shipping table with two rules](images/shipping-table.png)
+[![Shipping table with two rules](images/shipping-table.png)](images/shipping-table.png)
 
 ## 4. Test boundary values
 
@@ -56,7 +60,7 @@ Open **Test Panel → Test Input**, enter the JSON below, and choose **Run Test*
 
 **Trace** identifies row 2 as matched. Also test 0, 99.99, 100, and 150. Subtotals 0, 75, and 99.99 charge 9; 100 and 150 charge 0. Test `{"subtotal":"wrong"}` and confirm a validation failure. On a change set, testing includes unsaved editor changes.
 
-![Trace showing row 2 matched for subtotal 75](images/shipping-trace.png)
+[![Trace showing row 2 matched for subtotal 75](images/shipping-trace.png)](images/shipping-trace.png)
 
 ## 5. Save and merge
 
@@ -68,7 +72,7 @@ Open **Releases** on Main and create a release from its current revision. A rele
 
 Activate the release in **Development**. Activation selects the complete release for that environment. It does not change Production.
 
-![Development activated; Production unchanged](images/shipping-release.png)
+[![Development activated; Production unchanged](images/shipping-release.png)](images/shipping-release.png)
 
 ## 7. Call it from Java
 

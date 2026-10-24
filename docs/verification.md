@@ -28,3 +28,9 @@ Local Markdown links and JSON examples are checked by `scripts/check.py`. MkDocs
 - Older backend ad-hoc E2E scripts still contain tuple-shaped input fixtures. This new walkthrough uses nested schemas and does not reuse those obsolete payloads.
 - Runtime OpenAPI currently has a generic response schema rather than an exhaustive typed failure contract.
 - Direct Java embedding and broad MongoDB semantic parity are not certified by this documentation.
+
+## Illustrated guide evidence
+
+The Studio guides include real screenshots from a disposable BrowserFixture, using synthetic shipping and address data. The shipping management/runtime journey was rerun for this update. The additional Tree and Flow examples were prepared with `scripts/seed-visual-guides.mjs`; preview calls returned fee 9 / Standard and total 84 respectively for subtotal 75. These checks cover those inputs, not every branch or UI interaction.
+
+Screenshots demonstrate the Catalog, change-set selection, contract reference, Models editor, OpenAPI selection dialog, Tree branches and condition drawer, and a simple Flow. They are not a claim that every illustrated task has a complete automated browser test.

@@ -39,3 +39,5 @@ nav:
     - Conditions: reference/conditions.md
     - Operators: reference/operators.md
   - Verification: verification.md
+extra_css:
+  - stylesheets/guides.css

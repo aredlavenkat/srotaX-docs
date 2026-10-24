@@ -1,30 +1,57 @@
-# Reuse Models
+# Create and reuse a Model
 
-A Model is a named object schema in a workspace. Use it when multiple contracts or nested objects share a structure, such as an Address. Models have a flat namespace; there are no model packages in this version.
+Create an Address once and reference it from multiple contracts. This walkthrough also shows how to import related OpenAPI schemas.
 
-## Create and reference
+**Before you begin:** select an editable change set. Models are shared within a workspace.
 
-1. Select an editable change set and open **Models**.
-2. Create a model, give it a name, and define its fields using **Fields** or **JSON**.
-3. Save the model draft.
-4. Open an asset's Data Contract and choose the model on an object row or as the item schema of an object list.
+## 1. Create Address
 
-Studio and Models use the same field editor. Referenced children are shown for inspection, not copied into the consuming contract's authoring definition.
+1. Open **Models** in the workspace sidebar and select **New model**.
+2. Enter `Address` as the name.
+3. Expand the `model` root and use **+** to add `street`, `city`, `postalCode`, and `country`.
+4. Choose String for each field, check Required, and add sample values.
+5. Select **Save model draft**.
 
-## When a model changes
+[![Address model with four inline string fields](../images/model-address-fields.png)](../images/model-address-fields.png)
 
-Consumers resolve the current model in their selected change set, falling back to Main when it has not been edited there. The editor refreshes referenced fields on focus and periodically while a change-set editor is active; this is not instant collaborative streaming.
+*Name, type, required status, example, and description are edited in the same field editor as Data Contract. Select the image to open it at full size.*
 
-Merging a model change validates and recompiles affected Main consumers. A field removal or incompatible type change can block the merge until its consuming rules are fixed. Existing executable versions and releases retain their resolved model definitions.
+**Check your work:** Address appears in the Models list. It should also be available in a contract's object model selector.
 
-There is no **Update from model** button or user-facing version selector. Internal immutable revisions still exist for reproducibility.
+## 2. Reference Address in a contract
 
-## Import OpenAPI components
+Open an asset's **Data Contract**. Add an Object field named `deliveryAddress`, then choose Address in that row's model dropdown. Its children appear read-only. Save the asset draft.
 
-Open the import dialog, supply an OpenAPI document, select component schemas with the checkboxes (or **Select all**), and import the selected models. The eye icon previews a schema. Select every referenced component that is not already available under a matching name.
+[![Contract referencing Address](../images/contract-model-reference.png)](../images/contract-model-reference.png)
 
-If matching names exist, **Overwrite existing models** replaces their fields and description inside the current change set while preserving their IDs. Review consumers before merging. Import is atomic: unsupported keywords, missing references, or cycles reject the operation.
+*The contract stores a reference; it does not own a second editable copy of these fields. Select the image to open it at full size.*
 
-Import translates component names into stable model-ID `$ref` values. Export translates those IDs back to readable component names in one OpenAPI document. Renaming a model therefore does not change its consumers' stored references.
+## 3. Import several models together
 
-Only the [supported schema subset](../reference/schemas.md) is accepted; “OpenAPI import” does not mean all OpenAPI schema features are supported.
+Download the [Address and Customer OpenAPI example](../downloads/shipping-models.openapi.json).
+
+1. Open **Models → Import OpenAPI** and supply the file or paste its JSON.
+2. Check **Address** and **Customer**, or choose **Select all**.
+3. Use the eye icon to inspect a model before importing.
+4. If Address already exists and you intend to replace it, check **Overwrite existing models**. Otherwise deselect it and retain the existing model.
+5. Select **Import selected**.
+
+[![OpenAPI import with compact schema checkboxes and preview icons](../images/models-import-selection.png)](../images/models-import-selection.png)
+
+*Select related schemas together. Overwrite preserves the ID of an existing matching model. Select the image to open it at full size.*
+
+**Check your work:** both names appear under Models, and Customer's address refers to Address. Open **Export OpenAPI** to inspect the exported component references.
+
+## If import fails
+
+Check the named schema in the error. Include missing referenced components, remove unsupported schema keywords, and resolve cycles. Import accepts the [supported schema subset](../reference/schemas.md), not every OpenAPI feature.
+
+## Reference and update behavior
+
+Models have a flat workspace namespace; there are no model packages. Object fields and object-list items can reference another model.
+
+Consumers resolve the current model in their selected change set, falling back to Main when it has not been edited there. The editor refreshes referenced fields on focus and periodically while an editable change set is active; updates are not instant collaborative streaming.
+
+Merging validates and recompiles affected consumers. Removing a field or changing its type can block merge until those consumers are fixed. Existing executable versions and releases retain their resolved definitions. There is no Update from model button or user-facing model version selector.
+
+Import translates component names to stable model-ID `$ref` values; export translates IDs back to component names. A rename does not break a consumer's stored reference. Import is atomic: invalid schemas reject the operation.

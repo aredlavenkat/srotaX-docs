@@ -1,17 +1,38 @@
-# Release and activate
+# Create and activate a release
 
-A release is an immutable snapshot of one complete workspace Main revision. Merge your change set before creating it. Creating again for the same Main revision returns the existing release.
+Make a tested Main revision available to runtime callers by creating a release and activating it in an environment.
 
-Review all included assets and dependencies. A release is not a selected subset of just the Flow you were editing. It captures the exact compiled definitions and model snapshots used by its assets.
+**Before you begin:** merge your intended changes, review the complete workspace, and confirm you have release and activation permissions. Use Development for this walkthrough.
 
-## Activate an environment
+## 1. Create a release from Main
 
-Development and Production each select one release. Activation replaces the environment's active release atomically. Runtime API keys are scoped to an environment, so the same decision ID may produce different results in Development and Production.
+1. Select **Main** in the workspace header.
+2. Open **Releases** in the sidebar.
+3. Create a release from the current Main revision.
+4. Review the included assets and dependencies.
 
-Creating a release alone does not activate it. An asset unavailable in the environment's active release cannot be executed there.
+A release captures the whole workspace snapshot. It is not limited to the last asset you edited.
 
-## Roll back
+## 2. Activate Development
 
-Activate a previous release for that environment. Rollback switches the complete snapshot; it does not selectively undo one asset. To combine an older rule with newer unrelated rules, author the desired combination in a change set, merge, and create a new release.
+Activate the release for **Development**. Confirm Development points to that release and Production remains unchanged.
 
-Main and existing releases are not edited by activation. Requests already executing use the release snapshot they resolved for that invocation.
+[![Release screen showing Development activation and unchanged Production](../images/shipping-release.png)](../images/shipping-release.png)
+
+*Creating a release records a snapshot. Activating it selects what an environment runs. Select the image to open it at full size.*
+
+## 3. Verify a runtime request
+
+Use a Development API key with the [Java example](../integration/java.md) or [Runtime API](../integration/runtime.md). For the shipping policy, subtotal 75 should return fee 9 and Standard.
+
+**If a new change is missing:** confirm it was saved, merged, included in the release, and activated in the API key's environment. A successful draft test does not change runtime behavior.
+
+## Release behavior and rollback
+
+A release captures exact compiled definitions and model snapshots. Creating another release for the same Main revision returns the existing release.
+
+Development and Production each select one release. Runtime API keys are environment-scoped, so the same decision ID can produce different results in each environment.
+
+To roll back, activate a previous release for the environment. This switches the complete snapshot, not one asset. To combine an older rule with newer unrelated rules, prepare that combination in a change set, merge it, and create a new release.
+
+Activation does not edit Main or existing releases. Requests already executing retain the release snapshot resolved for that invocation.

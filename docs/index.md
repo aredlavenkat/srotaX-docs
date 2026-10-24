@@ -4,6 +4,10 @@ SrotaX evaluates one request document against a Decision Table, Decision Tree, o
 
 [Build your first shipping decision](quickstart.md)
 
+[![A shipping decision with two rules](images/shipping-table.png)](images/shipping-table.png)
+
+*Build this two-rule shipping policy in the quickstart. Select the screenshot for a full-size view.*
+
 ## Choose your task
 
 | I want to… | Start here |

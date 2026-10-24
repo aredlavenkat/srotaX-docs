@@ -1,26 +1,60 @@
-# Build a Flow
+# Build a Flow that calculates a total
 
-Use a Flow to transform one request, call reusable decisions, branch, and return a response. It is not a collection ETL pipeline.
+Start with one calculation: add a shipping fee of 9 to the request subtotal, then return the total. For a subtotal of 75, the result is 84.
 
-## Keep the original input
+**Before you begin:** create a Flow named `Order total` in an editable change set. In Data Contract, declare input `subtotal` as Number and output `total` as Number.
 
-`input.*` is immutable. Read from it and write working values into `local.*`. Reuse a local variable when its previous value is no longer needed. For example:
+## 1. Add and connect steps
 
-1. Transform `input.items` into `local.items`.
-2. Filter or sort `local.items` in place.
-3. Aggregate `local.items` into a local total.
-4. Assign the result to an output field.
+1. Open **Design → Add Steps**.
+2. Add a **Set Fields** step and name it `Add shipping fee`.
+3. Add a **Response** step named `Return total`.
+4. Connect Start → Add shipping fee → Return total.
 
-You do not need `originalInput`: the original request remains in `input.*`. In-place list operations must target a compatible local list. Set Fields and Choose Fields must not modify the input namespace.
+[![Simple Flow from Start through Set Fields to Response](../images/flow-order-total.png)](../images/flow-order-total.png)
 
-## Configure each step
+*Begin with a short complete route before adding lists, branches, or dependencies. Select the image to open it at full size.*
 
-Select a step to open its drawer. Choose source fields, output destination, and operation-specific options. Field choices depend on the contract and preceding steps. An expression's current item is scoped to its list operation; it is not a workspace variable.
+## 2. Configure the calculation
 
-When calling a Table, Tree, or Flow, map the called asset's input fields from available sources and map its result into the caller. Review dependency selection before merging; a published dependency and a same-change-set draft are different choices.
+Open Add shipping fee, add an assignment targeting `output.total`, and select **Use expression**. In **Edit expression**, choose Add (`$add`) with a field argument `input.subtotal` and a numeric fixed-value argument `9`. Complete the expression and close the step drawer.
 
-## Branch and return
+The summary should read `output.total = (input.subtotal + 9)`. In Response, return the declared output fields.
 
-Give each branch a complete route to a Response. Current graph editing permits one incoming connection per step; branches do not merge into a shared downstream step. Validate disconnected paths and test both sides of conditions.
+## 3. Test the complete route
 
-Use the Test Panel's trace to inspect ordered steps and nested calls. The canvas highlights the executed path. See the [step reference](../reference/steps.md) for the supported operations.
+Open **Test → Test Input** and run:
+
+```json
+{"subtotal":75}
+```
+
+In Result, expect:
+
+```json
+{"total":84}
+```
+
+Use Trace to inspect the steps executed. Save Draft and Validate.
+
+**If a field selector is empty:** confirm the field exists in Data Contract, the preceding connections are complete, and the chosen target is Local or Output. Inputs cannot be assignment targets.
+
+Next, explore the [step reference](../reference/steps.md) when adding a list operation or a call to another decision.
+
+## Flow behavior
+
+### Preserve the request
+
+`input.*` is immutable. Use `local.*` for working values and `output.*` for response fields. You do not need a separate originalInput copy.
+
+For a list, transform `input.items` into `local.items`, filter or sort that local list, aggregate it, then assign the final output. Reuse `local.items` when its previous value is no longer needed. In-place operations must target a compatible Local list.
+
+### Add expressions and dependencies
+
+Visual and JSON expression modes keep separate expressions; only the selected mode is used. Changing modes does not convert the expression.
+
+When calling a Table, Tree, or Flow, map the called asset's inputs from available fields and map its result into the caller. Review dependency selection before merge: a published dependency and a same-change-set draft are different choices.
+
+### Complete each branch
+
+Give every branch a complete route to a Response. Current graph editing permits one incoming connection per step; branches do not merge into a shared downstream step. Test both sides of each condition.
