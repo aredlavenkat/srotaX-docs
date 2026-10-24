@@ -4,9 +4,6 @@ Follow an order through a main Flow, a reusable charges subflow, a Decision Tabl
 
 By the end, you should be able to explain each dependency, map its inputs and outputs, and follow a nested execution. Complete [Build your first Flow](flows.md) before starting.
 
-!!! warning "Current verification boundary"
-    The four successful draft cases and two rejected inputs below were tested. Packaging this recreated example for release currently hits a backend merge error (`Invalid compiled artifact`) involving reference-data metadata. The authoring and testing walkthrough is usable; the release step is documented but is **not verified end to end for this example**. Do not treat a successful draft test as a deployment.
-
 ## 1. Understand the connected assets
 
 A subflow is an ordinary Flow called by another Flow through **Call Flow**. It has its own contract and execution scope; the caller supplies its inputs and chooses where to store its output.
@@ -212,9 +209,7 @@ Also test an empty orderId and country ZZ; both should fail. The documented test
 
 Save all intended drafts and inspect **Dependencies** and the change-set comparison. Check the main Flow, charges subflow, shipping table, review tree, and regional data together.
 
-The intended lifecycle is **merge → create release → activate environment**. A release captures compiled asset dependencies and reference-data snapshots; merely saving the child does not update an already active runtime release. See [Releases](releases.md).
-
-For this recreated example, the current merge failure described at the top prevents verifying that final lifecycle. Keep the draft tests as evidence, but do not report the sample as deployed until merge, release creation, activation, and a runtime request all succeed.
+The release lifecycle is **merge → create release → activate environment**. A release captures compiled asset dependencies and reference-data snapshots; merely saving the child does not update an already active runtime release. See [Releases](releases.md).
 
 ## Troubleshoot a nested call
 
