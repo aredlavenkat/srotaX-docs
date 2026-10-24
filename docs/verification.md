@@ -34,3 +34,7 @@ Local Markdown links and JSON examples are checked by `scripts/check.py`. MkDocs
 The Studio guides include real screenshots from a disposable BrowserFixture, using synthetic shipping and address data. The shipping management/runtime journey was rerun for this update. The additional Tree and Flow examples were prepared with `scripts/seed-visual-guides.mjs`; preview calls returned fee 9 / Standard and total 84 respectively for subtotal 75. These checks cover those inputs, not every branch or UI interaction.
 
 Screenshots demonstrate the Catalog, change-set selection, contract reference, Models editor, OpenAPI selection dialog, Tree branches and condition drawer, and a simple Flow. They are not a claim that every illustrated task has a complete automated browser test.
+
+## Order fulfillment walkthrough
+
+`verification/fulfillment.json` records four successful draft inputs, two rejected inputs, and nested execution trace checks for the reconstructed Main example. The main Flow also succeeded through Studio with the documented sample request. Merge of this example failed with `Invalid compiled artifact` while constructing reference-data metadata, so release creation and activation are not certified for this walkthrough. The original workspace was only read; test mutations were confined to a disposable fixture.

@@ -1,0 +1,1788 @@
+[
+  {
+    "id": "order-review-policy",
+    "name": "Order Review Policy",
+    "type": "tree",
+    "contract": {
+      "inputs": {
+        "type": "object",
+        "required": [
+          "hasRestricted",
+          "subtotal"
+        ],
+        "properties": {
+          "subtotal": {
+            "type": "number",
+            "example": 161
+          },
+          "hasRestricted": {
+            "type": "boolean",
+            "example": false
+          }
+        }
+      },
+      "outputs": {
+        "type": "object",
+        "required": [
+          "requiresReview",
+          "reason"
+        ],
+        "properties": {
+          "reason": {
+            "type": "string",
+            "example": "Automatic approval"
+          },
+          "requiresReview": {
+            "type": "boolean",
+            "example": false
+          }
+        }
+      },
+      "variables": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    "definition": {
+      "tiles": [
+        {
+          "id": "start",
+          "yes": "restricted",
+          "kind": "start",
+          "title": "Start",
+          "assignments": []
+        },
+        {
+          "id": "restricted",
+          "no": "high-value",
+          "yes": "restricted-result",
+          "kind": "condition",
+          "title": "Restricted items?",
+          "condition": {
+            "group": {
+              "id": "restricted",
+              "op": "and",
+              "type": "group",
+              "children": [
+                {
+                  "id": "restricted-condition",
+                  "path": "hasRestricted",
+                  "type": "condition",
+                  "value": "true",
+                  "operator": "$eq"
+                }
+              ]
+            }
+          },
+          "assignments": []
+        },
+        {
+          "id": "high-value",
+          "no": "approved-result",
+          "yes": "value-result",
+          "kind": "condition",
+          "title": "Order over 500?",
+          "condition": {
+            "group": {
+              "id": "value",
+              "op": "and",
+              "type": "group",
+              "children": [
+                {
+                  "id": "value-condition",
+                  "path": "subtotal",
+                  "type": "condition",
+                  "value": "500",
+                  "operator": "$gt"
+                }
+              ]
+            }
+          },
+          "assignments": []
+        },
+        {
+          "id": "restricted-result",
+          "kind": "result",
+          "title": "Review restricted goods",
+          "assignments": [
+            {
+              "id": "restricted-result-review",
+              "path": "requiresReview",
+              "value": "true"
+            },
+            {
+              "id": "restricted-result-reason",
+              "path": "reason",
+              "value": "Restricted item requires review"
+            }
+          ]
+        },
+        {
+          "id": "value-result",
+          "kind": "result",
+          "title": "Review high value order",
+          "assignments": [
+            {
+              "id": "value-result-review",
+              "path": "requiresReview",
+              "value": "true"
+            },
+            {
+              "id": "value-result-reason",
+              "path": "reason",
+              "value": "Order exceeded 500"
+            }
+          ]
+        },
+        {
+          "id": "approved-result",
+          "kind": "result",
+          "title": "Approve order",
+          "assignments": [
+            {
+              "id": "approved-result-review",
+              "path": "requiresReview",
+              "value": "false"
+            },
+            {
+              "id": "approved-result-reason",
+              "path": "reason",
+              "value": "Automatic approval"
+            }
+          ]
+        }
+      ],
+      "positions": {
+        "start": {
+          "x": 380,
+          "y": 30
+        },
+        "high-value": {
+          "x": 620,
+          "y": 330
+        },
+        "restricted": {
+          "x": 380,
+          "y": 160
+        },
+        "value-result": {
+          "x": 410,
+          "y": 510
+        },
+        "approved-result": {
+          "x": 850,
+          "y": 510
+        },
+        "restricted-result": {
+          "x": 60,
+          "y": 330
+        }
+      }
+    },
+    "description": "Restricted items or orders over 500 require review; otherwise approve automatically."
+  },
+  {
+    "id": "order-shipping-policy",
+    "name": "Order Shipping Policy",
+    "type": "table",
+    "contract": {
+      "inputs": {
+        "type": "object",
+        "required": [
+          "subtotal"
+        ],
+        "properties": {
+          "subtotal": {
+            "type": "number",
+            "example": 161
+          }
+        }
+      },
+      "outputs": {
+        "type": "object",
+        "required": [
+          "fee",
+          "method"
+        ],
+        "properties": {
+          "fee": {
+            "type": "number",
+            "example": 0
+          },
+          "method": {
+            "type": "string",
+            "example": "Standard"
+          }
+        }
+      },
+      "variables": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    "definition": {
+      "rows": [
+        {
+          "id": "free",
+          "cells": {
+            "fee": {
+              "value": "0",
+              "operator": "$literal"
+            },
+            "method": {
+              "value": "Standard",
+              "operator": "$literal"
+            },
+            "subtotal": {
+              "value": "100",
+              "operator": "$gte"
+            }
+          }
+        },
+        {
+          "id": "paid",
+          "cells": {
+            "fee": {
+              "value": "9",
+              "operator": "$literal"
+            },
+            "method": {
+              "value": "Standard",
+              "operator": "$literal"
+            },
+            "subtotal": {
+              "value": "100",
+              "operator": "$lt"
+            }
+          }
+        }
+      ],
+      "columns": [
+        {
+          "id": "subtotal",
+          "kind": "condition",
+          "path": "subtotal",
+          "label": "Order subtotal",
+          "valueType": "number"
+        },
+        {
+          "id": "fee",
+          "kind": "result",
+          "path": "fee",
+          "label": "Shipping fee",
+          "valueType": "number"
+        },
+        {
+          "id": "method",
+          "kind": "result",
+          "path": "method",
+          "label": "Shipping method",
+          "valueType": "string"
+        }
+      ]
+    },
+    "description": "Orders of 100 or more ship free; smaller orders pay 9. First matching row wins."
+  },
+  {
+    "id": "calculate-order-charges",
+    "name": "Calculate Order Charges",
+    "type": "flow",
+    "contract": {
+      "inputs": {
+        "type": "object",
+        "required": [
+          "country",
+          "subtotal"
+        ],
+        "properties": {
+          "country": {
+            "type": "string",
+            "example": "CA"
+          },
+          "subtotal": {
+            "type": "number",
+            "example": 171
+          }
+        }
+      },
+      "outputs": {
+        "type": "object",
+        "required": [
+          "shippingFee",
+          "shippingMethod",
+          "handlingFee",
+          "total"
+        ],
+        "properties": {
+          "total": {
+            "type": "number",
+            "example": 173
+          },
+          "handlingFee": {
+            "type": "number",
+            "example": 2
+          },
+          "shippingFee": {
+            "type": "number",
+            "example": 0
+          },
+          "shippingMethod": {
+            "type": "string",
+            "example": "Standard"
+          }
+        }
+      },
+      "variables": {
+        "type": "object",
+        "required": [
+          "policy",
+          "shipping"
+        ],
+        "properties": {
+          "policy": {
+            "type": "object",
+            "required": [
+              "country",
+              "handlingFee"
+            ],
+            "properties": {
+              "country": {
+                "type": "string"
+              },
+              "handlingFee": {
+                "type": "number"
+              }
+            }
+          },
+          "shipping": {
+            "type": "object",
+            "required": [
+              "fee",
+              "method"
+            ],
+            "properties": {
+              "fee": {
+                "type": "number"
+              },
+              "method": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "definition": {
+      "edges": [
+        {
+          "id": "request-next",
+          "type": "smoothstep",
+          "source": "request",
+          "target": "lookup"
+        },
+        {
+          "id": "lookup-next",
+          "type": "smoothstep",
+          "source": "lookup",
+          "target": "table"
+        },
+        {
+          "id": "table-next",
+          "type": "smoothstep",
+          "source": "table",
+          "target": "charges"
+        },
+        {
+          "id": "charges-next",
+          "type": "smoothstep",
+          "source": "charges",
+          "target": "response"
+        }
+      ],
+      "nodes": [
+        {
+          "id": "request",
+          "data": {
+            "step": {
+              "id": "request",
+              "kind": "request",
+              "badge": "",
+              "color": "blue",
+              "title": "Start",
+              "sample": "",
+              "subtitle": ""
+            }
+          },
+          "type": "flowStep",
+          "measured": {
+            "width": 163,
+            "height": 116
+          },
+          "position": {
+            "x": 80,
+            "y": 160
+          }
+        },
+        {
+          "id": "lookup",
+          "data": {
+            "step": {
+              "x": 0,
+              "y": 0,
+              "id": "lookup",
+              "kind": "transform",
+              "badge": "$lookup",
+              "color": "blue",
+              "title": "Look up regional handling fee",
+              "sample": "",
+              "subtitle": "Look up regional handling fee",
+              "lookupReference": {
+                "key": "country",
+                "value": "country",
+                "source": "field",
+                "columns": [
+                  {
+                    "name": "country",
+                    "type": "string"
+                  },
+                  {
+                    "name": "handlingFee",
+                    "type": "number"
+                  }
+                ],
+                "noMatch": "error",
+                "version": 1,
+                "datasetId": "regional-handling-fees",
+                "targetPath": "policy"
+              }
+            }
+          },
+          "type": "flowStep",
+          "measured": {
+            "width": 280,
+            "height": 90
+          },
+          "position": {
+            "x": 390,
+            "y": 160
+          }
+        },
+        {
+          "id": "table",
+          "data": {
+            "step": {
+              "x": 0,
+              "y": 0,
+              "id": "table",
+              "kind": "decision",
+              "badge": "Asset",
+              "color": "blue",
+              "title": "Apply shipping policy",
+              "sample": "",
+              "subtitle": "Apply shipping policy",
+              "decisionTable": {
+                "inputs": [
+                  {
+                    "path": "subtotal",
+                    "type": "number",
+                    "required": "required",
+                    "example": "161"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "path": "fee",
+                    "type": "number",
+                    "required": "required",
+                    "example": "0"
+                  },
+                  {
+                    "path": "method",
+                    "type": "string",
+                    "required": "required",
+                    "example": "Standard"
+                  }
+                ],
+                "bindings": [
+                  {
+                    "path": "subtotal",
+                    "value": "subtotal",
+                    "source": "field"
+                  }
+                ],
+                "decisionId": "order-shipping-policy",
+                "resultPath": "",
+                "targetPath": "shipping",
+                "source": "draft",
+                "version": 0
+              }
+            }
+          },
+          "type": "flowStep",
+          "measured": {
+            "width": 280,
+            "height": 97
+          },
+          "position": {
+            "x": 700,
+            "y": 160
+          }
+        },
+        {
+          "id": "charges",
+          "data": {
+            "step": {
+              "id": "charges",
+              "set": {
+                "assignments": [
+                  {
+                    "id": "shippingFee",
+                    "sourcePath": "local.shipping.fee",
+                    "targetPath": "output.shippingFee",
+                    "targetType": "number",
+                    "valueSource": "field"
+                  },
+                  {
+                    "id": "shippingMethod",
+                    "sourcePath": "local.shipping.method",
+                    "targetPath": "output.shippingMethod",
+                    "targetType": "string",
+                    "valueSource": "field"
+                  },
+                  {
+                    "id": "handlingFee",
+                    "sourcePath": "local.policy.handlingFee",
+                    "targetPath": "output.handlingFee",
+                    "targetType": "number",
+                    "valueSource": "field"
+                  },
+                  {
+                    "id": "total",
+                    "expression": {
+                      "args": [
+                        {
+                          "kind": "field",
+                          "path": "subtotal"
+                        },
+                        {
+                          "kind": "field",
+                          "path": "local.shipping.fee"
+                        },
+                        {
+                          "kind": "field",
+                          "path": "local.policy.handlingFee"
+                        }
+                      ],
+                      "kind": "call",
+                      "operator": "$add"
+                    },
+                    "sourcePath": "",
+                    "targetPath": "output.total",
+                    "targetType": "number",
+                    "valueSource": "expression"
+                  }
+                ]
+              },
+              "kind": "transform",
+              "badge": "",
+              "color": "blue",
+              "title": "Calculate charges and total",
+              "sample": "",
+              "subtitle": ""
+            }
+          },
+          "type": "flowStep",
+          "measured": {
+            "width": 280,
+            "height": 100
+          },
+          "position": {
+            "x": 1010,
+            "y": 160
+          }
+        },
+        {
+          "id": "response",
+          "data": {
+            "step": {
+              "id": "response",
+              "kind": "response",
+              "badge": "Response",
+              "color": "purple",
+              "title": "Return order charges",
+              "sample": "",
+              "subtitle": ""
+            }
+          },
+          "type": "flowStep",
+          "measured": {
+            "width": 280,
+            "height": 97
+          },
+          "position": {
+            "x": 1320,
+            "y": 160
+          }
+        }
+      ]
+    },
+    "description": "Calculate shipping and regional handling charges from country and subtotal, using the same pinned policies as Order Fulfillment."
+  },
+  {
+    "id": "order-fulfillment-flow",
+    "name": "Order Fulfillment Flow",
+    "type": "flow",
+    "contract": {
+      "inputs": {
+        "type": "object",
+        "required": [
+          "orderId",
+          "country",
+          "items"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "sku",
+                "quantity",
+                "unitPrice",
+                "active",
+                "restricted"
+              ],
+              "properties": {
+                "sku": {
+                  "type": "string"
+                },
+                "active": {
+                  "type": "boolean"
+                },
+                "quantity": {
+                  "type": "number"
+                },
+                "unitPrice": {
+                  "type": "number"
+                },
+                "restricted": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "example": []
+          },
+          "country": {
+            "type": "string",
+            "example": "CA"
+          },
+          "orderId": {
+            "type": "string",
+            "example": "ORDER-1001"
+          }
+        }
+      },
+      "outputs": {
+        "type": "object",
+        "required": [
+          "orderId",
+          "status",
+          "total",
+          "shippingMethod",
+          "reason",
+          "priorityValue"
+        ],
+        "properties": {
+          "total": {
+            "type": "number",
+            "example": 163
+          },
+          "reason": {
+            "type": "string",
+            "example": "Automatic approval"
+          },
+          "status": {
+            "type": "string",
+            "example": "Approved"
+          },
+          "orderId": {
+            "type": "string",
+            "example": "ORDER-1001"
+          },
+          "priorityValue": {
+            "type": "number",
+            "example": 151
+          },
+          "shippingMethod": {
+            "type": "string",
+            "example": "Standard"
+          }
+        }
+      },
+      "variables": {
+        "type": "object",
+        "required": [
+          "items",
+          "subtotal",
+          "hasRestricted",
+          "review",
+          "priorityValue",
+          "charges"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "sku",
+                "quantity",
+                "unitPrice",
+                "active",
+                "restricted"
+              ],
+              "properties": {
+                "sku": {
+                  "type": "string"
+                },
+                "active": {
+                  "type": "boolean"
+                },
+                "quantity": {
+                  "type": "number"
+                },
+                "unitPrice": {
+                  "type": "number"
+                },
+                "restricted": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "example": []
+          },
+          "review": {
+            "type": "object",
+            "required": [
+              "requiresReview",
+              "reason"
+            ],
+            "properties": {
+              "reason": {
+                "type": "string"
+              },
+              "requiresReview": {
+                "type": "boolean"
+              }
+            }
+          },
+          "charges": {
+            "type": "object",
+            "required": [
+              "shippingFee",
+              "shippingMethod",
+              "handlingFee",
+              "total"
+            ],
+            "properties": {
+              "total": {
+                "type": "number",
+                "example": 173
+              },
+              "handlingFee": {
+                "type": "number",
+                "example": 2
+              },
+              "shippingFee": {
+                "type": "number",
+                "example": 0
+              },
+              "shippingMethod": {
+                "type": "string",
+                "example": "Standard"
+              }
+            }
+          },
+          "subtotal": {
+            "type": "number"
+          },
+          "hasRestricted": {
+            "type": "boolean"
+          },
+          "priorityValue": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "definition": {
+      "edges": [
+        {
+          "id": "request-next",
+          "type": "smoothstep",
+          "source": "request",
+          "target": "validate",
+          "selected": false
+        },
+        {
+          "id": "validate-next",
+          "type": "smoothstep",
+          "source": "validate",
+          "target": "initialize-local-items",
+          "selected": false
+        },
+        {
+          "id": "filter-next",
+          "type": "smoothstep",
+          "source": "filter",
+          "target": "transform",
+          "selected": false
+        },
+        {
+          "id": "transform-next",
+          "type": "smoothstep",
+          "source": "transform",
+          "target": "aggregate",
+          "selected": false
+        },
+        {
+          "id": "aggregate-next",
+          "type": "smoothstep",
+          "source": "aggregate",
+          "target": "exists",
+          "selected": false
+        },
+        {
+          "id": "exists-next",
+          "type": "smoothstep",
+          "source": "exists",
+          "target": "sort",
+          "selected": false
+        },
+        {
+          "id": "sort-next",
+          "type": "smoothstep",
+          "source": "sort",
+          "target": "trim",
+          "selected": false
+        },
+        {
+          "id": "trim-next",
+          "type": "smoothstep",
+          "source": "trim",
+          "target": "priority-summary",
+          "selected": false
+        },
+        {
+          "id": "route-review",
+          "type": "smoothstep",
+          "label": "If \u00b7 Manual review",
+          "source": "route",
+          "target": "response-review",
+          "selected": false,
+          "sourceHandle": "review-path"
+        },
+        {
+          "id": "route-approve",
+          "type": "smoothstep",
+          "label": "Else \u00b7 Approve order",
+          "source": "route",
+          "target": "response-approve",
+          "selected": false,
+          "sourceHandle": "else"
+        },
+        {
+          "id": "priority-summary-next",
+          "type": "smoothstep",
+          "source": "priority-summary",
+          "target": "call-order-charges"
+        },
+        {
+          "id": "call-order-charges-next",
+          "type": "smoothstep",
+          "source": "call-order-charges",
+          "target": "tree"
+        },
+        {
+          "id": "tree-next",
+          "type": "smoothstep",
+          "source": "tree",
+          "target": "route"
+        },
+        {
+          "id": "initialize-local-items-next",
+          "type": "smoothstep",
+          "source": "initialize-local-items",
+          "target": "filter"
+        },
+        {
+          "id": "xy-edge__response-review-response",
+          "type": "smoothstep",
+          "style": {
+            "stroke": "#718096",
+            "strokeWidth": 2
+          },
+          "source": "response-review",
+          "target": "response",
+          "markerEnd": {
+            "type": "arrowclosed",
+            "color": "#718096"
+          }
+        },
+        {
+          "id": "xy-edge__response-approve-step-1791171460266-crjsi",
+          "type": "smoothstep",
+          "style": {
+            "stroke": "#718096",
+            "strokeWidth": 2
+          },
+          "source": "response-approve",
+          "target": "step-1791171460266-crjsi",
+          "markerEnd": {
+            "type": "arrowclosed",
+            "color": "#718096"
+          }
+        }
+      ],
+      "nodes": [
+        {
+          "id": "request",
+          "data": {
+            "step": {
+              "x": 0,
+              "y": 0,
+              "id": "request",
+              "kind": "request",
+              "badge": "Contract",
+              "color": "blue",
+              "title": "Order request",
+              "sample": "",
+              "subtitle": "Order and warehouse shipments"
+            }
+          },
+          "type": "flowStep",
+          "dragging": false,
+          "measured": {
+            "width": 163,
+            "height": 116
+          },
+          "position": {
+            "x": 60,
+            "y": 52
+          },
+          "selected": false
+        },
+        {
+          "id": "validate",
+          "data": {
+            "step": {
+              "x": 0,
+              "y": 0,
+              "id": "validate",
+              "kind": "transform",
+              "badge": "Validate",
+              "color": "blue",
+              "title": "Validate order",
+              "sample": "",
+              "subtitle": "Validate order",
+              "validation": {
+                "group": {
+                  "id": "order-id",
+                  "op": "and",
+                  "type": "group",
+                  "children": [
+                    {
+                      "id": "order-id-condition",
+                      "path": "orderId",
+                      "type": "condition",
+                      "value": "",
+                      "operator": "$ne"
+                    }
+                  ]
+                },
+                "message": "Request data does not meet the validation rules"
+              }
+            }
+          },
+          "type": "flowStep",
+          "measured": {
+            "width": 280,
+            "height": 69
+          },
+          "position": {
+            "x": 360,
+            "y": 60
+          },
+          "selected": false
+        },
+        {
+          "id": "filter",
+          "data": {
+            "step": {
+              "x": 0,
+              "y": 0,
+              "id": "filter",
+              "kind": "transform",
+              "badge": "$filter",
+              "color": "blue",
+              "title": "Keep active items",
+              "sample": "",
+              "subtitle": "Keep active items",
+              "filterList": {
+                "group": {
+                  "id": "active",
+                  "op": "and",
+                  "type": "group",
+                  "children": [
+                    {
+                      "id": "active-condition",
+                      "path": "$item.active",
+                      "type": "condition",
+                      "value": "true",
+                      "operator": "$eq"
+                    },
+                    {
+                      "id": "quantity-condition",
+                      "path": "$item.quantity",
+                      "type": "condition",
+                      "value": "0",
+                      "operator": "$gt"
+                    }
+                  ]
+                },
+                "listPath": "local.items"
+              }
+            }
+          },
+          "type": "flowStep",
+          "dragging": false,
+          "measured": {
+            "width": 280,
+            "height": 69
+          },
+          "position": {
+            "x": 956,
+            "y": 60
+          },
+          "selected": false
+        },
+        {
+          "id": "transform",
+          "data": {
+            "step": {
+              "x": 0,
+              "y": 0,
+              "id": "transform",
+              "kind": "transform",
+              "badge": "$map",
+              "color": "blue",
+              "title": "Calculate line totals",
+              "sample": "",
+              "subtitle": "Calculate line totals",
+              "transformEach": {
+                "listPath": "local.items",
+                "assignments": [
+                  {
+                    "id": "line-total",
+                    "expression": {
+                      "args": [
+                        {
+                          "kind": "field",
+                          "path": "$item.quantity"
+                        },
+                        {
+                          "kind": "field",
+                          "path": "$item.unitPrice"
+                        }
+                      ],
+                      "kind": "call",
+                      "operator": "$multiply"
+                    },
+                    "sourcePath": "",
+                    "targetPath": "lineTotal",
+                    "targetType": "number",
+                    "valueSource": "expression"
+                  }
+                ]
+              }
+            }
+          },
+          "type": "flowStep",
+          "measured": {
+            "width": 280,
+            "height": 69
+          },
+          "position": {
+            "x": 60,
+            "y": 240
+          },
+          "selected": false
+        },
+        {
+          "id": "aggregate",
+          "data": {
+            "step": {
+              "x": 0,
+              "y": 0,
+              "id": "aggregate",
+              "kind": "transform",
+              "badge": "",
+              "color": "blue",
+              "title": "Calculate order subtotal",
+              "sample": "",
+              "subtitle": "Calculate order subtotal",
+              "summarizeList": {
+                "listPath": "local.items",
+                "summaries": [
+                  {
+                    "id": "sum",
+                    "fieldPath": "lineTotal",
+                    "operation": "sum",
+                    "targetPath": "subtotal"
+                  }
+                ]
+              }
+            }
+          },
+          "type": "flowStep",
+          "measured": {
+            "width": 280,
+            "height": 79
+          },
+          "position": {
+            "x": 360,
+            "y": 240
+          },
+          "selected": false
+        },
+        {
+          "id": "exists",
+          "data": {
+            "step": {
+              "x": 0,
+              "y": 0,
+              "id": "exists",
+              "kind": "transform",
+              "badge": "$anyElementTrue",
+              "color": "blue",
+              "title": "Check restricted goods",
+              "sample": "",
+              "subtitle": "Check restricted goods",
+              "checkExists": {
+                "group": {
+                  "id": "restricted-items",
+                  "op": "and",
+                  "type": "group",
+                  "children": [
+                    {
+                      "id": "restricted-items-condition",
+                      "path": "$item.restricted",
+                      "type": "condition",
+                      "value": "true",
+                      "operator": "$eq"
+                    }
+                  ]
+                },
+                "match": "any",
+                "listPath": "local.items",
+                "targetPath": "hasRestricted"
+              }
+            }
+          },
+          "type": "flowStep",
+          "measured": {
+            "width": 280,
+            "height": 69
+          },
+          "position": {
+            "x": 660,
+            "y": 240
+          },
+          "selected": false
+        },
+        {
+          "id": "sort",
+          "data": {
+            "step": {
+              "x": 0,
+              "y": 0,
+              "id": "sort",
+              "kind": "transform",
+              "badge": "$sortArray",
+              "color": "blue",
+              "title": "Rank packing priority",
+              "sample": "",
+              "sortList": {
+                "rules": [
+                  {
+                    "path": "lineTotal",
+                    "direction": "desc"
+                  }
+                ],
+                "listPath": "local.items",
+                "direction": "desc"
+              },
+              "subtitle": "Rank packing priority"
+            }
+          },
+          "type": "flowStep",
+          "measured": {
+            "width": 280,
+            "height": 69
+          },
+          "position": {
+            "x": 960,
+            "y": 240
+          },
+          "selected": false
+        },
+        {
+          "id": "trim",
+          "data": {
+            "step": {
+              "x": 0,
+              "y": 0,
+              "id": "trim",
+              "kind": "transform",
+              "badge": "$slice",
+              "color": "blue",
+              "title": "Keep top 3 priority lines",
+              "sample": "",
+              "subtitle": "Keep top 3 priority lines",
+              "takeFirstN": {
+                "mode": "first",
+                "count": 3,
+                "listPath": "local.items"
+              }
+            }
+          },
+          "type": "flowStep",
+          "measured": {
+            "width": 280,
+            "height": 69
+          },
+          "position": {
+            "x": 60,
+            "y": 420
+          },
+          "selected": false
+        },
+        {
+          "id": "priority-summary",
+          "data": {
+            "step": {
+              "x": 0,
+              "y": 0,
+              "id": "priority-summary",
+              "kind": "transform",
+              "badge": "",
+              "color": "blue",
+              "title": "Summarize priority packing batch",
+              "sample": "",
+              "subtitle": "Summarize priority packing batch",
+              "summarizeList": {
+                "listPath": "local.items",
+                "summaries": [
+                  {
+                    "id": "priority-sum",
+                    "fieldPath": "lineTotal",
+                    "operation": "sum",
+                    "targetPath": "priorityValue"
+                  }
+                ]
+              }
+            }
+          },
+          "type": "flowStep",
+          "measured": {
+            "width": 280,
+            "height": 100
+          },
+          "position": {
+            "x": 360,
+            "y": 420
+          },
+          "selected": false
+        },
+        {
+          "id": "tree",
+          "data": {
+            "step": {
+              "x": 0,
+              "y": 0,
+              "id": "tree",
+              "kind": "decision",
+              "badge": "Asset",
+              "color": "blue",
+              "title": "Evaluate order review",
+              "sample": "",
+              "subtitle": "Evaluate order review",
+              "decisionTree": {
+                "inputs": [
+                  {
+                    "path": "subtotal",
+                    "type": "number",
+                    "required": "required",
+                    "example": "161"
+                  },
+                  {
+                    "path": "hasRestricted",
+                    "type": "boolean",
+                    "required": "required",
+                    "example": "false"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "path": "reason",
+                    "type": "string",
+                    "required": "required",
+                    "example": "Automatic approval"
+                  },
+                  {
+                    "path": "requiresReview",
+                    "type": "boolean",
+                    "required": "required",
+                    "example": "false"
+                  }
+                ],
+                "bindings": [
+                  {
+                    "path": "subtotal",
+                    "value": "local.subtotal",
+                    "source": "field"
+                  },
+                  {
+                    "path": "hasRestricted",
+                    "value": "local.hasRestricted",
+                    "source": "field"
+                  }
+                ],
+                "decisionId": "order-review-policy",
+                "resultPath": "",
+                "targetPath": "review",
+                "source": "draft",
+                "version": 0
+              }
+            }
+          },
+          "type": "flowStep",
+          "measured": {
+            "width": 280,
+            "height": 97
+          },
+          "position": {
+            "x": 60,
+            "y": 600
+          },
+          "selected": false
+        },
+        {
+          "id": "route",
+          "data": {
+            "step": {
+              "x": 0,
+              "y": 0,
+              "id": "route",
+              "kind": "transform",
+              "badge": "Branch",
+              "color": "blue",
+              "title": "Review or approve",
+              "ifElse": {
+                "branches": [
+                  {
+                    "id": "review-path",
+                    "name": "Manual review",
+                    "group": {
+                      "id": "review-order",
+                      "op": "and",
+                      "type": "group",
+                      "children": [
+                        {
+                          "id": "review-order-condition",
+                          "path": "local.review.requiresReview",
+                          "type": "condition",
+                          "value": "true",
+                          "operator": "$eq"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "elseName": "Approve order"
+              },
+              "sample": "",
+              "subtitle": "Review or approve"
+            }
+          },
+          "type": "flowStep",
+          "measured": {
+            "width": 280,
+            "height": 171
+          },
+          "position": {
+            "x": 660,
+            "y": 600
+          },
+          "selected": false
+        },
+        {
+          "id": "response-review",
+          "data": {
+            "step": {
+              "x": 0,
+              "y": 0,
+              "id": "response-review",
+              "set": {
+                "assignments": [
+                  {
+                    "id": "id",
+                    "sourcePath": "orderId",
+                    "targetPath": "output.orderId",
+                    "targetType": "string",
+                    "valueSource": "field"
+                  },
+                  {
+                    "id": "total",
+                    "sourcePath": "local.charges.total",
+                    "targetPath": "output.total",
+                    "targetType": "number",
+                    "valueSource": "field"
+                  },
+                  {
+                    "id": "priority",
+                    "sourcePath": "local.priorityValue",
+                    "targetPath": "output.priorityValue",
+                    "targetType": "number",
+                    "valueSource": "field"
+                  },
+                  {
+                    "id": "method",
+                    "sourcePath": "local.charges.shippingMethod",
+                    "targetPath": "output.shippingMethod",
+                    "targetType": "string",
+                    "valueSource": "field"
+                  },
+                  {
+                    "id": "reason",
+                    "sourcePath": "local.review.reason",
+                    "targetPath": "output.reason",
+                    "targetType": "string",
+                    "valueSource": "field"
+                  },
+                  {
+                    "id": "status",
+                    "expression": {
+                      "kind": "literal",
+                      "type": "string",
+                      "value": "Review required"
+                    },
+                    "sourcePath": "",
+                    "targetPath": "output.status",
+                    "targetType": "string",
+                    "valueSource": "literal"
+                  }
+                ]
+              },
+              "kind": "transform",
+              "badge": "$set",
+              "color": "blue",
+              "title": "Build review response",
+              "sample": "",
+              "subtitle": "Build review response"
+            }
+          },
+          "type": "flowStep",
+          "dragging": false,
+          "measured": {
+            "width": 280,
+            "height": 69
+          },
+          "position": {
+            "x": 1102,
+            "y": 644
+          },
+          "selected": false
+        },
+        {
+          "id": "response-approve",
+          "data": {
+            "step": {
+              "x": 0,
+              "y": 0,
+              "id": "response-approve",
+              "set": {
+                "assignments": [
+                  {
+                    "id": "id",
+                    "sourcePath": "orderId",
+                    "targetPath": "output.orderId",
+                    "targetType": "string",
+                    "valueSource": "field"
+                  },
+                  {
+                    "id": "total",
+                    "sourcePath": "local.charges.total",
+                    "targetPath": "output.total",
+                    "targetType": "number",
+                    "valueSource": "field"
+                  },
+                  {
+                    "id": "priority",
+                    "sourcePath": "local.priorityValue",
+                    "targetPath": "output.priorityValue",
+                    "targetType": "number",
+                    "valueSource": "field"
+                  },
+                  {
+                    "id": "method",
+                    "sourcePath": "local.charges.shippingMethod",
+                    "targetPath": "output.shippingMethod",
+                    "targetType": "string",
+                    "valueSource": "field"
+                  },
+                  {
+                    "id": "reason",
+                    "sourcePath": "local.review.reason",
+                    "targetPath": "output.reason",
+                    "targetType": "string",
+                    "valueSource": "field"
+                  },
+                  {
+                    "id": "status",
+                    "expression": {
+                      "kind": "literal",
+                      "type": "string",
+                      "value": "Approved"
+                    },
+                    "sourcePath": "",
+                    "targetPath": "output.status",
+                    "targetType": "string",
+                    "valueSource": "literal"
+                  }
+                ]
+              },
+              "kind": "transform",
+              "badge": "$set",
+              "color": "blue",
+              "title": "Build approved response",
+              "sample": "",
+              "subtitle": "Build approved response"
+            }
+          },
+          "type": "flowStep",
+          "dragging": false,
+          "measured": {
+            "width": 280,
+            "height": 69
+          },
+          "position": {
+            "x": 54,
+            "y": 856
+          },
+          "selected": false
+        },
+        {
+          "id": "response",
+          "data": {
+            "step": {
+              "id": "response",
+              "kind": "response",
+              "badge": "Response",
+              "color": "purple",
+              "title": "Return order response",
+              "sample": "",
+              "subtitle": ""
+            }
+          },
+          "type": "flowStep",
+          "dragging": false,
+          "measured": {
+            "width": 280,
+            "height": 97
+          },
+          "position": {
+            "x": 1138,
+            "y": 854
+          },
+          "selected": false
+        },
+        {
+          "id": "step-1791171460266-crjsi",
+          "data": {
+            "step": {
+              "x": 0,
+              "y": 0,
+              "id": "step-1791171460266-crjsi",
+              "kind": "response",
+              "badge": "Response",
+              "color": "purple",
+              "title": "Return approved response",
+              "sample": "Response step added from the palette. Configure field mappings and generated pipeline details in this drawer.",
+              "subtitle": "Choose the fields to return and finish this path."
+            }
+          },
+          "type": "flowStep",
+          "dragging": false,
+          "measured": {
+            "width": 280,
+            "height": 97
+          },
+          "position": {
+            "x": 709,
+            "y": 857
+          },
+          "selected": false
+        },
+        {
+          "id": "call-order-charges",
+          "data": {
+            "step": {
+              "id": "call-order-charges",
+              "kind": "decision",
+              "badge": "Sub-flow",
+              "color": "purple",
+              "title": "Calculate order charges",
+              "sample": "",
+              "callFlow": {
+                "inputs": [
+                  {
+                    "path": "country",
+                    "type": "string",
+                    "required": "required",
+                    "example": "CA"
+                  },
+                  {
+                    "path": "subtotal",
+                    "type": "number",
+                    "required": "required",
+                    "example": "171"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "path": "total",
+                    "type": "number",
+                    "required": "required",
+                    "example": "173"
+                  },
+                  {
+                    "path": "handlingFee",
+                    "type": "number",
+                    "required": "required",
+                    "example": "2"
+                  },
+                  {
+                    "path": "shippingFee",
+                    "type": "number",
+                    "required": "required",
+                    "example": "0"
+                  },
+                  {
+                    "path": "shippingMethod",
+                    "type": "string",
+                    "required": "required",
+                    "example": "Standard"
+                  }
+                ],
+                "bindings": [
+                  {
+                    "path": "country",
+                    "value": "country",
+                    "source": "field"
+                  },
+                  {
+                    "path": "subtotal",
+                    "value": "local.subtotal",
+                    "source": "field"
+                  }
+                ],
+                "decisionId": "calculate-order-charges",
+                "resultPath": "",
+                "targetPath": "charges",
+                "source": "draft",
+                "version": 0
+              },
+              "subtitle": "Shipping, handling and final total"
+            }
+          },
+          "type": "flowStep",
+          "measured": {
+            "width": 280,
+            "height": 97
+          },
+          "position": {
+            "x": 660,
+            "y": 420
+          },
+          "selected": true
+        },
+        {
+          "id": "initialize-local-items",
+          "data": {
+            "step": {
+              "id": "initialize-local-items",
+              "kind": "transform",
+              "badge": "$map",
+              "color": "blue",
+              "title": "Initialize working items",
+              "sample": "",
+              "subtitle": "",
+              "transformEach": {
+                "listPath": "items",
+                "assignments": [
+                  {
+                    "id": "copy-sku",
+                    "sourcePath": "$item.sku",
+                    "targetPath": "sku",
+                    "targetType": "string",
+                    "valueSource": "field"
+                  },
+                  {
+                    "id": "copy-quantity",
+                    "sourcePath": "$item.quantity",
+                    "targetPath": "quantity",
+                    "targetType": "number",
+                    "valueSource": "field"
+                  },
+                  {
+                    "id": "copy-unitPrice",
+                    "sourcePath": "$item.unitPrice",
+                    "targetPath": "unitPrice",
+                    "targetType": "number",
+                    "valueSource": "field"
+                  },
+                  {
+                    "id": "copy-active",
+                    "sourcePath": "$item.active",
+                    "targetPath": "active",
+                    "targetType": "boolean",
+                    "valueSource": "field"
+                  },
+                  {
+                    "id": "copy-restricted",
+                    "sourcePath": "$item.restricted",
+                    "targetPath": "restricted",
+                    "targetType": "boolean",
+                    "valueSource": "field"
+                  }
+                ],
+                "targetListPath": "items"
+              }
+            }
+          },
+          "type": "flowStep",
+          "measured": {
+            "width": 280,
+            "height": 69
+          },
+          "position": {
+            "x": 660,
+            "y": 60
+          }
+        }
+      ]
+    },
+    "description": "Sample order evaluation using a flat request item list, shipping/review policies and regional handling fees."
+  }
+]

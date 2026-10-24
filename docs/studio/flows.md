@@ -58,3 +58,7 @@ When calling a Table, Tree, or Flow, map the called asset's inputs from availabl
 ### Complete each branch
 
 Give every branch a complete route to a Response. Current graph editing permits one incoming connection per step; branches do not merge into a shared downstream step. Test both sides of each condition.
+
+## Next: connect several assets
+
+Follow [Order fulfillment with subflows](order-fulfillment.md) to combine list transformations, a reusable charges Flow, a Decision Table, a Decision Tree, and reference data in one complete example.

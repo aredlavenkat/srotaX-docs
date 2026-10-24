@@ -1,0 +1,41 @@
+{
+  "orderId": "DOC-1001",
+  "country": "CA",
+  "items": [
+    {
+      "sku": "A",
+      "quantity": 2,
+      "unitPrice": 50,
+      "active": true,
+      "restricted": false
+    },
+    {
+      "sku": "B",
+      "quantity": 1,
+      "unitPrice": 40,
+      "active": true,
+      "restricted": false
+    },
+    {
+      "sku": "C",
+      "quantity": 1,
+      "unitPrice": 20,
+      "active": true,
+      "restricted": false
+    },
+    {
+      "sku": "D",
+      "quantity": 1,
+      "unitPrice": 10,
+      "active": true,
+      "restricted": false
+    },
+    {
+      "sku": "INACTIVE",
+      "quantity": 1,
+      "unitPrice": 999,
+      "active": false,
+      "restricted": false
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "environment": "Disposable BrowserFixture",
+  "checks": [
+    "four successful draft cases",
+    "unknown country rejected",
+    "blank order ID rejected",
+    "nested subflow trace present",
+    "priority sum differs from full subtotal"
+  ],
+  "releaseCheck": "blocked: merge reported Invalid compiled artifact; null value while constructing artifact reference metadata",
+  "expected": {
+    "total": 172,
+    "reason": "Automatic approval",
+    "status": "Approved",
+    "orderId": "DOC-1001",
+    "priorityValue": 160,
+    "shippingMethod": "Standard"
+  }
+}

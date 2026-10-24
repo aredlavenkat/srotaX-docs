@@ -25,7 +25,9 @@ nav:
     - Models: studio/models.md
     - Decision Tables: studio/tables.md
     - Decision Trees: studio/trees.md
-    - Flows: studio/flows.md
+    - Flows:
+      - Build your first Flow: studio/flows.md
+      - Order fulfillment with subflows: studio/order-fulfillment.md
     - Testing: studio/testing.md
     - Change sets: studio/change-sets.md
     - Releases: studio/releases.md
