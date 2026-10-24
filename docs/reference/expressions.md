@@ -6,9 +6,9 @@ Visual expressions choose a supported function and supply its arguments. Advance
 
 This example uses **Add** (`$add`) with two numeric **Fixed value** arguments: `75` and `9`. The result is `84`, assigned to `output.total` by the Set Fields step.
 
-[![Expression window showing Add with numeric arguments 75 and 9](../images/expression-window.jpg)](../images/expression-window.jpg)
+[![Editable Expression Builder with function categories, function list, and Add arguments](../images/expression-window.jpg)](../images/expression-window.jpg)
 
-*The saved expression is shown in read-only mode on Main. Open an editable draft to change the function or arguments.*
+*Edit mode with the function catalog expanded. Browse categories on the left, scroll or search the function list, and configure arguments on the right. Select **Choose function** to reopen the catalog after choosing a function.*
 
 To configure this example in a Flow, open **Set Fields**, select `output.total`, choose **Use expression**, and open **Edit expression**. In Visual mode, select **Add**, then provide the two number arguments. Select **Done** to update the step and **Save Draft** to save the asset. Run a test and check that `output.total` is `84`.
 
