@@ -884,6 +884,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#combine-conditions-with-nested-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Combine conditions with nested groups
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#comparison" class="md-nav__link">
     <span class="md-ellipsis">
       Comparison
@@ -5344,6 +5353,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#combine-conditions-with-nested-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Combine conditions with nested groups
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#comparison" class="md-nav__link">
     <span class="md-ellipsis">
       Comparison
@@ -5460,6 +5478,52 @@
 
 <h1 id="condition-recipes">Condition recipes</h1>
 <p>These are SrotaX condition recipes from the API catalog. Some combine multiple engine operators; recipe names must not be presented as MongoDB operators.</p>
+<h2 id="combine-conditions-with-nested-groups">Combine conditions with nested groups</h2>
+<p>Use <strong>AND</strong> when every condition must pass and <strong>OR</strong> when any condition may pass. A nested group lets you combine those choices in one rule.</p>
+<p>This Decision Tree condition requires a subtotal greater than 100 <strong>and</strong> a country of either CA or US:</p>
+<div class="highlight"><pre><span></span><code>subtotal &gt; 100 AND (country = CA OR country = US)
+</code></pre></div>
+<p><a href="../../images/nested-conditions.jpg"><img alt="Condition editor with an outer AND group and a nested OR group for CA or US" src="../../images/nested-conditions.jpg" /></a></p>
+<p><em>The outer AND combines the subtotal comparison with the entire nested OR group.</em></p>
+<ol>
+<li>Open a Decision Tree condition and select <strong>AND</strong> for its outer group.</li>
+<li>Select <code>input.subtotal</code>, <strong>Greater than</strong>, and <code>100</code>.</li>
+<li>Select <strong>Add group</strong> and choose <strong>OR</strong> within the nested group.</li>
+<li>Add <code>input.country</code> <strong>Equals</strong> <code>CA</code> and <code>input.country</code> <strong>Equals</strong> <code>US</code> inside that group.</li>
+<li>Save the draft and test both matching and nonmatching inputs.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Subtotal</th>
+<th>Country</th>
+<th>Condition result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>150</td>
+<td>CA</td>
+<td>True</td>
+</tr>
+<tr>
+<td>150</td>
+<td>US</td>
+<td>True</td>
+</tr>
+<tr>
+<td>150</td>
+<td>GB</td>
+<td>False</td>
+</tr>
+<tr>
+<td>100</td>
+<td>CA</td>
+<td>False: the comparison is strictly greater than 100</td>
+</tr>
+</tbody>
+</table>
+<p>Keep both country checks inside the nested group. Putting all three comparisons in an outer OR group would allow CA or US orders regardless of their subtotal.</p>
 <h2 id="comparison">Comparison</h2>
 <table>
 <thead>

@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#expressions-and-conditions" class="md-skip">
+        <a href="#expressions" class="md-skip">
           Skip to content
         </a>
       
@@ -820,6 +820,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Expressions
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -831,6 +844,43 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#read-an-expression" class="md-nav__link">
+    <span class="md-ellipsis">
+      Read an expression
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#field-scope-and-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Field scope and testing
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -5206,6 +5256,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#read-an-expression" class="md-nav__link">
+    <span class="md-ellipsis">
+      Read an expression
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#field-scope-and-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Field scope and testing
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -5220,8 +5296,14 @@
 
 
 
-<h1 id="expressions-and-conditions">Expressions and conditions</h1>
+<h1 id="expressions">Expressions</h1>
 <p>Visual expressions choose a supported function and supply its arguments. Advanced JSON expressions use the engine's expression syntax. The modes contain separate expressions: select the one you intend to use. They are not automatically synchronized.</p>
+<h2 id="read-an-expression">Read an expression</h2>
+<p>This example uses <strong>Add</strong> (<code>$add</code>) with two numeric <strong>Fixed value</strong> arguments: <code>75</code> and <code>9</code>. The result is <code>84</code>, assigned to <code>output.total</code> by the Set Fields step.</p>
+<p><a href="../../images/expression-window.jpg"><img alt="Expression window showing Add with numeric arguments 75 and 9" src="../../images/expression-window.jpg" /></a></p>
+<p><em>The saved expression is shown in read-only mode on Main. Open an editable draft to change the function or arguments.</em></p>
+<p>To configure this example in a Flow, open <strong>Set Fields</strong>, select <code>output.total</code>, choose <strong>Use expression</strong>, and open <strong>Edit expression</strong>. In Visual mode, select <strong>Add</strong>, then provide the two number arguments. Select <strong>Done</strong> to update the step and <strong>Save Draft</strong> to save the asset. Run a test and check that <code>output.total</code> is <code>84</code>.</p>
+<h2 id="field-scope-and-testing">Field scope and testing</h2>
 <p><code>input.*</code>, <code>local.*</code>, <code>output.*</code>, and the current list item have different scopes. Select fields from the picker where possible. A reference that exists in another step or another asset is not automatically available at the current location.</p>
 <p>The <a href="../operators/">operator inventory</a> separates registered engine operators from functions offered to the Visual editor. Scoped operators such as <code>$map</code>, <code>$filter</code>, and <code>$reduce</code> require scope-aware configuration and are not generic Visual function entries.</p>
 <p>Condition pickers also contain business-facing recipes built from one or more operators. A recipe name does not necessarily identify a MongoDB operator. Use <a href="../conditions/">condition reference</a> to inspect their metadata.</p>
