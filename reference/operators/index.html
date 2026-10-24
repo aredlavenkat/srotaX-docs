@@ -1,0 +1,1990 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Build, test, and release business decisions with SrotaX.">
+      
+      
+      
+        <link rel="canonical" href="https://docs.srotax.com/reference/operators/">
+      
+      
+        <link rel="prev" href="../conditions/">
+      
+      
+        <link rel="next" href="../../verification/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+    
+    
+      
+        <title>Operators - SrotaX Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#operator-inventory" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="SrotaX Docs" class="md-header__button md-logo" aria-label="SrotaX Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SrotaX Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Operators
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aredlavenkat/srotaX-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aredlavenkat/srotaX-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="SrotaX Docs" class="md-nav__button md-logo" aria-label="SrotaX Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    SrotaX Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aredlavenkat/srotaX-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aredlavenkat/srotaX-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Start here
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Shipping quickstart
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Studio
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Studio
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../studio/catalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Catalog and folders
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../studio/contracts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Contracts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../studio/models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Models
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../studio/tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Decision Tables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../studio/trees/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Decision Trees
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../studio/flows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Flows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../studio/testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Testing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../studio/change-sets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Change sets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../studio/releases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Releases
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Integration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Integration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/java/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Java HTTP client
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Runtime API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schemas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schema format
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../steps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Flow steps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../expressions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Expressions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conditions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Conditions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Operators
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../verification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Verification
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="operator-inventory">Operator inventory</h1>
+<p>Catalog snapshot: <strong>146 registered engine operators</strong>, <strong>119 Visual function entries</strong>. Target metadata: MongoDB 6.0.</p>
+<p>Registration is not the same as compiler acceptance, Visual availability, or verified MongoDB parity. The compiler validates the complete expression and its field types. The tested-example column refers only to the checked-in compiler/engine example, not all inputs.</p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Category</th>
+<th>Visual entry</th>
+<th>Example executed</th>
+<th>Metadata classification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="abs/">$abs</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="acos/">$acos</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="acosh/">$acosh</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="add/">$add</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="allElementsTrue/">$allElementsTrue</a></td>
+<td>Sets</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="and/">$and</a></td>
+<td>Logic</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="anyElementTrue/">$anyElementTrue</a></td>
+<td>Sets</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="arrayElemAt/">$arrayElemAt</a></td>
+<td>Arrays</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="arrayToObject/">$arrayToObject</a></td>
+<td>Arrays</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="asin/">$asin</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="asinh/">$asinh</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="atan/">$atan</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="atan2/">$atan2</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="atanh/">$atanh</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="avg/">$avg</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="binarySize/">$binarySize</a></td>
+<td>Types and conversion</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="bitAnd/">$bitAnd</a></td>
+<td>Arithmetic</td>
+<td>No</td>
+<td>Not in this docs suite</td>
+<td>NON_MONGO_6_EXPRESSION</td>
+</tr>
+<tr>
+<td><a href="bitOr/">$bitOr</a></td>
+<td>Arithmetic</td>
+<td>No</td>
+<td>Not in this docs suite</td>
+<td>NON_MONGO_6_EXPRESSION</td>
+</tr>
+<tr>
+<td><a href="bitXor/">$bitXor</a></td>
+<td>Arithmetic</td>
+<td>No</td>
+<td>Not in this docs suite</td>
+<td>NON_MONGO_6_EXPRESSION</td>
+</tr>
+<tr>
+<td><a href="bsonSize/">$bsonSize</a></td>
+<td>Types and conversion</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="ceil/">$ceil</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="cmp/">$cmp</a></td>
+<td>Comparison</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="coalesce/">$coalesce</a></td>
+<td>Conditional</td>
+<td>No</td>
+<td>Not in this docs suite</td>
+<td>NON_MONGO_6_EXPRESSION</td>
+</tr>
+<tr>
+<td><a href="concat/">$concat</a></td>
+<td>Text</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="concatArrays/">$concatArrays</a></td>
+<td>Arrays</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="cond/">$cond</a></td>
+<td>Conditional</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="convert/">$convert</a></td>
+<td>Types and conversion</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="cos/">$cos</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="cosh/">$cosh</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="dateAdd/">$dateAdd</a></td>
+<td>Dates</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="dateDiff/">$dateDiff</a></td>
+<td>Dates</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="dateFromParts/">$dateFromParts</a></td>
+<td>Dates</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="dateFromString/">$dateFromString</a></td>
+<td>Dates</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="dateSubtract/">$dateSubtract</a></td>
+<td>Dates</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="dateToParts/">$dateToParts</a></td>
+<td>Dates</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="dateToString/">$dateToString</a></td>
+<td>Dates</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="dateTrunc/">$dateTrunc</a></td>
+<td>Dates</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="dayOfMonth/">$dayOfMonth</a></td>
+<td>Dates</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="dayOfWeek/">$dayOfWeek</a></td>
+<td>Dates</td>
+<td>No</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="dayOfYear/">$dayOfYear</a></td>
+<td>Dates</td>
+<td>No</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="degreesToRadians/">$degreesToRadians</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="divide/">$divide</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="endsWith/">$endsWith</a></td>
+<td>Text</td>
+<td>No</td>
+<td>Not in this docs suite</td>
+<td>NON_MONGO_6_EXPRESSION</td>
+</tr>
+<tr>
+<td><a href="eq/">$eq</a></td>
+<td>Comparison</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="exp/">$exp</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="expr/">$expr</a></td>
+<td>Advanced</td>
+<td>No</td>
+<td>Not in this docs suite</td>
+<td>NON_MONGO_6_EXPRESSION</td>
+</tr>
+<tr>
+<td><a href="filter/">$filter</a></td>
+<td>Arrays</td>
+<td>No</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="first/">$first</a></td>
+<td>Arrays</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="floor/">$floor</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="function/">$function</a></td>
+<td>Advanced</td>
+<td>No</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="getField/">$getField</a></td>
+<td>Objects</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="gt/">$gt</a></td>
+<td>Comparison</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="gte/">$gte</a></td>
+<td>Comparison</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="hour/">$hour</a></td>
+<td>Dates</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="ifNull/">$ifNull</a></td>
+<td>Conditional</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="in/">$in</a></td>
+<td>Comparison</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="indexOfArray/">$indexOfArray</a></td>
+<td>Arrays</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="indexOfBytes/">$indexOfBytes</a></td>
+<td>Text</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="indexOfCP/">$indexOfCP</a></td>
+<td>Text</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="isArray/">$isArray</a></td>
+<td>Arrays</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="isNumber/">$isNumber</a></td>
+<td>Types and conversion</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="isoDayOfWeek/">$isoDayOfWeek</a></td>
+<td>Dates</td>
+<td>No</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="isoWeek/">$isoWeek</a></td>
+<td>Dates</td>
+<td>No</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="isoWeekYear/">$isoWeekYear</a></td>
+<td>Dates</td>
+<td>No</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="last/">$last</a></td>
+<td>Arrays</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="let/">$let</a></td>
+<td>Conditional</td>
+<td>No</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="literal/">$literal</a></td>
+<td>Types and conversion</td>
+<td>No</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="ln/">$ln</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="log/">$log</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="log10/">$log10</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="lt/">$lt</a></td>
+<td>Comparison</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="lte/">$lte</a></td>
+<td>Comparison</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="ltrim/">$ltrim</a></td>
+<td>Text</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="map/">$map</a></td>
+<td>Arrays</td>
+<td>No</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="max/">$max</a></td>
+<td>Arrays</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="mergeObjects/">$mergeObjects</a></td>
+<td>Objects</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="millisecond/">$millisecond</a></td>
+<td>Dates</td>
+<td>No</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="min/">$min</a></td>
+<td>Arrays</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="minDistance/">$minDistance</a></td>
+<td>Arithmetic</td>
+<td>No</td>
+<td>Not in this docs suite</td>
+<td>NON_MONGO_6_EXPRESSION</td>
+</tr>
+<tr>
+<td><a href="minute/">$minute</a></td>
+<td>Dates</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="mod/">$mod</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="month/">$month</a></td>
+<td>Dates</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="multiply/">$multiply</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="ne/">$ne</a></td>
+<td>Comparison</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="nin/">$nin</a></td>
+<td>Comparison</td>
+<td>No</td>
+<td>Not in this docs suite</td>
+<td>NON_MONGO_6_EXPRESSION</td>
+</tr>
+<tr>
+<td><a href="nor/">$nor</a></td>
+<td>Logic</td>
+<td>No</td>
+<td>Not in this docs suite</td>
+<td>NON_MONGO_6_EXPRESSION</td>
+</tr>
+<tr>
+<td><a href="not/">$not</a></td>
+<td>Logic</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="objectToArray/">$objectToArray</a></td>
+<td>Arrays</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="or/">$or</a></td>
+<td>Logic</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="pow/">$pow</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="radiansToDegrees/">$radiansToDegrees</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="range/">$range</a></td>
+<td>Arrays</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="reduce/">$reduce</a></td>
+<td>Arrays</td>
+<td>No</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="regexFind/">$regexFind</a></td>
+<td>Text</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="regexFindAll/">$regexFindAll</a></td>
+<td>Text</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="regexMatch/">$regexMatch</a></td>
+<td>Text</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="replaceAll/">$replaceAll</a></td>
+<td>Text</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="replaceOne/">$replaceOne</a></td>
+<td>Text</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="reverseArray/">$reverseArray</a></td>
+<td>Arrays</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="round/">$round</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="rtrim/">$rtrim</a></td>
+<td>Text</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="second/">$second</a></td>
+<td>Dates</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="setDifference/">$setDifference</a></td>
+<td>Sets</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="setEquals/">$setEquals</a></td>
+<td>Sets</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="setField/">$setField</a></td>
+<td>Objects</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="setIntersection/">$setIntersection</a></td>
+<td>Sets</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="setIsSubset/">$setIsSubset</a></td>
+<td>Sets</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="setIsSuperset/">$setIsSuperset</a></td>
+<td>Sets</td>
+<td>No</td>
+<td>Not in this docs suite</td>
+<td>NON_MONGO_6_EXPRESSION</td>
+</tr>
+<tr>
+<td><a href="setUnion/">$setUnion</a></td>
+<td>Sets</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="sin/">$sin</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="sinh/">$sinh</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="size/">$size</a></td>
+<td>Arrays</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="slice/">$slice</a></td>
+<td>Arrays</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="split/">$split</a></td>
+<td>Text</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="sqrt/">$sqrt</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="startsWith/">$startsWith</a></td>
+<td>Text</td>
+<td>No</td>
+<td>Not in this docs suite</td>
+<td>NON_MONGO_6_EXPRESSION</td>
+</tr>
+<tr>
+<td><a href="strLenBytes/">$strLenBytes</a></td>
+<td>Text</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="strLenCP/">$strLenCP</a></td>
+<td>Text</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="strcasecmp/">$strcasecmp</a></td>
+<td>Text</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="substr/">$substr</a></td>
+<td>Text</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="substrBytes/">$substrBytes</a></td>
+<td>Text</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="substrCP/">$substrCP</a></td>
+<td>Text</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="subtract/">$subtract</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="sum/">$sum</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="switch/">$switch</a></td>
+<td>Conditional</td>
+<td>No</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="tan/">$tan</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="tanh/">$tanh</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="toBool/">$toBool</a></td>
+<td>Types and conversion</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="toDate/">$toDate</a></td>
+<td>Types and conversion</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="toDecimal/">$toDecimal</a></td>
+<td>Types and conversion</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="toDouble/">$toDouble</a></td>
+<td>Types and conversion</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="toInt/">$toInt</a></td>
+<td>Types and conversion</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="toLong/">$toLong</a></td>
+<td>Types and conversion</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="toLower/">$toLower</a></td>
+<td>Text</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="toObjectId/">$toObjectId</a></td>
+<td>Types and conversion</td>
+<td>No</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="toString/">$toString</a></td>
+<td>Types and conversion</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="toUpper/">$toUpper</a></td>
+<td>Text</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="trim/">$trim</a></td>
+<td>Text</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="trunc/">$trunc</a></td>
+<td>Arithmetic</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="tsIncrement/">$tsIncrement</a></td>
+<td>Dates</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="tsSecond/">$tsSecond</a></td>
+<td>Dates</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="type/">$type</a></td>
+<td>Types and conversion</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="unsetField/">$unsetField</a></td>
+<td>Objects</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="week/">$week</a></td>
+<td>Dates</td>
+<td>No</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+<tr>
+<td><a href="year/">$year</a></td>
+<td>Dates</td>
+<td>Yes</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_SUBSET</td>
+</tr>
+<tr>
+<td><a href="zip/">$zip</a></td>
+<td>Arrays</td>
+<td>No</td>
+<td>Not in this docs suite</td>
+<td>MONGO_6_DIFFERENCES</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.indexes", "content.code.copy"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

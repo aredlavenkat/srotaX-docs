@@ -1,0 +1,47 @@
+[
+  {
+    "input": {
+      "subtotal": 0
+    },
+    "expected": {
+      "fee": 9,
+      "method": "Standard"
+    }
+  },
+  {
+    "input": {
+      "subtotal": 75
+    },
+    "expected": {
+      "fee": 9,
+      "method": "Standard"
+    }
+  },
+  {
+    "input": {
+      "subtotal": 99.99
+    },
+    "expected": {
+      "fee": 9,
+      "method": "Standard"
+    }
+  },
+  {
+    "input": {
+      "subtotal": 100
+    },
+    "expected": {
+      "fee": 0,
+      "method": "Standard"
+    }
+  },
+  {
+    "input": {
+      "subtotal": 150
+    },
+    "expected": {
+      "fee": 0,
+      "method": "Standard"
+    }
+  }
+]

@@ -1,0 +1,99 @@
+{
+  "type": "table",
+  "contract": {
+    "inputs": {
+      "type": "object",
+      "properties": {
+        "subtotal": {
+          "type": "number",
+          "example": 75
+        }
+      },
+      "required": [
+        "subtotal"
+      ]
+    },
+    "outputs": {
+      "type": "object",
+      "properties": {
+        "fee": {
+          "type": "number",
+          "example": 9
+        },
+        "method": {
+          "type": "string",
+          "example": "Standard"
+        }
+      },
+      "required": [
+        "fee",
+        "method"
+      ]
+    },
+    "variables": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  "definition": {
+    "columns": [
+      {
+        "id": "subtotal",
+        "kind": "condition",
+        "path": "subtotal",
+        "label": "Order subtotal",
+        "valueType": "number"
+      },
+      {
+        "id": "fee",
+        "kind": "result",
+        "path": "fee",
+        "label": "Shipping fee",
+        "valueType": "number"
+      },
+      {
+        "id": "method",
+        "kind": "result",
+        "path": "method",
+        "label": "Shipping method",
+        "valueType": "string"
+      }
+    ],
+    "rows": [
+      {
+        "id": "free",
+        "cells": {
+          "subtotal": {
+            "operator": "$gte",
+            "value": "100"
+          },
+          "fee": {
+            "operator": "$literal",
+            "value": "0"
+          },
+          "method": {
+            "operator": "$literal",
+            "value": "Standard"
+          }
+        }
+      },
+      {
+        "id": "paid",
+        "cells": {
+          "subtotal": {
+            "operator": "$lt",
+            "value": "100"
+          },
+          "fee": {
+            "operator": "$literal",
+            "value": "9"
+          },
+          "method": {
+            "operator": "$literal",
+            "value": "Standard"
+          }
+        }
+      }
+    ]
+  }
+}
