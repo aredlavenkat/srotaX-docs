@@ -37,7 +37,167 @@ nav:
     - Flow steps: reference/steps.md
     - Expressions: reference/expressions.md
     - Conditions: reference/conditions.md
-    - Operators: reference/operators.md
+    # BEGIN GENERATED OPERATOR NAV
+    - Operators:
+      - Overview: reference/operators.md
+      - "Advanced":
+        - "$expr": reference/operators/expr.md
+        - "$function": reference/operators/function.md
+      - "Arithmetic":
+        - "$abs": reference/operators/abs.md
+        - "$acos": reference/operators/acos.md
+        - "$acosh": reference/operators/acosh.md
+        - "$add": reference/operators/add.md
+        - "$asin": reference/operators/asin.md
+        - "$asinh": reference/operators/asinh.md
+        - "$atan": reference/operators/atan.md
+        - "$atan2": reference/operators/atan2.md
+        - "$atanh": reference/operators/atanh.md
+        - "$avg": reference/operators/avg.md
+        - "$bitAnd": reference/operators/bitAnd.md
+        - "$bitOr": reference/operators/bitOr.md
+        - "$bitXor": reference/operators/bitXor.md
+        - "$ceil": reference/operators/ceil.md
+        - "$cos": reference/operators/cos.md
+        - "$cosh": reference/operators/cosh.md
+        - "$degreesToRadians": reference/operators/degreesToRadians.md
+        - "$divide": reference/operators/divide.md
+        - "$exp": reference/operators/exp.md
+        - "$floor": reference/operators/floor.md
+        - "$ln": reference/operators/ln.md
+        - "$log": reference/operators/log.md
+        - "$log10": reference/operators/log10.md
+        - "$minDistance": reference/operators/minDistance.md
+        - "$mod": reference/operators/mod.md
+        - "$multiply": reference/operators/multiply.md
+        - "$pow": reference/operators/pow.md
+        - "$radiansToDegrees": reference/operators/radiansToDegrees.md
+        - "$round": reference/operators/round.md
+        - "$sin": reference/operators/sin.md
+        - "$sinh": reference/operators/sinh.md
+        - "$sqrt": reference/operators/sqrt.md
+        - "$subtract": reference/operators/subtract.md
+        - "$sum": reference/operators/sum.md
+        - "$tan": reference/operators/tan.md
+        - "$tanh": reference/operators/tanh.md
+        - "$trunc": reference/operators/trunc.md
+      - "Arrays":
+        - "$arrayElemAt": reference/operators/arrayElemAt.md
+        - "$arrayToObject": reference/operators/arrayToObject.md
+        - "$concatArrays": reference/operators/concatArrays.md
+        - "$filter": reference/operators/filter.md
+        - "$first": reference/operators/first.md
+        - "$indexOfArray": reference/operators/indexOfArray.md
+        - "$isArray": reference/operators/isArray.md
+        - "$last": reference/operators/last.md
+        - "$map": reference/operators/map.md
+        - "$max": reference/operators/max.md
+        - "$min": reference/operators/min.md
+        - "$objectToArray": reference/operators/objectToArray.md
+        - "$range": reference/operators/range.md
+        - "$reduce": reference/operators/reduce.md
+        - "$reverseArray": reference/operators/reverseArray.md
+        - "$size": reference/operators/size.md
+        - "$slice": reference/operators/slice.md
+        - "$zip": reference/operators/zip.md
+      - "Comparison":
+        - "$cmp": reference/operators/cmp.md
+        - "$eq": reference/operators/eq.md
+        - "$gt": reference/operators/gt.md
+        - "$gte": reference/operators/gte.md
+        - "$in": reference/operators/in.md
+        - "$lt": reference/operators/lt.md
+        - "$lte": reference/operators/lte.md
+        - "$ne": reference/operators/ne.md
+        - "$nin": reference/operators/nin.md
+      - "Conditional":
+        - "$coalesce": reference/operators/coalesce.md
+        - "$cond": reference/operators/cond.md
+        - "$ifNull": reference/operators/ifNull.md
+        - "$let": reference/operators/let.md
+        - "$switch": reference/operators/switch.md
+      - "Dates":
+        - "$dateAdd": reference/operators/dateAdd.md
+        - "$dateDiff": reference/operators/dateDiff.md
+        - "$dateFromParts": reference/operators/dateFromParts.md
+        - "$dateFromString": reference/operators/dateFromString.md
+        - "$dateSubtract": reference/operators/dateSubtract.md
+        - "$dateToParts": reference/operators/dateToParts.md
+        - "$dateToString": reference/operators/dateToString.md
+        - "$dateTrunc": reference/operators/dateTrunc.md
+        - "$dayOfMonth": reference/operators/dayOfMonth.md
+        - "$dayOfWeek": reference/operators/dayOfWeek.md
+        - "$dayOfYear": reference/operators/dayOfYear.md
+        - "$hour": reference/operators/hour.md
+        - "$isoDayOfWeek": reference/operators/isoDayOfWeek.md
+        - "$isoWeek": reference/operators/isoWeek.md
+        - "$isoWeekYear": reference/operators/isoWeekYear.md
+        - "$millisecond": reference/operators/millisecond.md
+        - "$minute": reference/operators/minute.md
+        - "$month": reference/operators/month.md
+        - "$second": reference/operators/second.md
+        - "$tsIncrement": reference/operators/tsIncrement.md
+        - "$tsSecond": reference/operators/tsSecond.md
+        - "$week": reference/operators/week.md
+        - "$year": reference/operators/year.md
+      - "Logic":
+        - "$and": reference/operators/and.md
+        - "$nor": reference/operators/nor.md
+        - "$not": reference/operators/not.md
+        - "$or": reference/operators/or.md
+      - "Objects":
+        - "$getField": reference/operators/getField.md
+        - "$mergeObjects": reference/operators/mergeObjects.md
+        - "$setField": reference/operators/setField.md
+        - "$unsetField": reference/operators/unsetField.md
+      - "Sets":
+        - "$allElementsTrue": reference/operators/allElementsTrue.md
+        - "$anyElementTrue": reference/operators/anyElementTrue.md
+        - "$setDifference": reference/operators/setDifference.md
+        - "$setEquals": reference/operators/setEquals.md
+        - "$setIntersection": reference/operators/setIntersection.md
+        - "$setIsSubset": reference/operators/setIsSubset.md
+        - "$setIsSuperset": reference/operators/setIsSuperset.md
+        - "$setUnion": reference/operators/setUnion.md
+      - "Text":
+        - "$concat": reference/operators/concat.md
+        - "$endsWith": reference/operators/endsWith.md
+        - "$indexOfBytes": reference/operators/indexOfBytes.md
+        - "$indexOfCP": reference/operators/indexOfCP.md
+        - "$ltrim": reference/operators/ltrim.md
+        - "$regexFind": reference/operators/regexFind.md
+        - "$regexFindAll": reference/operators/regexFindAll.md
+        - "$regexMatch": reference/operators/regexMatch.md
+        - "$replaceAll": reference/operators/replaceAll.md
+        - "$replaceOne": reference/operators/replaceOne.md
+        - "$rtrim": reference/operators/rtrim.md
+        - "$split": reference/operators/split.md
+        - "$startsWith": reference/operators/startsWith.md
+        - "$strcasecmp": reference/operators/strcasecmp.md
+        - "$strLenBytes": reference/operators/strLenBytes.md
+        - "$strLenCP": reference/operators/strLenCP.md
+        - "$substr": reference/operators/substr.md
+        - "$substrBytes": reference/operators/substrBytes.md
+        - "$substrCP": reference/operators/substrCP.md
+        - "$toLower": reference/operators/toLower.md
+        - "$toUpper": reference/operators/toUpper.md
+        - "$trim": reference/operators/trim.md
+      - "Types and conversion":
+        - "$binarySize": reference/operators/binarySize.md
+        - "$bsonSize": reference/operators/bsonSize.md
+        - "$convert": reference/operators/convert.md
+        - "$isNumber": reference/operators/isNumber.md
+        - "$literal": reference/operators/literal.md
+        - "$toBool": reference/operators/toBool.md
+        - "$toDate": reference/operators/toDate.md
+        - "$toDecimal": reference/operators/toDecimal.md
+        - "$toDouble": reference/operators/toDouble.md
+        - "$toInt": reference/operators/toInt.md
+        - "$toLong": reference/operators/toLong.md
+        - "$toObjectId": reference/operators/toObjectId.md
+        - "$toString": reference/operators/toString.md
+        - "$type": reference/operators/type.md
+    # END GENERATED OPERATOR NAV
   - Verification: verification.md
 extra_css:
   - stylesheets/guides.css

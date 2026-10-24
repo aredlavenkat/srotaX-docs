@@ -35,3 +35,23 @@ lines+=['','## Aggregate List operations','','| Operation | Requires a field |',
 for op in catalog['summaryOperations']:lines.append(f"| {op['label']} (`{op['value']}`) | {op['requiresField']} |")
 write('conditions.md','\n'.join(lines)+'\n')
 print('Generated',len(catalog['engineOperators']),'operator pages')
+
+# Keep sidebar entries in sync with the same catalog that produces the pages.
+config_path=root/'mkdocs.yml'
+config=config_path.read_text()
+start='    # BEGIN GENERATED OPERATOR NAV'
+end='    # END GENERATED OPERATOR NAV'
+nav=[start,'    - Operators:','      - Overview: reference/operators.md']
+for category in sorted({op['category'] for op in catalog['engineOperators']}):
+ nav.append(f'      - {json.dumps(category)}:')
+ for op in sorted((op for op in catalog['engineOperators'] if op['category']==category),key=lambda op:op['name'].lower()):
+  nav.append(f"        - {json.dumps(op['name'])}: reference/operators/{op['name'][1:]}.md")
+nav.append(end)
+block='\n'.join(nav)
+if start in config:
+ before,rest=config.split(start,1)
+ _,after=rest.split(end,1)
+ config=before+block+after
+else:
+ config=config.replace('    - Operators: reference/operators.md',block)
+config_path.write_text(config)

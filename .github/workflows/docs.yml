@@ -22,7 +22,7 @@ jobs:
           java-version: '21'
       - run: javac -d target/java examples/java/ShippingClient.java
       - run: python scripts/generate-reference.py
-      - run: git diff --exit-code -- docs/reference
+      - run: git diff --exit-code -- docs/reference mkdocs.yml
       - run: python scripts/check.py
       - run: mkdocs build --strict
 
