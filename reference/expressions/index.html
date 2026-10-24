@@ -5300,8 +5300,8 @@
 <p>Visual expressions choose a supported function and supply its arguments. Advanced JSON expressions use the engine's expression syntax. The modes contain separate expressions: select the one you intend to use. They are not automatically synchronized.</p>
 <h2 id="read-an-expression">Read an expression</h2>
 <p>This example uses <strong>Add</strong> (<code>$add</code>) with two numeric <strong>Fixed value</strong> arguments: <code>75</code> and <code>9</code>. The result is <code>84</code>, assigned to <code>output.total</code> by the Set Fields step.</p>
-<p><a href="../../images/expression-window.jpg"><img alt="Expression window showing Add with numeric arguments 75 and 9" src="../../images/expression-window.jpg" /></a></p>
-<p><em>The saved expression is shown in read-only mode on Main. Open an editable draft to change the function or arguments.</em></p>
+<p><a href="../../images/expression-window.jpg"><img alt="Editable Expression Builder with function categories, function list, and Add arguments" src="../../images/expression-window.jpg" /></a></p>
+<p><em>Edit mode with the function catalog expanded. Browse categories on the left, scroll or search the function list, and configure arguments on the right. Select <strong>Choose function</strong> to reopen the catalog after choosing a function.</em></p>
 <p>To configure this example in a Flow, open <strong>Set Fields</strong>, select <code>output.total</code>, choose <strong>Use expression</strong>, and open <strong>Edit expression</strong>. In Visual mode, select <strong>Add</strong>, then provide the two number arguments. Select <strong>Done</strong> to update the step and <strong>Save Draft</strong> to save the asset. Run a test and check that <code>output.total</code> is <code>84</code>.</p>
 <h2 id="field-scope-and-testing">Field scope and testing</h2>
 <p><code>input.*</code>, <code>local.*</code>, <code>output.*</code>, and the current list item have different scopes. Select fields from the picker where possible. A reference that exists in another step or another asset is not automatically available at the current location.</p>
