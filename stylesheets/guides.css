@@ -2,3 +2,15 @@
 .md-grid { max-width: 90rem; }
 .md-typeset a > img { border: 1px solid #e2e5ed; border-radius: 6px; cursor: zoom-in; }
 .md-typeset p:has(> a > img) + p > em { display: block; color: #626b7c; font-size: .8rem; }
+
+/* Keep the current page easy to locate in a long reference tree. */
+.md-nav--primary .md-nav__link--active {
+  background: #eee8fa;
+  border-radius: 4px;
+  box-shadow: inset 3px 0 #673ab7;
+  padding: .35rem .55rem;
+  font-weight: 700;
+}
+@media (min-width: 60em) {
+  .md-search__form { background-color: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.3); }
+}
