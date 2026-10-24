@@ -9,6 +9,10 @@ theme:
   features:
     - navigation.sections
     - navigation.indexes
+    - navigation.footer
+    - navigation.top
+    - search.suggest
+    - search.highlight
     - content.code.copy
 plugins:
   - search
@@ -17,17 +21,18 @@ markdown_extensions:
   - tables
   - pymdownx.superfences
 nav:
-  - Start here: index.md
-  - Shipping quickstart: quickstart.md
-  - Studio:
+  - Get started:
+    - Overview: index.md
+    - Shipping quickstart: quickstart.md
+  - Studio guides:
     - Catalog and folders: studio/catalog.md
     - Data Contracts: studio/contracts.md
     - Models: studio/models.md
     - Decision Tables: studio/tables.md
     - Decision Trees: studio/trees.md
     - Flows:
-      - Build your first Flow: studio/flows.md
-      - Order fulfillment with subflows: studio/order-fulfillment.md
+      - First Flow: studio/flows.md
+      - Order fulfillment & subflows: studio/order-fulfillment.md
     - Testing: studio/testing.md
     - Change sets: studio/change-sets.md
     - Releases: studio/releases.md
@@ -200,6 +205,6 @@ nav:
         - "$toString": reference/operators/toString.md
         - "$type": reference/operators/type.md
     # END GENERATED OPERATOR NAV
-  - Verification: verification.md
+    - Verification: verification.md
 extra_css:
   - stylesheets/guides.css

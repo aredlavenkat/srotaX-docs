@@ -2,6 +2,8 @@
 
 Counts elapsed whole units between dates.
 
+Use this operator to calculate the date difference between a start date and an end date.
+
 **Category:** Dates · **Visual function entry:** Yes
 
 ## Signature (engine metadata)

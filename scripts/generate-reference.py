@@ -17,6 +17,8 @@ for op in catalog['engineOperators']:
  for a in op['operands']:lines.append(f"| {cell(a['name'])} | {', '.join(a['acceptedTypes'])} | {a['required']} | {a.get('evaluation','EXPRESSION')} |")
  lines+=['',f"Result types: {', '.join(op['resultTypes'])}.",'', '## Null and missing (engine metadata)','',f"- Null: {op['nullBehavior']}",f"- Missing: {op['missingBehavior']}",'','## Compatibility boundary','',f"Classification: `{c.get('classification','Unknown')}`. Verification scope reported by the engine: `{c.get('verificationScope','Unspecified')}`.",'']
  lines += ['- '+s for s in c.get('limitations',[])]
+ if n == '$dateDiff':
+  lines[4:4] = ['Use this operator to calculate the date difference between a start date and an end date.', '']
  lines+=['','These statements come from the engine catalog. This documentation has not independently certified equivalence against a running MongoDB server.']
  if n in verified:
   x=examples[n];lines+=['','## Executed example','','The SrotaX compiler accepted this JSON expression and the engine returned the expected value. Empty input document.','','```json',json.dumps(x['expression'],indent=2),'```','','Expected value:','','```json',json.dumps(x['expected']),'```']
