@@ -1,7 +1,5 @@
 site_name: SrotaX Docs
 site_url: https://docs.srotax.com/
-repo_url: https://github.com/aredlavenkat/srotaX-docs
-repo_name: aredlavenkat/srotaX-docs
 site_description: Build, test, and release business decisions with SrotaX.
 theme:
   name: material
