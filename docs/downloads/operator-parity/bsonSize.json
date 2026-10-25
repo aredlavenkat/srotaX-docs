@@ -1,0 +1,497 @@
+[
+  {
+    "id": "$bsonSize baseline",
+    "operator": "$bsonSize",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$bsonSize": {}
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"5\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"5\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$bsonSize input: null",
+    "operator": "$bsonSize",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$bsonSize": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$bsonSize input: missing",
+    "operator": "$bsonSize",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$bsonSize": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$bsonSize input: zero",
+    "operator": "$bsonSize",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$bsonSize": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bsonSize expects a document or object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bsonSize requires a document input, found: int",
+      "code": 31393,
+      "error": "Location31393"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bsonSize input: negative",
+    "operator": "$bsonSize",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$bsonSize": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bsonSize expects a document or object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bsonSize requires a document input, found: int",
+      "code": 31393,
+      "error": "Location31393"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bsonSize input: decimal",
+    "operator": "$bsonSize",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$bsonSize": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bsonSize expects a document or object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bsonSize requires a document input, found: double",
+      "code": 31393,
+      "error": "Location31393"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bsonSize input: numeric string",
+    "operator": "$bsonSize",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$bsonSize": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bsonSize expects a document or object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bsonSize requires a document input, found: string",
+      "code": 31393,
+      "error": "Location31393"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bsonSize input: text",
+    "operator": "$bsonSize",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$bsonSize": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bsonSize expects a document or object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bsonSize requires a document input, found: string",
+      "code": 31393,
+      "error": "Location31393"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bsonSize input: empty string",
+    "operator": "$bsonSize",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$bsonSize": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bsonSize expects a document or object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bsonSize requires a document input, found: string",
+      "code": 31393,
+      "error": "Location31393"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bsonSize input: boolean",
+    "operator": "$bsonSize",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$bsonSize": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bsonSize expects a document or object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bsonSize requires a document input, found: bool",
+      "code": 31393,
+      "error": "Location31393"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bsonSize input: false",
+    "operator": "$bsonSize",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$bsonSize": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bsonSize expects a document or object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bsonSize requires a document input, found: bool",
+      "code": 31393,
+      "error": "Location31393"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bsonSize input: typed date",
+    "operator": "$bsonSize",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$bsonSize": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bsonSize expects a document or object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bsonSize requires a document input, found: date",
+      "code": 31393,
+      "error": "Location31393"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bsonSize input: decimal128",
+    "operator": "$bsonSize",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$bsonSize": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bsonSize expects a document or object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bsonSize requires a document input, found: decimal",
+      "code": 31393,
+      "error": "Location31393"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bsonSize input: empty array",
+    "operator": "$bsonSize",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$bsonSize": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bsonSize expects a document or object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bsonSize requires a document input, found: array",
+      "code": 31393,
+      "error": "Location31393"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bsonSize input: numeric array",
+    "operator": "$bsonSize",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$bsonSize": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bsonSize expects a document or object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bsonSize requires a document input, found: array",
+      "code": 31393,
+      "error": "Location31393"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bsonSize input: mixed array",
+    "operator": "$bsonSize",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$bsonSize": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bsonSize expects a document or object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bsonSize requires a document input, found: array",
+      "code": 31393,
+      "error": "Location31393"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bsonSize input: nested array",
+    "operator": "$bsonSize",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$bsonSize": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bsonSize expects a document or object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bsonSize requires a document input, found: array",
+      "code": 31393,
+      "error": "Location31393"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bsonSize input: empty object",
+    "operator": "$bsonSize",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$bsonSize": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"5\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"5\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$bsonSize input: object",
+    "operator": "$bsonSize",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$bsonSize": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"12\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"12\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$bsonSize input: ISO date string",
+    "operator": "$bsonSize",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$bsonSize": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bsonSize expects a document or object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bsonSize requires a document input, found: string",
+      "code": 31393,
+      "error": "Location31393"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bsonSize empty arguments",
+    "operator": "$bsonSize",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$bsonSize": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bsonSize expects a document or object"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $bsonSize takes exactly 1 arguments. 0 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bsonSize unknown option",
+    "operator": "$bsonSize",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$bsonSize": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"21\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"21\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  }
+]

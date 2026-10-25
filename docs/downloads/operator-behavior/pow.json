@@ -1,0 +1,813 @@
+[
+  {
+    "id": "$pow baseline",
+    "operator": "$pow",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$pow": [
+        2,
+        3
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"8.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$pow left[0]: null",
+    "operator": "$pow",
+    "kind": "null",
+    "operand": "left[0]",
+    "expression": {
+      "$pow": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$pow left[0]: missing",
+    "operator": "$pow",
+    "kind": "missing",
+    "operand": "left[0]",
+    "expression": {
+      "$pow": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$pow left[0]: zero",
+    "operator": "$pow",
+    "kind": "zero",
+    "operand": "left[0]",
+    "expression": {
+      "$pow": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$pow left[0]: negative",
+    "operator": "$pow",
+    "kind": "negative",
+    "operand": "left[0]",
+    "expression": {
+      "$pow": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"-8.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$pow left[0]: decimal",
+    "operator": "$pow",
+    "kind": "decimal",
+    "operand": "left[0]",
+    "expression": {
+      "$pow": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"15.625\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$pow left[0]: numeric string",
+    "operator": "$pow",
+    "kind": "numeric string",
+    "operand": "left[0]",
+    "expression": {
+      "$pow": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$pow only supports numeric values."
+    }
+  },
+  {
+    "id": "$pow left[0]: text",
+    "operator": "$pow",
+    "kind": "text",
+    "operand": "left[0]",
+    "expression": {
+      "$pow": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$pow only supports numeric values."
+    }
+  },
+  {
+    "id": "$pow left[0]: empty string",
+    "operator": "$pow",
+    "kind": "empty string",
+    "operand": "left[0]",
+    "expression": {
+      "$pow": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$pow only supports numeric values."
+    }
+  },
+  {
+    "id": "$pow left[0]: boolean",
+    "operator": "$pow",
+    "kind": "boolean",
+    "operand": "left[0]",
+    "expression": {
+      "$pow": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$pow only supports numeric values."
+    }
+  },
+  {
+    "id": "$pow left[0]: false",
+    "operator": "$pow",
+    "kind": "false",
+    "operand": "left[0]",
+    "expression": {
+      "$pow": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$pow only supports numeric values."
+    }
+  },
+  {
+    "id": "$pow left[0]: typed date",
+    "operator": "$pow",
+    "kind": "typed date",
+    "operand": "left[0]",
+    "expression": {
+      "$pow": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$pow only supports numeric values."
+    }
+  },
+  {
+    "id": "$pow left[0]: decimal128",
+    "operator": "$pow",
+    "kind": "decimal128",
+    "operand": "left[0]",
+    "expression": {
+      "$pow": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.953125\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$pow left[0]: empty array",
+    "operator": "$pow",
+    "kind": "empty array",
+    "operand": "left[0]",
+    "expression": {
+      "$pow": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$pow only supports numeric values."
+    }
+  },
+  {
+    "id": "$pow left[0]: numeric array",
+    "operator": "$pow",
+    "kind": "numeric array",
+    "operand": "left[0]",
+    "expression": {
+      "$pow": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$pow only supports numeric values."
+    }
+  },
+  {
+    "id": "$pow left[0]: mixed array",
+    "operator": "$pow",
+    "kind": "mixed array",
+    "operand": "left[0]",
+    "expression": {
+      "$pow": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$pow only supports numeric values."
+    }
+  },
+  {
+    "id": "$pow left[0]: nested array",
+    "operator": "$pow",
+    "kind": "nested array",
+    "operand": "left[0]",
+    "expression": {
+      "$pow": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$pow only supports numeric values."
+    }
+  },
+  {
+    "id": "$pow left[0]: empty object",
+    "operator": "$pow",
+    "kind": "empty object",
+    "operand": "left[0]",
+    "expression": {
+      "$pow": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$pow only supports numeric values."
+    }
+  },
+  {
+    "id": "$pow left[0]: object",
+    "operator": "$pow",
+    "kind": "object",
+    "operand": "left[0]",
+    "expression": {
+      "$pow": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$pow only supports numeric values."
+    }
+  },
+  {
+    "id": "$pow left[0]: ISO date string",
+    "operator": "$pow",
+    "kind": "ISO date string",
+    "operand": "left[0]",
+    "expression": {
+      "$pow": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$pow only supports numeric values."
+    }
+  },
+  {
+    "id": "$pow right[1]: null",
+    "operator": "$pow",
+    "kind": "null",
+    "operand": "right[1]",
+    "expression": {
+      "$pow": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$pow right[1]: missing",
+    "operator": "$pow",
+    "kind": "missing",
+    "operand": "right[1]",
+    "expression": {
+      "$pow": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$pow right[1]: zero",
+    "operator": "$pow",
+    "kind": "zero",
+    "operand": "right[1]",
+    "expression": {
+      "$pow": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$pow right[1]: negative",
+    "operator": "$pow",
+    "kind": "negative",
+    "operand": "right[1]",
+    "expression": {
+      "$pow": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.25\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$pow right[1]: decimal",
+    "operator": "$pow",
+    "kind": "decimal",
+    "operand": "right[1]",
+    "expression": {
+      "$pow": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"5.65685424949238\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$pow right[1]: numeric string",
+    "operator": "$pow",
+    "kind": "numeric string",
+    "operand": "right[1]",
+    "expression": {
+      "$pow": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$pow only supports numeric values."
+    }
+  },
+  {
+    "id": "$pow right[1]: text",
+    "operator": "$pow",
+    "kind": "text",
+    "operand": "right[1]",
+    "expression": {
+      "$pow": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$pow only supports numeric values."
+    }
+  },
+  {
+    "id": "$pow right[1]: empty string",
+    "operator": "$pow",
+    "kind": "empty string",
+    "operand": "right[1]",
+    "expression": {
+      "$pow": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$pow only supports numeric values."
+    }
+  },
+  {
+    "id": "$pow right[1]: boolean",
+    "operator": "$pow",
+    "kind": "boolean",
+    "operand": "right[1]",
+    "expression": {
+      "$pow": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$pow only supports numeric values."
+    }
+  },
+  {
+    "id": "$pow right[1]: false",
+    "operator": "$pow",
+    "kind": "false",
+    "operand": "right[1]",
+    "expression": {
+      "$pow": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$pow only supports numeric values."
+    }
+  },
+  {
+    "id": "$pow right[1]: typed date",
+    "operator": "$pow",
+    "kind": "typed date",
+    "operand": "right[1]",
+    "expression": {
+      "$pow": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$pow only supports numeric values."
+    }
+  },
+  {
+    "id": "$pow right[1]: decimal128",
+    "operator": "$pow",
+    "kind": "decimal128",
+    "operand": "right[1]",
+    "expression": {
+      "$pow": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.378414230005442\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$pow right[1]: empty array",
+    "operator": "$pow",
+    "kind": "empty array",
+    "operand": "right[1]",
+    "expression": {
+      "$pow": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$pow only supports numeric values."
+    }
+  },
+  {
+    "id": "$pow right[1]: numeric array",
+    "operator": "$pow",
+    "kind": "numeric array",
+    "operand": "right[1]",
+    "expression": {
+      "$pow": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$pow only supports numeric values."
+    }
+  },
+  {
+    "id": "$pow right[1]: mixed array",
+    "operator": "$pow",
+    "kind": "mixed array",
+    "operand": "right[1]",
+    "expression": {
+      "$pow": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$pow only supports numeric values."
+    }
+  },
+  {
+    "id": "$pow right[1]: nested array",
+    "operator": "$pow",
+    "kind": "nested array",
+    "operand": "right[1]",
+    "expression": {
+      "$pow": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$pow only supports numeric values."
+    }
+  },
+  {
+    "id": "$pow right[1]: empty object",
+    "operator": "$pow",
+    "kind": "empty object",
+    "operand": "right[1]",
+    "expression": {
+      "$pow": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$pow only supports numeric values."
+    }
+  },
+  {
+    "id": "$pow right[1]: object",
+    "operator": "$pow",
+    "kind": "object",
+    "operand": "right[1]",
+    "expression": {
+      "$pow": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$pow only supports numeric values."
+    }
+  },
+  {
+    "id": "$pow right[1]: ISO date string",
+    "operator": "$pow",
+    "kind": "ISO date string",
+    "operand": "right[1]",
+    "expression": {
+      "$pow": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$pow only supports numeric values."
+    }
+  },
+  {
+    "id": "$pow empty arguments",
+    "operator": "$pow",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$pow": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$pow requires two numeric arguments."
+    }
+  },
+  {
+    "id": "$pow unknown option",
+    "operator": "$pow",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$pow": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$pow requires two numeric arguments."
+    }
+  }
+]

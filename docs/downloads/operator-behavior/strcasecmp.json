@@ -1,0 +1,813 @@
+[
+  {
+    "id": "$strcasecmp baseline",
+    "operator": "$strcasecmp",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$strcasecmp": [
+        "CA",
+        "ca"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$strcasecmp left[0]: null",
+    "operator": "$strcasecmp",
+    "kind": "null",
+    "operand": "left[0]",
+    "expression": {
+      "$strcasecmp": [
+        "$probe",
+        "ca"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strcasecmp expects two strings"
+    }
+  },
+  {
+    "id": "$strcasecmp left[0]: missing",
+    "operator": "$strcasecmp",
+    "kind": "missing",
+    "operand": "left[0]",
+    "expression": {
+      "$strcasecmp": [
+        "$probe",
+        "ca"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strcasecmp expects two strings"
+    }
+  },
+  {
+    "id": "$strcasecmp left[0]: zero",
+    "operator": "$strcasecmp",
+    "kind": "zero",
+    "operand": "left[0]",
+    "expression": {
+      "$strcasecmp": [
+        "$probe",
+        "ca"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strcasecmp expects two strings"
+    }
+  },
+  {
+    "id": "$strcasecmp left[0]: negative",
+    "operator": "$strcasecmp",
+    "kind": "negative",
+    "operand": "left[0]",
+    "expression": {
+      "$strcasecmp": [
+        "$probe",
+        "ca"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strcasecmp expects two strings"
+    }
+  },
+  {
+    "id": "$strcasecmp left[0]: decimal",
+    "operator": "$strcasecmp",
+    "kind": "decimal",
+    "operand": "left[0]",
+    "expression": {
+      "$strcasecmp": [
+        "$probe",
+        "ca"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strcasecmp expects two strings"
+    }
+  },
+  {
+    "id": "$strcasecmp left[0]: numeric string",
+    "operator": "$strcasecmp",
+    "kind": "numeric string",
+    "operand": "left[0]",
+    "expression": {
+      "$strcasecmp": [
+        "$probe",
+        "ca"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-50\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$strcasecmp left[0]: text",
+    "operator": "$strcasecmp",
+    "kind": "text",
+    "operand": "left[0]",
+    "expression": {
+      "$strcasecmp": [
+        "$probe",
+        "ca"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"5\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$strcasecmp left[0]: empty string",
+    "operator": "$strcasecmp",
+    "kind": "empty string",
+    "operand": "left[0]",
+    "expression": {
+      "$strcasecmp": [
+        "$probe",
+        "ca"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$strcasecmp left[0]: boolean",
+    "operator": "$strcasecmp",
+    "kind": "boolean",
+    "operand": "left[0]",
+    "expression": {
+      "$strcasecmp": [
+        "$probe",
+        "ca"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strcasecmp expects two strings"
+    }
+  },
+  {
+    "id": "$strcasecmp left[0]: false",
+    "operator": "$strcasecmp",
+    "kind": "false",
+    "operand": "left[0]",
+    "expression": {
+      "$strcasecmp": [
+        "$probe",
+        "ca"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strcasecmp expects two strings"
+    }
+  },
+  {
+    "id": "$strcasecmp left[0]: typed date",
+    "operator": "$strcasecmp",
+    "kind": "typed date",
+    "operand": "left[0]",
+    "expression": {
+      "$strcasecmp": [
+        "$probe",
+        "ca"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strcasecmp expects two strings"
+    }
+  },
+  {
+    "id": "$strcasecmp left[0]: decimal128",
+    "operator": "$strcasecmp",
+    "kind": "decimal128",
+    "operand": "left[0]",
+    "expression": {
+      "$strcasecmp": [
+        "$probe",
+        "ca"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strcasecmp expects two strings"
+    }
+  },
+  {
+    "id": "$strcasecmp left[0]: empty array",
+    "operator": "$strcasecmp",
+    "kind": "empty array",
+    "operand": "left[0]",
+    "expression": {
+      "$strcasecmp": [
+        "$probe",
+        "ca"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strcasecmp expects two strings"
+    }
+  },
+  {
+    "id": "$strcasecmp left[0]: numeric array",
+    "operator": "$strcasecmp",
+    "kind": "numeric array",
+    "operand": "left[0]",
+    "expression": {
+      "$strcasecmp": [
+        "$probe",
+        "ca"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strcasecmp expects two strings"
+    }
+  },
+  {
+    "id": "$strcasecmp left[0]: mixed array",
+    "operator": "$strcasecmp",
+    "kind": "mixed array",
+    "operand": "left[0]",
+    "expression": {
+      "$strcasecmp": [
+        "$probe",
+        "ca"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strcasecmp expects two strings"
+    }
+  },
+  {
+    "id": "$strcasecmp left[0]: nested array",
+    "operator": "$strcasecmp",
+    "kind": "nested array",
+    "operand": "left[0]",
+    "expression": {
+      "$strcasecmp": [
+        "$probe",
+        "ca"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strcasecmp expects two strings"
+    }
+  },
+  {
+    "id": "$strcasecmp left[0]: empty object",
+    "operator": "$strcasecmp",
+    "kind": "empty object",
+    "operand": "left[0]",
+    "expression": {
+      "$strcasecmp": [
+        "$probe",
+        "ca"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strcasecmp expects two strings"
+    }
+  },
+  {
+    "id": "$strcasecmp left[0]: object",
+    "operator": "$strcasecmp",
+    "kind": "object",
+    "operand": "left[0]",
+    "expression": {
+      "$strcasecmp": [
+        "$probe",
+        "ca"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strcasecmp expects two strings"
+    }
+  },
+  {
+    "id": "$strcasecmp left[0]: ISO date string",
+    "operator": "$strcasecmp",
+    "kind": "ISO date string",
+    "operand": "left[0]",
+    "expression": {
+      "$strcasecmp": [
+        "$probe",
+        "ca"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-49\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$strcasecmp right[1]: null",
+    "operator": "$strcasecmp",
+    "kind": "null",
+    "operand": "right[1]",
+    "expression": {
+      "$strcasecmp": [
+        "CA",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strcasecmp expects two strings"
+    }
+  },
+  {
+    "id": "$strcasecmp right[1]: missing",
+    "operator": "$strcasecmp",
+    "kind": "missing",
+    "operand": "right[1]",
+    "expression": {
+      "$strcasecmp": [
+        "CA",
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strcasecmp expects two strings"
+    }
+  },
+  {
+    "id": "$strcasecmp right[1]: zero",
+    "operator": "$strcasecmp",
+    "kind": "zero",
+    "operand": "right[1]",
+    "expression": {
+      "$strcasecmp": [
+        "CA",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strcasecmp expects two strings"
+    }
+  },
+  {
+    "id": "$strcasecmp right[1]: negative",
+    "operator": "$strcasecmp",
+    "kind": "negative",
+    "operand": "right[1]",
+    "expression": {
+      "$strcasecmp": [
+        "CA",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strcasecmp expects two strings"
+    }
+  },
+  {
+    "id": "$strcasecmp right[1]: decimal",
+    "operator": "$strcasecmp",
+    "kind": "decimal",
+    "operand": "right[1]",
+    "expression": {
+      "$strcasecmp": [
+        "CA",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strcasecmp expects two strings"
+    }
+  },
+  {
+    "id": "$strcasecmp right[1]: numeric string",
+    "operator": "$strcasecmp",
+    "kind": "numeric string",
+    "operand": "right[1]",
+    "expression": {
+      "$strcasecmp": [
+        "CA",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"50\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$strcasecmp right[1]: text",
+    "operator": "$strcasecmp",
+    "kind": "text",
+    "operand": "right[1]",
+    "expression": {
+      "$strcasecmp": [
+        "CA",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-5\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$strcasecmp right[1]: empty string",
+    "operator": "$strcasecmp",
+    "kind": "empty string",
+    "operand": "right[1]",
+    "expression": {
+      "$strcasecmp": [
+        "CA",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$strcasecmp right[1]: boolean",
+    "operator": "$strcasecmp",
+    "kind": "boolean",
+    "operand": "right[1]",
+    "expression": {
+      "$strcasecmp": [
+        "CA",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strcasecmp expects two strings"
+    }
+  },
+  {
+    "id": "$strcasecmp right[1]: false",
+    "operator": "$strcasecmp",
+    "kind": "false",
+    "operand": "right[1]",
+    "expression": {
+      "$strcasecmp": [
+        "CA",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strcasecmp expects two strings"
+    }
+  },
+  {
+    "id": "$strcasecmp right[1]: typed date",
+    "operator": "$strcasecmp",
+    "kind": "typed date",
+    "operand": "right[1]",
+    "expression": {
+      "$strcasecmp": [
+        "CA",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strcasecmp expects two strings"
+    }
+  },
+  {
+    "id": "$strcasecmp right[1]: decimal128",
+    "operator": "$strcasecmp",
+    "kind": "decimal128",
+    "operand": "right[1]",
+    "expression": {
+      "$strcasecmp": [
+        "CA",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strcasecmp expects two strings"
+    }
+  },
+  {
+    "id": "$strcasecmp right[1]: empty array",
+    "operator": "$strcasecmp",
+    "kind": "empty array",
+    "operand": "right[1]",
+    "expression": {
+      "$strcasecmp": [
+        "CA",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strcasecmp expects two strings"
+    }
+  },
+  {
+    "id": "$strcasecmp right[1]: numeric array",
+    "operator": "$strcasecmp",
+    "kind": "numeric array",
+    "operand": "right[1]",
+    "expression": {
+      "$strcasecmp": [
+        "CA",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strcasecmp expects two strings"
+    }
+  },
+  {
+    "id": "$strcasecmp right[1]: mixed array",
+    "operator": "$strcasecmp",
+    "kind": "mixed array",
+    "operand": "right[1]",
+    "expression": {
+      "$strcasecmp": [
+        "CA",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strcasecmp expects two strings"
+    }
+  },
+  {
+    "id": "$strcasecmp right[1]: nested array",
+    "operator": "$strcasecmp",
+    "kind": "nested array",
+    "operand": "right[1]",
+    "expression": {
+      "$strcasecmp": [
+        "CA",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strcasecmp expects two strings"
+    }
+  },
+  {
+    "id": "$strcasecmp right[1]: empty object",
+    "operator": "$strcasecmp",
+    "kind": "empty object",
+    "operand": "right[1]",
+    "expression": {
+      "$strcasecmp": [
+        "CA",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strcasecmp expects two strings"
+    }
+  },
+  {
+    "id": "$strcasecmp right[1]: object",
+    "operator": "$strcasecmp",
+    "kind": "object",
+    "operand": "right[1]",
+    "expression": {
+      "$strcasecmp": [
+        "CA",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strcasecmp expects two strings"
+    }
+  },
+  {
+    "id": "$strcasecmp right[1]: ISO date string",
+    "operator": "$strcasecmp",
+    "kind": "ISO date string",
+    "operand": "right[1]",
+    "expression": {
+      "$strcasecmp": [
+        "CA",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"49\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$strcasecmp empty arguments",
+    "operator": "$strcasecmp",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$strcasecmp": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strcasecmp expects [string1, string2]"
+    }
+  },
+  {
+    "id": "$strcasecmp unknown option",
+    "operator": "$strcasecmp",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$strcasecmp": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strcasecmp expects [string1, string2]"
+    }
+  }
+]

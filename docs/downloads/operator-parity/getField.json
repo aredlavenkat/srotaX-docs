@@ -1,0 +1,1122 @@
+[
+  {
+    "id": "$getField baseline",
+    "operator": "$getField",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$getField field: null",
+    "operator": "$getField",
+    "kind": "null",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $getField requires 'field' to evaluate to type String, but got null",
+      "code": 3041704,
+      "error": "Location3041704"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$getField field: missing",
+    "operator": "$getField",
+    "kind": "missing",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $getField requires 'field' to evaluate to type String, but got missing",
+      "code": 3041704,
+      "error": "Location3041704"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$getField field: zero",
+    "operator": "$getField",
+    "kind": "zero",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $getField requires 'field' to evaluate to type String, but got int",
+      "code": 3041704,
+      "error": "Location3041704"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$getField field: negative",
+    "operator": "$getField",
+    "kind": "negative",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $getField requires 'field' to evaluate to type String, but got int",
+      "code": 3041704,
+      "error": "Location3041704"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$getField field: decimal",
+    "operator": "$getField",
+    "kind": "decimal",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $getField requires 'field' to evaluate to type String, but got double",
+      "code": 3041704,
+      "error": "Location3041704"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$getField field: numeric string",
+    "operator": "$getField",
+    "kind": "numeric string",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "present": false
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$getField field: text",
+    "operator": "$getField",
+    "kind": "text",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "present": false
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$getField field: empty string",
+    "operator": "$getField",
+    "kind": "empty string",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "present": false
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$getField field: boolean",
+    "operator": "$getField",
+    "kind": "boolean",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $getField requires 'field' to evaluate to type String, but got bool",
+      "code": 3041704,
+      "error": "Location3041704"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$getField field: false",
+    "operator": "$getField",
+    "kind": "false",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $getField requires 'field' to evaluate to type String, but got bool",
+      "code": 3041704,
+      "error": "Location3041704"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$getField field: typed date",
+    "operator": "$getField",
+    "kind": "typed date",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $getField requires 'field' to evaluate to type String, but got date",
+      "code": 3041704,
+      "error": "Location3041704"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$getField field: decimal128",
+    "operator": "$getField",
+    "kind": "decimal128",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $getField requires 'field' to evaluate to type String, but got decimal",
+      "code": 3041704,
+      "error": "Location3041704"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$getField field: empty array",
+    "operator": "$getField",
+    "kind": "empty array",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $getField requires 'field' to evaluate to type String, but got array",
+      "code": 3041704,
+      "error": "Location3041704"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$getField field: numeric array",
+    "operator": "$getField",
+    "kind": "numeric array",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $getField requires 'field' to evaluate to type String, but got array",
+      "code": 3041704,
+      "error": "Location3041704"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$getField field: mixed array",
+    "operator": "$getField",
+    "kind": "mixed array",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $getField requires 'field' to evaluate to type String, but got array",
+      "code": 3041704,
+      "error": "Location3041704"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$getField field: nested array",
+    "operator": "$getField",
+    "kind": "nested array",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $getField requires 'field' to evaluate to type String, but got array",
+      "code": 3041704,
+      "error": "Location3041704"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$getField field: empty object",
+    "operator": "$getField",
+    "kind": "empty object",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $getField requires 'field' to evaluate to type String, but got object",
+      "code": 3041704,
+      "error": "Location3041704"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$getField field: object",
+    "operator": "$getField",
+    "kind": "object",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $getField requires 'field' to evaluate to type String, but got object",
+      "code": 3041704,
+      "error": "Location3041704"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$getField field: ISO date string",
+    "operator": "$getField",
+    "kind": "ISO date string",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "present": false
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$getField input: null",
+    "operator": "$getField",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$getField input: missing",
+    "operator": "$getField",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    },
+    "mongo": {
+      "present": false
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$getField input: zero",
+    "operator": "$getField",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    },
+    "mongo": {
+      "present": false
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$getField input: negative",
+    "operator": "$getField",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    },
+    "mongo": {
+      "present": false
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$getField input: decimal",
+    "operator": "$getField",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    },
+    "mongo": {
+      "present": false
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$getField input: numeric string",
+    "operator": "$getField",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    },
+    "mongo": {
+      "present": false
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$getField input: text",
+    "operator": "$getField",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    },
+    "mongo": {
+      "present": false
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$getField input: empty string",
+    "operator": "$getField",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    },
+    "mongo": {
+      "present": false
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$getField input: boolean",
+    "operator": "$getField",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    },
+    "mongo": {
+      "present": false
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$getField input: false",
+    "operator": "$getField",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    },
+    "mongo": {
+      "present": false
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$getField input: typed date",
+    "operator": "$getField",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    },
+    "mongo": {
+      "present": false
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$getField input: decimal128",
+    "operator": "$getField",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    },
+    "mongo": {
+      "present": false
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$getField input: empty array",
+    "operator": "$getField",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    },
+    "mongo": {
+      "present": false
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$getField input: numeric array",
+    "operator": "$getField",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    },
+    "mongo": {
+      "present": false
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$getField input: mixed array",
+    "operator": "$getField",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    },
+    "mongo": {
+      "present": false
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$getField input: nested array",
+    "operator": "$getField",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    },
+    "mongo": {
+      "present": false
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$getField input: empty object",
+    "operator": "$getField",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "present": false
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$getField input: object",
+    "operator": "$getField",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "present": false
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$getField input: ISO date string",
+    "operator": "$getField",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    },
+    "mongo": {
+      "present": false
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$getField omit field",
+    "operator": "$getField",
+    "kind": "omitted named argument",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires 'field' and 'input' keys."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $getField requires 'field' to be specified",
+      "code": 3041702,
+      "error": "Location3041702"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$getField omit input",
+    "operator": "$getField",
+    "kind": "omitted named argument",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires 'field' and 'input' keys."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $getField requires 'input' to be specified",
+      "code": 3041703,
+      "error": "Location3041703"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$getField empty arguments",
+    "operator": "$getField",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$getField": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires 'field' and 'input' keys."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $getField requires 'field' to evaluate to type String, but got array",
+      "code": 3041704,
+      "error": "Location3041704"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$getField unknown option",
+    "operator": "$getField",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$getField": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires 'field' and 'input' keys."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $getField found an unknown argument: unexpected",
+      "code": 3041701,
+      "error": "Location3041701"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "mongodb-9-boundary-cases.json:1",
+    "operator": "$getField",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$getField": {
+        "field": "b",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "present": false
+    },
+    "status": "DIFFERENCE"
+  }
+]

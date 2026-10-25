@@ -1,0 +1,1966 @@
+[
+  {
+    "id": "$filter baseline",
+    "operator": "$filter",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$filter input: null",
+    "operator": "$filter",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$filter": {
+        "input": "$probe",
+        "as": "x",
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$filter input: missing",
+    "operator": "$filter",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$filter": {
+        "input": "$probe",
+        "as": "x",
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$filter input: zero",
+    "operator": "$filter",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$filter": {
+        "input": "$probe",
+        "as": "x",
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not int",
+      "code": 28651,
+      "error": "Location28651"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$filter input: negative",
+    "operator": "$filter",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$filter": {
+        "input": "$probe",
+        "as": "x",
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not int",
+      "code": 28651,
+      "error": "Location28651"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$filter input: decimal",
+    "operator": "$filter",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$filter": {
+        "input": "$probe",
+        "as": "x",
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not double",
+      "code": 28651,
+      "error": "Location28651"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$filter input: numeric string",
+    "operator": "$filter",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$filter": {
+        "input": "$probe",
+        "as": "x",
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not string",
+      "code": 28651,
+      "error": "Location28651"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$filter input: text",
+    "operator": "$filter",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$filter": {
+        "input": "$probe",
+        "as": "x",
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not string",
+      "code": 28651,
+      "error": "Location28651"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$filter input: empty string",
+    "operator": "$filter",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$filter": {
+        "input": "$probe",
+        "as": "x",
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not string",
+      "code": 28651,
+      "error": "Location28651"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$filter input: boolean",
+    "operator": "$filter",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$filter": {
+        "input": "$probe",
+        "as": "x",
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not bool",
+      "code": 28651,
+      "error": "Location28651"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$filter input: false",
+    "operator": "$filter",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$filter": {
+        "input": "$probe",
+        "as": "x",
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not bool",
+      "code": 28651,
+      "error": "Location28651"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$filter input: typed date",
+    "operator": "$filter",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$filter": {
+        "input": "$probe",
+        "as": "x",
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not date",
+      "code": 28651,
+      "error": "Location28651"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$filter input: decimal128",
+    "operator": "$filter",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$filter": {
+        "input": "$probe",
+        "as": "x",
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not decimal",
+      "code": 28651,
+      "error": "Location28651"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$filter input: empty array",
+    "operator": "$filter",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$filter": {
+        "input": "$probe",
+        "as": "x",
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$filter input: numeric array",
+    "operator": "$filter",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$filter": {
+        "input": "$probe",
+        "as": "x",
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$filter input: mixed array",
+    "operator": "$filter",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$filter": {
+        "input": "$probe",
+        "as": "x",
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [\"x\", {\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [\"x\", {\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$filter input: nested array",
+    "operator": "$filter",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$filter": {
+        "input": "$probe",
+        "as": "x",
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}], [{\"$numberInt\": \"3\"}]]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}], [{\"$numberInt\": \"3\"}]]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$filter input: empty object",
+    "operator": "$filter",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$filter": {
+        "input": "$probe",
+        "as": "x",
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not object",
+      "code": 28651,
+      "error": "Location28651"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$filter input: object",
+    "operator": "$filter",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$filter": {
+        "input": "$probe",
+        "as": "x",
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not object",
+      "code": 28651,
+      "error": "Location28651"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$filter input: ISO date string",
+    "operator": "$filter",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$filter": {
+        "input": "$probe",
+        "as": "x",
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not string",
+      "code": 28651,
+      "error": "Location28651"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$filter as: null",
+    "operator": "$filter",
+    "kind": "null",
+    "operand": "as",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": null,
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "NullPointerException",
+      "message": "Cannot invoke \"Object.toString()\" because the return value of \"java.util.Map.get(Object)\" is null"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: empty variable names are not allowed",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$filter as: zero",
+    "operator": "$filter",
+    "kind": "zero",
+    "operand": "as",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": 0,
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Undefined variable: $$x"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: empty variable names are not allowed",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$filter as: negative",
+    "operator": "$filter",
+    "kind": "negative",
+    "operand": "as",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": -2,
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Undefined variable: $$x"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: empty variable names are not allowed",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$filter as: decimal",
+    "operator": "$filter",
+    "kind": "decimal",
+    "operand": "as",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": 2.5,
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Undefined variable: $$x"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: empty variable names are not allowed",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$filter as: numeric string",
+    "operator": "$filter",
+    "kind": "numeric string",
+    "operand": "as",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "12",
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Undefined variable: $$x"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: '12' starts with an invalid character for a user variable name",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$filter as: text",
+    "operator": "$filter",
+    "kind": "text",
+    "operand": "as",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "hello",
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Undefined variable: $$x"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Use of undefined variable: x",
+      "code": 17276,
+      "error": "Location17276"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$filter as: empty string",
+    "operator": "$filter",
+    "kind": "empty string",
+    "operand": "as",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "",
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Undefined variable: $$x"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: empty variable names are not allowed",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$filter as: boolean",
+    "operator": "$filter",
+    "kind": "boolean",
+    "operand": "as",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": true,
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Undefined variable: $$x"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: empty variable names are not allowed",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$filter as: false",
+    "operator": "$filter",
+    "kind": "false",
+    "operand": "as",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": false,
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Undefined variable: $$x"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: empty variable names are not allowed",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$filter as: typed date",
+    "operator": "$filter",
+    "kind": "typed date",
+    "operand": "as",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": {
+          "$date": "2026-01-15T15:00:00Z"
+        },
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Undefined variable: $$x"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: empty variable names are not allowed",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$filter as: decimal128",
+    "operator": "$filter",
+    "kind": "decimal128",
+    "operand": "as",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": {
+          "$numberDecimal": "1.25"
+        },
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Undefined variable: $$x"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: empty variable names are not allowed",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$filter as: empty array",
+    "operator": "$filter",
+    "kind": "empty array",
+    "operand": "as",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": [],
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Undefined variable: $$x"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: empty variable names are not allowed",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$filter as: numeric array",
+    "operator": "$filter",
+    "kind": "numeric array",
+    "operand": "as",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": [
+          1,
+          2,
+          3
+        ],
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Undefined variable: $$x"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: empty variable names are not allowed",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$filter as: mixed array",
+    "operator": "$filter",
+    "kind": "mixed array",
+    "operand": "as",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": [
+          1,
+          null,
+          "x",
+          3
+        ],
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Undefined variable: $$x"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: empty variable names are not allowed",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$filter as: nested array",
+    "operator": "$filter",
+    "kind": "nested array",
+    "operand": "as",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": [
+          [
+            1,
+            2
+          ],
+          [
+            3
+          ]
+        ],
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Undefined variable: $$x"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: empty variable names are not allowed",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$filter as: empty object",
+    "operator": "$filter",
+    "kind": "empty object",
+    "operand": "as",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": {},
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Undefined variable: $$x"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: empty variable names are not allowed",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$filter as: object",
+    "operator": "$filter",
+    "kind": "object",
+    "operand": "as",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": {
+          "x": 1
+        },
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Undefined variable: $$x"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: empty variable names are not allowed",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$filter as: ISO date string",
+    "operator": "$filter",
+    "kind": "ISO date string",
+    "operand": "as",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "2026-01-15T15:00:00Z",
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Undefined variable: $$x"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: '2026-01-15T15:00:00Z' starts with an invalid character for a user variable name",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$filter cond: null",
+    "operator": "$filter",
+    "kind": "null",
+    "operand": "cond",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "cond": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$filter cond: missing",
+    "operator": "$filter",
+    "kind": "missing",
+    "operand": "cond",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "cond": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$filter cond: zero",
+    "operator": "$filter",
+    "kind": "zero",
+    "operand": "cond",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "cond": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$filter cond: negative",
+    "operator": "$filter",
+    "kind": "negative",
+    "operand": "cond",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "cond": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$filter cond: decimal",
+    "operator": "$filter",
+    "kind": "decimal",
+    "operand": "cond",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "cond": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$filter cond: numeric string",
+    "operator": "$filter",
+    "kind": "numeric string",
+    "operand": "cond",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "cond": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$filter cond: text",
+    "operator": "$filter",
+    "kind": "text",
+    "operand": "cond",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "cond": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$filter cond: empty string",
+    "operator": "$filter",
+    "kind": "empty string",
+    "operand": "cond",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "cond": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$filter cond: boolean",
+    "operator": "$filter",
+    "kind": "boolean",
+    "operand": "cond",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "cond": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$filter cond: false",
+    "operator": "$filter",
+    "kind": "false",
+    "operand": "cond",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "cond": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$filter cond: typed date",
+    "operator": "$filter",
+    "kind": "typed date",
+    "operand": "cond",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "cond": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$filter cond: decimal128",
+    "operator": "$filter",
+    "kind": "decimal128",
+    "operand": "cond",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "cond": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$filter cond: empty array",
+    "operator": "$filter",
+    "kind": "empty array",
+    "operand": "cond",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "cond": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$filter cond: numeric array",
+    "operator": "$filter",
+    "kind": "numeric array",
+    "operand": "cond",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "cond": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$filter cond: mixed array",
+    "operator": "$filter",
+    "kind": "mixed array",
+    "operand": "cond",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "cond": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$filter cond: nested array",
+    "operator": "$filter",
+    "kind": "nested array",
+    "operand": "cond",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "cond": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$filter cond: empty object",
+    "operator": "$filter",
+    "kind": "empty object",
+    "operand": "cond",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "cond": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$filter cond: object",
+    "operator": "$filter",
+    "kind": "object",
+    "operand": "cond",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "cond": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$filter cond: ISO date string",
+    "operator": "$filter",
+    "kind": "ISO date string",
+    "operand": "cond",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "cond": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$filter omit input",
+    "operator": "$filter",
+    "kind": "omitted named argument",
+    "operand": "input",
+    "expression": {
+      "$filter": {
+        "as": "x",
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Missing 'input' parameter to $filter",
+      "code": 28648,
+      "error": "Location28648"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$filter omit as",
+    "operator": "$filter",
+    "kind": "omitted named argument",
+    "operand": "as",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "cond": {
+          "$gt": [
+            "$$x",
+            1
+          ]
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Undefined variable: $$x"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Use of undefined variable: x",
+      "code": 17276,
+      "error": "Location17276"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$filter omit cond",
+    "operator": "$filter",
+    "kind": "omitted named argument",
+    "operand": "cond",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Missing 'cond' parameter to $filter",
+      "code": 28650,
+      "error": "Location28650"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$filter empty arguments",
+    "operator": "$filter",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$filter": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$filter expects an object"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $filter only supports an object as its argument",
+      "code": 28646,
+      "error": "Location28646"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$filter unknown option",
+    "operator": "$filter",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$filter": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Unrecognized parameter to $filter: unexpected",
+      "code": 28647,
+      "error": "Location28647"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "mongodb-9-boundary-cases.json:10",
+    "operator": "$filter",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$filter": {
+        "input": [
+          1,
+          2,
+          3
+        ],
+        "as": "item",
+        "cond": true,
+        "limit": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}]}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "mongodb-9-boundary-cases.json:11",
+    "operator": "$filter",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$filter": {
+        "input": null,
+        "cond": true
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  }
+]

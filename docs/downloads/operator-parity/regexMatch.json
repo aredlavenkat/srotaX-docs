@@ -1,0 +1,1647 @@
+[
+  {
+    "id": "$regexMatch baseline",
+    "operator": "$regexMatch",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "ab"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$regexMatch input: null",
+    "operator": "$regexMatch",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$regexMatch": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$regexMatch input: missing",
+    "operator": "$regexMatch",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$regexMatch": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$regexMatch input: zero",
+    "operator": "$regexMatch",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$regexMatch": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'input' to be of type string",
+      "code": 51104,
+      "error": "Location51104"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch input: negative",
+    "operator": "$regexMatch",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$regexMatch": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'input' to be of type string",
+      "code": 51104,
+      "error": "Location51104"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch input: decimal",
+    "operator": "$regexMatch",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$regexMatch": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'input' to be of type string",
+      "code": 51104,
+      "error": "Location51104"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch input: numeric string",
+    "operator": "$regexMatch",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$regexMatch": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$regexMatch input: text",
+    "operator": "$regexMatch",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$regexMatch": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$regexMatch input: empty string",
+    "operator": "$regexMatch",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$regexMatch": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$regexMatch input: boolean",
+    "operator": "$regexMatch",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$regexMatch": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'input' to be of type string",
+      "code": 51104,
+      "error": "Location51104"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch input: false",
+    "operator": "$regexMatch",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$regexMatch": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'input' to be of type string",
+      "code": 51104,
+      "error": "Location51104"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch input: typed date",
+    "operator": "$regexMatch",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$regexMatch": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'input' to be of type string",
+      "code": 51104,
+      "error": "Location51104"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch input: decimal128",
+    "operator": "$regexMatch",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$regexMatch": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'input' to be of type string",
+      "code": 51104,
+      "error": "Location51104"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch input: empty array",
+    "operator": "$regexMatch",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$regexMatch": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'input' to be of type string",
+      "code": 51104,
+      "error": "Location51104"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch input: numeric array",
+    "operator": "$regexMatch",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$regexMatch": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'input' to be of type string",
+      "code": 51104,
+      "error": "Location51104"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch input: mixed array",
+    "operator": "$regexMatch",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$regexMatch": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'input' to be of type string",
+      "code": 51104,
+      "error": "Location51104"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch input: nested array",
+    "operator": "$regexMatch",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$regexMatch": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'input' to be of type string",
+      "code": 51104,
+      "error": "Location51104"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch input: empty object",
+    "operator": "$regexMatch",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$regexMatch": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'input' to be of type string",
+      "code": 51104,
+      "error": "Location51104"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch input: object",
+    "operator": "$regexMatch",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$regexMatch": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'input' to be of type string",
+      "code": 51104,
+      "error": "Location51104"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch input: ISO date string",
+    "operator": "$regexMatch",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$regexMatch": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$regexMatch regex: null",
+    "operator": "$regexMatch",
+    "kind": "null",
+    "operand": "regex",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$regexMatch regex: missing",
+    "operator": "$regexMatch",
+    "kind": "missing",
+    "operand": "regex",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$regexMatch regex: zero",
+    "operator": "$regexMatch",
+    "kind": "zero",
+    "operand": "regex",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch regex must be a string or BSON regex"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'regex' to be of type string or regex",
+      "code": 51105,
+      "error": "Location51105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch regex: negative",
+    "operator": "$regexMatch",
+    "kind": "negative",
+    "operand": "regex",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch regex must be a string or BSON regex"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'regex' to be of type string or regex",
+      "code": 51105,
+      "error": "Location51105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch regex: decimal",
+    "operator": "$regexMatch",
+    "kind": "decimal",
+    "operand": "regex",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch regex must be a string or BSON regex"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'regex' to be of type string or regex",
+      "code": 51105,
+      "error": "Location51105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch regex: numeric string",
+    "operator": "$regexMatch",
+    "kind": "numeric string",
+    "operand": "regex",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$regexMatch regex: text",
+    "operator": "$regexMatch",
+    "kind": "text",
+    "operand": "regex",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$regexMatch regex: empty string",
+    "operator": "$regexMatch",
+    "kind": "empty string",
+    "operand": "regex",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$regexMatch regex: boolean",
+    "operator": "$regexMatch",
+    "kind": "boolean",
+    "operand": "regex",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch regex must be a string or BSON regex"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'regex' to be of type string or regex",
+      "code": 51105,
+      "error": "Location51105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch regex: false",
+    "operator": "$regexMatch",
+    "kind": "false",
+    "operand": "regex",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch regex must be a string or BSON regex"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'regex' to be of type string or regex",
+      "code": 51105,
+      "error": "Location51105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch regex: typed date",
+    "operator": "$regexMatch",
+    "kind": "typed date",
+    "operand": "regex",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch regex must be a string or BSON regex"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'regex' to be of type string or regex",
+      "code": 51105,
+      "error": "Location51105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch regex: decimal128",
+    "operator": "$regexMatch",
+    "kind": "decimal128",
+    "operand": "regex",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch regex must be a string or BSON regex"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'regex' to be of type string or regex",
+      "code": 51105,
+      "error": "Location51105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch regex: empty array",
+    "operator": "$regexMatch",
+    "kind": "empty array",
+    "operand": "regex",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch regex must be a string or BSON regex"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'regex' to be of type string or regex",
+      "code": 51105,
+      "error": "Location51105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch regex: numeric array",
+    "operator": "$regexMatch",
+    "kind": "numeric array",
+    "operand": "regex",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch regex must be a string or BSON regex"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'regex' to be of type string or regex",
+      "code": 51105,
+      "error": "Location51105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch regex: mixed array",
+    "operator": "$regexMatch",
+    "kind": "mixed array",
+    "operand": "regex",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch regex must be a string or BSON regex"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'regex' to be of type string or regex",
+      "code": 51105,
+      "error": "Location51105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch regex: nested array",
+    "operator": "$regexMatch",
+    "kind": "nested array",
+    "operand": "regex",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch regex must be a string or BSON regex"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'regex' to be of type string or regex",
+      "code": 51105,
+      "error": "Location51105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch regex: empty object",
+    "operator": "$regexMatch",
+    "kind": "empty object",
+    "operand": "regex",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch regex must be a string or BSON regex"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'regex' to be of type string or regex",
+      "code": 51105,
+      "error": "Location51105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch regex: object",
+    "operator": "$regexMatch",
+    "kind": "object",
+    "operand": "regex",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch regex must be a string or BSON regex"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'regex' to be of type string or regex",
+      "code": 51105,
+      "error": "Location51105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch regex: ISO date string",
+    "operator": "$regexMatch",
+    "kind": "ISO date string",
+    "operand": "regex",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$regexMatch options: null",
+    "operator": "$regexMatch",
+    "kind": "null",
+    "operand": "options",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$regexMatch options: missing",
+    "operator": "$regexMatch",
+    "kind": "missing",
+    "operand": "options",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$regexMatch options: zero",
+    "operator": "$regexMatch",
+    "kind": "zero",
+    "operand": "options",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch options must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'options' to be of type string",
+      "code": 51106,
+      "error": "Location51106"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch options: negative",
+    "operator": "$regexMatch",
+    "kind": "negative",
+    "operand": "options",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch options must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'options' to be of type string",
+      "code": 51106,
+      "error": "Location51106"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch options: decimal",
+    "operator": "$regexMatch",
+    "kind": "decimal",
+    "operand": "options",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch options must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'options' to be of type string",
+      "code": 51106,
+      "error": "Location51106"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch options: numeric string",
+    "operator": "$regexMatch",
+    "kind": "numeric string",
+    "operand": "options",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Unsupported regex option: 1"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch invalid flag in regex options: 1",
+      "code": 51108,
+      "error": "Location51108"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch options: text",
+    "operator": "$regexMatch",
+    "kind": "text",
+    "operand": "options",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Unsupported regex option: h"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch invalid flag in regex options: h",
+      "code": 51108,
+      "error": "Location51108"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch options: empty string",
+    "operator": "$regexMatch",
+    "kind": "empty string",
+    "operand": "options",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$regexMatch options: boolean",
+    "operator": "$regexMatch",
+    "kind": "boolean",
+    "operand": "options",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch options must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'options' to be of type string",
+      "code": 51106,
+      "error": "Location51106"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch options: false",
+    "operator": "$regexMatch",
+    "kind": "false",
+    "operand": "options",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch options must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'options' to be of type string",
+      "code": 51106,
+      "error": "Location51106"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch options: typed date",
+    "operator": "$regexMatch",
+    "kind": "typed date",
+    "operand": "options",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch options must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'options' to be of type string",
+      "code": 51106,
+      "error": "Location51106"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch options: decimal128",
+    "operator": "$regexMatch",
+    "kind": "decimal128",
+    "operand": "options",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch options must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'options' to be of type string",
+      "code": 51106,
+      "error": "Location51106"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch options: empty array",
+    "operator": "$regexMatch",
+    "kind": "empty array",
+    "operand": "options",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch options must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'options' to be of type string",
+      "code": 51106,
+      "error": "Location51106"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch options: numeric array",
+    "operator": "$regexMatch",
+    "kind": "numeric array",
+    "operand": "options",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch options must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'options' to be of type string",
+      "code": 51106,
+      "error": "Location51106"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch options: mixed array",
+    "operator": "$regexMatch",
+    "kind": "mixed array",
+    "operand": "options",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch options must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'options' to be of type string",
+      "code": 51106,
+      "error": "Location51106"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch options: nested array",
+    "operator": "$regexMatch",
+    "kind": "nested array",
+    "operand": "options",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch options must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'options' to be of type string",
+      "code": 51106,
+      "error": "Location51106"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch options: empty object",
+    "operator": "$regexMatch",
+    "kind": "empty object",
+    "operand": "options",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch options must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'options' to be of type string",
+      "code": 51106,
+      "error": "Location51106"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch options: object",
+    "operator": "$regexMatch",
+    "kind": "object",
+    "operand": "options",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch options must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch needs 'options' to be of type string",
+      "code": 51106,
+      "error": "Location51106"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch options: ISO date string",
+    "operator": "$regexMatch",
+    "kind": "ISO date string",
+    "operand": "options",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Unsupported regex option: 2"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexMatch invalid flag in regex options: 2",
+      "code": 51108,
+      "error": "Location51108"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch omit input",
+    "operator": "$regexMatch",
+    "kind": "omitted named argument",
+    "operand": "input",
+    "expression": {
+      "$regexMatch": {
+        "regex": "ab"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch requires input, regex and optional options"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $regexMatch requires 'input' parameter",
+      "code": 31022,
+      "error": "Location31022"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch omit regex",
+    "operator": "$regexMatch",
+    "kind": "omitted named argument",
+    "operand": "regex",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch requires input, regex and optional options"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $regexMatch requires 'regex' parameter",
+      "code": 31023,
+      "error": "Location31023"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch omit options",
+    "operator": "$regexMatch",
+    "kind": "omitted named argument",
+    "operand": "options",
+    "expression": {
+      "$regexMatch": {
+        "input": "abc",
+        "regex": "ab"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$regexMatch empty arguments",
+    "operator": "$regexMatch",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$regexMatch": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch requires input, regex and optional options"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $regexMatch expects an object of named arguments but found: array",
+      "code": 51103,
+      "error": "Location51103"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexMatch unknown option",
+    "operator": "$regexMatch",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$regexMatch": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$regexMatch requires input, regex and optional options"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $regexMatch found an unknown argument: unexpected",
+      "code": 31024,
+      "error": "Location31024"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "mongodb-9-boundary-cases.json:8",
+    "operator": "$regexMatch",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$regexMatch": {
+        "input": "a",
+        "regex": "["
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "PatternSyntaxException",
+      "message": "Unclosed character class near index 0\n[\n^"
+    },
+    "mongo": {
+      "message": "Failed to optimize pipeline :: caused by :: Invalid Regex in $regexMatch: missing terminating ] for character class",
+      "code": 51111,
+      "error": "Location51111"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

@@ -1,0 +1,1864 @@
+[
+  {
+    "id": "$dateToString baseline",
+    "operator": "$dateToString",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "UTC"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"2024-01-02\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString date: null",
+    "operator": "$dateToString",
+    "kind": "null",
+    "operand": "date",
+    "expression": {
+      "$dateToString": {
+        "date": "$probe",
+        "format": "%Y-%m-%d",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString date: missing",
+    "operator": "$dateToString",
+    "kind": "missing",
+    "operand": "date",
+    "expression": {
+      "$dateToString": {
+        "date": "$probe",
+        "format": "%Y-%m-%d",
+        "timezone": "UTC"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString date: zero",
+    "operator": "$dateToString",
+    "kind": "zero",
+    "operand": "date",
+    "expression": {
+      "$dateToString": {
+        "date": "$probe",
+        "format": "%Y-%m-%d",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString date must be a date, timestamp, or ObjectId; convert strings using $toDate"
+    }
+  },
+  {
+    "id": "$dateToString date: negative",
+    "operator": "$dateToString",
+    "kind": "negative",
+    "operand": "date",
+    "expression": {
+      "$dateToString": {
+        "date": "$probe",
+        "format": "%Y-%m-%d",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString date must be a date, timestamp, or ObjectId; convert strings using $toDate"
+    }
+  },
+  {
+    "id": "$dateToString date: decimal",
+    "operator": "$dateToString",
+    "kind": "decimal",
+    "operand": "date",
+    "expression": {
+      "$dateToString": {
+        "date": "$probe",
+        "format": "%Y-%m-%d",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString date must be a date, timestamp, or ObjectId; convert strings using $toDate"
+    }
+  },
+  {
+    "id": "$dateToString date: numeric string",
+    "operator": "$dateToString",
+    "kind": "numeric string",
+    "operand": "date",
+    "expression": {
+      "$dateToString": {
+        "date": "$probe",
+        "format": "%Y-%m-%d",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString date must be a date, timestamp, or ObjectId; convert strings using $toDate"
+    }
+  },
+  {
+    "id": "$dateToString date: text",
+    "operator": "$dateToString",
+    "kind": "text",
+    "operand": "date",
+    "expression": {
+      "$dateToString": {
+        "date": "$probe",
+        "format": "%Y-%m-%d",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString date must be a date, timestamp, or ObjectId; convert strings using $toDate"
+    }
+  },
+  {
+    "id": "$dateToString date: empty string",
+    "operator": "$dateToString",
+    "kind": "empty string",
+    "operand": "date",
+    "expression": {
+      "$dateToString": {
+        "date": "$probe",
+        "format": "%Y-%m-%d",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString date must be a date, timestamp, or ObjectId; convert strings using $toDate"
+    }
+  },
+  {
+    "id": "$dateToString date: boolean",
+    "operator": "$dateToString",
+    "kind": "boolean",
+    "operand": "date",
+    "expression": {
+      "$dateToString": {
+        "date": "$probe",
+        "format": "%Y-%m-%d",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString date must be a date, timestamp, or ObjectId; convert strings using $toDate"
+    }
+  },
+  {
+    "id": "$dateToString date: false",
+    "operator": "$dateToString",
+    "kind": "false",
+    "operand": "date",
+    "expression": {
+      "$dateToString": {
+        "date": "$probe",
+        "format": "%Y-%m-%d",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString date must be a date, timestamp, or ObjectId; convert strings using $toDate"
+    }
+  },
+  {
+    "id": "$dateToString date: typed date",
+    "operator": "$dateToString",
+    "kind": "typed date",
+    "operand": "date",
+    "expression": {
+      "$dateToString": {
+        "date": "$probe",
+        "format": "%Y-%m-%d",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2026-01-15\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString date: decimal128",
+    "operator": "$dateToString",
+    "kind": "decimal128",
+    "operand": "date",
+    "expression": {
+      "$dateToString": {
+        "date": "$probe",
+        "format": "%Y-%m-%d",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString date must be a date, timestamp, or ObjectId; convert strings using $toDate"
+    }
+  },
+  {
+    "id": "$dateToString date: empty array",
+    "operator": "$dateToString",
+    "kind": "empty array",
+    "operand": "date",
+    "expression": {
+      "$dateToString": {
+        "date": "$probe",
+        "format": "%Y-%m-%d",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString date must be a date, timestamp, or ObjectId; convert strings using $toDate"
+    }
+  },
+  {
+    "id": "$dateToString date: numeric array",
+    "operator": "$dateToString",
+    "kind": "numeric array",
+    "operand": "date",
+    "expression": {
+      "$dateToString": {
+        "date": "$probe",
+        "format": "%Y-%m-%d",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString date must be a date, timestamp, or ObjectId; convert strings using $toDate"
+    }
+  },
+  {
+    "id": "$dateToString date: mixed array",
+    "operator": "$dateToString",
+    "kind": "mixed array",
+    "operand": "date",
+    "expression": {
+      "$dateToString": {
+        "date": "$probe",
+        "format": "%Y-%m-%d",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString date must be a date, timestamp, or ObjectId; convert strings using $toDate"
+    }
+  },
+  {
+    "id": "$dateToString date: nested array",
+    "operator": "$dateToString",
+    "kind": "nested array",
+    "operand": "date",
+    "expression": {
+      "$dateToString": {
+        "date": "$probe",
+        "format": "%Y-%m-%d",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString date must be a date, timestamp, or ObjectId; convert strings using $toDate"
+    }
+  },
+  {
+    "id": "$dateToString date: empty object",
+    "operator": "$dateToString",
+    "kind": "empty object",
+    "operand": "date",
+    "expression": {
+      "$dateToString": {
+        "date": "$probe",
+        "format": "%Y-%m-%d",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString date must be a date, timestamp, or ObjectId; convert strings using $toDate"
+    }
+  },
+  {
+    "id": "$dateToString date: object",
+    "operator": "$dateToString",
+    "kind": "object",
+    "operand": "date",
+    "expression": {
+      "$dateToString": {
+        "date": "$probe",
+        "format": "%Y-%m-%d",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString date must be a date, timestamp, or ObjectId; convert strings using $toDate"
+    }
+  },
+  {
+    "id": "$dateToString date: ISO date string",
+    "operator": "$dateToString",
+    "kind": "ISO date string",
+    "operand": "date",
+    "expression": {
+      "$dateToString": {
+        "date": "$probe",
+        "format": "%Y-%m-%d",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString date must be a date, timestamp, or ObjectId; convert strings using $toDate"
+    }
+  },
+  {
+    "id": "$dateToString format: null",
+    "operator": "$dateToString",
+    "kind": "null",
+    "operand": "format",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString format: missing",
+    "operator": "$dateToString",
+    "kind": "missing",
+    "operand": "format",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString format: zero",
+    "operator": "$dateToString",
+    "kind": "zero",
+    "operand": "format",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString format must be a string"
+    }
+  },
+  {
+    "id": "$dateToString format: negative",
+    "operator": "$dateToString",
+    "kind": "negative",
+    "operand": "format",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString format must be a string"
+    }
+  },
+  {
+    "id": "$dateToString format: decimal",
+    "operator": "$dateToString",
+    "kind": "decimal",
+    "operand": "format",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString format must be a string"
+    }
+  },
+  {
+    "id": "$dateToString format: numeric string",
+    "operator": "$dateToString",
+    "kind": "numeric string",
+    "operand": "format",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"12\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString format: text",
+    "operator": "$dateToString",
+    "kind": "text",
+    "operand": "format",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"hello\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString format: empty string",
+    "operator": "$dateToString",
+    "kind": "empty string",
+    "operand": "format",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString format: boolean",
+    "operator": "$dateToString",
+    "kind": "boolean",
+    "operand": "format",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString format must be a string"
+    }
+  },
+  {
+    "id": "$dateToString format: false",
+    "operator": "$dateToString",
+    "kind": "false",
+    "operand": "format",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString format must be a string"
+    }
+  },
+  {
+    "id": "$dateToString format: typed date",
+    "operator": "$dateToString",
+    "kind": "typed date",
+    "operand": "format",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString format must be a string"
+    }
+  },
+  {
+    "id": "$dateToString format: decimal128",
+    "operator": "$dateToString",
+    "kind": "decimal128",
+    "operand": "format",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString format must be a string"
+    }
+  },
+  {
+    "id": "$dateToString format: empty array",
+    "operator": "$dateToString",
+    "kind": "empty array",
+    "operand": "format",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString format must be a string"
+    }
+  },
+  {
+    "id": "$dateToString format: numeric array",
+    "operator": "$dateToString",
+    "kind": "numeric array",
+    "operand": "format",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString format must be a string"
+    }
+  },
+  {
+    "id": "$dateToString format: mixed array",
+    "operator": "$dateToString",
+    "kind": "mixed array",
+    "operand": "format",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString format must be a string"
+    }
+  },
+  {
+    "id": "$dateToString format: nested array",
+    "operator": "$dateToString",
+    "kind": "nested array",
+    "operand": "format",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString format must be a string"
+    }
+  },
+  {
+    "id": "$dateToString format: empty object",
+    "operator": "$dateToString",
+    "kind": "empty object",
+    "operand": "format",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString format must be a string"
+    }
+  },
+  {
+    "id": "$dateToString format: object",
+    "operator": "$dateToString",
+    "kind": "object",
+    "operand": "format",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString format must be a string"
+    }
+  },
+  {
+    "id": "$dateToString format: ISO date string",
+    "operator": "$dateToString",
+    "kind": "ISO date string",
+    "operand": "format",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2026-01-15T15:00:00Z\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString timezone: null",
+    "operator": "$dateToString",
+    "kind": "null",
+    "operand": "timezone",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString timezone: missing",
+    "operator": "$dateToString",
+    "kind": "missing",
+    "operand": "timezone",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString timezone: zero",
+    "operator": "$dateToString",
+    "kind": "zero",
+    "operand": "timezone",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateToString timezone: negative",
+    "operator": "$dateToString",
+    "kind": "negative",
+    "operand": "timezone",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateToString timezone: decimal",
+    "operator": "$dateToString",
+    "kind": "decimal",
+    "operand": "timezone",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateToString timezone: numeric string",
+    "operator": "$dateToString",
+    "kind": "numeric string",
+    "operand": "timezone",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "DateTimeException",
+      "message": "Invalid ID for region-based ZoneId, invalid format: 12"
+    }
+  },
+  {
+    "id": "$dateToString timezone: text",
+    "operator": "$dateToString",
+    "kind": "text",
+    "operand": "timezone",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "ZoneRulesException",
+      "message": "Unknown time-zone ID: hello"
+    }
+  },
+  {
+    "id": "$dateToString timezone: empty string",
+    "operator": "$dateToString",
+    "kind": "empty string",
+    "operand": "timezone",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "DateTimeException",
+      "message": "Invalid ID for ZoneOffset, invalid format: "
+    }
+  },
+  {
+    "id": "$dateToString timezone: boolean",
+    "operator": "$dateToString",
+    "kind": "boolean",
+    "operand": "timezone",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateToString timezone: false",
+    "operator": "$dateToString",
+    "kind": "false",
+    "operand": "timezone",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateToString timezone: typed date",
+    "operator": "$dateToString",
+    "kind": "typed date",
+    "operand": "timezone",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateToString timezone: decimal128",
+    "operator": "$dateToString",
+    "kind": "decimal128",
+    "operand": "timezone",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateToString timezone: empty array",
+    "operator": "$dateToString",
+    "kind": "empty array",
+    "operand": "timezone",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateToString timezone: numeric array",
+    "operator": "$dateToString",
+    "kind": "numeric array",
+    "operand": "timezone",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateToString timezone: mixed array",
+    "operator": "$dateToString",
+    "kind": "mixed array",
+    "operand": "timezone",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateToString timezone: nested array",
+    "operator": "$dateToString",
+    "kind": "nested array",
+    "operand": "timezone",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateToString timezone: empty object",
+    "operator": "$dateToString",
+    "kind": "empty object",
+    "operand": "timezone",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateToString timezone: object",
+    "operator": "$dateToString",
+    "kind": "object",
+    "operand": "timezone",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateToString timezone: ISO date string",
+    "operator": "$dateToString",
+    "kind": "ISO date string",
+    "operand": "timezone",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "DateTimeException",
+      "message": "Invalid ID for region-based ZoneId, invalid format: 2026-01-15T15:00:00Z"
+    }
+  },
+  {
+    "id": "$dateToString onNull: null",
+    "operator": "$dateToString",
+    "kind": "null",
+    "operand": "onNull",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "UTC",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2024-01-02\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString onNull: missing",
+    "operator": "$dateToString",
+    "kind": "missing",
+    "operand": "onNull",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "UTC",
+        "onNull": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"2024-01-02\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString onNull: zero",
+    "operator": "$dateToString",
+    "kind": "zero",
+    "operand": "onNull",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "UTC",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2024-01-02\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString onNull: negative",
+    "operator": "$dateToString",
+    "kind": "negative",
+    "operand": "onNull",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "UTC",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2024-01-02\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString onNull: decimal",
+    "operator": "$dateToString",
+    "kind": "decimal",
+    "operand": "onNull",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "UTC",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2024-01-02\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString onNull: numeric string",
+    "operator": "$dateToString",
+    "kind": "numeric string",
+    "operand": "onNull",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "UTC",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2024-01-02\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString onNull: text",
+    "operator": "$dateToString",
+    "kind": "text",
+    "operand": "onNull",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "UTC",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2024-01-02\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString onNull: empty string",
+    "operator": "$dateToString",
+    "kind": "empty string",
+    "operand": "onNull",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "UTC",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2024-01-02\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString onNull: boolean",
+    "operator": "$dateToString",
+    "kind": "boolean",
+    "operand": "onNull",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "UTC",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2024-01-02\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString onNull: false",
+    "operator": "$dateToString",
+    "kind": "false",
+    "operand": "onNull",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "UTC",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2024-01-02\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString onNull: typed date",
+    "operator": "$dateToString",
+    "kind": "typed date",
+    "operand": "onNull",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "UTC",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2024-01-02\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString onNull: decimal128",
+    "operator": "$dateToString",
+    "kind": "decimal128",
+    "operand": "onNull",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "UTC",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2024-01-02\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString onNull: empty array",
+    "operator": "$dateToString",
+    "kind": "empty array",
+    "operand": "onNull",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "UTC",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2024-01-02\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString onNull: numeric array",
+    "operator": "$dateToString",
+    "kind": "numeric array",
+    "operand": "onNull",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "UTC",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2024-01-02\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString onNull: mixed array",
+    "operator": "$dateToString",
+    "kind": "mixed array",
+    "operand": "onNull",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "UTC",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2024-01-02\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString onNull: nested array",
+    "operator": "$dateToString",
+    "kind": "nested array",
+    "operand": "onNull",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "UTC",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2024-01-02\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString onNull: empty object",
+    "operator": "$dateToString",
+    "kind": "empty object",
+    "operand": "onNull",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "UTC",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2024-01-02\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString onNull: object",
+    "operator": "$dateToString",
+    "kind": "object",
+    "operand": "onNull",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "UTC",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2024-01-02\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString onNull: ISO date string",
+    "operator": "$dateToString",
+    "kind": "ISO date string",
+    "operand": "onNull",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "UTC",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2024-01-02\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString omit date",
+    "operator": "$dateToString",
+    "kind": "omitted named argument",
+    "operand": "date",
+    "expression": {
+      "$dateToString": {
+        "format": "%Y-%m-%d",
+        "timezone": "UTC"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString requires date"
+    }
+  },
+  {
+    "id": "$dateToString omit format",
+    "operator": "$dateToString",
+    "kind": "omitted named argument",
+    "operand": "format",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "UTC"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"2024-01-02T03:04:05.006Z\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString omit timezone",
+    "operator": "$dateToString",
+    "kind": "omitted named argument",
+    "operand": "timezone",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"2024-01-02\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString omit onNull",
+    "operator": "$dateToString",
+    "kind": "omitted named argument",
+    "operand": "onNull",
+    "expression": {
+      "$dateToString": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "format": "%Y-%m-%d",
+        "timezone": "UTC"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"2024-01-02\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToString empty arguments",
+    "operator": "$dateToString",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$dateToString": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString requires date"
+    }
+  },
+  {
+    "id": "$dateToString unknown option",
+    "operator": "$dateToString",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$dateToString": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateToString requires date"
+    }
+  }
+]

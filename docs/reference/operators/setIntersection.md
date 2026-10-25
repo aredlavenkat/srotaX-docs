@@ -2,37 +2,250 @@
 
 Returns common distinct array values; zero arguments return an empty array.
 
-**Category:** Sets · **Visual function entry:** Yes
+**Category:** Sets. **Studio Visual entry:** Available. This page describes Core expression execution; Studio also checks field types and authoring permissions.
 
-## Signature (engine metadata)
+## Syntax and arguments
 
-Argument syntax: `POSITIONAL`. Minimum arguments: 0. Maximum: variadic.
+Supply an ordered array of arguments.
 
-| Operand | Accepted types | Required | Evaluation |
+| Argument | Metadata input types | Required | Evaluation |
 | --- | --- | --- | --- |
-| array | ARRAY | False | EXPRESSION |
-| other | ARRAY | False | EXPRESSION |
+| `array` | ARRAY | No | Expression evaluated against the input |
+| `other` | ARRAY | No | Expression evaluated against the input |
 
-Result types: ARRAY.
+Argument count: minimum 0; maximum variadic.
 
-## Null and missing (engine metadata)
+Declared result types: **ARRAY**. Actual result types for tested inputs appear below. Metadata is an authoring hint; where a case differs, use the observed result and treat the discrepancy as a limitation.
 
-- Null: Returns null when an evaluated operand is null.
-- Missing: Returns null when an evaluated operand is missing.
+## Example
 
-## Compatibility boundary
+Expression:
+```json
+{
+  "$setIntersection": [
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ]
+  ]
+}
+```
 
-Classification: `MONGO_6_SUBSET`. Verification scope reported by the engine: `ENGINE_REGRESSION_EXAMPLES`.
+Input document:
+```json
+{}
+```
 
-- Simple collation only (MC-002).
-- Verification covers the checked-in regression examples, not full BSON, null, error or collation equivalence.
+**Observed SrotaX result:** [2].
 
-These statements come from the engine catalog. This documentation has not independently certified equivalence against a running MongoDB server.
+## Behavior for different inputs
 
-## Example coverage
+Each table changes **only the indicated argument** from the example above. Other arguments retain their baseline values. Values normally come from the input field `probe`; literal configuration arguments are replaced directly. “Missing” means the field is absent, not explicitly null. Numeric strings are strings, not numbers.
 
-No executable example for this operator is included in the documentation suite yet. Use the signature above and validate your complete expression; do not interpret registration as a guarantee for every argument combination.
+### Argument: `array[0]`
 
-[MongoDB reference linked by engine metadata](https://raw.githubusercontent.com/mongodb/docs/3baea2dd8f2386d64c3c9a6805f625b80d9bacf4/source/reference/operator/aggregation/setIntersection.txt)
+| Input case | Supplied value | SrotaX result |
+| --- | --- | --- |
+| null | null | null |
+| missing | Field absent | null |
+| zero | 0 | Error: IllegalArgumentException — $setIntersection arguments must resolve to arrays. |
+| negative | -2 | Error: IllegalArgumentException — $setIntersection arguments must resolve to arrays. |
+| decimal | 2.5 | Error: IllegalArgumentException — $setIntersection arguments must resolve to arrays. |
+| numeric string | "12" | Error: IllegalArgumentException — $setIntersection arguments must resolve to arrays. |
+| text | "hello" | Error: IllegalArgumentException — $setIntersection arguments must resolve to arrays. |
+| empty string | "" | Error: IllegalArgumentException — $setIntersection arguments must resolve to arrays. |
+| boolean | true | Error: IllegalArgumentException — $setIntersection arguments must resolve to arrays. |
+| false | false | Error: IllegalArgumentException — $setIntersection arguments must resolve to arrays. |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error: IllegalArgumentException — $setIntersection arguments must resolve to arrays. |
+| decimal128 | {"$numberDecimal":"1.25"} | Error: IllegalArgumentException — $setIntersection arguments must resolve to arrays. |
+| empty array | [] | [] |
+| numeric array | [1,2,3] | [2,3] |
+| mixed array | [1,null,"x",3] | [3] |
+| nested array | [[1,2],[3]] | [] |
+| empty object | {} | Error: IllegalArgumentException — $setIntersection arguments must resolve to arrays. |
+| object | {"x":1} | Error: IllegalArgumentException — $setIntersection arguments must resolve to arrays. |
+| ISO date string | "2026-01-15T15:00:00Z" | Error: IllegalArgumentException — $setIntersection arguments must resolve to arrays. |
 
-Source revision recorded by engine: `3baea2dd8f2386d64c3c9a6805f625b80d9bacf4`.
+### Argument: `other[1]`
+
+| Input case | Supplied value | SrotaX result |
+| --- | --- | --- |
+| null | null | null |
+| missing | Field absent | null |
+| zero | 0 | Error: IllegalArgumentException — $setIntersection arguments must resolve to arrays. |
+| negative | -2 | Error: IllegalArgumentException — $setIntersection arguments must resolve to arrays. |
+| decimal | 2.5 | Error: IllegalArgumentException — $setIntersection arguments must resolve to arrays. |
+| numeric string | "12" | Error: IllegalArgumentException — $setIntersection arguments must resolve to arrays. |
+| text | "hello" | Error: IllegalArgumentException — $setIntersection arguments must resolve to arrays. |
+| empty string | "" | Error: IllegalArgumentException — $setIntersection arguments must resolve to arrays. |
+| boolean | true | Error: IllegalArgumentException — $setIntersection arguments must resolve to arrays. |
+| false | false | Error: IllegalArgumentException — $setIntersection arguments must resolve to arrays. |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error: IllegalArgumentException — $setIntersection arguments must resolve to arrays. |
+| decimal128 | {"$numberDecimal":"1.25"} | Error: IllegalArgumentException — $setIntersection arguments must resolve to arrays. |
+| empty array | [] | [] |
+| numeric array | [1,2,3] | [1,2] |
+| mixed array | [1,null,"x",3] | [1] |
+| nested array | [[1,2],[3]] | [] |
+| empty object | {} | Error: IllegalArgumentException — $setIntersection arguments must resolve to arrays. |
+| object | {"x":1} | Error: IllegalArgumentException — $setIntersection arguments must resolve to arrays. |
+| ISO date string | "2026-01-15T15:00:00Z" | Error: IllegalArgumentException — $setIntersection arguments must resolve to arrays. |
+
+## Invalid invocation shapes
+
+| Invocation | SrotaX result |
+| --- | --- |
+| {"$setIntersection":[]} | [] |
+| {"$setIntersection":{"unexpected":1}} | Error: IllegalArgumentException — $setIntersection requires an argument list. |
+
+## Additional boundary examples
+
+<details>
+<summary>Show 6 tested examples</summary>
+
+Expression:
+```json
+{
+  "$setIntersection": [
+    [
+      1,
+      1,
+      2
+    ]
+  ]
+}
+```
+
+Input:
+```json
+{}
+```
+
+**SrotaX:** [1,2].
+
+Expression:
+```json
+{
+  "$setIntersection": [
+    null,
+    3
+  ]
+}
+```
+
+Input:
+```json
+{}
+```
+
+**SrotaX:** null.
+
+Expression:
+```json
+{
+  "$setIntersection": [
+    3,
+    null
+  ]
+}
+```
+
+Input:
+```json
+{}
+```
+
+**SrotaX:** Error: IllegalArgumentException — $setIntersection arguments must resolve to arrays..
+
+Expression:
+```json
+{
+  "$setIntersection": [
+    [],
+    3
+  ]
+}
+```
+
+Input:
+```json
+{}
+```
+
+**SrotaX:** Error: IllegalArgumentException — $setIntersection arguments must resolve to arrays..
+
+Expression:
+```json
+{
+  "$setIntersection": [
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ]
+  ]
+}
+```
+
+Input:
+```json
+{}
+```
+
+**SrotaX:** [2].
+
+Expression:
+```json
+{
+  "$setIntersection": [
+    [
+      [
+        1,
+        2
+      ],
+      3
+    ],
+    [
+      [
+        1,
+        2
+      ],
+      4
+    ]
+  ]
+}
+```
+
+Input:
+```json
+{}
+```
+
+**SrotaX:** [[1,2]].
+
+</details>
+
+## Scope and reproducibility
+
+This page records **47 executed cases**. It covers individual argument substitutions, not every cross-product of arguments, locale, daylight-saving transitions, numeric overflow, collation or resource limits. No untested behavior is guaranteed.
+
+[Download exact expressions, inputs and SrotaX results](../../downloads/operator-behavior/setIntersection.json). Errors are observed messages, not stable public error codes. The reference generator reads the checked-in execution report; do not edit generated observations by hand.
+
+<!-- BEGIN MONGO PARITY -->
+## MongoDB differences (removable section)
+
+Compared with **MongoDB 9.0.4**: **18 exact BSON matches**, **29 both rejected**, **0 value/type/acceptance differences**, **0 object-field-order differences**.
+
+“Exact” includes numeric BSON types and object key order. A value of `3` as int32 differs from `3.0` as double. Object-field-order differences are reported separately; object key ordering is not enforced by the engine regression baseline. Both rejected does not mean the error codes or messages match. This is finite-case evidence, not full compatibility certification.
+
+No differences were observed in the compared cases.
+
+[Download full comparison evidence](../../downloads/operator-parity/setIntersection.json).
+
+<!-- END MONGO PARITY -->

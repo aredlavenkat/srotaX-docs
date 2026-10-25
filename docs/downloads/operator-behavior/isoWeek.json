@@ -1,0 +1,373 @@
+[
+  {
+    "id": "$isoWeek baseline",
+    "operator": "$isoWeek",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$isoWeek": {
+        "$toDate": "2024-01-02T03:04:05.006Z"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$isoWeek input: null",
+    "operator": "$isoWeek",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$isoWeek": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$isoWeek: expected date, date-string, or timestamp for field '', but got: null"
+    }
+  },
+  {
+    "id": "$isoWeek input: missing",
+    "operator": "$isoWeek",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$isoWeek": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$isoWeek: expected date, date-string, or timestamp for field '', but got: null"
+    }
+  },
+  {
+    "id": "$isoWeek input: zero",
+    "operator": "$isoWeek",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$isoWeek": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$isoWeek input: negative",
+    "operator": "$isoWeek",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$isoWeek": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$isoWeek input: decimal",
+    "operator": "$isoWeek",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$isoWeek": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$isoWeek input: numeric string",
+    "operator": "$isoWeek",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$isoWeek": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$isoWeek input: text",
+    "operator": "$isoWeek",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$isoWeek": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$isoWeek: expected date, date-string, or timestamp for field '', but got: hello"
+    }
+  },
+  {
+    "id": "$isoWeek input: empty string",
+    "operator": "$isoWeek",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$isoWeek": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$isoWeek: expected date, date-string, or timestamp for field '', but got: "
+    }
+  },
+  {
+    "id": "$isoWeek input: boolean",
+    "operator": "$isoWeek",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$isoWeek": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$isoWeek: expected date, date-string, or timestamp for field '', but got: true"
+    }
+  },
+  {
+    "id": "$isoWeek input: false",
+    "operator": "$isoWeek",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$isoWeek": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$isoWeek: expected date, date-string, or timestamp for field '', but got: false"
+    }
+  },
+  {
+    "id": "$isoWeek input: typed date",
+    "operator": "$isoWeek",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$isoWeek": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$isoWeek input: decimal128",
+    "operator": "$isoWeek",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$isoWeek": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$isoWeek input: empty array",
+    "operator": "$isoWeek",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$isoWeek": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$isoWeek: expected date, date-string, or timestamp for field '', but got: []"
+    }
+  },
+  {
+    "id": "$isoWeek input: numeric array",
+    "operator": "$isoWeek",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$isoWeek": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$isoWeek: expected date, date-string, or timestamp for field '', but got: [1, 2, 3]"
+    }
+  },
+  {
+    "id": "$isoWeek input: mixed array",
+    "operator": "$isoWeek",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$isoWeek": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$isoWeek: expected date, date-string, or timestamp for field '', but got: [1, null, x, 3]"
+    }
+  },
+  {
+    "id": "$isoWeek input: nested array",
+    "operator": "$isoWeek",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$isoWeek": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$isoWeek: expected date, date-string, or timestamp for field '', but got: [[1, 2], [3]]"
+    }
+  },
+  {
+    "id": "$isoWeek input: empty object",
+    "operator": "$isoWeek",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$isoWeek": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$isoWeek: expected date, date-string, or timestamp for field '', but got: Document{{}}"
+    }
+  },
+  {
+    "id": "$isoWeek input: object",
+    "operator": "$isoWeek",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$isoWeek": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$isoWeek: expected date, date-string, or timestamp for field '', but got: Document{{x=1}}"
+    }
+  },
+  {
+    "id": "$isoWeek input: ISO date string",
+    "operator": "$isoWeek",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$isoWeek": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$isoWeek empty arguments",
+    "operator": "$isoWeek",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$isoWeek": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$isoWeek: expected date, date-string, or timestamp for field '', but got: []"
+    }
+  },
+  {
+    "id": "$isoWeek unknown option",
+    "operator": "$isoWeek",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$isoWeek": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$isoWeek: expected date, date-string, or timestamp for field '', but got: {unexpected=1}"
+    }
+  }
+]

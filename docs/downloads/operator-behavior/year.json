@@ -1,0 +1,373 @@
+[
+  {
+    "id": "$year baseline",
+    "operator": "$year",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$year": {
+        "$toDate": "2024-01-02T03:04:05.006Z"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2024\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$year input: null",
+    "operator": "$year",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$year": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$year input: missing",
+    "operator": "$year",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$year": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$year input: zero",
+    "operator": "$year",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$year": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$year input: negative",
+    "operator": "$year",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$year": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$year input: decimal",
+    "operator": "$year",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$year": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$year input: numeric string",
+    "operator": "$year",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$year": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot convert value to date: 12"
+    }
+  },
+  {
+    "id": "$year input: text",
+    "operator": "$year",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$year": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot convert value to date: hello"
+    }
+  },
+  {
+    "id": "$year input: empty string",
+    "operator": "$year",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$year": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot convert value to date: "
+    }
+  },
+  {
+    "id": "$year input: boolean",
+    "operator": "$year",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$year": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$year input: false",
+    "operator": "$year",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$year": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$year input: typed date",
+    "operator": "$year",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$year": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2026\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$year input: decimal128",
+    "operator": "$year",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$year": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$year input: empty array",
+    "operator": "$year",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$year": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$year input: numeric array",
+    "operator": "$year",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$year": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$year input: mixed array",
+    "operator": "$year",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$year": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$year input: nested array",
+    "operator": "$year",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$year": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$year input: empty object",
+    "operator": "$year",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$year": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$year input: object",
+    "operator": "$year",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$year": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$year input: ISO date string",
+    "operator": "$year",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$year": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2026\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$year empty arguments",
+    "operator": "$year",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$year": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "One date required"
+    }
+  },
+  {
+    "id": "$year unknown option",
+    "operator": "$year",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$year": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  }
+]

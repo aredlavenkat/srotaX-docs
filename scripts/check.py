@@ -23,5 +23,18 @@ for op in catalog['engineOperators']:
  if not (root/'docs/reference/operators'/f"{op['name'][1:]}.md").exists():errors.append('Missing operator '+op['name'])
 for dest,source in [('shipping-authoring.json','examples/shipping/authoring.json'),('shipping-cases.json','examples/shipping/cases.json'),('ShippingClient.java','examples/java/ShippingClient.java'),('runtime-openapi.json','reference/runtime-openapi.json')]:
  if (root/'docs/downloads'/dest).read_bytes()!=(root/source).read_bytes():errors.append('Stale download: '+dest)
+report_path=root/'verification/all-operator-behavior.json'
+if report_path.exists():
+ report=json.loads(report_path.read_text())
+ names={x['name'] for x in catalog['engineOperators']}
+ if {c['operator'] for c in report['cases']}!=names:errors.append('Behavior report operator coverage differs from catalog')
+ if len(report['cases'])!=report['caseCount']:errors.append('Behavior report case count differs')
+ for name in names:
+  page=(root/'docs/reference/operators'/f'{name[1:]}.md').read_text()
+  for heading in ['## Syntax and arguments','## Behavior for different inputs','## Scope and reproducibility']:
+   if heading not in page:errors.append(f'{name}: missing {heading}')
+  if page.count('<!-- BEGIN MONGO PARITY -->')!=page.count('<!-- END MONGO PARITY -->'):errors.append(f'{name}: unbalanced parity block')
+  download=json.loads((root/'docs/downloads/operator-behavior'/f'{name[1:]}.json').read_text())
+  if len(download)!=sum(c['operator']==name for c in report['cases']):errors.append(f'{name}: stale behavior download')
 if errors:raise SystemExit('\n'.join(errors))
 print('PASS: local links, JSON blocks, fixtures, and operator page coverage')

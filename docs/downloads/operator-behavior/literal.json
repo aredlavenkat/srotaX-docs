@@ -1,0 +1,323 @@
+[
+  {
+    "id": "$literal baseline",
+    "operator": "$literal",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$literal": {
+        "x": "$field"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"x\": \"$field\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$literal input: null",
+    "operator": "$literal",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$literal": null
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$literal input: zero",
+    "operator": "$literal",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$literal": 0
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$literal input: negative",
+    "operator": "$literal",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$literal": -2
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$literal input: decimal",
+    "operator": "$literal",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$literal": 2.5
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.5\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$literal input: numeric string",
+    "operator": "$literal",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$literal": "12"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"12\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$literal input: text",
+    "operator": "$literal",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$literal": "hello"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"hello\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$literal input: empty string",
+    "operator": "$literal",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$literal": ""
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$literal input: boolean",
+    "operator": "$literal",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$literal": true
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$literal input: false",
+    "operator": "$literal",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$literal": false
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$literal input: typed date",
+    "operator": "$literal",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$literal": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1768489200000\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$literal input: decimal128",
+    "operator": "$literal",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$literal": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"1.25\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$literal input: empty array",
+    "operator": "$literal",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$literal": []
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    }
+  },
+  {
+    "id": "$literal input: numeric array",
+    "operator": "$literal",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$literal": [
+        1,
+        2,
+        3
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$literal input: mixed array",
+    "operator": "$literal",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$literal": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, null, \"x\", {\"$numberInt\": \"3\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$literal input: nested array",
+    "operator": "$literal",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$literal": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}], [{\"$numberInt\": \"3\"}]]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$literal input: empty object",
+    "operator": "$literal",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$literal": {}
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$literal input: object",
+    "operator": "$literal",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$literal": {
+        "x": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"x\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$literal input: ISO date string",
+    "operator": "$literal",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$literal": "2026-01-15T15:00:00Z"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"2026-01-15T15:00:00Z\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$literal empty arguments",
+    "operator": "$literal",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$literal": []
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    }
+  },
+  {
+    "id": "$literal unknown option",
+    "operator": "$literal",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$literal": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"unexpected\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    }
+  }
+]

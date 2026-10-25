@@ -1,0 +1,493 @@
+[
+  {
+    "id": "$toInt baseline",
+    "operator": "$toInt",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$toInt": "12"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"12\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"12\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toInt input: null",
+    "operator": "$toInt",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$toInt": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toInt input: missing",
+    "operator": "$toInt",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$toInt": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toInt input: zero",
+    "operator": "$toInt",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$toInt": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toInt input: negative",
+    "operator": "$toInt",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$toInt": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toInt input: decimal",
+    "operator": "$toInt",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$toInt": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toInt input: numeric string",
+    "operator": "$toInt",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$toInt": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"12\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"12\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toInt input: text",
+    "operator": "$toInt",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$toInt": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target int"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Failed to parse number 'hello' in $convert with no onError value: Did not consume whole string.",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toInt input: empty string",
+    "operator": "$toInt",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$toInt": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target int"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Failed to parse number '' in $convert with no onError value: No digits",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toInt input: boolean",
+    "operator": "$toInt",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$toInt": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toInt input: false",
+    "operator": "$toInt",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$toInt": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toInt input: typed date",
+    "operator": "$toInt",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$toInt": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target int"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from date to int in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toInt input: decimal128",
+    "operator": "$toInt",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$toInt": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toInt input: empty array",
+    "operator": "$toInt",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$toInt": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target int"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from array to int in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toInt input: numeric array",
+    "operator": "$toInt",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$toInt": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target int"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from array to int in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toInt input: mixed array",
+    "operator": "$toInt",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$toInt": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target int"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from array to int in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toInt input: nested array",
+    "operator": "$toInt",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$toInt": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target int"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from array to int in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toInt input: empty object",
+    "operator": "$toInt",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$toInt": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target int"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from object to int in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toInt input: object",
+    "operator": "$toInt",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$toInt": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target int"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from object to int in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toInt input: ISO date string",
+    "operator": "$toInt",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$toInt": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target int"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Failed to parse number '2026-01-15T15:00:00Z' in $convert with no onError value: Did not consume whole string.",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toInt empty arguments",
+    "operator": "$toInt",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$toInt": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target int"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $toInt requires a single argument, got 0",
+      "code": 50723,
+      "error": "Location50723"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toInt unknown option",
+    "operator": "$toInt",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$toInt": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target int"
+    },
+    "mongo": {
+      "message": "Failed to optimize pipeline :: caused by :: Unsupported conversion from object to int in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

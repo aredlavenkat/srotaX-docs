@@ -1,0 +1,1018 @@
+[
+  {
+    "id": "$and baseline",
+    "operator": "$and",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$and": [
+        true,
+        false
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[0]: null",
+    "operator": "$and",
+    "kind": "null",
+    "operand": "expression[0]",
+    "expression": {
+      "$and": [
+        "$probe",
+        false
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[0]: missing",
+    "operator": "$and",
+    "kind": "missing",
+    "operand": "expression[0]",
+    "expression": {
+      "$and": [
+        "$probe",
+        false
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[0]: zero",
+    "operator": "$and",
+    "kind": "zero",
+    "operand": "expression[0]",
+    "expression": {
+      "$and": [
+        "$probe",
+        false
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[0]: negative",
+    "operator": "$and",
+    "kind": "negative",
+    "operand": "expression[0]",
+    "expression": {
+      "$and": [
+        "$probe",
+        false
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[0]: decimal",
+    "operator": "$and",
+    "kind": "decimal",
+    "operand": "expression[0]",
+    "expression": {
+      "$and": [
+        "$probe",
+        false
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[0]: numeric string",
+    "operator": "$and",
+    "kind": "numeric string",
+    "operand": "expression[0]",
+    "expression": {
+      "$and": [
+        "$probe",
+        false
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[0]: text",
+    "operator": "$and",
+    "kind": "text",
+    "operand": "expression[0]",
+    "expression": {
+      "$and": [
+        "$probe",
+        false
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[0]: empty string",
+    "operator": "$and",
+    "kind": "empty string",
+    "operand": "expression[0]",
+    "expression": {
+      "$and": [
+        "$probe",
+        false
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[0]: boolean",
+    "operator": "$and",
+    "kind": "boolean",
+    "operand": "expression[0]",
+    "expression": {
+      "$and": [
+        "$probe",
+        false
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[0]: false",
+    "operator": "$and",
+    "kind": "false",
+    "operand": "expression[0]",
+    "expression": {
+      "$and": [
+        "$probe",
+        false
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[0]: typed date",
+    "operator": "$and",
+    "kind": "typed date",
+    "operand": "expression[0]",
+    "expression": {
+      "$and": [
+        "$probe",
+        false
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[0]: decimal128",
+    "operator": "$and",
+    "kind": "decimal128",
+    "operand": "expression[0]",
+    "expression": {
+      "$and": [
+        "$probe",
+        false
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[0]: empty array",
+    "operator": "$and",
+    "kind": "empty array",
+    "operand": "expression[0]",
+    "expression": {
+      "$and": [
+        "$probe",
+        false
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[0]: numeric array",
+    "operator": "$and",
+    "kind": "numeric array",
+    "operand": "expression[0]",
+    "expression": {
+      "$and": [
+        "$probe",
+        false
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[0]: mixed array",
+    "operator": "$and",
+    "kind": "mixed array",
+    "operand": "expression[0]",
+    "expression": {
+      "$and": [
+        "$probe",
+        false
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[0]: nested array",
+    "operator": "$and",
+    "kind": "nested array",
+    "operand": "expression[0]",
+    "expression": {
+      "$and": [
+        "$probe",
+        false
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[0]: empty object",
+    "operator": "$and",
+    "kind": "empty object",
+    "operand": "expression[0]",
+    "expression": {
+      "$and": [
+        "$probe",
+        false
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[0]: object",
+    "operator": "$and",
+    "kind": "object",
+    "operand": "expression[0]",
+    "expression": {
+      "$and": [
+        "$probe",
+        false
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[0]: ISO date string",
+    "operator": "$and",
+    "kind": "ISO date string",
+    "operand": "expression[0]",
+    "expression": {
+      "$and": [
+        "$probe",
+        false
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[1]: null",
+    "operator": "$and",
+    "kind": "null",
+    "operand": "expression[1]",
+    "expression": {
+      "$and": [
+        true,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[1]: missing",
+    "operator": "$and",
+    "kind": "missing",
+    "operand": "expression[1]",
+    "expression": {
+      "$and": [
+        true,
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[1]: zero",
+    "operator": "$and",
+    "kind": "zero",
+    "operand": "expression[1]",
+    "expression": {
+      "$and": [
+        true,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[1]: negative",
+    "operator": "$and",
+    "kind": "negative",
+    "operand": "expression[1]",
+    "expression": {
+      "$and": [
+        true,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[1]: decimal",
+    "operator": "$and",
+    "kind": "decimal",
+    "operand": "expression[1]",
+    "expression": {
+      "$and": [
+        true,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[1]: numeric string",
+    "operator": "$and",
+    "kind": "numeric string",
+    "operand": "expression[1]",
+    "expression": {
+      "$and": [
+        true,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[1]: text",
+    "operator": "$and",
+    "kind": "text",
+    "operand": "expression[1]",
+    "expression": {
+      "$and": [
+        true,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[1]: empty string",
+    "operator": "$and",
+    "kind": "empty string",
+    "operand": "expression[1]",
+    "expression": {
+      "$and": [
+        true,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[1]: boolean",
+    "operator": "$and",
+    "kind": "boolean",
+    "operand": "expression[1]",
+    "expression": {
+      "$and": [
+        true,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[1]: false",
+    "operator": "$and",
+    "kind": "false",
+    "operand": "expression[1]",
+    "expression": {
+      "$and": [
+        true,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[1]: typed date",
+    "operator": "$and",
+    "kind": "typed date",
+    "operand": "expression[1]",
+    "expression": {
+      "$and": [
+        true,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[1]: decimal128",
+    "operator": "$and",
+    "kind": "decimal128",
+    "operand": "expression[1]",
+    "expression": {
+      "$and": [
+        true,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[1]: empty array",
+    "operator": "$and",
+    "kind": "empty array",
+    "operand": "expression[1]",
+    "expression": {
+      "$and": [
+        true,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[1]: numeric array",
+    "operator": "$and",
+    "kind": "numeric array",
+    "operand": "expression[1]",
+    "expression": {
+      "$and": [
+        true,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[1]: mixed array",
+    "operator": "$and",
+    "kind": "mixed array",
+    "operand": "expression[1]",
+    "expression": {
+      "$and": [
+        true,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[1]: nested array",
+    "operator": "$and",
+    "kind": "nested array",
+    "operand": "expression[1]",
+    "expression": {
+      "$and": [
+        true,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[1]: empty object",
+    "operator": "$and",
+    "kind": "empty object",
+    "operand": "expression[1]",
+    "expression": {
+      "$and": [
+        true,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[1]: object",
+    "operator": "$and",
+    "kind": "object",
+    "operand": "expression[1]",
+    "expression": {
+      "$and": [
+        true,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and expression[1]: ISO date string",
+    "operator": "$and",
+    "kind": "ISO date string",
+    "operand": "expression[1]",
+    "expression": {
+      "$and": [
+        true,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and empty arguments",
+    "operator": "$and",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$and": []
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$and unknown option",
+    "operator": "$and",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$and": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  }
+]

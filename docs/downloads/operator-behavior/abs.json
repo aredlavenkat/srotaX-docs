@@ -1,0 +1,371 @@
+[
+  {
+    "id": "$abs baseline",
+    "operator": "$abs",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$abs": -2
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$abs input: null",
+    "operator": "$abs",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$abs": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$abs input: missing",
+    "operator": "$abs",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$abs": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$abs input: zero",
+    "operator": "$abs",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$abs": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$abs input: negative",
+    "operator": "$abs",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$abs": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$abs input: decimal",
+    "operator": "$abs",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$abs": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.5\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$abs input: numeric string",
+    "operator": "$abs",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$abs": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$abs requires a numeric argument."
+    }
+  },
+  {
+    "id": "$abs input: text",
+    "operator": "$abs",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$abs": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$abs requires a numeric argument."
+    }
+  },
+  {
+    "id": "$abs input: empty string",
+    "operator": "$abs",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$abs": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$abs requires a numeric argument."
+    }
+  },
+  {
+    "id": "$abs input: boolean",
+    "operator": "$abs",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$abs": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$abs requires a numeric argument."
+    }
+  },
+  {
+    "id": "$abs input: false",
+    "operator": "$abs",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$abs": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$abs requires a numeric argument."
+    }
+  },
+  {
+    "id": "$abs input: typed date",
+    "operator": "$abs",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$abs": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$abs requires a numeric argument."
+    }
+  },
+  {
+    "id": "$abs input: decimal128",
+    "operator": "$abs",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$abs": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.25\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$abs input: empty array",
+    "operator": "$abs",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$abs": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$abs requires a numeric argument."
+    }
+  },
+  {
+    "id": "$abs input: numeric array",
+    "operator": "$abs",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$abs": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$abs requires a numeric argument."
+    }
+  },
+  {
+    "id": "$abs input: mixed array",
+    "operator": "$abs",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$abs": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$abs requires a numeric argument."
+    }
+  },
+  {
+    "id": "$abs input: nested array",
+    "operator": "$abs",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$abs": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$abs requires a numeric argument."
+    }
+  },
+  {
+    "id": "$abs input: empty object",
+    "operator": "$abs",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$abs": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$abs requires a numeric argument."
+    }
+  },
+  {
+    "id": "$abs input: object",
+    "operator": "$abs",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$abs": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$abs requires a numeric argument."
+    }
+  },
+  {
+    "id": "$abs input: ISO date string",
+    "operator": "$abs",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$abs": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$abs requires a numeric argument."
+    }
+  },
+  {
+    "id": "$abs empty arguments",
+    "operator": "$abs",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$abs": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$abs requires a numeric argument."
+    }
+  },
+  {
+    "id": "$abs unknown option",
+    "operator": "$abs",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$abs": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$abs requires a numeric argument."
+    }
+  }
+]

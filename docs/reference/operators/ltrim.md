@@ -2,36 +2,115 @@
 
 Trims configured characters from the start of text.
 
-**Category:** Text · **Visual function entry:** Yes
+**Category:** Text. **Studio Visual entry:** Available. This page describes Core expression execution; Studio also checks field types and authoring permissions.
 
-## Signature (engine metadata)
+## Syntax and arguments
 
-Argument syntax: `NAMED`. Minimum arguments: 1. Maximum: 2.
+Supply an object with the named arguments below.
 
-| Operand | Accepted types | Required | Evaluation |
+| Argument | Metadata input types | Required | Evaluation |
 | --- | --- | --- | --- |
-| input | STRING | True | EXPRESSION |
-| chars | STRING | False | EXPRESSION |
+| `input` | STRING | Yes | Expression evaluated against the input |
+| `chars` | STRING | No | Expression evaluated against the input |
 
-Result types: NULL, STRING.
+Argument count: minimum 1; maximum 2.
 
-## Null and missing (engine metadata)
+Declared result types: **NULL, STRING**. Actual result types for tested inputs appear below. Metadata is an authoring hint; where a case differs, use the observed result and treat the discrepancy as a limitation.
 
-- Null: Returns null when the required value is null.
-- Missing: Missing required values resolve to null.
+## Example
 
-## Compatibility boundary
+Expression:
+```json
+{
+  "$ltrim": {
+    "input": "  hi"
+  }
+}
+```
 
-Classification: `MONGO_6_SUBSET`. Verification scope reported by the engine: `ENGINE_REGRESSION_EXAMPLES`.
+Input document:
+```json
+{}
+```
 
-- Verification covers regression cases; full BSON and locale conformance is not certified.
+**Observed SrotaX result:** "hi".
 
-These statements come from the engine catalog. This documentation has not independently certified equivalence against a running MongoDB server.
+## Behavior for different inputs
 
-## Example coverage
+Each table changes **only the indicated argument** from the example above. Other arguments retain their baseline values. Values normally come from the input field `probe`; literal configuration arguments are replaced directly. “Missing” means the field is absent, not explicitly null. Numeric strings are strings, not numbers.
 
-No executable example for this operator is included in the documentation suite yet. Use the signature above and validate your complete expression; do not interpret registration as a guarantee for every argument combination.
+### Argument: `input`
 
-[MongoDB reference linked by engine metadata](https://raw.githubusercontent.com/mongodb/docs/3baea2dd8f2386d64c3c9a6805f625b80d9bacf4/source/reference/operator/aggregation/ltrim.txt)
+| Input case | Supplied value | SrotaX result |
+| --- | --- | --- |
+| null | null | null |
+| missing | Field absent | null |
+| zero | 0 | Error: IllegalArgumentException — $trim input must be a string |
+| negative | -2 | Error: IllegalArgumentException — $trim input must be a string |
+| decimal | 2.5 | Error: IllegalArgumentException — $trim input must be a string |
+| numeric string | "12" | "12" |
+| text | "hello" | "hello" |
+| empty string | "" | "" |
+| boolean | true | Error: IllegalArgumentException — $trim input must be a string |
+| false | false | Error: IllegalArgumentException — $trim input must be a string |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error: IllegalArgumentException — $trim input must be a string |
+| decimal128 | {"$numberDecimal":"1.25"} | Error: IllegalArgumentException — $trim input must be a string |
+| empty array | [] | Error: IllegalArgumentException — $trim input must be a string |
+| numeric array | [1,2,3] | Error: IllegalArgumentException — $trim input must be a string |
+| mixed array | [1,null,"x",3] | Error: IllegalArgumentException — $trim input must be a string |
+| nested array | [[1,2],[3]] | Error: IllegalArgumentException — $trim input must be a string |
+| empty object | {} | Error: IllegalArgumentException — $trim input must be a string |
+| object | {"x":1} | Error: IllegalArgumentException — $trim input must be a string |
+| ISO date string | "2026-01-15T15:00:00Z" | "2026-01-15T15:00:00Z" |
+| omitted named argument | Argument removed | Error: IllegalArgumentException — $trim requires input and optional chars |
 
-Source revision recorded by engine: `3baea2dd8f2386d64c3c9a6805f625b80d9bacf4`.
+### Argument: `chars`
+
+| Input case | Supplied value | SrotaX result |
+| --- | --- | --- |
+| null | null | null |
+| missing | Field absent | null |
+| zero | 0 | Error: IllegalArgumentException — $trim chars must be a string |
+| negative | -2 | Error: IllegalArgumentException — $trim chars must be a string |
+| decimal | 2.5 | Error: IllegalArgumentException — $trim chars must be a string |
+| numeric string | "12" | "  hi" |
+| text | "hello" | "  hi" |
+| empty string | "" | "  hi" |
+| boolean | true | Error: IllegalArgumentException — $trim chars must be a string |
+| false | false | Error: IllegalArgumentException — $trim chars must be a string |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error: IllegalArgumentException — $trim chars must be a string |
+| decimal128 | {"$numberDecimal":"1.25"} | Error: IllegalArgumentException — $trim chars must be a string |
+| empty array | [] | Error: IllegalArgumentException — $trim chars must be a string |
+| numeric array | [1,2,3] | Error: IllegalArgumentException — $trim chars must be a string |
+| mixed array | [1,null,"x",3] | Error: IllegalArgumentException — $trim chars must be a string |
+| nested array | [[1,2],[3]] | Error: IllegalArgumentException — $trim chars must be a string |
+| empty object | {} | Error: IllegalArgumentException — $trim chars must be a string |
+| object | {"x":1} | Error: IllegalArgumentException — $trim chars must be a string |
+| ISO date string | "2026-01-15T15:00:00Z" | "  hi" |
+| omitted named argument | Argument removed | "hi" |
+
+## Invalid invocation shapes
+
+| Invocation | SrotaX result |
+| --- | --- |
+| {"$ltrim":[]} | Error: IllegalArgumentException — $trim requires input and optional chars |
+| {"$ltrim":{"unexpected":1}} | Error: IllegalArgumentException — $trim requires input and optional chars |
+
+## Scope and reproducibility
+
+This page records **43 executed cases**. It covers individual argument substitutions, not every cross-product of arguments, locale, daylight-saving transitions, numeric overflow, collation or resource limits. No untested behavior is guaranteed.
+
+[Download exact expressions, inputs and SrotaX results](../../downloads/operator-behavior/ltrim.json). Errors are observed messages, not stable public error codes. The reference generator reads the checked-in execution report; do not edit generated observations by hand.
+
+<!-- BEGIN MONGO PARITY -->
+## MongoDB differences (removable section)
+
+Compared with **MongoDB 9.0.4**: **14 exact BSON matches**, **29 both rejected**, **0 value/type/acceptance differences**, **0 object-field-order differences**.
+
+“Exact” includes numeric BSON types and object key order. A value of `3` as int32 differs from `3.0` as double. Object-field-order differences are reported separately; object key ordering is not enforced by the engine regression baseline. Both rejected does not mean the error codes or messages match. This is finite-case evidence, not full compatibility certification.
+
+No differences were observed in the compared cases.
+
+[Download full comparison evidence](../../downloads/operator-parity/ltrim.json).
+
+<!-- END MONGO PARITY -->

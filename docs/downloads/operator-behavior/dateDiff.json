@@ -1,0 +1,2504 @@
+[
+  {
+    "id": "$dateDiff baseline",
+    "operator": "$dateDiff",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff startDate: null",
+    "operator": "$dateDiff",
+    "kind": "null",
+    "operand": "startDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": "$probe",
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff startDate: missing",
+    "operator": "$dateDiff",
+    "kind": "missing",
+    "operand": "startDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": "$probe",
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff startDate: zero",
+    "operator": "$dateDiff",
+    "kind": "zero",
+    "operand": "startDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": "$probe",
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateDiff startDate: negative",
+    "operator": "$dateDiff",
+    "kind": "negative",
+    "operand": "startDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": "$probe",
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateDiff startDate: decimal",
+    "operator": "$dateDiff",
+    "kind": "decimal",
+    "operand": "startDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": "$probe",
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateDiff startDate: numeric string",
+    "operator": "$dateDiff",
+    "kind": "numeric string",
+    "operand": "startDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": "$probe",
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot convert value to date: 12"
+    }
+  },
+  {
+    "id": "$dateDiff startDate: text",
+    "operator": "$dateDiff",
+    "kind": "text",
+    "operand": "startDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": "$probe",
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot convert value to date: hello"
+    }
+  },
+  {
+    "id": "$dateDiff startDate: empty string",
+    "operator": "$dateDiff",
+    "kind": "empty string",
+    "operand": "startDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": "$probe",
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot convert value to date: "
+    }
+  },
+  {
+    "id": "$dateDiff startDate: boolean",
+    "operator": "$dateDiff",
+    "kind": "boolean",
+    "operand": "startDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": "$probe",
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateDiff startDate: false",
+    "operator": "$dateDiff",
+    "kind": "false",
+    "operand": "startDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": "$probe",
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateDiff startDate: typed date",
+    "operator": "$dateDiff",
+    "kind": "typed date",
+    "operand": "startDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": "$probe",
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"-743\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff startDate: decimal128",
+    "operator": "$dateDiff",
+    "kind": "decimal128",
+    "operand": "startDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": "$probe",
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateDiff startDate: empty array",
+    "operator": "$dateDiff",
+    "kind": "empty array",
+    "operand": "startDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": "$probe",
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateDiff startDate: numeric array",
+    "operator": "$dateDiff",
+    "kind": "numeric array",
+    "operand": "startDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": "$probe",
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateDiff startDate: mixed array",
+    "operator": "$dateDiff",
+    "kind": "mixed array",
+    "operand": "startDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": "$probe",
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateDiff startDate: nested array",
+    "operator": "$dateDiff",
+    "kind": "nested array",
+    "operand": "startDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": "$probe",
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateDiff startDate: empty object",
+    "operator": "$dateDiff",
+    "kind": "empty object",
+    "operand": "startDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": "$probe",
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateDiff startDate: object",
+    "operator": "$dateDiff",
+    "kind": "object",
+    "operand": "startDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": "$probe",
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateDiff startDate: ISO date string",
+    "operator": "$dateDiff",
+    "kind": "ISO date string",
+    "operand": "startDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": "$probe",
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"-743\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff endDate: null",
+    "operator": "$dateDiff",
+    "kind": "null",
+    "operand": "endDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": "$probe",
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff endDate: missing",
+    "operator": "$dateDiff",
+    "kind": "missing",
+    "operand": "endDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": "$probe",
+        "unit": "day"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff endDate: zero",
+    "operator": "$dateDiff",
+    "kind": "zero",
+    "operand": "endDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": "$probe",
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateDiff endDate: negative",
+    "operator": "$dateDiff",
+    "kind": "negative",
+    "operand": "endDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": "$probe",
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateDiff endDate: decimal",
+    "operator": "$dateDiff",
+    "kind": "decimal",
+    "operand": "endDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": "$probe",
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateDiff endDate: numeric string",
+    "operator": "$dateDiff",
+    "kind": "numeric string",
+    "operand": "endDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": "$probe",
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot convert value to date: 12"
+    }
+  },
+  {
+    "id": "$dateDiff endDate: text",
+    "operator": "$dateDiff",
+    "kind": "text",
+    "operand": "endDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": "$probe",
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot convert value to date: hello"
+    }
+  },
+  {
+    "id": "$dateDiff endDate: empty string",
+    "operator": "$dateDiff",
+    "kind": "empty string",
+    "operand": "endDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": "$probe",
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot convert value to date: "
+    }
+  },
+  {
+    "id": "$dateDiff endDate: boolean",
+    "operator": "$dateDiff",
+    "kind": "boolean",
+    "operand": "endDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": "$probe",
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateDiff endDate: false",
+    "operator": "$dateDiff",
+    "kind": "false",
+    "operand": "endDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": "$probe",
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateDiff endDate: typed date",
+    "operator": "$dateDiff",
+    "kind": "typed date",
+    "operand": "endDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": "$probe",
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"745\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff endDate: decimal128",
+    "operator": "$dateDiff",
+    "kind": "decimal128",
+    "operand": "endDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": "$probe",
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateDiff endDate: empty array",
+    "operator": "$dateDiff",
+    "kind": "empty array",
+    "operand": "endDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": "$probe",
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateDiff endDate: numeric array",
+    "operator": "$dateDiff",
+    "kind": "numeric array",
+    "operand": "endDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": "$probe",
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateDiff endDate: mixed array",
+    "operator": "$dateDiff",
+    "kind": "mixed array",
+    "operand": "endDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": "$probe",
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateDiff endDate: nested array",
+    "operator": "$dateDiff",
+    "kind": "nested array",
+    "operand": "endDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": "$probe",
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateDiff endDate: empty object",
+    "operator": "$dateDiff",
+    "kind": "empty object",
+    "operand": "endDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": "$probe",
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateDiff endDate: object",
+    "operator": "$dateDiff",
+    "kind": "object",
+    "operand": "endDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": "$probe",
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateDiff endDate: ISO date string",
+    "operator": "$dateDiff",
+    "kind": "ISO date string",
+    "operand": "endDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": "$probe",
+        "unit": "day"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"745\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff unit: null",
+    "operator": "$dateDiff",
+    "kind": "null",
+    "operand": "unit",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff unit: missing",
+    "operator": "$dateDiff",
+    "kind": "missing",
+    "operand": "unit",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff unit: zero",
+    "operator": "$dateDiff",
+    "kind": "zero",
+    "operand": "unit",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    }
+  },
+  {
+    "id": "$dateDiff unit: negative",
+    "operator": "$dateDiff",
+    "kind": "negative",
+    "operand": "unit",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    }
+  },
+  {
+    "id": "$dateDiff unit: decimal",
+    "operator": "$dateDiff",
+    "kind": "decimal",
+    "operand": "unit",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    }
+  },
+  {
+    "id": "$dateDiff unit: numeric string",
+    "operator": "$dateDiff",
+    "kind": "numeric string",
+    "operand": "unit",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date unit: 12"
+    }
+  },
+  {
+    "id": "$dateDiff unit: text",
+    "operator": "$dateDiff",
+    "kind": "text",
+    "operand": "unit",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date unit: hello"
+    }
+  },
+  {
+    "id": "$dateDiff unit: empty string",
+    "operator": "$dateDiff",
+    "kind": "empty string",
+    "operand": "unit",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date unit: "
+    }
+  },
+  {
+    "id": "$dateDiff unit: boolean",
+    "operator": "$dateDiff",
+    "kind": "boolean",
+    "operand": "unit",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    }
+  },
+  {
+    "id": "$dateDiff unit: false",
+    "operator": "$dateDiff",
+    "kind": "false",
+    "operand": "unit",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    }
+  },
+  {
+    "id": "$dateDiff unit: typed date",
+    "operator": "$dateDiff",
+    "kind": "typed date",
+    "operand": "unit",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    }
+  },
+  {
+    "id": "$dateDiff unit: decimal128",
+    "operator": "$dateDiff",
+    "kind": "decimal128",
+    "operand": "unit",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    }
+  },
+  {
+    "id": "$dateDiff unit: empty array",
+    "operator": "$dateDiff",
+    "kind": "empty array",
+    "operand": "unit",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    }
+  },
+  {
+    "id": "$dateDiff unit: numeric array",
+    "operator": "$dateDiff",
+    "kind": "numeric array",
+    "operand": "unit",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    }
+  },
+  {
+    "id": "$dateDiff unit: mixed array",
+    "operator": "$dateDiff",
+    "kind": "mixed array",
+    "operand": "unit",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    }
+  },
+  {
+    "id": "$dateDiff unit: nested array",
+    "operator": "$dateDiff",
+    "kind": "nested array",
+    "operand": "unit",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    }
+  },
+  {
+    "id": "$dateDiff unit: empty object",
+    "operator": "$dateDiff",
+    "kind": "empty object",
+    "operand": "unit",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    }
+  },
+  {
+    "id": "$dateDiff unit: object",
+    "operator": "$dateDiff",
+    "kind": "object",
+    "operand": "unit",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    }
+  },
+  {
+    "id": "$dateDiff unit: ISO date string",
+    "operator": "$dateDiff",
+    "kind": "ISO date string",
+    "operand": "unit",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date unit: 2026-01-15T15:00:00Z"
+    }
+  },
+  {
+    "id": "$dateDiff timezone: null",
+    "operator": "$dateDiff",
+    "kind": "null",
+    "operand": "timezone",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff timezone: missing",
+    "operator": "$dateDiff",
+    "kind": "missing",
+    "operand": "timezone",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff timezone: zero",
+    "operator": "$dateDiff",
+    "kind": "zero",
+    "operand": "timezone",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateDiff timezone: negative",
+    "operator": "$dateDiff",
+    "kind": "negative",
+    "operand": "timezone",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateDiff timezone: decimal",
+    "operator": "$dateDiff",
+    "kind": "decimal",
+    "operand": "timezone",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateDiff timezone: numeric string",
+    "operator": "$dateDiff",
+    "kind": "numeric string",
+    "operand": "timezone",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "DateTimeException",
+      "message": "Invalid ID for region-based ZoneId, invalid format: 12"
+    }
+  },
+  {
+    "id": "$dateDiff timezone: text",
+    "operator": "$dateDiff",
+    "kind": "text",
+    "operand": "timezone",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "ZoneRulesException",
+      "message": "Unknown time-zone ID: hello"
+    }
+  },
+  {
+    "id": "$dateDiff timezone: empty string",
+    "operator": "$dateDiff",
+    "kind": "empty string",
+    "operand": "timezone",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "DateTimeException",
+      "message": "Invalid ID for ZoneOffset, invalid format: "
+    }
+  },
+  {
+    "id": "$dateDiff timezone: boolean",
+    "operator": "$dateDiff",
+    "kind": "boolean",
+    "operand": "timezone",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateDiff timezone: false",
+    "operator": "$dateDiff",
+    "kind": "false",
+    "operand": "timezone",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateDiff timezone: typed date",
+    "operator": "$dateDiff",
+    "kind": "typed date",
+    "operand": "timezone",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateDiff timezone: decimal128",
+    "operator": "$dateDiff",
+    "kind": "decimal128",
+    "operand": "timezone",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateDiff timezone: empty array",
+    "operator": "$dateDiff",
+    "kind": "empty array",
+    "operand": "timezone",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateDiff timezone: numeric array",
+    "operator": "$dateDiff",
+    "kind": "numeric array",
+    "operand": "timezone",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateDiff timezone: mixed array",
+    "operator": "$dateDiff",
+    "kind": "mixed array",
+    "operand": "timezone",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateDiff timezone: nested array",
+    "operator": "$dateDiff",
+    "kind": "nested array",
+    "operand": "timezone",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateDiff timezone: empty object",
+    "operator": "$dateDiff",
+    "kind": "empty object",
+    "operand": "timezone",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateDiff timezone: object",
+    "operator": "$dateDiff",
+    "kind": "object",
+    "operand": "timezone",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateDiff timezone: ISO date string",
+    "operator": "$dateDiff",
+    "kind": "ISO date string",
+    "operand": "timezone",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "DateTimeException",
+      "message": "Invalid ID for region-based ZoneId, invalid format: 2026-01-15T15:00:00Z"
+    }
+  },
+  {
+    "id": "$dateDiff startOfWeek: null",
+    "operator": "$dateDiff",
+    "kind": "null",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff startOfWeek: missing",
+    "operator": "$dateDiff",
+    "kind": "missing",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff startOfWeek: zero",
+    "operator": "$dateDiff",
+    "kind": "zero",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff startOfWeek: negative",
+    "operator": "$dateDiff",
+    "kind": "negative",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff startOfWeek: decimal",
+    "operator": "$dateDiff",
+    "kind": "decimal",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff startOfWeek: numeric string",
+    "operator": "$dateDiff",
+    "kind": "numeric string",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff startOfWeek: text",
+    "operator": "$dateDiff",
+    "kind": "text",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff startOfWeek: empty string",
+    "operator": "$dateDiff",
+    "kind": "empty string",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff startOfWeek: boolean",
+    "operator": "$dateDiff",
+    "kind": "boolean",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff startOfWeek: false",
+    "operator": "$dateDiff",
+    "kind": "false",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff startOfWeek: typed date",
+    "operator": "$dateDiff",
+    "kind": "typed date",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff startOfWeek: decimal128",
+    "operator": "$dateDiff",
+    "kind": "decimal128",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff startOfWeek: empty array",
+    "operator": "$dateDiff",
+    "kind": "empty array",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff startOfWeek: numeric array",
+    "operator": "$dateDiff",
+    "kind": "numeric array",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff startOfWeek: mixed array",
+    "operator": "$dateDiff",
+    "kind": "mixed array",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff startOfWeek: nested array",
+    "operator": "$dateDiff",
+    "kind": "nested array",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff startOfWeek: empty object",
+    "operator": "$dateDiff",
+    "kind": "empty object",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff startOfWeek: object",
+    "operator": "$dateDiff",
+    "kind": "object",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff startOfWeek: ISO date string",
+    "operator": "$dateDiff",
+    "kind": "ISO date string",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff omit startDate",
+    "operator": "$dateDiff",
+    "kind": "omitted named argument",
+    "operand": "startDate",
+    "expression": {
+      "$dateDiff": {
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff omit endDate",
+    "operator": "$dateDiff",
+    "kind": "omitted named argument",
+    "operand": "endDate",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "unit": "day"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff omit unit",
+    "operator": "$dateDiff",
+    "kind": "omitted named argument",
+    "operand": "unit",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff omit timezone",
+    "operator": "$dateDiff",
+    "kind": "omitted named argument",
+    "operand": "timezone",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff omit startOfWeek",
+    "operator": "$dateDiff",
+    "kind": "omitted named argument",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateDiff": {
+        "startDate": {
+          "$toDate": "2024-01-01T00:00:00Z"
+        },
+        "endDate": {
+          "$toDate": "2024-01-03T00:00:00Z"
+        },
+        "unit": "day"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateDiff empty arguments",
+    "operator": "$dateDiff",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$dateDiff": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Date operator requires named arguments"
+    }
+  },
+  {
+    "id": "$dateDiff unknown option",
+    "operator": "$dateDiff",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$dateDiff": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  }
+]

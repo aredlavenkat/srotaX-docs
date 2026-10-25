@@ -14,9 +14,9 @@ Browser verification additionally loaded the published table and contract, gener
 
 The reference is generated from the actual Management operator catalog. Metadata reports compatibility classifications, source revision, null/missing behavior, signatures, and limitations. These are attributed as **engine metadata**, not independently certified MongoDB equivalence.
 
-The suite has **23 successful compiler/engine examples and one reproduced known failure**.
+The suite has **34 successful compiler/engine examples and one reproduced known failure**.
 
-Selected runnable expression examples are checked against the compiler and engine by `scripts/verify-expressions.sh`. They do not certify every registered operator or every BSON type. A full MongoDB differential suite remains separate work; the documentation does not claim it has passed.
+Selected runnable expression examples are checked against the compiler and engine by `scripts/verify-expressions.sh`. They do not certify every registered operator or every BSON type. The [MongoDB 9.0.4 differential audit](reference/mongo-compatibility.md) records 99 focused cases for the five new operators and 514 broader cases from an earlier catalog snapshot. The broader audit has 108 differences; it has not passed.
 
 ## Build checks
 

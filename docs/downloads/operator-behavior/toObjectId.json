@@ -1,0 +1,371 @@
+[
+  {
+    "id": "$toObjectId baseline",
+    "operator": "$toObjectId",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$toObjectId": "507f1f77bcf86cd799439011"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$oid\": \"507f1f77bcf86cd799439011\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toObjectId input: null",
+    "operator": "$toObjectId",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$toObjectId": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toObjectId input: missing",
+    "operator": "$toObjectId",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$toObjectId": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toObjectId input: zero",
+    "operator": "$toObjectId",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$toObjectId": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target objectId"
+    }
+  },
+  {
+    "id": "$toObjectId input: negative",
+    "operator": "$toObjectId",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$toObjectId": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target objectId"
+    }
+  },
+  {
+    "id": "$toObjectId input: decimal",
+    "operator": "$toObjectId",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$toObjectId": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target objectId"
+    }
+  },
+  {
+    "id": "$toObjectId input: numeric string",
+    "operator": "$toObjectId",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$toObjectId": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target objectId"
+    }
+  },
+  {
+    "id": "$toObjectId input: text",
+    "operator": "$toObjectId",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$toObjectId": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target objectId"
+    }
+  },
+  {
+    "id": "$toObjectId input: empty string",
+    "operator": "$toObjectId",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$toObjectId": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target objectId"
+    }
+  },
+  {
+    "id": "$toObjectId input: boolean",
+    "operator": "$toObjectId",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$toObjectId": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target objectId"
+    }
+  },
+  {
+    "id": "$toObjectId input: false",
+    "operator": "$toObjectId",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$toObjectId": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target objectId"
+    }
+  },
+  {
+    "id": "$toObjectId input: typed date",
+    "operator": "$toObjectId",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$toObjectId": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target objectId"
+    }
+  },
+  {
+    "id": "$toObjectId input: decimal128",
+    "operator": "$toObjectId",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$toObjectId": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target objectId"
+    }
+  },
+  {
+    "id": "$toObjectId input: empty array",
+    "operator": "$toObjectId",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$toObjectId": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target objectId"
+    }
+  },
+  {
+    "id": "$toObjectId input: numeric array",
+    "operator": "$toObjectId",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$toObjectId": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target objectId"
+    }
+  },
+  {
+    "id": "$toObjectId input: mixed array",
+    "operator": "$toObjectId",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$toObjectId": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target objectId"
+    }
+  },
+  {
+    "id": "$toObjectId input: nested array",
+    "operator": "$toObjectId",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$toObjectId": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target objectId"
+    }
+  },
+  {
+    "id": "$toObjectId input: empty object",
+    "operator": "$toObjectId",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$toObjectId": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target objectId"
+    }
+  },
+  {
+    "id": "$toObjectId input: object",
+    "operator": "$toObjectId",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$toObjectId": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target objectId"
+    }
+  },
+  {
+    "id": "$toObjectId input: ISO date string",
+    "operator": "$toObjectId",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$toObjectId": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target objectId"
+    }
+  },
+  {
+    "id": "$toObjectId empty arguments",
+    "operator": "$toObjectId",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$toObjectId": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target objectId"
+    }
+  },
+  {
+    "id": "$toObjectId unknown option",
+    "operator": "$toObjectId",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$toObjectId": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target objectId"
+    }
+  }
+]

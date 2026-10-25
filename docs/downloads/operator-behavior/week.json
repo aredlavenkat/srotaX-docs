@@ -1,0 +1,373 @@
+[
+  {
+    "id": "$week baseline",
+    "operator": "$week",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$week": {
+        "$toDate": "2024-01-02T03:04:05.006Z"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$week input: null",
+    "operator": "$week",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$week": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$week requires a Date input"
+    }
+  },
+  {
+    "id": "$week input: missing",
+    "operator": "$week",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$week": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$week requires a Date input"
+    }
+  },
+  {
+    "id": "$week input: zero",
+    "operator": "$week",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$week": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$week requires a Date input"
+    }
+  },
+  {
+    "id": "$week input: negative",
+    "operator": "$week",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$week": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$week requires a Date input"
+    }
+  },
+  {
+    "id": "$week input: decimal",
+    "operator": "$week",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$week": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$week requires a Date input"
+    }
+  },
+  {
+    "id": "$week input: numeric string",
+    "operator": "$week",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$week": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$week requires a Date input"
+    }
+  },
+  {
+    "id": "$week input: text",
+    "operator": "$week",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$week": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$week requires a Date input"
+    }
+  },
+  {
+    "id": "$week input: empty string",
+    "operator": "$week",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$week": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$week requires a Date input"
+    }
+  },
+  {
+    "id": "$week input: boolean",
+    "operator": "$week",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$week": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$week requires a Date input"
+    }
+  },
+  {
+    "id": "$week input: false",
+    "operator": "$week",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$week": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$week requires a Date input"
+    }
+  },
+  {
+    "id": "$week input: typed date",
+    "operator": "$week",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$week": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$week input: decimal128",
+    "operator": "$week",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$week": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$week requires a Date input"
+    }
+  },
+  {
+    "id": "$week input: empty array",
+    "operator": "$week",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$week": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$week requires a Date input"
+    }
+  },
+  {
+    "id": "$week input: numeric array",
+    "operator": "$week",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$week": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$week requires a Date input"
+    }
+  },
+  {
+    "id": "$week input: mixed array",
+    "operator": "$week",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$week": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$week requires a Date input"
+    }
+  },
+  {
+    "id": "$week input: nested array",
+    "operator": "$week",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$week": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$week requires a Date input"
+    }
+  },
+  {
+    "id": "$week input: empty object",
+    "operator": "$week",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$week": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$week requires a Date input"
+    }
+  },
+  {
+    "id": "$week input: object",
+    "operator": "$week",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$week": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$week requires a Date input"
+    }
+  },
+  {
+    "id": "$week input: ISO date string",
+    "operator": "$week",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$week": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$week requires a Date input"
+    }
+  },
+  {
+    "id": "$week empty arguments",
+    "operator": "$week",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$week": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$week requires a Date input"
+    }
+  },
+  {
+    "id": "$week unknown option",
+    "operator": "$week",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$week": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$week requires a Date input"
+    }
+  }
+]

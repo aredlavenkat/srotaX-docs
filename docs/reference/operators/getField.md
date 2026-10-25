@@ -2,37 +2,169 @@
 
 Reads a named field from an explicit object.
 
-**Category:** Objects · **Visual function entry:** Yes
+**Category:** Objects. **Studio Visual entry:** Available. This page describes Core expression execution; Studio also checks field types and authoring permissions.
 
-## Signature (engine metadata)
+## Syntax and arguments
 
-Argument syntax: `NAMED`. Minimum arguments: 2. Maximum: 2.
+Supply an object with the named arguments below.
 
-| Operand | Accepted types | Required | Evaluation |
+| Argument | Metadata input types | Required | Evaluation |
 | --- | --- | --- | --- |
-| field | STRING | True | EXPRESSION |
-| input | OBJECT | True | EXPRESSION |
+| `field` | STRING | Yes | Expression evaluated against the input |
+| `input` | OBJECT | Yes | Expression evaluated against the input |
 
-Result types: ANY.
+Argument count: minimum 2; maximum 2.
 
-## Null and missing (engine metadata)
+Declared result types: **ANY**. Actual result types for tested inputs appear below. Metadata is an authoring hint; where a case differs, use the observed result and treat the discrepancy as a limitation.
 
-- Null: With field set to literal null in the regression example: throws an exception. This is observed Fluxion behavior, not a general Mongo conformance claim.
-- Missing: With field set to a missing direct-field reference in the regression example: throws an exception. This is observed Fluxion behavior, not a general Mongo conformance claim.
+## Example
 
-## Compatibility boundary
+Expression:
+```json
+{
+  "$getField": {
+    "field": "a",
+    "input": {
+      "a": 1
+    }
+  }
+}
+```
 
-Classification: `MONGO_6_DIFFERENCES`. Verification scope reported by the engine: `ENGINE_REGRESSION_EXAMPLES`.
+Input document:
+```json
+{}
+```
 
-- Input is required; missing fields return null rather than missing; shorthand is unsupported.
-- Verification covers the checked-in regression examples, not full BSON, null, error or collation equivalence.
+**Observed SrotaX result:** 1 (int32).
 
-These statements come from the engine catalog. This documentation has not independently certified equivalence against a running MongoDB server.
+## Behavior for different inputs
 
-## Example coverage
+Each table changes **only the indicated argument** from the example above. Other arguments retain their baseline values. Values normally come from the input field `probe`; literal configuration arguments are replaced directly. “Missing” means the field is absent, not explicitly null. Numeric strings are strings, not numbers.
 
-No executable example for this operator is included in the documentation suite yet. Use the signature above and validate your complete expression; do not interpret registration as a guarantee for every argument combination.
+### Argument: `field`
 
-[MongoDB reference linked by engine metadata](https://raw.githubusercontent.com/mongodb/docs/3baea2dd8f2386d64c3c9a6805f625b80d9bacf4/source/reference/operator/aggregation/getField.txt)
+| Input case | Supplied value | SrotaX result |
+| --- | --- | --- |
+| null | null | Error: IllegalArgumentException — $getField requires a document input and string field. |
+| missing | Field absent | Error: IllegalArgumentException — $getField requires a document input and string field. |
+| zero | 0 | Error: IllegalArgumentException — $getField requires a document input and string field. |
+| negative | -2 | Error: IllegalArgumentException — $getField requires a document input and string field. |
+| decimal | 2.5 | Error: IllegalArgumentException — $getField requires a document input and string field. |
+| numeric string | "12" | null |
+| text | "hello" | null |
+| empty string | "" | null |
+| boolean | true | Error: IllegalArgumentException — $getField requires a document input and string field. |
+| false | false | Error: IllegalArgumentException — $getField requires a document input and string field. |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error: IllegalArgumentException — $getField requires a document input and string field. |
+| decimal128 | {"$numberDecimal":"1.25"} | Error: IllegalArgumentException — $getField requires a document input and string field. |
+| empty array | [] | Error: IllegalArgumentException — $getField requires a document input and string field. |
+| numeric array | [1,2,3] | Error: IllegalArgumentException — $getField requires a document input and string field. |
+| mixed array | [1,null,"x",3] | Error: IllegalArgumentException — $getField requires a document input and string field. |
+| nested array | [[1,2],[3]] | Error: IllegalArgumentException — $getField requires a document input and string field. |
+| empty object | {} | Error: IllegalArgumentException — $getField requires a document input and string field. |
+| object | {"x":1} | Error: IllegalArgumentException — $getField requires a document input and string field. |
+| ISO date string | "2026-01-15T15:00:00Z" | null |
+| omitted named argument | Argument removed | Error: IllegalArgumentException — $getField requires 'field' and 'input' keys. |
 
-Source revision recorded by engine: `3baea2dd8f2386d64c3c9a6805f625b80d9bacf4`.
+### Argument: `input`
+
+| Input case | Supplied value | SrotaX result |
+| --- | --- | --- |
+| null | null | Error: IllegalArgumentException — $getField requires a document input and string field. |
+| missing | Field absent | Error: IllegalArgumentException — $getField requires a document input and string field. |
+| zero | 0 | Error: IllegalArgumentException — $getField requires a document input and string field. |
+| negative | -2 | Error: IllegalArgumentException — $getField requires a document input and string field. |
+| decimal | 2.5 | Error: IllegalArgumentException — $getField requires a document input and string field. |
+| numeric string | "12" | Error: IllegalArgumentException — $getField requires a document input and string field. |
+| text | "hello" | Error: IllegalArgumentException — $getField requires a document input and string field. |
+| empty string | "" | Error: IllegalArgumentException — $getField requires a document input and string field. |
+| boolean | true | Error: IllegalArgumentException — $getField requires a document input and string field. |
+| false | false | Error: IllegalArgumentException — $getField requires a document input and string field. |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error: IllegalArgumentException — $getField requires a document input and string field. |
+| decimal128 | {"$numberDecimal":"1.25"} | Error: IllegalArgumentException — $getField requires a document input and string field. |
+| empty array | [] | Error: IllegalArgumentException — $getField requires a document input and string field. |
+| numeric array | [1,2,3] | Error: IllegalArgumentException — $getField requires a document input and string field. |
+| mixed array | [1,null,"x",3] | Error: IllegalArgumentException — $getField requires a document input and string field. |
+| nested array | [[1,2],[3]] | Error: IllegalArgumentException — $getField requires a document input and string field. |
+| empty object | {} | null |
+| object | {"x":1} | null |
+| ISO date string | "2026-01-15T15:00:00Z" | Error: IllegalArgumentException — $getField requires a document input and string field. |
+| omitted named argument | Argument removed | Error: IllegalArgumentException — $getField requires 'field' and 'input' keys. |
+
+## Invalid invocation shapes
+
+| Invocation | SrotaX result |
+| --- | --- |
+| {"$getField":[]} | Error: IllegalArgumentException — $getField requires 'field' and 'input' keys. |
+| {"$getField":{"unexpected":1}} | Error: IllegalArgumentException — $getField requires 'field' and 'input' keys. |
+
+## Additional boundary examples
+
+<details>
+<summary>Show 1 tested examples</summary>
+
+Expression:
+```json
+{
+  "$getField": {
+    "field": "b",
+    "input": {
+      "a": 1
+    }
+  }
+}
+```
+
+Input:
+```json
+{}
+```
+
+**SrotaX:** null.
+
+</details>
+
+## Scope and reproducibility
+
+This page records **44 executed cases**. It covers individual argument substitutions, not every cross-product of arguments, locale, daylight-saving transitions, numeric overflow, collation or resource limits. No untested behavior is guaranteed.
+
+[Download exact expressions, inputs and SrotaX results](../../downloads/operator-behavior/getField.json). Errors are observed messages, not stable public error codes. The reference generator reads the checked-in execution report; do not edit generated observations by hand.
+
+<!-- BEGIN MONGO PARITY -->
+## MongoDB differences (removable section)
+
+Compared with **MongoDB 9.0.4**: **1 exact BSON matches**, **19 both rejected**, **24 value/type/acceptance differences**, **0 object-field-order differences**.
+
+“Exact” includes numeric BSON types and object key order. A value of `3` as int32 differs from `3.0` as double. Object-field-order differences are reported separately; object key ordering is not enforced by the engine regression baseline. Both rejected does not mean the error codes or messages match. This is finite-case evidence, not full compatibility certification.
+
+| Tested case | SrotaX | MongoDB |
+| --- | --- | --- |
+| field / numeric string | null | Missing (field omitted) |
+| field / text | null | Missing (field omitted) |
+| field / empty string | null | Missing (field omitted) |
+| field / ISO date string | null | Missing (field omitted) |
+| input / null | Error: IllegalArgumentException — $getField requires a document input and string field. | null |
+| input / missing | Error: IllegalArgumentException — $getField requires a document input and string field. | Missing (field omitted) |
+| input / zero | Error: IllegalArgumentException — $getField requires a document input and string field. | Missing (field omitted) |
+| input / negative | Error: IllegalArgumentException — $getField requires a document input and string field. | Missing (field omitted) |
+| input / decimal | Error: IllegalArgumentException — $getField requires a document input and string field. | Missing (field omitted) |
+| input / numeric string | Error: IllegalArgumentException — $getField requires a document input and string field. | Missing (field omitted) |
+| input / text | Error: IllegalArgumentException — $getField requires a document input and string field. | Missing (field omitted) |
+| input / empty string | Error: IllegalArgumentException — $getField requires a document input and string field. | Missing (field omitted) |
+| input / boolean | Error: IllegalArgumentException — $getField requires a document input and string field. | Missing (field omitted) |
+| input / false | Error: IllegalArgumentException — $getField requires a document input and string field. | Missing (field omitted) |
+| input / typed date | Error: IllegalArgumentException — $getField requires a document input and string field. | Missing (field omitted) |
+| input / decimal128 | Error: IllegalArgumentException — $getField requires a document input and string field. | Missing (field omitted) |
+| input / empty array | Error: IllegalArgumentException — $getField requires a document input and string field. | Missing (field omitted) |
+| input / numeric array | Error: IllegalArgumentException — $getField requires a document input and string field. | Missing (field omitted) |
+| input / mixed array | Error: IllegalArgumentException — $getField requires a document input and string field. | Missing (field omitted) |
+| input / nested array | Error: IllegalArgumentException — $getField requires a document input and string field. | Missing (field omitted) |
+| input / empty object | null | Missing (field omitted) |
+| input / object | null | Missing (field omitted) |
+| input / ISO date string | Error: IllegalArgumentException — $getField requires a document input and string field. | Missing (field omitted) |
+| all / boundary example | null | Missing (field omitted) |
+
+[Download full comparison evidence](../../downloads/operator-parity/getField.json).
+
+<!-- END MONGO PARITY -->

@@ -1,0 +1,813 @@
+[
+  {
+    "id": "$startsWith baseline",
+    "operator": "$startsWith",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$startsWith": [
+        "abc",
+        "a"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$startsWith input[0]: null",
+    "operator": "$startsWith",
+    "kind": "null",
+    "operand": "input[0]",
+    "expression": {
+      "$startsWith": [
+        "$probe",
+        "a"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "NullPointerException",
+      "message": "Cannot invoke \"String.startsWith(String)\" because \"input\" is null"
+    }
+  },
+  {
+    "id": "$startsWith input[0]: missing",
+    "operator": "$startsWith",
+    "kind": "missing",
+    "operand": "input[0]",
+    "expression": {
+      "$startsWith": [
+        "$probe",
+        "a"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "NullPointerException",
+      "message": "Cannot invoke \"String.startsWith(String)\" because \"input\" is null"
+    }
+  },
+  {
+    "id": "$startsWith input[0]: zero",
+    "operator": "$startsWith",
+    "kind": "zero",
+    "operand": "input[0]",
+    "expression": {
+      "$startsWith": [
+        "$probe",
+        "a"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$startsWith input[0]: negative",
+    "operator": "$startsWith",
+    "kind": "negative",
+    "operand": "input[0]",
+    "expression": {
+      "$startsWith": [
+        "$probe",
+        "a"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$startsWith input[0]: decimal",
+    "operator": "$startsWith",
+    "kind": "decimal",
+    "operand": "input[0]",
+    "expression": {
+      "$startsWith": [
+        "$probe",
+        "a"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Double cannot be cast to class java.lang.String (java.lang.Double and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$startsWith input[0]: numeric string",
+    "operator": "$startsWith",
+    "kind": "numeric string",
+    "operand": "input[0]",
+    "expression": {
+      "$startsWith": [
+        "$probe",
+        "a"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$startsWith input[0]: text",
+    "operator": "$startsWith",
+    "kind": "text",
+    "operand": "input[0]",
+    "expression": {
+      "$startsWith": [
+        "$probe",
+        "a"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$startsWith input[0]: empty string",
+    "operator": "$startsWith",
+    "kind": "empty string",
+    "operand": "input[0]",
+    "expression": {
+      "$startsWith": [
+        "$probe",
+        "a"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$startsWith input[0]: boolean",
+    "operator": "$startsWith",
+    "kind": "boolean",
+    "operand": "input[0]",
+    "expression": {
+      "$startsWith": [
+        "$probe",
+        "a"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$startsWith input[0]: false",
+    "operator": "$startsWith",
+    "kind": "false",
+    "operand": "input[0]",
+    "expression": {
+      "$startsWith": [
+        "$probe",
+        "a"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$startsWith input[0]: typed date",
+    "operator": "$startsWith",
+    "kind": "typed date",
+    "operand": "input[0]",
+    "expression": {
+      "$startsWith": [
+        "$probe",
+        "a"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.Date cannot be cast to class java.lang.String (java.util.Date and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$startsWith input[0]: decimal128",
+    "operator": "$startsWith",
+    "kind": "decimal128",
+    "operand": "input[0]",
+    "expression": {
+      "$startsWith": [
+        "$probe",
+        "a"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.types.Decimal128 cannot be cast to class java.lang.String (org.bson.types.Decimal128 is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$startsWith input[0]: empty array",
+    "operator": "$startsWith",
+    "kind": "empty array",
+    "operand": "input[0]",
+    "expression": {
+      "$startsWith": [
+        "$probe",
+        "a"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$startsWith input[0]: numeric array",
+    "operator": "$startsWith",
+    "kind": "numeric array",
+    "operand": "input[0]",
+    "expression": {
+      "$startsWith": [
+        "$probe",
+        "a"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$startsWith input[0]: mixed array",
+    "operator": "$startsWith",
+    "kind": "mixed array",
+    "operand": "input[0]",
+    "expression": {
+      "$startsWith": [
+        "$probe",
+        "a"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$startsWith input[0]: nested array",
+    "operator": "$startsWith",
+    "kind": "nested array",
+    "operand": "input[0]",
+    "expression": {
+      "$startsWith": [
+        "$probe",
+        "a"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$startsWith input[0]: empty object",
+    "operator": "$startsWith",
+    "kind": "empty object",
+    "operand": "input[0]",
+    "expression": {
+      "$startsWith": [
+        "$probe",
+        "a"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$startsWith input[0]: object",
+    "operator": "$startsWith",
+    "kind": "object",
+    "operand": "input[0]",
+    "expression": {
+      "$startsWith": [
+        "$probe",
+        "a"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$startsWith input[0]: ISO date string",
+    "operator": "$startsWith",
+    "kind": "ISO date string",
+    "operand": "input[0]",
+    "expression": {
+      "$startsWith": [
+        "$probe",
+        "a"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$startsWith text[1]: null",
+    "operator": "$startsWith",
+    "kind": "null",
+    "operand": "text[1]",
+    "expression": {
+      "$startsWith": [
+        "abc",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "NullPointerException",
+      "message": "Cannot invoke \"String.length()\" because \"prefix\" is null"
+    }
+  },
+  {
+    "id": "$startsWith text[1]: missing",
+    "operator": "$startsWith",
+    "kind": "missing",
+    "operand": "text[1]",
+    "expression": {
+      "$startsWith": [
+        "abc",
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "NullPointerException",
+      "message": "Cannot invoke \"String.length()\" because \"prefix\" is null"
+    }
+  },
+  {
+    "id": "$startsWith text[1]: zero",
+    "operator": "$startsWith",
+    "kind": "zero",
+    "operand": "text[1]",
+    "expression": {
+      "$startsWith": [
+        "abc",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$startsWith text[1]: negative",
+    "operator": "$startsWith",
+    "kind": "negative",
+    "operand": "text[1]",
+    "expression": {
+      "$startsWith": [
+        "abc",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$startsWith text[1]: decimal",
+    "operator": "$startsWith",
+    "kind": "decimal",
+    "operand": "text[1]",
+    "expression": {
+      "$startsWith": [
+        "abc",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Double cannot be cast to class java.lang.String (java.lang.Double and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$startsWith text[1]: numeric string",
+    "operator": "$startsWith",
+    "kind": "numeric string",
+    "operand": "text[1]",
+    "expression": {
+      "$startsWith": [
+        "abc",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$startsWith text[1]: text",
+    "operator": "$startsWith",
+    "kind": "text",
+    "operand": "text[1]",
+    "expression": {
+      "$startsWith": [
+        "abc",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$startsWith text[1]: empty string",
+    "operator": "$startsWith",
+    "kind": "empty string",
+    "operand": "text[1]",
+    "expression": {
+      "$startsWith": [
+        "abc",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$startsWith text[1]: boolean",
+    "operator": "$startsWith",
+    "kind": "boolean",
+    "operand": "text[1]",
+    "expression": {
+      "$startsWith": [
+        "abc",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$startsWith text[1]: false",
+    "operator": "$startsWith",
+    "kind": "false",
+    "operand": "text[1]",
+    "expression": {
+      "$startsWith": [
+        "abc",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$startsWith text[1]: typed date",
+    "operator": "$startsWith",
+    "kind": "typed date",
+    "operand": "text[1]",
+    "expression": {
+      "$startsWith": [
+        "abc",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.Date cannot be cast to class java.lang.String (java.util.Date and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$startsWith text[1]: decimal128",
+    "operator": "$startsWith",
+    "kind": "decimal128",
+    "operand": "text[1]",
+    "expression": {
+      "$startsWith": [
+        "abc",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.types.Decimal128 cannot be cast to class java.lang.String (org.bson.types.Decimal128 is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$startsWith text[1]: empty array",
+    "operator": "$startsWith",
+    "kind": "empty array",
+    "operand": "text[1]",
+    "expression": {
+      "$startsWith": [
+        "abc",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$startsWith text[1]: numeric array",
+    "operator": "$startsWith",
+    "kind": "numeric array",
+    "operand": "text[1]",
+    "expression": {
+      "$startsWith": [
+        "abc",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$startsWith text[1]: mixed array",
+    "operator": "$startsWith",
+    "kind": "mixed array",
+    "operand": "text[1]",
+    "expression": {
+      "$startsWith": [
+        "abc",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$startsWith text[1]: nested array",
+    "operator": "$startsWith",
+    "kind": "nested array",
+    "operand": "text[1]",
+    "expression": {
+      "$startsWith": [
+        "abc",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$startsWith text[1]: empty object",
+    "operator": "$startsWith",
+    "kind": "empty object",
+    "operand": "text[1]",
+    "expression": {
+      "$startsWith": [
+        "abc",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$startsWith text[1]: object",
+    "operator": "$startsWith",
+    "kind": "object",
+    "operand": "text[1]",
+    "expression": {
+      "$startsWith": [
+        "abc",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$startsWith text[1]: ISO date string",
+    "operator": "$startsWith",
+    "kind": "ISO date string",
+    "operand": "text[1]",
+    "expression": {
+      "$startsWith": [
+        "abc",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$startsWith empty arguments",
+    "operator": "$startsWith",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$startsWith": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$startsWith expects [string, prefix]"
+    }
+  },
+  {
+    "id": "$startsWith unknown option",
+    "operator": "$startsWith",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$startsWith": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.Document cannot be cast to class java.util.List (org.bson.Document is in unnamed module of loader 'app'; java.util.List is in module java.base of loader 'bootstrap')"
+    }
+  }
+]

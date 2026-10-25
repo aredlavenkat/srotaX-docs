@@ -1,0 +1,1320 @@
+[
+  {
+    "id": "$setIntersection baseline",
+    "operator": "$setIntersection",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$setIntersection": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setIntersection array[0]: null",
+    "operator": "$setIntersection",
+    "kind": "null",
+    "operand": "array[0]",
+    "expression": {
+      "$setIntersection": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setIntersection array[0]: missing",
+    "operator": "$setIntersection",
+    "kind": "missing",
+    "operand": "array[0]",
+    "expression": {
+      "$setIntersection": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setIntersection array[0]: zero",
+    "operator": "$setIntersection",
+    "kind": "zero",
+    "operand": "array[0]",
+    "expression": {
+      "$setIntersection": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIntersection arguments must resolve to arrays."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: All operands of $setIntersection must be arrays. One argument is of type: int",
+      "code": 17047,
+      "error": "Location17047"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIntersection array[0]: negative",
+    "operator": "$setIntersection",
+    "kind": "negative",
+    "operand": "array[0]",
+    "expression": {
+      "$setIntersection": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIntersection arguments must resolve to arrays."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: All operands of $setIntersection must be arrays. One argument is of type: int",
+      "code": 17047,
+      "error": "Location17047"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIntersection array[0]: decimal",
+    "operator": "$setIntersection",
+    "kind": "decimal",
+    "operand": "array[0]",
+    "expression": {
+      "$setIntersection": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIntersection arguments must resolve to arrays."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: All operands of $setIntersection must be arrays. One argument is of type: double",
+      "code": 17047,
+      "error": "Location17047"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIntersection array[0]: numeric string",
+    "operator": "$setIntersection",
+    "kind": "numeric string",
+    "operand": "array[0]",
+    "expression": {
+      "$setIntersection": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIntersection arguments must resolve to arrays."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: All operands of $setIntersection must be arrays. One argument is of type: string",
+      "code": 17047,
+      "error": "Location17047"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIntersection array[0]: text",
+    "operator": "$setIntersection",
+    "kind": "text",
+    "operand": "array[0]",
+    "expression": {
+      "$setIntersection": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIntersection arguments must resolve to arrays."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: All operands of $setIntersection must be arrays. One argument is of type: string",
+      "code": 17047,
+      "error": "Location17047"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIntersection array[0]: empty string",
+    "operator": "$setIntersection",
+    "kind": "empty string",
+    "operand": "array[0]",
+    "expression": {
+      "$setIntersection": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIntersection arguments must resolve to arrays."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: All operands of $setIntersection must be arrays. One argument is of type: string",
+      "code": 17047,
+      "error": "Location17047"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIntersection array[0]: boolean",
+    "operator": "$setIntersection",
+    "kind": "boolean",
+    "operand": "array[0]",
+    "expression": {
+      "$setIntersection": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIntersection arguments must resolve to arrays."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: All operands of $setIntersection must be arrays. One argument is of type: bool",
+      "code": 17047,
+      "error": "Location17047"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIntersection array[0]: false",
+    "operator": "$setIntersection",
+    "kind": "false",
+    "operand": "array[0]",
+    "expression": {
+      "$setIntersection": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIntersection arguments must resolve to arrays."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: All operands of $setIntersection must be arrays. One argument is of type: bool",
+      "code": 17047,
+      "error": "Location17047"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIntersection array[0]: typed date",
+    "operator": "$setIntersection",
+    "kind": "typed date",
+    "operand": "array[0]",
+    "expression": {
+      "$setIntersection": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIntersection arguments must resolve to arrays."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: All operands of $setIntersection must be arrays. One argument is of type: date",
+      "code": 17047,
+      "error": "Location17047"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIntersection array[0]: decimal128",
+    "operator": "$setIntersection",
+    "kind": "decimal128",
+    "operand": "array[0]",
+    "expression": {
+      "$setIntersection": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIntersection arguments must resolve to arrays."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: All operands of $setIntersection must be arrays. One argument is of type: decimal",
+      "code": 17047,
+      "error": "Location17047"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIntersection array[0]: empty array",
+    "operator": "$setIntersection",
+    "kind": "empty array",
+    "operand": "array[0]",
+    "expression": {
+      "$setIntersection": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setIntersection array[0]: numeric array",
+    "operator": "$setIntersection",
+    "kind": "numeric array",
+    "operand": "array[0]",
+    "expression": {
+      "$setIntersection": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setIntersection array[0]: mixed array",
+    "operator": "$setIntersection",
+    "kind": "mixed array",
+    "operand": "array[0]",
+    "expression": {
+      "$setIntersection": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setIntersection array[0]: nested array",
+    "operator": "$setIntersection",
+    "kind": "nested array",
+    "operand": "array[0]",
+    "expression": {
+      "$setIntersection": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setIntersection array[0]: empty object",
+    "operator": "$setIntersection",
+    "kind": "empty object",
+    "operand": "array[0]",
+    "expression": {
+      "$setIntersection": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIntersection arguments must resolve to arrays."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: All operands of $setIntersection must be arrays. One argument is of type: object",
+      "code": 17047,
+      "error": "Location17047"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIntersection array[0]: object",
+    "operator": "$setIntersection",
+    "kind": "object",
+    "operand": "array[0]",
+    "expression": {
+      "$setIntersection": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIntersection arguments must resolve to arrays."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: All operands of $setIntersection must be arrays. One argument is of type: object",
+      "code": 17047,
+      "error": "Location17047"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIntersection array[0]: ISO date string",
+    "operator": "$setIntersection",
+    "kind": "ISO date string",
+    "operand": "array[0]",
+    "expression": {
+      "$setIntersection": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIntersection arguments must resolve to arrays."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: All operands of $setIntersection must be arrays. One argument is of type: string",
+      "code": 17047,
+      "error": "Location17047"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIntersection other[1]: null",
+    "operator": "$setIntersection",
+    "kind": "null",
+    "operand": "other[1]",
+    "expression": {
+      "$setIntersection": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setIntersection other[1]: missing",
+    "operator": "$setIntersection",
+    "kind": "missing",
+    "operand": "other[1]",
+    "expression": {
+      "$setIntersection": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setIntersection other[1]: zero",
+    "operator": "$setIntersection",
+    "kind": "zero",
+    "operand": "other[1]",
+    "expression": {
+      "$setIntersection": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIntersection arguments must resolve to arrays."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: All operands of $setIntersection must be arrays. One argument is of type: int",
+      "code": 17047,
+      "error": "Location17047"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIntersection other[1]: negative",
+    "operator": "$setIntersection",
+    "kind": "negative",
+    "operand": "other[1]",
+    "expression": {
+      "$setIntersection": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIntersection arguments must resolve to arrays."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: All operands of $setIntersection must be arrays. One argument is of type: int",
+      "code": 17047,
+      "error": "Location17047"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIntersection other[1]: decimal",
+    "operator": "$setIntersection",
+    "kind": "decimal",
+    "operand": "other[1]",
+    "expression": {
+      "$setIntersection": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIntersection arguments must resolve to arrays."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: All operands of $setIntersection must be arrays. One argument is of type: double",
+      "code": 17047,
+      "error": "Location17047"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIntersection other[1]: numeric string",
+    "operator": "$setIntersection",
+    "kind": "numeric string",
+    "operand": "other[1]",
+    "expression": {
+      "$setIntersection": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIntersection arguments must resolve to arrays."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: All operands of $setIntersection must be arrays. One argument is of type: string",
+      "code": 17047,
+      "error": "Location17047"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIntersection other[1]: text",
+    "operator": "$setIntersection",
+    "kind": "text",
+    "operand": "other[1]",
+    "expression": {
+      "$setIntersection": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIntersection arguments must resolve to arrays."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: All operands of $setIntersection must be arrays. One argument is of type: string",
+      "code": 17047,
+      "error": "Location17047"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIntersection other[1]: empty string",
+    "operator": "$setIntersection",
+    "kind": "empty string",
+    "operand": "other[1]",
+    "expression": {
+      "$setIntersection": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIntersection arguments must resolve to arrays."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: All operands of $setIntersection must be arrays. One argument is of type: string",
+      "code": 17047,
+      "error": "Location17047"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIntersection other[1]: boolean",
+    "operator": "$setIntersection",
+    "kind": "boolean",
+    "operand": "other[1]",
+    "expression": {
+      "$setIntersection": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIntersection arguments must resolve to arrays."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: All operands of $setIntersection must be arrays. One argument is of type: bool",
+      "code": 17047,
+      "error": "Location17047"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIntersection other[1]: false",
+    "operator": "$setIntersection",
+    "kind": "false",
+    "operand": "other[1]",
+    "expression": {
+      "$setIntersection": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIntersection arguments must resolve to arrays."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: All operands of $setIntersection must be arrays. One argument is of type: bool",
+      "code": 17047,
+      "error": "Location17047"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIntersection other[1]: typed date",
+    "operator": "$setIntersection",
+    "kind": "typed date",
+    "operand": "other[1]",
+    "expression": {
+      "$setIntersection": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIntersection arguments must resolve to arrays."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: All operands of $setIntersection must be arrays. One argument is of type: date",
+      "code": 17047,
+      "error": "Location17047"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIntersection other[1]: decimal128",
+    "operator": "$setIntersection",
+    "kind": "decimal128",
+    "operand": "other[1]",
+    "expression": {
+      "$setIntersection": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIntersection arguments must resolve to arrays."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: All operands of $setIntersection must be arrays. One argument is of type: decimal",
+      "code": 17047,
+      "error": "Location17047"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIntersection other[1]: empty array",
+    "operator": "$setIntersection",
+    "kind": "empty array",
+    "operand": "other[1]",
+    "expression": {
+      "$setIntersection": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setIntersection other[1]: numeric array",
+    "operator": "$setIntersection",
+    "kind": "numeric array",
+    "operand": "other[1]",
+    "expression": {
+      "$setIntersection": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setIntersection other[1]: mixed array",
+    "operator": "$setIntersection",
+    "kind": "mixed array",
+    "operand": "other[1]",
+    "expression": {
+      "$setIntersection": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setIntersection other[1]: nested array",
+    "operator": "$setIntersection",
+    "kind": "nested array",
+    "operand": "other[1]",
+    "expression": {
+      "$setIntersection": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setIntersection other[1]: empty object",
+    "operator": "$setIntersection",
+    "kind": "empty object",
+    "operand": "other[1]",
+    "expression": {
+      "$setIntersection": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIntersection arguments must resolve to arrays."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: All operands of $setIntersection must be arrays. One argument is of type: object",
+      "code": 17047,
+      "error": "Location17047"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIntersection other[1]: object",
+    "operator": "$setIntersection",
+    "kind": "object",
+    "operand": "other[1]",
+    "expression": {
+      "$setIntersection": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIntersection arguments must resolve to arrays."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: All operands of $setIntersection must be arrays. One argument is of type: object",
+      "code": 17047,
+      "error": "Location17047"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIntersection other[1]: ISO date string",
+    "operator": "$setIntersection",
+    "kind": "ISO date string",
+    "operand": "other[1]",
+    "expression": {
+      "$setIntersection": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIntersection arguments must resolve to arrays."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: All operands of $setIntersection must be arrays. One argument is of type: string",
+      "code": 17047,
+      "error": "Location17047"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIntersection empty arguments",
+    "operator": "$setIntersection",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$setIntersection": []
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setIntersection unknown option",
+    "operator": "$setIntersection",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$setIntersection": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIntersection requires an argument list."
+    },
+    "mongo": {
+      "message": "Failed to optimize pipeline :: caused by :: All operands of $setIntersection must be arrays. One argument is of type: object",
+      "code": 17047,
+      "error": "Location17047"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "mongodb-9-boundary-cases.json:17",
+    "operator": "$setIntersection",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$setIntersection": [
+        [
+          1,
+          1,
+          2
+        ]
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "mongodb-9-boundary-cases.json:18",
+    "operator": "$setIntersection",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$setIntersection": [
+        null,
+        3
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "mongodb-9-boundary-cases.json:19",
+    "operator": "$setIntersection",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$setIntersection": [
+        3,
+        null
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIntersection arguments must resolve to arrays."
+    },
+    "mongo": {
+      "message": "Failed to optimize pipeline :: caused by :: All operands of $setIntersection must be arrays. One argument is of type: int",
+      "code": 17047,
+      "error": "Location17047"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "mongodb-9-boundary-cases.json:20",
+    "operator": "$setIntersection",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$setIntersection": [
+        [],
+        3
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIntersection arguments must resolve to arrays."
+    },
+    "mongo": {
+      "message": "Failed to optimize pipeline :: caused by :: All operands of $setIntersection must be arrays. One argument is of type: int",
+      "code": 17047,
+      "error": "Location17047"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "mongodb-9-boundary-cases.json:21",
+    "operator": "$setIntersection",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$setIntersection": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "mongodb-9-boundary-cases.json:22",
+    "operator": "$setIntersection",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$setIntersection": [
+        [
+          [
+            1,
+            2
+          ],
+          3
+        ],
+        [
+          [
+            1,
+            2
+          ],
+          4
+        ]
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  }
+]

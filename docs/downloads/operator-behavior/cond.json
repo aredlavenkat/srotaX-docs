@@ -1,0 +1,1276 @@
+[
+  {
+    "id": "$cond baseline",
+    "operator": "$cond",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$cond": [
+        true,
+        "yes",
+        "no"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond if[0]: null",
+    "operator": "$cond",
+    "kind": "null",
+    "operand": "if[0]",
+    "expression": {
+      "$cond": [
+        "$probe",
+        "yes",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": \"no\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond if[0]: missing",
+    "operator": "$cond",
+    "kind": "missing",
+    "operand": "if[0]",
+    "expression": {
+      "$cond": [
+        "$probe",
+        "yes",
+        "no"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"no\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond if[0]: zero",
+    "operator": "$cond",
+    "kind": "zero",
+    "operand": "if[0]",
+    "expression": {
+      "$cond": [
+        "$probe",
+        "yes",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": \"no\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond if[0]: negative",
+    "operator": "$cond",
+    "kind": "negative",
+    "operand": "if[0]",
+    "expression": {
+      "$cond": [
+        "$probe",
+        "yes",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond if[0]: decimal",
+    "operator": "$cond",
+    "kind": "decimal",
+    "operand": "if[0]",
+    "expression": {
+      "$cond": [
+        "$probe",
+        "yes",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond if[0]: numeric string",
+    "operator": "$cond",
+    "kind": "numeric string",
+    "operand": "if[0]",
+    "expression": {
+      "$cond": [
+        "$probe",
+        "yes",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond if[0]: text",
+    "operator": "$cond",
+    "kind": "text",
+    "operand": "if[0]",
+    "expression": {
+      "$cond": [
+        "$probe",
+        "yes",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond if[0]: empty string",
+    "operator": "$cond",
+    "kind": "empty string",
+    "operand": "if[0]",
+    "expression": {
+      "$cond": [
+        "$probe",
+        "yes",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond if[0]: boolean",
+    "operator": "$cond",
+    "kind": "boolean",
+    "operand": "if[0]",
+    "expression": {
+      "$cond": [
+        "$probe",
+        "yes",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond if[0]: false",
+    "operator": "$cond",
+    "kind": "false",
+    "operand": "if[0]",
+    "expression": {
+      "$cond": [
+        "$probe",
+        "yes",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": \"no\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond if[0]: typed date",
+    "operator": "$cond",
+    "kind": "typed date",
+    "operand": "if[0]",
+    "expression": {
+      "$cond": [
+        "$probe",
+        "yes",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond if[0]: decimal128",
+    "operator": "$cond",
+    "kind": "decimal128",
+    "operand": "if[0]",
+    "expression": {
+      "$cond": [
+        "$probe",
+        "yes",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond if[0]: empty array",
+    "operator": "$cond",
+    "kind": "empty array",
+    "operand": "if[0]",
+    "expression": {
+      "$cond": [
+        "$probe",
+        "yes",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond if[0]: numeric array",
+    "operator": "$cond",
+    "kind": "numeric array",
+    "operand": "if[0]",
+    "expression": {
+      "$cond": [
+        "$probe",
+        "yes",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond if[0]: mixed array",
+    "operator": "$cond",
+    "kind": "mixed array",
+    "operand": "if[0]",
+    "expression": {
+      "$cond": [
+        "$probe",
+        "yes",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond if[0]: nested array",
+    "operator": "$cond",
+    "kind": "nested array",
+    "operand": "if[0]",
+    "expression": {
+      "$cond": [
+        "$probe",
+        "yes",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond if[0]: empty object",
+    "operator": "$cond",
+    "kind": "empty object",
+    "operand": "if[0]",
+    "expression": {
+      "$cond": [
+        "$probe",
+        "yes",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond if[0]: object",
+    "operator": "$cond",
+    "kind": "object",
+    "operand": "if[0]",
+    "expression": {
+      "$cond": [
+        "$probe",
+        "yes",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond if[0]: ISO date string",
+    "operator": "$cond",
+    "kind": "ISO date string",
+    "operand": "if[0]",
+    "expression": {
+      "$cond": [
+        "$probe",
+        "yes",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond then[1]: null",
+    "operator": "$cond",
+    "kind": "null",
+    "operand": "then[1]",
+    "expression": {
+      "$cond": [
+        true,
+        "$probe",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond then[1]: missing",
+    "operator": "$cond",
+    "kind": "missing",
+    "operand": "then[1]",
+    "expression": {
+      "$cond": [
+        true,
+        "$probe",
+        "no"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond then[1]: zero",
+    "operator": "$cond",
+    "kind": "zero",
+    "operand": "then[1]",
+    "expression": {
+      "$cond": [
+        true,
+        "$probe",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond then[1]: negative",
+    "operator": "$cond",
+    "kind": "negative",
+    "operand": "then[1]",
+    "expression": {
+      "$cond": [
+        true,
+        "$probe",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond then[1]: decimal",
+    "operator": "$cond",
+    "kind": "decimal",
+    "operand": "then[1]",
+    "expression": {
+      "$cond": [
+        true,
+        "$probe",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.5\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond then[1]: numeric string",
+    "operator": "$cond",
+    "kind": "numeric string",
+    "operand": "then[1]",
+    "expression": {
+      "$cond": [
+        true,
+        "$probe",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"12\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond then[1]: text",
+    "operator": "$cond",
+    "kind": "text",
+    "operand": "then[1]",
+    "expression": {
+      "$cond": [
+        true,
+        "$probe",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"hello\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond then[1]: empty string",
+    "operator": "$cond",
+    "kind": "empty string",
+    "operand": "then[1]",
+    "expression": {
+      "$cond": [
+        true,
+        "$probe",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond then[1]: boolean",
+    "operator": "$cond",
+    "kind": "boolean",
+    "operand": "then[1]",
+    "expression": {
+      "$cond": [
+        true,
+        "$probe",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond then[1]: false",
+    "operator": "$cond",
+    "kind": "false",
+    "operand": "then[1]",
+    "expression": {
+      "$cond": [
+        true,
+        "$probe",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond then[1]: typed date",
+    "operator": "$cond",
+    "kind": "typed date",
+    "operand": "then[1]",
+    "expression": {
+      "$cond": [
+        true,
+        "$probe",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1768489200000\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond then[1]: decimal128",
+    "operator": "$cond",
+    "kind": "decimal128",
+    "operand": "then[1]",
+    "expression": {
+      "$cond": [
+        true,
+        "$probe",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"1.25\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond then[1]: empty array",
+    "operator": "$cond",
+    "kind": "empty array",
+    "operand": "then[1]",
+    "expression": {
+      "$cond": [
+        true,
+        "$probe",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond then[1]: numeric array",
+    "operator": "$cond",
+    "kind": "numeric array",
+    "operand": "then[1]",
+    "expression": {
+      "$cond": [
+        true,
+        "$probe",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond then[1]: mixed array",
+    "operator": "$cond",
+    "kind": "mixed array",
+    "operand": "then[1]",
+    "expression": {
+      "$cond": [
+        true,
+        "$probe",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, null, \"x\", {\"$numberInt\": \"3\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond then[1]: nested array",
+    "operator": "$cond",
+    "kind": "nested array",
+    "operand": "then[1]",
+    "expression": {
+      "$cond": [
+        true,
+        "$probe",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}], [{\"$numberInt\": \"3\"}]]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond then[1]: empty object",
+    "operator": "$cond",
+    "kind": "empty object",
+    "operand": "then[1]",
+    "expression": {
+      "$cond": [
+        true,
+        "$probe",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond then[1]: object",
+    "operator": "$cond",
+    "kind": "object",
+    "operand": "then[1]",
+    "expression": {
+      "$cond": [
+        true,
+        "$probe",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"x\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond then[1]: ISO date string",
+    "operator": "$cond",
+    "kind": "ISO date string",
+    "operand": "then[1]",
+    "expression": {
+      "$cond": [
+        true,
+        "$probe",
+        "no"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2026-01-15T15:00:00Z\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond else[2]: null",
+    "operator": "$cond",
+    "kind": "null",
+    "operand": "else[2]",
+    "expression": {
+      "$cond": [
+        true,
+        "yes",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond else[2]: missing",
+    "operator": "$cond",
+    "kind": "missing",
+    "operand": "else[2]",
+    "expression": {
+      "$cond": [
+        true,
+        "yes",
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond else[2]: zero",
+    "operator": "$cond",
+    "kind": "zero",
+    "operand": "else[2]",
+    "expression": {
+      "$cond": [
+        true,
+        "yes",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond else[2]: negative",
+    "operator": "$cond",
+    "kind": "negative",
+    "operand": "else[2]",
+    "expression": {
+      "$cond": [
+        true,
+        "yes",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond else[2]: decimal",
+    "operator": "$cond",
+    "kind": "decimal",
+    "operand": "else[2]",
+    "expression": {
+      "$cond": [
+        true,
+        "yes",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond else[2]: numeric string",
+    "operator": "$cond",
+    "kind": "numeric string",
+    "operand": "else[2]",
+    "expression": {
+      "$cond": [
+        true,
+        "yes",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond else[2]: text",
+    "operator": "$cond",
+    "kind": "text",
+    "operand": "else[2]",
+    "expression": {
+      "$cond": [
+        true,
+        "yes",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond else[2]: empty string",
+    "operator": "$cond",
+    "kind": "empty string",
+    "operand": "else[2]",
+    "expression": {
+      "$cond": [
+        true,
+        "yes",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond else[2]: boolean",
+    "operator": "$cond",
+    "kind": "boolean",
+    "operand": "else[2]",
+    "expression": {
+      "$cond": [
+        true,
+        "yes",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond else[2]: false",
+    "operator": "$cond",
+    "kind": "false",
+    "operand": "else[2]",
+    "expression": {
+      "$cond": [
+        true,
+        "yes",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond else[2]: typed date",
+    "operator": "$cond",
+    "kind": "typed date",
+    "operand": "else[2]",
+    "expression": {
+      "$cond": [
+        true,
+        "yes",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond else[2]: decimal128",
+    "operator": "$cond",
+    "kind": "decimal128",
+    "operand": "else[2]",
+    "expression": {
+      "$cond": [
+        true,
+        "yes",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond else[2]: empty array",
+    "operator": "$cond",
+    "kind": "empty array",
+    "operand": "else[2]",
+    "expression": {
+      "$cond": [
+        true,
+        "yes",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond else[2]: numeric array",
+    "operator": "$cond",
+    "kind": "numeric array",
+    "operand": "else[2]",
+    "expression": {
+      "$cond": [
+        true,
+        "yes",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond else[2]: mixed array",
+    "operator": "$cond",
+    "kind": "mixed array",
+    "operand": "else[2]",
+    "expression": {
+      "$cond": [
+        true,
+        "yes",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond else[2]: nested array",
+    "operator": "$cond",
+    "kind": "nested array",
+    "operand": "else[2]",
+    "expression": {
+      "$cond": [
+        true,
+        "yes",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond else[2]: empty object",
+    "operator": "$cond",
+    "kind": "empty object",
+    "operand": "else[2]",
+    "expression": {
+      "$cond": [
+        true,
+        "yes",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond else[2]: object",
+    "operator": "$cond",
+    "kind": "object",
+    "operand": "else[2]",
+    "expression": {
+      "$cond": [
+        true,
+        "yes",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond else[2]: ISO date string",
+    "operator": "$cond",
+    "kind": "ISO date string",
+    "operand": "else[2]",
+    "expression": {
+      "$cond": [
+        true,
+        "yes",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cond empty arguments",
+    "operator": "$cond",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$cond": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$cond requires {if, then, else} or an array of three arguments"
+    }
+  },
+  {
+    "id": "$cond unknown option",
+    "operator": "$cond",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$cond": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$cond requires exactly if, then and else"
+    }
+  },
+  {
+    "id": "mongodb-9-boundary-cases.json:14",
+    "operator": "$cond",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$cond": [
+        1,
+        "yes",
+        {
+          "$divide": [
+            1,
+            0
+          ]
+        }
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    }
+  }
+]

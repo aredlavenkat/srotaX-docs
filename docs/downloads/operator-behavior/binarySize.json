@@ -1,0 +1,371 @@
+[
+  {
+    "id": "$binarySize baseline",
+    "operator": "$binarySize",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$binarySize": "abc"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$binarySize input: null",
+    "operator": "$binarySize",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$binarySize": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$binarySize input: missing",
+    "operator": "$binarySize",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$binarySize": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$binarySize input: zero",
+    "operator": "$binarySize",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$binarySize": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$binarySize expects string or binary inputs"
+    }
+  },
+  {
+    "id": "$binarySize input: negative",
+    "operator": "$binarySize",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$binarySize": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$binarySize expects string or binary inputs"
+    }
+  },
+  {
+    "id": "$binarySize input: decimal",
+    "operator": "$binarySize",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$binarySize": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$binarySize expects string or binary inputs"
+    }
+  },
+  {
+    "id": "$binarySize input: numeric string",
+    "operator": "$binarySize",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$binarySize": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$binarySize input: text",
+    "operator": "$binarySize",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$binarySize": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"5\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$binarySize input: empty string",
+    "operator": "$binarySize",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$binarySize": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$binarySize input: boolean",
+    "operator": "$binarySize",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$binarySize": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$binarySize expects string or binary inputs"
+    }
+  },
+  {
+    "id": "$binarySize input: false",
+    "operator": "$binarySize",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$binarySize": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$binarySize expects string or binary inputs"
+    }
+  },
+  {
+    "id": "$binarySize input: typed date",
+    "operator": "$binarySize",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$binarySize": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$binarySize expects string or binary inputs"
+    }
+  },
+  {
+    "id": "$binarySize input: decimal128",
+    "operator": "$binarySize",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$binarySize": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$binarySize expects string or binary inputs"
+    }
+  },
+  {
+    "id": "$binarySize input: empty array",
+    "operator": "$binarySize",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$binarySize": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$binarySize expects string or binary inputs"
+    }
+  },
+  {
+    "id": "$binarySize input: numeric array",
+    "operator": "$binarySize",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$binarySize": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$binarySize expects string or binary inputs"
+    }
+  },
+  {
+    "id": "$binarySize input: mixed array",
+    "operator": "$binarySize",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$binarySize": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$binarySize expects string or binary inputs"
+    }
+  },
+  {
+    "id": "$binarySize input: nested array",
+    "operator": "$binarySize",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$binarySize": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$binarySize expects string or binary inputs"
+    }
+  },
+  {
+    "id": "$binarySize input: empty object",
+    "operator": "$binarySize",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$binarySize": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$binarySize expects string or binary inputs"
+    }
+  },
+  {
+    "id": "$binarySize input: object",
+    "operator": "$binarySize",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$binarySize": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$binarySize expects string or binary inputs"
+    }
+  },
+  {
+    "id": "$binarySize input: ISO date string",
+    "operator": "$binarySize",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$binarySize": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"20\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$binarySize empty arguments",
+    "operator": "$binarySize",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$binarySize": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$binarySize expects string or binary inputs"
+    }
+  },
+  {
+    "id": "$binarySize unknown option",
+    "operator": "$binarySize",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$binarySize": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$binarySize expects string or binary inputs"
+    }
+  }
+]

@@ -1,0 +1,1748 @@
+[
+  {
+    "id": "$map baseline",
+    "operator": "$map",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "in": "$$x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$map input: null",
+    "operator": "$map",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$map": {
+        "input": "$probe",
+        "as": "x",
+        "in": "$$x"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$map 'input' must resolve to an array"
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$map input: missing",
+    "operator": "$map",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$map": {
+        "input": "$probe",
+        "as": "x",
+        "in": "$$x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$map 'input' must resolve to an array"
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$map input: zero",
+    "operator": "$map",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$map": {
+        "input": "$probe",
+        "as": "x",
+        "in": "$$x"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$map 'input' must resolve to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $map must be an array not int",
+      "code": 16883,
+      "error": "Location16883"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$map input: negative",
+    "operator": "$map",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$map": {
+        "input": "$probe",
+        "as": "x",
+        "in": "$$x"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$map 'input' must resolve to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $map must be an array not int",
+      "code": 16883,
+      "error": "Location16883"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$map input: decimal",
+    "operator": "$map",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$map": {
+        "input": "$probe",
+        "as": "x",
+        "in": "$$x"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$map 'input' must resolve to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $map must be an array not double",
+      "code": 16883,
+      "error": "Location16883"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$map input: numeric string",
+    "operator": "$map",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$map": {
+        "input": "$probe",
+        "as": "x",
+        "in": "$$x"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$map 'input' must resolve to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $map must be an array not string",
+      "code": 16883,
+      "error": "Location16883"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$map input: text",
+    "operator": "$map",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$map": {
+        "input": "$probe",
+        "as": "x",
+        "in": "$$x"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$map 'input' must resolve to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $map must be an array not string",
+      "code": 16883,
+      "error": "Location16883"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$map input: empty string",
+    "operator": "$map",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$map": {
+        "input": "$probe",
+        "as": "x",
+        "in": "$$x"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$map 'input' must resolve to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $map must be an array not string",
+      "code": 16883,
+      "error": "Location16883"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$map input: boolean",
+    "operator": "$map",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$map": {
+        "input": "$probe",
+        "as": "x",
+        "in": "$$x"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$map 'input' must resolve to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $map must be an array not bool",
+      "code": 16883,
+      "error": "Location16883"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$map input: false",
+    "operator": "$map",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$map": {
+        "input": "$probe",
+        "as": "x",
+        "in": "$$x"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$map 'input' must resolve to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $map must be an array not bool",
+      "code": 16883,
+      "error": "Location16883"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$map input: typed date",
+    "operator": "$map",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$map": {
+        "input": "$probe",
+        "as": "x",
+        "in": "$$x"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$map 'input' must resolve to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $map must be an array not date",
+      "code": 16883,
+      "error": "Location16883"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$map input: decimal128",
+    "operator": "$map",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$map": {
+        "input": "$probe",
+        "as": "x",
+        "in": "$$x"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$map 'input' must resolve to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $map must be an array not decimal",
+      "code": 16883,
+      "error": "Location16883"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$map input: empty array",
+    "operator": "$map",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$map": {
+        "input": "$probe",
+        "as": "x",
+        "in": "$$x"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$map input: numeric array",
+    "operator": "$map",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$map": {
+        "input": "$probe",
+        "as": "x",
+        "in": "$$x"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$map input: mixed array",
+    "operator": "$map",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$map": {
+        "input": "$probe",
+        "as": "x",
+        "in": "$$x"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, null, \"x\", {\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, null, \"x\", {\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$map input: nested array",
+    "operator": "$map",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$map": {
+        "input": "$probe",
+        "as": "x",
+        "in": "$$x"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}], [{\"$numberInt\": \"3\"}]]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}], [{\"$numberInt\": \"3\"}]]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$map input: empty object",
+    "operator": "$map",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$map": {
+        "input": "$probe",
+        "as": "x",
+        "in": "$$x"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$map 'input' must resolve to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $map must be an array not object",
+      "code": 16883,
+      "error": "Location16883"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$map input: object",
+    "operator": "$map",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$map": {
+        "input": "$probe",
+        "as": "x",
+        "in": "$$x"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$map 'input' must resolve to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $map must be an array not object",
+      "code": 16883,
+      "error": "Location16883"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$map input: ISO date string",
+    "operator": "$map",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$map": {
+        "input": "$probe",
+        "as": "x",
+        "in": "$$x"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$map 'input' must resolve to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $map must be an array not string",
+      "code": 16883,
+      "error": "Location16883"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$map as: null",
+    "operator": "$map",
+    "kind": "null",
+    "operand": "as",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": null,
+        "in": "$$x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "NullPointerException",
+      "message": "Cannot invoke \"Object.toString()\" because the return value of \"java.util.Map.get(Object)\" is null"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: empty variable names are not allowed",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$map as: zero",
+    "operator": "$map",
+    "kind": "zero",
+    "operand": "as",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": 0,
+        "in": "$$x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: empty variable names are not allowed",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$map as: negative",
+    "operator": "$map",
+    "kind": "negative",
+    "operand": "as",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": -2,
+        "in": "$$x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: empty variable names are not allowed",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$map as: decimal",
+    "operator": "$map",
+    "kind": "decimal",
+    "operand": "as",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": 2.5,
+        "in": "$$x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: empty variable names are not allowed",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$map as: numeric string",
+    "operator": "$map",
+    "kind": "numeric string",
+    "operand": "as",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "12",
+        "in": "$$x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: '12' starts with an invalid character for a user variable name",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$map as: text",
+    "operator": "$map",
+    "kind": "text",
+    "operand": "as",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "hello",
+        "in": "$$x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Use of undefined variable: x",
+      "code": 17276,
+      "error": "Location17276"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$map as: empty string",
+    "operator": "$map",
+    "kind": "empty string",
+    "operand": "as",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "",
+        "in": "$$x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: empty variable names are not allowed",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$map as: boolean",
+    "operator": "$map",
+    "kind": "boolean",
+    "operand": "as",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": true,
+        "in": "$$x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: empty variable names are not allowed",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$map as: false",
+    "operator": "$map",
+    "kind": "false",
+    "operand": "as",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": false,
+        "in": "$$x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: empty variable names are not allowed",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$map as: typed date",
+    "operator": "$map",
+    "kind": "typed date",
+    "operand": "as",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": {
+          "$date": "2026-01-15T15:00:00Z"
+        },
+        "in": "$$x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: empty variable names are not allowed",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$map as: decimal128",
+    "operator": "$map",
+    "kind": "decimal128",
+    "operand": "as",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": {
+          "$numberDecimal": "1.25"
+        },
+        "in": "$$x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: empty variable names are not allowed",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$map as: empty array",
+    "operator": "$map",
+    "kind": "empty array",
+    "operand": "as",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": [],
+        "in": "$$x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: empty variable names are not allowed",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$map as: numeric array",
+    "operator": "$map",
+    "kind": "numeric array",
+    "operand": "as",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": [
+          1,
+          2,
+          3
+        ],
+        "in": "$$x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: empty variable names are not allowed",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$map as: mixed array",
+    "operator": "$map",
+    "kind": "mixed array",
+    "operand": "as",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": [
+          1,
+          null,
+          "x",
+          3
+        ],
+        "in": "$$x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: empty variable names are not allowed",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$map as: nested array",
+    "operator": "$map",
+    "kind": "nested array",
+    "operand": "as",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": [
+          [
+            1,
+            2
+          ],
+          [
+            3
+          ]
+        ],
+        "in": "$$x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: empty variable names are not allowed",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$map as: empty object",
+    "operator": "$map",
+    "kind": "empty object",
+    "operand": "as",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": {},
+        "in": "$$x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: empty variable names are not allowed",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$map as: object",
+    "operator": "$map",
+    "kind": "object",
+    "operand": "as",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": {
+          "x": 1
+        },
+        "in": "$$x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: empty variable names are not allowed",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$map as: ISO date string",
+    "operator": "$map",
+    "kind": "ISO date string",
+    "operand": "as",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "2026-01-15T15:00:00Z",
+        "in": "$$x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: '2026-01-15T15:00:00Z' starts with an invalid character for a user variable name",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$map in: null",
+    "operator": "$map",
+    "kind": "null",
+    "operand": "in",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": [null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [null, null]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$map in: missing",
+    "operator": "$map",
+    "kind": "missing",
+    "operand": "in",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "in": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [null, null]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$map in: zero",
+    "operator": "$map",
+    "kind": "zero",
+    "operand": "in",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"0\"}, {\"$numberInt\": \"0\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"0\"}, {\"$numberInt\": \"0\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$map in: negative",
+    "operator": "$map",
+    "kind": "negative",
+    "operand": "in",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"-2\"}, {\"$numberInt\": \"-2\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"-2\"}, {\"$numberInt\": \"-2\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$map in: decimal",
+    "operator": "$map",
+    "kind": "decimal",
+    "operand": "in",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"2.5\"}, {\"$numberDouble\": \"2.5\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"2.5\"}, {\"$numberDouble\": \"2.5\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$map in: numeric string",
+    "operator": "$map",
+    "kind": "numeric string",
+    "operand": "in",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": [\"12\", \"12\"]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [\"12\", \"12\"]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$map in: text",
+    "operator": "$map",
+    "kind": "text",
+    "operand": "in",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": [\"hello\", \"hello\"]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [\"hello\", \"hello\"]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$map in: empty string",
+    "operator": "$map",
+    "kind": "empty string",
+    "operand": "in",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": [\"\", \"\"]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [\"\", \"\"]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$map in: boolean",
+    "operator": "$map",
+    "kind": "boolean",
+    "operand": "in",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": [true, true]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [true, true]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$map in: false",
+    "operator": "$map",
+    "kind": "false",
+    "operand": "in",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": [false, false]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [false, false]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$map in: typed date",
+    "operator": "$map",
+    "kind": "typed date",
+    "operand": "in",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$date\": {\"$numberLong\": \"1768489200000\"}}, {\"$date\": {\"$numberLong\": \"1768489200000\"}}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$date\": {\"$numberLong\": \"1768489200000\"}}, {\"$date\": {\"$numberLong\": \"1768489200000\"}}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$map in: decimal128",
+    "operator": "$map",
+    "kind": "decimal128",
+    "operand": "in",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberDecimal\": \"1.25\"}, {\"$numberDecimal\": \"1.25\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberDecimal\": \"1.25\"}, {\"$numberDecimal\": \"1.25\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$map in: empty array",
+    "operator": "$map",
+    "kind": "empty array",
+    "operand": "in",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": [[], []]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [[], []]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$map in: numeric array",
+    "operator": "$map",
+    "kind": "numeric array",
+    "operand": "in",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}], [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}]]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}], [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}]]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$map in: mixed array",
+    "operator": "$map",
+    "kind": "mixed array",
+    "operand": "in",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"1\"}, null, \"x\", {\"$numberInt\": \"3\"}], [{\"$numberInt\": \"1\"}, null, \"x\", {\"$numberInt\": \"3\"}]]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"1\"}, null, \"x\", {\"$numberInt\": \"3\"}], [{\"$numberInt\": \"1\"}, null, \"x\", {\"$numberInt\": \"3\"}]]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$map in: nested array",
+    "operator": "$map",
+    "kind": "nested array",
+    "operand": "in",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [[[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}], [{\"$numberInt\": \"3\"}]], [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}], [{\"$numberInt\": \"3\"}]]]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [[[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}], [{\"$numberInt\": \"3\"}]], [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}], [{\"$numberInt\": \"3\"}]]]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$map in: empty object",
+    "operator": "$map",
+    "kind": "empty object",
+    "operand": "in",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": [{}, {}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{}, {}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$map in: object",
+    "operator": "$map",
+    "kind": "object",
+    "operand": "in",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"x\": {\"$numberInt\": \"1\"}}, {\"x\": {\"$numberInt\": \"1\"}}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"x\": {\"$numberInt\": \"1\"}}, {\"x\": {\"$numberInt\": \"1\"}}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$map in: ISO date string",
+    "operator": "$map",
+    "kind": "ISO date string",
+    "operand": "in",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x",
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": [\"2026-01-15T15:00:00Z\", \"2026-01-15T15:00:00Z\"]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [\"2026-01-15T15:00:00Z\", \"2026-01-15T15:00:00Z\"]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$map omit input",
+    "operator": "$map",
+    "kind": "omitted named argument",
+    "operand": "input",
+    "expression": {
+      "$map": {
+        "as": "x",
+        "in": "$$x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$map requires 'input' and 'in' fields"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Missing 'input' parameter to $map",
+      "code": 16880,
+      "error": "Location16880"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$map omit as",
+    "operator": "$map",
+    "kind": "omitted named argument",
+    "operand": "as",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "in": "$$x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Use of undefined variable: x",
+      "code": 17276,
+      "error": "Location17276"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$map omit in",
+    "operator": "$map",
+    "kind": "omitted named argument",
+    "operand": "in",
+    "expression": {
+      "$map": {
+        "input": [
+          1,
+          2
+        ],
+        "as": "x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$map requires 'input' and 'in' fields"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Missing 'in' parameter to $map",
+      "code": 16882,
+      "error": "Location16882"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$map empty arguments",
+    "operator": "$map",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$map": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$map expects an object with fields: input, as, in"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $map only supports an object as its argument",
+      "code": 16878,
+      "error": "Location16878"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$map unknown option",
+    "operator": "$map",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$map": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$map requires 'input' and 'in' fields"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Unrecognized parameter to $map: unexpected",
+      "code": 16879,
+      "error": "Location16879"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "mongodb-9-boundary-cases.json:9",
+    "operator": "$map",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$map": {
+        "input": [
+          {
+            "price": 2
+          }
+        ],
+        "as": "item",
+        "in": {
+          "$multiply": [
+            "$$item.price",
+            3
+          ]
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"6.0\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"6\"}]}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  }
+]

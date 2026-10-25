@@ -2,36 +2,24 @@
 
 Rounds a number to the specified decimal place using ties-to-even rounding (HALF_EVEN); the place defaults to zero.
 
-**Category:** Arithmetic · **Visual function entry:** Yes
+**Category:** Arithmetic. **Studio Visual entry:** Available. This page describes Core expression execution; Studio also checks field types and authoring permissions.
 
-## Signature (engine metadata)
+## Syntax and arguments
 
-Argument syntax: `POSITIONAL`. Minimum arguments: 1. Maximum: 2.
+Supply an ordered array of arguments.
 
-| Operand | Accepted types | Required | Evaluation |
+| Argument | Metadata input types | Required | Evaluation |
 | --- | --- | --- | --- |
-| number | NUMBER | True | EXPRESSION |
-| place | INT | False | EXPRESSION |
+| `number` | NUMBER | Yes | Expression evaluated against the input |
+| `place` | INT | No | Expression evaluated against the input |
 
-Result types: NULL, NUMBER.
+Argument count: minimum 1; maximum 2.
 
-## Null and missing (engine metadata)
+Declared result types: **NULL, NUMBER**. Actual result types for tested inputs appear below. Metadata is an authoring hint; where a case differs, use the observed result and treat the discrepancy as a limitation.
 
-- Null: Returns null when the required value is null.
-- Missing: Missing required values resolve to null.
+## Example
 
-## Compatibility boundary
-
-Classification: `MONGO_6_SUBSET`. Verification scope reported by the engine: `ENGINE_REGRESSION_EXAMPLES`.
-
-- Verification covers regression cases; full BSON and locale conformance is not certified.
-
-These statements come from the engine catalog. This documentation has not independently certified equivalence against a running MongoDB server.
-
-## Executed example
-
-The SrotaX compiler accepted this JSON expression and the engine returned the expected value. Empty input document.
-
+Expression:
 ```json
 {
   "$round": [
@@ -40,12 +28,107 @@ The SrotaX compiler accepted this JSON expression and the engine returned the ex
 }
 ```
 
-Expected value:
-
+Input document:
 ```json
-2
+{}
 ```
 
-[MongoDB reference linked by engine metadata](https://raw.githubusercontent.com/mongodb/docs/3baea2dd8f2386d64c3c9a6805f625b80d9bacf4/source/reference/operator/aggregation/round.txt)
+**Observed SrotaX result:** 2.0 (double).
 
-Source revision recorded by engine: `3baea2dd8f2386d64c3c9a6805f625b80d9bacf4`.
+## Behavior for different inputs
+
+Each table changes **only the indicated argument** from the example above. Other arguments retain their baseline values. Values normally come from the input field `probe`; literal configuration arguments are replaced directly. “Missing” means the field is absent, not explicitly null. Numeric strings are strings, not numbers.
+
+### Argument: `number[0]`
+
+| Input case | Supplied value | SrotaX result |
+| --- | --- | --- |
+| null | null | null |
+| missing | Field absent | null |
+| zero | 0 | 0 (int32) |
+| negative | -2 | -2 (int32) |
+| decimal | 2.5 | 2.0 (double) |
+| numeric string | "12" | Error: IllegalArgumentException — Number and integer precision required |
+| text | "hello" | Error: IllegalArgumentException — Number and integer precision required |
+| empty string | "" | Error: IllegalArgumentException — Number and integer precision required |
+| boolean | true | Error: IllegalArgumentException — Number and integer precision required |
+| false | false | Error: IllegalArgumentException — Number and integer precision required |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error: IllegalArgumentException — Number and integer precision required |
+| decimal128 | {"$numberDecimal":"1.25"} | 1.0 (double) |
+| empty array | [] | Error: IllegalArgumentException — Number and integer precision required |
+| numeric array | [1,2,3] | Error: IllegalArgumentException — Number and integer precision required |
+| mixed array | [1,null,"x",3] | Error: IllegalArgumentException — Number and integer precision required |
+| nested array | [[1,2],[3]] | Error: IllegalArgumentException — Number and integer precision required |
+| empty object | {} | Error: IllegalArgumentException — Number and integer precision required |
+| object | {"x":1} | Error: IllegalArgumentException — Number and integer precision required |
+| ISO date string | "2026-01-15T15:00:00Z" | Error: IllegalArgumentException — Number and integer precision required |
+
+## Invalid invocation shapes
+
+| Invocation | SrotaX result |
+| --- | --- |
+| {"$round":[]} | Error: IllegalArgumentException — $round requires [number, place?] |
+| {"$round":{"unexpected":1}} | Error: IllegalArgumentException — Number and integer precision required |
+
+## Additional boundary examples
+
+<details>
+<summary>Show 2 tested examples</summary>
+
+Expression:
+```json
+{
+  "$round": [
+    2.345,
+    2
+  ]
+}
+```
+
+Input:
+```json
+{}
+```
+
+**SrotaX:** 2.34 (double).
+
+Expression:
+```json
+{
+  "$round": [
+    2.5,
+    0
+  ]
+}
+```
+
+Input:
+```json
+{}
+```
+
+**SrotaX:** 2.0 (double).
+
+</details>
+
+## Scope and reproducibility
+
+This page records **24 executed cases**. It covers individual argument substitutions, not every cross-product of arguments, locale, daylight-saving transitions, numeric overflow, collation or resource limits. No untested behavior is guaranteed.
+
+[Download exact expressions, inputs and SrotaX results](../../downloads/operator-behavior/round.json). Errors are observed messages, not stable public error codes. The reference generator reads the checked-in execution report; do not edit generated observations by hand.
+
+<!-- BEGIN MONGO PARITY -->
+## MongoDB differences (removable section)
+
+Compared with **MongoDB 9.0.4**: **7 exact BSON matches**, **15 both rejected**, **2 value/type/acceptance differences**, **0 object-field-order differences**.
+
+“Exact” includes numeric BSON types and object key order. A value of `3` as int32 differs from `3.0` as double. Object-field-order differences are reported separately; object key ordering is not enforced by the engine regression baseline. Both rejected does not mean the error codes or messages match. This is finite-case evidence, not full compatibility certification.
+
+| Tested case | SrotaX | MongoDB |
+| --- | --- | --- |
+| number[0] / decimal128 | 1.0 (double) | 1 (decimal128) |
+| all / boundary example | 2.34 (double) | 2.35 (double) |
+
+[Download full comparison evidence](../../downloads/operator-parity/round.json).
+
+<!-- END MONGO PARITY -->

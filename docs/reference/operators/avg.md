@@ -1,38 +1,144 @@
 # $avg
 
-Averages an explicit list of numeric operands.
+Averages numeric values from one array expression or explicit operands; ignores nonnumeric values.
 
-**Category:** Arithmetic · **Visual function entry:** Yes
+**Category:** Arithmetic. **Studio Visual entry:** Available. This page describes Core expression execution; Studio also checks field types and authoring permissions.
 
-## Signature (engine metadata)
+## Syntax and arguments
 
-Argument syntax: `POSITIONAL`. Minimum arguments: 0. Maximum: variadic.
+Supply an ordered array of arguments.
 
-| Operand | Accepted types | Required | Evaluation |
+| Argument | Metadata input types | Required | Evaluation |
 | --- | --- | --- | --- |
-| number | NUMBER | True | EXPRESSION |
+| `number` | ANY | Yes | Expression evaluated against the input |
 
-Result types: DOUBLE, NULL.
+Argument count: minimum 0; maximum variadic.
 
-## Null and missing (engine metadata)
+Declared result types: **DOUBLE, NULL**. Actual result types for tested inputs appear below. Metadata is an authoring hint; where a case differs, use the observed result and treat the discrepancy as a limitation.
 
-- Null: With number set to literal null in the regression example: returns 4. This is observed Fluxion behavior, not a general Mongo conformance claim.
-- Missing: With number set to a missing direct-field reference in the regression example: returns 4. This is observed Fluxion behavior, not a general Mongo conformance claim.
+A single array-valued expression is also supported, for example `{"$avg": "$items"}`. With multiple operands, array arguments are not recursively flattened.
 
-## Compatibility boundary
+## Example
 
-Classification: `MONGO_6_DIFFERENCES`. Verification scope reported by the engine: `ENGINE_REGRESSION_EXAMPLES`.
+Expression:
+```json
+{
+  "$avg": [
+    2,
+    4
+  ]
+}
+```
 
-- Numeric results use Java double rather than Mongo BSON numeric promotion. Null handling, overflow and special values are not Mongo-certified.
-- Only explicit operand lists; nonnumeric values error rather than being ignored.
-- Verification covers the checked-in regression examples, not full BSON, null, error or collation equivalence.
+Input document:
+```json
+{}
+```
 
-These statements come from the engine catalog. This documentation has not independently certified equivalence against a running MongoDB server.
+**Observed SrotaX result:** 3.0 (double).
 
-## Example coverage
+## Behavior for different inputs
 
-No executable example for this operator is included in the documentation suite yet. Use the signature above and validate your complete expression; do not interpret registration as a guarantee for every argument combination.
+Each table changes **only the indicated argument** from the example above. Other arguments retain their baseline values. Values normally come from the input field `probe`; literal configuration arguments are replaced directly. “Missing” means the field is absent, not explicitly null. Numeric strings are strings, not numbers.
 
-[MongoDB reference linked by engine metadata](https://raw.githubusercontent.com/mongodb/docs/3baea2dd8f2386d64c3c9a6805f625b80d9bacf4/source/reference/operator/aggregation/avg.txt)
+### Argument: `number[0]`
 
-Source revision recorded by engine: `3baea2dd8f2386d64c3c9a6805f625b80d9bacf4`.
+| Input case | Supplied value | SrotaX result |
+| --- | --- | --- |
+| null | null | 4.0 (double) |
+| missing | Field absent | 4.0 (double) |
+| zero | 0 | 2.0 (double) |
+| negative | -2 | 1.0 (double) |
+| decimal | 2.5 | 3.25 (double) |
+| numeric string | "12" | 4.0 (double) |
+| text | "hello" | 4.0 (double) |
+| empty string | "" | 4.0 (double) |
+| boolean | true | 4.0 (double) |
+| false | false | 4.0 (double) |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | 4.0 (double) |
+| decimal128 | {"$numberDecimal":"1.25"} | 2.625 (double) |
+| empty array | [] | 4.0 (double) |
+| numeric array | [1,2,3] | 4.0 (double) |
+| mixed array | [1,null,"x",3] | 4.0 (double) |
+| nested array | [[1,2],[3]] | 4.0 (double) |
+| empty object | {} | 4.0 (double) |
+| object | {"x":1} | 4.0 (double) |
+| ISO date string | "2026-01-15T15:00:00Z" | 4.0 (double) |
+
+### Argument: `number[1]`
+
+| Input case | Supplied value | SrotaX result |
+| --- | --- | --- |
+| null | null | 2.0 (double) |
+| missing | Field absent | 2.0 (double) |
+| zero | 0 | 1.0 (double) |
+| negative | -2 | 0.0 (double) |
+| decimal | 2.5 | 2.25 (double) |
+| numeric string | "12" | 2.0 (double) |
+| text | "hello" | 2.0 (double) |
+| empty string | "" | 2.0 (double) |
+| boolean | true | 2.0 (double) |
+| false | false | 2.0 (double) |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | 2.0 (double) |
+| decimal128 | {"$numberDecimal":"1.25"} | 1.625 (double) |
+| empty array | [] | 2.0 (double) |
+| numeric array | [1,2,3] | 2.0 (double) |
+| mixed array | [1,null,"x",3] | 2.0 (double) |
+| nested array | [[1,2],[3]] | 2.0 (double) |
+| empty object | {} | 2.0 (double) |
+| object | {"x":1} | 2.0 (double) |
+| ISO date string | "2026-01-15T15:00:00Z" | 2.0 (double) |
+
+### Argument: `single array expression`
+
+| Input case | Supplied value | SrotaX result |
+| --- | --- | --- |
+| single operand null | null | null |
+| single operand missing | Field absent | null |
+| single operand zero | 0 | 0.0 (double) |
+| single operand negative | -2 | -2.0 (double) |
+| single operand decimal | 2.5 | 2.5 (double) |
+| single operand numeric string | "12" | null |
+| single operand text | "hello" | null |
+| single operand empty string | "" | null |
+| single operand boolean | true | null |
+| single operand false | false | null |
+| single operand typed date | {"$date":"2026-01-15T15:00:00Z"} | null |
+| single operand decimal128 | {"$numberDecimal":"1.25"} | 1.25 (double) |
+| single operand empty array | [] | null |
+| single operand numeric array | [1,2,3] | 2.0 (double) |
+| single operand mixed array | [1,null,"x",3] | 2.0 (double) |
+| single operand nested array | [[1,2],[3]] | null |
+| single operand empty object | {} | null |
+| single operand object | {"x":1} | null |
+| single operand ISO date string | "2026-01-15T15:00:00Z" | null |
+
+## Invalid invocation shapes
+
+| Invocation | SrotaX result |
+| --- | --- |
+| {"$avg":[]} | null |
+| {"$avg":{"unexpected":1}} | null |
+
+## Scope and reproducibility
+
+This page records **60 executed cases**. It covers individual argument substitutions, not every cross-product of arguments, locale, daylight-saving transitions, numeric overflow, collation or resource limits. No untested behavior is guaranteed.
+
+[Download exact expressions, inputs and SrotaX results](../../downloads/operator-behavior/avg.json). Errors are observed messages, not stable public error codes. The reference generator reads the checked-in execution report; do not edit generated observations by hand.
+
+<!-- BEGIN MONGO PARITY -->
+## MongoDB differences (removable section)
+
+Compared with **MongoDB 9.0.4**: **57 exact BSON matches**, **0 both rejected**, **3 value/type/acceptance differences**, **0 object-field-order differences**.
+
+“Exact” includes numeric BSON types and object key order. A value of `3` as int32 differs from `3.0` as double. Object-field-order differences are reported separately; object key ordering is not enforced by the engine regression baseline. Both rejected does not mean the error codes or messages match. This is finite-case evidence, not full compatibility certification.
+
+| Tested case | SrotaX | MongoDB |
+| --- | --- | --- |
+| number[0] / decimal128 | 2.625 (double) | 2.625 (decimal128) |
+| number[1] / decimal128 | 1.625 (double) | 1.625 (decimal128) |
+| single array expression / single operand decimal128 | 1.25 (double) | 1.25 (decimal128) |
+
+[Download full comparison evidence](../../downloads/operator-parity/avg.json).
+
+<!-- END MONGO PARITY -->

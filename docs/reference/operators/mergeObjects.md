@@ -2,35 +2,117 @@
 
 Combines objects with later values replacing earlier fields.
 
-**Category:** Objects · **Visual function entry:** Yes
+**Category:** Objects. **Studio Visual entry:** Available. This page describes Core expression execution; Studio also checks field types and authoring permissions.
 
-## Signature (engine metadata)
+## Syntax and arguments
 
-Argument syntax: `POSITIONAL`. Minimum arguments: 1. Maximum: variadic.
+Supply an ordered array of arguments.
 
-| Operand | Accepted types | Required | Evaluation |
+| Argument | Metadata input types | Required | Evaluation |
 | --- | --- | --- | --- |
-| object | OBJECT | True | EXPRESSION |
+| `object` | OBJECT | Yes | Expression evaluated against the input |
 
-Result types: OBJECT.
+Argument count: minimum 1; maximum variadic.
 
-## Null and missing (engine metadata)
+Declared result types: **OBJECT**. Actual result types for tested inputs appear below. Metadata is an authoring hint; where a case differs, use the observed result and treat the discrepancy as a limitation.
 
-- Null: With object set to literal null in the regression example: returns {"b":2}. This is observed Fluxion behavior, not a general Mongo conformance claim.
-- Missing: With object set to a missing direct-field reference in the regression example: returns {"b":2}. This is observed Fluxion behavior, not a general Mongo conformance claim.
+## Example
 
-## Compatibility boundary
+Expression:
+```json
+{
+  "$mergeObjects": [
+    {
+      "a": 1
+    },
+    {
+      "b": 2
+    }
+  ]
+}
+```
 
-Classification: `MONGO_6_SUBSET`. Verification scope reported by the engine: `ENGINE_REGRESSION_EXAMPLES`.
+Input document:
+```json
+{}
+```
 
-- Verification covers the checked-in regression examples, not full BSON, null, error or collation equivalence.
+**Observed SrotaX result:** {"a":1,"b":2}.
 
-These statements come from the engine catalog. This documentation has not independently certified equivalence against a running MongoDB server.
+## Behavior for different inputs
 
-## Example coverage
+Each table changes **only the indicated argument** from the example above. Other arguments retain their baseline values. Values normally come from the input field `probe`; literal configuration arguments are replaced directly. “Missing” means the field is absent, not explicitly null. Numeric strings are strings, not numbers.
 
-No executable example for this operator is included in the documentation suite yet. Use the signature above and validate your complete expression; do not interpret registration as a guarantee for every argument combination.
+### Argument: `object[0]`
 
-[MongoDB reference linked by engine metadata](https://raw.githubusercontent.com/mongodb/docs/3baea2dd8f2386d64c3c9a6805f625b80d9bacf4/source/reference/operator/aggregation/mergeObjects.txt)
+| Input case | Supplied value | SrotaX result |
+| --- | --- | --- |
+| null | null | {"b":2} |
+| missing | Field absent | {"b":2} |
+| zero | 0 | Error: IllegalArgumentException — $mergeObjects only accepts documents (objects). |
+| negative | -2 | Error: IllegalArgumentException — $mergeObjects only accepts documents (objects). |
+| decimal | 2.5 | Error: IllegalArgumentException — $mergeObjects only accepts documents (objects). |
+| numeric string | "12" | Error: IllegalArgumentException — $mergeObjects only accepts documents (objects). |
+| text | "hello" | Error: IllegalArgumentException — $mergeObjects only accepts documents (objects). |
+| empty string | "" | Error: IllegalArgumentException — $mergeObjects only accepts documents (objects). |
+| boolean | true | Error: IllegalArgumentException — $mergeObjects only accepts documents (objects). |
+| false | false | Error: IllegalArgumentException — $mergeObjects only accepts documents (objects). |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error: IllegalArgumentException — $mergeObjects only accepts documents (objects). |
+| decimal128 | {"$numberDecimal":"1.25"} | Error: IllegalArgumentException — $mergeObjects only accepts documents (objects). |
+| empty array | [] | Error: IllegalArgumentException — $mergeObjects only accepts documents (objects). |
+| numeric array | [1,2,3] | Error: IllegalArgumentException — $mergeObjects only accepts documents (objects). |
+| mixed array | [1,null,"x",3] | Error: IllegalArgumentException — $mergeObjects only accepts documents (objects). |
+| nested array | [[1,2],[3]] | Error: IllegalArgumentException — $mergeObjects only accepts documents (objects). |
+| empty object | {} | {"b":2} |
+| object | {"x":1} | {"x":1,"b":2} |
+| ISO date string | "2026-01-15T15:00:00Z" | Error: IllegalArgumentException — $mergeObjects only accepts documents (objects). |
 
-Source revision recorded by engine: `3baea2dd8f2386d64c3c9a6805f625b80d9bacf4`.
+### Argument: `object[1]`
+
+| Input case | Supplied value | SrotaX result |
+| --- | --- | --- |
+| null | null | {"a":1} |
+| missing | Field absent | {"a":1} |
+| zero | 0 | Error: IllegalArgumentException — $mergeObjects only accepts documents (objects). |
+| negative | -2 | Error: IllegalArgumentException — $mergeObjects only accepts documents (objects). |
+| decimal | 2.5 | Error: IllegalArgumentException — $mergeObjects only accepts documents (objects). |
+| numeric string | "12" | Error: IllegalArgumentException — $mergeObjects only accepts documents (objects). |
+| text | "hello" | Error: IllegalArgumentException — $mergeObjects only accepts documents (objects). |
+| empty string | "" | Error: IllegalArgumentException — $mergeObjects only accepts documents (objects). |
+| boolean | true | Error: IllegalArgumentException — $mergeObjects only accepts documents (objects). |
+| false | false | Error: IllegalArgumentException — $mergeObjects only accepts documents (objects). |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error: IllegalArgumentException — $mergeObjects only accepts documents (objects). |
+| decimal128 | {"$numberDecimal":"1.25"} | Error: IllegalArgumentException — $mergeObjects only accepts documents (objects). |
+| empty array | [] | Error: IllegalArgumentException — $mergeObjects only accepts documents (objects). |
+| numeric array | [1,2,3] | Error: IllegalArgumentException — $mergeObjects only accepts documents (objects). |
+| mixed array | [1,null,"x",3] | Error: IllegalArgumentException — $mergeObjects only accepts documents (objects). |
+| nested array | [[1,2],[3]] | Error: IllegalArgumentException — $mergeObjects only accepts documents (objects). |
+| empty object | {} | {"a":1} |
+| object | {"x":1} | {"a":1,"x":1} |
+| ISO date string | "2026-01-15T15:00:00Z" | Error: IllegalArgumentException — $mergeObjects only accepts documents (objects). |
+
+## Invalid invocation shapes
+
+| Invocation | SrotaX result |
+| --- | --- |
+| {"$mergeObjects":[]} | {} |
+| {"$mergeObjects":{"unexpected":1}} | {"unexpected":1} |
+
+## Scope and reproducibility
+
+This page records **41 executed cases**. It covers individual argument substitutions, not every cross-product of arguments, locale, daylight-saving transitions, numeric overflow, collation or resource limits. No untested behavior is guaranteed.
+
+[Download exact expressions, inputs and SrotaX results](../../downloads/operator-behavior/mergeObjects.json). Errors are observed messages, not stable public error codes. The reference generator reads the checked-in execution report; do not edit generated observations by hand.
+
+<!-- BEGIN MONGO PARITY -->
+## MongoDB differences (removable section)
+
+Compared with **MongoDB 9.0.4**: **11 exact BSON matches**, **30 both rejected**, **0 value/type/acceptance differences**, **0 object-field-order differences**.
+
+“Exact” includes numeric BSON types and object key order. A value of `3` as int32 differs from `3.0` as double. Object-field-order differences are reported separately; object key ordering is not enforced by the engine regression baseline. Both rejected does not mean the error codes or messages match. This is finite-case evidence, not full compatibility certification.
+
+No differences were observed in the compared cases.
+
+[Download full comparison evidence](../../downloads/operator-parity/mergeObjects.json).
+
+<!-- END MONGO PARITY -->

@@ -1,0 +1,501 @@
+[
+  {
+    "id": "$isoWeekYear baseline",
+    "operator": "$isoWeekYear",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$isoWeekYear": {
+        "$toDate": "2024-01-02T03:04:05.006Z"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2024\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberLong\": \"2024\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$isoWeekYear input: null",
+    "operator": "$isoWeekYear",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$isoWeekYear": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$isoWeekYear: expected date, date-string, or timestamp for field '', but got: null"
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$isoWeekYear input: missing",
+    "operator": "$isoWeekYear",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$isoWeekYear": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$isoWeekYear: expected date, date-string, or timestamp for field '', but got: null"
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$isoWeekYear input: zero",
+    "operator": "$isoWeekYear",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$isoWeekYear": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"1970\"}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type int to Date",
+      "code": 16006,
+      "error": "Location16006"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$isoWeekYear input: negative",
+    "operator": "$isoWeekYear",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$isoWeekYear": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"1970\"}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type int to Date",
+      "code": 16006,
+      "error": "Location16006"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$isoWeekYear input: decimal",
+    "operator": "$isoWeekYear",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$isoWeekYear": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"1970\"}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type double to Date",
+      "code": 16006,
+      "error": "Location16006"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$isoWeekYear input: numeric string",
+    "operator": "$isoWeekYear",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$isoWeekYear": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"1970\"}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type string to Date",
+      "code": 16006,
+      "error": "Location16006"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$isoWeekYear input: text",
+    "operator": "$isoWeekYear",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$isoWeekYear": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$isoWeekYear: expected date, date-string, or timestamp for field '', but got: hello"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type string to Date",
+      "code": 16006,
+      "error": "Location16006"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$isoWeekYear input: empty string",
+    "operator": "$isoWeekYear",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$isoWeekYear": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$isoWeekYear: expected date, date-string, or timestamp for field '', but got: "
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type string to Date",
+      "code": 16006,
+      "error": "Location16006"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$isoWeekYear input: boolean",
+    "operator": "$isoWeekYear",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$isoWeekYear": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$isoWeekYear: expected date, date-string, or timestamp for field '', but got: true"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type bool to Date",
+      "code": 16006,
+      "error": "Location16006"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$isoWeekYear input: false",
+    "operator": "$isoWeekYear",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$isoWeekYear": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$isoWeekYear: expected date, date-string, or timestamp for field '', but got: false"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type bool to Date",
+      "code": 16006,
+      "error": "Location16006"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$isoWeekYear input: typed date",
+    "operator": "$isoWeekYear",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$isoWeekYear": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2026\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberLong\": \"2026\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$isoWeekYear input: decimal128",
+    "operator": "$isoWeekYear",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$isoWeekYear": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"1970\"}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type decimal to Date",
+      "code": 16006,
+      "error": "Location16006"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$isoWeekYear input: empty array",
+    "operator": "$isoWeekYear",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$isoWeekYear": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$isoWeekYear: expected date, date-string, or timestamp for field '', but got: []"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type array to Date",
+      "code": 16006,
+      "error": "Location16006"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$isoWeekYear input: numeric array",
+    "operator": "$isoWeekYear",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$isoWeekYear": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$isoWeekYear: expected date, date-string, or timestamp for field '', but got: [1, 2, 3]"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type array to Date",
+      "code": 16006,
+      "error": "Location16006"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$isoWeekYear input: mixed array",
+    "operator": "$isoWeekYear",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$isoWeekYear": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$isoWeekYear: expected date, date-string, or timestamp for field '', but got: [1, null, x, 3]"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type array to Date",
+      "code": 16006,
+      "error": "Location16006"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$isoWeekYear input: nested array",
+    "operator": "$isoWeekYear",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$isoWeekYear": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$isoWeekYear: expected date, date-string, or timestamp for field '', but got: [[1, 2], [3]]"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type array to Date",
+      "code": 16006,
+      "error": "Location16006"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$isoWeekYear input: empty object",
+    "operator": "$isoWeekYear",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$isoWeekYear": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$isoWeekYear: expected date, date-string, or timestamp for field '', but got: Document{{}}"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type object to Date",
+      "code": 16006,
+      "error": "Location16006"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$isoWeekYear input: object",
+    "operator": "$isoWeekYear",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$isoWeekYear": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$isoWeekYear: expected date, date-string, or timestamp for field '', but got: Document{{x=1}}"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type object to Date",
+      "code": 16006,
+      "error": "Location16006"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$isoWeekYear input: ISO date string",
+    "operator": "$isoWeekYear",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$isoWeekYear": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2026\"}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type string to Date",
+      "code": 16006,
+      "error": "Location16006"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$isoWeekYear empty arguments",
+    "operator": "$isoWeekYear",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$isoWeekYear": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$isoWeekYear: expected date, date-string, or timestamp for field '', but got: []"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $isoWeekYear accepts exactly one argument if given an array, but was given 0",
+      "code": 40536,
+      "error": "Location40536"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$isoWeekYear unknown option",
+    "operator": "$isoWeekYear",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$isoWeekYear": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$isoWeekYear: expected date, date-string, or timestamp for field '', but got: {unexpected=1}"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: unrecognized option to $isoWeekYear: \"unexpected\"",
+      "code": 40535,
+      "error": "Location40535"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

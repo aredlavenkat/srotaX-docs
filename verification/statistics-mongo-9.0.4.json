@@ -1,0 +1,1263 @@
+{
+  "cases" : [ {
+    "id" : "$median odd",
+    "expression" : {
+      "$median" : {
+        "input" : "$values",
+        "method" : "approximate"
+      }
+    },
+    "input" : {
+      "values" : [ 10, 20, 30 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"20.0\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"20.0\"}}"
+  }, {
+    "id" : "$median even",
+    "expression" : {
+      "$median" : {
+        "input" : "$values",
+        "method" : "approximate"
+      }
+    },
+    "input" : {
+      "values" : [ 10, 20, 30, 40 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"20.0\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"20.0\"}}"
+  }, {
+    "id" : "$median empty",
+    "expression" : {
+      "$median" : {
+        "input" : "$values",
+        "method" : "approximate"
+      }
+    },
+    "input" : {
+      "values" : [ ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": null}",
+    "fluxion" : "{\"v\": null}"
+  }, {
+    "id" : "$median null",
+    "expression" : {
+      "$median" : {
+        "input" : "$values",
+        "method" : "approximate"
+      }
+    },
+    "input" : {
+      "values" : null
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": null}",
+    "fluxion" : "{\"v\": null}"
+  }, {
+    "id" : "$median scalar",
+    "expression" : {
+      "$median" : {
+        "input" : "$values",
+        "method" : "approximate"
+      }
+    },
+    "input" : {
+      "values" : 5
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"5.0\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"5.0\"}}"
+  }, {
+    "id" : "$median mixed",
+    "expression" : {
+      "$median" : {
+        "input" : "$values",
+        "method" : "approximate"
+      }
+    },
+    "input" : {
+      "values" : [ 1, "x", null, 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"1.0\"}}"
+  }, {
+    "id" : "$median nested",
+    "expression" : {
+      "$median" : {
+        "input" : "$values",
+        "method" : "approximate"
+      }
+    },
+    "input" : {
+      "values" : [ 1, [ 50 ], 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"1.0\"}}"
+  }, {
+    "id" : "$median all-nonnumeric",
+    "expression" : {
+      "$median" : {
+        "input" : "$values",
+        "method" : "approximate"
+      }
+    },
+    "input" : {
+      "values" : [ "x", null, { } ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": null}",
+    "fluxion" : "{\"v\": null}"
+  }, {
+    "id" : "$median nan",
+    "expression" : {
+      "$median" : {
+        "input" : "$values",
+        "method" : "approximate"
+      }
+    },
+    "input" : {
+      "values" : [ 1, {
+        "$numberDouble" : "NaN"
+      }, 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"1.0\"}}"
+  }, {
+    "id" : "$median infinity",
+    "expression" : {
+      "$median" : {
+        "input" : "$values",
+        "method" : "approximate"
+      }
+    },
+    "input" : {
+      "values" : [ 1, {
+        "$numberDouble" : "Infinity"
+      }, 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"3.0\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"3.0\"}}"
+  }, {
+    "id" : "$median decimal",
+    "expression" : {
+      "$median" : {
+        "input" : "$values",
+        "method" : "approximate"
+      }
+    },
+    "input" : {
+      "values" : [ {
+        "$numberDecimal" : "1.2"
+      }, 2, 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"2.0\"}}"
+  }, {
+    "id" : "$median huge",
+    "expression" : {
+      "$median" : {
+        "input" : "$values",
+        "method" : "approximate"
+      }
+    },
+    "input" : {
+      "values" : [ 1.0E100, 2.0E100, 3.0E100 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"2.0E100\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"2.0E100\"}}"
+  }, {
+    "id" : "$median single-infinity",
+    "expression" : {
+      "$median" : {
+        "input" : "$values",
+        "method" : "approximate"
+      }
+    },
+    "input" : {
+      "values" : [ {
+        "$numberDouble" : "Infinity"
+      } ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"Infinity\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"Infinity\"}}"
+  }, {
+    "id" : "$median missing",
+    "expression" : {
+      "$median" : {
+        "input" : "$missing",
+        "method" : "approximate"
+      }
+    },
+    "input" : { },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": null}",
+    "fluxion" : "{\"v\": null}"
+  }, {
+    "id" : "$percentile odd",
+    "expression" : {
+      "$percentile" : {
+        "input" : "$values",
+        "method" : "approximate",
+        "p" : [ 1, 0, 0.25, 0.5, 0.75, 0.5 ]
+      }
+    },
+    "input" : {
+      "values" : [ 10, 20, 30 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": [{\"$numberDouble\": \"30.0\"}, {\"$numberDouble\": \"10.0\"}, {\"$numberDouble\": \"10.0\"}, {\"$numberDouble\": \"20.0\"}, {\"$numberDouble\": \"30.0\"}, {\"$numberDouble\": \"20.0\"}]}",
+    "fluxion" : "{\"v\": [{\"$numberDouble\": \"30.0\"}, {\"$numberDouble\": \"10.0\"}, {\"$numberDouble\": \"10.0\"}, {\"$numberDouble\": \"20.0\"}, {\"$numberDouble\": \"30.0\"}, {\"$numberDouble\": \"20.0\"}]}"
+  }, {
+    "id" : "$percentile even",
+    "expression" : {
+      "$percentile" : {
+        "input" : "$values",
+        "method" : "approximate",
+        "p" : [ 1, 0, 0.25, 0.5, 0.75, 0.5 ]
+      }
+    },
+    "input" : {
+      "values" : [ 10, 20, 30, 40 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": [{\"$numberDouble\": \"40.0\"}, {\"$numberDouble\": \"10.0\"}, {\"$numberDouble\": \"10.0\"}, {\"$numberDouble\": \"20.0\"}, {\"$numberDouble\": \"30.0\"}, {\"$numberDouble\": \"20.0\"}]}",
+    "fluxion" : "{\"v\": [{\"$numberDouble\": \"40.0\"}, {\"$numberDouble\": \"10.0\"}, {\"$numberDouble\": \"10.0\"}, {\"$numberDouble\": \"20.0\"}, {\"$numberDouble\": \"30.0\"}, {\"$numberDouble\": \"20.0\"}]}"
+  }, {
+    "id" : "$percentile empty",
+    "expression" : {
+      "$percentile" : {
+        "input" : "$values",
+        "method" : "approximate",
+        "p" : [ 1, 0, 0.25, 0.5, 0.75, 0.5 ]
+      }
+    },
+    "input" : {
+      "values" : [ ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": [null, null, null, null, null, null]}",
+    "fluxion" : "{\"v\": [null, null, null, null, null, null]}"
+  }, {
+    "id" : "$percentile null",
+    "expression" : {
+      "$percentile" : {
+        "input" : "$values",
+        "method" : "approximate",
+        "p" : [ 1, 0, 0.25, 0.5, 0.75, 0.5 ]
+      }
+    },
+    "input" : {
+      "values" : null
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": [null, null, null, null, null, null]}",
+    "fluxion" : "{\"v\": [null, null, null, null, null, null]}"
+  }, {
+    "id" : "$percentile scalar",
+    "expression" : {
+      "$percentile" : {
+        "input" : "$values",
+        "method" : "approximate",
+        "p" : [ 1, 0, 0.25, 0.5, 0.75, 0.5 ]
+      }
+    },
+    "input" : {
+      "values" : 5
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": [{\"$numberDouble\": \"5.0\"}, {\"$numberDouble\": \"5.0\"}, {\"$numberDouble\": \"5.0\"}, {\"$numberDouble\": \"5.0\"}, {\"$numberDouble\": \"5.0\"}, {\"$numberDouble\": \"5.0\"}]}",
+    "fluxion" : "{\"v\": [{\"$numberDouble\": \"5.0\"}, {\"$numberDouble\": \"5.0\"}, {\"$numberDouble\": \"5.0\"}, {\"$numberDouble\": \"5.0\"}, {\"$numberDouble\": \"5.0\"}, {\"$numberDouble\": \"5.0\"}]}"
+  }, {
+    "id" : "$percentile mixed",
+    "expression" : {
+      "$percentile" : {
+        "input" : "$values",
+        "method" : "approximate",
+        "p" : [ 1, 0, 0.25, 0.5, 0.75, 0.5 ]
+      }
+    },
+    "input" : {
+      "values" : [ 1, "x", null, 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": [{\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"1.0\"}]}",
+    "fluxion" : "{\"v\": [{\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"1.0\"}]}"
+  }, {
+    "id" : "$percentile nested",
+    "expression" : {
+      "$percentile" : {
+        "input" : "$values",
+        "method" : "approximate",
+        "p" : [ 1, 0, 0.25, 0.5, 0.75, 0.5 ]
+      }
+    },
+    "input" : {
+      "values" : [ 1, [ 50 ], 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": [{\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"1.0\"}]}",
+    "fluxion" : "{\"v\": [{\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"1.0\"}]}"
+  }, {
+    "id" : "$percentile all-nonnumeric",
+    "expression" : {
+      "$percentile" : {
+        "input" : "$values",
+        "method" : "approximate",
+        "p" : [ 1, 0, 0.25, 0.5, 0.75, 0.5 ]
+      }
+    },
+    "input" : {
+      "values" : [ "x", null, { } ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": [null, null, null, null, null, null]}",
+    "fluxion" : "{\"v\": [null, null, null, null, null, null]}"
+  }, {
+    "id" : "$percentile nan",
+    "expression" : {
+      "$percentile" : {
+        "input" : "$values",
+        "method" : "approximate",
+        "p" : [ 1, 0, 0.25, 0.5, 0.75, 0.5 ]
+      }
+    },
+    "input" : {
+      "values" : [ 1, {
+        "$numberDouble" : "NaN"
+      }, 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": [{\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"1.0\"}]}",
+    "fluxion" : "{\"v\": [{\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"1.0\"}]}"
+  }, {
+    "id" : "$percentile infinity",
+    "expression" : {
+      "$percentile" : {
+        "input" : "$values",
+        "method" : "approximate",
+        "p" : [ 1, 0, 0.25, 0.5, 0.75, 0.5 ]
+      }
+    },
+    "input" : {
+      "values" : [ 1, {
+        "$numberDouble" : "Infinity"
+      }, 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": [{\"$numberDouble\": \"Infinity\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"Infinity\"}, {\"$numberDouble\": \"3.0\"}]}",
+    "fluxion" : "{\"v\": [{\"$numberDouble\": \"Infinity\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"Infinity\"}, {\"$numberDouble\": \"3.0\"}]}"
+  }, {
+    "id" : "$percentile decimal",
+    "expression" : {
+      "$percentile" : {
+        "input" : "$values",
+        "method" : "approximate",
+        "p" : [ 1, 0, 0.25, 0.5, 0.75, 0.5 ]
+      }
+    },
+    "input" : {
+      "values" : [ {
+        "$numberDecimal" : "1.2"
+      }, 2, 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": [{\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"1.2\"}, {\"$numberDouble\": \"1.2\"}, {\"$numberDouble\": \"2.0\"}, {\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"2.0\"}]}",
+    "fluxion" : "{\"v\": [{\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"1.2\"}, {\"$numberDouble\": \"1.2\"}, {\"$numberDouble\": \"2.0\"}, {\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"2.0\"}]}"
+  }, {
+    "id" : "$percentile huge",
+    "expression" : {
+      "$percentile" : {
+        "input" : "$values",
+        "method" : "approximate",
+        "p" : [ 1, 0, 0.25, 0.5, 0.75, 0.5 ]
+      }
+    },
+    "input" : {
+      "values" : [ 1.0E100, 2.0E100, 3.0E100 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": [{\"$numberDouble\": \"3.0E100\"}, {\"$numberDouble\": \"1.0E100\"}, {\"$numberDouble\": \"1.0E100\"}, {\"$numberDouble\": \"2.0E100\"}, {\"$numberDouble\": \"3.0E100\"}, {\"$numberDouble\": \"2.0E100\"}]}",
+    "fluxion" : "{\"v\": [{\"$numberDouble\": \"3.0E100\"}, {\"$numberDouble\": \"1.0E100\"}, {\"$numberDouble\": \"1.0E100\"}, {\"$numberDouble\": \"2.0E100\"}, {\"$numberDouble\": \"3.0E100\"}, {\"$numberDouble\": \"2.0E100\"}]}"
+  }, {
+    "id" : "$percentile single-infinity",
+    "expression" : {
+      "$percentile" : {
+        "input" : "$values",
+        "method" : "approximate",
+        "p" : [ 1, 0, 0.25, 0.5, 0.75, 0.5 ]
+      }
+    },
+    "input" : {
+      "values" : [ {
+        "$numberDouble" : "Infinity"
+      } ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": [{\"$numberDouble\": \"Infinity\"}, {\"$numberDouble\": \"Infinity\"}, {\"$numberDouble\": \"Infinity\"}, {\"$numberDouble\": \"Infinity\"}, {\"$numberDouble\": \"Infinity\"}, {\"$numberDouble\": \"Infinity\"}]}",
+    "fluxion" : "{\"v\": [{\"$numberDouble\": \"Infinity\"}, {\"$numberDouble\": \"Infinity\"}, {\"$numberDouble\": \"Infinity\"}, {\"$numberDouble\": \"Infinity\"}, {\"$numberDouble\": \"Infinity\"}, {\"$numberDouble\": \"Infinity\"}]}"
+  }, {
+    "id" : "$percentile missing",
+    "expression" : {
+      "$percentile" : {
+        "input" : "$missing",
+        "method" : "approximate",
+        "p" : [ 0, 0.5, 1 ]
+      }
+    },
+    "input" : { },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": [null, null, null]}",
+    "fluxion" : "{\"v\": [null, null, null]}"
+  }, {
+    "id" : "$stdDevPop odd",
+    "expression" : {
+      "$stdDevPop" : "$values"
+    },
+    "input" : {
+      "values" : [ 10, 20, 30 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"8.16496580927726\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"8.16496580927726\"}}"
+  }, {
+    "id" : "$stdDevPop even",
+    "expression" : {
+      "$stdDevPop" : "$values"
+    },
+    "input" : {
+      "values" : [ 10, 20, 30, 40 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"11.180339887498949\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"11.180339887498949\"}}"
+  }, {
+    "id" : "$stdDevPop empty",
+    "expression" : {
+      "$stdDevPop" : "$values"
+    },
+    "input" : {
+      "values" : [ ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": null}",
+    "fluxion" : "{\"v\": null}"
+  }, {
+    "id" : "$stdDevPop null",
+    "expression" : {
+      "$stdDevPop" : "$values"
+    },
+    "input" : {
+      "values" : null
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": null}",
+    "fluxion" : "{\"v\": null}"
+  }, {
+    "id" : "$stdDevPop scalar",
+    "expression" : {
+      "$stdDevPop" : "$values"
+    },
+    "input" : {
+      "values" : 5
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"0.0\"}}"
+  }, {
+    "id" : "$stdDevPop mixed",
+    "expression" : {
+      "$stdDevPop" : "$values"
+    },
+    "input" : {
+      "values" : [ 1, "x", null, 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"1.0\"}}"
+  }, {
+    "id" : "$stdDevPop nested",
+    "expression" : {
+      "$stdDevPop" : "$values"
+    },
+    "input" : {
+      "values" : [ 1, [ 50 ], 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"1.0\"}}"
+  }, {
+    "id" : "$stdDevPop all-nonnumeric",
+    "expression" : {
+      "$stdDevPop" : "$values"
+    },
+    "input" : {
+      "values" : [ "x", null, { } ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": null}",
+    "fluxion" : "{\"v\": null}"
+  }, {
+    "id" : "$stdDevPop nan",
+    "expression" : {
+      "$stdDevPop" : "$values"
+    },
+    "input" : {
+      "values" : [ 1, {
+        "$numberDouble" : "NaN"
+      }, 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"NaN\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"NaN\"}}"
+  }, {
+    "id" : "$stdDevPop infinity",
+    "expression" : {
+      "$stdDevPop" : "$values"
+    },
+    "input" : {
+      "values" : [ 1, {
+        "$numberDouble" : "Infinity"
+      }, 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"NaN\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"NaN\"}}"
+  }, {
+    "id" : "$stdDevPop decimal",
+    "expression" : {
+      "$stdDevPop" : "$values"
+    },
+    "input" : {
+      "values" : [ {
+        "$numberDecimal" : "1.2"
+      }, 2, 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"0.7363574011458173\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"0.7363574011458173\"}}"
+  }, {
+    "id" : "$stdDevPop huge",
+    "expression" : {
+      "$stdDevPop" : "$values"
+    },
+    "input" : {
+      "values" : [ 1.0E100, 2.0E100, 3.0E100 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"8.164965809277259E99\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"8.164965809277259E99\"}}"
+  }, {
+    "id" : "$stdDevPop single-infinity",
+    "expression" : {
+      "$stdDevPop" : "$values"
+    },
+    "input" : {
+      "values" : [ {
+        "$numberDouble" : "Infinity"
+      } ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"NaN\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"NaN\"}}"
+  }, {
+    "id" : "$stdDevPop missing",
+    "expression" : {
+      "$stdDevPop" : "$missing"
+    },
+    "input" : { },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": null}",
+    "fluxion" : "{\"v\": null}"
+  }, {
+    "id" : "$stdDevSamp odd",
+    "expression" : {
+      "$stdDevSamp" : "$values"
+    },
+    "input" : {
+      "values" : [ 10, 20, 30 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"10.0\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"10.0\"}}"
+  }, {
+    "id" : "$stdDevSamp even",
+    "expression" : {
+      "$stdDevSamp" : "$values"
+    },
+    "input" : {
+      "values" : [ 10, 20, 30, 40 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"12.909944487358056\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"12.909944487358056\"}}"
+  }, {
+    "id" : "$stdDevSamp empty",
+    "expression" : {
+      "$stdDevSamp" : "$values"
+    },
+    "input" : {
+      "values" : [ ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": null}",
+    "fluxion" : "{\"v\": null}"
+  }, {
+    "id" : "$stdDevSamp null",
+    "expression" : {
+      "$stdDevSamp" : "$values"
+    },
+    "input" : {
+      "values" : null
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": null}",
+    "fluxion" : "{\"v\": null}"
+  }, {
+    "id" : "$stdDevSamp scalar",
+    "expression" : {
+      "$stdDevSamp" : "$values"
+    },
+    "input" : {
+      "values" : 5
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": null}",
+    "fluxion" : "{\"v\": null}"
+  }, {
+    "id" : "$stdDevSamp mixed",
+    "expression" : {
+      "$stdDevSamp" : "$values"
+    },
+    "input" : {
+      "values" : [ 1, "x", null, 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"1.4142135623730951\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"1.4142135623730951\"}}"
+  }, {
+    "id" : "$stdDevSamp nested",
+    "expression" : {
+      "$stdDevSamp" : "$values"
+    },
+    "input" : {
+      "values" : [ 1, [ 50 ], 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"1.4142135623730951\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"1.4142135623730951\"}}"
+  }, {
+    "id" : "$stdDevSamp all-nonnumeric",
+    "expression" : {
+      "$stdDevSamp" : "$values"
+    },
+    "input" : {
+      "values" : [ "x", null, { } ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": null}",
+    "fluxion" : "{\"v\": null}"
+  }, {
+    "id" : "$stdDevSamp nan",
+    "expression" : {
+      "$stdDevSamp" : "$values"
+    },
+    "input" : {
+      "values" : [ 1, {
+        "$numberDouble" : "NaN"
+      }, 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"NaN\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"NaN\"}}"
+  }, {
+    "id" : "$stdDevSamp infinity",
+    "expression" : {
+      "$stdDevSamp" : "$values"
+    },
+    "input" : {
+      "values" : [ 1, {
+        "$numberDouble" : "Infinity"
+      }, 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"NaN\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"NaN\"}}"
+  }, {
+    "id" : "$stdDevSamp decimal",
+    "expression" : {
+      "$stdDevSamp" : "$values"
+    },
+    "input" : {
+      "values" : [ {
+        "$numberDecimal" : "1.2"
+      }, 2, 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"0.9018499505645787\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"0.9018499505645787\"}}"
+  }, {
+    "id" : "$stdDevSamp huge",
+    "expression" : {
+      "$stdDevSamp" : "$values"
+    },
+    "input" : {
+      "values" : [ 1.0E100, 2.0E100, 3.0E100 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"9.999999999999998E99\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"9.999999999999998E99\"}}"
+  }, {
+    "id" : "$stdDevSamp single-infinity",
+    "expression" : {
+      "$stdDevSamp" : "$values"
+    },
+    "input" : {
+      "values" : [ {
+        "$numberDouble" : "Infinity"
+      } ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": null}",
+    "fluxion" : "{\"v\": null}"
+  }, {
+    "id" : "$stdDevSamp missing",
+    "expression" : {
+      "$stdDevSamp" : "$missing"
+    },
+    "input" : { },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": null}",
+    "fluxion" : "{\"v\": null}"
+  }, {
+    "id" : "$median invalid-method-continuous",
+    "expression" : {
+      "$median" : {
+        "input" : [ 1, 2, 3 ],
+        "method" : "continuous"
+      }
+    },
+    "input" : { },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 2 (BadValue): 'Invalid $project :: caused by :: Currently only 'approximate' can be used as a percentile 'method'.' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Invalid $project :: caused by :: Currently only 'approximate' can be used as a percentile 'method'.\", \"code\": 2, \"codeName\": \"BadValue\"}",
+    "fluxion" : "$median method must be the literal string approximate"
+  }, {
+    "id" : "$median invalid-method-None",
+    "expression" : {
+      "$median" : {
+        "input" : [ 1, 2, 3 ],
+        "method" : null
+      }
+    },
+    "input" : { },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 40414 (IDLFailedToParse): 'Invalid $project :: caused by :: BSON field '$median.method' is missing but a required field' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Invalid $project :: caused by :: BSON field '$median.method' is missing but a required field\", \"code\": 40414, \"codeName\": \"IDLFailedToParse\"}",
+    "fluxion" : "$median method must be the literal string approximate"
+  }, {
+    "id" : "$median invalid-method-{'$literal': 'approximate'}",
+    "expression" : {
+      "$median" : {
+        "input" : [ 1, 2, 3 ],
+        "method" : {
+          "$literal" : "approximate"
+        }
+      }
+    },
+    "input" : { },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 14 (TypeMismatch): 'Invalid $project :: caused by :: BSON field '$median.method' is the wrong type 'object', expected type 'string'' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Invalid $project :: caused by :: BSON field '$median.method' is the wrong type 'object', expected type 'string'\", \"code\": 14, \"codeName\": \"TypeMismatch\"}",
+    "fluxion" : "$median method must be the literal string approximate"
+  }, {
+    "id" : "$percentile invalid-method-continuous",
+    "expression" : {
+      "$percentile" : {
+        "input" : [ 1, 2, 3 ],
+        "method" : "continuous",
+        "p" : [ 0.5 ]
+      }
+    },
+    "input" : { },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 2 (BadValue): 'Invalid $project :: caused by :: Currently only 'approximate' can be used as a percentile 'method'.' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Invalid $project :: caused by :: Currently only 'approximate' can be used as a percentile 'method'.\", \"code\": 2, \"codeName\": \"BadValue\"}",
+    "fluxion" : "$percentile method must be the literal string approximate"
+  }, {
+    "id" : "$percentile invalid-method-None",
+    "expression" : {
+      "$percentile" : {
+        "input" : [ 1, 2, 3 ],
+        "method" : null,
+        "p" : [ 0.5 ]
+      }
+    },
+    "input" : { },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 40414 (IDLFailedToParse): 'Invalid $project :: caused by :: BSON field '$percentile.method' is missing but a required field' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Invalid $project :: caused by :: BSON field '$percentile.method' is missing but a required field\", \"code\": 40414, \"codeName\": \"IDLFailedToParse\"}",
+    "fluxion" : "$percentile method must be the literal string approximate"
+  }, {
+    "id" : "$percentile invalid-method-{'$literal': 'approximate'}",
+    "expression" : {
+      "$percentile" : {
+        "input" : [ 1, 2, 3 ],
+        "method" : {
+          "$literal" : "approximate"
+        },
+        "p" : [ 0.5 ]
+      }
+    },
+    "input" : { },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 14 (TypeMismatch): 'Invalid $project :: caused by :: BSON field '$percentile.method' is the wrong type 'object', expected type 'string'' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Invalid $project :: caused by :: BSON field '$percentile.method' is the wrong type 'object', expected type 'string'\", \"code\": 14, \"codeName\": \"TypeMismatch\"}",
+    "fluxion" : "$percentile method must be the literal string approximate"
+  }, {
+    "id" : "$percentile p-[]",
+    "expression" : {
+      "$percentile" : {
+        "input" : [ 1, 2, 3, 4 ],
+        "method" : "approximate",
+        "p" : [ ]
+      }
+    },
+    "input" : {
+      "ps" : [ 0.5 ]
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 7750301 (Location7750301): 'Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: []' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: []\", \"code\": 7750301, \"codeName\": \"Location7750301\"}",
+    "fluxion" : "$percentile p must be an array"
+  }, {
+    "id" : "$percentile p-[-1]",
+    "expression" : {
+      "$percentile" : {
+        "input" : [ 1, 2, 3, 4 ],
+        "method" : "approximate",
+        "p" : [ -1 ]
+      }
+    },
+    "input" : {
+      "ps" : [ 0.5 ]
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 7750303 (Location7750303): 'Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: -1' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: -1\", \"code\": 7750303, \"codeName\": \"Location7750303\"}",
+    "fluxion" : "$percentile p values must be numbers from 0 to 1"
+  }, {
+    "id" : "$percentile p-[1.1]",
+    "expression" : {
+      "$percentile" : {
+        "input" : [ 1, 2, 3, 4 ],
+        "method" : "approximate",
+        "p" : [ 1.1 ]
+      }
+    },
+    "input" : {
+      "ps" : [ 0.5 ]
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 7750303 (Location7750303): 'Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: 1.1' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: 1.1\", \"code\": 7750303, \"codeName\": \"Location7750303\"}",
+    "fluxion" : "$percentile p values must be numbers from 0 to 1"
+  }, {
+    "id" : "$percentile p-['0.5']",
+    "expression" : {
+      "$percentile" : {
+        "input" : [ 1, 2, 3, 4 ],
+        "method" : "approximate",
+        "p" : [ "0.5" ]
+      }
+    },
+    "input" : {
+      "ps" : [ 0.5 ]
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 7750302 (Location7750302): 'Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: \"0.5\"' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: \\\"0.5\\\"\", \"code\": 7750302, \"codeName\": \"Location7750302\"}",
+    "fluxion" : "$percentile p values must be numbers from 0 to 1"
+  }, {
+    "id" : "$percentile p-[None]",
+    "expression" : {
+      "$percentile" : {
+        "input" : [ 1, 2, 3, 4 ],
+        "method" : "approximate",
+        "p" : [ null ]
+      }
+    },
+    "input" : {
+      "ps" : [ 0.5 ]
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 7750302 (Location7750302): 'Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: null' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: null\", \"code\": 7750302, \"codeName\": \"Location7750302\"}",
+    "fluxion" : "$percentile p values must be numbers from 0 to 1"
+  }, {
+    "id" : "$percentile p-{'$literal': [0.5]}",
+    "expression" : {
+      "$percentile" : {
+        "input" : [ 1, 2, 3, 4 ],
+        "method" : "approximate",
+        "p" : {
+          "$literal" : [ 0.5 ]
+        }
+      }
+    },
+    "input" : {
+      "ps" : [ 0.5 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": [{\"$numberDouble\": \"2.0\"}]}",
+    "fluxion" : "{\"v\": [{\"$numberDouble\": \"2.0\"}]}"
+  }, {
+    "id" : "$percentile p-$ps",
+    "expression" : {
+      "$percentile" : {
+        "input" : [ 1, 2, 3, 4 ],
+        "method" : "approximate",
+        "p" : "$ps"
+      }
+    },
+    "input" : {
+      "ps" : [ 0.5 ]
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 7750300 (Location7750300): 'Invalid $project :: caused by :: The $percentile 'p' field must be an array of constant values, but found value: \"$ps\".' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Invalid $project :: caused by :: The $percentile 'p' field must be an array of constant values, but found value: \\\"$ps\\\".\", \"code\": 7750300, \"codeName\": \"Location7750300\"}",
+    "fluxion" : "$percentile p must be constant"
+  }, {
+    "id" : "$percentile p-[{'$divide': [1, 2]}]",
+    "expression" : {
+      "$percentile" : {
+        "input" : [ 1, 2, 3, 4 ],
+        "method" : "approximate",
+        "p" : [ {
+          "$divide" : [ 1, 2 ]
+        } ]
+      }
+    },
+    "input" : {
+      "ps" : [ 0.5 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": [{\"$numberDouble\": \"2.0\"}]}",
+    "fluxion" : "{\"v\": [{\"$numberDouble\": \"2.0\"}]}"
+  }, {
+    "id" : "$stdDevPop operands-[]",
+    "expression" : {
+      "$stdDevPop" : [ ]
+    },
+    "input" : {
+      "values" : [ 1, 2, 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": null}",
+    "fluxion" : "{\"v\": null}"
+  }, {
+    "id" : "$stdDevPop operands-[1]",
+    "expression" : {
+      "$stdDevPop" : [ 1 ]
+    },
+    "input" : {
+      "values" : [ 1, 2, 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"0.0\"}}"
+  }, {
+    "id" : "$stdDevPop operands-[1, 2, 3]",
+    "expression" : {
+      "$stdDevPop" : [ 1, 2, 3 ]
+    },
+    "input" : {
+      "values" : [ 1, 2, 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"0.816496580927726\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"0.816496580927726\"}}"
+  }, {
+    "id" : "$stdDevPop operands-['$values']",
+    "expression" : {
+      "$stdDevPop" : [ "$values" ]
+    },
+    "input" : {
+      "values" : [ 1, 2, 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"0.816496580927726\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"0.816496580927726\"}}"
+  }, {
+    "id" : "$stdDevPop operands-['$values', 7]",
+    "expression" : {
+      "$stdDevPop" : [ "$values", 7 ]
+    },
+    "input" : {
+      "values" : [ 1, 2, 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"0.0\"}}"
+  }, {
+    "id" : "$stdDevPop operands-[None, 'x']",
+    "expression" : {
+      "$stdDevPop" : [ null, "x" ]
+    },
+    "input" : {
+      "values" : [ 1, 2, 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": null}",
+    "fluxion" : "{\"v\": null}"
+  }, {
+    "id" : "$stdDevPop operands-[1e+16, 1.0000000000000002e+16, 1.0000000000000004e+16]",
+    "expression" : {
+      "$stdDevPop" : [ 1.0E16, 1.0000000000000002E16, 1.0000000000000004E16 ]
+    },
+    "input" : {
+      "values" : [ 1, 2, 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"2.0\"}}"
+  }, {
+    "id" : "$stdDevSamp operands-[]",
+    "expression" : {
+      "$stdDevSamp" : [ ]
+    },
+    "input" : {
+      "values" : [ 1, 2, 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": null}",
+    "fluxion" : "{\"v\": null}"
+  }, {
+    "id" : "$stdDevSamp operands-[1]",
+    "expression" : {
+      "$stdDevSamp" : [ 1 ]
+    },
+    "input" : {
+      "values" : [ 1, 2, 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": null}",
+    "fluxion" : "{\"v\": null}"
+  }, {
+    "id" : "$stdDevSamp operands-[1, 2, 3]",
+    "expression" : {
+      "$stdDevSamp" : [ 1, 2, 3 ]
+    },
+    "input" : {
+      "values" : [ 1, 2, 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"1.0\"}}"
+  }, {
+    "id" : "$stdDevSamp operands-['$values']",
+    "expression" : {
+      "$stdDevSamp" : [ "$values" ]
+    },
+    "input" : {
+      "values" : [ 1, 2, 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"1.0\"}}"
+  }, {
+    "id" : "$stdDevSamp operands-['$values', 7]",
+    "expression" : {
+      "$stdDevSamp" : [ "$values", 7 ]
+    },
+    "input" : {
+      "values" : [ 1, 2, 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": null}",
+    "fluxion" : "{\"v\": null}"
+  }, {
+    "id" : "$stdDevSamp operands-[None, 'x']",
+    "expression" : {
+      "$stdDevSamp" : [ null, "x" ]
+    },
+    "input" : {
+      "values" : [ 1, 2, 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": null}",
+    "fluxion" : "{\"v\": null}"
+  }, {
+    "id" : "$stdDevSamp operands-[1e+16, 1.0000000000000002e+16, 1.0000000000000004e+16]",
+    "expression" : {
+      "$stdDevSamp" : [ 1.0E16, 1.0000000000000002E16, 1.0000000000000004E16 ]
+    },
+    "input" : {
+      "values" : [ 1, 2, 3 ]
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberDouble\": \"2.449489742783178\"}}",
+    "fluxion" : "{\"v\": {\"$numberDouble\": \"2.449489742783178\"}}"
+  }, {
+    "id" : "$bitNot int",
+    "expression" : {
+      "$bitNot" : "$value"
+    },
+    "input" : {
+      "value" : 5
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberInt\": \"-6\"}}",
+    "fluxion" : "{\"v\": {\"$numberInt\": \"-6\"}}"
+  }, {
+    "id" : "$bitNot long",
+    "expression" : {
+      "$bitNot" : "$value"
+    },
+    "input" : {
+      "value" : {
+        "$numberLong" : "5"
+      }
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberLong\": \"-6\"}}",
+    "fluxion" : "{\"v\": {\"$numberLong\": \"-6\"}}"
+  }, {
+    "id" : "$bitNot min-int",
+    "expression" : {
+      "$bitNot" : "$value"
+    },
+    "input" : {
+      "value" : -2147483648
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberInt\": \"2147483647\"}}",
+    "fluxion" : "{\"v\": {\"$numberInt\": \"2147483647\"}}"
+  }, {
+    "id" : "$bitNot min-long",
+    "expression" : {
+      "$bitNot" : "$value"
+    },
+    "input" : {
+      "value" : {
+        "$numberLong" : "-9223372036854775808"
+      }
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberLong\": \"9223372036854775807\"}}",
+    "fluxion" : "{\"v\": {\"$numberLong\": \"9223372036854775807\"}}"
+  }, {
+    "id" : "$bitNot null",
+    "expression" : {
+      "$bitNot" : "$value"
+    },
+    "input" : {
+      "value" : null
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": null}",
+    "fluxion" : "{\"v\": null}"
+  }, {
+    "id" : "$bitNot double",
+    "expression" : {
+      "$bitNot" : "$value"
+    },
+    "input" : {
+      "value" : 5.0
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 14 (TypeMismatch): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: $bitNot only supports int and long, not: double.' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: $bitNot only supports int and long, not: double.\", \"code\": 14, \"codeName\": \"TypeMismatch\"}",
+    "fluxion" : "$bitNot requires an int32 or int64; use $toInt or $toLong explicitly"
+  }, {
+    "id" : "$bitNot decimal",
+    "expression" : {
+      "$bitNot" : "$value"
+    },
+    "input" : {
+      "value" : {
+        "$numberDecimal" : "5"
+      }
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 14 (TypeMismatch): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: $bitNot only supports int and long, not: decimal.' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: $bitNot only supports int and long, not: decimal.\", \"code\": 14, \"codeName\": \"TypeMismatch\"}",
+    "fluxion" : "$bitNot requires an int32 or int64; use $toInt or $toLong explicitly"
+  }, {
+    "id" : "$bitNot string",
+    "expression" : {
+      "$bitNot" : "$value"
+    },
+    "input" : {
+      "value" : "5"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 28765 (Location28765): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: $bitNot only supports numeric types, not string' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: $bitNot only supports numeric types, not string\", \"code\": 28765, \"codeName\": \"Location28765\"}",
+    "fluxion" : "$bitNot requires an int32 or int64; use $toInt or $toLong explicitly"
+  }, {
+    "id" : "$bitNot array",
+    "expression" : {
+      "$bitNot" : "$value"
+    },
+    "input" : {
+      "value" : [ 5 ]
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 28765 (Location28765): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: $bitNot only supports numeric types, not array' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: $bitNot only supports numeric types, not array\", \"code\": 28765, \"codeName\": \"Location28765\"}",
+    "fluxion" : "$bitNot requires an int32 or int64; use $toInt or $toLong explicitly"
+  }, {
+    "id" : "$bitNot list",
+    "expression" : {
+      "$bitNot" : [ 5 ]
+    },
+    "input" : { },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberInt\": \"-6\"}}",
+    "fluxion" : "{\"v\": {\"$numberInt\": \"-6\"}}"
+  }, {
+    "id" : "$bitNot empty",
+    "expression" : {
+      "$bitNot" : [ ]
+    },
+    "input" : { },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 16020 (Location16020): 'Invalid $project :: caused by :: Expression $bitNot takes exactly 1 arguments. 0 were passed in.' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Invalid $project :: caused by :: Expression $bitNot takes exactly 1 arguments. 0 were passed in.\", \"code\": 16020, \"codeName\": \"Location16020\"}",
+    "fluxion" : "$bitNot requires exactly one operand"
+  }, {
+    "id" : "$bitNot many",
+    "expression" : {
+      "$bitNot" : [ 1, 2 ]
+    },
+    "input" : { },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 16020 (Location16020): 'Invalid $project :: caused by :: Expression $bitNot takes exactly 1 arguments. 2 were passed in.' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Invalid $project :: caused by :: Expression $bitNot takes exactly 1 arguments. 2 were passed in.\", \"code\": 16020, \"codeName\": \"Location16020\"}",
+    "fluxion" : "$bitNot requires exactly one operand"
+  }, {
+    "id" : "$bitNot missing",
+    "expression" : {
+      "$bitNot" : "$missing"
+    },
+    "input" : { },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": null}",
+    "fluxion" : "{\"v\": null}"
+  }, {
+    "id" : "$bitNot convert",
+    "expression" : {
+      "$bitNot" : {
+        "$toInt" : 5.5
+      }
+    },
+    "input" : { },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"$numberInt\": \"-6\"}}",
+    "fluxion" : "{\"v\": {\"$numberInt\": \"-6\"}}"
+  }, {
+    "id" : "$bitNot literal-array",
+    "expression" : {
+      "$bitNot" : {
+        "$literal" : [ 5 ]
+      }
+    },
+    "input" : { },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 28765 (Location28765): 'Failed to optimize pipeline :: caused by :: $bitNot only supports numeric types, not array' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Failed to optimize pipeline :: caused by :: $bitNot only supports numeric types, not array\", \"code\": 28765, \"codeName\": \"Location28765\"}",
+    "fluxion" : "$bitNot requires an int32 or int64; use $toInt or $toLong explicitly"
+  } ],
+  "numericTolerance" : "Relative 1e-12 for finite doubles; BSON types must match; NaN matches NaN.",
+  "mongoVersion" : "9.0.4"
+}

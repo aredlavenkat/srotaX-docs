@@ -1,0 +1,376 @@
+[
+  {
+    "id": "$isArray baseline",
+    "operator": "$isArray",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$isArray": {
+        "$literal": [
+          1,
+          2
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$isArray input: null",
+    "operator": "$isArray",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$isArray": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$isArray input: missing",
+    "operator": "$isArray",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$isArray": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$isArray input: zero",
+    "operator": "$isArray",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$isArray": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$isArray input: negative",
+    "operator": "$isArray",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$isArray": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$isArray input: decimal",
+    "operator": "$isArray",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$isArray": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$isArray input: numeric string",
+    "operator": "$isArray",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$isArray": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$isArray input: text",
+    "operator": "$isArray",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$isArray": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$isArray input: empty string",
+    "operator": "$isArray",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$isArray": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$isArray input: boolean",
+    "operator": "$isArray",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$isArray": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$isArray input: false",
+    "operator": "$isArray",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$isArray": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$isArray input: typed date",
+    "operator": "$isArray",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$isArray": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$isArray input: decimal128",
+    "operator": "$isArray",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$isArray": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$isArray input: empty array",
+    "operator": "$isArray",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$isArray": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$isArray input: numeric array",
+    "operator": "$isArray",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$isArray": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$isArray input: mixed array",
+    "operator": "$isArray",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$isArray": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$isArray input: nested array",
+    "operator": "$isArray",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$isArray": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$isArray input: empty object",
+    "operator": "$isArray",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$isArray": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$isArray input: object",
+    "operator": "$isArray",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$isArray": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$isArray input: ISO date string",
+    "operator": "$isArray",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$isArray": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$isArray empty arguments",
+    "operator": "$isArray",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$isArray": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$isArray requires one argument"
+    }
+  },
+  {
+    "id": "$isArray unknown option",
+    "operator": "$isArray",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$isArray": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  }
+]

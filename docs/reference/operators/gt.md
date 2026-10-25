@@ -2,52 +2,114 @@
 
 Tests whether the first value is greater.
 
-**Category:** Comparison · **Visual function entry:** Yes
+**Category:** Comparison. **Studio Visual entry:** Available. This page describes Core expression execution; Studio also checks field types and authoring permissions.
 
-## Signature (engine metadata)
+## Syntax and arguments
 
-Argument syntax: `POSITIONAL`. Minimum arguments: 2. Maximum: 2.
+Supply an ordered array of arguments.
 
-| Operand | Accepted types | Required | Evaluation |
+| Argument | Metadata input types | Required | Evaluation |
 | --- | --- | --- | --- |
-| left | ANY | True | EXPRESSION |
-| right | ANY | True | EXPRESSION |
+| `left` | ANY | Yes | Expression evaluated against the input |
+| `right` | ANY | Yes | Expression evaluated against the input |
 
-Result types: BOOLEAN.
+Argument count: minimum 2; maximum 2.
 
-## Null and missing (engine metadata)
+Declared result types: **BOOLEAN**. Actual result types for tested inputs appear below. Metadata is an authoring hint; where a case differs, use the observed result and treat the discrepancy as a limitation.
 
-- Null: With left set to literal null in the regression example: returns false. This is observed Fluxion behavior, not a general Mongo conformance claim.
-- Missing: With left set to a missing direct-field reference in the regression example: returns false. This is observed Fluxion behavior, not a general Mongo conformance claim.
+## Example
 
-## Compatibility boundary
-
-Classification: `MONGO_6_SUBSET`. Verification scope reported by the engine: `ENGINE_REGRESSION_EXAMPLES`.
-
-- Simple collation only (MC-002).
-- Verification covers the checked-in regression examples, not full BSON, null, error or collation equivalence.
-
-These statements come from the engine catalog. This documentation has not independently certified equivalence against a running MongoDB server.
-
-## Executed example
-
-The SrotaX compiler accepted this JSON expression and the engine returned the expected value. Empty input document.
-
+Expression:
 ```json
 {
   "$gt": [
-    100,
-    100
+    2,
+    3
   ]
 }
 ```
 
-Expected value:
-
+Input document:
 ```json
-false
+{}
 ```
 
-[MongoDB reference linked by engine metadata](https://raw.githubusercontent.com/mongodb/docs/3baea2dd8f2386d64c3c9a6805f625b80d9bacf4/source/reference/operator/aggregation/gt.txt)
+**Observed SrotaX result:** false.
 
-Source revision recorded by engine: `3baea2dd8f2386d64c3c9a6805f625b80d9bacf4`.
+## Behavior for different inputs
+
+Each table changes **only the indicated argument** from the example above. Other arguments retain their baseline values. Values normally come from the input field `probe`; literal configuration arguments are replaced directly. “Missing” means the field is absent, not explicitly null. Numeric strings are strings, not numbers.
+
+### Argument: `left[0]`
+
+| Input case | Supplied value | SrotaX result |
+| --- | --- | --- |
+| null | null | false |
+| missing | Field absent | false |
+| zero | 0 | false |
+| negative | -2 | false |
+| decimal | 2.5 | false |
+| numeric string | "12" | true |
+| text | "hello" | true |
+| empty string | "" | true |
+| boolean | true | true |
+| false | false | true |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | true |
+| decimal128 | {"$numberDecimal":"1.25"} | false |
+| empty array | [] | true |
+| numeric array | [1,2,3] | true |
+| mixed array | [1,null,"x",3] | true |
+| nested array | [[1,2],[3]] | true |
+| empty object | {} | true |
+| object | {"x":1} | true |
+| ISO date string | "2026-01-15T15:00:00Z" | true |
+
+### Argument: `right[1]`
+
+| Input case | Supplied value | SrotaX result |
+| --- | --- | --- |
+| null | null | true |
+| missing | Field absent | true |
+| zero | 0 | true |
+| negative | -2 | true |
+| decimal | 2.5 | false |
+| numeric string | "12" | false |
+| text | "hello" | false |
+| empty string | "" | false |
+| boolean | true | false |
+| false | false | false |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | false |
+| decimal128 | {"$numberDecimal":"1.25"} | true |
+| empty array | [] | false |
+| numeric array | [1,2,3] | false |
+| mixed array | [1,null,"x",3] | false |
+| nested array | [[1,2],[3]] | false |
+| empty object | {} | false |
+| object | {"x":1} | false |
+| ISO date string | "2026-01-15T15:00:00Z" | false |
+
+## Invalid invocation shapes
+
+| Invocation | SrotaX result |
+| --- | --- |
+| {"$gt":[]} | Error: IllegalArgumentException — $gt requires two arguments |
+| {"$gt":{"unexpected":1}} | Error: IllegalArgumentException — $gt requires two arguments |
+
+## Scope and reproducibility
+
+This page records **41 executed cases**. It covers individual argument substitutions, not every cross-product of arguments, locale, daylight-saving transitions, numeric overflow, collation or resource limits. No untested behavior is guaranteed.
+
+[Download exact expressions, inputs and SrotaX results](../../downloads/operator-behavior/gt.json). Errors are observed messages, not stable public error codes. The reference generator reads the checked-in execution report; do not edit generated observations by hand.
+
+<!-- BEGIN MONGO PARITY -->
+## MongoDB differences (removable section)
+
+Compared with **MongoDB 9.0.4**: **39 exact BSON matches**, **2 both rejected**, **0 value/type/acceptance differences**, **0 object-field-order differences**.
+
+“Exact” includes numeric BSON types and object key order. A value of `3` as int32 differs from `3.0` as double. Object-field-order differences are reported separately; object key ordering is not enforced by the engine regression baseline. Both rejected does not mean the error codes or messages match. This is finite-case evidence, not full compatibility certification.
+
+No differences were observed in the compared cases.
+
+[Download full comparison evidence](../../downloads/operator-parity/gt.json).
+
+<!-- END MONGO PARITY -->

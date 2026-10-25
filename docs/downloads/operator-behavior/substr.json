@@ -1,0 +1,1253 @@
+[
+  {
+    "id": "$substr baseline",
+    "operator": "$substr",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$substr": [
+        "hello",
+        1,
+        3
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"ell\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$substr input[0]: null",
+    "operator": "$substr",
+    "kind": "null",
+    "operand": "input[0]",
+    "expression": {
+      "$substr": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr input[0]: missing",
+    "operator": "$substr",
+    "kind": "missing",
+    "operand": "input[0]",
+    "expression": {
+      "$substr": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr input[0]: zero",
+    "operator": "$substr",
+    "kind": "zero",
+    "operand": "input[0]",
+    "expression": {
+      "$substr": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr input[0]: negative",
+    "operator": "$substr",
+    "kind": "negative",
+    "operand": "input[0]",
+    "expression": {
+      "$substr": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr input[0]: decimal",
+    "operator": "$substr",
+    "kind": "decimal",
+    "operand": "input[0]",
+    "expression": {
+      "$substr": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr input[0]: numeric string",
+    "operator": "$substr",
+    "kind": "numeric string",
+    "operand": "input[0]",
+    "expression": {
+      "$substr": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$substr input[0]: text",
+    "operator": "$substr",
+    "kind": "text",
+    "operand": "input[0]",
+    "expression": {
+      "$substr": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"ell\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$substr input[0]: empty string",
+    "operator": "$substr",
+    "kind": "empty string",
+    "operand": "input[0]",
+    "expression": {
+      "$substr": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$substr input[0]: boolean",
+    "operator": "$substr",
+    "kind": "boolean",
+    "operand": "input[0]",
+    "expression": {
+      "$substr": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr input[0]: false",
+    "operator": "$substr",
+    "kind": "false",
+    "operand": "input[0]",
+    "expression": {
+      "$substr": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr input[0]: typed date",
+    "operator": "$substr",
+    "kind": "typed date",
+    "operand": "input[0]",
+    "expression": {
+      "$substr": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr input[0]: decimal128",
+    "operator": "$substr",
+    "kind": "decimal128",
+    "operand": "input[0]",
+    "expression": {
+      "$substr": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr input[0]: empty array",
+    "operator": "$substr",
+    "kind": "empty array",
+    "operand": "input[0]",
+    "expression": {
+      "$substr": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr input[0]: numeric array",
+    "operator": "$substr",
+    "kind": "numeric array",
+    "operand": "input[0]",
+    "expression": {
+      "$substr": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr input[0]: mixed array",
+    "operator": "$substr",
+    "kind": "mixed array",
+    "operand": "input[0]",
+    "expression": {
+      "$substr": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr input[0]: nested array",
+    "operator": "$substr",
+    "kind": "nested array",
+    "operand": "input[0]",
+    "expression": {
+      "$substr": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr input[0]: empty object",
+    "operator": "$substr",
+    "kind": "empty object",
+    "operand": "input[0]",
+    "expression": {
+      "$substr": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr input[0]: object",
+    "operator": "$substr",
+    "kind": "object",
+    "operand": "input[0]",
+    "expression": {
+      "$substr": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr input[0]: ISO date string",
+    "operator": "$substr",
+    "kind": "ISO date string",
+    "operand": "input[0]",
+    "expression": {
+      "$substr": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"026\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$substr start[1]: null",
+    "operator": "$substr",
+    "kind": "null",
+    "operand": "start[1]",
+    "expression": {
+      "$substr": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr start[1]: missing",
+    "operator": "$substr",
+    "kind": "missing",
+    "operand": "start[1]",
+    "expression": {
+      "$substr": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr start[1]: zero",
+    "operator": "$substr",
+    "kind": "zero",
+    "operand": "start[1]",
+    "expression": {
+      "$substr": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": \"hel\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$substr start[1]: negative",
+    "operator": "$substr",
+    "kind": "negative",
+    "operand": "start[1]",
+    "expression": {
+      "$substr": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$substr start[1]: decimal",
+    "operator": "$substr",
+    "kind": "decimal",
+    "operand": "start[1]",
+    "expression": {
+      "$substr": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": \"llo\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$substr start[1]: numeric string",
+    "operator": "$substr",
+    "kind": "numeric string",
+    "operand": "start[1]",
+    "expression": {
+      "$substr": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr start[1]: text",
+    "operator": "$substr",
+    "kind": "text",
+    "operand": "start[1]",
+    "expression": {
+      "$substr": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr start[1]: empty string",
+    "operator": "$substr",
+    "kind": "empty string",
+    "operand": "start[1]",
+    "expression": {
+      "$substr": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr start[1]: boolean",
+    "operator": "$substr",
+    "kind": "boolean",
+    "operand": "start[1]",
+    "expression": {
+      "$substr": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr start[1]: false",
+    "operator": "$substr",
+    "kind": "false",
+    "operand": "start[1]",
+    "expression": {
+      "$substr": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr start[1]: typed date",
+    "operator": "$substr",
+    "kind": "typed date",
+    "operand": "start[1]",
+    "expression": {
+      "$substr": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr start[1]: decimal128",
+    "operator": "$substr",
+    "kind": "decimal128",
+    "operand": "start[1]",
+    "expression": {
+      "$substr": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": \"ell\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$substr start[1]: empty array",
+    "operator": "$substr",
+    "kind": "empty array",
+    "operand": "start[1]",
+    "expression": {
+      "$substr": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr start[1]: numeric array",
+    "operator": "$substr",
+    "kind": "numeric array",
+    "operand": "start[1]",
+    "expression": {
+      "$substr": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr start[1]: mixed array",
+    "operator": "$substr",
+    "kind": "mixed array",
+    "operand": "start[1]",
+    "expression": {
+      "$substr": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr start[1]: nested array",
+    "operator": "$substr",
+    "kind": "nested array",
+    "operand": "start[1]",
+    "expression": {
+      "$substr": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr start[1]: empty object",
+    "operator": "$substr",
+    "kind": "empty object",
+    "operand": "start[1]",
+    "expression": {
+      "$substr": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr start[1]: object",
+    "operator": "$substr",
+    "kind": "object",
+    "operand": "start[1]",
+    "expression": {
+      "$substr": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr start[1]: ISO date string",
+    "operator": "$substr",
+    "kind": "ISO date string",
+    "operand": "start[1]",
+    "expression": {
+      "$substr": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr length[2]: null",
+    "operator": "$substr",
+    "kind": "null",
+    "operand": "length[2]",
+    "expression": {
+      "$substr": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr length[2]: missing",
+    "operator": "$substr",
+    "kind": "missing",
+    "operand": "length[2]",
+    "expression": {
+      "$substr": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr length[2]: zero",
+    "operator": "$substr",
+    "kind": "zero",
+    "operand": "length[2]",
+    "expression": {
+      "$substr": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$substr length[2]: negative",
+    "operator": "$substr",
+    "kind": "negative",
+    "operand": "length[2]",
+    "expression": {
+      "$substr": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$substr length[2]: decimal",
+    "operator": "$substr",
+    "kind": "decimal",
+    "operand": "length[2]",
+    "expression": {
+      "$substr": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": \"el\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$substr length[2]: numeric string",
+    "operator": "$substr",
+    "kind": "numeric string",
+    "operand": "length[2]",
+    "expression": {
+      "$substr": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr length[2]: text",
+    "operator": "$substr",
+    "kind": "text",
+    "operand": "length[2]",
+    "expression": {
+      "$substr": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr length[2]: empty string",
+    "operator": "$substr",
+    "kind": "empty string",
+    "operand": "length[2]",
+    "expression": {
+      "$substr": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr length[2]: boolean",
+    "operator": "$substr",
+    "kind": "boolean",
+    "operand": "length[2]",
+    "expression": {
+      "$substr": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr length[2]: false",
+    "operator": "$substr",
+    "kind": "false",
+    "operand": "length[2]",
+    "expression": {
+      "$substr": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr length[2]: typed date",
+    "operator": "$substr",
+    "kind": "typed date",
+    "operand": "length[2]",
+    "expression": {
+      "$substr": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr length[2]: decimal128",
+    "operator": "$substr",
+    "kind": "decimal128",
+    "operand": "length[2]",
+    "expression": {
+      "$substr": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": \"e\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$substr length[2]: empty array",
+    "operator": "$substr",
+    "kind": "empty array",
+    "operand": "length[2]",
+    "expression": {
+      "$substr": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr length[2]: numeric array",
+    "operator": "$substr",
+    "kind": "numeric array",
+    "operand": "length[2]",
+    "expression": {
+      "$substr": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr length[2]: mixed array",
+    "operator": "$substr",
+    "kind": "mixed array",
+    "operand": "length[2]",
+    "expression": {
+      "$substr": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr length[2]: nested array",
+    "operator": "$substr",
+    "kind": "nested array",
+    "operand": "length[2]",
+    "expression": {
+      "$substr": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr length[2]: empty object",
+    "operator": "$substr",
+    "kind": "empty object",
+    "operand": "length[2]",
+    "expression": {
+      "$substr": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr length[2]: object",
+    "operator": "$substr",
+    "kind": "object",
+    "operand": "length[2]",
+    "expression": {
+      "$substr": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr length[2]: ISO date string",
+    "operator": "$substr",
+    "kind": "ISO date string",
+    "operand": "length[2]",
+    "expression": {
+      "$substr": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr expects (string, int, int)"
+    }
+  },
+  {
+    "id": "$substr empty arguments",
+    "operator": "$substr",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$substr": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr requires [string, start, length]"
+    }
+  },
+  {
+    "id": "$substr unknown option",
+    "operator": "$substr",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$substr": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substr requires [string, start, length]"
+    }
+  }
+]

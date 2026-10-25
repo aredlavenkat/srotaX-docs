@@ -1,0 +1,1153 @@
+[
+  {
+    "id": "$let baseline",
+    "operator": "$let",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$$a"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$let vars: null",
+    "operator": "$let",
+    "kind": "null",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: invalid parameter: expected an object (vars)",
+      "code": 10065,
+      "error": "Location10065"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$let vars: missing",
+    "operator": "$let",
+    "kind": "missing",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: invalid parameter: expected an object (vars)",
+      "code": 10065,
+      "error": "Location10065"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$let vars: zero",
+    "operator": "$let",
+    "kind": "zero",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: invalid parameter: expected an object (vars)",
+      "code": 10065,
+      "error": "Location10065"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$let vars: negative",
+    "operator": "$let",
+    "kind": "negative",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: invalid parameter: expected an object (vars)",
+      "code": 10065,
+      "error": "Location10065"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$let vars: decimal",
+    "operator": "$let",
+    "kind": "decimal",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: invalid parameter: expected an object (vars)",
+      "code": 10065,
+      "error": "Location10065"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$let vars: numeric string",
+    "operator": "$let",
+    "kind": "numeric string",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: invalid parameter: expected an object (vars)",
+      "code": 10065,
+      "error": "Location10065"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$let vars: text",
+    "operator": "$let",
+    "kind": "text",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: invalid parameter: expected an object (vars)",
+      "code": 10065,
+      "error": "Location10065"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$let vars: empty string",
+    "operator": "$let",
+    "kind": "empty string",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: invalid parameter: expected an object (vars)",
+      "code": 10065,
+      "error": "Location10065"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$let vars: boolean",
+    "operator": "$let",
+    "kind": "boolean",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: invalid parameter: expected an object (vars)",
+      "code": 10065,
+      "error": "Location10065"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$let vars: false",
+    "operator": "$let",
+    "kind": "false",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: invalid parameter: expected an object (vars)",
+      "code": 10065,
+      "error": "Location10065"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$let vars: typed date",
+    "operator": "$let",
+    "kind": "typed date",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: invalid parameter: expected an object (vars)",
+      "code": 10065,
+      "error": "Location10065"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$let vars: decimal128",
+    "operator": "$let",
+    "kind": "decimal128",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: invalid parameter: expected an object (vars)",
+      "code": 10065,
+      "error": "Location10065"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$let vars: empty array",
+    "operator": "$let",
+    "kind": "empty array",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: invalid parameter: expected an object (vars)",
+      "code": 10065,
+      "error": "Location10065"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$let vars: numeric array",
+    "operator": "$let",
+    "kind": "numeric array",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: invalid parameter: expected an object (vars)",
+      "code": 10065,
+      "error": "Location10065"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$let vars: mixed array",
+    "operator": "$let",
+    "kind": "mixed array",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: invalid parameter: expected an object (vars)",
+      "code": 10065,
+      "error": "Location10065"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$let vars: nested array",
+    "operator": "$let",
+    "kind": "nested array",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: invalid parameter: expected an object (vars)",
+      "code": 10065,
+      "error": "Location10065"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$let vars: empty object",
+    "operator": "$let",
+    "kind": "empty object",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: invalid parameter: expected an object (vars)",
+      "code": 10065,
+      "error": "Location10065"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$let vars: object",
+    "operator": "$let",
+    "kind": "object",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: invalid parameter: expected an object (vars)",
+      "code": 10065,
+      "error": "Location10065"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$let vars: ISO date string",
+    "operator": "$let",
+    "kind": "ISO date string",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: invalid parameter: expected an object (vars)",
+      "code": 10065,
+      "error": "Location10065"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$let in: null",
+    "operator": "$let",
+    "kind": "null",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$let in: missing",
+    "operator": "$let",
+    "kind": "missing",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "present": false
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$let in: zero",
+    "operator": "$let",
+    "kind": "zero",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$let in: negative",
+    "operator": "$let",
+    "kind": "negative",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$let in: decimal",
+    "operator": "$let",
+    "kind": "decimal",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.5\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.5\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$let in: numeric string",
+    "operator": "$let",
+    "kind": "numeric string",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"12\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"12\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$let in: text",
+    "operator": "$let",
+    "kind": "text",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"hello\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"hello\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$let in: empty string",
+    "operator": "$let",
+    "kind": "empty string",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$let in: boolean",
+    "operator": "$let",
+    "kind": "boolean",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$let in: false",
+    "operator": "$let",
+    "kind": "false",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$let in: typed date",
+    "operator": "$let",
+    "kind": "typed date",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1768489200000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1768489200000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$let in: decimal128",
+    "operator": "$let",
+    "kind": "decimal128",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"1.25\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"1.25\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$let in: empty array",
+    "operator": "$let",
+    "kind": "empty array",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$let in: numeric array",
+    "operator": "$let",
+    "kind": "numeric array",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$let in: mixed array",
+    "operator": "$let",
+    "kind": "mixed array",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, null, \"x\", {\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, null, \"x\", {\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$let in: nested array",
+    "operator": "$let",
+    "kind": "nested array",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}], [{\"$numberInt\": \"3\"}]]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}], [{\"$numberInt\": \"3\"}]]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$let in: empty object",
+    "operator": "$let",
+    "kind": "empty object",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$let in: object",
+    "operator": "$let",
+    "kind": "object",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"x\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"x\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$let in: ISO date string",
+    "operator": "$let",
+    "kind": "ISO date string",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2026-01-15T15:00:00Z\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"2026-01-15T15:00:00Z\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$let omit vars",
+    "operator": "$let",
+    "kind": "omitted named argument",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "in": "$$a"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Missing 'vars' parameter to $let",
+      "code": 16876,
+      "error": "Location16876"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$let omit in",
+    "operator": "$let",
+    "kind": "omitted named argument",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$let requires an 'in' expression"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Missing 'in' parameter to $let",
+      "code": 16877,
+      "error": "Location16877"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$let empty arguments",
+    "operator": "$let",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$let": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$let expects an object with 'vars' and 'in'"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $let only supports an object as its argument",
+      "code": 16874,
+      "error": "Location16874"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$let unknown option",
+    "operator": "$let",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$let": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$let requires an 'in' expression"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Unrecognized parameter to $let: unexpected",
+      "code": 16875,
+      "error": "Location16875"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "mongodb-9-boundary-cases.json:13",
+    "operator": "$let",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$let": {
+        "vars": {
+          "total": 5
+        },
+        "in": {
+          "$add": [
+            "$$total",
+            2
+          ]
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"7.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"7\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  }
+]

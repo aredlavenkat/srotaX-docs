@@ -1,0 +1,491 @@
+[
+  {
+    "id": "$toLower baseline",
+    "operator": "$toLower",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$toLower": "Ca"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"ca\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"ca\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toLower input: null",
+    "operator": "$toLower",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$toLower": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toLower input: missing",
+    "operator": "$toLower",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$toLower": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toLower input: zero",
+    "operator": "$toLower",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$toLower": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$toLower requires a string."
+    },
+    "mongo": {
+      "bson": "{\"v\": \"0\"}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$toLower input: negative",
+    "operator": "$toLower",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$toLower": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$toLower requires a string."
+    },
+    "mongo": {
+      "bson": "{\"v\": \"-2\"}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$toLower input: decimal",
+    "operator": "$toLower",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$toLower": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$toLower requires a string."
+    },
+    "mongo": {
+      "bson": "{\"v\": \"2.5\"}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$toLower input: numeric string",
+    "operator": "$toLower",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$toLower": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"12\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"12\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toLower input: text",
+    "operator": "$toLower",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$toLower": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"hello\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"hello\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toLower input: empty string",
+    "operator": "$toLower",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$toLower": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toLower input: boolean",
+    "operator": "$toLower",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$toLower": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$toLower requires a string."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type bool to String",
+      "code": 16007,
+      "error": "Location16007"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toLower input: false",
+    "operator": "$toLower",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$toLower": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$toLower requires a string."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type bool to String",
+      "code": 16007,
+      "error": "Location16007"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toLower input: typed date",
+    "operator": "$toLower",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$toLower": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$toLower requires a string."
+    },
+    "mongo": {
+      "bson": "{\"v\": \"2026-01-15t15:00:00.000z\"}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$toLower input: decimal128",
+    "operator": "$toLower",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$toLower": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$toLower requires a string."
+    },
+    "mongo": {
+      "bson": "{\"v\": \"1.25\"}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$toLower input: empty array",
+    "operator": "$toLower",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$toLower": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$toLower requires a string."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type array to String",
+      "code": 16007,
+      "error": "Location16007"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toLower input: numeric array",
+    "operator": "$toLower",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$toLower": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$toLower requires a string."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type array to String",
+      "code": 16007,
+      "error": "Location16007"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toLower input: mixed array",
+    "operator": "$toLower",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$toLower": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$toLower requires a string."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type array to String",
+      "code": 16007,
+      "error": "Location16007"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toLower input: nested array",
+    "operator": "$toLower",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$toLower": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$toLower requires a string."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type array to String",
+      "code": 16007,
+      "error": "Location16007"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toLower input: empty object",
+    "operator": "$toLower",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$toLower": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$toLower requires a string."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type object to String",
+      "code": 16007,
+      "error": "Location16007"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toLower input: object",
+    "operator": "$toLower",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$toLower": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$toLower requires a string."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type object to String",
+      "code": 16007,
+      "error": "Location16007"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toLower input: ISO date string",
+    "operator": "$toLower",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$toLower": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2026-01-15t15:00:00z\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"2026-01-15t15:00:00z\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toLower empty arguments",
+    "operator": "$toLower",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$toLower": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$toLower requires one argument"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $toLower takes exactly 1 arguments. 0 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toLower unknown option",
+    "operator": "$toLower",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$toLower": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$toLower requires a string."
+    },
+    "mongo": {
+      "message": "Failed to optimize pipeline :: caused by :: can't convert from BSON type object to String",
+      "code": 16007,
+      "error": "Location16007"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

@@ -1,37 +1,140 @@
 # $min
 
-Returns the least operand in an explicit expression list.
+Returns the minimum non-null value from one array expression or explicit operands.
 
-**Category:** Arrays · **Visual function entry:** Yes
+**Category:** Arrays. **Studio Visual entry:** Available. This page describes Core expression execution; Studio also checks field types and authoring permissions.
 
-## Signature (engine metadata)
+## Syntax and arguments
 
-Argument syntax: `POSITIONAL`. Minimum arguments: 1. Maximum: variadic.
+Supply an ordered array of arguments.
 
-| Operand | Accepted types | Required | Evaluation |
+| Argument | Metadata input types | Required | Evaluation |
 | --- | --- | --- | --- |
-| value | NUMBER | True | EXPRESSION |
+| `value` | ANY | Yes | Expression evaluated against the input |
 
-Result types: NUMBER.
+Argument count: minimum 1; maximum variadic.
 
-## Null and missing (engine metadata)
+Declared result types: **NUMBER**. Actual result types for tested inputs appear below. Metadata is an authoring hint; where a case differs, use the observed result and treat the discrepancy as a limitation.
 
-- Null: With value set to literal null in the regression example: returns null. This is observed Fluxion behavior, not a general Mongo conformance claim.
-- Missing: With value set to a missing direct-field reference in the regression example: returns null. This is observed Fluxion behavior, not a general Mongo conformance claim.
+A single array-valued expression is also supported, for example `{"$min": "$items"}`. With multiple operands, array arguments are not recursively flattened.
 
-## Compatibility boundary
+## Example
 
-Classification: `MONGO_6_DIFFERENCES`. Verification scope reported by the engine: `ENGINE_REGRESSION_EXAMPLES`.
+Expression:
+```json
+{
+  "$min": [
+    2,
+    3
+  ]
+}
+```
 
-- Describes expression usage, not accumulator stages. BSON cross-type ordering and single-array-expression traversal are not certified.
-- Verification covers the checked-in regression examples, not full BSON, null, error or collation equivalence.
+Input document:
+```json
+{}
+```
 
-These statements come from the engine catalog. This documentation has not independently certified equivalence against a running MongoDB server.
+**Observed SrotaX result:** 2 (int32).
 
-## Example coverage
+## Behavior for different inputs
 
-No executable example for this operator is included in the documentation suite yet. Use the signature above and validate your complete expression; do not interpret registration as a guarantee for every argument combination.
+Each table changes **only the indicated argument** from the example above. Other arguments retain their baseline values. Values normally come from the input field `probe`; literal configuration arguments are replaced directly. “Missing” means the field is absent, not explicitly null. Numeric strings are strings, not numbers.
 
-[MongoDB reference linked by engine metadata](https://raw.githubusercontent.com/mongodb/docs/3baea2dd8f2386d64c3c9a6805f625b80d9bacf4/source/reference/operator/aggregation/min.txt)
+### Argument: `value[0]`
 
-Source revision recorded by engine: `3baea2dd8f2386d64c3c9a6805f625b80d9bacf4`.
+| Input case | Supplied value | SrotaX result |
+| --- | --- | --- |
+| null | null | 3 (int32) |
+| missing | Field absent | 3 (int32) |
+| zero | 0 | 0 (int32) |
+| negative | -2 | -2 (int32) |
+| decimal | 2.5 | 2.5 (double) |
+| numeric string | "12" | 3 (int32) |
+| text | "hello" | 3 (int32) |
+| empty string | "" | 3 (int32) |
+| boolean | true | 3 (int32) |
+| false | false | 3 (int32) |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | 3 (int32) |
+| decimal128 | {"$numberDecimal":"1.25"} | 1.25 (decimal128) |
+| empty array | [] | 3 (int32) |
+| numeric array | [1,2,3] | 3 (int32) |
+| mixed array | [1,null,"x",3] | 3 (int32) |
+| nested array | [[1,2],[3]] | 3 (int32) |
+| empty object | {} | 3 (int32) |
+| object | {"x":1} | 3 (int32) |
+| ISO date string | "2026-01-15T15:00:00Z" | 3 (int32) |
+
+### Argument: `value[1]`
+
+| Input case | Supplied value | SrotaX result |
+| --- | --- | --- |
+| null | null | 2 (int32) |
+| missing | Field absent | 2 (int32) |
+| zero | 0 | 0 (int32) |
+| negative | -2 | -2 (int32) |
+| decimal | 2.5 | 2 (int32) |
+| numeric string | "12" | 2 (int32) |
+| text | "hello" | 2 (int32) |
+| empty string | "" | 2 (int32) |
+| boolean | true | 2 (int32) |
+| false | false | 2 (int32) |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | 2 (int32) |
+| decimal128 | {"$numberDecimal":"1.25"} | 1.25 (decimal128) |
+| empty array | [] | 2 (int32) |
+| numeric array | [1,2,3] | 2 (int32) |
+| mixed array | [1,null,"x",3] | 2 (int32) |
+| nested array | [[1,2],[3]] | 2 (int32) |
+| empty object | {} | 2 (int32) |
+| object | {"x":1} | 2 (int32) |
+| ISO date string | "2026-01-15T15:00:00Z" | 2 (int32) |
+
+### Argument: `single array expression`
+
+| Input case | Supplied value | SrotaX result |
+| --- | --- | --- |
+| single operand null | null | null |
+| single operand missing | Field absent | null |
+| single operand zero | 0 | 0 (int32) |
+| single operand negative | -2 | -2 (int32) |
+| single operand decimal | 2.5 | 2.5 (double) |
+| single operand numeric string | "12" | "12" |
+| single operand text | "hello" | "hello" |
+| single operand empty string | "" | "" |
+| single operand boolean | true | true |
+| single operand false | false | false |
+| single operand typed date | {"$date":"2026-01-15T15:00:00Z"} | {'$numberLong': '1768489200000'} (date) |
+| single operand decimal128 | {"$numberDecimal":"1.25"} | 1.25 (decimal128) |
+| single operand empty array | [] | null |
+| single operand numeric array | [1,2,3] | 1 (int32) |
+| single operand mixed array | [1,null,"x",3] | 1 (int32) |
+| single operand nested array | [[1,2],[3]] | [1,2] |
+| single operand empty object | {} | {} |
+| single operand object | {"x":1} | {"x":1} |
+| single operand ISO date string | "2026-01-15T15:00:00Z" | "2026-01-15T15:00:00Z" |
+
+## Invalid invocation shapes
+
+| Invocation | SrotaX result |
+| --- | --- |
+| {"$min":[]} | null |
+| {"$min":{"unexpected":1}} | {"unexpected":1} |
+
+## Scope and reproducibility
+
+This page records **60 executed cases**. It covers individual argument substitutions, not every cross-product of arguments, locale, daylight-saving transitions, numeric overflow, collation or resource limits. No untested behavior is guaranteed.
+
+[Download exact expressions, inputs and SrotaX results](../../downloads/operator-behavior/min.json). Errors are observed messages, not stable public error codes. The reference generator reads the checked-in execution report; do not edit generated observations by hand.
+
+<!-- BEGIN MONGO PARITY -->
+## MongoDB differences (removable section)
+
+Compared with **MongoDB 9.0.4**: **60 exact BSON matches**, **0 both rejected**, **0 value/type/acceptance differences**, **0 object-field-order differences**.
+
+“Exact” includes numeric BSON types and object key order. A value of `3` as int32 differs from `3.0` as double. Object-field-order differences are reported separately; object key ordering is not enforced by the engine regression baseline. Both rejected does not mean the error codes or messages match. This is finite-case evidence, not full compatibility certification.
+
+No differences were observed in the compared cases.
+
+[Download full comparison evidence](../../downloads/operator-parity/min.json).
+
+<!-- END MONGO PARITY -->

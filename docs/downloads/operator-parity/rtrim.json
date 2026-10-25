@@ -1,0 +1,1067 @@
+[
+  {
+    "id": "$rtrim baseline",
+    "operator": "$rtrim",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$rtrim": {
+        "input": "hi  "
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"hi\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"hi\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$rtrim input: null",
+    "operator": "$rtrim",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$rtrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$rtrim input: missing",
+    "operator": "$rtrim",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$rtrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$rtrim input: zero",
+    "operator": "$rtrim",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$rtrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $rtrim requires its input to be a string, got 0 (of type int) instead.",
+      "code": 50699,
+      "error": "Location50699"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$rtrim input: negative",
+    "operator": "$rtrim",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$rtrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $rtrim requires its input to be a string, got -2 (of type int) instead.",
+      "code": 50699,
+      "error": "Location50699"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$rtrim input: decimal",
+    "operator": "$rtrim",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$rtrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $rtrim requires its input to be a string, got 2.5 (of type double) instead.",
+      "code": 50699,
+      "error": "Location50699"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$rtrim input: numeric string",
+    "operator": "$rtrim",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$rtrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"12\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"12\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$rtrim input: text",
+    "operator": "$rtrim",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$rtrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"hello\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"hello\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$rtrim input: empty string",
+    "operator": "$rtrim",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$rtrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$rtrim input: boolean",
+    "operator": "$rtrim",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$rtrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $rtrim requires its input to be a string, got true (of type bool) instead.",
+      "code": 50699,
+      "error": "Location50699"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$rtrim input: false",
+    "operator": "$rtrim",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$rtrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $rtrim requires its input to be a string, got false (of type bool) instead.",
+      "code": 50699,
+      "error": "Location50699"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$rtrim input: typed date",
+    "operator": "$rtrim",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$rtrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $rtrim requires its input to be a string, got 2026-01-15T15:00:00.000Z (of type date) instead.",
+      "code": 50699,
+      "error": "Location50699"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$rtrim input: decimal128",
+    "operator": "$rtrim",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$rtrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $rtrim requires its input to be a string, got 1.25 (of type decimal) instead.",
+      "code": 50699,
+      "error": "Location50699"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$rtrim input: empty array",
+    "operator": "$rtrim",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$rtrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $rtrim requires its input to be a string, got [] (of type array) instead.",
+      "code": 50699,
+      "error": "Location50699"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$rtrim input: numeric array",
+    "operator": "$rtrim",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$rtrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $rtrim requires its input to be a string, got [1, 2, 3] (of type array) instead.",
+      "code": 50699,
+      "error": "Location50699"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$rtrim input: mixed array",
+    "operator": "$rtrim",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$rtrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $rtrim requires its input to be a string, got [1, null, \"x\", 3] (of type array) instead.",
+      "code": 50699,
+      "error": "Location50699"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$rtrim input: nested array",
+    "operator": "$rtrim",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$rtrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $rtrim requires its input to be a string, got [[1, 2], [3]] (of type array) instead.",
+      "code": 50699,
+      "error": "Location50699"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$rtrim input: empty object",
+    "operator": "$rtrim",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$rtrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $rtrim requires its input to be a string, got {} (of type object) instead.",
+      "code": 50699,
+      "error": "Location50699"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$rtrim input: object",
+    "operator": "$rtrim",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$rtrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $rtrim requires its input to be a string, got {x: 1} (of type object) instead.",
+      "code": 50699,
+      "error": "Location50699"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$rtrim input: ISO date string",
+    "operator": "$rtrim",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$rtrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2026-01-15T15:00:00Z\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"2026-01-15T15:00:00Z\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$rtrim chars: null",
+    "operator": "$rtrim",
+    "kind": "null",
+    "operand": "chars",
+    "expression": {
+      "$rtrim": {
+        "input": "hi  ",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$rtrim chars: missing",
+    "operator": "$rtrim",
+    "kind": "missing",
+    "operand": "chars",
+    "expression": {
+      "$rtrim": {
+        "input": "hi  ",
+        "chars": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$rtrim chars: zero",
+    "operator": "$rtrim",
+    "kind": "zero",
+    "operand": "chars",
+    "expression": {
+      "$rtrim": {
+        "input": "hi  ",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim chars must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $rtrim requires 'chars' to be a string, got 0 (of type int) instead.",
+      "code": 50700,
+      "error": "Location50700"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$rtrim chars: negative",
+    "operator": "$rtrim",
+    "kind": "negative",
+    "operand": "chars",
+    "expression": {
+      "$rtrim": {
+        "input": "hi  ",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim chars must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $rtrim requires 'chars' to be a string, got -2 (of type int) instead.",
+      "code": 50700,
+      "error": "Location50700"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$rtrim chars: decimal",
+    "operator": "$rtrim",
+    "kind": "decimal",
+    "operand": "chars",
+    "expression": {
+      "$rtrim": {
+        "input": "hi  ",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim chars must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $rtrim requires 'chars' to be a string, got 2.5 (of type double) instead.",
+      "code": 50700,
+      "error": "Location50700"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$rtrim chars: numeric string",
+    "operator": "$rtrim",
+    "kind": "numeric string",
+    "operand": "chars",
+    "expression": {
+      "$rtrim": {
+        "input": "hi  ",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"hi  \"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"hi  \"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$rtrim chars: text",
+    "operator": "$rtrim",
+    "kind": "text",
+    "operand": "chars",
+    "expression": {
+      "$rtrim": {
+        "input": "hi  ",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"hi  \"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"hi  \"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$rtrim chars: empty string",
+    "operator": "$rtrim",
+    "kind": "empty string",
+    "operand": "chars",
+    "expression": {
+      "$rtrim": {
+        "input": "hi  ",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": \"hi  \"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"hi  \"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$rtrim chars: boolean",
+    "operator": "$rtrim",
+    "kind": "boolean",
+    "operand": "chars",
+    "expression": {
+      "$rtrim": {
+        "input": "hi  ",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim chars must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $rtrim requires 'chars' to be a string, got true (of type bool) instead.",
+      "code": 50700,
+      "error": "Location50700"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$rtrim chars: false",
+    "operator": "$rtrim",
+    "kind": "false",
+    "operand": "chars",
+    "expression": {
+      "$rtrim": {
+        "input": "hi  ",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim chars must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $rtrim requires 'chars' to be a string, got false (of type bool) instead.",
+      "code": 50700,
+      "error": "Location50700"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$rtrim chars: typed date",
+    "operator": "$rtrim",
+    "kind": "typed date",
+    "operand": "chars",
+    "expression": {
+      "$rtrim": {
+        "input": "hi  ",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim chars must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $rtrim requires 'chars' to be a string, got 2026-01-15T15:00:00.000Z (of type date) instead.",
+      "code": 50700,
+      "error": "Location50700"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$rtrim chars: decimal128",
+    "operator": "$rtrim",
+    "kind": "decimal128",
+    "operand": "chars",
+    "expression": {
+      "$rtrim": {
+        "input": "hi  ",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim chars must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $rtrim requires 'chars' to be a string, got 1.25 (of type decimal) instead.",
+      "code": 50700,
+      "error": "Location50700"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$rtrim chars: empty array",
+    "operator": "$rtrim",
+    "kind": "empty array",
+    "operand": "chars",
+    "expression": {
+      "$rtrim": {
+        "input": "hi  ",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim chars must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $rtrim requires 'chars' to be a string, got [] (of type array) instead.",
+      "code": 50700,
+      "error": "Location50700"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$rtrim chars: numeric array",
+    "operator": "$rtrim",
+    "kind": "numeric array",
+    "operand": "chars",
+    "expression": {
+      "$rtrim": {
+        "input": "hi  ",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim chars must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $rtrim requires 'chars' to be a string, got [1, 2, 3] (of type array) instead.",
+      "code": 50700,
+      "error": "Location50700"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$rtrim chars: mixed array",
+    "operator": "$rtrim",
+    "kind": "mixed array",
+    "operand": "chars",
+    "expression": {
+      "$rtrim": {
+        "input": "hi  ",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim chars must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $rtrim requires 'chars' to be a string, got [1, null, \"x\", 3] (of type array) instead.",
+      "code": 50700,
+      "error": "Location50700"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$rtrim chars: nested array",
+    "operator": "$rtrim",
+    "kind": "nested array",
+    "operand": "chars",
+    "expression": {
+      "$rtrim": {
+        "input": "hi  ",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim chars must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $rtrim requires 'chars' to be a string, got [[1, 2], [3]] (of type array) instead.",
+      "code": 50700,
+      "error": "Location50700"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$rtrim chars: empty object",
+    "operator": "$rtrim",
+    "kind": "empty object",
+    "operand": "chars",
+    "expression": {
+      "$rtrim": {
+        "input": "hi  ",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim chars must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $rtrim requires 'chars' to be a string, got {} (of type object) instead.",
+      "code": 50700,
+      "error": "Location50700"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$rtrim chars: object",
+    "operator": "$rtrim",
+    "kind": "object",
+    "operand": "chars",
+    "expression": {
+      "$rtrim": {
+        "input": "hi  ",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim chars must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $rtrim requires 'chars' to be a string, got {x: 1} (of type object) instead.",
+      "code": 50700,
+      "error": "Location50700"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$rtrim chars: ISO date string",
+    "operator": "$rtrim",
+    "kind": "ISO date string",
+    "operand": "chars",
+    "expression": {
+      "$rtrim": {
+        "input": "hi  ",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"hi  \"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"hi  \"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$rtrim omit input",
+    "operator": "$rtrim",
+    "kind": "omitted named argument",
+    "operand": "input",
+    "expression": {
+      "$rtrim": {}
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim requires input and optional chars"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $rtrim requires an 'input' field",
+      "code": 50695,
+      "error": "Location50695"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$rtrim omit chars",
+    "operator": "$rtrim",
+    "kind": "omitted named argument",
+    "operand": "chars",
+    "expression": {
+      "$rtrim": {
+        "input": "hi  "
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"hi\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"hi\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$rtrim empty arguments",
+    "operator": "$rtrim",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$rtrim": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim requires input and optional chars"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $rtrim only supports an object as an argument, found array",
+      "code": 50696,
+      "error": "Location50696"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$rtrim unknown option",
+    "operator": "$rtrim",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$rtrim": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim requires input and optional chars"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $rtrim found an unknown argument: unexpected",
+      "code": 50694,
+      "error": "Location50694"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

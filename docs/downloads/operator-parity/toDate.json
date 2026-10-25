@@ -1,0 +1,496 @@
+[
+  {
+    "id": "$toDate baseline",
+    "operator": "$toDate",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$toDate": "2024-01-02T00:00:00Z"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toDate input: null",
+    "operator": "$toDate",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$toDate": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toDate input: missing",
+    "operator": "$toDate",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$toDate": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toDate input: zero",
+    "operator": "$toDate",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$toDate": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"0\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from int to date in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$toDate input: negative",
+    "operator": "$toDate",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$toDate": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"-2\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from int to date in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$toDate input: decimal",
+    "operator": "$toDate",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$toDate": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"2\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"2\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toDate input: numeric string",
+    "operator": "$toDate",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$toDate": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target date"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Error parsing date string '12'; 0: Unexpected character '1'; 1: Unexpected character '2'",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toDate input: text",
+    "operator": "$toDate",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$toDate": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target date"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Error parsing date string 'hello'; 0: passing a time zone identifier as part of the string is not allowed 'h'",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toDate input: empty string",
+    "operator": "$toDate",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$toDate": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target date"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Error parsing date string ''; 0: Empty string '\u0000'",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toDate input: boolean",
+    "operator": "$toDate",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$toDate": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target date"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from bool to date in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toDate input: false",
+    "operator": "$toDate",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$toDate": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target date"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from bool to date in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toDate input: typed date",
+    "operator": "$toDate",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$toDate": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1768489200000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1768489200000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toDate input: decimal128",
+    "operator": "$toDate",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$toDate": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toDate input: empty array",
+    "operator": "$toDate",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$toDate": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target date"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from array to date in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toDate input: numeric array",
+    "operator": "$toDate",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$toDate": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target date"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from array to date in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toDate input: mixed array",
+    "operator": "$toDate",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$toDate": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target date"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from array to date in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toDate input: nested array",
+    "operator": "$toDate",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$toDate": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target date"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from array to date in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toDate input: empty object",
+    "operator": "$toDate",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$toDate": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target date"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from object to date in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toDate input: object",
+    "operator": "$toDate",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$toDate": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target date"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from object to date in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toDate input: ISO date string",
+    "operator": "$toDate",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$toDate": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1768489200000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1768489200000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toDate empty arguments",
+    "operator": "$toDate",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$toDate": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$toDate requires one argument"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $toDate requires a single argument, got 0",
+      "code": 50723,
+      "error": "Location50723"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toDate unknown option",
+    "operator": "$toDate",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$toDate": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target date"
+    },
+    "mongo": {
+      "message": "Failed to optimize pipeline :: caused by :: Unsupported conversion from object to date in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

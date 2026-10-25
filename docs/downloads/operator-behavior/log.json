@@ -1,0 +1,813 @@
+[
+  {
+    "id": "$log baseline",
+    "operator": "$log",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$log": [
+        8,
+        2
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"3.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$log left[0]: null",
+    "operator": "$log",
+    "kind": "null",
+    "operand": "left[0]",
+    "expression": {
+      "$log": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log number must resolve to a numeric value"
+    }
+  },
+  {
+    "id": "$log left[0]: missing",
+    "operator": "$log",
+    "kind": "missing",
+    "operand": "left[0]",
+    "expression": {
+      "$log": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log number must resolve to a numeric value"
+    }
+  },
+  {
+    "id": "$log left[0]: zero",
+    "operator": "$log",
+    "kind": "zero",
+    "operand": "left[0]",
+    "expression": {
+      "$log": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log requires positive number and base != 1"
+    }
+  },
+  {
+    "id": "$log left[0]: negative",
+    "operator": "$log",
+    "kind": "negative",
+    "operand": "left[0]",
+    "expression": {
+      "$log": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log requires positive number and base != 1"
+    }
+  },
+  {
+    "id": "$log left[0]: decimal",
+    "operator": "$log",
+    "kind": "decimal",
+    "operand": "left[0]",
+    "expression": {
+      "$log": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.3219280948873624\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$log left[0]: numeric string",
+    "operator": "$log",
+    "kind": "numeric string",
+    "operand": "left[0]",
+    "expression": {
+      "$log": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log number must resolve to a numeric value"
+    }
+  },
+  {
+    "id": "$log left[0]: text",
+    "operator": "$log",
+    "kind": "text",
+    "operand": "left[0]",
+    "expression": {
+      "$log": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log number must resolve to a numeric value"
+    }
+  },
+  {
+    "id": "$log left[0]: empty string",
+    "operator": "$log",
+    "kind": "empty string",
+    "operand": "left[0]",
+    "expression": {
+      "$log": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log number must resolve to a numeric value"
+    }
+  },
+  {
+    "id": "$log left[0]: boolean",
+    "operator": "$log",
+    "kind": "boolean",
+    "operand": "left[0]",
+    "expression": {
+      "$log": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log number must resolve to a numeric value"
+    }
+  },
+  {
+    "id": "$log left[0]: false",
+    "operator": "$log",
+    "kind": "false",
+    "operand": "left[0]",
+    "expression": {
+      "$log": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log number must resolve to a numeric value"
+    }
+  },
+  {
+    "id": "$log left[0]: typed date",
+    "operator": "$log",
+    "kind": "typed date",
+    "operand": "left[0]",
+    "expression": {
+      "$log": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log number must resolve to a numeric value"
+    }
+  },
+  {
+    "id": "$log left[0]: decimal128",
+    "operator": "$log",
+    "kind": "decimal128",
+    "operand": "left[0]",
+    "expression": {
+      "$log": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.32192809488736235\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$log left[0]: empty array",
+    "operator": "$log",
+    "kind": "empty array",
+    "operand": "left[0]",
+    "expression": {
+      "$log": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log number must resolve to a numeric value"
+    }
+  },
+  {
+    "id": "$log left[0]: numeric array",
+    "operator": "$log",
+    "kind": "numeric array",
+    "operand": "left[0]",
+    "expression": {
+      "$log": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log number must resolve to a numeric value"
+    }
+  },
+  {
+    "id": "$log left[0]: mixed array",
+    "operator": "$log",
+    "kind": "mixed array",
+    "operand": "left[0]",
+    "expression": {
+      "$log": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log number must resolve to a numeric value"
+    }
+  },
+  {
+    "id": "$log left[0]: nested array",
+    "operator": "$log",
+    "kind": "nested array",
+    "operand": "left[0]",
+    "expression": {
+      "$log": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log number must resolve to a numeric value"
+    }
+  },
+  {
+    "id": "$log left[0]: empty object",
+    "operator": "$log",
+    "kind": "empty object",
+    "operand": "left[0]",
+    "expression": {
+      "$log": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log number must resolve to a numeric value"
+    }
+  },
+  {
+    "id": "$log left[0]: object",
+    "operator": "$log",
+    "kind": "object",
+    "operand": "left[0]",
+    "expression": {
+      "$log": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log number must resolve to a numeric value"
+    }
+  },
+  {
+    "id": "$log left[0]: ISO date string",
+    "operator": "$log",
+    "kind": "ISO date string",
+    "operand": "left[0]",
+    "expression": {
+      "$log": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log number must resolve to a numeric value"
+    }
+  },
+  {
+    "id": "$log right[1]: null",
+    "operator": "$log",
+    "kind": "null",
+    "operand": "right[1]",
+    "expression": {
+      "$log": [
+        8,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log base must resolve to a numeric value"
+    }
+  },
+  {
+    "id": "$log right[1]: missing",
+    "operator": "$log",
+    "kind": "missing",
+    "operand": "right[1]",
+    "expression": {
+      "$log": [
+        8,
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log base must resolve to a numeric value"
+    }
+  },
+  {
+    "id": "$log right[1]: zero",
+    "operator": "$log",
+    "kind": "zero",
+    "operand": "right[1]",
+    "expression": {
+      "$log": [
+        8,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log requires positive number and base != 1"
+    }
+  },
+  {
+    "id": "$log right[1]: negative",
+    "operator": "$log",
+    "kind": "negative",
+    "operand": "right[1]",
+    "expression": {
+      "$log": [
+        8,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log requires positive number and base != 1"
+    }
+  },
+  {
+    "id": "$log right[1]: decimal",
+    "operator": "$log",
+    "kind": "decimal",
+    "operand": "right[1]",
+    "expression": {
+      "$log": [
+        8,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.26941239209809\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$log right[1]: numeric string",
+    "operator": "$log",
+    "kind": "numeric string",
+    "operand": "right[1]",
+    "expression": {
+      "$log": [
+        8,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log base must resolve to a numeric value"
+    }
+  },
+  {
+    "id": "$log right[1]: text",
+    "operator": "$log",
+    "kind": "text",
+    "operand": "right[1]",
+    "expression": {
+      "$log": [
+        8,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log base must resolve to a numeric value"
+    }
+  },
+  {
+    "id": "$log right[1]: empty string",
+    "operator": "$log",
+    "kind": "empty string",
+    "operand": "right[1]",
+    "expression": {
+      "$log": [
+        8,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log base must resolve to a numeric value"
+    }
+  },
+  {
+    "id": "$log right[1]: boolean",
+    "operator": "$log",
+    "kind": "boolean",
+    "operand": "right[1]",
+    "expression": {
+      "$log": [
+        8,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log base must resolve to a numeric value"
+    }
+  },
+  {
+    "id": "$log right[1]: false",
+    "operator": "$log",
+    "kind": "false",
+    "operand": "right[1]",
+    "expression": {
+      "$log": [
+        8,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log base must resolve to a numeric value"
+    }
+  },
+  {
+    "id": "$log right[1]: typed date",
+    "operator": "$log",
+    "kind": "typed date",
+    "operand": "right[1]",
+    "expression": {
+      "$log": [
+        8,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log base must resolve to a numeric value"
+    }
+  },
+  {
+    "id": "$log right[1]: decimal128",
+    "operator": "$log",
+    "kind": "decimal128",
+    "operand": "right[1]",
+    "expression": {
+      "$log": [
+        8,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"9.318851158516168\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$log right[1]: empty array",
+    "operator": "$log",
+    "kind": "empty array",
+    "operand": "right[1]",
+    "expression": {
+      "$log": [
+        8,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log base must resolve to a numeric value"
+    }
+  },
+  {
+    "id": "$log right[1]: numeric array",
+    "operator": "$log",
+    "kind": "numeric array",
+    "operand": "right[1]",
+    "expression": {
+      "$log": [
+        8,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log base must resolve to a numeric value"
+    }
+  },
+  {
+    "id": "$log right[1]: mixed array",
+    "operator": "$log",
+    "kind": "mixed array",
+    "operand": "right[1]",
+    "expression": {
+      "$log": [
+        8,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log base must resolve to a numeric value"
+    }
+  },
+  {
+    "id": "$log right[1]: nested array",
+    "operator": "$log",
+    "kind": "nested array",
+    "operand": "right[1]",
+    "expression": {
+      "$log": [
+        8,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log base must resolve to a numeric value"
+    }
+  },
+  {
+    "id": "$log right[1]: empty object",
+    "operator": "$log",
+    "kind": "empty object",
+    "operand": "right[1]",
+    "expression": {
+      "$log": [
+        8,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log base must resolve to a numeric value"
+    }
+  },
+  {
+    "id": "$log right[1]: object",
+    "operator": "$log",
+    "kind": "object",
+    "operand": "right[1]",
+    "expression": {
+      "$log": [
+        8,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log base must resolve to a numeric value"
+    }
+  },
+  {
+    "id": "$log right[1]: ISO date string",
+    "operator": "$log",
+    "kind": "ISO date string",
+    "operand": "right[1]",
+    "expression": {
+      "$log": [
+        8,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log base must resolve to a numeric value"
+    }
+  },
+  {
+    "id": "$log empty arguments",
+    "operator": "$log",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$log": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log expects [number, base]"
+    }
+  },
+  {
+    "id": "$log unknown option",
+    "operator": "$log",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$log": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log expects [number, base]"
+    }
+  }
+]

@@ -1,0 +1,949 @@
+{
+  "mongoVersion" : "9.0.4",
+  "numericTolerance" : "Relative 1e-12 for finite doubles; BSON types must match; NaN matches NaN.",
+  "cases" : [ {
+    "id" : "$toArray0True",
+    "expression" : {
+      "$toArray" : "$value"
+    },
+    "input" : {
+      "value" : "[1,2147483648,9223372036854775808,1.5,null,{\"x\":true}]"
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberLong\": \"2147483648\"}, {\"$numberDouble\": \"9.223372036854776E18\"}, {\"$numberDouble\": \"1.5\"}, null, {\"x\": true}]}",
+    "fluxion" : "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberLong\": \"2147483648\"}, {\"$numberDouble\": \"9.223372036854776E18\"}, {\"$numberDouble\": \"1.5\"}, null, {\"x\": true}]}"
+  }, {
+    "id" : "$toArray0False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "array"
+      }
+    },
+    "input" : {
+      "value" : "[1,2147483648,9223372036854775808,1.5,null,{\"x\":true}]"
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberLong\": \"2147483648\"}, {\"$numberDouble\": \"9.223372036854776E18\"}, {\"$numberDouble\": \"1.5\"}, null, {\"x\": true}]}",
+    "fluxion" : "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberLong\": \"2147483648\"}, {\"$numberDouble\": \"9.223372036854776E18\"}, {\"$numberDouble\": \"1.5\"}, null, {\"x\": true}]}"
+  }, {
+    "id" : "$toArray1True",
+    "expression" : {
+      "$toArray" : "$value"
+    },
+    "input" : {
+      "value" : null
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": null}",
+    "fluxion" : "{\"v\": null}"
+  }, {
+    "id" : "$toArray1False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "array"
+      }
+    },
+    "input" : {
+      "value" : null
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": null}",
+    "fluxion" : "{\"v\": null}"
+  }, {
+    "id" : "$toArray2True",
+    "expression" : {
+      "$toArray" : "$value"
+    },
+    "input" : {
+      "value" : ""
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target array"
+  }, {
+    "id" : "$toArray2False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "array"
+      }
+    },
+    "input" : {
+      "value" : ""
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target array"
+  }, {
+    "id" : "$toArray3True",
+    "expression" : {
+      "$toArray" : "$value"
+    },
+    "input" : {
+      "value" : "null"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Unexpected standalone value' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Unexpected standalone value\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target array"
+  }, {
+    "id" : "$toArray3False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "array"
+      }
+    },
+    "input" : {
+      "value" : "null"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Unexpected standalone value' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Unexpected standalone value\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target array"
+  }, {
+    "id" : "$toArray4True",
+    "expression" : {
+      "$toArray" : "$value"
+    },
+    "input" : {
+      "value" : "123"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Unexpected standalone value' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Unexpected standalone value\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target array"
+  }, {
+    "id" : "$toArray4False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "array"
+      }
+    },
+    "input" : {
+      "value" : "123"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Unexpected standalone value' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Unexpected standalone value\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target array"
+  }, {
+    "id" : "$toArray5True",
+    "expression" : {
+      "$toArray" : "$value"
+    },
+    "input" : {
+      "value" : "true"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Unexpected standalone value' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Unexpected standalone value\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target array"
+  }, {
+    "id" : "$toArray5False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "array"
+      }
+    },
+    "input" : {
+      "value" : "true"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Unexpected standalone value' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Unexpected standalone value\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target array"
+  }, {
+    "id" : "$toArray6True",
+    "expression" : {
+      "$toArray" : "$value"
+    },
+    "input" : {
+      "value" : "[]"
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": []}",
+    "fluxion" : "{\"v\": []}"
+  }, {
+    "id" : "$toArray6False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "array"
+      }
+    },
+    "input" : {
+      "value" : "[]"
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": []}",
+    "fluxion" : "{\"v\": []}"
+  }, {
+    "id" : "$toArray7True",
+    "expression" : {
+      "$toArray" : "$value"
+    },
+    "input" : {
+      "value" : "{}"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't match expected type 'array'' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't match expected type 'array'\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target array"
+  }, {
+    "id" : "$toArray7False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "array"
+      }
+    },
+    "input" : {
+      "value" : "{}"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't match expected type 'array'' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't match expected type 'array'\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target array"
+  }, {
+    "id" : "$toArray8True",
+    "expression" : {
+      "$toArray" : "$value"
+    },
+    "input" : {
+      "value" : "[1,]"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target array"
+  }, {
+    "id" : "$toArray8False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "array"
+      }
+    },
+    "input" : {
+      "value" : "[1,]"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target array"
+  }, {
+    "id" : "$toArray9True",
+    "expression" : {
+      "$toArray" : "$value"
+    },
+    "input" : {
+      "value" : "{\"x\":1,}"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target array"
+  }, {
+    "id" : "$toArray9False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "array"
+      }
+    },
+    "input" : {
+      "value" : "{\"x\":1,}"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target array"
+  }, {
+    "id" : "$toArray10True",
+    "expression" : {
+      "$toArray" : "$value"
+    },
+    "input" : {
+      "value" : "/*x*/ []"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target array"
+  }, {
+    "id" : "$toArray10False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "array"
+      }
+    },
+    "input" : {
+      "value" : "/*x*/ []"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target array"
+  }, {
+    "id" : "$toArray11True",
+    "expression" : {
+      "$toArray" : "$value"
+    },
+    "input" : {
+      "value" : "[] {}"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target array"
+  }, {
+    "id" : "$toArray11False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "array"
+      }
+    },
+    "input" : {
+      "value" : "[] {}"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target array"
+  }, {
+    "id" : "$toArray12True",
+    "expression" : {
+      "$toArray" : "$value"
+    },
+    "input" : {
+      "value" : "{\"x\\u0000\":1}"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Illegal embedded null byte' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Illegal embedded null byte\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target array"
+  }, {
+    "id" : "$toArray12False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "array"
+      }
+    },
+    "input" : {
+      "value" : "{\"x\\u0000\":1}"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Illegal embedded null byte' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Illegal embedded null byte\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target array"
+  }, {
+    "id" : "$toArray13True",
+    "expression" : {
+      "$toArray" : "$value"
+    },
+    "input" : {
+      "value" : "{\"x\":\"a\\u0000b\"}"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't match expected type 'array'' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't match expected type 'array'\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target array"
+  }, {
+    "id" : "$toArray13False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "array"
+      }
+    },
+    "input" : {
+      "value" : "{\"x\":\"a\\u0000b\"}"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't match expected type 'array'' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't match expected type 'array'\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target array"
+  }, {
+    "id" : "$toArray14True",
+    "expression" : {
+      "$toArray" : "$value"
+    },
+    "input" : {
+      "value" : "[1e400]"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target array"
+  }, {
+    "id" : "$toArray14False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "array"
+      }
+    },
+    "input" : {
+      "value" : "[1e400]"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target array"
+  }, {
+    "id" : "$toArray15True",
+    "expression" : {
+      "$toArray" : "$value"
+    },
+    "input" : {
+      "value" : 123
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from int to array in $convert with no onError value' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from int to array in $convert with no onError value\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target array"
+  }, {
+    "id" : "$toArray15False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "array"
+      }
+    },
+    "input" : {
+      "value" : 123
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from int to array in $convert with no onError value' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from int to array in $convert with no onError value\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target array"
+  }, {
+    "id" : "$toArray16True",
+    "expression" : {
+      "$toArray" : "$value"
+    },
+    "input" : {
+      "value" : [ ]
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from array to array in $convert with no onError value' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from array to array in $convert with no onError value\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target array"
+  }, {
+    "id" : "$toArray16False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "array"
+      }
+    },
+    "input" : {
+      "value" : [ ]
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from array to array in $convert with no onError value' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from array to array in $convert with no onError value\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target array"
+  }, {
+    "id" : "$toArray17True",
+    "expression" : {
+      "$toArray" : "$value"
+    },
+    "input" : {
+      "value" : { }
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from object to array in $convert with no onError value' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from object to array in $convert with no onError value\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target array"
+  }, {
+    "id" : "$toArray17False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "array"
+      }
+    },
+    "input" : {
+      "value" : { }
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from object to array in $convert with no onError value' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from object to array in $convert with no onError value\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target array"
+  }, {
+    "id" : "$toArraymissing",
+    "expression" : {
+      "$toArray" : "$missing"
+    },
+    "input" : { },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": null}",
+    "fluxion" : "{\"v\": null}"
+  }, {
+    "id" : "$toArrayfallback",
+    "expression" : {
+      "$convert" : {
+        "input" : "broken",
+        "to" : "array",
+        "onError" : "fallback"
+      }
+    },
+    "input" : { },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": \"fallback\"}",
+    "fluxion" : "{\"v\": \"fallback\"}"
+  }, {
+    "id" : "$toObject0True",
+    "expression" : {
+      "$toObject" : "$value"
+    },
+    "input" : {
+      "value" : "{\"a\":1,\"a\":2,\"nested\":{\"$date\":\"2020\"},\"x\":[1,2]}"
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"a\": {\"$numberInt\": \"2\"}, \"nested\": {\"$date\": \"2020\"}, \"x\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}}",
+    "fluxion" : "{\"v\": {\"a\": {\"$numberInt\": \"2\"}, \"nested\": {\"$date\": \"2020\"}, \"x\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}}"
+  }, {
+    "id" : "$toObject0False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "object"
+      }
+    },
+    "input" : {
+      "value" : "{\"a\":1,\"a\":2,\"nested\":{\"$date\":\"2020\"},\"x\":[1,2]}"
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"a\": {\"$numberInt\": \"2\"}, \"nested\": {\"$date\": \"2020\"}, \"x\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}}",
+    "fluxion" : "{\"v\": {\"a\": {\"$numberInt\": \"2\"}, \"nested\": {\"$date\": \"2020\"}, \"x\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}}"
+  }, {
+    "id" : "$toObject1True",
+    "expression" : {
+      "$toObject" : "$value"
+    },
+    "input" : {
+      "value" : null
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": null}",
+    "fluxion" : "{\"v\": null}"
+  }, {
+    "id" : "$toObject1False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "object"
+      }
+    },
+    "input" : {
+      "value" : null
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": null}",
+    "fluxion" : "{\"v\": null}"
+  }, {
+    "id" : "$toObject2True",
+    "expression" : {
+      "$toObject" : "$value"
+    },
+    "input" : {
+      "value" : ""
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target object"
+  }, {
+    "id" : "$toObject2False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "object"
+      }
+    },
+    "input" : {
+      "value" : ""
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target object"
+  }, {
+    "id" : "$toObject3True",
+    "expression" : {
+      "$toObject" : "$value"
+    },
+    "input" : {
+      "value" : "null"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Unexpected standalone value' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Unexpected standalone value\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target object"
+  }, {
+    "id" : "$toObject3False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "object"
+      }
+    },
+    "input" : {
+      "value" : "null"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Unexpected standalone value' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Unexpected standalone value\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target object"
+  }, {
+    "id" : "$toObject4True",
+    "expression" : {
+      "$toObject" : "$value"
+    },
+    "input" : {
+      "value" : "123"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Unexpected standalone value' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Unexpected standalone value\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target object"
+  }, {
+    "id" : "$toObject4False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "object"
+      }
+    },
+    "input" : {
+      "value" : "123"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Unexpected standalone value' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Unexpected standalone value\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target object"
+  }, {
+    "id" : "$toObject5True",
+    "expression" : {
+      "$toObject" : "$value"
+    },
+    "input" : {
+      "value" : "true"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Unexpected standalone value' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Unexpected standalone value\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target object"
+  }, {
+    "id" : "$toObject5False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "object"
+      }
+    },
+    "input" : {
+      "value" : "true"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Unexpected standalone value' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Unexpected standalone value\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target object"
+  }, {
+    "id" : "$toObject6True",
+    "expression" : {
+      "$toObject" : "$value"
+    },
+    "input" : {
+      "value" : "[]"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't match expected type 'object'' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't match expected type 'object'\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target object"
+  }, {
+    "id" : "$toObject6False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "object"
+      }
+    },
+    "input" : {
+      "value" : "[]"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't match expected type 'object'' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't match expected type 'object'\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target object"
+  }, {
+    "id" : "$toObject7True",
+    "expression" : {
+      "$toObject" : "$value"
+    },
+    "input" : {
+      "value" : "{}"
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {}}",
+    "fluxion" : "{\"v\": {}}"
+  }, {
+    "id" : "$toObject7False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "object"
+      }
+    },
+    "input" : {
+      "value" : "{}"
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {}}",
+    "fluxion" : "{\"v\": {}}"
+  }, {
+    "id" : "$toObject8True",
+    "expression" : {
+      "$toObject" : "$value"
+    },
+    "input" : {
+      "value" : "[1,]"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target object"
+  }, {
+    "id" : "$toObject8False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "object"
+      }
+    },
+    "input" : {
+      "value" : "[1,]"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target object"
+  }, {
+    "id" : "$toObject9True",
+    "expression" : {
+      "$toObject" : "$value"
+    },
+    "input" : {
+      "value" : "{\"x\":1,}"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target object"
+  }, {
+    "id" : "$toObject9False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "object"
+      }
+    },
+    "input" : {
+      "value" : "{\"x\":1,}"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target object"
+  }, {
+    "id" : "$toObject10True",
+    "expression" : {
+      "$toObject" : "$value"
+    },
+    "input" : {
+      "value" : "/*x*/ []"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target object"
+  }, {
+    "id" : "$toObject10False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "object"
+      }
+    },
+    "input" : {
+      "value" : "/*x*/ []"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target object"
+  }, {
+    "id" : "$toObject11True",
+    "expression" : {
+      "$toObject" : "$value"
+    },
+    "input" : {
+      "value" : "[] {}"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target object"
+  }, {
+    "id" : "$toObject11False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "object"
+      }
+    },
+    "input" : {
+      "value" : "[] {}"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target object"
+  }, {
+    "id" : "$toObject12True",
+    "expression" : {
+      "$toObject" : "$value"
+    },
+    "input" : {
+      "value" : "{\"x\\u0000\":1}"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Illegal embedded null byte' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Illegal embedded null byte\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target object"
+  }, {
+    "id" : "$toObject12False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "object"
+      }
+    },
+    "input" : {
+      "value" : "{\"x\\u0000\":1}"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Illegal embedded null byte' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Illegal embedded null byte\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target object"
+  }, {
+    "id" : "$toObject13True",
+    "expression" : {
+      "$toObject" : "$value"
+    },
+    "input" : {
+      "value" : "{\"x\":\"a\\u0000b\"}"
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"x\": \"a\\u0000b\"}}",
+    "fluxion" : "{\"v\": {\"x\": \"a\\u0000b\"}}"
+  }, {
+    "id" : "$toObject13False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "object"
+      }
+    },
+    "input" : {
+      "value" : "{\"x\":\"a\\u0000b\"}"
+    },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": {\"x\": \"a\\u0000b\"}}",
+    "fluxion" : "{\"v\": {\"x\": \"a\\u0000b\"}}"
+  }, {
+    "id" : "$toObject14True",
+    "expression" : {
+      "$toObject" : "$value"
+    },
+    "input" : {
+      "value" : "[1e400]"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target object"
+  }, {
+    "id" : "$toObject14False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "object"
+      }
+    },
+    "input" : {
+      "value" : "[1e400]"
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target object"
+  }, {
+    "id" : "$toObject15True",
+    "expression" : {
+      "$toObject" : "$value"
+    },
+    "input" : {
+      "value" : 123
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from int to object in $convert with no onError value' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from int to object in $convert with no onError value\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target object"
+  }, {
+    "id" : "$toObject15False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "object"
+      }
+    },
+    "input" : {
+      "value" : 123
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from int to object in $convert with no onError value' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from int to object in $convert with no onError value\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target object"
+  }, {
+    "id" : "$toObject16True",
+    "expression" : {
+      "$toObject" : "$value"
+    },
+    "input" : {
+      "value" : [ ]
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from array to object in $convert with no onError value' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from array to object in $convert with no onError value\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target object"
+  }, {
+    "id" : "$toObject16False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "object"
+      }
+    },
+    "input" : {
+      "value" : [ ]
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from array to object in $convert with no onError value' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from array to object in $convert with no onError value\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target object"
+  }, {
+    "id" : "$toObject17True",
+    "expression" : {
+      "$toObject" : "$value"
+    },
+    "input" : {
+      "value" : { }
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from object to object in $convert with no onError value' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from object to object in $convert with no onError value\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target object"
+  }, {
+    "id" : "$toObject17False",
+    "expression" : {
+      "$convert" : {
+        "input" : "$value",
+        "to" : "object"
+      }
+    },
+    "input" : {
+      "value" : { }
+    },
+    "status" : "BOTH_REJECTED_ERROR_PARITY_UNVERIFIED",
+    "mongo" : "Command failed with error 241 (ConversionFailure): 'Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from object to object in $convert with no onError value' on server 127.0.0.1:27994. The full response is {\"ok\": 0.0, \"errmsg\": \"Executor error during aggregate command on namespace: fluxion_statistics_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from object to object in $convert with no onError value\", \"code\": 241, \"codeName\": \"ConversionFailure\"}",
+    "fluxion" : "$convert failed for target object"
+  }, {
+    "id" : "$toObjectmissing",
+    "expression" : {
+      "$toObject" : "$missing"
+    },
+    "input" : { },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": null}",
+    "fluxion" : "{\"v\": null}"
+  }, {
+    "id" : "$toObjectfallback",
+    "expression" : {
+      "$convert" : {
+        "input" : "broken",
+        "to" : "object",
+        "onError" : "fallback"
+      }
+    },
+    "input" : { },
+    "status" : "MATCH",
+    "mongo" : "{\"v\": \"fallback\"}",
+    "fluxion" : "{\"v\": \"fallback\"}"
+  } ]
+}

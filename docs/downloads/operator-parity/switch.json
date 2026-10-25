@@ -1,0 +1,1187 @@
+[
+  {
+    "id": "$switch baseline",
+    "operator": "$switch",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$switch": {
+        "branches": [
+          {
+            "case": true,
+            "then": "yes"
+          }
+        ],
+        "default": "no"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$switch branches: null",
+    "operator": "$switch",
+    "kind": "null",
+    "operand": "branches",
+    "expression": {
+      "$switch": {
+        "branches": "$probe",
+        "default": "no"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$switch 'branches' must be a list"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $switch expected an array for 'branches', found: string",
+      "code": 40061,
+      "error": "Location40061"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$switch branches: missing",
+    "operator": "$switch",
+    "kind": "missing",
+    "operand": "branches",
+    "expression": {
+      "$switch": {
+        "branches": "$probe",
+        "default": "no"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$switch 'branches' must be a list"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $switch expected an array for 'branches', found: string",
+      "code": 40061,
+      "error": "Location40061"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$switch branches: zero",
+    "operator": "$switch",
+    "kind": "zero",
+    "operand": "branches",
+    "expression": {
+      "$switch": {
+        "branches": "$probe",
+        "default": "no"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$switch 'branches' must be a list"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $switch expected an array for 'branches', found: string",
+      "code": 40061,
+      "error": "Location40061"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$switch branches: negative",
+    "operator": "$switch",
+    "kind": "negative",
+    "operand": "branches",
+    "expression": {
+      "$switch": {
+        "branches": "$probe",
+        "default": "no"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$switch 'branches' must be a list"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $switch expected an array for 'branches', found: string",
+      "code": 40061,
+      "error": "Location40061"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$switch branches: decimal",
+    "operator": "$switch",
+    "kind": "decimal",
+    "operand": "branches",
+    "expression": {
+      "$switch": {
+        "branches": "$probe",
+        "default": "no"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$switch 'branches' must be a list"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $switch expected an array for 'branches', found: string",
+      "code": 40061,
+      "error": "Location40061"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$switch branches: numeric string",
+    "operator": "$switch",
+    "kind": "numeric string",
+    "operand": "branches",
+    "expression": {
+      "$switch": {
+        "branches": "$probe",
+        "default": "no"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$switch 'branches' must be a list"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $switch expected an array for 'branches', found: string",
+      "code": 40061,
+      "error": "Location40061"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$switch branches: text",
+    "operator": "$switch",
+    "kind": "text",
+    "operand": "branches",
+    "expression": {
+      "$switch": {
+        "branches": "$probe",
+        "default": "no"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$switch 'branches' must be a list"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $switch expected an array for 'branches', found: string",
+      "code": 40061,
+      "error": "Location40061"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$switch branches: empty string",
+    "operator": "$switch",
+    "kind": "empty string",
+    "operand": "branches",
+    "expression": {
+      "$switch": {
+        "branches": "$probe",
+        "default": "no"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$switch 'branches' must be a list"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $switch expected an array for 'branches', found: string",
+      "code": 40061,
+      "error": "Location40061"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$switch branches: boolean",
+    "operator": "$switch",
+    "kind": "boolean",
+    "operand": "branches",
+    "expression": {
+      "$switch": {
+        "branches": "$probe",
+        "default": "no"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$switch 'branches' must be a list"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $switch expected an array for 'branches', found: string",
+      "code": 40061,
+      "error": "Location40061"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$switch branches: false",
+    "operator": "$switch",
+    "kind": "false",
+    "operand": "branches",
+    "expression": {
+      "$switch": {
+        "branches": "$probe",
+        "default": "no"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$switch 'branches' must be a list"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $switch expected an array for 'branches', found: string",
+      "code": 40061,
+      "error": "Location40061"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$switch branches: typed date",
+    "operator": "$switch",
+    "kind": "typed date",
+    "operand": "branches",
+    "expression": {
+      "$switch": {
+        "branches": "$probe",
+        "default": "no"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$switch 'branches' must be a list"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $switch expected an array for 'branches', found: string",
+      "code": 40061,
+      "error": "Location40061"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$switch branches: decimal128",
+    "operator": "$switch",
+    "kind": "decimal128",
+    "operand": "branches",
+    "expression": {
+      "$switch": {
+        "branches": "$probe",
+        "default": "no"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$switch 'branches' must be a list"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $switch expected an array for 'branches', found: string",
+      "code": 40061,
+      "error": "Location40061"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$switch branches: empty array",
+    "operator": "$switch",
+    "kind": "empty array",
+    "operand": "branches",
+    "expression": {
+      "$switch": {
+        "branches": "$probe",
+        "default": "no"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$switch 'branches' must be a list"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $switch expected an array for 'branches', found: string",
+      "code": 40061,
+      "error": "Location40061"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$switch branches: numeric array",
+    "operator": "$switch",
+    "kind": "numeric array",
+    "operand": "branches",
+    "expression": {
+      "$switch": {
+        "branches": "$probe",
+        "default": "no"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$switch 'branches' must be a list"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $switch expected an array for 'branches', found: string",
+      "code": 40061,
+      "error": "Location40061"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$switch branches: mixed array",
+    "operator": "$switch",
+    "kind": "mixed array",
+    "operand": "branches",
+    "expression": {
+      "$switch": {
+        "branches": "$probe",
+        "default": "no"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$switch 'branches' must be a list"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $switch expected an array for 'branches', found: string",
+      "code": 40061,
+      "error": "Location40061"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$switch branches: nested array",
+    "operator": "$switch",
+    "kind": "nested array",
+    "operand": "branches",
+    "expression": {
+      "$switch": {
+        "branches": "$probe",
+        "default": "no"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$switch 'branches' must be a list"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $switch expected an array for 'branches', found: string",
+      "code": 40061,
+      "error": "Location40061"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$switch branches: empty object",
+    "operator": "$switch",
+    "kind": "empty object",
+    "operand": "branches",
+    "expression": {
+      "$switch": {
+        "branches": "$probe",
+        "default": "no"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$switch 'branches' must be a list"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $switch expected an array for 'branches', found: string",
+      "code": 40061,
+      "error": "Location40061"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$switch branches: object",
+    "operator": "$switch",
+    "kind": "object",
+    "operand": "branches",
+    "expression": {
+      "$switch": {
+        "branches": "$probe",
+        "default": "no"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$switch 'branches' must be a list"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $switch expected an array for 'branches', found: string",
+      "code": 40061,
+      "error": "Location40061"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$switch branches: ISO date string",
+    "operator": "$switch",
+    "kind": "ISO date string",
+    "operand": "branches",
+    "expression": {
+      "$switch": {
+        "branches": "$probe",
+        "default": "no"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$switch 'branches' must be a list"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $switch expected an array for 'branches', found: string",
+      "code": 40061,
+      "error": "Location40061"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$switch default: null",
+    "operator": "$switch",
+    "kind": "null",
+    "operand": "default",
+    "expression": {
+      "$switch": {
+        "branches": [
+          {
+            "case": true,
+            "then": "yes"
+          }
+        ],
+        "default": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$switch default: missing",
+    "operator": "$switch",
+    "kind": "missing",
+    "operand": "default",
+    "expression": {
+      "$switch": {
+        "branches": [
+          {
+            "case": true,
+            "then": "yes"
+          }
+        ],
+        "default": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$switch default: zero",
+    "operator": "$switch",
+    "kind": "zero",
+    "operand": "default",
+    "expression": {
+      "$switch": {
+        "branches": [
+          {
+            "case": true,
+            "then": "yes"
+          }
+        ],
+        "default": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$switch default: negative",
+    "operator": "$switch",
+    "kind": "negative",
+    "operand": "default",
+    "expression": {
+      "$switch": {
+        "branches": [
+          {
+            "case": true,
+            "then": "yes"
+          }
+        ],
+        "default": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$switch default: decimal",
+    "operator": "$switch",
+    "kind": "decimal",
+    "operand": "default",
+    "expression": {
+      "$switch": {
+        "branches": [
+          {
+            "case": true,
+            "then": "yes"
+          }
+        ],
+        "default": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$switch default: numeric string",
+    "operator": "$switch",
+    "kind": "numeric string",
+    "operand": "default",
+    "expression": {
+      "$switch": {
+        "branches": [
+          {
+            "case": true,
+            "then": "yes"
+          }
+        ],
+        "default": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$switch default: text",
+    "operator": "$switch",
+    "kind": "text",
+    "operand": "default",
+    "expression": {
+      "$switch": {
+        "branches": [
+          {
+            "case": true,
+            "then": "yes"
+          }
+        ],
+        "default": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$switch default: empty string",
+    "operator": "$switch",
+    "kind": "empty string",
+    "operand": "default",
+    "expression": {
+      "$switch": {
+        "branches": [
+          {
+            "case": true,
+            "then": "yes"
+          }
+        ],
+        "default": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$switch default: boolean",
+    "operator": "$switch",
+    "kind": "boolean",
+    "operand": "default",
+    "expression": {
+      "$switch": {
+        "branches": [
+          {
+            "case": true,
+            "then": "yes"
+          }
+        ],
+        "default": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$switch default: false",
+    "operator": "$switch",
+    "kind": "false",
+    "operand": "default",
+    "expression": {
+      "$switch": {
+        "branches": [
+          {
+            "case": true,
+            "then": "yes"
+          }
+        ],
+        "default": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$switch default: typed date",
+    "operator": "$switch",
+    "kind": "typed date",
+    "operand": "default",
+    "expression": {
+      "$switch": {
+        "branches": [
+          {
+            "case": true,
+            "then": "yes"
+          }
+        ],
+        "default": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$switch default: decimal128",
+    "operator": "$switch",
+    "kind": "decimal128",
+    "operand": "default",
+    "expression": {
+      "$switch": {
+        "branches": [
+          {
+            "case": true,
+            "then": "yes"
+          }
+        ],
+        "default": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$switch default: empty array",
+    "operator": "$switch",
+    "kind": "empty array",
+    "operand": "default",
+    "expression": {
+      "$switch": {
+        "branches": [
+          {
+            "case": true,
+            "then": "yes"
+          }
+        ],
+        "default": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$switch default: numeric array",
+    "operator": "$switch",
+    "kind": "numeric array",
+    "operand": "default",
+    "expression": {
+      "$switch": {
+        "branches": [
+          {
+            "case": true,
+            "then": "yes"
+          }
+        ],
+        "default": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$switch default: mixed array",
+    "operator": "$switch",
+    "kind": "mixed array",
+    "operand": "default",
+    "expression": {
+      "$switch": {
+        "branches": [
+          {
+            "case": true,
+            "then": "yes"
+          }
+        ],
+        "default": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$switch default: nested array",
+    "operator": "$switch",
+    "kind": "nested array",
+    "operand": "default",
+    "expression": {
+      "$switch": {
+        "branches": [
+          {
+            "case": true,
+            "then": "yes"
+          }
+        ],
+        "default": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$switch default: empty object",
+    "operator": "$switch",
+    "kind": "empty object",
+    "operand": "default",
+    "expression": {
+      "$switch": {
+        "branches": [
+          {
+            "case": true,
+            "then": "yes"
+          }
+        ],
+        "default": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$switch default: object",
+    "operator": "$switch",
+    "kind": "object",
+    "operand": "default",
+    "expression": {
+      "$switch": {
+        "branches": [
+          {
+            "case": true,
+            "then": "yes"
+          }
+        ],
+        "default": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$switch default: ISO date string",
+    "operator": "$switch",
+    "kind": "ISO date string",
+    "operand": "default",
+    "expression": {
+      "$switch": {
+        "branches": [
+          {
+            "case": true,
+            "then": "yes"
+          }
+        ],
+        "default": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$switch omit branches",
+    "operator": "$switch",
+    "kind": "omitted named argument",
+    "operand": "branches",
+    "expression": {
+      "$switch": {
+        "default": "no"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$switch 'branches' must be a list"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $switch requires at least one branch",
+      "code": 40068,
+      "error": "Location40068"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$switch omit default",
+    "operator": "$switch",
+    "kind": "omitted named argument",
+    "operand": "default",
+    "expression": {
+      "$switch": {
+        "branches": [
+          {
+            "case": true,
+            "then": "yes"
+          }
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"yes\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$switch empty arguments",
+    "operator": "$switch",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$switch": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$switch requires a document with 'branches' and optional 'default'"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $switch requires an object as an argument, found: array",
+      "code": 40060,
+      "error": "Location40060"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$switch unknown option",
+    "operator": "$switch",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$switch": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$switch 'branches' must be a list"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $switch found an unknown argument: unexpected",
+      "code": 40067,
+      "error": "Location40067"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

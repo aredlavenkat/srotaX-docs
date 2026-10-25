@@ -1,0 +1,933 @@
+[
+  {
+    "id": "$setEquals baseline",
+    "operator": "$setEquals",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$setEquals": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setEquals array[0]: null",
+    "operator": "$setEquals",
+    "kind": "null",
+    "operand": "array[0]",
+    "expression": {
+      "$setEquals": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setEquals arguments must resolve to arrays."
+    }
+  },
+  {
+    "id": "$setEquals array[0]: missing",
+    "operator": "$setEquals",
+    "kind": "missing",
+    "operand": "array[0]",
+    "expression": {
+      "$setEquals": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setEquals arguments must resolve to arrays."
+    }
+  },
+  {
+    "id": "$setEquals array[0]: zero",
+    "operator": "$setEquals",
+    "kind": "zero",
+    "operand": "array[0]",
+    "expression": {
+      "$setEquals": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setEquals arguments must resolve to arrays."
+    }
+  },
+  {
+    "id": "$setEquals array[0]: negative",
+    "operator": "$setEquals",
+    "kind": "negative",
+    "operand": "array[0]",
+    "expression": {
+      "$setEquals": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setEquals arguments must resolve to arrays."
+    }
+  },
+  {
+    "id": "$setEquals array[0]: decimal",
+    "operator": "$setEquals",
+    "kind": "decimal",
+    "operand": "array[0]",
+    "expression": {
+      "$setEquals": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setEquals arguments must resolve to arrays."
+    }
+  },
+  {
+    "id": "$setEquals array[0]: numeric string",
+    "operator": "$setEquals",
+    "kind": "numeric string",
+    "operand": "array[0]",
+    "expression": {
+      "$setEquals": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setEquals arguments must resolve to arrays."
+    }
+  },
+  {
+    "id": "$setEquals array[0]: text",
+    "operator": "$setEquals",
+    "kind": "text",
+    "operand": "array[0]",
+    "expression": {
+      "$setEquals": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setEquals arguments must resolve to arrays."
+    }
+  },
+  {
+    "id": "$setEquals array[0]: empty string",
+    "operator": "$setEquals",
+    "kind": "empty string",
+    "operand": "array[0]",
+    "expression": {
+      "$setEquals": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setEquals arguments must resolve to arrays."
+    }
+  },
+  {
+    "id": "$setEquals array[0]: boolean",
+    "operator": "$setEquals",
+    "kind": "boolean",
+    "operand": "array[0]",
+    "expression": {
+      "$setEquals": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setEquals arguments must resolve to arrays."
+    }
+  },
+  {
+    "id": "$setEquals array[0]: false",
+    "operator": "$setEquals",
+    "kind": "false",
+    "operand": "array[0]",
+    "expression": {
+      "$setEquals": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setEquals arguments must resolve to arrays."
+    }
+  },
+  {
+    "id": "$setEquals array[0]: typed date",
+    "operator": "$setEquals",
+    "kind": "typed date",
+    "operand": "array[0]",
+    "expression": {
+      "$setEquals": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setEquals arguments must resolve to arrays."
+    }
+  },
+  {
+    "id": "$setEquals array[0]: decimal128",
+    "operator": "$setEquals",
+    "kind": "decimal128",
+    "operand": "array[0]",
+    "expression": {
+      "$setEquals": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setEquals arguments must resolve to arrays."
+    }
+  },
+  {
+    "id": "$setEquals array[0]: empty array",
+    "operator": "$setEquals",
+    "kind": "empty array",
+    "operand": "array[0]",
+    "expression": {
+      "$setEquals": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setEquals array[0]: numeric array",
+    "operator": "$setEquals",
+    "kind": "numeric array",
+    "operand": "array[0]",
+    "expression": {
+      "$setEquals": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setEquals array[0]: mixed array",
+    "operator": "$setEquals",
+    "kind": "mixed array",
+    "operand": "array[0]",
+    "expression": {
+      "$setEquals": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setEquals array[0]: nested array",
+    "operator": "$setEquals",
+    "kind": "nested array",
+    "operand": "array[0]",
+    "expression": {
+      "$setEquals": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setEquals array[0]: empty object",
+    "operator": "$setEquals",
+    "kind": "empty object",
+    "operand": "array[0]",
+    "expression": {
+      "$setEquals": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setEquals arguments must resolve to arrays."
+    }
+  },
+  {
+    "id": "$setEquals array[0]: object",
+    "operator": "$setEquals",
+    "kind": "object",
+    "operand": "array[0]",
+    "expression": {
+      "$setEquals": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setEquals arguments must resolve to arrays."
+    }
+  },
+  {
+    "id": "$setEquals array[0]: ISO date string",
+    "operator": "$setEquals",
+    "kind": "ISO date string",
+    "operand": "array[0]",
+    "expression": {
+      "$setEquals": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setEquals arguments must resolve to arrays."
+    }
+  },
+  {
+    "id": "$setEquals other[1]: null",
+    "operator": "$setEquals",
+    "kind": "null",
+    "operand": "other[1]",
+    "expression": {
+      "$setEquals": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setEquals arguments must resolve to arrays."
+    }
+  },
+  {
+    "id": "$setEquals other[1]: missing",
+    "operator": "$setEquals",
+    "kind": "missing",
+    "operand": "other[1]",
+    "expression": {
+      "$setEquals": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setEquals arguments must resolve to arrays."
+    }
+  },
+  {
+    "id": "$setEquals other[1]: zero",
+    "operator": "$setEquals",
+    "kind": "zero",
+    "operand": "other[1]",
+    "expression": {
+      "$setEquals": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setEquals arguments must resolve to arrays."
+    }
+  },
+  {
+    "id": "$setEquals other[1]: negative",
+    "operator": "$setEquals",
+    "kind": "negative",
+    "operand": "other[1]",
+    "expression": {
+      "$setEquals": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setEquals arguments must resolve to arrays."
+    }
+  },
+  {
+    "id": "$setEquals other[1]: decimal",
+    "operator": "$setEquals",
+    "kind": "decimal",
+    "operand": "other[1]",
+    "expression": {
+      "$setEquals": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setEquals arguments must resolve to arrays."
+    }
+  },
+  {
+    "id": "$setEquals other[1]: numeric string",
+    "operator": "$setEquals",
+    "kind": "numeric string",
+    "operand": "other[1]",
+    "expression": {
+      "$setEquals": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setEquals arguments must resolve to arrays."
+    }
+  },
+  {
+    "id": "$setEquals other[1]: text",
+    "operator": "$setEquals",
+    "kind": "text",
+    "operand": "other[1]",
+    "expression": {
+      "$setEquals": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setEquals arguments must resolve to arrays."
+    }
+  },
+  {
+    "id": "$setEquals other[1]: empty string",
+    "operator": "$setEquals",
+    "kind": "empty string",
+    "operand": "other[1]",
+    "expression": {
+      "$setEquals": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setEquals arguments must resolve to arrays."
+    }
+  },
+  {
+    "id": "$setEquals other[1]: boolean",
+    "operator": "$setEquals",
+    "kind": "boolean",
+    "operand": "other[1]",
+    "expression": {
+      "$setEquals": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setEquals arguments must resolve to arrays."
+    }
+  },
+  {
+    "id": "$setEquals other[1]: false",
+    "operator": "$setEquals",
+    "kind": "false",
+    "operand": "other[1]",
+    "expression": {
+      "$setEquals": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setEquals arguments must resolve to arrays."
+    }
+  },
+  {
+    "id": "$setEquals other[1]: typed date",
+    "operator": "$setEquals",
+    "kind": "typed date",
+    "operand": "other[1]",
+    "expression": {
+      "$setEquals": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setEquals arguments must resolve to arrays."
+    }
+  },
+  {
+    "id": "$setEquals other[1]: decimal128",
+    "operator": "$setEquals",
+    "kind": "decimal128",
+    "operand": "other[1]",
+    "expression": {
+      "$setEquals": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setEquals arguments must resolve to arrays."
+    }
+  },
+  {
+    "id": "$setEquals other[1]: empty array",
+    "operator": "$setEquals",
+    "kind": "empty array",
+    "operand": "other[1]",
+    "expression": {
+      "$setEquals": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setEquals other[1]: numeric array",
+    "operator": "$setEquals",
+    "kind": "numeric array",
+    "operand": "other[1]",
+    "expression": {
+      "$setEquals": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setEquals other[1]: mixed array",
+    "operator": "$setEquals",
+    "kind": "mixed array",
+    "operand": "other[1]",
+    "expression": {
+      "$setEquals": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setEquals other[1]: nested array",
+    "operator": "$setEquals",
+    "kind": "nested array",
+    "operand": "other[1]",
+    "expression": {
+      "$setEquals": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setEquals other[1]: empty object",
+    "operator": "$setEquals",
+    "kind": "empty object",
+    "operand": "other[1]",
+    "expression": {
+      "$setEquals": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setEquals arguments must resolve to arrays."
+    }
+  },
+  {
+    "id": "$setEquals other[1]: object",
+    "operator": "$setEquals",
+    "kind": "object",
+    "operand": "other[1]",
+    "expression": {
+      "$setEquals": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setEquals arguments must resolve to arrays."
+    }
+  },
+  {
+    "id": "$setEquals other[1]: ISO date string",
+    "operator": "$setEquals",
+    "kind": "ISO date string",
+    "operand": "other[1]",
+    "expression": {
+      "$setEquals": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setEquals arguments must resolve to arrays."
+    }
+  },
+  {
+    "id": "$setEquals empty arguments",
+    "operator": "$setEquals",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$setEquals": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setEquals requires at least two arrays."
+    }
+  },
+  {
+    "id": "$setEquals unknown option",
+    "operator": "$setEquals",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$setEquals": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setEquals requires at least two arrays."
+    }
+  }
+]

@@ -1,0 +1,371 @@
+[
+  {
+    "id": "$asin baseline",
+    "operator": "$asin",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$asin": 0
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$asin input: null",
+    "operator": "$asin",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$asin": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asin expects a numeric argument."
+    }
+  },
+  {
+    "id": "$asin input: missing",
+    "operator": "$asin",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$asin": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asin expects a numeric argument."
+    }
+  },
+  {
+    "id": "$asin input: zero",
+    "operator": "$asin",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$asin": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$asin input: negative",
+    "operator": "$asin",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$asin": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asin domain is [-1, 1]"
+    }
+  },
+  {
+    "id": "$asin input: decimal",
+    "operator": "$asin",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$asin": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asin domain is [-1, 1]"
+    }
+  },
+  {
+    "id": "$asin input: numeric string",
+    "operator": "$asin",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$asin": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asin expects a numeric argument."
+    }
+  },
+  {
+    "id": "$asin input: text",
+    "operator": "$asin",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$asin": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asin expects a numeric argument."
+    }
+  },
+  {
+    "id": "$asin input: empty string",
+    "operator": "$asin",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$asin": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asin expects a numeric argument."
+    }
+  },
+  {
+    "id": "$asin input: boolean",
+    "operator": "$asin",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$asin": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asin expects a numeric argument."
+    }
+  },
+  {
+    "id": "$asin input: false",
+    "operator": "$asin",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$asin": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asin expects a numeric argument."
+    }
+  },
+  {
+    "id": "$asin input: typed date",
+    "operator": "$asin",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$asin": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asin expects a numeric argument."
+    }
+  },
+  {
+    "id": "$asin input: decimal128",
+    "operator": "$asin",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$asin": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asin domain is [-1, 1]"
+    }
+  },
+  {
+    "id": "$asin input: empty array",
+    "operator": "$asin",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$asin": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asin expects a numeric argument."
+    }
+  },
+  {
+    "id": "$asin input: numeric array",
+    "operator": "$asin",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$asin": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asin expects a numeric argument."
+    }
+  },
+  {
+    "id": "$asin input: mixed array",
+    "operator": "$asin",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$asin": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asin expects a numeric argument."
+    }
+  },
+  {
+    "id": "$asin input: nested array",
+    "operator": "$asin",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$asin": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asin expects a numeric argument."
+    }
+  },
+  {
+    "id": "$asin input: empty object",
+    "operator": "$asin",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$asin": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asin expects a numeric argument."
+    }
+  },
+  {
+    "id": "$asin input: object",
+    "operator": "$asin",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$asin": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asin expects a numeric argument."
+    }
+  },
+  {
+    "id": "$asin input: ISO date string",
+    "operator": "$asin",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$asin": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asin expects a numeric argument."
+    }
+  },
+  {
+    "id": "$asin empty arguments",
+    "operator": "$asin",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$asin": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asin expects a numeric argument."
+    }
+  },
+  {
+    "id": "$asin unknown option",
+    "operator": "$asin",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$asin": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asin expects a numeric argument."
+    }
+  }
+]

@@ -1,0 +1,2763 @@
+[
+  {
+    "id": "$percentile baseline",
+    "operator": "$percentile",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": "approximate"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"10.0\"}, {\"$numberDouble\": \"20.0\"}, {\"$numberDouble\": \"40.0\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"10.0\"}, {\"$numberDouble\": \"20.0\"}, {\"$numberDouble\": \"40.0\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$percentile input: null",
+    "operator": "$percentile",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$percentile": {
+        "input": "$probe",
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": [null, null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [null, null, null]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$percentile input: missing",
+    "operator": "$percentile",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$percentile": {
+        "input": "$probe",
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": "approximate"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [null, null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [null, null, null]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$percentile input: zero",
+    "operator": "$percentile",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$percentile": {
+        "input": "$probe",
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"0.0\"}, {\"$numberDouble\": \"0.0\"}, {\"$numberDouble\": \"0.0\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"0.0\"}, {\"$numberDouble\": \"0.0\"}, {\"$numberDouble\": \"0.0\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$percentile input: negative",
+    "operator": "$percentile",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$percentile": {
+        "input": "$probe",
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"-2.0\"}, {\"$numberDouble\": \"-2.0\"}, {\"$numberDouble\": \"-2.0\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"-2.0\"}, {\"$numberDouble\": \"-2.0\"}, {\"$numberDouble\": \"-2.0\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$percentile input: decimal",
+    "operator": "$percentile",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$percentile": {
+        "input": "$probe",
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"2.5\"}, {\"$numberDouble\": \"2.5\"}, {\"$numberDouble\": \"2.5\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"2.5\"}, {\"$numberDouble\": \"2.5\"}, {\"$numberDouble\": \"2.5\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$percentile input: numeric string",
+    "operator": "$percentile",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$percentile": {
+        "input": "$probe",
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": [null, null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [null, null, null]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$percentile input: text",
+    "operator": "$percentile",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$percentile": {
+        "input": "$probe",
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": [null, null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [null, null, null]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$percentile input: empty string",
+    "operator": "$percentile",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$percentile": {
+        "input": "$probe",
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": [null, null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [null, null, null]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$percentile input: boolean",
+    "operator": "$percentile",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$percentile": {
+        "input": "$probe",
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": [null, null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [null, null, null]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$percentile input: false",
+    "operator": "$percentile",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$percentile": {
+        "input": "$probe",
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": [null, null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [null, null, null]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$percentile input: typed date",
+    "operator": "$percentile",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$percentile": {
+        "input": "$probe",
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": [null, null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [null, null, null]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$percentile input: decimal128",
+    "operator": "$percentile",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$percentile": {
+        "input": "$probe",
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"1.25\"}, {\"$numberDouble\": \"1.25\"}, {\"$numberDouble\": \"1.25\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"1.25\"}, {\"$numberDouble\": \"1.25\"}, {\"$numberDouble\": \"1.25\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$percentile input: empty array",
+    "operator": "$percentile",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$percentile": {
+        "input": "$probe",
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": [null, null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [null, null, null]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$percentile input: numeric array",
+    "operator": "$percentile",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$percentile": {
+        "input": "$probe",
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"2.0\"}, {\"$numberDouble\": \"3.0\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"2.0\"}, {\"$numberDouble\": \"3.0\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$percentile input: mixed array",
+    "operator": "$percentile",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$percentile": {
+        "input": "$probe",
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"3.0\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"3.0\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$percentile input: nested array",
+    "operator": "$percentile",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$percentile": {
+        "input": "$probe",
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [null, null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [null, null, null]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$percentile input: empty object",
+    "operator": "$percentile",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$percentile": {
+        "input": "$probe",
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": [null, null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [null, null, null]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$percentile input: object",
+    "operator": "$percentile",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$percentile": {
+        "input": "$probe",
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": [null, null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [null, null, null]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$percentile input: ISO date string",
+    "operator": "$percentile",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$percentile": {
+        "input": "$probe",
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": [null, null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [null, null, null]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$percentile p: null",
+    "operator": "$percentile",
+    "kind": "null",
+    "operand": "p",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": null,
+        "method": "approximate"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile p must be an array"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: null",
+      "code": 7750301,
+      "error": "Location7750301"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile p: zero",
+    "operator": "$percentile",
+    "kind": "zero",
+    "operand": "p",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": 0,
+        "method": "approximate"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile p must be an array"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: 0",
+      "code": 7750301,
+      "error": "Location7750301"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile p: negative",
+    "operator": "$percentile",
+    "kind": "negative",
+    "operand": "p",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": -2,
+        "method": "approximate"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile p must be an array"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: -2",
+      "code": 7750301,
+      "error": "Location7750301"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile p: decimal",
+    "operator": "$percentile",
+    "kind": "decimal",
+    "operand": "p",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": 2.5,
+        "method": "approximate"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile p must be an array"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: 2.5",
+      "code": 7750301,
+      "error": "Location7750301"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile p: numeric string",
+    "operator": "$percentile",
+    "kind": "numeric string",
+    "operand": "p",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": "12",
+        "method": "approximate"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile p must be an array"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: \"12\"",
+      "code": 7750301,
+      "error": "Location7750301"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile p: text",
+    "operator": "$percentile",
+    "kind": "text",
+    "operand": "p",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": "hello",
+        "method": "approximate"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile p must be an array"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: \"hello\"",
+      "code": 7750301,
+      "error": "Location7750301"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile p: empty string",
+    "operator": "$percentile",
+    "kind": "empty string",
+    "operand": "p",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": "",
+        "method": "approximate"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile p must be an array"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: \"\"",
+      "code": 7750301,
+      "error": "Location7750301"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile p: boolean",
+    "operator": "$percentile",
+    "kind": "boolean",
+    "operand": "p",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": true,
+        "method": "approximate"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile p must be an array"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: true",
+      "code": 7750301,
+      "error": "Location7750301"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile p: false",
+    "operator": "$percentile",
+    "kind": "false",
+    "operand": "p",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": false,
+        "method": "approximate"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile p must be an array"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: false",
+      "code": 7750301,
+      "error": "Location7750301"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile p: typed date",
+    "operator": "$percentile",
+    "kind": "typed date",
+    "operand": "p",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": {
+          "$date": "2026-01-15T15:00:00Z"
+        },
+        "method": "approximate"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile p must be an array"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: 2026-01-15T15:00:00.000Z",
+      "code": 7750301,
+      "error": "Location7750301"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile p: decimal128",
+    "operator": "$percentile",
+    "kind": "decimal128",
+    "operand": "p",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": {
+          "$numberDecimal": "1.25"
+        },
+        "method": "approximate"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile p must be an array"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: 1.25",
+      "code": 7750301,
+      "error": "Location7750301"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile p: empty array",
+    "operator": "$percentile",
+    "kind": "empty array",
+    "operand": "p",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": [],
+        "method": "approximate"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile p must be an array"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: []",
+      "code": 7750301,
+      "error": "Location7750301"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile p: numeric array",
+    "operator": "$percentile",
+    "kind": "numeric array",
+    "operand": "p",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": [
+          1,
+          2,
+          3
+        ],
+        "method": "approximate"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile p values must be numbers from 0 to 1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: 2",
+      "code": 7750303,
+      "error": "Location7750303"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile p: mixed array",
+    "operator": "$percentile",
+    "kind": "mixed array",
+    "operand": "p",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": [
+          1,
+          null,
+          "x",
+          3
+        ],
+        "method": "approximate"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile p values must be numbers from 0 to 1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: null",
+      "code": 7750302,
+      "error": "Location7750302"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile p: nested array",
+    "operator": "$percentile",
+    "kind": "nested array",
+    "operand": "p",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": [
+          [
+            1,
+            2
+          ],
+          [
+            3
+          ]
+        ],
+        "method": "approximate"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile p values must be numbers from 0 to 1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: [1, 2]",
+      "code": 7750302,
+      "error": "Location7750302"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile p: empty object",
+    "operator": "$percentile",
+    "kind": "empty object",
+    "operand": "p",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": {},
+        "method": "approximate"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile p must be an array"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: {}",
+      "code": 7750301,
+      "error": "Location7750301"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile p: object",
+    "operator": "$percentile",
+    "kind": "object",
+    "operand": "p",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": {
+          "x": 1
+        },
+        "method": "approximate"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile p must be an array"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: {x: 1}",
+      "code": 7750301,
+      "error": "Location7750301"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile p: ISO date string",
+    "operator": "$percentile",
+    "kind": "ISO date string",
+    "operand": "p",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": "2026-01-15T15:00:00Z",
+        "method": "approximate"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile p must be an array"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: \"2026-01-15T15:00:00Z\"",
+      "code": 7750301,
+      "error": "Location7750301"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile method: null",
+    "operator": "$percentile",
+    "kind": "null",
+    "operand": "method",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": null
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$percentile.method' is missing but a required field",
+      "code": 40414,
+      "error": "IDLFailedToParse"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile method: zero",
+    "operator": "$percentile",
+    "kind": "zero",
+    "operand": "method",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": 0
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$percentile.method' is the wrong type 'int', expected type 'string'",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile method: negative",
+    "operator": "$percentile",
+    "kind": "negative",
+    "operand": "method",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": -2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$percentile.method' is the wrong type 'int', expected type 'string'",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile method: decimal",
+    "operator": "$percentile",
+    "kind": "decimal",
+    "operand": "method",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": 2.5
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$percentile.method' is the wrong type 'double', expected type 'string'",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile method: numeric string",
+    "operator": "$percentile",
+    "kind": "numeric string",
+    "operand": "method",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": "12"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Currently only 'approximate' can be used as a percentile 'method'.",
+      "code": 2,
+      "error": "BadValue"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile method: text",
+    "operator": "$percentile",
+    "kind": "text",
+    "operand": "method",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": "hello"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Currently only 'approximate' can be used as a percentile 'method'.",
+      "code": 2,
+      "error": "BadValue"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile method: empty string",
+    "operator": "$percentile",
+    "kind": "empty string",
+    "operand": "method",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": ""
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Currently only 'approximate' can be used as a percentile 'method'.",
+      "code": 2,
+      "error": "BadValue"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile method: boolean",
+    "operator": "$percentile",
+    "kind": "boolean",
+    "operand": "method",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": true
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$percentile.method' is the wrong type 'bool', expected type 'string'",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile method: false",
+    "operator": "$percentile",
+    "kind": "false",
+    "operand": "method",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": false
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$percentile.method' is the wrong type 'bool', expected type 'string'",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile method: typed date",
+    "operator": "$percentile",
+    "kind": "typed date",
+    "operand": "method",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": {
+          "$date": "2026-01-15T15:00:00Z"
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$percentile.method' is the wrong type 'date', expected type 'string'",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile method: decimal128",
+    "operator": "$percentile",
+    "kind": "decimal128",
+    "operand": "method",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": {
+          "$numberDecimal": "1.25"
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$percentile.method' is the wrong type 'decimal', expected type 'string'",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile method: empty array",
+    "operator": "$percentile",
+    "kind": "empty array",
+    "operand": "method",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": []
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$percentile.method' is the wrong type 'array', expected type 'string'",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile method: numeric array",
+    "operator": "$percentile",
+    "kind": "numeric array",
+    "operand": "method",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$percentile.method' is the wrong type 'array', expected type 'string'",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile method: mixed array",
+    "operator": "$percentile",
+    "kind": "mixed array",
+    "operand": "method",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": [
+          1,
+          null,
+          "x",
+          3
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$percentile.method' is the wrong type 'array', expected type 'string'",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile method: nested array",
+    "operator": "$percentile",
+    "kind": "nested array",
+    "operand": "method",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": [
+          [
+            1,
+            2
+          ],
+          [
+            3
+          ]
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$percentile.method' is the wrong type 'array', expected type 'string'",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile method: empty object",
+    "operator": "$percentile",
+    "kind": "empty object",
+    "operand": "method",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": {}
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$percentile.method' is the wrong type 'object', expected type 'string'",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile method: object",
+    "operator": "$percentile",
+    "kind": "object",
+    "operand": "method",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": {
+          "x": 1
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$percentile.method' is the wrong type 'object', expected type 'string'",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile method: ISO date string",
+    "operator": "$percentile",
+    "kind": "ISO date string",
+    "operand": "method",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": "2026-01-15T15:00:00Z"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Currently only 'approximate' can be used as a percentile 'method'.",
+      "code": 2,
+      "error": "BadValue"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile omit input",
+    "operator": "$percentile",
+    "kind": "omitted named argument",
+    "operand": "input",
+    "expression": {
+      "$percentile": {
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": "approximate"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile requires [method, p, input]"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$percentile.input' is missing but a required field",
+      "code": 40414,
+      "error": "IDLFailedToParse"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile omit p",
+    "operator": "$percentile",
+    "kind": "omitted named argument",
+    "operand": "p",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "method": "approximate"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile requires [method, p, input]"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$percentile.p' is missing but a required field",
+      "code": 40414,
+      "error": "IDLFailedToParse"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile omit method",
+    "operator": "$percentile",
+    "kind": "omitted named argument",
+    "operand": "method",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": [
+          0,
+          0.5,
+          1
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile requires [method, p, input]"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$percentile.method' is missing but a required field",
+      "code": 40414,
+      "error": "IDLFailedToParse"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile empty arguments",
+    "operator": "$percentile",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$percentile": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile requires [method, p, input]"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: specification must be an object; found $percentile: []",
+      "code": 7436200,
+      "error": "Location7436200"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$percentile unknown option",
+    "operator": "$percentile",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$percentile": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile requires [method, p, input]"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$percentile.unexpected' is an unknown field.",
+      "code": 40415,
+      "error": "IDLUnknownField"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "statistics-mongo-cases.json:14",
+    "operator": "$percentile",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$percentile": {
+        "input": "$values",
+        "method": "approximate",
+        "p": [
+          1,
+          0,
+          0.25,
+          0.5,
+          0.75,
+          0.5
+        ]
+      }
+    },
+    "input": {
+      "values": [
+        10,
+        20,
+        30
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"30.0\"}, {\"$numberDouble\": \"10.0\"}, {\"$numberDouble\": \"10.0\"}, {\"$numberDouble\": \"20.0\"}, {\"$numberDouble\": \"30.0\"}, {\"$numberDouble\": \"20.0\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"30.0\"}, {\"$numberDouble\": \"10.0\"}, {\"$numberDouble\": \"10.0\"}, {\"$numberDouble\": \"20.0\"}, {\"$numberDouble\": \"30.0\"}, {\"$numberDouble\": \"20.0\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:15",
+    "operator": "$percentile",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$percentile": {
+        "input": "$values",
+        "method": "approximate",
+        "p": [
+          1,
+          0,
+          0.25,
+          0.5,
+          0.75,
+          0.5
+        ]
+      }
+    },
+    "input": {
+      "values": [
+        10,
+        20,
+        30,
+        40
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"40.0\"}, {\"$numberDouble\": \"10.0\"}, {\"$numberDouble\": \"10.0\"}, {\"$numberDouble\": \"20.0\"}, {\"$numberDouble\": \"30.0\"}, {\"$numberDouble\": \"20.0\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"40.0\"}, {\"$numberDouble\": \"10.0\"}, {\"$numberDouble\": \"10.0\"}, {\"$numberDouble\": \"20.0\"}, {\"$numberDouble\": \"30.0\"}, {\"$numberDouble\": \"20.0\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:16",
+    "operator": "$percentile",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$percentile": {
+        "input": "$values",
+        "method": "approximate",
+        "p": [
+          1,
+          0,
+          0.25,
+          0.5,
+          0.75,
+          0.5
+        ]
+      }
+    },
+    "input": {
+      "values": []
+    },
+    "srotax": {
+      "bson": "{\"v\": [null, null, null, null, null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [null, null, null, null, null, null]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:17",
+    "operator": "$percentile",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$percentile": {
+        "input": "$values",
+        "method": "approximate",
+        "p": [
+          1,
+          0,
+          0.25,
+          0.5,
+          0.75,
+          0.5
+        ]
+      }
+    },
+    "input": {
+      "values": null
+    },
+    "srotax": {
+      "bson": "{\"v\": [null, null, null, null, null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [null, null, null, null, null, null]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:18",
+    "operator": "$percentile",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$percentile": {
+        "input": "$values",
+        "method": "approximate",
+        "p": [
+          1,
+          0,
+          0.25,
+          0.5,
+          0.75,
+          0.5
+        ]
+      }
+    },
+    "input": {
+      "values": 5
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"5.0\"}, {\"$numberDouble\": \"5.0\"}, {\"$numberDouble\": \"5.0\"}, {\"$numberDouble\": \"5.0\"}, {\"$numberDouble\": \"5.0\"}, {\"$numberDouble\": \"5.0\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"5.0\"}, {\"$numberDouble\": \"5.0\"}, {\"$numberDouble\": \"5.0\"}, {\"$numberDouble\": \"5.0\"}, {\"$numberDouble\": \"5.0\"}, {\"$numberDouble\": \"5.0\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:19",
+    "operator": "$percentile",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$percentile": {
+        "input": "$values",
+        "method": "approximate",
+        "p": [
+          1,
+          0,
+          0.25,
+          0.5,
+          0.75,
+          0.5
+        ]
+      }
+    },
+    "input": {
+      "values": [
+        1,
+        "x",
+        null,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"1.0\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"1.0\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:20",
+    "operator": "$percentile",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$percentile": {
+        "input": "$values",
+        "method": "approximate",
+        "p": [
+          1,
+          0,
+          0.25,
+          0.5,
+          0.75,
+          0.5
+        ]
+      }
+    },
+    "input": {
+      "values": [
+        1,
+        [
+          50
+        ],
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"1.0\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"1.0\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:21",
+    "operator": "$percentile",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$percentile": {
+        "input": "$values",
+        "method": "approximate",
+        "p": [
+          1,
+          0,
+          0.25,
+          0.5,
+          0.75,
+          0.5
+        ]
+      }
+    },
+    "input": {
+      "values": [
+        "x",
+        null,
+        {}
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [null, null, null, null, null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [null, null, null, null, null, null]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:22",
+    "operator": "$percentile",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$percentile": {
+        "input": "$values",
+        "method": "approximate",
+        "p": [
+          1,
+          0,
+          0.25,
+          0.5,
+          0.75,
+          0.5
+        ]
+      }
+    },
+    "input": {
+      "values": [
+        1,
+        {
+          "$numberDouble": "NaN"
+        },
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"1.0\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"1.0\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:23",
+    "operator": "$percentile",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$percentile": {
+        "input": "$values",
+        "method": "approximate",
+        "p": [
+          1,
+          0,
+          0.25,
+          0.5,
+          0.75,
+          0.5
+        ]
+      }
+    },
+    "input": {
+      "values": [
+        1,
+        {
+          "$numberDouble": "Infinity"
+        },
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"Infinity\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"Infinity\"}, {\"$numberDouble\": \"3.0\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"Infinity\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"Infinity\"}, {\"$numberDouble\": \"3.0\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:24",
+    "operator": "$percentile",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$percentile": {
+        "input": "$values",
+        "method": "approximate",
+        "p": [
+          1,
+          0,
+          0.25,
+          0.5,
+          0.75,
+          0.5
+        ]
+      }
+    },
+    "input": {
+      "values": [
+        {
+          "$numberDecimal": "1.2"
+        },
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"1.2\"}, {\"$numberDouble\": \"1.2\"}, {\"$numberDouble\": \"2.0\"}, {\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"2.0\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"1.2\"}, {\"$numberDouble\": \"1.2\"}, {\"$numberDouble\": \"2.0\"}, {\"$numberDouble\": \"3.0\"}, {\"$numberDouble\": \"2.0\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:25",
+    "operator": "$percentile",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$percentile": {
+        "input": "$values",
+        "method": "approximate",
+        "p": [
+          1,
+          0,
+          0.25,
+          0.5,
+          0.75,
+          0.5
+        ]
+      }
+    },
+    "input": {
+      "values": [
+        1e+100,
+        2e+100,
+        3e+100
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"3.0E100\"}, {\"$numberDouble\": \"1.0E100\"}, {\"$numberDouble\": \"1.0E100\"}, {\"$numberDouble\": \"2.0E100\"}, {\"$numberDouble\": \"3.0E100\"}, {\"$numberDouble\": \"2.0E100\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"3.0E100\"}, {\"$numberDouble\": \"1.0E100\"}, {\"$numberDouble\": \"1.0E100\"}, {\"$numberDouble\": \"2.0E100\"}, {\"$numberDouble\": \"3.0E100\"}, {\"$numberDouble\": \"2.0E100\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:26",
+    "operator": "$percentile",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$percentile": {
+        "input": "$values",
+        "method": "approximate",
+        "p": [
+          1,
+          0,
+          0.25,
+          0.5,
+          0.75,
+          0.5
+        ]
+      }
+    },
+    "input": {
+      "values": [
+        {
+          "$numberDouble": "Infinity"
+        }
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"Infinity\"}, {\"$numberDouble\": \"Infinity\"}, {\"$numberDouble\": \"Infinity\"}, {\"$numberDouble\": \"Infinity\"}, {\"$numberDouble\": \"Infinity\"}, {\"$numberDouble\": \"Infinity\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"Infinity\"}, {\"$numberDouble\": \"Infinity\"}, {\"$numberDouble\": \"Infinity\"}, {\"$numberDouble\": \"Infinity\"}, {\"$numberDouble\": \"Infinity\"}, {\"$numberDouble\": \"Infinity\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:27",
+    "operator": "$percentile",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$percentile": {
+        "input": "$missing",
+        "method": "approximate",
+        "p": [
+          0,
+          0.5,
+          1
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [null, null, null]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [null, null, null]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:59",
+    "operator": "$percentile",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$percentile": {
+        "input": [
+          1,
+          2,
+          3
+        ],
+        "method": "continuous",
+        "p": [
+          0.5
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Currently only 'approximate' can be used as a percentile 'method'.",
+      "code": 2,
+      "error": "BadValue"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "statistics-mongo-cases.json:60",
+    "operator": "$percentile",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$percentile": {
+        "input": [
+          1,
+          2,
+          3
+        ],
+        "method": null,
+        "p": [
+          0.5
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$percentile.method' is missing but a required field",
+      "code": 40414,
+      "error": "IDLFailedToParse"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "statistics-mongo-cases.json:61",
+    "operator": "$percentile",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$percentile": {
+        "input": [
+          1,
+          2,
+          3
+        ],
+        "method": {
+          "$literal": "approximate"
+        },
+        "p": [
+          0.5
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$percentile.method' is the wrong type 'object', expected type 'string'",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "statistics-mongo-cases.json:62",
+    "operator": "$percentile",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$percentile": {
+        "input": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "method": "approximate",
+        "p": []
+      }
+    },
+    "input": {
+      "ps": [
+        0.5
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile p must be an array"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: []",
+      "code": 7750301,
+      "error": "Location7750301"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "statistics-mongo-cases.json:63",
+    "operator": "$percentile",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$percentile": {
+        "input": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "method": "approximate",
+        "p": [
+          -1
+        ]
+      }
+    },
+    "input": {
+      "ps": [
+        0.5
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile p values must be numbers from 0 to 1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: -1",
+      "code": 7750303,
+      "error": "Location7750303"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "statistics-mongo-cases.json:64",
+    "operator": "$percentile",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$percentile": {
+        "input": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "method": "approximate",
+        "p": [
+          1.1
+        ]
+      }
+    },
+    "input": {
+      "ps": [
+        0.5
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile p values must be numbers from 0 to 1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: 1.1",
+      "code": 7750303,
+      "error": "Location7750303"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "statistics-mongo-cases.json:65",
+    "operator": "$percentile",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$percentile": {
+        "input": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "method": "approximate",
+        "p": [
+          "0.5"
+        ]
+      }
+    },
+    "input": {
+      "ps": [
+        0.5
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile p values must be numbers from 0 to 1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: \"0.5\"",
+      "code": 7750302,
+      "error": "Location7750302"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "statistics-mongo-cases.json:66",
+    "operator": "$percentile",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$percentile": {
+        "input": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "method": "approximate",
+        "p": [
+          null
+        ]
+      }
+    },
+    "input": {
+      "ps": [
+        0.5
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile p values must be numbers from 0 to 1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $percentile 'p' field must be an array of numbers from [0.0, 1.0], but found: null",
+      "code": 7750302,
+      "error": "Location7750302"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "statistics-mongo-cases.json:67",
+    "operator": "$percentile",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$percentile": {
+        "input": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "method": "approximate",
+        "p": {
+          "$literal": [
+            0.5
+          ]
+        }
+      }
+    },
+    "input": {
+      "ps": [
+        0.5
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"2.0\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"2.0\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:68",
+    "operator": "$percentile",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$percentile": {
+        "input": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "method": "approximate",
+        "p": "$ps"
+      }
+    },
+    "input": {
+      "ps": [
+        0.5
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$percentile p must be constant"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $percentile 'p' field must be an array of constant values, but found value: \"$ps\".",
+      "code": 7750300,
+      "error": "Location7750300"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "statistics-mongo-cases.json:69",
+    "operator": "$percentile",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$percentile": {
+        "input": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "method": "approximate",
+        "p": [
+          {
+            "$divide": [
+              1,
+              2
+            ]
+          }
+        ]
+      }
+    },
+    "input": {
+      "ps": [
+        0.5
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"2.0\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"2.0\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  }
+]

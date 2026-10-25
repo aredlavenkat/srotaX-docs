@@ -1,0 +1,482 @@
+[
+  {
+    "id": "$type baseline",
+    "operator": "$type",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$type": "hello"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"string\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"string\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$type input: null",
+    "operator": "$type",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$type": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": \"null\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"null\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$type input: missing",
+    "operator": "$type",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$type": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"missing\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"missing\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$type input: zero",
+    "operator": "$type",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$type": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": \"int\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"int\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$type input: negative",
+    "operator": "$type",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$type": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": \"int\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"int\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$type input: decimal",
+    "operator": "$type",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$type": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": \"double\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"double\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$type input: numeric string",
+    "operator": "$type",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$type": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"string\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"string\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$type input: text",
+    "operator": "$type",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$type": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"string\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"string\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$type input: empty string",
+    "operator": "$type",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$type": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": \"string\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"string\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$type input: boolean",
+    "operator": "$type",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$type": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": \"bool\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"bool\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$type input: false",
+    "operator": "$type",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$type": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": \"bool\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"bool\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$type input: typed date",
+    "operator": "$type",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$type": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": \"date\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"date\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$type input: decimal128",
+    "operator": "$type",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$type": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": \"decimal\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"decimal\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$type input: empty array",
+    "operator": "$type",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$type": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": \"array\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"array\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$type input: numeric array",
+    "operator": "$type",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$type": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": \"array\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"array\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$type input: mixed array",
+    "operator": "$type",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$type": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": \"array\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"array\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$type input: nested array",
+    "operator": "$type",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$type": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": \"array\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"array\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$type input: empty object",
+    "operator": "$type",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$type": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": \"object\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"object\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$type input: object",
+    "operator": "$type",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$type": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": \"object\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"object\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$type input: ISO date string",
+    "operator": "$type",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$type": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"string\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"string\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$type empty arguments",
+    "operator": "$type",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$type": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$type requires one argument"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $type takes exactly 1 arguments. 0 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$type unknown option",
+    "operator": "$type",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$type": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"object\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"object\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  }
+]

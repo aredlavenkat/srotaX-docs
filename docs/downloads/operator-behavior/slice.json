@@ -1,0 +1,1409 @@
+[
+  {
+    "id": "$slice baseline",
+    "operator": "$slice",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        1,
+        1
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"2\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$slice array[0]: null",
+    "operator": "$slice",
+    "kind": "null",
+    "operand": "array[0]",
+    "expression": {
+      "$slice": [
+        "$probe",
+        1,
+        1
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice expects first argument to be an array"
+    }
+  },
+  {
+    "id": "$slice array[0]: missing",
+    "operator": "$slice",
+    "kind": "missing",
+    "operand": "array[0]",
+    "expression": {
+      "$slice": [
+        "$probe",
+        1,
+        1
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice expects first argument to be an array"
+    }
+  },
+  {
+    "id": "$slice array[0]: zero",
+    "operator": "$slice",
+    "kind": "zero",
+    "operand": "array[0]",
+    "expression": {
+      "$slice": [
+        "$probe",
+        1,
+        1
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice expects first argument to be an array"
+    }
+  },
+  {
+    "id": "$slice array[0]: negative",
+    "operator": "$slice",
+    "kind": "negative",
+    "operand": "array[0]",
+    "expression": {
+      "$slice": [
+        "$probe",
+        1,
+        1
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice expects first argument to be an array"
+    }
+  },
+  {
+    "id": "$slice array[0]: decimal",
+    "operator": "$slice",
+    "kind": "decimal",
+    "operand": "array[0]",
+    "expression": {
+      "$slice": [
+        "$probe",
+        1,
+        1
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice expects first argument to be an array"
+    }
+  },
+  {
+    "id": "$slice array[0]: numeric string",
+    "operator": "$slice",
+    "kind": "numeric string",
+    "operand": "array[0]",
+    "expression": {
+      "$slice": [
+        "$probe",
+        1,
+        1
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice expects first argument to be an array"
+    }
+  },
+  {
+    "id": "$slice array[0]: text",
+    "operator": "$slice",
+    "kind": "text",
+    "operand": "array[0]",
+    "expression": {
+      "$slice": [
+        "$probe",
+        1,
+        1
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice expects first argument to be an array"
+    }
+  },
+  {
+    "id": "$slice array[0]: empty string",
+    "operator": "$slice",
+    "kind": "empty string",
+    "operand": "array[0]",
+    "expression": {
+      "$slice": [
+        "$probe",
+        1,
+        1
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice expects first argument to be an array"
+    }
+  },
+  {
+    "id": "$slice array[0]: boolean",
+    "operator": "$slice",
+    "kind": "boolean",
+    "operand": "array[0]",
+    "expression": {
+      "$slice": [
+        "$probe",
+        1,
+        1
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice expects first argument to be an array"
+    }
+  },
+  {
+    "id": "$slice array[0]: false",
+    "operator": "$slice",
+    "kind": "false",
+    "operand": "array[0]",
+    "expression": {
+      "$slice": [
+        "$probe",
+        1,
+        1
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice expects first argument to be an array"
+    }
+  },
+  {
+    "id": "$slice array[0]: typed date",
+    "operator": "$slice",
+    "kind": "typed date",
+    "operand": "array[0]",
+    "expression": {
+      "$slice": [
+        "$probe",
+        1,
+        1
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice expects first argument to be an array"
+    }
+  },
+  {
+    "id": "$slice array[0]: decimal128",
+    "operator": "$slice",
+    "kind": "decimal128",
+    "operand": "array[0]",
+    "expression": {
+      "$slice": [
+        "$probe",
+        1,
+        1
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice expects first argument to be an array"
+    }
+  },
+  {
+    "id": "$slice array[0]: empty array",
+    "operator": "$slice",
+    "kind": "empty array",
+    "operand": "array[0]",
+    "expression": {
+      "$slice": [
+        "$probe",
+        1,
+        1
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "fromIndex(1) > toIndex(0)"
+    }
+  },
+  {
+    "id": "$slice array[0]: numeric array",
+    "operator": "$slice",
+    "kind": "numeric array",
+    "operand": "array[0]",
+    "expression": {
+      "$slice": [
+        "$probe",
+        1,
+        1
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"2\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$slice array[0]: mixed array",
+    "operator": "$slice",
+    "kind": "mixed array",
+    "operand": "array[0]",
+    "expression": {
+      "$slice": [
+        "$probe",
+        1,
+        1
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [null]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$slice array[0]: nested array",
+    "operator": "$slice",
+    "kind": "nested array",
+    "operand": "array[0]",
+    "expression": {
+      "$slice": [
+        "$probe",
+        1,
+        1
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"3\"}]]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$slice array[0]: empty object",
+    "operator": "$slice",
+    "kind": "empty object",
+    "operand": "array[0]",
+    "expression": {
+      "$slice": [
+        "$probe",
+        1,
+        1
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice expects first argument to be an array"
+    }
+  },
+  {
+    "id": "$slice array[0]: object",
+    "operator": "$slice",
+    "kind": "object",
+    "operand": "array[0]",
+    "expression": {
+      "$slice": [
+        "$probe",
+        1,
+        1
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice expects first argument to be an array"
+    }
+  },
+  {
+    "id": "$slice array[0]: ISO date string",
+    "operator": "$slice",
+    "kind": "ISO date string",
+    "operand": "array[0]",
+    "expression": {
+      "$slice": [
+        "$probe",
+        1,
+        1
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice expects first argument to be an array"
+    }
+  },
+  {
+    "id": "$slice positionOrCount[1]: null",
+    "operator": "$slice",
+    "kind": "null",
+    "operand": "positionOrCount[1]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice requires numeric skip/limit values"
+    }
+  },
+  {
+    "id": "$slice positionOrCount[1]: missing",
+    "operator": "$slice",
+    "kind": "missing",
+    "operand": "positionOrCount[1]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        "$probe",
+        1
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice requires numeric skip/limit values"
+    }
+  },
+  {
+    "id": "$slice positionOrCount[1]: zero",
+    "operator": "$slice",
+    "kind": "zero",
+    "operand": "positionOrCount[1]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$slice positionOrCount[1]: negative",
+    "operator": "$slice",
+    "kind": "negative",
+    "operand": "positionOrCount[1]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    }
+  },
+  {
+    "id": "$slice positionOrCount[1]: decimal",
+    "operator": "$slice",
+    "kind": "decimal",
+    "operand": "positionOrCount[1]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"3\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$slice positionOrCount[1]: numeric string",
+    "operator": "$slice",
+    "kind": "numeric string",
+    "operand": "positionOrCount[1]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice requires numeric skip/limit values"
+    }
+  },
+  {
+    "id": "$slice positionOrCount[1]: text",
+    "operator": "$slice",
+    "kind": "text",
+    "operand": "positionOrCount[1]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice requires numeric skip/limit values"
+    }
+  },
+  {
+    "id": "$slice positionOrCount[1]: empty string",
+    "operator": "$slice",
+    "kind": "empty string",
+    "operand": "positionOrCount[1]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice requires numeric skip/limit values"
+    }
+  },
+  {
+    "id": "$slice positionOrCount[1]: boolean",
+    "operator": "$slice",
+    "kind": "boolean",
+    "operand": "positionOrCount[1]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice requires numeric skip/limit values"
+    }
+  },
+  {
+    "id": "$slice positionOrCount[1]: false",
+    "operator": "$slice",
+    "kind": "false",
+    "operand": "positionOrCount[1]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice requires numeric skip/limit values"
+    }
+  },
+  {
+    "id": "$slice positionOrCount[1]: typed date",
+    "operator": "$slice",
+    "kind": "typed date",
+    "operand": "positionOrCount[1]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice requires numeric skip/limit values"
+    }
+  },
+  {
+    "id": "$slice positionOrCount[1]: decimal128",
+    "operator": "$slice",
+    "kind": "decimal128",
+    "operand": "positionOrCount[1]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"2\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$slice positionOrCount[1]: empty array",
+    "operator": "$slice",
+    "kind": "empty array",
+    "operand": "positionOrCount[1]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice requires numeric skip/limit values"
+    }
+  },
+  {
+    "id": "$slice positionOrCount[1]: numeric array",
+    "operator": "$slice",
+    "kind": "numeric array",
+    "operand": "positionOrCount[1]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice requires numeric skip/limit values"
+    }
+  },
+  {
+    "id": "$slice positionOrCount[1]: mixed array",
+    "operator": "$slice",
+    "kind": "mixed array",
+    "operand": "positionOrCount[1]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice requires numeric skip/limit values"
+    }
+  },
+  {
+    "id": "$slice positionOrCount[1]: nested array",
+    "operator": "$slice",
+    "kind": "nested array",
+    "operand": "positionOrCount[1]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice requires numeric skip/limit values"
+    }
+  },
+  {
+    "id": "$slice positionOrCount[1]: empty object",
+    "operator": "$slice",
+    "kind": "empty object",
+    "operand": "positionOrCount[1]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice requires numeric skip/limit values"
+    }
+  },
+  {
+    "id": "$slice positionOrCount[1]: object",
+    "operator": "$slice",
+    "kind": "object",
+    "operand": "positionOrCount[1]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice requires numeric skip/limit values"
+    }
+  },
+  {
+    "id": "$slice positionOrCount[1]: ISO date string",
+    "operator": "$slice",
+    "kind": "ISO date string",
+    "operand": "positionOrCount[1]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice requires numeric skip/limit values"
+    }
+  },
+  {
+    "id": "$slice count[2]: null",
+    "operator": "$slice",
+    "kind": "null",
+    "operand": "count[2]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice requires numeric skip/limit values"
+    }
+  },
+  {
+    "id": "$slice count[2]: missing",
+    "operator": "$slice",
+    "kind": "missing",
+    "operand": "count[2]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        1,
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice requires numeric skip/limit values"
+    }
+  },
+  {
+    "id": "$slice count[2]: zero",
+    "operator": "$slice",
+    "kind": "zero",
+    "operand": "count[2]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    }
+  },
+  {
+    "id": "$slice count[2]: negative",
+    "operator": "$slice",
+    "kind": "negative",
+    "operand": "count[2]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    }
+  },
+  {
+    "id": "$slice count[2]: decimal",
+    "operator": "$slice",
+    "kind": "decimal",
+    "operand": "count[2]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$slice count[2]: numeric string",
+    "operator": "$slice",
+    "kind": "numeric string",
+    "operand": "count[2]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice requires numeric skip/limit values"
+    }
+  },
+  {
+    "id": "$slice count[2]: text",
+    "operator": "$slice",
+    "kind": "text",
+    "operand": "count[2]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice requires numeric skip/limit values"
+    }
+  },
+  {
+    "id": "$slice count[2]: empty string",
+    "operator": "$slice",
+    "kind": "empty string",
+    "operand": "count[2]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice requires numeric skip/limit values"
+    }
+  },
+  {
+    "id": "$slice count[2]: boolean",
+    "operator": "$slice",
+    "kind": "boolean",
+    "operand": "count[2]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice requires numeric skip/limit values"
+    }
+  },
+  {
+    "id": "$slice count[2]: false",
+    "operator": "$slice",
+    "kind": "false",
+    "operand": "count[2]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice requires numeric skip/limit values"
+    }
+  },
+  {
+    "id": "$slice count[2]: typed date",
+    "operator": "$slice",
+    "kind": "typed date",
+    "operand": "count[2]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice requires numeric skip/limit values"
+    }
+  },
+  {
+    "id": "$slice count[2]: decimal128",
+    "operator": "$slice",
+    "kind": "decimal128",
+    "operand": "count[2]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"2\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$slice count[2]: empty array",
+    "operator": "$slice",
+    "kind": "empty array",
+    "operand": "count[2]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice requires numeric skip/limit values"
+    }
+  },
+  {
+    "id": "$slice count[2]: numeric array",
+    "operator": "$slice",
+    "kind": "numeric array",
+    "operand": "count[2]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice requires numeric skip/limit values"
+    }
+  },
+  {
+    "id": "$slice count[2]: mixed array",
+    "operator": "$slice",
+    "kind": "mixed array",
+    "operand": "count[2]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice requires numeric skip/limit values"
+    }
+  },
+  {
+    "id": "$slice count[2]: nested array",
+    "operator": "$slice",
+    "kind": "nested array",
+    "operand": "count[2]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice requires numeric skip/limit values"
+    }
+  },
+  {
+    "id": "$slice count[2]: empty object",
+    "operator": "$slice",
+    "kind": "empty object",
+    "operand": "count[2]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice requires numeric skip/limit values"
+    }
+  },
+  {
+    "id": "$slice count[2]: object",
+    "operator": "$slice",
+    "kind": "object",
+    "operand": "count[2]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice requires numeric skip/limit values"
+    }
+  },
+  {
+    "id": "$slice count[2]: ISO date string",
+    "operator": "$slice",
+    "kind": "ISO date string",
+    "operand": "count[2]",
+    "expression": {
+      "$slice": [
+        [
+          1,
+          2,
+          3
+        ],
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice requires numeric skip/limit values"
+    }
+  },
+  {
+    "id": "$slice empty arguments",
+    "operator": "$slice",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$slice": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice expects [array, limit] or [array, skip, limit]"
+    }
+  },
+  {
+    "id": "$slice unknown option",
+    "operator": "$slice",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$slice": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$slice expects [array, limit] or [array, skip, limit]"
+    }
+  }
+]

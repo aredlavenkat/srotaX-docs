@@ -1,0 +1,371 @@
+[
+  {
+    "id": "$toUpper baseline",
+    "operator": "$toUpper",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$toUpper": "Ca"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"CA\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toUpper input: null",
+    "operator": "$toUpper",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$toUpper": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toUpper input: missing",
+    "operator": "$toUpper",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$toUpper": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toUpper input: zero",
+    "operator": "$toUpper",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$toUpper": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$toUpper requires a string."
+    }
+  },
+  {
+    "id": "$toUpper input: negative",
+    "operator": "$toUpper",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$toUpper": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$toUpper requires a string."
+    }
+  },
+  {
+    "id": "$toUpper input: decimal",
+    "operator": "$toUpper",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$toUpper": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$toUpper requires a string."
+    }
+  },
+  {
+    "id": "$toUpper input: numeric string",
+    "operator": "$toUpper",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$toUpper": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"12\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toUpper input: text",
+    "operator": "$toUpper",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$toUpper": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"HELLO\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toUpper input: empty string",
+    "operator": "$toUpper",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$toUpper": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toUpper input: boolean",
+    "operator": "$toUpper",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$toUpper": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$toUpper requires a string."
+    }
+  },
+  {
+    "id": "$toUpper input: false",
+    "operator": "$toUpper",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$toUpper": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$toUpper requires a string."
+    }
+  },
+  {
+    "id": "$toUpper input: typed date",
+    "operator": "$toUpper",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$toUpper": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$toUpper requires a string."
+    }
+  },
+  {
+    "id": "$toUpper input: decimal128",
+    "operator": "$toUpper",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$toUpper": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$toUpper requires a string."
+    }
+  },
+  {
+    "id": "$toUpper input: empty array",
+    "operator": "$toUpper",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$toUpper": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$toUpper requires a string."
+    }
+  },
+  {
+    "id": "$toUpper input: numeric array",
+    "operator": "$toUpper",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$toUpper": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$toUpper requires a string."
+    }
+  },
+  {
+    "id": "$toUpper input: mixed array",
+    "operator": "$toUpper",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$toUpper": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$toUpper requires a string."
+    }
+  },
+  {
+    "id": "$toUpper input: nested array",
+    "operator": "$toUpper",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$toUpper": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$toUpper requires a string."
+    }
+  },
+  {
+    "id": "$toUpper input: empty object",
+    "operator": "$toUpper",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$toUpper": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$toUpper requires a string."
+    }
+  },
+  {
+    "id": "$toUpper input: object",
+    "operator": "$toUpper",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$toUpper": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$toUpper requires a string."
+    }
+  },
+  {
+    "id": "$toUpper input: ISO date string",
+    "operator": "$toUpper",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$toUpper": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2026-01-15T15:00:00Z\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toUpper empty arguments",
+    "operator": "$toUpper",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$toUpper": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$toUpper requires one argument"
+    }
+  },
+  {
+    "id": "$toUpper unknown option",
+    "operator": "$toUpper",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$toUpper": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$toUpper requires a string."
+    }
+  }
+]

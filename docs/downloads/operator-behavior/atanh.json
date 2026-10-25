@@ -1,0 +1,371 @@
+[
+  {
+    "id": "$atanh baseline",
+    "operator": "$atanh",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$atanh": 0
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$atanh input: null",
+    "operator": "$atanh",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$atanh": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atanh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$atanh input: missing",
+    "operator": "$atanh",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$atanh": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atanh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$atanh input: zero",
+    "operator": "$atanh",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$atanh": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$atanh input: negative",
+    "operator": "$atanh",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$atanh": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atanh is defined for values between -1 and 1"
+    }
+  },
+  {
+    "id": "$atanh input: decimal",
+    "operator": "$atanh",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$atanh": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atanh is defined for values between -1 and 1"
+    }
+  },
+  {
+    "id": "$atanh input: numeric string",
+    "operator": "$atanh",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$atanh": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atanh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$atanh input: text",
+    "operator": "$atanh",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$atanh": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atanh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$atanh input: empty string",
+    "operator": "$atanh",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$atanh": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atanh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$atanh input: boolean",
+    "operator": "$atanh",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$atanh": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atanh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$atanh input: false",
+    "operator": "$atanh",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$atanh": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atanh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$atanh input: typed date",
+    "operator": "$atanh",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$atanh": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atanh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$atanh input: decimal128",
+    "operator": "$atanh",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$atanh": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atanh is defined for values between -1 and 1"
+    }
+  },
+  {
+    "id": "$atanh input: empty array",
+    "operator": "$atanh",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$atanh": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atanh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$atanh input: numeric array",
+    "operator": "$atanh",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$atanh": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atanh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$atanh input: mixed array",
+    "operator": "$atanh",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$atanh": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atanh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$atanh input: nested array",
+    "operator": "$atanh",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$atanh": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atanh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$atanh input: empty object",
+    "operator": "$atanh",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$atanh": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atanh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$atanh input: object",
+    "operator": "$atanh",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$atanh": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atanh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$atanh input: ISO date string",
+    "operator": "$atanh",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$atanh": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atanh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$atanh empty arguments",
+    "operator": "$atanh",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$atanh": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atanh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$atanh unknown option",
+    "operator": "$atanh",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$atanh": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atanh expects a numeric argument"
+    }
+  }
+]

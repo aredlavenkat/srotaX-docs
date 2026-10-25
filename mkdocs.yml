@@ -45,6 +45,8 @@ nav:
     - Schema format: reference/schemas.md
     - Flow steps: reference/steps.md
     - Expressions: reference/expressions.md
+    - Statistics and bitwise: reference/array-statistics.md
+    - MongoDB compatibility: reference/mongo-compatibility.md
     - Conditions: reference/conditions.md
     # BEGIN GENERATED OPERATOR NAV
     - Operators:
@@ -96,19 +98,27 @@ nav:
         - "$concatArrays": reference/operators/concatArrays.md
         - "$filter": reference/operators/filter.md
         - "$first": reference/operators/first.md
+        - "$firstN": reference/operators/firstN.md
         - "$indexOfArray": reference/operators/indexOfArray.md
         - "$isArray": reference/operators/isArray.md
         - "$last": reference/operators/last.md
+        - "$lastN": reference/operators/lastN.md
         - "$map": reference/operators/map.md
         - "$max": reference/operators/max.md
+        - "$maxN": reference/operators/maxN.md
         - "$min": reference/operators/min.md
+        - "$minN": reference/operators/minN.md
         - "$objectToArray": reference/operators/objectToArray.md
         - "$range": reference/operators/range.md
         - "$reduce": reference/operators/reduce.md
         - "$reverseArray": reference/operators/reverseArray.md
         - "$size": reference/operators/size.md
         - "$slice": reference/operators/slice.md
+        - "$sortArray": reference/operators/sortArray.md
+        - "$topN": reference/operators/topN.md
         - "$zip": reference/operators/zip.md
+      - "Bitwise":
+        - "$bitNot": reference/operators/bitNot.md
       - "Comparison":
         - "$cmp": reference/operators/cmp.md
         - "$eq": reference/operators/eq.md
@@ -168,6 +178,11 @@ nav:
         - "$setIsSubset": reference/operators/setIsSubset.md
         - "$setIsSuperset": reference/operators/setIsSuperset.md
         - "$setUnion": reference/operators/setUnion.md
+      - "Statistics":
+        - "$median": reference/operators/median.md
+        - "$percentile": reference/operators/percentile.md
+        - "$stdDevPop": reference/operators/stdDevPop.md
+        - "$stdDevSamp": reference/operators/stdDevSamp.md
       - "Text":
         - "$concat": reference/operators/concat.md
         - "$endsWith": reference/operators/endsWith.md
@@ -197,12 +212,14 @@ nav:
         - "$convert": reference/operators/convert.md
         - "$isNumber": reference/operators/isNumber.md
         - "$literal": reference/operators/literal.md
+        - "$toArray": reference/operators/toArray.md
         - "$toBool": reference/operators/toBool.md
         - "$toDate": reference/operators/toDate.md
         - "$toDecimal": reference/operators/toDecimal.md
         - "$toDouble": reference/operators/toDouble.md
         - "$toInt": reference/operators/toInt.md
         - "$toLong": reference/operators/toLong.md
+        - "$toObject": reference/operators/toObject.md
         - "$toObjectId": reference/operators/toObjectId.md
         - "$toString": reference/operators/toString.md
         - "$type": reference/operators/type.md

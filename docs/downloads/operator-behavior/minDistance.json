@@ -1,0 +1,1591 @@
+[
+  {
+    "id": "$minDistance baseline",
+    "operator": "$minDistance",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": [
+          [
+            3,
+            4
+          ]
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"5.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minDistance input: null",
+    "operator": "$minDistance",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$minDistance": {
+        "input": "$probe",
+        "points": [
+          [
+            3,
+            4
+          ]
+        ]
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance expects GeoJSON point arrays [longitude, latitude]"
+    }
+  },
+  {
+    "id": "$minDistance input: missing",
+    "operator": "$minDistance",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$minDistance": {
+        "input": "$probe",
+        "points": [
+          [
+            3,
+            4
+          ]
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance expects GeoJSON point arrays [longitude, latitude]"
+    }
+  },
+  {
+    "id": "$minDistance input: zero",
+    "operator": "$minDistance",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$minDistance": {
+        "input": "$probe",
+        "points": [
+          [
+            3,
+            4
+          ]
+        ]
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance expects GeoJSON point arrays [longitude, latitude]"
+    }
+  },
+  {
+    "id": "$minDistance input: negative",
+    "operator": "$minDistance",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$minDistance": {
+        "input": "$probe",
+        "points": [
+          [
+            3,
+            4
+          ]
+        ]
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance expects GeoJSON point arrays [longitude, latitude]"
+    }
+  },
+  {
+    "id": "$minDistance input: decimal",
+    "operator": "$minDistance",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$minDistance": {
+        "input": "$probe",
+        "points": [
+          [
+            3,
+            4
+          ]
+        ]
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance expects GeoJSON point arrays [longitude, latitude]"
+    }
+  },
+  {
+    "id": "$minDistance input: numeric string",
+    "operator": "$minDistance",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$minDistance": {
+        "input": "$probe",
+        "points": [
+          [
+            3,
+            4
+          ]
+        ]
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance expects GeoJSON point arrays [longitude, latitude]"
+    }
+  },
+  {
+    "id": "$minDistance input: text",
+    "operator": "$minDistance",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$minDistance": {
+        "input": "$probe",
+        "points": [
+          [
+            3,
+            4
+          ]
+        ]
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance expects GeoJSON point arrays [longitude, latitude]"
+    }
+  },
+  {
+    "id": "$minDistance input: empty string",
+    "operator": "$minDistance",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$minDistance": {
+        "input": "$probe",
+        "points": [
+          [
+            3,
+            4
+          ]
+        ]
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance expects GeoJSON point arrays [longitude, latitude]"
+    }
+  },
+  {
+    "id": "$minDistance input: boolean",
+    "operator": "$minDistance",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$minDistance": {
+        "input": "$probe",
+        "points": [
+          [
+            3,
+            4
+          ]
+        ]
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance expects GeoJSON point arrays [longitude, latitude]"
+    }
+  },
+  {
+    "id": "$minDistance input: false",
+    "operator": "$minDistance",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$minDistance": {
+        "input": "$probe",
+        "points": [
+          [
+            3,
+            4
+          ]
+        ]
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance expects GeoJSON point arrays [longitude, latitude]"
+    }
+  },
+  {
+    "id": "$minDistance input: typed date",
+    "operator": "$minDistance",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$minDistance": {
+        "input": "$probe",
+        "points": [
+          [
+            3,
+            4
+          ]
+        ]
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance expects GeoJSON point arrays [longitude, latitude]"
+    }
+  },
+  {
+    "id": "$minDistance input: decimal128",
+    "operator": "$minDistance",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$minDistance": {
+        "input": "$probe",
+        "points": [
+          [
+            3,
+            4
+          ]
+        ]
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance expects GeoJSON point arrays [longitude, latitude]"
+    }
+  },
+  {
+    "id": "$minDistance input: empty array",
+    "operator": "$minDistance",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$minDistance": {
+        "input": "$probe",
+        "points": [
+          [
+            3,
+            4
+          ]
+        ]
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance expects GeoJSON point arrays [longitude, latitude]"
+    }
+  },
+  {
+    "id": "$minDistance input: numeric array",
+    "operator": "$minDistance",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$minDistance": {
+        "input": "$probe",
+        "points": [
+          [
+            3,
+            4
+          ]
+        ]
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.8284271247461903\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minDistance input: mixed array",
+    "operator": "$minDistance",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$minDistance": {
+        "input": "$probe",
+        "points": [
+          [
+            3,
+            4
+          ]
+        ]
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance expects GeoJSON point arrays [longitude, latitude]"
+    }
+  },
+  {
+    "id": "$minDistance input: nested array",
+    "operator": "$minDistance",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$minDistance": {
+        "input": "$probe",
+        "points": [
+          [
+            3,
+            4
+          ]
+        ]
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance expects GeoJSON point arrays [longitude, latitude]"
+    }
+  },
+  {
+    "id": "$minDistance input: empty object",
+    "operator": "$minDistance",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$minDistance": {
+        "input": "$probe",
+        "points": [
+          [
+            3,
+            4
+          ]
+        ]
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance expects GeoJSON point arrays [longitude, latitude]"
+    }
+  },
+  {
+    "id": "$minDistance input: object",
+    "operator": "$minDistance",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$minDistance": {
+        "input": "$probe",
+        "points": [
+          [
+            3,
+            4
+          ]
+        ]
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance expects GeoJSON point arrays [longitude, latitude]"
+    }
+  },
+  {
+    "id": "$minDistance input: ISO date string",
+    "operator": "$minDistance",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$minDistance": {
+        "input": "$probe",
+        "points": [
+          [
+            3,
+            4
+          ]
+        ]
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance expects GeoJSON point arrays [longitude, latitude]"
+    }
+  },
+  {
+    "id": "$minDistance points: null",
+    "operator": "$minDistance",
+    "kind": "null",
+    "operand": "points",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance 'points' must resolve to an array"
+    }
+  },
+  {
+    "id": "$minDistance points: missing",
+    "operator": "$minDistance",
+    "kind": "missing",
+    "operand": "points",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance 'points' must resolve to an array"
+    }
+  },
+  {
+    "id": "$minDistance points: zero",
+    "operator": "$minDistance",
+    "kind": "zero",
+    "operand": "points",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance 'points' must resolve to an array"
+    }
+  },
+  {
+    "id": "$minDistance points: negative",
+    "operator": "$minDistance",
+    "kind": "negative",
+    "operand": "points",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance 'points' must resolve to an array"
+    }
+  },
+  {
+    "id": "$minDistance points: decimal",
+    "operator": "$minDistance",
+    "kind": "decimal",
+    "operand": "points",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance 'points' must resolve to an array"
+    }
+  },
+  {
+    "id": "$minDistance points: numeric string",
+    "operator": "$minDistance",
+    "kind": "numeric string",
+    "operand": "points",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance 'points' must resolve to an array"
+    }
+  },
+  {
+    "id": "$minDistance points: text",
+    "operator": "$minDistance",
+    "kind": "text",
+    "operand": "points",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance 'points' must resolve to an array"
+    }
+  },
+  {
+    "id": "$minDistance points: empty string",
+    "operator": "$minDistance",
+    "kind": "empty string",
+    "operand": "points",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance 'points' must resolve to an array"
+    }
+  },
+  {
+    "id": "$minDistance points: boolean",
+    "operator": "$minDistance",
+    "kind": "boolean",
+    "operand": "points",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance 'points' must resolve to an array"
+    }
+  },
+  {
+    "id": "$minDistance points: false",
+    "operator": "$minDistance",
+    "kind": "false",
+    "operand": "points",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance 'points' must resolve to an array"
+    }
+  },
+  {
+    "id": "$minDistance points: typed date",
+    "operator": "$minDistance",
+    "kind": "typed date",
+    "operand": "points",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance 'points' must resolve to an array"
+    }
+  },
+  {
+    "id": "$minDistance points: decimal128",
+    "operator": "$minDistance",
+    "kind": "decimal128",
+    "operand": "points",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance 'points' must resolve to an array"
+    }
+  },
+  {
+    "id": "$minDistance points: empty array",
+    "operator": "$minDistance",
+    "kind": "empty array",
+    "operand": "points",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minDistance points: numeric array",
+    "operator": "$minDistance",
+    "kind": "numeric array",
+    "operand": "points",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance expects GeoJSON point arrays [longitude, latitude]"
+    }
+  },
+  {
+    "id": "$minDistance points: mixed array",
+    "operator": "$minDistance",
+    "kind": "mixed array",
+    "operand": "points",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance expects GeoJSON point arrays [longitude, latitude]"
+    }
+  },
+  {
+    "id": "$minDistance points: nested array",
+    "operator": "$minDistance",
+    "kind": "nested array",
+    "operand": "points",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance expects GeoJSON point arrays [longitude, latitude]"
+    }
+  },
+  {
+    "id": "$minDistance points: empty object",
+    "operator": "$minDistance",
+    "kind": "empty object",
+    "operand": "points",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance 'points' must resolve to an array"
+    }
+  },
+  {
+    "id": "$minDistance points: object",
+    "operator": "$minDistance",
+    "kind": "object",
+    "operand": "points",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance 'points' must resolve to an array"
+    }
+  },
+  {
+    "id": "$minDistance points: ISO date string",
+    "operator": "$minDistance",
+    "kind": "ISO date string",
+    "operand": "points",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance 'points' must resolve to an array"
+    }
+  },
+  {
+    "id": "$minDistance spherical: null",
+    "operator": "$minDistance",
+    "kind": "null",
+    "operand": "spherical",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": [
+          [
+            3,
+            4
+          ]
+        ],
+        "spherical": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"5.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minDistance spherical: missing",
+    "operator": "$minDistance",
+    "kind": "missing",
+    "operand": "spherical",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": [
+          [
+            3,
+            4
+          ]
+        ],
+        "spherical": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"5.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minDistance spherical: zero",
+    "operator": "$minDistance",
+    "kind": "zero",
+    "operand": "spherical",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": [
+          [
+            3,
+            4
+          ]
+        ],
+        "spherical": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"5.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minDistance spherical: negative",
+    "operator": "$minDistance",
+    "kind": "negative",
+    "operand": "spherical",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": [
+          [
+            3,
+            4
+          ]
+        ],
+        "spherical": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"5.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minDistance spherical: decimal",
+    "operator": "$minDistance",
+    "kind": "decimal",
+    "operand": "spherical",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": [
+          [
+            3,
+            4
+          ]
+        ],
+        "spherical": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"5.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minDistance spherical: numeric string",
+    "operator": "$minDistance",
+    "kind": "numeric string",
+    "operand": "spherical",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": [
+          [
+            3,
+            4
+          ]
+        ],
+        "spherical": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"5.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minDistance spherical: text",
+    "operator": "$minDistance",
+    "kind": "text",
+    "operand": "spherical",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": [
+          [
+            3,
+            4
+          ]
+        ],
+        "spherical": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"5.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minDistance spherical: empty string",
+    "operator": "$minDistance",
+    "kind": "empty string",
+    "operand": "spherical",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": [
+          [
+            3,
+            4
+          ]
+        ],
+        "spherical": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"5.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minDistance spherical: boolean",
+    "operator": "$minDistance",
+    "kind": "boolean",
+    "operand": "spherical",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": [
+          [
+            3,
+            4
+          ]
+        ],
+        "spherical": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"5.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minDistance spherical: false",
+    "operator": "$minDistance",
+    "kind": "false",
+    "operand": "spherical",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": [
+          [
+            3,
+            4
+          ]
+        ],
+        "spherical": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"5.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minDistance spherical: typed date",
+    "operator": "$minDistance",
+    "kind": "typed date",
+    "operand": "spherical",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": [
+          [
+            3,
+            4
+          ]
+        ],
+        "spherical": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"5.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minDistance spherical: decimal128",
+    "operator": "$minDistance",
+    "kind": "decimal128",
+    "operand": "spherical",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": [
+          [
+            3,
+            4
+          ]
+        ],
+        "spherical": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"5.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minDistance spherical: empty array",
+    "operator": "$minDistance",
+    "kind": "empty array",
+    "operand": "spherical",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": [
+          [
+            3,
+            4
+          ]
+        ],
+        "spherical": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"5.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minDistance spherical: numeric array",
+    "operator": "$minDistance",
+    "kind": "numeric array",
+    "operand": "spherical",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": [
+          [
+            3,
+            4
+          ]
+        ],
+        "spherical": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"5.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minDistance spherical: mixed array",
+    "operator": "$minDistance",
+    "kind": "mixed array",
+    "operand": "spherical",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": [
+          [
+            3,
+            4
+          ]
+        ],
+        "spherical": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"5.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minDistance spherical: nested array",
+    "operator": "$minDistance",
+    "kind": "nested array",
+    "operand": "spherical",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": [
+          [
+            3,
+            4
+          ]
+        ],
+        "spherical": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"5.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minDistance spherical: empty object",
+    "operator": "$minDistance",
+    "kind": "empty object",
+    "operand": "spherical",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": [
+          [
+            3,
+            4
+          ]
+        ],
+        "spherical": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"5.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minDistance spherical: object",
+    "operator": "$minDistance",
+    "kind": "object",
+    "operand": "spherical",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": [
+          [
+            3,
+            4
+          ]
+        ],
+        "spherical": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"5.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minDistance spherical: ISO date string",
+    "operator": "$minDistance",
+    "kind": "ISO date string",
+    "operand": "spherical",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": [
+          [
+            3,
+            4
+          ]
+        ],
+        "spherical": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"5.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minDistance omit input",
+    "operator": "$minDistance",
+    "kind": "omitted named argument",
+    "operand": "input",
+    "expression": {
+      "$minDistance": {
+        "points": [
+          [
+            3,
+            4
+          ]
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance requires 'input' and 'points'"
+    }
+  },
+  {
+    "id": "$minDistance omit points",
+    "operator": "$minDistance",
+    "kind": "omitted named argument",
+    "operand": "points",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance requires 'input' and 'points'"
+    }
+  },
+  {
+    "id": "$minDistance omit spherical",
+    "operator": "$minDistance",
+    "kind": "omitted named argument",
+    "operand": "spherical",
+    "expression": {
+      "$minDistance": {
+        "input": [
+          0,
+          0
+        ],
+        "points": [
+          [
+            3,
+            4
+          ]
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"5.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minDistance empty arguments",
+    "operator": "$minDistance",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$minDistance": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance expects an object with 'input' and 'points'"
+    }
+  },
+  {
+    "id": "$minDistance unknown option",
+    "operator": "$minDistance",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$minDistance": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minDistance requires 'input' and 'points'"
+    }
+  }
+]

@@ -2,35 +2,117 @@
 
 Concatenates arrays.
 
-**Category:** Arrays · **Visual function entry:** Yes
+**Category:** Arrays. **Studio Visual entry:** Available. This page describes Core expression execution; Studio also checks field types and authoring permissions.
 
-## Signature (engine metadata)
+## Syntax and arguments
 
-Argument syntax: `POSITIONAL`. Minimum arguments: 0. Maximum: variadic.
+Supply an ordered array of arguments.
 
-| Operand | Accepted types | Required | Evaluation |
+| Argument | Metadata input types | Required | Evaluation |
 | --- | --- | --- | --- |
-| array | ARRAY | True | EXPRESSION |
+| `array` | ARRAY | Yes | Expression evaluated against the input |
 
-Result types: ARRAY, NULL.
+Argument count: minimum 0; maximum variadic.
 
-## Null and missing (engine metadata)
+Declared result types: **ARRAY, NULL**. Actual result types for tested inputs appear below. Metadata is an authoring hint; where a case differs, use the observed result and treat the discrepancy as a limitation.
 
-- Null: Returns null when the required value is null.
-- Missing: Missing required values resolve to null.
+## Example
 
-## Compatibility boundary
+Expression:
+```json
+{
+  "$concatArrays": [
+    [
+      1
+    ],
+    [
+      2
+    ]
+  ]
+}
+```
 
-Classification: `MONGO_6_DIFFERENCES`. Verification scope reported by the engine: `ENGINE_REGRESSION_EXAMPLES`.
+Input document:
+```json
+{}
+```
 
-- Numeric promotion and full BSON edge cases are not exhaustively certified; simple collation only.
+**Observed SrotaX result:** [1,2].
 
-These statements come from the engine catalog. This documentation has not independently certified equivalence against a running MongoDB server.
+## Behavior for different inputs
 
-## Example coverage
+Each table changes **only the indicated argument** from the example above. Other arguments retain their baseline values. Values normally come from the input field `probe`; literal configuration arguments are replaced directly. “Missing” means the field is absent, not explicitly null. Numeric strings are strings, not numbers.
 
-No executable example for this operator is included in the documentation suite yet. Use the signature above and validate your complete expression; do not interpret registration as a guarantee for every argument combination.
+### Argument: `array[0]`
 
-[MongoDB reference linked by engine metadata](https://raw.githubusercontent.com/mongodb/docs/3baea2dd8f2386d64c3c9a6805f625b80d9bacf4/source/reference/operator/aggregation/concatArrays.txt)
+| Input case | Supplied value | SrotaX result |
+| --- | --- | --- |
+| null | null | null |
+| missing | Field absent | null |
+| zero | 0 | Error: IllegalArgumentException — $concatArrays only works with arrays |
+| negative | -2 | Error: IllegalArgumentException — $concatArrays only works with arrays |
+| decimal | 2.5 | Error: IllegalArgumentException — $concatArrays only works with arrays |
+| numeric string | "12" | Error: IllegalArgumentException — $concatArrays only works with arrays |
+| text | "hello" | Error: IllegalArgumentException — $concatArrays only works with arrays |
+| empty string | "" | Error: IllegalArgumentException — $concatArrays only works with arrays |
+| boolean | true | Error: IllegalArgumentException — $concatArrays only works with arrays |
+| false | false | Error: IllegalArgumentException — $concatArrays only works with arrays |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error: IllegalArgumentException — $concatArrays only works with arrays |
+| decimal128 | {"$numberDecimal":"1.25"} | Error: IllegalArgumentException — $concatArrays only works with arrays |
+| empty array | [] | [2] |
+| numeric array | [1,2,3] | [1,2,3,2] |
+| mixed array | [1,null,"x",3] | [1,null,"x",3,2] |
+| nested array | [[1,2],[3]] | [[1,2],[3],2] |
+| empty object | {} | Error: IllegalArgumentException — $concatArrays only works with arrays |
+| object | {"x":1} | Error: IllegalArgumentException — $concatArrays only works with arrays |
+| ISO date string | "2026-01-15T15:00:00Z" | Error: IllegalArgumentException — $concatArrays only works with arrays |
 
-Source revision recorded by engine: `3baea2dd8f2386d64c3c9a6805f625b80d9bacf4`.
+### Argument: `array[1]`
+
+| Input case | Supplied value | SrotaX result |
+| --- | --- | --- |
+| null | null | null |
+| missing | Field absent | null |
+| zero | 0 | Error: IllegalArgumentException — $concatArrays only works with arrays |
+| negative | -2 | Error: IllegalArgumentException — $concatArrays only works with arrays |
+| decimal | 2.5 | Error: IllegalArgumentException — $concatArrays only works with arrays |
+| numeric string | "12" | Error: IllegalArgumentException — $concatArrays only works with arrays |
+| text | "hello" | Error: IllegalArgumentException — $concatArrays only works with arrays |
+| empty string | "" | Error: IllegalArgumentException — $concatArrays only works with arrays |
+| boolean | true | Error: IllegalArgumentException — $concatArrays only works with arrays |
+| false | false | Error: IllegalArgumentException — $concatArrays only works with arrays |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error: IllegalArgumentException — $concatArrays only works with arrays |
+| decimal128 | {"$numberDecimal":"1.25"} | Error: IllegalArgumentException — $concatArrays only works with arrays |
+| empty array | [] | [1] |
+| numeric array | [1,2,3] | [1,1,2,3] |
+| mixed array | [1,null,"x",3] | [1,1,null,"x",3] |
+| nested array | [[1,2],[3]] | [1,[1,2],[3]] |
+| empty object | {} | Error: IllegalArgumentException — $concatArrays only works with arrays |
+| object | {"x":1} | Error: IllegalArgumentException — $concatArrays only works with arrays |
+| ISO date string | "2026-01-15T15:00:00Z" | Error: IllegalArgumentException — $concatArrays only works with arrays |
+
+## Invalid invocation shapes
+
+| Invocation | SrotaX result |
+| --- | --- |
+| {"$concatArrays":[]} | [] |
+| {"$concatArrays":{"unexpected":1}} | Error: IllegalArgumentException — $concatArrays expects a list of arrays |
+
+## Scope and reproducibility
+
+This page records **41 executed cases**. It covers individual argument substitutions, not every cross-product of arguments, locale, daylight-saving transitions, numeric overflow, collation or resource limits. No untested behavior is guaranteed.
+
+[Download exact expressions, inputs and SrotaX results](../../downloads/operator-behavior/concatArrays.json). Errors are observed messages, not stable public error codes. The reference generator reads the checked-in execution report; do not edit generated observations by hand.
+
+<!-- BEGIN MONGO PARITY -->
+## MongoDB differences (removable section)
+
+Compared with **MongoDB 9.0.4**: **14 exact BSON matches**, **27 both rejected**, **0 value/type/acceptance differences**, **0 object-field-order differences**.
+
+“Exact” includes numeric BSON types and object key order. A value of `3` as int32 differs from `3.0` as double. Object-field-order differences are reported separately; object key ordering is not enforced by the engine regression baseline. Both rejected does not mean the error codes or messages match. This is finite-case evidence, not full compatibility certification.
+
+No differences were observed in the compared cases.
+
+[Download full comparison evidence](../../downloads/operator-parity/concatArrays.json).
+
+<!-- END MONGO PARITY -->

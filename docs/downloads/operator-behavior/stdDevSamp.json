@@ -1,0 +1,1683 @@
+[
+  {
+    "id": "$stdDevSamp baseline",
+    "operator": "$stdDevSamp",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        20,
+        30
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"10.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[0]: null",
+    "operator": "$stdDevSamp",
+    "kind": "null",
+    "operand": "value[0]",
+    "expression": {
+      "$stdDevSamp": [
+        "$probe",
+        20,
+        30
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"7.0710678118654755\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[0]: missing",
+    "operator": "$stdDevSamp",
+    "kind": "missing",
+    "operand": "value[0]",
+    "expression": {
+      "$stdDevSamp": [
+        "$probe",
+        20,
+        30
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"7.0710678118654755\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[0]: zero",
+    "operator": "$stdDevSamp",
+    "kind": "zero",
+    "operand": "value[0]",
+    "expression": {
+      "$stdDevSamp": [
+        "$probe",
+        20,
+        30
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"15.275252316519467\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[0]: negative",
+    "operator": "$stdDevSamp",
+    "kind": "negative",
+    "operand": "value[0]",
+    "expression": {
+      "$stdDevSamp": [
+        "$probe",
+        20,
+        30
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"16.3707055437449\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[0]: decimal",
+    "operator": "$stdDevSamp",
+    "kind": "decimal",
+    "operand": "value[0]",
+    "expression": {
+      "$stdDevSamp": [
+        "$probe",
+        20,
+        30
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"13.919410907075054\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[0]: numeric string",
+    "operator": "$stdDevSamp",
+    "kind": "numeric string",
+    "operand": "value[0]",
+    "expression": {
+      "$stdDevSamp": [
+        "$probe",
+        20,
+        30
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"7.0710678118654755\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[0]: text",
+    "operator": "$stdDevSamp",
+    "kind": "text",
+    "operand": "value[0]",
+    "expression": {
+      "$stdDevSamp": [
+        "$probe",
+        20,
+        30
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"7.0710678118654755\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[0]: empty string",
+    "operator": "$stdDevSamp",
+    "kind": "empty string",
+    "operand": "value[0]",
+    "expression": {
+      "$stdDevSamp": [
+        "$probe",
+        20,
+        30
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"7.0710678118654755\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[0]: boolean",
+    "operator": "$stdDevSamp",
+    "kind": "boolean",
+    "operand": "value[0]",
+    "expression": {
+      "$stdDevSamp": [
+        "$probe",
+        20,
+        30
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"7.0710678118654755\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[0]: false",
+    "operator": "$stdDevSamp",
+    "kind": "false",
+    "operand": "value[0]",
+    "expression": {
+      "$stdDevSamp": [
+        "$probe",
+        20,
+        30
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"7.0710678118654755\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[0]: typed date",
+    "operator": "$stdDevSamp",
+    "kind": "typed date",
+    "operand": "value[0]",
+    "expression": {
+      "$stdDevSamp": [
+        "$probe",
+        20,
+        30
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"7.0710678118654755\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[0]: decimal128",
+    "operator": "$stdDevSamp",
+    "kind": "decimal128",
+    "operand": "value[0]",
+    "expression": {
+      "$stdDevSamp": [
+        "$probe",
+        20,
+        30
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"14.595233240114162\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[0]: empty array",
+    "operator": "$stdDevSamp",
+    "kind": "empty array",
+    "operand": "value[0]",
+    "expression": {
+      "$stdDevSamp": [
+        "$probe",
+        20,
+        30
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"7.0710678118654755\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[0]: numeric array",
+    "operator": "$stdDevSamp",
+    "kind": "numeric array",
+    "operand": "value[0]",
+    "expression": {
+      "$stdDevSamp": [
+        "$probe",
+        20,
+        30
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"7.0710678118654755\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[0]: mixed array",
+    "operator": "$stdDevSamp",
+    "kind": "mixed array",
+    "operand": "value[0]",
+    "expression": {
+      "$stdDevSamp": [
+        "$probe",
+        20,
+        30
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"7.0710678118654755\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[0]: nested array",
+    "operator": "$stdDevSamp",
+    "kind": "nested array",
+    "operand": "value[0]",
+    "expression": {
+      "$stdDevSamp": [
+        "$probe",
+        20,
+        30
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"7.0710678118654755\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[0]: empty object",
+    "operator": "$stdDevSamp",
+    "kind": "empty object",
+    "operand": "value[0]",
+    "expression": {
+      "$stdDevSamp": [
+        "$probe",
+        20,
+        30
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"7.0710678118654755\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[0]: object",
+    "operator": "$stdDevSamp",
+    "kind": "object",
+    "operand": "value[0]",
+    "expression": {
+      "$stdDevSamp": [
+        "$probe",
+        20,
+        30
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"7.0710678118654755\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[0]: ISO date string",
+    "operator": "$stdDevSamp",
+    "kind": "ISO date string",
+    "operand": "value[0]",
+    "expression": {
+      "$stdDevSamp": [
+        "$probe",
+        20,
+        30
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"7.0710678118654755\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[1]: null",
+    "operator": "$stdDevSamp",
+    "kind": "null",
+    "operand": "value[1]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        "$probe",
+        30
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"14.142135623730951\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[1]: missing",
+    "operator": "$stdDevSamp",
+    "kind": "missing",
+    "operand": "value[1]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        "$probe",
+        30
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"14.142135623730951\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[1]: zero",
+    "operator": "$stdDevSamp",
+    "kind": "zero",
+    "operand": "value[1]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        "$probe",
+        30
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"15.275252316519467\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[1]: negative",
+    "operator": "$stdDevSamp",
+    "kind": "negative",
+    "operand": "value[1]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        "$probe",
+        30
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"16.165807537309522\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[1]: decimal",
+    "operator": "$stdDevSamp",
+    "kind": "decimal",
+    "operand": "value[1]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        "$probe",
+        30
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"14.215601757693317\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[1]: numeric string",
+    "operator": "$stdDevSamp",
+    "kind": "numeric string",
+    "operand": "value[1]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        "$probe",
+        30
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"14.142135623730951\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[1]: text",
+    "operator": "$stdDevSamp",
+    "kind": "text",
+    "operand": "value[1]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        "$probe",
+        30
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"14.142135623730951\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[1]: empty string",
+    "operator": "$stdDevSamp",
+    "kind": "empty string",
+    "operand": "value[1]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        "$probe",
+        30
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"14.142135623730951\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[1]: boolean",
+    "operator": "$stdDevSamp",
+    "kind": "boolean",
+    "operand": "value[1]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        "$probe",
+        30
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"14.142135623730951\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[1]: false",
+    "operator": "$stdDevSamp",
+    "kind": "false",
+    "operand": "value[1]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        "$probe",
+        30
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"14.142135623730951\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[1]: typed date",
+    "operator": "$stdDevSamp",
+    "kind": "typed date",
+    "operand": "value[1]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        "$probe",
+        30
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"14.142135623730951\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[1]: decimal128",
+    "operator": "$stdDevSamp",
+    "kind": "decimal128",
+    "operand": "value[1]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        "$probe",
+        30
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"14.737282653189496\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[1]: empty array",
+    "operator": "$stdDevSamp",
+    "kind": "empty array",
+    "operand": "value[1]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        "$probe",
+        30
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"14.142135623730951\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[1]: numeric array",
+    "operator": "$stdDevSamp",
+    "kind": "numeric array",
+    "operand": "value[1]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        "$probe",
+        30
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"14.142135623730951\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[1]: mixed array",
+    "operator": "$stdDevSamp",
+    "kind": "mixed array",
+    "operand": "value[1]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        "$probe",
+        30
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"14.142135623730951\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[1]: nested array",
+    "operator": "$stdDevSamp",
+    "kind": "nested array",
+    "operand": "value[1]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        "$probe",
+        30
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"14.142135623730951\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[1]: empty object",
+    "operator": "$stdDevSamp",
+    "kind": "empty object",
+    "operand": "value[1]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        "$probe",
+        30
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"14.142135623730951\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[1]: object",
+    "operator": "$stdDevSamp",
+    "kind": "object",
+    "operand": "value[1]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        "$probe",
+        30
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"14.142135623730951\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[1]: ISO date string",
+    "operator": "$stdDevSamp",
+    "kind": "ISO date string",
+    "operand": "value[1]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        "$probe",
+        30
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"14.142135623730951\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[2]: null",
+    "operator": "$stdDevSamp",
+    "kind": "null",
+    "operand": "value[2]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        20,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"7.0710678118654755\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[2]: missing",
+    "operator": "$stdDevSamp",
+    "kind": "missing",
+    "operand": "value[2]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        20,
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"7.0710678118654755\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[2]: zero",
+    "operator": "$stdDevSamp",
+    "kind": "zero",
+    "operand": "value[2]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        20,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"10.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[2]: negative",
+    "operator": "$stdDevSamp",
+    "kind": "negative",
+    "operand": "value[2]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        20,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"11.015141094572204\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[2]: decimal",
+    "operator": "$stdDevSamp",
+    "kind": "decimal",
+    "operand": "value[2]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        20,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"8.779711460710615\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[2]: numeric string",
+    "operator": "$stdDevSamp",
+    "kind": "numeric string",
+    "operand": "value[2]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        20,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"7.0710678118654755\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[2]: text",
+    "operator": "$stdDevSamp",
+    "kind": "text",
+    "operand": "value[2]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        20,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"7.0710678118654755\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[2]: empty string",
+    "operator": "$stdDevSamp",
+    "kind": "empty string",
+    "operand": "value[2]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        20,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"7.0710678118654755\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[2]: boolean",
+    "operator": "$stdDevSamp",
+    "kind": "boolean",
+    "operand": "value[2]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        20,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"7.0710678118654755\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[2]: false",
+    "operator": "$stdDevSamp",
+    "kind": "false",
+    "operand": "value[2]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        20,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"7.0710678118654755\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[2]: typed date",
+    "operator": "$stdDevSamp",
+    "kind": "typed date",
+    "operand": "value[2]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        20,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"7.0710678118654755\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[2]: decimal128",
+    "operator": "$stdDevSamp",
+    "kind": "decimal128",
+    "operand": "value[2]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        20,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"9.38194187433142\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[2]: empty array",
+    "operator": "$stdDevSamp",
+    "kind": "empty array",
+    "operand": "value[2]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        20,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"7.0710678118654755\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[2]: numeric array",
+    "operator": "$stdDevSamp",
+    "kind": "numeric array",
+    "operand": "value[2]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        20,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"7.0710678118654755\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[2]: mixed array",
+    "operator": "$stdDevSamp",
+    "kind": "mixed array",
+    "operand": "value[2]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        20,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"7.0710678118654755\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[2]: nested array",
+    "operator": "$stdDevSamp",
+    "kind": "nested array",
+    "operand": "value[2]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        20,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"7.0710678118654755\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[2]: empty object",
+    "operator": "$stdDevSamp",
+    "kind": "empty object",
+    "operand": "value[2]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        20,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"7.0710678118654755\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[2]: object",
+    "operator": "$stdDevSamp",
+    "kind": "object",
+    "operand": "value[2]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        20,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"7.0710678118654755\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp value[2]: ISO date string",
+    "operator": "$stdDevSamp",
+    "kind": "ISO date string",
+    "operand": "value[2]",
+    "expression": {
+      "$stdDevSamp": [
+        10,
+        20,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"7.0710678118654755\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp empty arguments",
+    "operator": "$stdDevSamp",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$stdDevSamp": []
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$stdDevSamp unknown option",
+    "operator": "$stdDevSamp",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$stdDevSamp": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "statistics-mongo-cases.json:42",
+    "operator": "$stdDevSamp",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$stdDevSamp": "$values"
+    },
+    "input": {
+      "values": [
+        10,
+        20,
+        30
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"10.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "statistics-mongo-cases.json:43",
+    "operator": "$stdDevSamp",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$stdDevSamp": "$values"
+    },
+    "input": {
+      "values": [
+        10,
+        20,
+        30,
+        40
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"12.909944487358056\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "statistics-mongo-cases.json:44",
+    "operator": "$stdDevSamp",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$stdDevSamp": "$values"
+    },
+    "input": {
+      "values": []
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "statistics-mongo-cases.json:45",
+    "operator": "$stdDevSamp",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$stdDevSamp": "$values"
+    },
+    "input": {
+      "values": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "statistics-mongo-cases.json:46",
+    "operator": "$stdDevSamp",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$stdDevSamp": "$values"
+    },
+    "input": {
+      "values": 5
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "statistics-mongo-cases.json:47",
+    "operator": "$stdDevSamp",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$stdDevSamp": "$values"
+    },
+    "input": {
+      "values": [
+        1,
+        "x",
+        null,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.4142135623730951\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "statistics-mongo-cases.json:48",
+    "operator": "$stdDevSamp",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$stdDevSamp": "$values"
+    },
+    "input": {
+      "values": [
+        1,
+        [
+          50
+        ],
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.4142135623730951\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "statistics-mongo-cases.json:49",
+    "operator": "$stdDevSamp",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$stdDevSamp": "$values"
+    },
+    "input": {
+      "values": [
+        "x",
+        null,
+        {}
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "statistics-mongo-cases.json:50",
+    "operator": "$stdDevSamp",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$stdDevSamp": "$values"
+    },
+    "input": {
+      "values": [
+        1,
+        {
+          "$numberDouble": "NaN"
+        },
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"NaN\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "statistics-mongo-cases.json:51",
+    "operator": "$stdDevSamp",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$stdDevSamp": "$values"
+    },
+    "input": {
+      "values": [
+        1,
+        {
+          "$numberDouble": "Infinity"
+        },
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"NaN\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "statistics-mongo-cases.json:52",
+    "operator": "$stdDevSamp",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$stdDevSamp": "$values"
+    },
+    "input": {
+      "values": [
+        {
+          "$numberDecimal": "1.2"
+        },
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.9018499505645787\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "statistics-mongo-cases.json:53",
+    "operator": "$stdDevSamp",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$stdDevSamp": "$values"
+    },
+    "input": {
+      "values": [
+        1e+100,
+        2e+100,
+        3e+100
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"9.999999999999998E99\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "statistics-mongo-cases.json:54",
+    "operator": "$stdDevSamp",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$stdDevSamp": "$values"
+    },
+    "input": {
+      "values": [
+        {
+          "$numberDouble": "Infinity"
+        }
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "statistics-mongo-cases.json:55",
+    "operator": "$stdDevSamp",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$stdDevSamp": "$missing"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "statistics-mongo-cases.json:77",
+    "operator": "$stdDevSamp",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$stdDevSamp": []
+    },
+    "input": {
+      "values": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "statistics-mongo-cases.json:78",
+    "operator": "$stdDevSamp",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$stdDevSamp": [
+        1
+      ]
+    },
+    "input": {
+      "values": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "statistics-mongo-cases.json:79",
+    "operator": "$stdDevSamp",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$stdDevSamp": [
+        1,
+        2,
+        3
+      ]
+    },
+    "input": {
+      "values": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "statistics-mongo-cases.json:80",
+    "operator": "$stdDevSamp",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$stdDevSamp": [
+        "$values"
+      ]
+    },
+    "input": {
+      "values": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "statistics-mongo-cases.json:81",
+    "operator": "$stdDevSamp",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$stdDevSamp": [
+        "$values",
+        7
+      ]
+    },
+    "input": {
+      "values": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "statistics-mongo-cases.json:82",
+    "operator": "$stdDevSamp",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$stdDevSamp": [
+        null,
+        "x"
+      ]
+    },
+    "input": {
+      "values": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "statistics-mongo-cases.json:83",
+    "operator": "$stdDevSamp",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$stdDevSamp": [
+        1e+16,
+        1.0000000000000002e+16,
+        1.0000000000000004e+16
+      ]
+    },
+    "input": {
+      "values": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.449489742783178\"}}",
+      "present": true
+    }
+  }
+]

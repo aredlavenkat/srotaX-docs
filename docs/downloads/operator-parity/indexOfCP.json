@@ -1,0 +1,1048 @@
+[
+  {
+    "id": "$indexOfCP baseline",
+    "operator": "$indexOfCP",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$indexOfCP": [
+        "hello",
+        "ll"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfCP input[0]: null",
+    "operator": "$indexOfCP",
+    "kind": "null",
+    "operand": "input[0]",
+    "expression": {
+      "$indexOfCP": [
+        "$probe",
+        "ll"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfCP input[0]: missing",
+    "operator": "$indexOfCP",
+    "kind": "missing",
+    "operand": "input[0]",
+    "expression": {
+      "$indexOfCP": [
+        "$probe",
+        "ll"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfCP input[0]: zero",
+    "operator": "$indexOfCP",
+    "kind": "zero",
+    "operand": "input[0]",
+    "expression": {
+      "$indexOfCP": [
+        "$probe",
+        "ll"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfCP input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfCP requires a string as the first argument, found: int",
+      "code": 40093,
+      "error": "Location40093"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfCP input[0]: negative",
+    "operator": "$indexOfCP",
+    "kind": "negative",
+    "operand": "input[0]",
+    "expression": {
+      "$indexOfCP": [
+        "$probe",
+        "ll"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfCP input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfCP requires a string as the first argument, found: int",
+      "code": 40093,
+      "error": "Location40093"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfCP input[0]: decimal",
+    "operator": "$indexOfCP",
+    "kind": "decimal",
+    "operand": "input[0]",
+    "expression": {
+      "$indexOfCP": [
+        "$probe",
+        "ll"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfCP input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfCP requires a string as the first argument, found: double",
+      "code": 40093,
+      "error": "Location40093"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfCP input[0]: numeric string",
+    "operator": "$indexOfCP",
+    "kind": "numeric string",
+    "operand": "input[0]",
+    "expression": {
+      "$indexOfCP": [
+        "$probe",
+        "ll"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfCP input[0]: text",
+    "operator": "$indexOfCP",
+    "kind": "text",
+    "operand": "input[0]",
+    "expression": {
+      "$indexOfCP": [
+        "$probe",
+        "ll"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfCP input[0]: empty string",
+    "operator": "$indexOfCP",
+    "kind": "empty string",
+    "operand": "input[0]",
+    "expression": {
+      "$indexOfCP": [
+        "$probe",
+        "ll"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfCP input[0]: boolean",
+    "operator": "$indexOfCP",
+    "kind": "boolean",
+    "operand": "input[0]",
+    "expression": {
+      "$indexOfCP": [
+        "$probe",
+        "ll"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfCP input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfCP requires a string as the first argument, found: bool",
+      "code": 40093,
+      "error": "Location40093"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfCP input[0]: false",
+    "operator": "$indexOfCP",
+    "kind": "false",
+    "operand": "input[0]",
+    "expression": {
+      "$indexOfCP": [
+        "$probe",
+        "ll"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfCP input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfCP requires a string as the first argument, found: bool",
+      "code": 40093,
+      "error": "Location40093"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfCP input[0]: typed date",
+    "operator": "$indexOfCP",
+    "kind": "typed date",
+    "operand": "input[0]",
+    "expression": {
+      "$indexOfCP": [
+        "$probe",
+        "ll"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfCP input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfCP requires a string as the first argument, found: date",
+      "code": 40093,
+      "error": "Location40093"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfCP input[0]: decimal128",
+    "operator": "$indexOfCP",
+    "kind": "decimal128",
+    "operand": "input[0]",
+    "expression": {
+      "$indexOfCP": [
+        "$probe",
+        "ll"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfCP input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfCP requires a string as the first argument, found: decimal",
+      "code": 40093,
+      "error": "Location40093"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfCP input[0]: empty array",
+    "operator": "$indexOfCP",
+    "kind": "empty array",
+    "operand": "input[0]",
+    "expression": {
+      "$indexOfCP": [
+        "$probe",
+        "ll"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfCP input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfCP requires a string as the first argument, found: array",
+      "code": 40093,
+      "error": "Location40093"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfCP input[0]: numeric array",
+    "operator": "$indexOfCP",
+    "kind": "numeric array",
+    "operand": "input[0]",
+    "expression": {
+      "$indexOfCP": [
+        "$probe",
+        "ll"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfCP input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfCP requires a string as the first argument, found: array",
+      "code": 40093,
+      "error": "Location40093"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfCP input[0]: mixed array",
+    "operator": "$indexOfCP",
+    "kind": "mixed array",
+    "operand": "input[0]",
+    "expression": {
+      "$indexOfCP": [
+        "$probe",
+        "ll"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfCP input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfCP requires a string as the first argument, found: array",
+      "code": 40093,
+      "error": "Location40093"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfCP input[0]: nested array",
+    "operator": "$indexOfCP",
+    "kind": "nested array",
+    "operand": "input[0]",
+    "expression": {
+      "$indexOfCP": [
+        "$probe",
+        "ll"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfCP input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfCP requires a string as the first argument, found: array",
+      "code": 40093,
+      "error": "Location40093"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfCP input[0]: empty object",
+    "operator": "$indexOfCP",
+    "kind": "empty object",
+    "operand": "input[0]",
+    "expression": {
+      "$indexOfCP": [
+        "$probe",
+        "ll"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfCP input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfCP requires a string as the first argument, found: object",
+      "code": 40093,
+      "error": "Location40093"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfCP input[0]: object",
+    "operator": "$indexOfCP",
+    "kind": "object",
+    "operand": "input[0]",
+    "expression": {
+      "$indexOfCP": [
+        "$probe",
+        "ll"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfCP input must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfCP requires a string as the first argument, found: object",
+      "code": 40093,
+      "error": "Location40093"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfCP input[0]: ISO date string",
+    "operator": "$indexOfCP",
+    "kind": "ISO date string",
+    "operand": "input[0]",
+    "expression": {
+      "$indexOfCP": [
+        "$probe",
+        "ll"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfCP search[1]: null",
+    "operator": "$indexOfCP",
+    "kind": "null",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfCP": [
+        "hello",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfCP substring must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfCP requires a string as the second argument, found: null",
+      "code": 40094,
+      "error": "Location40094"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfCP search[1]: missing",
+    "operator": "$indexOfCP",
+    "kind": "missing",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfCP": [
+        "hello",
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfCP substring must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfCP requires a string as the second argument, found: missing",
+      "code": 40094,
+      "error": "Location40094"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfCP search[1]: zero",
+    "operator": "$indexOfCP",
+    "kind": "zero",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfCP": [
+        "hello",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfCP substring must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfCP requires a string as the second argument, found: int",
+      "code": 40094,
+      "error": "Location40094"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfCP search[1]: negative",
+    "operator": "$indexOfCP",
+    "kind": "negative",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfCP": [
+        "hello",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfCP substring must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfCP requires a string as the second argument, found: int",
+      "code": 40094,
+      "error": "Location40094"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfCP search[1]: decimal",
+    "operator": "$indexOfCP",
+    "kind": "decimal",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfCP": [
+        "hello",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfCP substring must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfCP requires a string as the second argument, found: double",
+      "code": 40094,
+      "error": "Location40094"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfCP search[1]: numeric string",
+    "operator": "$indexOfCP",
+    "kind": "numeric string",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfCP": [
+        "hello",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfCP search[1]: text",
+    "operator": "$indexOfCP",
+    "kind": "text",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfCP": [
+        "hello",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfCP search[1]: empty string",
+    "operator": "$indexOfCP",
+    "kind": "empty string",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfCP": [
+        "hello",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfCP search[1]: boolean",
+    "operator": "$indexOfCP",
+    "kind": "boolean",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfCP": [
+        "hello",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfCP substring must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfCP requires a string as the second argument, found: bool",
+      "code": 40094,
+      "error": "Location40094"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfCP search[1]: false",
+    "operator": "$indexOfCP",
+    "kind": "false",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfCP": [
+        "hello",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfCP substring must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfCP requires a string as the second argument, found: bool",
+      "code": 40094,
+      "error": "Location40094"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfCP search[1]: typed date",
+    "operator": "$indexOfCP",
+    "kind": "typed date",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfCP": [
+        "hello",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfCP substring must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfCP requires a string as the second argument, found: date",
+      "code": 40094,
+      "error": "Location40094"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfCP search[1]: decimal128",
+    "operator": "$indexOfCP",
+    "kind": "decimal128",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfCP": [
+        "hello",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfCP substring must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfCP requires a string as the second argument, found: decimal",
+      "code": 40094,
+      "error": "Location40094"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfCP search[1]: empty array",
+    "operator": "$indexOfCP",
+    "kind": "empty array",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfCP": [
+        "hello",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfCP substring must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfCP requires a string as the second argument, found: array",
+      "code": 40094,
+      "error": "Location40094"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfCP search[1]: numeric array",
+    "operator": "$indexOfCP",
+    "kind": "numeric array",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfCP": [
+        "hello",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfCP substring must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfCP requires a string as the second argument, found: array",
+      "code": 40094,
+      "error": "Location40094"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfCP search[1]: mixed array",
+    "operator": "$indexOfCP",
+    "kind": "mixed array",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfCP": [
+        "hello",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfCP substring must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfCP requires a string as the second argument, found: array",
+      "code": 40094,
+      "error": "Location40094"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfCP search[1]: nested array",
+    "operator": "$indexOfCP",
+    "kind": "nested array",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfCP": [
+        "hello",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfCP substring must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfCP requires a string as the second argument, found: array",
+      "code": 40094,
+      "error": "Location40094"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfCP search[1]: empty object",
+    "operator": "$indexOfCP",
+    "kind": "empty object",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfCP": [
+        "hello",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfCP substring must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfCP requires a string as the second argument, found: object",
+      "code": 40094,
+      "error": "Location40094"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfCP search[1]: object",
+    "operator": "$indexOfCP",
+    "kind": "object",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfCP": [
+        "hello",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfCP substring must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfCP requires a string as the second argument, found: object",
+      "code": 40094,
+      "error": "Location40094"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfCP search[1]: ISO date string",
+    "operator": "$indexOfCP",
+    "kind": "ISO date string",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfCP": [
+        "hello",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfCP empty arguments",
+    "operator": "$indexOfCP",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$indexOfCP": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfCP requires two to four arguments"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $indexOfCP takes at least 2 arguments, and at most 4, but 0 were passed in.",
+      "code": 28667,
+      "error": "Location28667"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfCP unknown option",
+    "operator": "$indexOfCP",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$indexOfCP": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfCP requires two to four arguments"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $indexOfCP takes at least 2 arguments, and at most 4, but 1 were passed in.",
+      "code": 28667,
+      "error": "Location28667"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

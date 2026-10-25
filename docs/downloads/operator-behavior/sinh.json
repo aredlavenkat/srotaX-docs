@@ -1,0 +1,371 @@
+[
+  {
+    "id": "$sinh baseline",
+    "operator": "$sinh",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$sinh": 0
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sinh input: null",
+    "operator": "$sinh",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$sinh": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sinh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$sinh input: missing",
+    "operator": "$sinh",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$sinh": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sinh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$sinh input: zero",
+    "operator": "$sinh",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$sinh": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sinh input: negative",
+    "operator": "$sinh",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$sinh": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"-3.626860407847019\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sinh input: decimal",
+    "operator": "$sinh",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$sinh": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"6.0502044810397875\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sinh input: numeric string",
+    "operator": "$sinh",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$sinh": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sinh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$sinh input: text",
+    "operator": "$sinh",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$sinh": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sinh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$sinh input: empty string",
+    "operator": "$sinh",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$sinh": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sinh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$sinh input: boolean",
+    "operator": "$sinh",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$sinh": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sinh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$sinh input: false",
+    "operator": "$sinh",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$sinh": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sinh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$sinh input: typed date",
+    "operator": "$sinh",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$sinh": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sinh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$sinh input: decimal128",
+    "operator": "$sinh",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$sinh": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.6019190803008256\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sinh input: empty array",
+    "operator": "$sinh",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$sinh": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sinh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$sinh input: numeric array",
+    "operator": "$sinh",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$sinh": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sinh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$sinh input: mixed array",
+    "operator": "$sinh",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$sinh": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sinh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$sinh input: nested array",
+    "operator": "$sinh",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$sinh": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sinh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$sinh input: empty object",
+    "operator": "$sinh",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$sinh": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sinh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$sinh input: object",
+    "operator": "$sinh",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$sinh": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sinh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$sinh input: ISO date string",
+    "operator": "$sinh",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$sinh": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sinh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$sinh empty arguments",
+    "operator": "$sinh",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$sinh": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sinh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$sinh unknown option",
+    "operator": "$sinh",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$sinh": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sinh expects a numeric argument"
+    }
+  }
+]

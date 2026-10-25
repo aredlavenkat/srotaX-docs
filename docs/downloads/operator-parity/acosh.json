@@ -1,0 +1,498 @@
+[
+  {
+    "id": "$acosh baseline",
+    "operator": "$acosh",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$acosh": 1
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$acosh input: null",
+    "operator": "$acosh",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$acosh input: missing",
+    "operator": "$acosh",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$acosh input: zero",
+    "operator": "$acosh",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh is undefined for values less than 1"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: cannot apply $acosh to 0, value must be in [1,inf]",
+      "code": 50989,
+      "error": "Location50989"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$acosh input: negative",
+    "operator": "$acosh",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh is undefined for values less than 1"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: cannot apply $acosh to -2, value must be in [1,inf]",
+      "code": 50989,
+      "error": "Location50989"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$acosh input: decimal",
+    "operator": "$acosh",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.566799236972411\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.566799236972411\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$acosh input: numeric string",
+    "operator": "$acosh",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $acosh only supports numeric types, not string",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$acosh input: text",
+    "operator": "$acosh",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $acosh only supports numeric types, not string",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$acosh input: empty string",
+    "operator": "$acosh",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $acosh only supports numeric types, not string",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$acosh input: boolean",
+    "operator": "$acosh",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $acosh only supports numeric types, not bool",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$acosh input: false",
+    "operator": "$acosh",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $acosh only supports numeric types, not bool",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$acosh input: typed date",
+    "operator": "$acosh",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $acosh only supports numeric types, not date",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$acosh input: decimal128",
+    "operator": "$acosh",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.6931471805599453\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"0.6931471805599453094172321214581766\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$acosh input: empty array",
+    "operator": "$acosh",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $acosh only supports numeric types, not array",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$acosh input: numeric array",
+    "operator": "$acosh",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $acosh only supports numeric types, not array",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$acosh input: mixed array",
+    "operator": "$acosh",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $acosh only supports numeric types, not array",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$acosh input: nested array",
+    "operator": "$acosh",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $acosh only supports numeric types, not array",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$acosh input: empty object",
+    "operator": "$acosh",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $acosh only supports numeric types, not object",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$acosh input: object",
+    "operator": "$acosh",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $acosh only supports numeric types, not object",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$acosh input: ISO date string",
+    "operator": "$acosh",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $acosh only supports numeric types, not string",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$acosh empty arguments",
+    "operator": "$acosh",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$acosh": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $acosh takes exactly 1 arguments. 0 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$acosh unknown option",
+    "operator": "$acosh",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$acosh": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    },
+    "mongo": {
+      "message": "Failed to optimize pipeline :: caused by :: $acosh only supports numeric types, not object",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

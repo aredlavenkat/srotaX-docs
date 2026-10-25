@@ -231,5 +231,217 @@
       ]
     },
     "expected": true
+  },
+  {
+    "operator": "$median",
+    "expression": {
+      "$median": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "method": "approximate"
+      }
+    },
+    "expected": 20
+  },
+  {
+    "operator": "$percentile",
+    "expression": {
+      "$percentile": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "p": [
+          0,
+          0.5,
+          1
+        ],
+        "method": "approximate"
+      }
+    },
+    "expected": [
+      10.0,
+      20.0,
+      40.0
+    ]
+  },
+  {
+    "operator": "$stdDevPop",
+    "expression": {
+      "$stdDevPop": {
+        "$literal": [
+          10,
+          10,
+          10
+        ]
+      }
+    },
+    "expected": 0
+  },
+  {
+    "operator": "$stdDevSamp",
+    "expression": {
+      "$stdDevSamp": {
+        "$literal": [
+          10,
+          20,
+          30
+        ]
+      }
+    },
+    "expected": 10
+  },
+  {
+    "operator": "$bitNot",
+    "expression": {
+      "$bitNot": {
+        "$toInt": 5
+      }
+    },
+    "expected": -6
+  },
+  {
+    "operator": "$topN",
+    "expression": {
+      "$topN": {
+        "input": [
+          {
+            "price": 50
+          },
+          {
+            "price": 300
+          },
+          {
+            "price": 25
+          }
+        ],
+        "sortBy": {
+          "price": -1
+        },
+        "n": 2
+      }
+    },
+    "expected": [
+      {
+        "price": 300
+      },
+      {
+        "price": 50
+      }
+    ]
+  },
+  {
+    "operator": "$convert",
+    "expression": {
+      "$convert": {
+        "input": "not a number",
+        "to": "int",
+        "onError": 0,
+        "onNull": 0
+      }
+    },
+    "expected": 0
+  },
+  {
+    "operator": "$toArray",
+    "expression": {
+      "$toArray": "[1,2,3]"
+    },
+    "expected": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "operator": "$toObject",
+    "expression": {
+      "$toObject": "{\"name\":\"Alex\"}"
+    },
+    "expected": {
+      "name": "Alex"
+    }
+  },
+  {
+    "operator": "$convert",
+    "expression": {
+      "$convert": {
+        "input": "[1,2]",
+        "to": "array",
+        "onError": []
+      }
+    },
+    "expected": [
+      1,
+      2
+    ]
+  },
+  {
+    "operator": "$convert",
+    "expression": {
+      "$convert": {
+        "input": "{\"x\":1}",
+        "to": "object"
+      }
+    },
+    "expected": {
+      "x": 1
+    }
+  },
+  {
+    "operator": "$convert",
+    "expression": {
+      "$convert": {
+        "input": 0,
+        "to": "bool"
+      }
+    },
+    "expected": false
+  },
+  {
+    "operator": "$convert",
+    "expression": {
+      "$convert": {
+        "input": 1,
+        "to": "bool"
+      }
+    },
+    "expected": true
+  },
+  {
+    "operator": "$convert",
+    "expression": {
+      "$convert": {
+        "input": "false",
+        "to": "bool"
+      }
+    },
+    "expected": true
+  },
+  {
+    "operator": "$convert",
+    "expression": {
+      "$convert": {
+        "input": "",
+        "to": "bool"
+      }
+    },
+    "expected": true
+  },
+  {
+    "operator": "$convert",
+    "expression": {
+      "$convert": {
+        "input": null,
+        "to": "bool"
+      }
+    },
+    "expected": null
   }
 ]

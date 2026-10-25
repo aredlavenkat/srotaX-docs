@@ -2,35 +2,86 @@
 
 Counts bytes in text or supported binary values.
 
-**Category:** Types and conversion · **Visual function entry:** Yes
+**Category:** Types and conversion. **Studio Visual entry:** Available. This page describes Core expression execution; Studio also checks field types and authoring permissions.
 
-## Signature (engine metadata)
+## Syntax and arguments
 
-Argument syntax: `SINGLE`. Minimum arguments: 1. Maximum: 1.
+Supply one expression as the operator value.
 
-| Operand | Accepted types | Required | Evaluation |
+| Argument | Metadata input types | Required | Evaluation |
 | --- | --- | --- | --- |
-| input | BINARY, STRING | True | EXPRESSION |
+| `input` | BINARY, STRING | Yes | Expression evaluated against the input |
 
-Result types: INT, NULL.
+Argument count: minimum 1; maximum 1.
 
-## Null and missing (engine metadata)
+Declared result types: **INT, NULL**. Actual result types for tested inputs appear below. Metadata is an authoring hint; where a case differs, use the observed result and treat the discrepancy as a limitation.
 
-- Null: With input set to literal null in the regression example: returns null. This is observed Fluxion behavior, not a general Mongo conformance claim.
-- Missing: With input set to a missing direct-field reference in the regression example: returns null. This is observed Fluxion behavior, not a general Mongo conformance claim.
+## Example
 
-## Compatibility boundary
+Expression:
+```json
+{
+  "$binarySize": "abc"
+}
+```
 
-Classification: `MONGO_6_SUBSET`. Verification scope reported by the engine: `ENGINE_REGRESSION_EXAMPLES`.
+Input document:
+```json
+{}
+```
 
-- Verification covers the checked-in regression examples, not full BSON, null, error or collation equivalence.
+**Observed SrotaX result:** 3 (int32).
 
-These statements come from the engine catalog. This documentation has not independently certified equivalence against a running MongoDB server.
+## Behavior for different inputs
 
-## Example coverage
+Each table changes **only the indicated argument** from the example above. Other arguments retain their baseline values. Values normally come from the input field `probe`; literal configuration arguments are replaced directly. “Missing” means the field is absent, not explicitly null. Numeric strings are strings, not numbers.
 
-No executable example for this operator is included in the documentation suite yet. Use the signature above and validate your complete expression; do not interpret registration as a guarantee for every argument combination.
+### Argument: `input`
 
-[MongoDB reference linked by engine metadata](https://raw.githubusercontent.com/mongodb/docs/3baea2dd8f2386d64c3c9a6805f625b80d9bacf4/source/reference/operator/aggregation/binarySize.txt)
+| Input case | Supplied value | SrotaX result |
+| --- | --- | --- |
+| null | null | null |
+| missing | Field absent | null |
+| zero | 0 | Error: IllegalArgumentException — $binarySize expects string or binary inputs |
+| negative | -2 | Error: IllegalArgumentException — $binarySize expects string or binary inputs |
+| decimal | 2.5 | Error: IllegalArgumentException — $binarySize expects string or binary inputs |
+| numeric string | "12" | 2 (int32) |
+| text | "hello" | 5 (int32) |
+| empty string | "" | 0 (int32) |
+| boolean | true | Error: IllegalArgumentException — $binarySize expects string or binary inputs |
+| false | false | Error: IllegalArgumentException — $binarySize expects string or binary inputs |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error: IllegalArgumentException — $binarySize expects string or binary inputs |
+| decimal128 | {"$numberDecimal":"1.25"} | Error: IllegalArgumentException — $binarySize expects string or binary inputs |
+| empty array | [] | Error: IllegalArgumentException — $binarySize expects string or binary inputs |
+| numeric array | [1,2,3] | Error: IllegalArgumentException — $binarySize expects string or binary inputs |
+| mixed array | [1,null,"x",3] | Error: IllegalArgumentException — $binarySize expects string or binary inputs |
+| nested array | [[1,2],[3]] | Error: IllegalArgumentException — $binarySize expects string or binary inputs |
+| empty object | {} | Error: IllegalArgumentException — $binarySize expects string or binary inputs |
+| object | {"x":1} | Error: IllegalArgumentException — $binarySize expects string or binary inputs |
+| ISO date string | "2026-01-15T15:00:00Z" | 20 (int32) |
 
-Source revision recorded by engine: `3baea2dd8f2386d64c3c9a6805f625b80d9bacf4`.
+## Invalid invocation shapes
+
+| Invocation | SrotaX result |
+| --- | --- |
+| {"$binarySize":[]} | Error: IllegalArgumentException — $binarySize expects string or binary inputs |
+| {"$binarySize":{"unexpected":1}} | Error: IllegalArgumentException — $binarySize expects string or binary inputs |
+
+## Scope and reproducibility
+
+This page records **22 executed cases**. It covers individual argument substitutions, not every cross-product of arguments, locale, daylight-saving transitions, numeric overflow, collation or resource limits. No untested behavior is guaranteed.
+
+[Download exact expressions, inputs and SrotaX results](../../downloads/operator-behavior/binarySize.json). Errors are observed messages, not stable public error codes. The reference generator reads the checked-in execution report; do not edit generated observations by hand.
+
+<!-- BEGIN MONGO PARITY -->
+## MongoDB differences (removable section)
+
+Compared with **MongoDB 9.0.4**: **7 exact BSON matches**, **15 both rejected**, **0 value/type/acceptance differences**, **0 object-field-order differences**.
+
+“Exact” includes numeric BSON types and object key order. A value of `3` as int32 differs from `3.0` as double. Object-field-order differences are reported separately; object key ordering is not enforced by the engine regression baseline. Both rejected does not mean the error codes or messages match. This is finite-case evidence, not full compatibility certification.
+
+No differences were observed in the compared cases.
+
+[Download full comparison evidence](../../downloads/operator-parity/binarySize.json).
+
+<!-- END MONGO PARITY -->

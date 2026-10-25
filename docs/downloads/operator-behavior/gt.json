@@ -1,0 +1,813 @@
+[
+  {
+    "id": "$gt baseline",
+    "operator": "$gt",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$gt": [
+        2,
+        3
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt left[0]: null",
+    "operator": "$gt",
+    "kind": "null",
+    "operand": "left[0]",
+    "expression": {
+      "$gt": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt left[0]: missing",
+    "operator": "$gt",
+    "kind": "missing",
+    "operand": "left[0]",
+    "expression": {
+      "$gt": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt left[0]: zero",
+    "operator": "$gt",
+    "kind": "zero",
+    "operand": "left[0]",
+    "expression": {
+      "$gt": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt left[0]: negative",
+    "operator": "$gt",
+    "kind": "negative",
+    "operand": "left[0]",
+    "expression": {
+      "$gt": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt left[0]: decimal",
+    "operator": "$gt",
+    "kind": "decimal",
+    "operand": "left[0]",
+    "expression": {
+      "$gt": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt left[0]: numeric string",
+    "operator": "$gt",
+    "kind": "numeric string",
+    "operand": "left[0]",
+    "expression": {
+      "$gt": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt left[0]: text",
+    "operator": "$gt",
+    "kind": "text",
+    "operand": "left[0]",
+    "expression": {
+      "$gt": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt left[0]: empty string",
+    "operator": "$gt",
+    "kind": "empty string",
+    "operand": "left[0]",
+    "expression": {
+      "$gt": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt left[0]: boolean",
+    "operator": "$gt",
+    "kind": "boolean",
+    "operand": "left[0]",
+    "expression": {
+      "$gt": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt left[0]: false",
+    "operator": "$gt",
+    "kind": "false",
+    "operand": "left[0]",
+    "expression": {
+      "$gt": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt left[0]: typed date",
+    "operator": "$gt",
+    "kind": "typed date",
+    "operand": "left[0]",
+    "expression": {
+      "$gt": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt left[0]: decimal128",
+    "operator": "$gt",
+    "kind": "decimal128",
+    "operand": "left[0]",
+    "expression": {
+      "$gt": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt left[0]: empty array",
+    "operator": "$gt",
+    "kind": "empty array",
+    "operand": "left[0]",
+    "expression": {
+      "$gt": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt left[0]: numeric array",
+    "operator": "$gt",
+    "kind": "numeric array",
+    "operand": "left[0]",
+    "expression": {
+      "$gt": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt left[0]: mixed array",
+    "operator": "$gt",
+    "kind": "mixed array",
+    "operand": "left[0]",
+    "expression": {
+      "$gt": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt left[0]: nested array",
+    "operator": "$gt",
+    "kind": "nested array",
+    "operand": "left[0]",
+    "expression": {
+      "$gt": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt left[0]: empty object",
+    "operator": "$gt",
+    "kind": "empty object",
+    "operand": "left[0]",
+    "expression": {
+      "$gt": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt left[0]: object",
+    "operator": "$gt",
+    "kind": "object",
+    "operand": "left[0]",
+    "expression": {
+      "$gt": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt left[0]: ISO date string",
+    "operator": "$gt",
+    "kind": "ISO date string",
+    "operand": "left[0]",
+    "expression": {
+      "$gt": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt right[1]: null",
+    "operator": "$gt",
+    "kind": "null",
+    "operand": "right[1]",
+    "expression": {
+      "$gt": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt right[1]: missing",
+    "operator": "$gt",
+    "kind": "missing",
+    "operand": "right[1]",
+    "expression": {
+      "$gt": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt right[1]: zero",
+    "operator": "$gt",
+    "kind": "zero",
+    "operand": "right[1]",
+    "expression": {
+      "$gt": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt right[1]: negative",
+    "operator": "$gt",
+    "kind": "negative",
+    "operand": "right[1]",
+    "expression": {
+      "$gt": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt right[1]: decimal",
+    "operator": "$gt",
+    "kind": "decimal",
+    "operand": "right[1]",
+    "expression": {
+      "$gt": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt right[1]: numeric string",
+    "operator": "$gt",
+    "kind": "numeric string",
+    "operand": "right[1]",
+    "expression": {
+      "$gt": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt right[1]: text",
+    "operator": "$gt",
+    "kind": "text",
+    "operand": "right[1]",
+    "expression": {
+      "$gt": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt right[1]: empty string",
+    "operator": "$gt",
+    "kind": "empty string",
+    "operand": "right[1]",
+    "expression": {
+      "$gt": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt right[1]: boolean",
+    "operator": "$gt",
+    "kind": "boolean",
+    "operand": "right[1]",
+    "expression": {
+      "$gt": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt right[1]: false",
+    "operator": "$gt",
+    "kind": "false",
+    "operand": "right[1]",
+    "expression": {
+      "$gt": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt right[1]: typed date",
+    "operator": "$gt",
+    "kind": "typed date",
+    "operand": "right[1]",
+    "expression": {
+      "$gt": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt right[1]: decimal128",
+    "operator": "$gt",
+    "kind": "decimal128",
+    "operand": "right[1]",
+    "expression": {
+      "$gt": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt right[1]: empty array",
+    "operator": "$gt",
+    "kind": "empty array",
+    "operand": "right[1]",
+    "expression": {
+      "$gt": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt right[1]: numeric array",
+    "operator": "$gt",
+    "kind": "numeric array",
+    "operand": "right[1]",
+    "expression": {
+      "$gt": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt right[1]: mixed array",
+    "operator": "$gt",
+    "kind": "mixed array",
+    "operand": "right[1]",
+    "expression": {
+      "$gt": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt right[1]: nested array",
+    "operator": "$gt",
+    "kind": "nested array",
+    "operand": "right[1]",
+    "expression": {
+      "$gt": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt right[1]: empty object",
+    "operator": "$gt",
+    "kind": "empty object",
+    "operand": "right[1]",
+    "expression": {
+      "$gt": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt right[1]: object",
+    "operator": "$gt",
+    "kind": "object",
+    "operand": "right[1]",
+    "expression": {
+      "$gt": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt right[1]: ISO date string",
+    "operator": "$gt",
+    "kind": "ISO date string",
+    "operand": "right[1]",
+    "expression": {
+      "$gt": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$gt empty arguments",
+    "operator": "$gt",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$gt": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$gt requires two arguments"
+    }
+  },
+  {
+    "id": "$gt unknown option",
+    "operator": "$gt",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$gt": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$gt requires two arguments"
+    }
+  }
+]

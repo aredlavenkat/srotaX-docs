@@ -2,35 +2,87 @@
 
 Returns a value without evaluating it.
 
-**Category:** Types and conversion · **Visual function entry:** No
+**Category:** Types and conversion. **Studio Visual entry:** Not exposed. This page describes Core expression execution; Studio also checks field types and authoring permissions.
 
-## Signature (engine metadata)
+## Syntax and arguments
 
-Argument syntax: `SINGLE`. Minimum arguments: 1. Maximum: 1.
+Supply one expression as the operator value.
 
-| Operand | Accepted types | Required | Evaluation |
+| Argument | Metadata input types | Required | Evaluation |
 | --- | --- | --- | --- |
-| input | ANY | True | LITERAL |
+| `input` | ANY | Yes | Literal configuration |
 
-Result types: ANY.
+Argument count: minimum 1; maximum 1.
 
-## Null and missing (engine metadata)
+Declared result types: **ANY**. Actual result types for tested inputs appear below. Metadata is an authoring hint; where a case differs, use the observed result and treat the discrepancy as a limitation.
 
-- Null: Returns the literal unchanged; field references are not evaluated.
-- Missing: Returns the literal unchanged; field references are not evaluated.
+## Example
 
-## Compatibility boundary
+Expression:
+```json
+{
+  "$literal": {
+    "x": "$field"
+  }
+}
+```
 
-Classification: `MONGO_6_SUBSET`. Verification scope reported by the engine: `ENGINE_REGRESSION_EXAMPLES`.
+Input document:
+```json
+{}
+```
 
-- Verification covers the checked-in regression examples, not full BSON, null, error or collation equivalence.
+**Observed SrotaX result:** {"x":"$field"}.
 
-These statements come from the engine catalog. This documentation has not independently certified equivalence against a running MongoDB server.
+## Behavior for different inputs
 
-## Example coverage
+Each table changes **only the indicated argument** from the example above. Other arguments retain their baseline values. Values normally come from the input field `probe`; literal configuration arguments are replaced directly. “Missing” means the field is absent, not explicitly null. Numeric strings are strings, not numbers.
 
-No executable example for this operator is included in the documentation suite yet. Use the signature above and validate your complete expression; do not interpret registration as a guarantee for every argument combination.
+### Argument: `input`
 
-[MongoDB reference linked by engine metadata](https://raw.githubusercontent.com/mongodb/docs/3baea2dd8f2386d64c3c9a6805f625b80d9bacf4/source/reference/operator/aggregation/literal.txt)
+| Input case | Supplied value | SrotaX result |
+| --- | --- | --- |
+| null | null | null |
+| zero | 0 | 0 (int32) |
+| negative | -2 | -2 (int32) |
+| decimal | 2.5 | 2.5 (double) |
+| numeric string | "12" | "12" |
+| text | "hello" | "hello" |
+| empty string | "" | "" |
+| boolean | true | true |
+| false | false | false |
+| typed date | null | {'$numberLong': '1768489200000'} (date) |
+| decimal128 | null | 1.25 (decimal128) |
+| empty array | [] | [] |
+| numeric array | [1,2,3] | [1,2,3] |
+| mixed array | [1,null,"x",3] | [1,null,"x",3] |
+| nested array | [[1,2],[3]] | [[1,2],[3]] |
+| empty object | null | {} |
+| object | null | {"x":1} |
+| ISO date string | "2026-01-15T15:00:00Z" | "2026-01-15T15:00:00Z" |
 
-Source revision recorded by engine: `3baea2dd8f2386d64c3c9a6805f625b80d9bacf4`.
+## Invalid invocation shapes
+
+| Invocation | SrotaX result |
+| --- | --- |
+| {"$literal":[]} | [] |
+| {"$literal":{"unexpected":1}} | {"unexpected":1} |
+
+## Scope and reproducibility
+
+This page records **21 executed cases**. It covers individual argument substitutions, not every cross-product of arguments, locale, daylight-saving transitions, numeric overflow, collation or resource limits. No untested behavior is guaranteed.
+
+[Download exact expressions, inputs and SrotaX results](../../downloads/operator-behavior/literal.json). Errors are observed messages, not stable public error codes. The reference generator reads the checked-in execution report; do not edit generated observations by hand.
+
+<!-- BEGIN MONGO PARITY -->
+## MongoDB differences (removable section)
+
+Compared with **MongoDB 9.0.4**: **21 exact BSON matches**, **0 both rejected**, **0 value/type/acceptance differences**, **0 object-field-order differences**.
+
+“Exact” includes numeric BSON types and object key order. A value of `3` as int32 differs from `3.0` as double. Object-field-order differences are reported separately; object key ordering is not enforced by the engine regression baseline. Both rejected does not mean the error codes or messages match. This is finite-case evidence, not full compatibility certification.
+
+No differences were observed in the compared cases.
+
+[Download full comparison evidence](../../downloads/operator-parity/literal.json).
+
+<!-- END MONGO PARITY -->

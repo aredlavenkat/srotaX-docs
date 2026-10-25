@@ -1,0 +1,813 @@
+[
+  {
+    "id": "$concat baseline",
+    "operator": "$concat",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$concat": [
+        "a",
+        "b"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"ab\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$concat text[0]: null",
+    "operator": "$concat",
+    "kind": "null",
+    "operand": "text[0]",
+    "expression": {
+      "$concat": [
+        "$probe",
+        "b"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$concat text[0]: missing",
+    "operator": "$concat",
+    "kind": "missing",
+    "operand": "text[0]",
+    "expression": {
+      "$concat": [
+        "$probe",
+        "b"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$concat text[0]: zero",
+    "operator": "$concat",
+    "kind": "zero",
+    "operand": "text[0]",
+    "expression": {
+      "$concat": [
+        "$probe",
+        "b"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concat supports only string operands"
+    }
+  },
+  {
+    "id": "$concat text[0]: negative",
+    "operator": "$concat",
+    "kind": "negative",
+    "operand": "text[0]",
+    "expression": {
+      "$concat": [
+        "$probe",
+        "b"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concat supports only string operands"
+    }
+  },
+  {
+    "id": "$concat text[0]: decimal",
+    "operator": "$concat",
+    "kind": "decimal",
+    "operand": "text[0]",
+    "expression": {
+      "$concat": [
+        "$probe",
+        "b"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concat supports only string operands"
+    }
+  },
+  {
+    "id": "$concat text[0]: numeric string",
+    "operator": "$concat",
+    "kind": "numeric string",
+    "operand": "text[0]",
+    "expression": {
+      "$concat": [
+        "$probe",
+        "b"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"12b\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$concat text[0]: text",
+    "operator": "$concat",
+    "kind": "text",
+    "operand": "text[0]",
+    "expression": {
+      "$concat": [
+        "$probe",
+        "b"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"hellob\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$concat text[0]: empty string",
+    "operator": "$concat",
+    "kind": "empty string",
+    "operand": "text[0]",
+    "expression": {
+      "$concat": [
+        "$probe",
+        "b"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": \"b\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$concat text[0]: boolean",
+    "operator": "$concat",
+    "kind": "boolean",
+    "operand": "text[0]",
+    "expression": {
+      "$concat": [
+        "$probe",
+        "b"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concat supports only string operands"
+    }
+  },
+  {
+    "id": "$concat text[0]: false",
+    "operator": "$concat",
+    "kind": "false",
+    "operand": "text[0]",
+    "expression": {
+      "$concat": [
+        "$probe",
+        "b"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concat supports only string operands"
+    }
+  },
+  {
+    "id": "$concat text[0]: typed date",
+    "operator": "$concat",
+    "kind": "typed date",
+    "operand": "text[0]",
+    "expression": {
+      "$concat": [
+        "$probe",
+        "b"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concat supports only string operands"
+    }
+  },
+  {
+    "id": "$concat text[0]: decimal128",
+    "operator": "$concat",
+    "kind": "decimal128",
+    "operand": "text[0]",
+    "expression": {
+      "$concat": [
+        "$probe",
+        "b"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concat supports only string operands"
+    }
+  },
+  {
+    "id": "$concat text[0]: empty array",
+    "operator": "$concat",
+    "kind": "empty array",
+    "operand": "text[0]",
+    "expression": {
+      "$concat": [
+        "$probe",
+        "b"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concat supports only string operands"
+    }
+  },
+  {
+    "id": "$concat text[0]: numeric array",
+    "operator": "$concat",
+    "kind": "numeric array",
+    "operand": "text[0]",
+    "expression": {
+      "$concat": [
+        "$probe",
+        "b"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concat supports only string operands"
+    }
+  },
+  {
+    "id": "$concat text[0]: mixed array",
+    "operator": "$concat",
+    "kind": "mixed array",
+    "operand": "text[0]",
+    "expression": {
+      "$concat": [
+        "$probe",
+        "b"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concat supports only string operands"
+    }
+  },
+  {
+    "id": "$concat text[0]: nested array",
+    "operator": "$concat",
+    "kind": "nested array",
+    "operand": "text[0]",
+    "expression": {
+      "$concat": [
+        "$probe",
+        "b"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concat supports only string operands"
+    }
+  },
+  {
+    "id": "$concat text[0]: empty object",
+    "operator": "$concat",
+    "kind": "empty object",
+    "operand": "text[0]",
+    "expression": {
+      "$concat": [
+        "$probe",
+        "b"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concat supports only string operands"
+    }
+  },
+  {
+    "id": "$concat text[0]: object",
+    "operator": "$concat",
+    "kind": "object",
+    "operand": "text[0]",
+    "expression": {
+      "$concat": [
+        "$probe",
+        "b"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concat supports only string operands"
+    }
+  },
+  {
+    "id": "$concat text[0]: ISO date string",
+    "operator": "$concat",
+    "kind": "ISO date string",
+    "operand": "text[0]",
+    "expression": {
+      "$concat": [
+        "$probe",
+        "b"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2026-01-15T15:00:00Zb\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$concat text[1]: null",
+    "operator": "$concat",
+    "kind": "null",
+    "operand": "text[1]",
+    "expression": {
+      "$concat": [
+        "a",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$concat text[1]: missing",
+    "operator": "$concat",
+    "kind": "missing",
+    "operand": "text[1]",
+    "expression": {
+      "$concat": [
+        "a",
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$concat text[1]: zero",
+    "operator": "$concat",
+    "kind": "zero",
+    "operand": "text[1]",
+    "expression": {
+      "$concat": [
+        "a",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concat supports only string operands"
+    }
+  },
+  {
+    "id": "$concat text[1]: negative",
+    "operator": "$concat",
+    "kind": "negative",
+    "operand": "text[1]",
+    "expression": {
+      "$concat": [
+        "a",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concat supports only string operands"
+    }
+  },
+  {
+    "id": "$concat text[1]: decimal",
+    "operator": "$concat",
+    "kind": "decimal",
+    "operand": "text[1]",
+    "expression": {
+      "$concat": [
+        "a",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concat supports only string operands"
+    }
+  },
+  {
+    "id": "$concat text[1]: numeric string",
+    "operator": "$concat",
+    "kind": "numeric string",
+    "operand": "text[1]",
+    "expression": {
+      "$concat": [
+        "a",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"a12\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$concat text[1]: text",
+    "operator": "$concat",
+    "kind": "text",
+    "operand": "text[1]",
+    "expression": {
+      "$concat": [
+        "a",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"ahello\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$concat text[1]: empty string",
+    "operator": "$concat",
+    "kind": "empty string",
+    "operand": "text[1]",
+    "expression": {
+      "$concat": [
+        "a",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": \"a\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$concat text[1]: boolean",
+    "operator": "$concat",
+    "kind": "boolean",
+    "operand": "text[1]",
+    "expression": {
+      "$concat": [
+        "a",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concat supports only string operands"
+    }
+  },
+  {
+    "id": "$concat text[1]: false",
+    "operator": "$concat",
+    "kind": "false",
+    "operand": "text[1]",
+    "expression": {
+      "$concat": [
+        "a",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concat supports only string operands"
+    }
+  },
+  {
+    "id": "$concat text[1]: typed date",
+    "operator": "$concat",
+    "kind": "typed date",
+    "operand": "text[1]",
+    "expression": {
+      "$concat": [
+        "a",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concat supports only string operands"
+    }
+  },
+  {
+    "id": "$concat text[1]: decimal128",
+    "operator": "$concat",
+    "kind": "decimal128",
+    "operand": "text[1]",
+    "expression": {
+      "$concat": [
+        "a",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concat supports only string operands"
+    }
+  },
+  {
+    "id": "$concat text[1]: empty array",
+    "operator": "$concat",
+    "kind": "empty array",
+    "operand": "text[1]",
+    "expression": {
+      "$concat": [
+        "a",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concat supports only string operands"
+    }
+  },
+  {
+    "id": "$concat text[1]: numeric array",
+    "operator": "$concat",
+    "kind": "numeric array",
+    "operand": "text[1]",
+    "expression": {
+      "$concat": [
+        "a",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concat supports only string operands"
+    }
+  },
+  {
+    "id": "$concat text[1]: mixed array",
+    "operator": "$concat",
+    "kind": "mixed array",
+    "operand": "text[1]",
+    "expression": {
+      "$concat": [
+        "a",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concat supports only string operands"
+    }
+  },
+  {
+    "id": "$concat text[1]: nested array",
+    "operator": "$concat",
+    "kind": "nested array",
+    "operand": "text[1]",
+    "expression": {
+      "$concat": [
+        "a",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concat supports only string operands"
+    }
+  },
+  {
+    "id": "$concat text[1]: empty object",
+    "operator": "$concat",
+    "kind": "empty object",
+    "operand": "text[1]",
+    "expression": {
+      "$concat": [
+        "a",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concat supports only string operands"
+    }
+  },
+  {
+    "id": "$concat text[1]: object",
+    "operator": "$concat",
+    "kind": "object",
+    "operand": "text[1]",
+    "expression": {
+      "$concat": [
+        "a",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concat supports only string operands"
+    }
+  },
+  {
+    "id": "$concat text[1]: ISO date string",
+    "operator": "$concat",
+    "kind": "ISO date string",
+    "operand": "text[1]",
+    "expression": {
+      "$concat": [
+        "a",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"a2026-01-15T15:00:00Z\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$concat empty arguments",
+    "operator": "$concat",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$concat": []
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$concat unknown option",
+    "operator": "$concat",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$concat": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concat expects an array of expressions"
+    }
+  }
+]

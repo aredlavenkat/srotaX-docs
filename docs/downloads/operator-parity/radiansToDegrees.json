@@ -1,0 +1,496 @@
+[
+  {
+    "id": "$radiansToDegrees baseline",
+    "operator": "$radiansToDegrees",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$radiansToDegrees": 0
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$radiansToDegrees input: null",
+    "operator": "$radiansToDegrees",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$radiansToDegrees input: missing",
+    "operator": "$radiansToDegrees",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$radiansToDegrees input: zero",
+    "operator": "$radiansToDegrees",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$radiansToDegrees input: negative",
+    "operator": "$radiansToDegrees",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"-114.59155902616465\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"-114.59155902616465\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$radiansToDegrees input: decimal",
+    "operator": "$radiansToDegrees",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"143.2394487827058\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"143.2394487827058\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$radiansToDegrees input: numeric string",
+    "operator": "$radiansToDegrees",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $radiansToDegrees only supports numeric types, not string",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$radiansToDegrees input: text",
+    "operator": "$radiansToDegrees",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $radiansToDegrees only supports numeric types, not string",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$radiansToDegrees input: empty string",
+    "operator": "$radiansToDegrees",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $radiansToDegrees only supports numeric types, not string",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$radiansToDegrees input: boolean",
+    "operator": "$radiansToDegrees",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $radiansToDegrees only supports numeric types, not bool",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$radiansToDegrees input: false",
+    "operator": "$radiansToDegrees",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $radiansToDegrees only supports numeric types, not bool",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$radiansToDegrees input: typed date",
+    "operator": "$radiansToDegrees",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $radiansToDegrees only supports numeric types, not date",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$radiansToDegrees input: decimal128",
+    "operator": "$radiansToDegrees",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"71.6197243913529\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"71.61972439135290109599769351763146\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$radiansToDegrees input: empty array",
+    "operator": "$radiansToDegrees",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $radiansToDegrees only supports numeric types, not array",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$radiansToDegrees input: numeric array",
+    "operator": "$radiansToDegrees",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $radiansToDegrees only supports numeric types, not array",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$radiansToDegrees input: mixed array",
+    "operator": "$radiansToDegrees",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $radiansToDegrees only supports numeric types, not array",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$radiansToDegrees input: nested array",
+    "operator": "$radiansToDegrees",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $radiansToDegrees only supports numeric types, not array",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$radiansToDegrees input: empty object",
+    "operator": "$radiansToDegrees",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $radiansToDegrees only supports numeric types, not object",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$radiansToDegrees input: object",
+    "operator": "$radiansToDegrees",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $radiansToDegrees only supports numeric types, not object",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$radiansToDegrees input: ISO date string",
+    "operator": "$radiansToDegrees",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $radiansToDegrees only supports numeric types, not string",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$radiansToDegrees empty arguments",
+    "operator": "$radiansToDegrees",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$radiansToDegrees": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $radiansToDegrees takes exactly 1 arguments. 0 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$radiansToDegrees unknown option",
+    "operator": "$radiansToDegrees",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$radiansToDegrees": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    },
+    "mongo": {
+      "message": "Failed to optimize pipeline :: caused by :: $radiansToDegrees only supports numeric types, not object",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

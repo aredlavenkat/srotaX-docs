@@ -1,38 +1,198 @@
 # $sum
 
-Sums an explicit list of numeric operands.
+Sums numeric values from one array expression or explicit operands; ignores nonnumeric values.
 
-**Category:** Arithmetic · **Visual function entry:** Yes
+**Category:** Arithmetic. **Studio Visual entry:** Available. This page describes Core expression execution; Studio also checks field types and authoring permissions.
 
-## Signature (engine metadata)
+## Syntax and arguments
 
-Argument syntax: `POSITIONAL`. Minimum arguments: 0. Maximum: variadic.
+Supply an ordered array of arguments.
 
-| Operand | Accepted types | Required | Evaluation |
+| Argument | Metadata input types | Required | Evaluation |
 | --- | --- | --- | --- |
-| number | NUMBER | True | EXPRESSION |
+| `number` | ANY | Yes | Expression evaluated against the input |
 
-Result types: DOUBLE.
+Argument count: minimum 0; maximum variadic.
 
-## Null and missing (engine metadata)
+Declared result types: **DOUBLE**. Actual result types for tested inputs appear below. Metadata is an authoring hint; where a case differs, use the observed result and treat the discrepancy as a limitation.
 
-- Null: With number set to literal null in the regression example: returns 3. This is observed Fluxion behavior, not a general Mongo conformance claim.
-- Missing: With number set to a missing direct-field reference in the regression example: returns 3. This is observed Fluxion behavior, not a general Mongo conformance claim.
+A single array-valued expression is also supported, for example `{"$sum": "$items"}`. With multiple operands, array arguments are not recursively flattened.
 
-## Compatibility boundary
+## Example
 
-Classification: `MONGO_6_DIFFERENCES`. Verification scope reported by the engine: `ENGINE_REGRESSION_EXAMPLES`.
+Expression:
+```json
+{
+  "$sum": [
+    2,
+    3
+  ]
+}
+```
 
-- Numeric results use Java double rather than Mongo BSON numeric promotion. Null handling, overflow and special values are not Mongo-certified.
-- Only explicit operand lists; nonnumeric values error rather than being ignored.
-- Verification covers the checked-in regression examples, not full BSON, null, error or collation equivalence.
+Input document:
+```json
+{}
+```
 
-These statements come from the engine catalog. This documentation has not independently certified equivalence against a running MongoDB server.
+**Observed SrotaX result:** 5.0 (double).
 
-## Example coverage
+## Behavior for different inputs
 
-No executable example for this operator is included in the documentation suite yet. Use the signature above and validate your complete expression; do not interpret registration as a guarantee for every argument combination.
+Each table changes **only the indicated argument** from the example above. Other arguments retain their baseline values. Values normally come from the input field `probe`; literal configuration arguments are replaced directly. “Missing” means the field is absent, not explicitly null. Numeric strings are strings, not numbers.
 
-[MongoDB reference linked by engine metadata](https://raw.githubusercontent.com/mongodb/docs/3baea2dd8f2386d64c3c9a6805f625b80d9bacf4/source/reference/operator/aggregation/sum.txt)
+### Argument: `number[0]`
 
-Source revision recorded by engine: `3baea2dd8f2386d64c3c9a6805f625b80d9bacf4`.
+| Input case | Supplied value | SrotaX result |
+| --- | --- | --- |
+| null | null | 3.0 (double) |
+| missing | Field absent | 3.0 (double) |
+| zero | 0 | 3.0 (double) |
+| negative | -2 | 1.0 (double) |
+| decimal | 2.5 | 5.5 (double) |
+| numeric string | "12" | 3.0 (double) |
+| text | "hello" | 3.0 (double) |
+| empty string | "" | 3.0 (double) |
+| boolean | true | 3.0 (double) |
+| false | false | 3.0 (double) |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | 3.0 (double) |
+| decimal128 | {"$numberDecimal":"1.25"} | 4.25 (double) |
+| empty array | [] | 3.0 (double) |
+| numeric array | [1,2,3] | 3.0 (double) |
+| mixed array | [1,null,"x",3] | 3.0 (double) |
+| nested array | [[1,2],[3]] | 3.0 (double) |
+| empty object | {} | 3.0 (double) |
+| object | {"x":1} | 3.0 (double) |
+| ISO date string | "2026-01-15T15:00:00Z" | 3.0 (double) |
+
+### Argument: `number[1]`
+
+| Input case | Supplied value | SrotaX result |
+| --- | --- | --- |
+| null | null | 2.0 (double) |
+| missing | Field absent | 2.0 (double) |
+| zero | 0 | 2.0 (double) |
+| negative | -2 | 0.0 (double) |
+| decimal | 2.5 | 4.5 (double) |
+| numeric string | "12" | 2.0 (double) |
+| text | "hello" | 2.0 (double) |
+| empty string | "" | 2.0 (double) |
+| boolean | true | 2.0 (double) |
+| false | false | 2.0 (double) |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | 2.0 (double) |
+| decimal128 | {"$numberDecimal":"1.25"} | 3.25 (double) |
+| empty array | [] | 2.0 (double) |
+| numeric array | [1,2,3] | 2.0 (double) |
+| mixed array | [1,null,"x",3] | 2.0 (double) |
+| nested array | [[1,2],[3]] | 2.0 (double) |
+| empty object | {} | 2.0 (double) |
+| object | {"x":1} | 2.0 (double) |
+| ISO date string | "2026-01-15T15:00:00Z" | 2.0 (double) |
+
+### Argument: `single array expression`
+
+| Input case | Supplied value | SrotaX result |
+| --- | --- | --- |
+| single operand null | null | 0.0 (double) |
+| single operand missing | Field absent | 0.0 (double) |
+| single operand zero | 0 | 0.0 (double) |
+| single operand negative | -2 | -2.0 (double) |
+| single operand decimal | 2.5 | 2.5 (double) |
+| single operand numeric string | "12" | 0.0 (double) |
+| single operand text | "hello" | 0.0 (double) |
+| single operand empty string | "" | 0.0 (double) |
+| single operand boolean | true | 0.0 (double) |
+| single operand false | false | 0.0 (double) |
+| single operand typed date | {"$date":"2026-01-15T15:00:00Z"} | 0.0 (double) |
+| single operand decimal128 | {"$numberDecimal":"1.25"} | 1.25 (double) |
+| single operand empty array | [] | 0.0 (double) |
+| single operand numeric array | [1,2,3] | 6.0 (double) |
+| single operand mixed array | [1,null,"x",3] | 4.0 (double) |
+| single operand nested array | [[1,2],[3]] | 0.0 (double) |
+| single operand empty object | {} | 0.0 (double) |
+| single operand object | {"x":1} | 0.0 (double) |
+| single operand ISO date string | "2026-01-15T15:00:00Z" | 0.0 (double) |
+
+## Invalid invocation shapes
+
+| Invocation | SrotaX result |
+| --- | --- |
+| {"$sum":[]} | 0.0 (double) |
+| {"$sum":{"unexpected":1}} | 0.0 (double) |
+
+## Scope and reproducibility
+
+This page records **60 executed cases**. It covers individual argument substitutions, not every cross-product of arguments, locale, daylight-saving transitions, numeric overflow, collation or resource limits. No untested behavior is guaranteed.
+
+[Download exact expressions, inputs and SrotaX results](../../downloads/operator-behavior/sum.json). Errors are observed messages, not stable public error codes. The reference generator reads the checked-in execution report; do not edit generated observations by hand.
+
+<!-- BEGIN MONGO PARITY -->
+## MongoDB differences (removable section)
+
+Compared with **MongoDB 9.0.4**: **3 exact BSON matches**, **0 both rejected**, **57 value/type/acceptance differences**, **0 object-field-order differences**.
+
+“Exact” includes numeric BSON types and object key order. A value of `3` as int32 differs from `3.0` as double. Object-field-order differences are reported separately; object key ordering is not enforced by the engine regression baseline. Both rejected does not mean the error codes or messages match. This is finite-case evidence, not full compatibility certification.
+
+| Tested case | SrotaX | MongoDB |
+| --- | --- | --- |
+| all / baseline | 5.0 (double) | 5 (int32) |
+| number[0] / null | 3.0 (double) | 3 (int32) |
+| number[0] / missing | 3.0 (double) | 3 (int32) |
+| number[0] / zero | 3.0 (double) | 3 (int32) |
+| number[0] / negative | 1.0 (double) | 1 (int32) |
+| number[0] / numeric string | 3.0 (double) | 3 (int32) |
+| number[0] / text | 3.0 (double) | 3 (int32) |
+| number[0] / empty string | 3.0 (double) | 3 (int32) |
+| number[0] / boolean | 3.0 (double) | 3 (int32) |
+| number[0] / false | 3.0 (double) | 3 (int32) |
+| number[0] / typed date | 3.0 (double) | 3 (int32) |
+| number[0] / decimal128 | 4.25 (double) | 4.25 (decimal128) |
+| number[0] / empty array | 3.0 (double) | 3 (int32) |
+| number[0] / numeric array | 3.0 (double) | 3 (int32) |
+| number[0] / mixed array | 3.0 (double) | 3 (int32) |
+| number[0] / nested array | 3.0 (double) | 3 (int32) |
+| number[0] / empty object | 3.0 (double) | 3 (int32) |
+| number[0] / object | 3.0 (double) | 3 (int32) |
+| number[0] / ISO date string | 3.0 (double) | 3 (int32) |
+| number[1] / null | 2.0 (double) | 2 (int32) |
+| number[1] / missing | 2.0 (double) | 2 (int32) |
+| number[1] / zero | 2.0 (double) | 2 (int32) |
+| number[1] / negative | 0.0 (double) | 0 (int32) |
+| number[1] / numeric string | 2.0 (double) | 2 (int32) |
+| number[1] / text | 2.0 (double) | 2 (int32) |
+| number[1] / empty string | 2.0 (double) | 2 (int32) |
+| number[1] / boolean | 2.0 (double) | 2 (int32) |
+| number[1] / false | 2.0 (double) | 2 (int32) |
+| number[1] / typed date | 2.0 (double) | 2 (int32) |
+| number[1] / decimal128 | 3.25 (double) | 3.25 (decimal128) |
+| number[1] / empty array | 2.0 (double) | 2 (int32) |
+| number[1] / numeric array | 2.0 (double) | 2 (int32) |
+| number[1] / mixed array | 2.0 (double) | 2 (int32) |
+| number[1] / nested array | 2.0 (double) | 2 (int32) |
+| number[1] / empty object | 2.0 (double) | 2 (int32) |
+| number[1] / object | 2.0 (double) | 2 (int32) |
+| number[1] / ISO date string | 2.0 (double) | 2 (int32) |
+| single array expression / single operand null | 0.0 (double) | 0 (int32) |
+| single array expression / single operand missing | 0.0 (double) | 0 (int32) |
+| single array expression / single operand zero | 0.0 (double) | 0 (int32) |
+| single array expression / single operand negative | -2.0 (double) | -2 (int32) |
+| single array expression / single operand numeric string | 0.0 (double) | 0 (int32) |
+| single array expression / single operand text | 0.0 (double) | 0 (int32) |
+| single array expression / single operand empty string | 0.0 (double) | 0 (int32) |
+| single array expression / single operand boolean | 0.0 (double) | 0 (int32) |
+| single array expression / single operand false | 0.0 (double) | 0 (int32) |
+| single array expression / single operand typed date | 0.0 (double) | 0 (int32) |
+| single array expression / single operand decimal128 | 1.25 (double) | 1.25 (decimal128) |
+| single array expression / single operand empty array | 0.0 (double) | 0 (int32) |
+| single array expression / single operand numeric array | 6.0 (double) | 6 (int32) |
+| single array expression / single operand mixed array | 4.0 (double) | 4 (int32) |
+| single array expression / single operand nested array | 0.0 (double) | 0 (int32) |
+| single array expression / single operand empty object | 0.0 (double) | 0 (int32) |
+| single array expression / single operand object | 0.0 (double) | 0 (int32) |
+| single array expression / single operand ISO date string | 0.0 (double) | 0 (int32) |
+| all / empty arguments | 0.0 (double) | 0 (int32) |
+| all / unknown option | 0.0 (double) | 0 (int32) |
+
+[Download full comparison evidence](../../downloads/operator-parity/sum.json).
+
+<!-- END MONGO PARITY -->

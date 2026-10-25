@@ -1,0 +1,501 @@
+[
+  {
+    "id": "$hour baseline",
+    "operator": "$hour",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$hour": {
+        "$toDate": "2024-01-02T03:04:05.006Z"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$hour input: null",
+    "operator": "$hour",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$hour": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$hour input: missing",
+    "operator": "$hour",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$hour": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$hour input: zero",
+    "operator": "$hour",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$hour": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type int to Date",
+      "code": 16006,
+      "error": "Location16006"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$hour input: negative",
+    "operator": "$hour",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$hour": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type int to Date",
+      "code": 16006,
+      "error": "Location16006"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$hour input: decimal",
+    "operator": "$hour",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$hour": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type double to Date",
+      "code": 16006,
+      "error": "Location16006"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$hour input: numeric string",
+    "operator": "$hour",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$hour": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot convert value to date: 12"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type string to Date",
+      "code": 16006,
+      "error": "Location16006"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$hour input: text",
+    "operator": "$hour",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$hour": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot convert value to date: hello"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type string to Date",
+      "code": 16006,
+      "error": "Location16006"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$hour input: empty string",
+    "operator": "$hour",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$hour": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot convert value to date: "
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type string to Date",
+      "code": 16006,
+      "error": "Location16006"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$hour input: boolean",
+    "operator": "$hour",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$hour": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type bool to Date",
+      "code": 16006,
+      "error": "Location16006"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$hour input: false",
+    "operator": "$hour",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$hour": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type bool to Date",
+      "code": 16006,
+      "error": "Location16006"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$hour input: typed date",
+    "operator": "$hour",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$hour": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"15\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"15\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$hour input: decimal128",
+    "operator": "$hour",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$hour": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type decimal to Date",
+      "code": 16006,
+      "error": "Location16006"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$hour input: empty array",
+    "operator": "$hour",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$hour": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type array to Date",
+      "code": 16006,
+      "error": "Location16006"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$hour input: numeric array",
+    "operator": "$hour",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$hour": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type array to Date",
+      "code": 16006,
+      "error": "Location16006"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$hour input: mixed array",
+    "operator": "$hour",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$hour": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type array to Date",
+      "code": 16006,
+      "error": "Location16006"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$hour input: nested array",
+    "operator": "$hour",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$hour": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type array to Date",
+      "code": 16006,
+      "error": "Location16006"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$hour input: empty object",
+    "operator": "$hour",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$hour": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type object to Date",
+      "code": 16006,
+      "error": "Location16006"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$hour input: object",
+    "operator": "$hour",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$hour": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type object to Date",
+      "code": 16006,
+      "error": "Location16006"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$hour input: ISO date string",
+    "operator": "$hour",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$hour": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"15\"}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type string to Date",
+      "code": 16006,
+      "error": "Location16006"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$hour empty arguments",
+    "operator": "$hour",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$hour": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "One date required"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $hour accepts exactly one argument if given an array, but was given 0",
+      "code": 40536,
+      "error": "Location40536"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$hour unknown option",
+    "operator": "$hour",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$hour": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: unrecognized option to $hour: \"unexpected\"",
+      "code": 40535,
+      "error": "Location40535"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

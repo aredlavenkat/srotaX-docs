@@ -1,0 +1,1663 @@
+[
+  {
+    "id": "$replaceOne baseline",
+    "operator": "$replaceOne",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"xba\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"xba\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$replaceOne input: null",
+    "operator": "$replaceOne",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$replaceOne": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$replaceOne input: missing",
+    "operator": "$replaceOne",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$replaceOne": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$replaceOne input: zero",
+    "operator": "$replaceOne",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$replaceOne": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'input' be a string, found: 0",
+      "code": 10503904,
+      "error": "Location10503904"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne input: negative",
+    "operator": "$replaceOne",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$replaceOne": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'input' be a string, found: -2",
+      "code": 10503904,
+      "error": "Location10503904"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne input: decimal",
+    "operator": "$replaceOne",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$replaceOne": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Double cannot be cast to class java.lang.String (java.lang.Double and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'input' be a string, found: 2.5",
+      "code": 10503904,
+      "error": "Location10503904"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne input: numeric string",
+    "operator": "$replaceOne",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$replaceOne": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"12\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"12\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$replaceOne input: text",
+    "operator": "$replaceOne",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$replaceOne": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"hello\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"hello\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$replaceOne input: empty string",
+    "operator": "$replaceOne",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$replaceOne": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$replaceOne input: boolean",
+    "operator": "$replaceOne",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$replaceOne": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'input' be a string, found: true",
+      "code": 10503904,
+      "error": "Location10503904"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne input: false",
+    "operator": "$replaceOne",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$replaceOne": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'input' be a string, found: false",
+      "code": 10503904,
+      "error": "Location10503904"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne input: typed date",
+    "operator": "$replaceOne",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$replaceOne": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.Date cannot be cast to class java.lang.String (java.util.Date and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'input' be a string, found: 2026-01-15T15:00:00.000Z",
+      "code": 10503904,
+      "error": "Location10503904"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne input: decimal128",
+    "operator": "$replaceOne",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$replaceOne": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.types.Decimal128 cannot be cast to class java.lang.String (org.bson.types.Decimal128 is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'input' be a string, found: 1.25",
+      "code": 10503904,
+      "error": "Location10503904"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne input: empty array",
+    "operator": "$replaceOne",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$replaceOne": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'input' be a string, found: []",
+      "code": 10503904,
+      "error": "Location10503904"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne input: numeric array",
+    "operator": "$replaceOne",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$replaceOne": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'input' be a string, found: [1, 2, 3]",
+      "code": 10503904,
+      "error": "Location10503904"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne input: mixed array",
+    "operator": "$replaceOne",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$replaceOne": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'input' be a string, found: [1, null, \"x\", 3]",
+      "code": 10503904,
+      "error": "Location10503904"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne input: nested array",
+    "operator": "$replaceOne",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$replaceOne": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'input' be a string, found: [[1, 2], [3]]",
+      "code": 10503904,
+      "error": "Location10503904"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne input: empty object",
+    "operator": "$replaceOne",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$replaceOne": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'input' be a string, found: {}",
+      "code": 10503904,
+      "error": "Location10503904"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne input: object",
+    "operator": "$replaceOne",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$replaceOne": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'input' be a string, found: {x: 1}",
+      "code": 10503904,
+      "error": "Location10503904"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne input: ISO date string",
+    "operator": "$replaceOne",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$replaceOne": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2026-01-15T15:00:00Z\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"2026-01-15T15:00:00Z\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$replaceOne find: null",
+    "operator": "$replaceOne",
+    "kind": "null",
+    "operand": "find",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$replaceOne find: missing",
+    "operator": "$replaceOne",
+    "kind": "missing",
+    "operand": "find",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$replaceOne find: zero",
+    "operator": "$replaceOne",
+    "kind": "zero",
+    "operand": "find",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'find' be a string or regular expression, found: 0",
+      "code": 10503903,
+      "error": "Location10503903"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne find: negative",
+    "operator": "$replaceOne",
+    "kind": "negative",
+    "operand": "find",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'find' be a string or regular expression, found: -2",
+      "code": 10503903,
+      "error": "Location10503903"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne find: decimal",
+    "operator": "$replaceOne",
+    "kind": "decimal",
+    "operand": "find",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Double cannot be cast to class java.lang.String (java.lang.Double and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'find' be a string or regular expression, found: 2.5",
+      "code": 10503903,
+      "error": "Location10503903"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne find: numeric string",
+    "operator": "$replaceOne",
+    "kind": "numeric string",
+    "operand": "find",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"aba\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"aba\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$replaceOne find: text",
+    "operator": "$replaceOne",
+    "kind": "text",
+    "operand": "find",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"aba\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"aba\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$replaceOne find: empty string",
+    "operator": "$replaceOne",
+    "kind": "empty string",
+    "operand": "find",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": \"xaba\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"xaba\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$replaceOne find: boolean",
+    "operator": "$replaceOne",
+    "kind": "boolean",
+    "operand": "find",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'find' be a string or regular expression, found: true",
+      "code": 10503903,
+      "error": "Location10503903"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne find: false",
+    "operator": "$replaceOne",
+    "kind": "false",
+    "operand": "find",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'find' be a string or regular expression, found: false",
+      "code": 10503903,
+      "error": "Location10503903"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne find: typed date",
+    "operator": "$replaceOne",
+    "kind": "typed date",
+    "operand": "find",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.Date cannot be cast to class java.lang.String (java.util.Date and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'find' be a string or regular expression, found: 2026-01-15T15:00:00.000Z",
+      "code": 10503903,
+      "error": "Location10503903"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne find: decimal128",
+    "operator": "$replaceOne",
+    "kind": "decimal128",
+    "operand": "find",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.types.Decimal128 cannot be cast to class java.lang.String (org.bson.types.Decimal128 is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'find' be a string or regular expression, found: 1.25",
+      "code": 10503903,
+      "error": "Location10503903"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne find: empty array",
+    "operator": "$replaceOne",
+    "kind": "empty array",
+    "operand": "find",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'find' be a string or regular expression, found: []",
+      "code": 10503903,
+      "error": "Location10503903"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne find: numeric array",
+    "operator": "$replaceOne",
+    "kind": "numeric array",
+    "operand": "find",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'find' be a string or regular expression, found: [1, 2, 3]",
+      "code": 10503903,
+      "error": "Location10503903"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne find: mixed array",
+    "operator": "$replaceOne",
+    "kind": "mixed array",
+    "operand": "find",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'find' be a string or regular expression, found: [1, null, \"x\", 3]",
+      "code": 10503903,
+      "error": "Location10503903"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne find: nested array",
+    "operator": "$replaceOne",
+    "kind": "nested array",
+    "operand": "find",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'find' be a string or regular expression, found: [[1, 2], [3]]",
+      "code": 10503903,
+      "error": "Location10503903"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne find: empty object",
+    "operator": "$replaceOne",
+    "kind": "empty object",
+    "operand": "find",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'find' be a string or regular expression, found: {}",
+      "code": 10503903,
+      "error": "Location10503903"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne find: object",
+    "operator": "$replaceOne",
+    "kind": "object",
+    "operand": "find",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'find' be a string or regular expression, found: {x: 1}",
+      "code": 10503903,
+      "error": "Location10503903"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne find: ISO date string",
+    "operator": "$replaceOne",
+    "kind": "ISO date string",
+    "operand": "find",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"aba\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"aba\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$replaceOne replacement: null",
+    "operator": "$replaceOne",
+    "kind": "null",
+    "operand": "replacement",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$replaceOne replacement: missing",
+    "operator": "$replaceOne",
+    "kind": "missing",
+    "operand": "replacement",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$replaceOne replacement: zero",
+    "operator": "$replaceOne",
+    "kind": "zero",
+    "operand": "replacement",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'replacement' be a string, found: 0",
+      "code": 10503902,
+      "error": "Location10503902"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne replacement: negative",
+    "operator": "$replaceOne",
+    "kind": "negative",
+    "operand": "replacement",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'replacement' be a string, found: -2",
+      "code": 10503902,
+      "error": "Location10503902"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne replacement: decimal",
+    "operator": "$replaceOne",
+    "kind": "decimal",
+    "operand": "replacement",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Double cannot be cast to class java.lang.String (java.lang.Double and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'replacement' be a string, found: 2.5",
+      "code": 10503902,
+      "error": "Location10503902"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne replacement: numeric string",
+    "operator": "$replaceOne",
+    "kind": "numeric string",
+    "operand": "replacement",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"12ba\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"12ba\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$replaceOne replacement: text",
+    "operator": "$replaceOne",
+    "kind": "text",
+    "operand": "replacement",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"helloba\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"helloba\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$replaceOne replacement: empty string",
+    "operator": "$replaceOne",
+    "kind": "empty string",
+    "operand": "replacement",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": \"ba\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"ba\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$replaceOne replacement: boolean",
+    "operator": "$replaceOne",
+    "kind": "boolean",
+    "operand": "replacement",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'replacement' be a string, found: true",
+      "code": 10503902,
+      "error": "Location10503902"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne replacement: false",
+    "operator": "$replaceOne",
+    "kind": "false",
+    "operand": "replacement",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'replacement' be a string, found: false",
+      "code": 10503902,
+      "error": "Location10503902"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne replacement: typed date",
+    "operator": "$replaceOne",
+    "kind": "typed date",
+    "operand": "replacement",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.Date cannot be cast to class java.lang.String (java.util.Date and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'replacement' be a string, found: 2026-01-15T15:00:00.000Z",
+      "code": 10503902,
+      "error": "Location10503902"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne replacement: decimal128",
+    "operator": "$replaceOne",
+    "kind": "decimal128",
+    "operand": "replacement",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.types.Decimal128 cannot be cast to class java.lang.String (org.bson.types.Decimal128 is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'replacement' be a string, found: 1.25",
+      "code": 10503902,
+      "error": "Location10503902"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne replacement: empty array",
+    "operator": "$replaceOne",
+    "kind": "empty array",
+    "operand": "replacement",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'replacement' be a string, found: []",
+      "code": 10503902,
+      "error": "Location10503902"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne replacement: numeric array",
+    "operator": "$replaceOne",
+    "kind": "numeric array",
+    "operand": "replacement",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'replacement' be a string, found: [1, 2, 3]",
+      "code": 10503902,
+      "error": "Location10503902"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne replacement: mixed array",
+    "operator": "$replaceOne",
+    "kind": "mixed array",
+    "operand": "replacement",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'replacement' be a string, found: [1, null, \"x\", 3]",
+      "code": 10503902,
+      "error": "Location10503902"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne replacement: nested array",
+    "operator": "$replaceOne",
+    "kind": "nested array",
+    "operand": "replacement",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'replacement' be a string, found: [[1, 2], [3]]",
+      "code": 10503902,
+      "error": "Location10503902"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne replacement: empty object",
+    "operator": "$replaceOne",
+    "kind": "empty object",
+    "operand": "replacement",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'replacement' be a string, found: {}",
+      "code": 10503902,
+      "error": "Location10503902"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne replacement: object",
+    "operator": "$replaceOne",
+    "kind": "object",
+    "operand": "replacement",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $replaceOne requires that 'replacement' be a string, found: {x: 1}",
+      "code": 10503902,
+      "error": "Location10503902"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne replacement: ISO date string",
+    "operator": "$replaceOne",
+    "kind": "ISO date string",
+    "operand": "replacement",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2026-01-15T15:00:00Zba\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"2026-01-15T15:00:00Zba\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$replaceOne omit input",
+    "operator": "$replaceOne",
+    "kind": "omitted named argument",
+    "operand": "input",
+    "expression": {
+      "$replaceOne": {
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $replaceOne requires 'input' to be specified",
+      "code": 51749,
+      "error": "Location51749"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$replaceOne omit find",
+    "operator": "$replaceOne",
+    "kind": "omitted named argument",
+    "operand": "find",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "replacement": "x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $replaceOne requires 'find' to be specified",
+      "code": 51748,
+      "error": "Location51748"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$replaceOne omit replacement",
+    "operator": "$replaceOne",
+    "kind": "omitted named argument",
+    "operand": "replacement",
+    "expression": {
+      "$replaceOne": {
+        "input": "aba",
+        "find": "a"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $replaceOne requires 'replacement' to be specified",
+      "code": 51747,
+      "error": "Location51747"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$replaceOne empty arguments",
+    "operator": "$replaceOne",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$replaceOne": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.util.Map (java.util.ArrayList and java.util.Map are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $replaceOne requires an object as an argument, found: array",
+      "code": 51751,
+      "error": "Location51751"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$replaceOne unknown option",
+    "operator": "$replaceOne",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$replaceOne": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $replaceOne found an unknown argument: unexpected",
+      "code": 51750,
+      "error": "Location51750"
+    },
+    "status": "DIFFERENCE"
+  }
+]

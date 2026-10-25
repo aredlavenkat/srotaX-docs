@@ -2,52 +2,121 @@
 
 Returns the numeric remainder.
 
-**Category:** Arithmetic · **Visual function entry:** Yes
+**Category:** Arithmetic. **Studio Visual entry:** Available. This page describes Core expression execution; Studio also checks field types and authoring permissions.
 
-## Signature (engine metadata)
+## Syntax and arguments
 
-Argument syntax: `POSITIONAL`. Minimum arguments: 2. Maximum: 2.
+Supply an ordered array of arguments.
 
-| Operand | Accepted types | Required | Evaluation |
+| Argument | Metadata input types | Required | Evaluation |
 | --- | --- | --- | --- |
-| left | NUMBER | True | EXPRESSION |
-| right | NUMBER | True | EXPRESSION |
+| `left` | NUMBER | Yes | Expression evaluated against the input |
+| `right` | NUMBER | Yes | Expression evaluated against the input |
 
-Result types: DOUBLE, NULL.
+Argument count: minimum 2; maximum 2.
 
-## Null and missing (engine metadata)
+Declared result types: **DOUBLE, NULL**. Actual result types for tested inputs appear below. Metadata is an authoring hint; where a case differs, use the observed result and treat the discrepancy as a limitation.
 
-- Null: Returns null when the required value is null.
-- Missing: Missing required values resolve to null.
+## Example
 
-## Compatibility boundary
-
-Classification: `MONGO_6_DIFFERENCES`. Verification scope reported by the engine: `ENGINE_REGRESSION_EXAMPLES`.
-
-- Numeric results use Java double rather than Mongo BSON numeric promotion. Null handling, overflow and special values are not Mongo-certified.
-- Verification covers the checked-in regression examples, not full BSON, null, error or collation equivalence.
-
-These statements come from the engine catalog. This documentation has not independently certified equivalence against a running MongoDB server.
-
-## Executed example
-
-The SrotaX compiler accepted this JSON expression and the engine returned the expected value. Empty input document.
-
+Expression:
 ```json
 {
   "$mod": [
-    10,
+    7,
     3
   ]
 }
 ```
 
-Expected value:
-
+Input document:
 ```json
-1
+{}
 ```
 
-[MongoDB reference linked by engine metadata](https://raw.githubusercontent.com/mongodb/docs/3baea2dd8f2386d64c3c9a6805f625b80d9bacf4/source/reference/operator/aggregation/mod.txt)
+**Observed SrotaX result:** 1.0 (double).
 
-Source revision recorded by engine: `3baea2dd8f2386d64c3c9a6805f625b80d9bacf4`.
+## Behavior for different inputs
+
+Each table changes **only the indicated argument** from the example above. Other arguments retain their baseline values. Values normally come from the input field `probe`; literal configuration arguments are replaced directly. “Missing” means the field is absent, not explicitly null. Numeric strings are strings, not numbers.
+
+### Argument: `left[0]`
+
+| Input case | Supplied value | SrotaX result |
+| --- | --- | --- |
+| null | null | null |
+| missing | Field absent | null |
+| zero | 0 | 0.0 (double) |
+| negative | -2 | -2.0 (double) |
+| decimal | 2.5 | 2.5 (double) |
+| numeric string | "12" | Error: IllegalArgumentException — $mod only supports numeric values. |
+| text | "hello" | Error: IllegalArgumentException — $mod only supports numeric values. |
+| empty string | "" | Error: IllegalArgumentException — $mod only supports numeric values. |
+| boolean | true | Error: IllegalArgumentException — $mod only supports numeric values. |
+| false | false | Error: IllegalArgumentException — $mod only supports numeric values. |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error: IllegalArgumentException — $mod only supports numeric values. |
+| decimal128 | {"$numberDecimal":"1.25"} | 1.25 (double) |
+| empty array | [] | Error: IllegalArgumentException — $mod only supports numeric values. |
+| numeric array | [1,2,3] | Error: IllegalArgumentException — $mod only supports numeric values. |
+| mixed array | [1,null,"x",3] | Error: IllegalArgumentException — $mod only supports numeric values. |
+| nested array | [[1,2],[3]] | Error: IllegalArgumentException — $mod only supports numeric values. |
+| empty object | {} | Error: IllegalArgumentException — $mod only supports numeric values. |
+| object | {"x":1} | Error: IllegalArgumentException — $mod only supports numeric values. |
+| ISO date string | "2026-01-15T15:00:00Z" | Error: IllegalArgumentException — $mod only supports numeric values. |
+
+### Argument: `right[1]`
+
+| Input case | Supplied value | SrotaX result |
+| --- | --- | --- |
+| null | null | null |
+| missing | Field absent | null |
+| zero | 0 | Error: ArithmeticException — $mod by zero |
+| negative | -2 | 1.0 (double) |
+| decimal | 2.5 | 2.0 (double) |
+| numeric string | "12" | Error: IllegalArgumentException — $mod only supports numeric values. |
+| text | "hello" | Error: IllegalArgumentException — $mod only supports numeric values. |
+| empty string | "" | Error: IllegalArgumentException — $mod only supports numeric values. |
+| boolean | true | Error: IllegalArgumentException — $mod only supports numeric values. |
+| false | false | Error: IllegalArgumentException — $mod only supports numeric values. |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error: IllegalArgumentException — $mod only supports numeric values. |
+| decimal128 | {"$numberDecimal":"1.25"} | 0.75 (double) |
+| empty array | [] | Error: IllegalArgumentException — $mod only supports numeric values. |
+| numeric array | [1,2,3] | Error: IllegalArgumentException — $mod only supports numeric values. |
+| mixed array | [1,null,"x",3] | Error: IllegalArgumentException — $mod only supports numeric values. |
+| nested array | [[1,2],[3]] | Error: IllegalArgumentException — $mod only supports numeric values. |
+| empty object | {} | Error: IllegalArgumentException — $mod only supports numeric values. |
+| object | {"x":1} | Error: IllegalArgumentException — $mod only supports numeric values. |
+| ISO date string | "2026-01-15T15:00:00Z" | Error: IllegalArgumentException — $mod only supports numeric values. |
+
+## Invalid invocation shapes
+
+| Invocation | SrotaX result |
+| --- | --- |
+| {"$mod":[]} | Error: IllegalArgumentException — $mod requires exactly two arguments. |
+| {"$mod":{"unexpected":1}} | Error: IllegalArgumentException — $mod requires exactly two arguments. |
+
+## Scope and reproducibility
+
+This page records **41 executed cases**. It covers individual argument substitutions, not every cross-product of arguments, locale, daylight-saving transitions, numeric overflow, collation or resource limits. No untested behavior is guaranteed.
+
+[Download exact expressions, inputs and SrotaX results](../../downloads/operator-behavior/mod.json). Errors are observed messages, not stable public error codes. The reference generator reads the checked-in execution report; do not edit generated observations by hand.
+
+<!-- BEGIN MONGO PARITY -->
+## MongoDB differences (removable section)
+
+Compared with **MongoDB 9.0.4**: **6 exact BSON matches**, **29 both rejected**, **6 value/type/acceptance differences**, **0 object-field-order differences**.
+
+“Exact” includes numeric BSON types and object key order. A value of `3` as int32 differs from `3.0` as double. Object-field-order differences are reported separately; object key ordering is not enforced by the engine regression baseline. Both rejected does not mean the error codes or messages match. This is finite-case evidence, not full compatibility certification.
+
+| Tested case | SrotaX | MongoDB |
+| --- | --- | --- |
+| all / baseline | 1.0 (double) | 1 (int32) |
+| left[0] / zero | 0.0 (double) | 0 (int32) |
+| left[0] / negative | -2.0 (double) | -2 (int32) |
+| left[0] / decimal128 | 1.25 (double) | 1.25 (decimal128) |
+| right[1] / negative | 1.0 (double) | 1 (int32) |
+| right[1] / decimal128 | 0.75 (double) | 0.75 (decimal128) |
+
+[Download full comparison evidence](../../downloads/operator-parity/mod.json).
+
+<!-- END MONGO PARITY -->

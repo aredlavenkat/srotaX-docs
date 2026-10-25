@@ -1,0 +1,929 @@
+[
+  {
+    "id": "$maxN baseline",
+    "operator": "$maxN",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$maxN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"3\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$maxN input: null",
+    "operator": "$maxN",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$maxN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN input must be an array"
+    }
+  },
+  {
+    "id": "$maxN input: missing",
+    "operator": "$maxN",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$maxN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN input must be an array"
+    }
+  },
+  {
+    "id": "$maxN input: zero",
+    "operator": "$maxN",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$maxN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN input must be an array"
+    }
+  },
+  {
+    "id": "$maxN input: negative",
+    "operator": "$maxN",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$maxN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN input must be an array"
+    }
+  },
+  {
+    "id": "$maxN input: decimal",
+    "operator": "$maxN",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$maxN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN input must be an array"
+    }
+  },
+  {
+    "id": "$maxN input: numeric string",
+    "operator": "$maxN",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$maxN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN input must be an array"
+    }
+  },
+  {
+    "id": "$maxN input: text",
+    "operator": "$maxN",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$maxN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN input must be an array"
+    }
+  },
+  {
+    "id": "$maxN input: empty string",
+    "operator": "$maxN",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$maxN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN input must be an array"
+    }
+  },
+  {
+    "id": "$maxN input: boolean",
+    "operator": "$maxN",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$maxN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN input must be an array"
+    }
+  },
+  {
+    "id": "$maxN input: false",
+    "operator": "$maxN",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$maxN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN input must be an array"
+    }
+  },
+  {
+    "id": "$maxN input: typed date",
+    "operator": "$maxN",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$maxN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN input must be an array"
+    }
+  },
+  {
+    "id": "$maxN input: decimal128",
+    "operator": "$maxN",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$maxN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN input must be an array"
+    }
+  },
+  {
+    "id": "$maxN input: empty array",
+    "operator": "$maxN",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$maxN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    }
+  },
+  {
+    "id": "$maxN input: numeric array",
+    "operator": "$maxN",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$maxN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"3\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$maxN input: mixed array",
+    "operator": "$maxN",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$maxN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [\"x\", {\"$numberInt\": \"3\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$maxN input: nested array",
+    "operator": "$maxN",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$maxN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"3\"}], [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$maxN input: empty object",
+    "operator": "$maxN",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$maxN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN input must be an array"
+    }
+  },
+  {
+    "id": "$maxN input: object",
+    "operator": "$maxN",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$maxN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN input must be an array"
+    }
+  },
+  {
+    "id": "$maxN input: ISO date string",
+    "operator": "$maxN",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$maxN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN input must be an array"
+    }
+  },
+  {
+    "id": "$maxN n: null",
+    "operator": "$maxN",
+    "kind": "null",
+    "operand": "n",
+    "expression": {
+      "$maxN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$maxN n: missing",
+    "operator": "$maxN",
+    "kind": "missing",
+    "operand": "n",
+    "expression": {
+      "$maxN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$maxN n: zero",
+    "operator": "$maxN",
+    "kind": "zero",
+    "operand": "n",
+    "expression": {
+      "$maxN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$maxN n: negative",
+    "operator": "$maxN",
+    "kind": "negative",
+    "operand": "n",
+    "expression": {
+      "$maxN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$maxN n: decimal",
+    "operator": "$maxN",
+    "kind": "decimal",
+    "operand": "n",
+    "expression": {
+      "$maxN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$maxN n: numeric string",
+    "operator": "$maxN",
+    "kind": "numeric string",
+    "operand": "n",
+    "expression": {
+      "$maxN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$maxN n: text",
+    "operator": "$maxN",
+    "kind": "text",
+    "operand": "n",
+    "expression": {
+      "$maxN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$maxN n: empty string",
+    "operator": "$maxN",
+    "kind": "empty string",
+    "operand": "n",
+    "expression": {
+      "$maxN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$maxN n: boolean",
+    "operator": "$maxN",
+    "kind": "boolean",
+    "operand": "n",
+    "expression": {
+      "$maxN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$maxN n: false",
+    "operator": "$maxN",
+    "kind": "false",
+    "operand": "n",
+    "expression": {
+      "$maxN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$maxN n: typed date",
+    "operator": "$maxN",
+    "kind": "typed date",
+    "operand": "n",
+    "expression": {
+      "$maxN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$maxN n: decimal128",
+    "operator": "$maxN",
+    "kind": "decimal128",
+    "operand": "n",
+    "expression": {
+      "$maxN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$maxN n: empty array",
+    "operator": "$maxN",
+    "kind": "empty array",
+    "operand": "n",
+    "expression": {
+      "$maxN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$maxN n: numeric array",
+    "operator": "$maxN",
+    "kind": "numeric array",
+    "operand": "n",
+    "expression": {
+      "$maxN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$maxN n: mixed array",
+    "operator": "$maxN",
+    "kind": "mixed array",
+    "operand": "n",
+    "expression": {
+      "$maxN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$maxN n: nested array",
+    "operator": "$maxN",
+    "kind": "nested array",
+    "operand": "n",
+    "expression": {
+      "$maxN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$maxN n: empty object",
+    "operator": "$maxN",
+    "kind": "empty object",
+    "operand": "n",
+    "expression": {
+      "$maxN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$maxN n: object",
+    "operator": "$maxN",
+    "kind": "object",
+    "operand": "n",
+    "expression": {
+      "$maxN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$maxN n: ISO date string",
+    "operator": "$maxN",
+    "kind": "ISO date string",
+    "operand": "n",
+    "expression": {
+      "$maxN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$maxN omit input",
+    "operator": "$maxN",
+    "kind": "omitted named argument",
+    "operand": "input",
+    "expression": {
+      "$maxN": {
+        "n": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN requires input and n"
+    }
+  },
+  {
+    "id": "$maxN omit n",
+    "operator": "$maxN",
+    "kind": "omitted named argument",
+    "operand": "n",
+    "expression": {
+      "$maxN": {
+        "input": [
+          3,
+          1,
+          2
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN requires input and n"
+    }
+  },
+  {
+    "id": "$maxN empty arguments",
+    "operator": "$maxN",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$maxN": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN requires input and n"
+    }
+  },
+  {
+    "id": "$maxN unknown option",
+    "operator": "$maxN",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$maxN": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$maxN requires input and n"
+    }
+  }
+]

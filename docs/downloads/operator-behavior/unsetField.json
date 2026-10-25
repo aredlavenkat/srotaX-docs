@@ -1,0 +1,908 @@
+[
+  {
+    "id": "$unsetField baseline",
+    "operator": "$unsetField",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$unsetField": {
+        "field": "a",
+        "input": {
+          "a": 1,
+          "b": 2
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"b\": {\"$numberInt\": \"2\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$unsetField field: null",
+    "operator": "$unsetField",
+    "kind": "null",
+    "operand": "field",
+    "expression": {
+      "$unsetField": {
+        "field": "$probe",
+        "input": {
+          "a": 1,
+          "b": 2
+        }
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires document input and string field."
+    }
+  },
+  {
+    "id": "$unsetField field: missing",
+    "operator": "$unsetField",
+    "kind": "missing",
+    "operand": "field",
+    "expression": {
+      "$unsetField": {
+        "field": "$probe",
+        "input": {
+          "a": 1,
+          "b": 2
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires document input and string field."
+    }
+  },
+  {
+    "id": "$unsetField field: zero",
+    "operator": "$unsetField",
+    "kind": "zero",
+    "operand": "field",
+    "expression": {
+      "$unsetField": {
+        "field": "$probe",
+        "input": {
+          "a": 1,
+          "b": 2
+        }
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires document input and string field."
+    }
+  },
+  {
+    "id": "$unsetField field: negative",
+    "operator": "$unsetField",
+    "kind": "negative",
+    "operand": "field",
+    "expression": {
+      "$unsetField": {
+        "field": "$probe",
+        "input": {
+          "a": 1,
+          "b": 2
+        }
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires document input and string field."
+    }
+  },
+  {
+    "id": "$unsetField field: decimal",
+    "operator": "$unsetField",
+    "kind": "decimal",
+    "operand": "field",
+    "expression": {
+      "$unsetField": {
+        "field": "$probe",
+        "input": {
+          "a": 1,
+          "b": 2
+        }
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires document input and string field."
+    }
+  },
+  {
+    "id": "$unsetField field: numeric string",
+    "operator": "$unsetField",
+    "kind": "numeric string",
+    "operand": "field",
+    "expression": {
+      "$unsetField": {
+        "field": "$probe",
+        "input": {
+          "a": 1,
+          "b": 2
+        }
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": {\"$numberInt\": \"1\"}, \"b\": {\"$numberInt\": \"2\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$unsetField field: text",
+    "operator": "$unsetField",
+    "kind": "text",
+    "operand": "field",
+    "expression": {
+      "$unsetField": {
+        "field": "$probe",
+        "input": {
+          "a": 1,
+          "b": 2
+        }
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": {\"$numberInt\": \"1\"}, \"b\": {\"$numberInt\": \"2\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$unsetField field: empty string",
+    "operator": "$unsetField",
+    "kind": "empty string",
+    "operand": "field",
+    "expression": {
+      "$unsetField": {
+        "field": "$probe",
+        "input": {
+          "a": 1,
+          "b": 2
+        }
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": {\"$numberInt\": \"1\"}, \"b\": {\"$numberInt\": \"2\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$unsetField field: boolean",
+    "operator": "$unsetField",
+    "kind": "boolean",
+    "operand": "field",
+    "expression": {
+      "$unsetField": {
+        "field": "$probe",
+        "input": {
+          "a": 1,
+          "b": 2
+        }
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires document input and string field."
+    }
+  },
+  {
+    "id": "$unsetField field: false",
+    "operator": "$unsetField",
+    "kind": "false",
+    "operand": "field",
+    "expression": {
+      "$unsetField": {
+        "field": "$probe",
+        "input": {
+          "a": 1,
+          "b": 2
+        }
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires document input and string field."
+    }
+  },
+  {
+    "id": "$unsetField field: typed date",
+    "operator": "$unsetField",
+    "kind": "typed date",
+    "operand": "field",
+    "expression": {
+      "$unsetField": {
+        "field": "$probe",
+        "input": {
+          "a": 1,
+          "b": 2
+        }
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires document input and string field."
+    }
+  },
+  {
+    "id": "$unsetField field: decimal128",
+    "operator": "$unsetField",
+    "kind": "decimal128",
+    "operand": "field",
+    "expression": {
+      "$unsetField": {
+        "field": "$probe",
+        "input": {
+          "a": 1,
+          "b": 2
+        }
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires document input and string field."
+    }
+  },
+  {
+    "id": "$unsetField field: empty array",
+    "operator": "$unsetField",
+    "kind": "empty array",
+    "operand": "field",
+    "expression": {
+      "$unsetField": {
+        "field": "$probe",
+        "input": {
+          "a": 1,
+          "b": 2
+        }
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires document input and string field."
+    }
+  },
+  {
+    "id": "$unsetField field: numeric array",
+    "operator": "$unsetField",
+    "kind": "numeric array",
+    "operand": "field",
+    "expression": {
+      "$unsetField": {
+        "field": "$probe",
+        "input": {
+          "a": 1,
+          "b": 2
+        }
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires document input and string field."
+    }
+  },
+  {
+    "id": "$unsetField field: mixed array",
+    "operator": "$unsetField",
+    "kind": "mixed array",
+    "operand": "field",
+    "expression": {
+      "$unsetField": {
+        "field": "$probe",
+        "input": {
+          "a": 1,
+          "b": 2
+        }
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires document input and string field."
+    }
+  },
+  {
+    "id": "$unsetField field: nested array",
+    "operator": "$unsetField",
+    "kind": "nested array",
+    "operand": "field",
+    "expression": {
+      "$unsetField": {
+        "field": "$probe",
+        "input": {
+          "a": 1,
+          "b": 2
+        }
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires document input and string field."
+    }
+  },
+  {
+    "id": "$unsetField field: empty object",
+    "operator": "$unsetField",
+    "kind": "empty object",
+    "operand": "field",
+    "expression": {
+      "$unsetField": {
+        "field": "$probe",
+        "input": {
+          "a": 1,
+          "b": 2
+        }
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires document input and string field."
+    }
+  },
+  {
+    "id": "$unsetField field: object",
+    "operator": "$unsetField",
+    "kind": "object",
+    "operand": "field",
+    "expression": {
+      "$unsetField": {
+        "field": "$probe",
+        "input": {
+          "a": 1,
+          "b": 2
+        }
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires document input and string field."
+    }
+  },
+  {
+    "id": "$unsetField field: ISO date string",
+    "operator": "$unsetField",
+    "kind": "ISO date string",
+    "operand": "field",
+    "expression": {
+      "$unsetField": {
+        "field": "$probe",
+        "input": {
+          "a": 1,
+          "b": 2
+        }
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": {\"$numberInt\": \"1\"}, \"b\": {\"$numberInt\": \"2\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$unsetField input: null",
+    "operator": "$unsetField",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$unsetField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires document input and string field."
+    }
+  },
+  {
+    "id": "$unsetField input: missing",
+    "operator": "$unsetField",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$unsetField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires document input and string field."
+    }
+  },
+  {
+    "id": "$unsetField input: zero",
+    "operator": "$unsetField",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$unsetField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires document input and string field."
+    }
+  },
+  {
+    "id": "$unsetField input: negative",
+    "operator": "$unsetField",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$unsetField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires document input and string field."
+    }
+  },
+  {
+    "id": "$unsetField input: decimal",
+    "operator": "$unsetField",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$unsetField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires document input and string field."
+    }
+  },
+  {
+    "id": "$unsetField input: numeric string",
+    "operator": "$unsetField",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$unsetField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires document input and string field."
+    }
+  },
+  {
+    "id": "$unsetField input: text",
+    "operator": "$unsetField",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$unsetField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires document input and string field."
+    }
+  },
+  {
+    "id": "$unsetField input: empty string",
+    "operator": "$unsetField",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$unsetField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires document input and string field."
+    }
+  },
+  {
+    "id": "$unsetField input: boolean",
+    "operator": "$unsetField",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$unsetField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires document input and string field."
+    }
+  },
+  {
+    "id": "$unsetField input: false",
+    "operator": "$unsetField",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$unsetField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires document input and string field."
+    }
+  },
+  {
+    "id": "$unsetField input: typed date",
+    "operator": "$unsetField",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$unsetField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires document input and string field."
+    }
+  },
+  {
+    "id": "$unsetField input: decimal128",
+    "operator": "$unsetField",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$unsetField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires document input and string field."
+    }
+  },
+  {
+    "id": "$unsetField input: empty array",
+    "operator": "$unsetField",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$unsetField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires document input and string field."
+    }
+  },
+  {
+    "id": "$unsetField input: numeric array",
+    "operator": "$unsetField",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$unsetField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires document input and string field."
+    }
+  },
+  {
+    "id": "$unsetField input: mixed array",
+    "operator": "$unsetField",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$unsetField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires document input and string field."
+    }
+  },
+  {
+    "id": "$unsetField input: nested array",
+    "operator": "$unsetField",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$unsetField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires document input and string field."
+    }
+  },
+  {
+    "id": "$unsetField input: empty object",
+    "operator": "$unsetField",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$unsetField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$unsetField input: object",
+    "operator": "$unsetField",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$unsetField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"x\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$unsetField input: ISO date string",
+    "operator": "$unsetField",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$unsetField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires document input and string field."
+    }
+  },
+  {
+    "id": "$unsetField omit field",
+    "operator": "$unsetField",
+    "kind": "omitted named argument",
+    "operand": "field",
+    "expression": {
+      "$unsetField": {
+        "input": {
+          "a": 1,
+          "b": 2
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires 'field' and 'input' keys."
+    }
+  },
+  {
+    "id": "$unsetField omit input",
+    "operator": "$unsetField",
+    "kind": "omitted named argument",
+    "operand": "input",
+    "expression": {
+      "$unsetField": {
+        "field": "a"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires 'field' and 'input' keys."
+    }
+  },
+  {
+    "id": "$unsetField empty arguments",
+    "operator": "$unsetField",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$unsetField": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires 'field' and 'input' keys."
+    }
+  },
+  {
+    "id": "$unsetField unknown option",
+    "operator": "$unsetField",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$unsetField": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$unsetField requires 'field' and 'input' keys."
+    }
+  }
+]

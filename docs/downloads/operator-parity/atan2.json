@@ -1,0 +1,1046 @@
+[
+  {
+    "id": "$atan2 baseline",
+    "operator": "$atan2",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$atan2": [
+        0,
+        1
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$atan2 left[0]: null",
+    "operator": "$atan2",
+    "kind": "null",
+    "operand": "left[0]",
+    "expression": {
+      "$atan2": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atan2 only supports numeric values."
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$atan2 left[0]: missing",
+    "operator": "$atan2",
+    "kind": "missing",
+    "operand": "left[0]",
+    "expression": {
+      "$atan2": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atan2 only supports numeric values."
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$atan2 left[0]: zero",
+    "operator": "$atan2",
+    "kind": "zero",
+    "operand": "left[0]",
+    "expression": {
+      "$atan2": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$atan2 left[0]: negative",
+    "operator": "$atan2",
+    "kind": "negative",
+    "operand": "left[0]",
+    "expression": {
+      "$atan2": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"-1.1071487177940904\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"-1.1071487177940904\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$atan2 left[0]: decimal",
+    "operator": "$atan2",
+    "kind": "decimal",
+    "operand": "left[0]",
+    "expression": {
+      "$atan2": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.1902899496825317\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.1902899496825317\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$atan2 left[0]: numeric string",
+    "operator": "$atan2",
+    "kind": "numeric string",
+    "operand": "left[0]",
+    "expression": {
+      "$atan2": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atan2 only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $atan2 only supports numeric types, not string",
+      "code": 51044,
+      "error": "Location51044"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$atan2 left[0]: text",
+    "operator": "$atan2",
+    "kind": "text",
+    "operand": "left[0]",
+    "expression": {
+      "$atan2": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atan2 only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $atan2 only supports numeric types, not string",
+      "code": 51044,
+      "error": "Location51044"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$atan2 left[0]: empty string",
+    "operator": "$atan2",
+    "kind": "empty string",
+    "operand": "left[0]",
+    "expression": {
+      "$atan2": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atan2 only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $atan2 only supports numeric types, not string",
+      "code": 51044,
+      "error": "Location51044"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$atan2 left[0]: boolean",
+    "operator": "$atan2",
+    "kind": "boolean",
+    "operand": "left[0]",
+    "expression": {
+      "$atan2": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atan2 only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $atan2 only supports numeric types, not bool",
+      "code": 51044,
+      "error": "Location51044"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$atan2 left[0]: false",
+    "operator": "$atan2",
+    "kind": "false",
+    "operand": "left[0]",
+    "expression": {
+      "$atan2": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atan2 only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $atan2 only supports numeric types, not bool",
+      "code": 51044,
+      "error": "Location51044"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$atan2 left[0]: typed date",
+    "operator": "$atan2",
+    "kind": "typed date",
+    "operand": "left[0]",
+    "expression": {
+      "$atan2": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atan2 only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $atan2 only supports numeric types, not date",
+      "code": 51044,
+      "error": "Location51044"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$atan2 left[0]: decimal128",
+    "operator": "$atan2",
+    "kind": "decimal128",
+    "operand": "left[0]",
+    "expression": {
+      "$atan2": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.8960553845713439\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"0.8960553845713439561748007180299378\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$atan2 left[0]: empty array",
+    "operator": "$atan2",
+    "kind": "empty array",
+    "operand": "left[0]",
+    "expression": {
+      "$atan2": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atan2 only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $atan2 only supports numeric types, not array",
+      "code": 51044,
+      "error": "Location51044"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$atan2 left[0]: numeric array",
+    "operator": "$atan2",
+    "kind": "numeric array",
+    "operand": "left[0]",
+    "expression": {
+      "$atan2": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atan2 only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $atan2 only supports numeric types, not array",
+      "code": 51044,
+      "error": "Location51044"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$atan2 left[0]: mixed array",
+    "operator": "$atan2",
+    "kind": "mixed array",
+    "operand": "left[0]",
+    "expression": {
+      "$atan2": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atan2 only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $atan2 only supports numeric types, not array",
+      "code": 51044,
+      "error": "Location51044"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$atan2 left[0]: nested array",
+    "operator": "$atan2",
+    "kind": "nested array",
+    "operand": "left[0]",
+    "expression": {
+      "$atan2": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atan2 only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $atan2 only supports numeric types, not array",
+      "code": 51044,
+      "error": "Location51044"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$atan2 left[0]: empty object",
+    "operator": "$atan2",
+    "kind": "empty object",
+    "operand": "left[0]",
+    "expression": {
+      "$atan2": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atan2 only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $atan2 only supports numeric types, not object",
+      "code": 51044,
+      "error": "Location51044"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$atan2 left[0]: object",
+    "operator": "$atan2",
+    "kind": "object",
+    "operand": "left[0]",
+    "expression": {
+      "$atan2": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atan2 only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $atan2 only supports numeric types, not object",
+      "code": 51044,
+      "error": "Location51044"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$atan2 left[0]: ISO date string",
+    "operator": "$atan2",
+    "kind": "ISO date string",
+    "operand": "left[0]",
+    "expression": {
+      "$atan2": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atan2 only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $atan2 only supports numeric types, not string",
+      "code": 51044,
+      "error": "Location51044"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$atan2 right[1]: null",
+    "operator": "$atan2",
+    "kind": "null",
+    "operand": "right[1]",
+    "expression": {
+      "$atan2": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atan2 only supports numeric values."
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$atan2 right[1]: missing",
+    "operator": "$atan2",
+    "kind": "missing",
+    "operand": "right[1]",
+    "expression": {
+      "$atan2": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atan2 only supports numeric values."
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$atan2 right[1]: zero",
+    "operator": "$atan2",
+    "kind": "zero",
+    "operand": "right[1]",
+    "expression": {
+      "$atan2": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$atan2 right[1]: negative",
+    "operator": "$atan2",
+    "kind": "negative",
+    "operand": "right[1]",
+    "expression": {
+      "$atan2": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"3.141592653589793\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"3.141592653589793\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$atan2 right[1]: decimal",
+    "operator": "$atan2",
+    "kind": "decimal",
+    "operand": "right[1]",
+    "expression": {
+      "$atan2": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$atan2 right[1]: numeric string",
+    "operator": "$atan2",
+    "kind": "numeric string",
+    "operand": "right[1]",
+    "expression": {
+      "$atan2": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atan2 only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $atan2 only supports numeric types, not string",
+      "code": 51045,
+      "error": "Location51045"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$atan2 right[1]: text",
+    "operator": "$atan2",
+    "kind": "text",
+    "operand": "right[1]",
+    "expression": {
+      "$atan2": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atan2 only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $atan2 only supports numeric types, not string",
+      "code": 51045,
+      "error": "Location51045"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$atan2 right[1]: empty string",
+    "operator": "$atan2",
+    "kind": "empty string",
+    "operand": "right[1]",
+    "expression": {
+      "$atan2": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atan2 only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $atan2 only supports numeric types, not string",
+      "code": 51045,
+      "error": "Location51045"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$atan2 right[1]: boolean",
+    "operator": "$atan2",
+    "kind": "boolean",
+    "operand": "right[1]",
+    "expression": {
+      "$atan2": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atan2 only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $atan2 only supports numeric types, not bool",
+      "code": 51045,
+      "error": "Location51045"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$atan2 right[1]: false",
+    "operator": "$atan2",
+    "kind": "false",
+    "operand": "right[1]",
+    "expression": {
+      "$atan2": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atan2 only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $atan2 only supports numeric types, not bool",
+      "code": 51045,
+      "error": "Location51045"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$atan2 right[1]: typed date",
+    "operator": "$atan2",
+    "kind": "typed date",
+    "operand": "right[1]",
+    "expression": {
+      "$atan2": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atan2 only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $atan2 only supports numeric types, not date",
+      "code": 51045,
+      "error": "Location51045"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$atan2 right[1]: decimal128",
+    "operator": "$atan2",
+    "kind": "decimal128",
+    "operand": "right[1]",
+    "expression": {
+      "$atan2": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"0E-6176\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$atan2 right[1]: empty array",
+    "operator": "$atan2",
+    "kind": "empty array",
+    "operand": "right[1]",
+    "expression": {
+      "$atan2": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atan2 only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $atan2 only supports numeric types, not array",
+      "code": 51045,
+      "error": "Location51045"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$atan2 right[1]: numeric array",
+    "operator": "$atan2",
+    "kind": "numeric array",
+    "operand": "right[1]",
+    "expression": {
+      "$atan2": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atan2 only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $atan2 only supports numeric types, not array",
+      "code": 51045,
+      "error": "Location51045"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$atan2 right[1]: mixed array",
+    "operator": "$atan2",
+    "kind": "mixed array",
+    "operand": "right[1]",
+    "expression": {
+      "$atan2": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atan2 only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $atan2 only supports numeric types, not array",
+      "code": 51045,
+      "error": "Location51045"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$atan2 right[1]: nested array",
+    "operator": "$atan2",
+    "kind": "nested array",
+    "operand": "right[1]",
+    "expression": {
+      "$atan2": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atan2 only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $atan2 only supports numeric types, not array",
+      "code": 51045,
+      "error": "Location51045"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$atan2 right[1]: empty object",
+    "operator": "$atan2",
+    "kind": "empty object",
+    "operand": "right[1]",
+    "expression": {
+      "$atan2": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atan2 only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $atan2 only supports numeric types, not object",
+      "code": 51045,
+      "error": "Location51045"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$atan2 right[1]: object",
+    "operator": "$atan2",
+    "kind": "object",
+    "operand": "right[1]",
+    "expression": {
+      "$atan2": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atan2 only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $atan2 only supports numeric types, not object",
+      "code": 51045,
+      "error": "Location51045"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$atan2 right[1]: ISO date string",
+    "operator": "$atan2",
+    "kind": "ISO date string",
+    "operand": "right[1]",
+    "expression": {
+      "$atan2": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atan2 only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $atan2 only supports numeric types, not string",
+      "code": 51045,
+      "error": "Location51045"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$atan2 empty arguments",
+    "operator": "$atan2",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$atan2": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atan2 requires two numeric arguments."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $atan2 takes exactly 2 arguments. 0 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$atan2 unknown option",
+    "operator": "$atan2",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$atan2": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$atan2 requires two numeric arguments."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $atan2 takes exactly 2 arguments. 1 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

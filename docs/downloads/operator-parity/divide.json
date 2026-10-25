@@ -1,0 +1,1070 @@
+[
+  {
+    "id": "$divide baseline",
+    "operator": "$divide",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$divide": [
+        6,
+        2
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"3.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"3.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$divide left[0]: null",
+    "operator": "$divide",
+    "kind": "null",
+    "operand": "left[0]",
+    "expression": {
+      "$divide": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$divide left[0]: missing",
+    "operator": "$divide",
+    "kind": "missing",
+    "operand": "left[0]",
+    "expression": {
+      "$divide": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$divide left[0]: zero",
+    "operator": "$divide",
+    "kind": "zero",
+    "operand": "left[0]",
+    "expression": {
+      "$divide": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$divide left[0]: negative",
+    "operator": "$divide",
+    "kind": "negative",
+    "operand": "left[0]",
+    "expression": {
+      "$divide": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"-1.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"-1.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$divide left[0]: decimal",
+    "operator": "$divide",
+    "kind": "decimal",
+    "operand": "left[0]",
+    "expression": {
+      "$divide": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.25\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.25\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$divide left[0]: numeric string",
+    "operator": "$divide",
+    "kind": "numeric string",
+    "operand": "left[0]",
+    "expression": {
+      "$divide": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$divide only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $divide only supports numeric types, not string and int",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$divide left[0]: text",
+    "operator": "$divide",
+    "kind": "text",
+    "operand": "left[0]",
+    "expression": {
+      "$divide": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$divide only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $divide only supports numeric types, not string and int",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$divide left[0]: empty string",
+    "operator": "$divide",
+    "kind": "empty string",
+    "operand": "left[0]",
+    "expression": {
+      "$divide": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$divide only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $divide only supports numeric types, not string and int",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$divide left[0]: boolean",
+    "operator": "$divide",
+    "kind": "boolean",
+    "operand": "left[0]",
+    "expression": {
+      "$divide": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$divide only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $divide only supports numeric types, not bool and int",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$divide left[0]: false",
+    "operator": "$divide",
+    "kind": "false",
+    "operand": "left[0]",
+    "expression": {
+      "$divide": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$divide only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $divide only supports numeric types, not bool and int",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$divide left[0]: typed date",
+    "operator": "$divide",
+    "kind": "typed date",
+    "operand": "left[0]",
+    "expression": {
+      "$divide": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$divide only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $divide only supports numeric types, not date and int",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$divide left[0]: decimal128",
+    "operator": "$divide",
+    "kind": "decimal128",
+    "operand": "left[0]",
+    "expression": {
+      "$divide": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.625\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"0.625\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$divide left[0]: empty array",
+    "operator": "$divide",
+    "kind": "empty array",
+    "operand": "left[0]",
+    "expression": {
+      "$divide": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$divide only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $divide only supports numeric types, not array and int",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$divide left[0]: numeric array",
+    "operator": "$divide",
+    "kind": "numeric array",
+    "operand": "left[0]",
+    "expression": {
+      "$divide": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$divide only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $divide only supports numeric types, not array and int",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$divide left[0]: mixed array",
+    "operator": "$divide",
+    "kind": "mixed array",
+    "operand": "left[0]",
+    "expression": {
+      "$divide": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$divide only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $divide only supports numeric types, not array and int",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$divide left[0]: nested array",
+    "operator": "$divide",
+    "kind": "nested array",
+    "operand": "left[0]",
+    "expression": {
+      "$divide": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$divide only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $divide only supports numeric types, not array and int",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$divide left[0]: empty object",
+    "operator": "$divide",
+    "kind": "empty object",
+    "operand": "left[0]",
+    "expression": {
+      "$divide": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$divide only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $divide only supports numeric types, not object and int",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$divide left[0]: object",
+    "operator": "$divide",
+    "kind": "object",
+    "operand": "left[0]",
+    "expression": {
+      "$divide": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$divide only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $divide only supports numeric types, not object and int",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$divide left[0]: ISO date string",
+    "operator": "$divide",
+    "kind": "ISO date string",
+    "operand": "left[0]",
+    "expression": {
+      "$divide": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$divide only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $divide only supports numeric types, not string and int",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$divide right[1]: null",
+    "operator": "$divide",
+    "kind": "null",
+    "operand": "right[1]",
+    "expression": {
+      "$divide": [
+        6,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$divide right[1]: missing",
+    "operator": "$divide",
+    "kind": "missing",
+    "operand": "right[1]",
+    "expression": {
+      "$divide": [
+        6,
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$divide right[1]: zero",
+    "operator": "$divide",
+    "kind": "zero",
+    "operand": "right[1]",
+    "expression": {
+      "$divide": [
+        6,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "ArithmeticException",
+      "message": "$divide by zero"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't $divide by zero",
+      "code": 2,
+      "error": "BadValue"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$divide right[1]: negative",
+    "operator": "$divide",
+    "kind": "negative",
+    "operand": "right[1]",
+    "expression": {
+      "$divide": [
+        6,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"-3.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"-3.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$divide right[1]: decimal",
+    "operator": "$divide",
+    "kind": "decimal",
+    "operand": "right[1]",
+    "expression": {
+      "$divide": [
+        6,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.4\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.4\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$divide right[1]: numeric string",
+    "operator": "$divide",
+    "kind": "numeric string",
+    "operand": "right[1]",
+    "expression": {
+      "$divide": [
+        6,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$divide only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $divide only supports numeric types, not int and string",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$divide right[1]: text",
+    "operator": "$divide",
+    "kind": "text",
+    "operand": "right[1]",
+    "expression": {
+      "$divide": [
+        6,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$divide only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $divide only supports numeric types, not int and string",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$divide right[1]: empty string",
+    "operator": "$divide",
+    "kind": "empty string",
+    "operand": "right[1]",
+    "expression": {
+      "$divide": [
+        6,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$divide only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $divide only supports numeric types, not int and string",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$divide right[1]: boolean",
+    "operator": "$divide",
+    "kind": "boolean",
+    "operand": "right[1]",
+    "expression": {
+      "$divide": [
+        6,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$divide only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $divide only supports numeric types, not int and bool",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$divide right[1]: false",
+    "operator": "$divide",
+    "kind": "false",
+    "operand": "right[1]",
+    "expression": {
+      "$divide": [
+        6,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$divide only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $divide only supports numeric types, not int and bool",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$divide right[1]: typed date",
+    "operator": "$divide",
+    "kind": "typed date",
+    "operand": "right[1]",
+    "expression": {
+      "$divide": [
+        6,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$divide only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $divide only supports numeric types, not int and date",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$divide right[1]: decimal128",
+    "operator": "$divide",
+    "kind": "decimal128",
+    "operand": "right[1]",
+    "expression": {
+      "$divide": [
+        6,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"4.8\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"4.8\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$divide right[1]: empty array",
+    "operator": "$divide",
+    "kind": "empty array",
+    "operand": "right[1]",
+    "expression": {
+      "$divide": [
+        6,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$divide only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $divide only supports numeric types, not int and array",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$divide right[1]: numeric array",
+    "operator": "$divide",
+    "kind": "numeric array",
+    "operand": "right[1]",
+    "expression": {
+      "$divide": [
+        6,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$divide only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $divide only supports numeric types, not int and array",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$divide right[1]: mixed array",
+    "operator": "$divide",
+    "kind": "mixed array",
+    "operand": "right[1]",
+    "expression": {
+      "$divide": [
+        6,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$divide only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $divide only supports numeric types, not int and array",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$divide right[1]: nested array",
+    "operator": "$divide",
+    "kind": "nested array",
+    "operand": "right[1]",
+    "expression": {
+      "$divide": [
+        6,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$divide only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $divide only supports numeric types, not int and array",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$divide right[1]: empty object",
+    "operator": "$divide",
+    "kind": "empty object",
+    "operand": "right[1]",
+    "expression": {
+      "$divide": [
+        6,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$divide only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $divide only supports numeric types, not int and object",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$divide right[1]: object",
+    "operator": "$divide",
+    "kind": "object",
+    "operand": "right[1]",
+    "expression": {
+      "$divide": [
+        6,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$divide only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $divide only supports numeric types, not int and object",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$divide right[1]: ISO date string",
+    "operator": "$divide",
+    "kind": "ISO date string",
+    "operand": "right[1]",
+    "expression": {
+      "$divide": [
+        6,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$divide only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $divide only supports numeric types, not int and string",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$divide empty arguments",
+    "operator": "$divide",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$divide": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$divide requires exactly two arguments."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $divide takes exactly 2 arguments. 0 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$divide unknown option",
+    "operator": "$divide",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$divide": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$divide requires exactly two arguments."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $divide takes exactly 2 arguments. 1 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "mongodb-9-boundary-cases.json:2",
+    "operator": "$divide",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$divide": [
+        1,
+        0
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "ArithmeticException",
+      "message": "$divide by zero"
+    },
+    "mongo": {
+      "message": "Failed to optimize pipeline :: caused by :: can't $divide by zero",
+      "code": 2,
+      "error": "BadValue"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

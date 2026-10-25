@@ -1,0 +1,371 @@
+[
+  {
+    "id": "$toBool baseline",
+    "operator": "$toBool",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$toBool": 1
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toBool input: null",
+    "operator": "$toBool",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$toBool": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toBool input: missing",
+    "operator": "$toBool",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$toBool": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toBool input: zero",
+    "operator": "$toBool",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$toBool": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toBool input: negative",
+    "operator": "$toBool",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$toBool": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toBool input: decimal",
+    "operator": "$toBool",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$toBool": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toBool input: numeric string",
+    "operator": "$toBool",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$toBool": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toBool input: text",
+    "operator": "$toBool",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$toBool": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toBool input: empty string",
+    "operator": "$toBool",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$toBool": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toBool input: boolean",
+    "operator": "$toBool",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$toBool": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toBool input: false",
+    "operator": "$toBool",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$toBool": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toBool input: typed date",
+    "operator": "$toBool",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$toBool": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toBool input: decimal128",
+    "operator": "$toBool",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$toBool": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toBool input: empty array",
+    "operator": "$toBool",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$toBool": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toBool input: numeric array",
+    "operator": "$toBool",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$toBool": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toBool input: mixed array",
+    "operator": "$toBool",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$toBool": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toBool input: nested array",
+    "operator": "$toBool",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$toBool": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toBool input: empty object",
+    "operator": "$toBool",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$toBool": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toBool input: object",
+    "operator": "$toBool",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$toBool": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toBool input: ISO date string",
+    "operator": "$toBool",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$toBool": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toBool empty arguments",
+    "operator": "$toBool",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$toBool": []
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toBool unknown option",
+    "operator": "$toBool",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$toBool": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  }
+]

@@ -1,0 +1,1599 @@
+[
+  {
+    "id": "$substrCP baseline",
+    "operator": "$substrCP",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        1,
+        3
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"ell\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"ell\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$substrCP input[0]: null",
+    "operator": "$substrCP",
+    "kind": "null",
+    "operand": "input[0]",
+    "expression": {
+      "$substrCP": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$substrCP input[0]: missing",
+    "operator": "$substrCP",
+    "kind": "missing",
+    "operand": "input[0]",
+    "expression": {
+      "$substrCP": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$substrCP input[0]: zero",
+    "operator": "$substrCP",
+    "kind": "zero",
+    "operand": "input[0]",
+    "expression": {
+      "$substrCP": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$substrCP input[0]: negative",
+    "operator": "$substrCP",
+    "kind": "negative",
+    "operand": "input[0]",
+    "expression": {
+      "$substrCP": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "bson": "{\"v\": \"2\"}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$substrCP input[0]: decimal",
+    "operator": "$substrCP",
+    "kind": "decimal",
+    "operand": "input[0]",
+    "expression": {
+      "$substrCP": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "bson": "{\"v\": \".5\"}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$substrCP input[0]: numeric string",
+    "operator": "$substrCP",
+    "kind": "numeric string",
+    "operand": "input[0]",
+    "expression": {
+      "$substrCP": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"2\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$substrCP input[0]: text",
+    "operator": "$substrCP",
+    "kind": "text",
+    "operand": "input[0]",
+    "expression": {
+      "$substrCP": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"ell\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"ell\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$substrCP input[0]: empty string",
+    "operator": "$substrCP",
+    "kind": "empty string",
+    "operand": "input[0]",
+    "expression": {
+      "$substrCP": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$substrCP input[0]: boolean",
+    "operator": "$substrCP",
+    "kind": "boolean",
+    "operand": "input[0]",
+    "expression": {
+      "$substrCP": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type bool to String",
+      "code": 16007,
+      "error": "Location16007"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP input[0]: false",
+    "operator": "$substrCP",
+    "kind": "false",
+    "operand": "input[0]",
+    "expression": {
+      "$substrCP": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type bool to String",
+      "code": 16007,
+      "error": "Location16007"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP input[0]: typed date",
+    "operator": "$substrCP",
+    "kind": "typed date",
+    "operand": "input[0]",
+    "expression": {
+      "$substrCP": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "bson": "{\"v\": \"026\"}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$substrCP input[0]: decimal128",
+    "operator": "$substrCP",
+    "kind": "decimal128",
+    "operand": "input[0]",
+    "expression": {
+      "$substrCP": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "bson": "{\"v\": \".25\"}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$substrCP input[0]: empty array",
+    "operator": "$substrCP",
+    "kind": "empty array",
+    "operand": "input[0]",
+    "expression": {
+      "$substrCP": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type array to String",
+      "code": 16007,
+      "error": "Location16007"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP input[0]: numeric array",
+    "operator": "$substrCP",
+    "kind": "numeric array",
+    "operand": "input[0]",
+    "expression": {
+      "$substrCP": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type array to String",
+      "code": 16007,
+      "error": "Location16007"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP input[0]: mixed array",
+    "operator": "$substrCP",
+    "kind": "mixed array",
+    "operand": "input[0]",
+    "expression": {
+      "$substrCP": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type array to String",
+      "code": 16007,
+      "error": "Location16007"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP input[0]: nested array",
+    "operator": "$substrCP",
+    "kind": "nested array",
+    "operand": "input[0]",
+    "expression": {
+      "$substrCP": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type array to String",
+      "code": 16007,
+      "error": "Location16007"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP input[0]: empty object",
+    "operator": "$substrCP",
+    "kind": "empty object",
+    "operand": "input[0]",
+    "expression": {
+      "$substrCP": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type object to String",
+      "code": 16007,
+      "error": "Location16007"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP input[0]: object",
+    "operator": "$substrCP",
+    "kind": "object",
+    "operand": "input[0]",
+    "expression": {
+      "$substrCP": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type object to String",
+      "code": 16007,
+      "error": "Location16007"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP input[0]: ISO date string",
+    "operator": "$substrCP",
+    "kind": "ISO date string",
+    "operand": "input[0]",
+    "expression": {
+      "$substrCP": [
+        "$probe",
+        1,
+        3
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"026\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"026\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$substrCP start[1]: null",
+    "operator": "$substrCP",
+    "kind": "null",
+    "operand": "start[1]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: starting index must be a numeric type (is BSON type null)",
+      "code": 34450,
+      "error": "Location34450"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP start[1]: missing",
+    "operator": "$substrCP",
+    "kind": "missing",
+    "operand": "start[1]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: starting index must be a numeric type (is BSON type missing)",
+      "code": 34450,
+      "error": "Location34450"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP start[1]: zero",
+    "operator": "$substrCP",
+    "kind": "zero",
+    "operand": "start[1]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": \"hel\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"hel\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$substrCP start[1]: negative",
+    "operator": "$substrCP",
+    "kind": "negative",
+    "operand": "start[1]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: the starting index must be nonnegative integer.",
+      "code": 34455,
+      "error": "Location34455"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$substrCP start[1]: decimal",
+    "operator": "$substrCP",
+    "kind": "decimal",
+    "operand": "start[1]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": \"llo\"}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: starting index cannot be represented as a 32-bit integral value: 2.5",
+      "code": 34451,
+      "error": "Location34451"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$substrCP start[1]: numeric string",
+    "operator": "$substrCP",
+    "kind": "numeric string",
+    "operand": "start[1]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: starting index must be a numeric type (is BSON type string)",
+      "code": 34450,
+      "error": "Location34450"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP start[1]: text",
+    "operator": "$substrCP",
+    "kind": "text",
+    "operand": "start[1]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: starting index must be a numeric type (is BSON type string)",
+      "code": 34450,
+      "error": "Location34450"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP start[1]: empty string",
+    "operator": "$substrCP",
+    "kind": "empty string",
+    "operand": "start[1]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: starting index must be a numeric type (is BSON type string)",
+      "code": 34450,
+      "error": "Location34450"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP start[1]: boolean",
+    "operator": "$substrCP",
+    "kind": "boolean",
+    "operand": "start[1]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: starting index must be a numeric type (is BSON type bool)",
+      "code": 34450,
+      "error": "Location34450"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP start[1]: false",
+    "operator": "$substrCP",
+    "kind": "false",
+    "operand": "start[1]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: starting index must be a numeric type (is BSON type bool)",
+      "code": 34450,
+      "error": "Location34450"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP start[1]: typed date",
+    "operator": "$substrCP",
+    "kind": "typed date",
+    "operand": "start[1]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: starting index must be a numeric type (is BSON type date)",
+      "code": 34450,
+      "error": "Location34450"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP start[1]: decimal128",
+    "operator": "$substrCP",
+    "kind": "decimal128",
+    "operand": "start[1]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": \"ell\"}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: starting index cannot be represented as a 32-bit integral value: 1.25",
+      "code": 34451,
+      "error": "Location34451"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$substrCP start[1]: empty array",
+    "operator": "$substrCP",
+    "kind": "empty array",
+    "operand": "start[1]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: starting index must be a numeric type (is BSON type array)",
+      "code": 34450,
+      "error": "Location34450"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP start[1]: numeric array",
+    "operator": "$substrCP",
+    "kind": "numeric array",
+    "operand": "start[1]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: starting index must be a numeric type (is BSON type array)",
+      "code": 34450,
+      "error": "Location34450"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP start[1]: mixed array",
+    "operator": "$substrCP",
+    "kind": "mixed array",
+    "operand": "start[1]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: starting index must be a numeric type (is BSON type array)",
+      "code": 34450,
+      "error": "Location34450"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP start[1]: nested array",
+    "operator": "$substrCP",
+    "kind": "nested array",
+    "operand": "start[1]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: starting index must be a numeric type (is BSON type array)",
+      "code": 34450,
+      "error": "Location34450"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP start[1]: empty object",
+    "operator": "$substrCP",
+    "kind": "empty object",
+    "operand": "start[1]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: starting index must be a numeric type (is BSON type object)",
+      "code": 34450,
+      "error": "Location34450"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP start[1]: object",
+    "operator": "$substrCP",
+    "kind": "object",
+    "operand": "start[1]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: starting index must be a numeric type (is BSON type object)",
+      "code": 34450,
+      "error": "Location34450"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP start[1]: ISO date string",
+    "operator": "$substrCP",
+    "kind": "ISO date string",
+    "operand": "start[1]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: starting index must be a numeric type (is BSON type string)",
+      "code": 34450,
+      "error": "Location34450"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP length[2]: null",
+    "operator": "$substrCP",
+    "kind": "null",
+    "operand": "length[2]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: length must be a numeric type (is BSON type null)",
+      "code": 34452,
+      "error": "Location34452"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP length[2]: missing",
+    "operator": "$substrCP",
+    "kind": "missing",
+    "operand": "length[2]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: length must be a numeric type (is BSON type missing)",
+      "code": 34452,
+      "error": "Location34452"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP length[2]: zero",
+    "operator": "$substrCP",
+    "kind": "zero",
+    "operand": "length[2]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$substrCP length[2]: negative",
+    "operator": "$substrCP",
+    "kind": "negative",
+    "operand": "length[2]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: length must be a nonnegative integer.",
+      "code": 34454,
+      "error": "Location34454"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$substrCP length[2]: decimal",
+    "operator": "$substrCP",
+    "kind": "decimal",
+    "operand": "length[2]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": \"el\"}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: length cannot be represented as a 32-bit integral value: 2.5",
+      "code": 34453,
+      "error": "Location34453"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$substrCP length[2]: numeric string",
+    "operator": "$substrCP",
+    "kind": "numeric string",
+    "operand": "length[2]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: length must be a numeric type (is BSON type string)",
+      "code": 34452,
+      "error": "Location34452"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP length[2]: text",
+    "operator": "$substrCP",
+    "kind": "text",
+    "operand": "length[2]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: length must be a numeric type (is BSON type string)",
+      "code": 34452,
+      "error": "Location34452"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP length[2]: empty string",
+    "operator": "$substrCP",
+    "kind": "empty string",
+    "operand": "length[2]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: length must be a numeric type (is BSON type string)",
+      "code": 34452,
+      "error": "Location34452"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP length[2]: boolean",
+    "operator": "$substrCP",
+    "kind": "boolean",
+    "operand": "length[2]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: length must be a numeric type (is BSON type bool)",
+      "code": 34452,
+      "error": "Location34452"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP length[2]: false",
+    "operator": "$substrCP",
+    "kind": "false",
+    "operand": "length[2]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: length must be a numeric type (is BSON type bool)",
+      "code": 34452,
+      "error": "Location34452"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP length[2]: typed date",
+    "operator": "$substrCP",
+    "kind": "typed date",
+    "operand": "length[2]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: length must be a numeric type (is BSON type date)",
+      "code": 34452,
+      "error": "Location34452"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP length[2]: decimal128",
+    "operator": "$substrCP",
+    "kind": "decimal128",
+    "operand": "length[2]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": \"e\"}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: length cannot be represented as a 32-bit integral value: 1.25",
+      "code": 34453,
+      "error": "Location34453"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$substrCP length[2]: empty array",
+    "operator": "$substrCP",
+    "kind": "empty array",
+    "operand": "length[2]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: length must be a numeric type (is BSON type array)",
+      "code": 34452,
+      "error": "Location34452"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP length[2]: numeric array",
+    "operator": "$substrCP",
+    "kind": "numeric array",
+    "operand": "length[2]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: length must be a numeric type (is BSON type array)",
+      "code": 34452,
+      "error": "Location34452"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP length[2]: mixed array",
+    "operator": "$substrCP",
+    "kind": "mixed array",
+    "operand": "length[2]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: length must be a numeric type (is BSON type array)",
+      "code": 34452,
+      "error": "Location34452"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP length[2]: nested array",
+    "operator": "$substrCP",
+    "kind": "nested array",
+    "operand": "length[2]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: length must be a numeric type (is BSON type array)",
+      "code": 34452,
+      "error": "Location34452"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP length[2]: empty object",
+    "operator": "$substrCP",
+    "kind": "empty object",
+    "operand": "length[2]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: length must be a numeric type (is BSON type object)",
+      "code": 34452,
+      "error": "Location34452"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP length[2]: object",
+    "operator": "$substrCP",
+    "kind": "object",
+    "operand": "length[2]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: length must be a numeric type (is BSON type object)",
+      "code": 34452,
+      "error": "Location34452"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP length[2]: ISO date string",
+    "operator": "$substrCP",
+    "kind": "ISO date string",
+    "operand": "length[2]",
+    "expression": {
+      "$substrCP": [
+        "hello",
+        1,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP expects (string, int, int)"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $substrCP: length must be a numeric type (is BSON type string)",
+      "code": 34452,
+      "error": "Location34452"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP empty arguments",
+    "operator": "$substrCP",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$substrCP": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP requires [string, start, length]"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $substrCP takes exactly 3 arguments. 0 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$substrCP unknown option",
+    "operator": "$substrCP",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$substrCP": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$substrCP requires [string, start, length]"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $substrCP takes exactly 3 arguments. 1 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

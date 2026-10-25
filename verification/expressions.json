@@ -1,97 +1,161 @@
 [ {
-  "executed" : true,
+  "operator" : "$abs",
   "compiled" : true,
-  "operator" : "$abs"
+  "executed" : true
 }, {
-  "executed" : true,
+  "operator" : "$add",
   "compiled" : true,
-  "operator" : "$add"
+  "executed" : true
 }, {
-  "executed" : true,
+  "operator" : "$subtract",
   "compiled" : true,
-  "operator" : "$subtract"
+  "executed" : true
 }, {
-  "executed" : true,
+  "operator" : "$multiply",
   "compiled" : true,
-  "operator" : "$multiply"
+  "executed" : true
 }, {
-  "executed" : true,
+  "operator" : "$divide",
   "compiled" : true,
-  "operator" : "$divide"
+  "executed" : true
 }, {
-  "executed" : true,
+  "operator" : "$mod",
   "compiled" : true,
-  "operator" : "$mod"
+  "executed" : true
 }, {
-  "executed" : true,
+  "operator" : "$round",
   "compiled" : true,
-  "operator" : "$round"
+  "executed" : true
 }, {
-  "executed" : true,
+  "operator" : "$ceil",
   "compiled" : true,
-  "operator" : "$ceil"
+  "executed" : true
 }, {
-  "executed" : true,
+  "operator" : "$floor",
   "compiled" : true,
-  "operator" : "$floor"
+  "executed" : true
 }, {
-  "executed" : true,
+  "operator" : "$eq",
   "compiled" : true,
-  "operator" : "$eq"
+  "executed" : true
 }, {
-  "executed" : true,
+  "operator" : "$gt",
   "compiled" : true,
-  "operator" : "$gt"
+  "executed" : true
 }, {
-  "executed" : true,
+  "operator" : "$gte",
   "compiled" : true,
-  "operator" : "$gte"
+  "executed" : true
 }, {
-  "executed" : true,
+  "operator" : "$lt",
   "compiled" : true,
-  "operator" : "$lt"
+  "executed" : true
 }, {
-  "executed" : true,
+  "operator" : "$lte",
   "compiled" : true,
-  "operator" : "$lte"
+  "executed" : true
 }, {
-  "executed" : true,
+  "operator" : "$and",
   "compiled" : true,
-  "operator" : "$and"
+  "executed" : true
 }, {
-  "executed" : true,
+  "operator" : "$or",
   "compiled" : true,
-  "operator" : "$or"
+  "executed" : true
 }, {
-  "executed" : true,
+  "operator" : "$concat",
   "compiled" : true,
-  "operator" : "$concat"
+  "executed" : true
 }, {
-  "executed" : true,
+  "operator" : "$toUpper",
   "compiled" : true,
-  "operator" : "$toUpper"
+  "executed" : true
 }, {
-  "executed" : true,
+  "operator" : "$toLower",
   "compiled" : true,
-  "operator" : "$toLower"
+  "executed" : true
 }, {
-  "executed" : true,
+  "operator" : "$strLenCP",
   "compiled" : true,
-  "operator" : "$strLenCP"
+  "executed" : true
 }, {
-  "executed" : true,
+  "operator" : "$ifNull",
   "compiled" : true,
-  "operator" : "$ifNull"
+  "executed" : true
 }, {
-  "knownFailure" : "$size requires one argument",
+  "operator" : "$size",
   "executed" : false,
-  "operator" : "$size"
+  "knownFailure" : "$size requires one argument"
 }, {
-  "executed" : true,
+  "operator" : "$arrayElemAt",
   "compiled" : true,
-  "operator" : "$arrayElemAt"
+  "executed" : true
 }, {
-  "executed" : true,
+  "operator" : "$in",
   "compiled" : true,
-  "operator" : "$in"
+  "executed" : true
+}, {
+  "operator" : "$median",
+  "compiled" : true,
+  "executed" : true
+}, {
+  "operator" : "$percentile",
+  "compiled" : true,
+  "executed" : true
+}, {
+  "operator" : "$stdDevPop",
+  "compiled" : true,
+  "executed" : true
+}, {
+  "operator" : "$stdDevSamp",
+  "compiled" : true,
+  "executed" : true
+}, {
+  "operator" : "$bitNot",
+  "compiled" : true,
+  "executed" : true
+}, {
+  "operator" : "$topN",
+  "compiled" : true,
+  "executed" : true
+}, {
+  "operator" : "$convert",
+  "compiled" : true,
+  "executed" : true
+}, {
+  "operator" : "$toArray",
+  "compiled" : true,
+  "executed" : true
+}, {
+  "operator" : "$toObject",
+  "compiled" : true,
+  "executed" : true
+}, {
+  "operator" : "$convert",
+  "compiled" : true,
+  "executed" : true
+}, {
+  "operator" : "$convert",
+  "compiled" : true,
+  "executed" : true
+}, {
+  "operator" : "$convert",
+  "compiled" : true,
+  "executed" : true
+}, {
+  "operator" : "$convert",
+  "compiled" : true,
+  "executed" : true
+}, {
+  "operator" : "$convert",
+  "compiled" : true,
+  "executed" : true
+}, {
+  "operator" : "$convert",
+  "compiled" : true,
+  "executed" : true
+}, {
+  "operator" : "$convert",
+  "compiled" : true,
+  "executed" : true
 } ]

@@ -2,36 +2,119 @@
 
 Splits text using a Java regular-expression delimiter.
 
-**Category:** Text · **Visual function entry:** Yes
+**Category:** Text. **Studio Visual entry:** Available. This page describes Core expression execution; Studio also checks field types and authoring permissions.
 
-## Signature (engine metadata)
+## Syntax and arguments
 
-Argument syntax: `POSITIONAL`. Minimum arguments: 2. Maximum: 2.
+Supply an ordered array of arguments.
 
-| Operand | Accepted types | Required | Evaluation |
+| Argument | Metadata input types | Required | Evaluation |
 | --- | --- | --- | --- |
-| input | STRING | True | EXPRESSION |
-| delimiter | STRING | True | EXPRESSION |
+| `input` | STRING | Yes | Expression evaluated against the input |
+| `delimiter` | STRING | Yes | Expression evaluated against the input |
 
-Result types: ARRAY.
+Argument count: minimum 2; maximum 2.
 
-## Null and missing (engine metadata)
+Declared result types: **ARRAY**. Actual result types for tested inputs appear below. Metadata is an authoring hint; where a case differs, use the observed result and treat the discrepancy as a limitation.
 
-- Null: With input set to literal null in the regression example: throws an exception. This is observed Fluxion behavior, not a general Mongo conformance claim.
-- Missing: With input set to a missing direct-field reference in the regression example: throws an exception. This is observed Fluxion behavior, not a general Mongo conformance claim.
+## Example
 
-## Compatibility boundary
+Expression:
+```json
+{
+  "$split": [
+    "a,b",
+    ","
+  ]
+}
+```
 
-Classification: `MONGO_6_SUBSET`. Verification scope reported by the engine: `ENGINE_REGRESSION_EXAMPLES`.
+Input document:
+```json
+{}
+```
 
-- Verification covers regression cases; full BSON and locale conformance is not certified.
+**Observed SrotaX result:** ["a","b"].
 
-These statements come from the engine catalog. This documentation has not independently certified equivalence against a running MongoDB server.
+## Behavior for different inputs
 
-## Example coverage
+Each table changes **only the indicated argument** from the example above. Other arguments retain their baseline values. Values normally come from the input field `probe`; literal configuration arguments are replaced directly. “Missing” means the field is absent, not explicitly null. Numeric strings are strings, not numbers.
 
-No executable example for this operator is included in the documentation suite yet. Use the signature above and validate your complete expression; do not interpret registration as a guarantee for every argument combination.
+### Argument: `input[0]`
 
-[MongoDB reference linked by engine metadata](https://raw.githubusercontent.com/mongodb/docs/3baea2dd8f2386d64c3c9a6805f625b80d9bacf4/source/reference/operator/aggregation/split.txt)
+| Input case | Supplied value | SrotaX result |
+| --- | --- | --- |
+| null | null | Error: IllegalArgumentException — $split arguments must be strings. |
+| missing | Field absent | Error: IllegalArgumentException — $split arguments must be strings. |
+| zero | 0 | Error: IllegalArgumentException — $split arguments must be strings. |
+| negative | -2 | Error: IllegalArgumentException — $split arguments must be strings. |
+| decimal | 2.5 | Error: IllegalArgumentException — $split arguments must be strings. |
+| numeric string | "12" | ["12"] |
+| text | "hello" | ["hello"] |
+| empty string | "" | [""] |
+| boolean | true | Error: IllegalArgumentException — $split arguments must be strings. |
+| false | false | Error: IllegalArgumentException — $split arguments must be strings. |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error: IllegalArgumentException — $split arguments must be strings. |
+| decimal128 | {"$numberDecimal":"1.25"} | Error: IllegalArgumentException — $split arguments must be strings. |
+| empty array | [] | Error: IllegalArgumentException — $split arguments must be strings. |
+| numeric array | [1,2,3] | Error: IllegalArgumentException — $split arguments must be strings. |
+| mixed array | [1,null,"x",3] | Error: IllegalArgumentException — $split arguments must be strings. |
+| nested array | [[1,2],[3]] | Error: IllegalArgumentException — $split arguments must be strings. |
+| empty object | {} | Error: IllegalArgumentException — $split arguments must be strings. |
+| object | {"x":1} | Error: IllegalArgumentException — $split arguments must be strings. |
+| ISO date string | "2026-01-15T15:00:00Z" | ["2026-01-15T15:00:00Z"] |
 
-Source revision recorded by engine: `3baea2dd8f2386d64c3c9a6805f625b80d9bacf4`.
+### Argument: `delimiter[1]`
+
+| Input case | Supplied value | SrotaX result |
+| --- | --- | --- |
+| null | null | Error: IllegalArgumentException — $split arguments must be strings. |
+| missing | Field absent | Error: IllegalArgumentException — $split arguments must be strings. |
+| zero | 0 | Error: IllegalArgumentException — $split arguments must be strings. |
+| negative | -2 | Error: IllegalArgumentException — $split arguments must be strings. |
+| decimal | 2.5 | Error: IllegalArgumentException — $split arguments must be strings. |
+| numeric string | "12" | ["a,b"] |
+| text | "hello" | ["a,b"] |
+| empty string | "" | Error: IllegalArgumentException — $split delimiter must not be empty |
+| boolean | true | Error: IllegalArgumentException — $split arguments must be strings. |
+| false | false | Error: IllegalArgumentException — $split arguments must be strings. |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error: IllegalArgumentException — $split arguments must be strings. |
+| decimal128 | {"$numberDecimal":"1.25"} | Error: IllegalArgumentException — $split arguments must be strings. |
+| empty array | [] | Error: IllegalArgumentException — $split arguments must be strings. |
+| numeric array | [1,2,3] | Error: IllegalArgumentException — $split arguments must be strings. |
+| mixed array | [1,null,"x",3] | Error: IllegalArgumentException — $split arguments must be strings. |
+| nested array | [[1,2],[3]] | Error: IllegalArgumentException — $split arguments must be strings. |
+| empty object | {} | Error: IllegalArgumentException — $split arguments must be strings. |
+| object | {"x":1} | Error: IllegalArgumentException — $split arguments must be strings. |
+| ISO date string | "2026-01-15T15:00:00Z" | ["a,b"] |
+
+## Invalid invocation shapes
+
+| Invocation | SrotaX result |
+| --- | --- |
+| {"$split":[]} | Error: IllegalArgumentException — $split requires [string, delimiter] |
+| {"$split":{"unexpected":1}} | Error: IllegalArgumentException — $split requires [string, delimiter] |
+
+## Scope and reproducibility
+
+This page records **41 executed cases**. It covers individual argument substitutions, not every cross-product of arguments, locale, daylight-saving transitions, numeric overflow, collation or resource limits. No untested behavior is guaranteed.
+
+[Download exact expressions, inputs and SrotaX results](../../downloads/operator-behavior/split.json). Errors are observed messages, not stable public error codes. The reference generator reads the checked-in execution report; do not edit generated observations by hand.
+
+<!-- BEGIN MONGO PARITY -->
+## MongoDB differences (removable section)
+
+Compared with **MongoDB 9.0.4**: **8 exact BSON matches**, **29 both rejected**, **4 value/type/acceptance differences**, **0 object-field-order differences**.
+
+“Exact” includes numeric BSON types and object key order. A value of `3` as int32 differs from `3.0` as double. Object-field-order differences are reported separately; object key ordering is not enforced by the engine regression baseline. Both rejected does not mean the error codes or messages match. This is finite-case evidence, not full compatibility certification.
+
+| Tested case | SrotaX | MongoDB |
+| --- | --- | --- |
+| input[0] / null | Error: IllegalArgumentException — $split arguments must be strings. | null |
+| input[0] / missing | Error: IllegalArgumentException — $split arguments must be strings. | null |
+| delimiter[1] / null | Error: IllegalArgumentException — $split arguments must be strings. | null |
+| delimiter[1] / missing | Error: IllegalArgumentException — $split arguments must be strings. | null |
+
+[Download full comparison evidence](../../downloads/operator-parity/split.json).
+
+<!-- END MONGO PARITY -->

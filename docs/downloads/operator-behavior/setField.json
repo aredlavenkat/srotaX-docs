@@ -1,0 +1,1304 @@
+[
+  {
+    "id": "$setField baseline",
+    "operator": "$setField",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"a\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setField field: null",
+    "operator": "$setField",
+    "kind": "null",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    }
+  },
+  {
+    "id": "$setField field: missing",
+    "operator": "$setField",
+    "kind": "missing",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    }
+  },
+  {
+    "id": "$setField field: zero",
+    "operator": "$setField",
+    "kind": "zero",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    }
+  },
+  {
+    "id": "$setField field: negative",
+    "operator": "$setField",
+    "kind": "negative",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    }
+  },
+  {
+    "id": "$setField field: decimal",
+    "operator": "$setField",
+    "kind": "decimal",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    }
+  },
+  {
+    "id": "$setField field: numeric string",
+    "operator": "$setField",
+    "kind": "numeric string",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"12\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setField field: text",
+    "operator": "$setField",
+    "kind": "text",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"hello\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setField field: empty string",
+    "operator": "$setField",
+    "kind": "empty string",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setField field: boolean",
+    "operator": "$setField",
+    "kind": "boolean",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    }
+  },
+  {
+    "id": "$setField field: false",
+    "operator": "$setField",
+    "kind": "false",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    }
+  },
+  {
+    "id": "$setField field: typed date",
+    "operator": "$setField",
+    "kind": "typed date",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    }
+  },
+  {
+    "id": "$setField field: decimal128",
+    "operator": "$setField",
+    "kind": "decimal128",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    }
+  },
+  {
+    "id": "$setField field: empty array",
+    "operator": "$setField",
+    "kind": "empty array",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    }
+  },
+  {
+    "id": "$setField field: numeric array",
+    "operator": "$setField",
+    "kind": "numeric array",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    }
+  },
+  {
+    "id": "$setField field: mixed array",
+    "operator": "$setField",
+    "kind": "mixed array",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    }
+  },
+  {
+    "id": "$setField field: nested array",
+    "operator": "$setField",
+    "kind": "nested array",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    }
+  },
+  {
+    "id": "$setField field: empty object",
+    "operator": "$setField",
+    "kind": "empty object",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    }
+  },
+  {
+    "id": "$setField field: object",
+    "operator": "$setField",
+    "kind": "object",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    }
+  },
+  {
+    "id": "$setField field: ISO date string",
+    "operator": "$setField",
+    "kind": "ISO date string",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"2026-01-15T15:00:00Z\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setField input: null",
+    "operator": "$setField",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    }
+  },
+  {
+    "id": "$setField input: missing",
+    "operator": "$setField",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    }
+  },
+  {
+    "id": "$setField input: zero",
+    "operator": "$setField",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    }
+  },
+  {
+    "id": "$setField input: negative",
+    "operator": "$setField",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    }
+  },
+  {
+    "id": "$setField input: decimal",
+    "operator": "$setField",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    }
+  },
+  {
+    "id": "$setField input: numeric string",
+    "operator": "$setField",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    }
+  },
+  {
+    "id": "$setField input: text",
+    "operator": "$setField",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    }
+  },
+  {
+    "id": "$setField input: empty string",
+    "operator": "$setField",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    }
+  },
+  {
+    "id": "$setField input: boolean",
+    "operator": "$setField",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    }
+  },
+  {
+    "id": "$setField input: false",
+    "operator": "$setField",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    }
+  },
+  {
+    "id": "$setField input: typed date",
+    "operator": "$setField",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    }
+  },
+  {
+    "id": "$setField input: decimal128",
+    "operator": "$setField",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    }
+  },
+  {
+    "id": "$setField input: empty array",
+    "operator": "$setField",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    }
+  },
+  {
+    "id": "$setField input: numeric array",
+    "operator": "$setField",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    }
+  },
+  {
+    "id": "$setField input: mixed array",
+    "operator": "$setField",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    }
+  },
+  {
+    "id": "$setField input: nested array",
+    "operator": "$setField",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    }
+  },
+  {
+    "id": "$setField input: empty object",
+    "operator": "$setField",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setField input: object",
+    "operator": "$setField",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"x\": {\"$numberInt\": \"1\"}, \"a\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setField input: ISO date string",
+    "operator": "$setField",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    }
+  },
+  {
+    "id": "$setField value: null",
+    "operator": "$setField",
+    "kind": "null",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": null}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setField value: missing",
+    "operator": "$setField",
+    "kind": "missing",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"a\": null}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setField value: zero",
+    "operator": "$setField",
+    "kind": "zero",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": {\"$numberInt\": \"0\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setField value: negative",
+    "operator": "$setField",
+    "kind": "negative",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": {\"$numberInt\": \"-2\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setField value: decimal",
+    "operator": "$setField",
+    "kind": "decimal",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": {\"$numberDouble\": \"2.5\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setField value: numeric string",
+    "operator": "$setField",
+    "kind": "numeric string",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": \"12\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setField value: text",
+    "operator": "$setField",
+    "kind": "text",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": \"hello\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setField value: empty string",
+    "operator": "$setField",
+    "kind": "empty string",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": \"\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setField value: boolean",
+    "operator": "$setField",
+    "kind": "boolean",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": true}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setField value: false",
+    "operator": "$setField",
+    "kind": "false",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": false}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setField value: typed date",
+    "operator": "$setField",
+    "kind": "typed date",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": {\"$date\": {\"$numberLong\": \"1768489200000\"}}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setField value: decimal128",
+    "operator": "$setField",
+    "kind": "decimal128",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": {\"$numberDecimal\": \"1.25\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setField value: empty array",
+    "operator": "$setField",
+    "kind": "empty array",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": []}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setField value: numeric array",
+    "operator": "$setField",
+    "kind": "numeric array",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}]}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setField value: mixed array",
+    "operator": "$setField",
+    "kind": "mixed array",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": [{\"$numberInt\": \"1\"}, null, \"x\", {\"$numberInt\": \"3\"}]}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setField value: nested array",
+    "operator": "$setField",
+    "kind": "nested array",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}], [{\"$numberInt\": \"3\"}]]}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setField value: empty object",
+    "operator": "$setField",
+    "kind": "empty object",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": {}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setField value: object",
+    "operator": "$setField",
+    "kind": "object",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": {\"x\": {\"$numberInt\": \"1\"}}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setField value: ISO date string",
+    "operator": "$setField",
+    "kind": "ISO date string",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": \"2026-01-15T15:00:00Z\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setField omit field",
+    "operator": "$setField",
+    "kind": "omitted named argument",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires 'field', 'input', and 'value' keys."
+    }
+  },
+  {
+    "id": "$setField omit input",
+    "operator": "$setField",
+    "kind": "omitted named argument",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "value": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires 'field', 'input', and 'value' keys."
+    }
+  },
+  {
+    "id": "$setField omit value",
+    "operator": "$setField",
+    "kind": "omitted named argument",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {}
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires 'field', 'input', and 'value' keys."
+    }
+  },
+  {
+    "id": "$setField empty arguments",
+    "operator": "$setField",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$setField": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires 'field', 'input', and 'value' keys."
+    }
+  },
+  {
+    "id": "$setField unknown option",
+    "operator": "$setField",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$setField": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires 'field', 'input', and 'value' keys."
+    }
+  }
+]

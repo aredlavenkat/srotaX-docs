@@ -2,38 +2,151 @@
 
 Sets a named field on an object copy.
 
-**Category:** Objects · **Visual function entry:** Yes
+**Category:** Objects. **Studio Visual entry:** Available. This page describes Core expression execution; Studio also checks field types and authoring permissions.
 
-## Signature (engine metadata)
+## Syntax and arguments
 
-Argument syntax: `NAMED`. Minimum arguments: 3. Maximum: 3.
+Supply an object with the named arguments below.
 
-| Operand | Accepted types | Required | Evaluation |
+| Argument | Metadata input types | Required | Evaluation |
 | --- | --- | --- | --- |
-| field | STRING | True | EXPRESSION |
-| input | OBJECT | True | EXPRESSION |
-| value | ANY | True | EXPRESSION |
+| `field` | STRING | Yes | Expression evaluated against the input |
+| `input` | OBJECT | Yes | Expression evaluated against the input |
+| `value` | ANY | Yes | Expression evaluated against the input |
 
-Result types: OBJECT.
+Argument count: minimum 3; maximum 3.
 
-## Null and missing (engine metadata)
+Declared result types: **OBJECT**. Actual result types for tested inputs appear below. Metadata is an authoring hint; where a case differs, use the observed result and treat the discrepancy as a limitation.
 
-- Null: With field set to literal null in the regression example: throws an exception. This is observed Fluxion behavior, not a general Mongo conformance claim.
-- Missing: With field set to a missing direct-field reference in the regression example: throws an exception. This is observed Fluxion behavior, not a general Mongo conformance claim.
+## Example
 
-## Compatibility boundary
+Expression:
+```json
+{
+  "$setField": {
+    "field": "a",
+    "input": {},
+    "value": 1
+  }
+}
+```
 
-Classification: `MONGO_6_DIFFERENCES`. Verification scope reported by the engine: `ENGINE_REGRESSION_EXAMPLES`.
+Input document:
+```json
+{}
+```
 
-- Null input errors; $$REMOVE semantics are unsupported.
-- Verification covers the checked-in regression examples, not full BSON, null, error or collation equivalence.
+**Observed SrotaX result:** {"a":1}.
 
-These statements come from the engine catalog. This documentation has not independently certified equivalence against a running MongoDB server.
+## Behavior for different inputs
 
-## Example coverage
+Each table changes **only the indicated argument** from the example above. Other arguments retain their baseline values. Values normally come from the input field `probe`; literal configuration arguments are replaced directly. “Missing” means the field is absent, not explicitly null. Numeric strings are strings, not numbers.
 
-No executable example for this operator is included in the documentation suite yet. Use the signature above and validate your complete expression; do not interpret registration as a guarantee for every argument combination.
+### Argument: `field`
 
-[MongoDB reference linked by engine metadata](https://raw.githubusercontent.com/mongodb/docs/3baea2dd8f2386d64c3c9a6805f625b80d9bacf4/source/reference/operator/aggregation/setField.txt)
+| Input case | Supplied value | SrotaX result |
+| --- | --- | --- |
+| null | null | Error: IllegalArgumentException — $setField requires document input and string field. |
+| missing | Field absent | Error: IllegalArgumentException — $setField requires document input and string field. |
+| zero | 0 | Error: IllegalArgumentException — $setField requires document input and string field. |
+| negative | -2 | Error: IllegalArgumentException — $setField requires document input and string field. |
+| decimal | 2.5 | Error: IllegalArgumentException — $setField requires document input and string field. |
+| numeric string | "12" | {"12":1} |
+| text | "hello" | {"hello":1} |
+| empty string | "" | {"":1} |
+| boolean | true | Error: IllegalArgumentException — $setField requires document input and string field. |
+| false | false | Error: IllegalArgumentException — $setField requires document input and string field. |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error: IllegalArgumentException — $setField requires document input and string field. |
+| decimal128 | {"$numberDecimal":"1.25"} | Error: IllegalArgumentException — $setField requires document input and string field. |
+| empty array | [] | Error: IllegalArgumentException — $setField requires document input and string field. |
+| numeric array | [1,2,3] | Error: IllegalArgumentException — $setField requires document input and string field. |
+| mixed array | [1,null,"x",3] | Error: IllegalArgumentException — $setField requires document input and string field. |
+| nested array | [[1,2],[3]] | Error: IllegalArgumentException — $setField requires document input and string field. |
+| empty object | {} | Error: IllegalArgumentException — $setField requires document input and string field. |
+| object | {"x":1} | Error: IllegalArgumentException — $setField requires document input and string field. |
+| ISO date string | "2026-01-15T15:00:00Z" | {"2026-01-15T15:00:00Z":1} |
+| omitted named argument | Argument removed | Error: IllegalArgumentException — $setField requires 'field', 'input', and 'value' keys. |
 
-Source revision recorded by engine: `3baea2dd8f2386d64c3c9a6805f625b80d9bacf4`.
+### Argument: `input`
+
+| Input case | Supplied value | SrotaX result |
+| --- | --- | --- |
+| null | null | Error: IllegalArgumentException — $setField requires document input and string field. |
+| missing | Field absent | Error: IllegalArgumentException — $setField requires document input and string field. |
+| zero | 0 | Error: IllegalArgumentException — $setField requires document input and string field. |
+| negative | -2 | Error: IllegalArgumentException — $setField requires document input and string field. |
+| decimal | 2.5 | Error: IllegalArgumentException — $setField requires document input and string field. |
+| numeric string | "12" | Error: IllegalArgumentException — $setField requires document input and string field. |
+| text | "hello" | Error: IllegalArgumentException — $setField requires document input and string field. |
+| empty string | "" | Error: IllegalArgumentException — $setField requires document input and string field. |
+| boolean | true | Error: IllegalArgumentException — $setField requires document input and string field. |
+| false | false | Error: IllegalArgumentException — $setField requires document input and string field. |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error: IllegalArgumentException — $setField requires document input and string field. |
+| decimal128 | {"$numberDecimal":"1.25"} | Error: IllegalArgumentException — $setField requires document input and string field. |
+| empty array | [] | Error: IllegalArgumentException — $setField requires document input and string field. |
+| numeric array | [1,2,3] | Error: IllegalArgumentException — $setField requires document input and string field. |
+| mixed array | [1,null,"x",3] | Error: IllegalArgumentException — $setField requires document input and string field. |
+| nested array | [[1,2],[3]] | Error: IllegalArgumentException — $setField requires document input and string field. |
+| empty object | {} | {"a":1} |
+| object | {"x":1} | {"x":1,"a":1} |
+| ISO date string | "2026-01-15T15:00:00Z" | Error: IllegalArgumentException — $setField requires document input and string field. |
+| omitted named argument | Argument removed | Error: IllegalArgumentException — $setField requires 'field', 'input', and 'value' keys. |
+
+### Argument: `value`
+
+| Input case | Supplied value | SrotaX result |
+| --- | --- | --- |
+| null | null | {"a":null} |
+| missing | Field absent | {"a":null} |
+| zero | 0 | {"a":0} |
+| negative | -2 | {"a":-2} |
+| decimal | 2.5 | {"a":2.5} |
+| numeric string | "12" | {"a":"12"} |
+| text | "hello" | {"a":"hello"} |
+| empty string | "" | {"a":""} |
+| boolean | true | {"a":true} |
+| false | false | {"a":false} |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | {"a":{"$date":1768489200000}} |
+| decimal128 | {"$numberDecimal":"1.25"} | {"a":{"$numberDecimal":"1.25"}} |
+| empty array | [] | {"a":[]} |
+| numeric array | [1,2,3] | {"a":[1,2,3]} |
+| mixed array | [1,null,"x",3] | {"a":[1,null,"x",3]} |
+| nested array | [[1,2],[3]] | {"a":[[1,2],[3]]} |
+| empty object | {} | {"a":{}} |
+| object | {"x":1} | {"a":{"x":1}} |
+| ISO date string | "2026-01-15T15:00:00Z" | {"a":"2026-01-15T15:00:00Z"} |
+| omitted named argument | Argument removed | Error: IllegalArgumentException — $setField requires 'field', 'input', and 'value' keys. |
+
+## Invalid invocation shapes
+
+| Invocation | SrotaX result |
+| --- | --- |
+| {"$setField":[]} | Error: IllegalArgumentException — $setField requires 'field', 'input', and 'value' keys. |
+| {"$setField":{"unexpected":1}} | Error: IllegalArgumentException — $setField requires 'field', 'input', and 'value' keys. |
+
+## Scope and reproducibility
+
+This page records **63 executed cases**. It covers individual argument substitutions, not every cross-product of arguments, locale, daylight-saving transitions, numeric overflow, collation or resource limits. No untested behavior is guaranteed.
+
+[Download exact expressions, inputs and SrotaX results](../../downloads/operator-behavior/setField.json). Errors are observed messages, not stable public error codes. The reference generator reads the checked-in execution report; do not edit generated observations by hand.
+
+<!-- BEGIN MONGO PARITY -->
+## MongoDB differences (removable section)
+
+Compared with **MongoDB 9.0.4**: **21 exact BSON matches**, **35 both rejected**, **7 value/type/acceptance differences**, **0 object-field-order differences**.
+
+“Exact” includes numeric BSON types and object key order. A value of `3` as int32 differs from `3.0` as double. Object-field-order differences are reported separately; object key ordering is not enforced by the engine regression baseline. Both rejected does not mean the error codes or messages match. This is finite-case evidence, not full compatibility certification.
+
+| Tested case | SrotaX | MongoDB |
+| --- | --- | --- |
+| field / numeric string | {"12":1} | Error: Location4161108 — Invalid $project :: caused by :: '$CURRENT.probe' is a field path reference which is not allowed in this context. Did you mean {$literal: '$CURRENT.probe'}? |
+| field / text | {"hello":1} | Error: Location4161108 — Invalid $project :: caused by :: '$CURRENT.probe' is a field path reference which is not allowed in this context. Did you mean {$literal: '$CURRENT.probe'}? |
+| field / empty string | {"":1} | Error: Location4161108 — Invalid $project :: caused by :: '$CURRENT.probe' is a field path reference which is not allowed in this context. Did you mean {$literal: '$CURRENT.probe'}? |
+| field / ISO date string | {"2026-01-15T15:00:00Z":1} | Error: Location4161108 — Invalid $project :: caused by :: '$CURRENT.probe' is a field path reference which is not allowed in this context. Did you mean {$literal: '$CURRENT.probe'}? |
+| input / null | Error: IllegalArgumentException — $setField requires document input and string field. | null |
+| input / missing | Error: IllegalArgumentException — $setField requires document input and string field. | null |
+| value / missing | {"a":null} | {} |
+
+[Download full comparison evidence](../../downloads/operator-parity/setField.json).
+
+<!-- END MONGO PARITY -->

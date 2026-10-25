@@ -1,0 +1,1182 @@
+[
+  {
+    "id": "$lastN baseline",
+    "operator": "$lastN",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$lastN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$lastN input: null",
+    "operator": "$lastN",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$lastN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Input must be an array",
+      "code": 5788200,
+      "error": "Location5788200"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN input: missing",
+    "operator": "$lastN",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$lastN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Input must be an array",
+      "code": 5788200,
+      "error": "Location5788200"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN input: zero",
+    "operator": "$lastN",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$lastN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Input must be an array",
+      "code": 5788200,
+      "error": "Location5788200"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN input: negative",
+    "operator": "$lastN",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$lastN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Input must be an array",
+      "code": 5788200,
+      "error": "Location5788200"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN input: decimal",
+    "operator": "$lastN",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$lastN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Input must be an array",
+      "code": 5788200,
+      "error": "Location5788200"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN input: numeric string",
+    "operator": "$lastN",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$lastN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Input must be an array",
+      "code": 5788200,
+      "error": "Location5788200"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN input: text",
+    "operator": "$lastN",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$lastN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Input must be an array",
+      "code": 5788200,
+      "error": "Location5788200"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN input: empty string",
+    "operator": "$lastN",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$lastN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Input must be an array",
+      "code": 5788200,
+      "error": "Location5788200"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN input: boolean",
+    "operator": "$lastN",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$lastN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Input must be an array",
+      "code": 5788200,
+      "error": "Location5788200"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN input: false",
+    "operator": "$lastN",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$lastN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Input must be an array",
+      "code": 5788200,
+      "error": "Location5788200"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN input: typed date",
+    "operator": "$lastN",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$lastN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Input must be an array",
+      "code": 5788200,
+      "error": "Location5788200"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN input: decimal128",
+    "operator": "$lastN",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$lastN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Input must be an array",
+      "code": 5788200,
+      "error": "Location5788200"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN input: empty array",
+    "operator": "$lastN",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$lastN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$lastN input: numeric array",
+    "operator": "$lastN",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$lastN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$lastN input: mixed array",
+    "operator": "$lastN",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$lastN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [\"x\", {\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [\"x\", {\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$lastN input: nested array",
+    "operator": "$lastN",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$lastN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}], [{\"$numberInt\": \"3\"}]]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}], [{\"$numberInt\": \"3\"}]]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$lastN input: empty object",
+    "operator": "$lastN",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$lastN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Input must be an array",
+      "code": 5788200,
+      "error": "Location5788200"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN input: object",
+    "operator": "$lastN",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$lastN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Input must be an array",
+      "code": 5788200,
+      "error": "Location5788200"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN input: ISO date string",
+    "operator": "$lastN",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$lastN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Input must be an array",
+      "code": 5788200,
+      "error": "Location5788200"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN n: null",
+    "operator": "$lastN",
+    "kind": "null",
+    "operand": "n",
+    "expression": {
+      "$lastN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Value for 'n' must be of integral type, but found null",
+      "code": 5787902,
+      "error": "Location5787902"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN n: missing",
+    "operator": "$lastN",
+    "kind": "missing",
+    "operand": "n",
+    "expression": {
+      "$lastN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Value for 'n' must be of integral type, but found MISSING",
+      "code": 5787902,
+      "error": "Location5787902"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN n: zero",
+    "operator": "$lastN",
+    "kind": "zero",
+    "operand": "n",
+    "expression": {
+      "$lastN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'n' must be greater than 0, found 0",
+      "code": 5787908,
+      "error": "Location5787908"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN n: negative",
+    "operator": "$lastN",
+    "kind": "negative",
+    "operand": "n",
+    "expression": {
+      "$lastN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'n' must be greater than 0, found -2",
+      "code": 5787908,
+      "error": "Location5787908"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN n: decimal",
+    "operator": "$lastN",
+    "kind": "decimal",
+    "operand": "n",
+    "expression": {
+      "$lastN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Value for 'n' must be of integral type, but found 2.5",
+      "code": 5787903,
+      "error": "Location5787903"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN n: numeric string",
+    "operator": "$lastN",
+    "kind": "numeric string",
+    "operand": "n",
+    "expression": {
+      "$lastN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Value for 'n' must be of integral type, but found \"12\"",
+      "code": 5787902,
+      "error": "Location5787902"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN n: text",
+    "operator": "$lastN",
+    "kind": "text",
+    "operand": "n",
+    "expression": {
+      "$lastN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Value for 'n' must be of integral type, but found \"hello\"",
+      "code": 5787902,
+      "error": "Location5787902"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN n: empty string",
+    "operator": "$lastN",
+    "kind": "empty string",
+    "operand": "n",
+    "expression": {
+      "$lastN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Value for 'n' must be of integral type, but found \"\"",
+      "code": 5787902,
+      "error": "Location5787902"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN n: boolean",
+    "operator": "$lastN",
+    "kind": "boolean",
+    "operand": "n",
+    "expression": {
+      "$lastN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Value for 'n' must be of integral type, but found true",
+      "code": 5787902,
+      "error": "Location5787902"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN n: false",
+    "operator": "$lastN",
+    "kind": "false",
+    "operand": "n",
+    "expression": {
+      "$lastN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Value for 'n' must be of integral type, but found false",
+      "code": 5787902,
+      "error": "Location5787902"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN n: typed date",
+    "operator": "$lastN",
+    "kind": "typed date",
+    "operand": "n",
+    "expression": {
+      "$lastN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Value for 'n' must be of integral type, but found 2026-01-15T15:00:00.000Z",
+      "code": 5787902,
+      "error": "Location5787902"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN n: decimal128",
+    "operator": "$lastN",
+    "kind": "decimal128",
+    "operand": "n",
+    "expression": {
+      "$lastN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Value for 'n' must be of integral type, but found 1.25",
+      "code": 5787903,
+      "error": "Location5787903"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN n: empty array",
+    "operator": "$lastN",
+    "kind": "empty array",
+    "operand": "n",
+    "expression": {
+      "$lastN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Value for 'n' must be of integral type, but found []",
+      "code": 5787902,
+      "error": "Location5787902"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN n: numeric array",
+    "operator": "$lastN",
+    "kind": "numeric array",
+    "operand": "n",
+    "expression": {
+      "$lastN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Value for 'n' must be of integral type, but found [1, 2, 3]",
+      "code": 5787902,
+      "error": "Location5787902"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN n: mixed array",
+    "operator": "$lastN",
+    "kind": "mixed array",
+    "operand": "n",
+    "expression": {
+      "$lastN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Value for 'n' must be of integral type, but found [1, null, \"x\", 3]",
+      "code": 5787902,
+      "error": "Location5787902"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN n: nested array",
+    "operator": "$lastN",
+    "kind": "nested array",
+    "operand": "n",
+    "expression": {
+      "$lastN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Value for 'n' must be of integral type, but found [[1, 2], [3]]",
+      "code": 5787902,
+      "error": "Location5787902"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN n: empty object",
+    "operator": "$lastN",
+    "kind": "empty object",
+    "operand": "n",
+    "expression": {
+      "$lastN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Value for 'n' must be of integral type, but found {}",
+      "code": 5787902,
+      "error": "Location5787902"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN n: object",
+    "operator": "$lastN",
+    "kind": "object",
+    "operand": "n",
+    "expression": {
+      "$lastN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Value for 'n' must be of integral type, but found {x: 1}",
+      "code": 5787902,
+      "error": "Location5787902"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN n: ISO date string",
+    "operator": "$lastN",
+    "kind": "ISO date string",
+    "operand": "n",
+    "expression": {
+      "$lastN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Value for 'n' must be of integral type, but found \"2026-01-15T15:00:00Z\"",
+      "code": 5787902,
+      "error": "Location5787902"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN omit input",
+    "operator": "$lastN",
+    "kind": "omitted named argument",
+    "operand": "input",
+    "expression": {
+      "$lastN": {
+        "n": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN requires input and n"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Missing value for 'input'",
+      "code": 5787907,
+      "error": "Location5787907"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN omit n",
+    "operator": "$lastN",
+    "kind": "omitted named argument",
+    "operand": "n",
+    "expression": {
+      "$lastN": {
+        "input": [
+          3,
+          1,
+          2
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN requires input and n"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Missing value for 'n'",
+      "code": 5787906,
+      "error": "Location5787906"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN empty arguments",
+    "operator": "$lastN",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$lastN": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN requires input and n"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: specification must be an object; found $lastN: []",
+      "code": 5787801,
+      "error": "Location5787801"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$lastN unknown option",
+    "operator": "$lastN",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$lastN": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$lastN requires input and n"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Unknown argument for 'n' operator: unexpected",
+      "code": 5787901,
+      "error": "Location5787901"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

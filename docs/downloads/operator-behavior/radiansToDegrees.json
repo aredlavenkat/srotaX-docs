@@ -1,0 +1,371 @@
+[
+  {
+    "id": "$radiansToDegrees baseline",
+    "operator": "$radiansToDegrees",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$radiansToDegrees": 0
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$radiansToDegrees input: null",
+    "operator": "$radiansToDegrees",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    }
+  },
+  {
+    "id": "$radiansToDegrees input: missing",
+    "operator": "$radiansToDegrees",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    }
+  },
+  {
+    "id": "$radiansToDegrees input: zero",
+    "operator": "$radiansToDegrees",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$radiansToDegrees input: negative",
+    "operator": "$radiansToDegrees",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"-114.59155902616465\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$radiansToDegrees input: decimal",
+    "operator": "$radiansToDegrees",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"143.2394487827058\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$radiansToDegrees input: numeric string",
+    "operator": "$radiansToDegrees",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    }
+  },
+  {
+    "id": "$radiansToDegrees input: text",
+    "operator": "$radiansToDegrees",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    }
+  },
+  {
+    "id": "$radiansToDegrees input: empty string",
+    "operator": "$radiansToDegrees",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    }
+  },
+  {
+    "id": "$radiansToDegrees input: boolean",
+    "operator": "$radiansToDegrees",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    }
+  },
+  {
+    "id": "$radiansToDegrees input: false",
+    "operator": "$radiansToDegrees",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    }
+  },
+  {
+    "id": "$radiansToDegrees input: typed date",
+    "operator": "$radiansToDegrees",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    }
+  },
+  {
+    "id": "$radiansToDegrees input: decimal128",
+    "operator": "$radiansToDegrees",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"71.6197243913529\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$radiansToDegrees input: empty array",
+    "operator": "$radiansToDegrees",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    }
+  },
+  {
+    "id": "$radiansToDegrees input: numeric array",
+    "operator": "$radiansToDegrees",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    }
+  },
+  {
+    "id": "$radiansToDegrees input: mixed array",
+    "operator": "$radiansToDegrees",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    }
+  },
+  {
+    "id": "$radiansToDegrees input: nested array",
+    "operator": "$radiansToDegrees",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    }
+  },
+  {
+    "id": "$radiansToDegrees input: empty object",
+    "operator": "$radiansToDegrees",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    }
+  },
+  {
+    "id": "$radiansToDegrees input: object",
+    "operator": "$radiansToDegrees",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    }
+  },
+  {
+    "id": "$radiansToDegrees input: ISO date string",
+    "operator": "$radiansToDegrees",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$radiansToDegrees": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    }
+  },
+  {
+    "id": "$radiansToDegrees empty arguments",
+    "operator": "$radiansToDegrees",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$radiansToDegrees": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    }
+  },
+  {
+    "id": "$radiansToDegrees unknown option",
+    "operator": "$radiansToDegrees",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$radiansToDegrees": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$radiansToDegrees expects a numeric input."
+    }
+  }
+]

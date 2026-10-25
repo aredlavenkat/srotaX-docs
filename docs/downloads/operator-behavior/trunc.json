@@ -1,0 +1,813 @@
+[
+  {
+    "id": "$trunc baseline",
+    "operator": "$trunc",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$trunc": [
+        1.29,
+        1
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$trunc number[0]: null",
+    "operator": "$trunc",
+    "kind": "null",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$trunc number[0]: missing",
+    "operator": "$trunc",
+    "kind": "missing",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$trunc number[0]: zero",
+    "operator": "$trunc",
+    "kind": "zero",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$trunc number[0]: negative",
+    "operator": "$trunc",
+    "kind": "negative",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$trunc number[0]: decimal",
+    "operator": "$trunc",
+    "kind": "decimal",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.5\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$trunc number[0]: numeric string",
+    "operator": "$trunc",
+    "kind": "numeric string",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    }
+  },
+  {
+    "id": "$trunc number[0]: text",
+    "operator": "$trunc",
+    "kind": "text",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    }
+  },
+  {
+    "id": "$trunc number[0]: empty string",
+    "operator": "$trunc",
+    "kind": "empty string",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    }
+  },
+  {
+    "id": "$trunc number[0]: boolean",
+    "operator": "$trunc",
+    "kind": "boolean",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    }
+  },
+  {
+    "id": "$trunc number[0]: false",
+    "operator": "$trunc",
+    "kind": "false",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    }
+  },
+  {
+    "id": "$trunc number[0]: typed date",
+    "operator": "$trunc",
+    "kind": "typed date",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    }
+  },
+  {
+    "id": "$trunc number[0]: decimal128",
+    "operator": "$trunc",
+    "kind": "decimal128",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$trunc number[0]: empty array",
+    "operator": "$trunc",
+    "kind": "empty array",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    }
+  },
+  {
+    "id": "$trunc number[0]: numeric array",
+    "operator": "$trunc",
+    "kind": "numeric array",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    }
+  },
+  {
+    "id": "$trunc number[0]: mixed array",
+    "operator": "$trunc",
+    "kind": "mixed array",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    }
+  },
+  {
+    "id": "$trunc number[0]: nested array",
+    "operator": "$trunc",
+    "kind": "nested array",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    }
+  },
+  {
+    "id": "$trunc number[0]: empty object",
+    "operator": "$trunc",
+    "kind": "empty object",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    }
+  },
+  {
+    "id": "$trunc number[0]: object",
+    "operator": "$trunc",
+    "kind": "object",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    }
+  },
+  {
+    "id": "$trunc number[0]: ISO date string",
+    "operator": "$trunc",
+    "kind": "ISO date string",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    }
+  },
+  {
+    "id": "$trunc place[1]: null",
+    "operator": "$trunc",
+    "kind": "null",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$trunc place[1]: missing",
+    "operator": "$trunc",
+    "kind": "missing",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$trunc place[1]: zero",
+    "operator": "$trunc",
+    "kind": "zero",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$trunc place[1]: negative",
+    "operator": "$trunc",
+    "kind": "negative",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$trunc place[1]: decimal",
+    "operator": "$trunc",
+    "kind": "decimal",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Precision must be integral"
+    }
+  },
+  {
+    "id": "$trunc place[1]: numeric string",
+    "operator": "$trunc",
+    "kind": "numeric string",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    }
+  },
+  {
+    "id": "$trunc place[1]: text",
+    "operator": "$trunc",
+    "kind": "text",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    }
+  },
+  {
+    "id": "$trunc place[1]: empty string",
+    "operator": "$trunc",
+    "kind": "empty string",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    }
+  },
+  {
+    "id": "$trunc place[1]: boolean",
+    "operator": "$trunc",
+    "kind": "boolean",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    }
+  },
+  {
+    "id": "$trunc place[1]: false",
+    "operator": "$trunc",
+    "kind": "false",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    }
+  },
+  {
+    "id": "$trunc place[1]: typed date",
+    "operator": "$trunc",
+    "kind": "typed date",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    }
+  },
+  {
+    "id": "$trunc place[1]: decimal128",
+    "operator": "$trunc",
+    "kind": "decimal128",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Precision must be integral"
+    }
+  },
+  {
+    "id": "$trunc place[1]: empty array",
+    "operator": "$trunc",
+    "kind": "empty array",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    }
+  },
+  {
+    "id": "$trunc place[1]: numeric array",
+    "operator": "$trunc",
+    "kind": "numeric array",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    }
+  },
+  {
+    "id": "$trunc place[1]: mixed array",
+    "operator": "$trunc",
+    "kind": "mixed array",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    }
+  },
+  {
+    "id": "$trunc place[1]: nested array",
+    "operator": "$trunc",
+    "kind": "nested array",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    }
+  },
+  {
+    "id": "$trunc place[1]: empty object",
+    "operator": "$trunc",
+    "kind": "empty object",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    }
+  },
+  {
+    "id": "$trunc place[1]: object",
+    "operator": "$trunc",
+    "kind": "object",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    }
+  },
+  {
+    "id": "$trunc place[1]: ISO date string",
+    "operator": "$trunc",
+    "kind": "ISO date string",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    }
+  },
+  {
+    "id": "$trunc empty arguments",
+    "operator": "$trunc",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$trunc": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trunc requires [number, place?]"
+    }
+  },
+  {
+    "id": "$trunc unknown option",
+    "operator": "$trunc",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$trunc": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    }
+  }
+]

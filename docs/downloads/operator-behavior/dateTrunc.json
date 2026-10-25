@@ -1,0 +1,2342 @@
+[
+  {
+    "id": "$dateTrunc baseline",
+    "operator": "$dateTrunc",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc date: null",
+    "operator": "$dateTrunc",
+    "kind": "null",
+    "operand": "date",
+    "expression": {
+      "$dateTrunc": {
+        "date": "$probe",
+        "unit": "day",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc date: missing",
+    "operator": "$dateTrunc",
+    "kind": "missing",
+    "operand": "date",
+    "expression": {
+      "$dateTrunc": {
+        "date": "$probe",
+        "unit": "day",
+        "timezone": "UTC"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc date: zero",
+    "operator": "$dateTrunc",
+    "kind": "zero",
+    "operand": "date",
+    "expression": {
+      "$dateTrunc": {
+        "date": "$probe",
+        "unit": "day",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateTrunc date: negative",
+    "operator": "$dateTrunc",
+    "kind": "negative",
+    "operand": "date",
+    "expression": {
+      "$dateTrunc": {
+        "date": "$probe",
+        "unit": "day",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateTrunc date: decimal",
+    "operator": "$dateTrunc",
+    "kind": "decimal",
+    "operand": "date",
+    "expression": {
+      "$dateTrunc": {
+        "date": "$probe",
+        "unit": "day",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateTrunc date: numeric string",
+    "operator": "$dateTrunc",
+    "kind": "numeric string",
+    "operand": "date",
+    "expression": {
+      "$dateTrunc": {
+        "date": "$probe",
+        "unit": "day",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot convert value to date: 12"
+    }
+  },
+  {
+    "id": "$dateTrunc date: text",
+    "operator": "$dateTrunc",
+    "kind": "text",
+    "operand": "date",
+    "expression": {
+      "$dateTrunc": {
+        "date": "$probe",
+        "unit": "day",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot convert value to date: hello"
+    }
+  },
+  {
+    "id": "$dateTrunc date: empty string",
+    "operator": "$dateTrunc",
+    "kind": "empty string",
+    "operand": "date",
+    "expression": {
+      "$dateTrunc": {
+        "date": "$probe",
+        "unit": "day",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot convert value to date: "
+    }
+  },
+  {
+    "id": "$dateTrunc date: boolean",
+    "operator": "$dateTrunc",
+    "kind": "boolean",
+    "operand": "date",
+    "expression": {
+      "$dateTrunc": {
+        "date": "$probe",
+        "unit": "day",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateTrunc date: false",
+    "operator": "$dateTrunc",
+    "kind": "false",
+    "operand": "date",
+    "expression": {
+      "$dateTrunc": {
+        "date": "$probe",
+        "unit": "day",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateTrunc date: typed date",
+    "operator": "$dateTrunc",
+    "kind": "typed date",
+    "operand": "date",
+    "expression": {
+      "$dateTrunc": {
+        "date": "$probe",
+        "unit": "day",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1768435200000\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc date: decimal128",
+    "operator": "$dateTrunc",
+    "kind": "decimal128",
+    "operand": "date",
+    "expression": {
+      "$dateTrunc": {
+        "date": "$probe",
+        "unit": "day",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateTrunc date: empty array",
+    "operator": "$dateTrunc",
+    "kind": "empty array",
+    "operand": "date",
+    "expression": {
+      "$dateTrunc": {
+        "date": "$probe",
+        "unit": "day",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateTrunc date: numeric array",
+    "operator": "$dateTrunc",
+    "kind": "numeric array",
+    "operand": "date",
+    "expression": {
+      "$dateTrunc": {
+        "date": "$probe",
+        "unit": "day",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateTrunc date: mixed array",
+    "operator": "$dateTrunc",
+    "kind": "mixed array",
+    "operand": "date",
+    "expression": {
+      "$dateTrunc": {
+        "date": "$probe",
+        "unit": "day",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateTrunc date: nested array",
+    "operator": "$dateTrunc",
+    "kind": "nested array",
+    "operand": "date",
+    "expression": {
+      "$dateTrunc": {
+        "date": "$probe",
+        "unit": "day",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateTrunc date: empty object",
+    "operator": "$dateTrunc",
+    "kind": "empty object",
+    "operand": "date",
+    "expression": {
+      "$dateTrunc": {
+        "date": "$probe",
+        "unit": "day",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateTrunc date: object",
+    "operator": "$dateTrunc",
+    "kind": "object",
+    "operand": "date",
+    "expression": {
+      "$dateTrunc": {
+        "date": "$probe",
+        "unit": "day",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateTrunc date: ISO date string",
+    "operator": "$dateTrunc",
+    "kind": "ISO date string",
+    "operand": "date",
+    "expression": {
+      "$dateTrunc": {
+        "date": "$probe",
+        "unit": "day",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1768435200000\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc unit: null",
+    "operator": "$dateTrunc",
+    "kind": "null",
+    "operand": "unit",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc unit: missing",
+    "operator": "$dateTrunc",
+    "kind": "missing",
+    "operand": "unit",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc unit: zero",
+    "operator": "$dateTrunc",
+    "kind": "zero",
+    "operand": "unit",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    }
+  },
+  {
+    "id": "$dateTrunc unit: negative",
+    "operator": "$dateTrunc",
+    "kind": "negative",
+    "operand": "unit",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    }
+  },
+  {
+    "id": "$dateTrunc unit: decimal",
+    "operator": "$dateTrunc",
+    "kind": "decimal",
+    "operand": "unit",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    }
+  },
+  {
+    "id": "$dateTrunc unit: numeric string",
+    "operator": "$dateTrunc",
+    "kind": "numeric string",
+    "operand": "unit",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date unit: 12"
+    }
+  },
+  {
+    "id": "$dateTrunc unit: text",
+    "operator": "$dateTrunc",
+    "kind": "text",
+    "operand": "unit",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date unit: hello"
+    }
+  },
+  {
+    "id": "$dateTrunc unit: empty string",
+    "operator": "$dateTrunc",
+    "kind": "empty string",
+    "operand": "unit",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date unit: "
+    }
+  },
+  {
+    "id": "$dateTrunc unit: boolean",
+    "operator": "$dateTrunc",
+    "kind": "boolean",
+    "operand": "unit",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    }
+  },
+  {
+    "id": "$dateTrunc unit: false",
+    "operator": "$dateTrunc",
+    "kind": "false",
+    "operand": "unit",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    }
+  },
+  {
+    "id": "$dateTrunc unit: typed date",
+    "operator": "$dateTrunc",
+    "kind": "typed date",
+    "operand": "unit",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    }
+  },
+  {
+    "id": "$dateTrunc unit: decimal128",
+    "operator": "$dateTrunc",
+    "kind": "decimal128",
+    "operand": "unit",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    }
+  },
+  {
+    "id": "$dateTrunc unit: empty array",
+    "operator": "$dateTrunc",
+    "kind": "empty array",
+    "operand": "unit",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    }
+  },
+  {
+    "id": "$dateTrunc unit: numeric array",
+    "operator": "$dateTrunc",
+    "kind": "numeric array",
+    "operand": "unit",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    }
+  },
+  {
+    "id": "$dateTrunc unit: mixed array",
+    "operator": "$dateTrunc",
+    "kind": "mixed array",
+    "operand": "unit",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    }
+  },
+  {
+    "id": "$dateTrunc unit: nested array",
+    "operator": "$dateTrunc",
+    "kind": "nested array",
+    "operand": "unit",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    }
+  },
+  {
+    "id": "$dateTrunc unit: empty object",
+    "operator": "$dateTrunc",
+    "kind": "empty object",
+    "operand": "unit",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    }
+  },
+  {
+    "id": "$dateTrunc unit: object",
+    "operator": "$dateTrunc",
+    "kind": "object",
+    "operand": "unit",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    }
+  },
+  {
+    "id": "$dateTrunc unit: ISO date string",
+    "operator": "$dateTrunc",
+    "kind": "ISO date string",
+    "operand": "unit",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date unit: 2026-01-15T15:00:00Z"
+    }
+  },
+  {
+    "id": "$dateTrunc binSize: null",
+    "operator": "$dateTrunc",
+    "kind": "null",
+    "operand": "binSize",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "binSize": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc binSize: missing",
+    "operator": "$dateTrunc",
+    "kind": "missing",
+    "operand": "binSize",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "binSize": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc binSize: zero",
+    "operator": "$dateTrunc",
+    "kind": "zero",
+    "operand": "binSize",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "binSize": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "binSize must be positive"
+    }
+  },
+  {
+    "id": "$dateTrunc binSize: negative",
+    "operator": "$dateTrunc",
+    "kind": "negative",
+    "operand": "binSize",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "binSize": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "binSize must be positive"
+    }
+  },
+  {
+    "id": "$dateTrunc binSize: decimal",
+    "operator": "$dateTrunc",
+    "kind": "decimal",
+    "operand": "binSize",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "binSize": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "binSize must be an int64"
+    }
+  },
+  {
+    "id": "$dateTrunc binSize: numeric string",
+    "operator": "$dateTrunc",
+    "kind": "numeric string",
+    "operand": "binSize",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "binSize": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "binSize must be an integer"
+    }
+  },
+  {
+    "id": "$dateTrunc binSize: text",
+    "operator": "$dateTrunc",
+    "kind": "text",
+    "operand": "binSize",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "binSize": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "binSize must be an integer"
+    }
+  },
+  {
+    "id": "$dateTrunc binSize: empty string",
+    "operator": "$dateTrunc",
+    "kind": "empty string",
+    "operand": "binSize",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "binSize": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "binSize must be an integer"
+    }
+  },
+  {
+    "id": "$dateTrunc binSize: boolean",
+    "operator": "$dateTrunc",
+    "kind": "boolean",
+    "operand": "binSize",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "binSize": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "binSize must be an integer"
+    }
+  },
+  {
+    "id": "$dateTrunc binSize: false",
+    "operator": "$dateTrunc",
+    "kind": "false",
+    "operand": "binSize",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "binSize": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "binSize must be an integer"
+    }
+  },
+  {
+    "id": "$dateTrunc binSize: typed date",
+    "operator": "$dateTrunc",
+    "kind": "typed date",
+    "operand": "binSize",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "binSize": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "binSize must be an integer"
+    }
+  },
+  {
+    "id": "$dateTrunc binSize: decimal128",
+    "operator": "$dateTrunc",
+    "kind": "decimal128",
+    "operand": "binSize",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "binSize": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "binSize must be an int64"
+    }
+  },
+  {
+    "id": "$dateTrunc binSize: empty array",
+    "operator": "$dateTrunc",
+    "kind": "empty array",
+    "operand": "binSize",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "binSize": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "binSize must be an integer"
+    }
+  },
+  {
+    "id": "$dateTrunc binSize: numeric array",
+    "operator": "$dateTrunc",
+    "kind": "numeric array",
+    "operand": "binSize",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "binSize": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "binSize must be an integer"
+    }
+  },
+  {
+    "id": "$dateTrunc binSize: mixed array",
+    "operator": "$dateTrunc",
+    "kind": "mixed array",
+    "operand": "binSize",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "binSize": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "binSize must be an integer"
+    }
+  },
+  {
+    "id": "$dateTrunc binSize: nested array",
+    "operator": "$dateTrunc",
+    "kind": "nested array",
+    "operand": "binSize",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "binSize": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "binSize must be an integer"
+    }
+  },
+  {
+    "id": "$dateTrunc binSize: empty object",
+    "operator": "$dateTrunc",
+    "kind": "empty object",
+    "operand": "binSize",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "binSize": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "binSize must be an integer"
+    }
+  },
+  {
+    "id": "$dateTrunc binSize: object",
+    "operator": "$dateTrunc",
+    "kind": "object",
+    "operand": "binSize",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "binSize": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "binSize must be an integer"
+    }
+  },
+  {
+    "id": "$dateTrunc binSize: ISO date string",
+    "operator": "$dateTrunc",
+    "kind": "ISO date string",
+    "operand": "binSize",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "binSize": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "binSize must be an integer"
+    }
+  },
+  {
+    "id": "$dateTrunc timezone: null",
+    "operator": "$dateTrunc",
+    "kind": "null",
+    "operand": "timezone",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc timezone: missing",
+    "operator": "$dateTrunc",
+    "kind": "missing",
+    "operand": "timezone",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc timezone: zero",
+    "operator": "$dateTrunc",
+    "kind": "zero",
+    "operand": "timezone",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateTrunc timezone: negative",
+    "operator": "$dateTrunc",
+    "kind": "negative",
+    "operand": "timezone",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateTrunc timezone: decimal",
+    "operator": "$dateTrunc",
+    "kind": "decimal",
+    "operand": "timezone",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateTrunc timezone: numeric string",
+    "operator": "$dateTrunc",
+    "kind": "numeric string",
+    "operand": "timezone",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "DateTimeException",
+      "message": "Invalid ID for region-based ZoneId, invalid format: 12"
+    }
+  },
+  {
+    "id": "$dateTrunc timezone: text",
+    "operator": "$dateTrunc",
+    "kind": "text",
+    "operand": "timezone",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "ZoneRulesException",
+      "message": "Unknown time-zone ID: hello"
+    }
+  },
+  {
+    "id": "$dateTrunc timezone: empty string",
+    "operator": "$dateTrunc",
+    "kind": "empty string",
+    "operand": "timezone",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "DateTimeException",
+      "message": "Invalid ID for ZoneOffset, invalid format: "
+    }
+  },
+  {
+    "id": "$dateTrunc timezone: boolean",
+    "operator": "$dateTrunc",
+    "kind": "boolean",
+    "operand": "timezone",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateTrunc timezone: false",
+    "operator": "$dateTrunc",
+    "kind": "false",
+    "operand": "timezone",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateTrunc timezone: typed date",
+    "operator": "$dateTrunc",
+    "kind": "typed date",
+    "operand": "timezone",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateTrunc timezone: decimal128",
+    "operator": "$dateTrunc",
+    "kind": "decimal128",
+    "operand": "timezone",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateTrunc timezone: empty array",
+    "operator": "$dateTrunc",
+    "kind": "empty array",
+    "operand": "timezone",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateTrunc timezone: numeric array",
+    "operator": "$dateTrunc",
+    "kind": "numeric array",
+    "operand": "timezone",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateTrunc timezone: mixed array",
+    "operator": "$dateTrunc",
+    "kind": "mixed array",
+    "operand": "timezone",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateTrunc timezone: nested array",
+    "operator": "$dateTrunc",
+    "kind": "nested array",
+    "operand": "timezone",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateTrunc timezone: empty object",
+    "operator": "$dateTrunc",
+    "kind": "empty object",
+    "operand": "timezone",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateTrunc timezone: object",
+    "operator": "$dateTrunc",
+    "kind": "object",
+    "operand": "timezone",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateTrunc timezone: ISO date string",
+    "operator": "$dateTrunc",
+    "kind": "ISO date string",
+    "operand": "timezone",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "DateTimeException",
+      "message": "Invalid ID for region-based ZoneId, invalid format: 2026-01-15T15:00:00Z"
+    }
+  },
+  {
+    "id": "$dateTrunc startOfWeek: null",
+    "operator": "$dateTrunc",
+    "kind": "null",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc startOfWeek: missing",
+    "operator": "$dateTrunc",
+    "kind": "missing",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc startOfWeek: zero",
+    "operator": "$dateTrunc",
+    "kind": "zero",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc startOfWeek: negative",
+    "operator": "$dateTrunc",
+    "kind": "negative",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc startOfWeek: decimal",
+    "operator": "$dateTrunc",
+    "kind": "decimal",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc startOfWeek: numeric string",
+    "operator": "$dateTrunc",
+    "kind": "numeric string",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc startOfWeek: text",
+    "operator": "$dateTrunc",
+    "kind": "text",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc startOfWeek: empty string",
+    "operator": "$dateTrunc",
+    "kind": "empty string",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc startOfWeek: boolean",
+    "operator": "$dateTrunc",
+    "kind": "boolean",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc startOfWeek: false",
+    "operator": "$dateTrunc",
+    "kind": "false",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc startOfWeek: typed date",
+    "operator": "$dateTrunc",
+    "kind": "typed date",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc startOfWeek: decimal128",
+    "operator": "$dateTrunc",
+    "kind": "decimal128",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc startOfWeek: empty array",
+    "operator": "$dateTrunc",
+    "kind": "empty array",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc startOfWeek: numeric array",
+    "operator": "$dateTrunc",
+    "kind": "numeric array",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc startOfWeek: mixed array",
+    "operator": "$dateTrunc",
+    "kind": "mixed array",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc startOfWeek: nested array",
+    "operator": "$dateTrunc",
+    "kind": "nested array",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc startOfWeek: empty object",
+    "operator": "$dateTrunc",
+    "kind": "empty object",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc startOfWeek: object",
+    "operator": "$dateTrunc",
+    "kind": "object",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc startOfWeek: ISO date string",
+    "operator": "$dateTrunc",
+    "kind": "ISO date string",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC",
+        "startOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc omit date",
+    "operator": "$dateTrunc",
+    "kind": "omitted named argument",
+    "operand": "date",
+    "expression": {
+      "$dateTrunc": {
+        "unit": "day",
+        "timezone": "UTC"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc omit unit",
+    "operator": "$dateTrunc",
+    "kind": "omitted named argument",
+    "operand": "unit",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "UTC"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc omit binSize",
+    "operator": "$dateTrunc",
+    "kind": "omitted named argument",
+    "operand": "binSize",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc omit timezone",
+    "operator": "$dateTrunc",
+    "kind": "omitted named argument",
+    "operand": "timezone",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc omit startOfWeek",
+    "operator": "$dateTrunc",
+    "kind": "omitted named argument",
+    "operand": "startOfWeek",
+    "expression": {
+      "$dateTrunc": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "timezone": "UTC"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateTrunc empty arguments",
+    "operator": "$dateTrunc",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$dateTrunc": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Date operator requires named arguments"
+    }
+  },
+  {
+    "id": "$dateTrunc unknown option",
+    "operator": "$dateTrunc",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$dateTrunc": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  }
+]

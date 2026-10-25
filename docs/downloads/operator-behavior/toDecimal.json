@@ -1,0 +1,371 @@
+[
+  {
+    "id": "$toDecimal baseline",
+    "operator": "$toDecimal",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$toDecimal": "12.5"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"12.5\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toDecimal input: null",
+    "operator": "$toDecimal",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$toDecimal": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toDecimal input: missing",
+    "operator": "$toDecimal",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$toDecimal": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toDecimal input: zero",
+    "operator": "$toDecimal",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$toDecimal": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toDecimal input: negative",
+    "operator": "$toDecimal",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$toDecimal": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"-2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toDecimal input: decimal",
+    "operator": "$toDecimal",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$toDecimal": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"2.5\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toDecimal input: numeric string",
+    "operator": "$toDecimal",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$toDecimal": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"12\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toDecimal input: text",
+    "operator": "$toDecimal",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$toDecimal": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target decimal"
+    }
+  },
+  {
+    "id": "$toDecimal input: empty string",
+    "operator": "$toDecimal",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$toDecimal": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target decimal"
+    }
+  },
+  {
+    "id": "$toDecimal input: boolean",
+    "operator": "$toDecimal",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$toDecimal": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"1\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toDecimal input: false",
+    "operator": "$toDecimal",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$toDecimal": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toDecimal input: typed date",
+    "operator": "$toDecimal",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$toDecimal": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"1768489200000\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toDecimal input: decimal128",
+    "operator": "$toDecimal",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$toDecimal": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"1.25\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toDecimal input: empty array",
+    "operator": "$toDecimal",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$toDecimal": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target decimal"
+    }
+  },
+  {
+    "id": "$toDecimal input: numeric array",
+    "operator": "$toDecimal",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$toDecimal": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target decimal"
+    }
+  },
+  {
+    "id": "$toDecimal input: mixed array",
+    "operator": "$toDecimal",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$toDecimal": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target decimal"
+    }
+  },
+  {
+    "id": "$toDecimal input: nested array",
+    "operator": "$toDecimal",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$toDecimal": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target decimal"
+    }
+  },
+  {
+    "id": "$toDecimal input: empty object",
+    "operator": "$toDecimal",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$toDecimal": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target decimal"
+    }
+  },
+  {
+    "id": "$toDecimal input: object",
+    "operator": "$toDecimal",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$toDecimal": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target decimal"
+    }
+  },
+  {
+    "id": "$toDecimal input: ISO date string",
+    "operator": "$toDecimal",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$toDecimal": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target decimal"
+    }
+  },
+  {
+    "id": "$toDecimal empty arguments",
+    "operator": "$toDecimal",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$toDecimal": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target decimal"
+    }
+  },
+  {
+    "id": "$toDecimal unknown option",
+    "operator": "$toDecimal",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$toDecimal": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target decimal"
+    }
+  }
+]

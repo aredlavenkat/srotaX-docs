@@ -1,0 +1,1170 @@
+[
+  {
+    "id": "$setIsSubset baseline",
+    "operator": "$setIsSubset",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$setIsSubset": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setIsSubset array[0]: null",
+    "operator": "$setIsSubset",
+    "kind": "null",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSubset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected array."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: both operands of $setIsSubset must be arrays. First argument is of type: null",
+      "code": 17046,
+      "error": "Location17046"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIsSubset array[0]: missing",
+    "operator": "$setIsSubset",
+    "kind": "missing",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSubset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected array."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: both operands of $setIsSubset must be arrays. First argument is of type: missing",
+      "code": 17046,
+      "error": "Location17046"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIsSubset array[0]: zero",
+    "operator": "$setIsSubset",
+    "kind": "zero",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSubset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected array."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: both operands of $setIsSubset must be arrays. First argument is of type: int",
+      "code": 17046,
+      "error": "Location17046"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIsSubset array[0]: negative",
+    "operator": "$setIsSubset",
+    "kind": "negative",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSubset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected array."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: both operands of $setIsSubset must be arrays. First argument is of type: int",
+      "code": 17046,
+      "error": "Location17046"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIsSubset array[0]: decimal",
+    "operator": "$setIsSubset",
+    "kind": "decimal",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSubset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected array."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: both operands of $setIsSubset must be arrays. First argument is of type: double",
+      "code": 17046,
+      "error": "Location17046"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIsSubset array[0]: numeric string",
+    "operator": "$setIsSubset",
+    "kind": "numeric string",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSubset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected array."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: both operands of $setIsSubset must be arrays. First argument is of type: string",
+      "code": 17046,
+      "error": "Location17046"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIsSubset array[0]: text",
+    "operator": "$setIsSubset",
+    "kind": "text",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSubset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected array."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: both operands of $setIsSubset must be arrays. First argument is of type: string",
+      "code": 17046,
+      "error": "Location17046"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIsSubset array[0]: empty string",
+    "operator": "$setIsSubset",
+    "kind": "empty string",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSubset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected array."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: both operands of $setIsSubset must be arrays. First argument is of type: string",
+      "code": 17046,
+      "error": "Location17046"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIsSubset array[0]: boolean",
+    "operator": "$setIsSubset",
+    "kind": "boolean",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSubset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected array."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: both operands of $setIsSubset must be arrays. First argument is of type: bool",
+      "code": 17046,
+      "error": "Location17046"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIsSubset array[0]: false",
+    "operator": "$setIsSubset",
+    "kind": "false",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSubset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected array."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: both operands of $setIsSubset must be arrays. First argument is of type: bool",
+      "code": 17046,
+      "error": "Location17046"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIsSubset array[0]: typed date",
+    "operator": "$setIsSubset",
+    "kind": "typed date",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSubset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected array."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: both operands of $setIsSubset must be arrays. First argument is of type: date",
+      "code": 17046,
+      "error": "Location17046"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIsSubset array[0]: decimal128",
+    "operator": "$setIsSubset",
+    "kind": "decimal128",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSubset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected array."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: both operands of $setIsSubset must be arrays. First argument is of type: decimal",
+      "code": 17046,
+      "error": "Location17046"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIsSubset array[0]: empty array",
+    "operator": "$setIsSubset",
+    "kind": "empty array",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSubset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setIsSubset array[0]: numeric array",
+    "operator": "$setIsSubset",
+    "kind": "numeric array",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSubset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setIsSubset array[0]: mixed array",
+    "operator": "$setIsSubset",
+    "kind": "mixed array",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSubset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setIsSubset array[0]: nested array",
+    "operator": "$setIsSubset",
+    "kind": "nested array",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSubset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setIsSubset array[0]: empty object",
+    "operator": "$setIsSubset",
+    "kind": "empty object",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSubset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected array."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: both operands of $setIsSubset must be arrays. First argument is of type: object",
+      "code": 17046,
+      "error": "Location17046"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIsSubset array[0]: object",
+    "operator": "$setIsSubset",
+    "kind": "object",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSubset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected array."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: both operands of $setIsSubset must be arrays. First argument is of type: object",
+      "code": 17046,
+      "error": "Location17046"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIsSubset array[0]: ISO date string",
+    "operator": "$setIsSubset",
+    "kind": "ISO date string",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSubset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected array."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: both operands of $setIsSubset must be arrays. First argument is of type: string",
+      "code": 17046,
+      "error": "Location17046"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIsSubset other[1]: null",
+    "operator": "$setIsSubset",
+    "kind": "null",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSubset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected array."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: both operands of $setIsSubset must be arrays. Second argument is of type: null",
+      "code": 17042,
+      "error": "Location17042"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIsSubset other[1]: missing",
+    "operator": "$setIsSubset",
+    "kind": "missing",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSubset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected array."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: both operands of $setIsSubset must be arrays. Second argument is of type: missing",
+      "code": 17042,
+      "error": "Location17042"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIsSubset other[1]: zero",
+    "operator": "$setIsSubset",
+    "kind": "zero",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSubset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected array."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: both operands of $setIsSubset must be arrays. Second argument is of type: int",
+      "code": 17042,
+      "error": "Location17042"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIsSubset other[1]: negative",
+    "operator": "$setIsSubset",
+    "kind": "negative",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSubset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected array."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: both operands of $setIsSubset must be arrays. Second argument is of type: int",
+      "code": 17042,
+      "error": "Location17042"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIsSubset other[1]: decimal",
+    "operator": "$setIsSubset",
+    "kind": "decimal",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSubset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected array."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: both operands of $setIsSubset must be arrays. Second argument is of type: double",
+      "code": 17042,
+      "error": "Location17042"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIsSubset other[1]: numeric string",
+    "operator": "$setIsSubset",
+    "kind": "numeric string",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSubset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected array."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: both operands of $setIsSubset must be arrays. Second argument is of type: string",
+      "code": 17042,
+      "error": "Location17042"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIsSubset other[1]: text",
+    "operator": "$setIsSubset",
+    "kind": "text",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSubset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected array."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: both operands of $setIsSubset must be arrays. Second argument is of type: string",
+      "code": 17042,
+      "error": "Location17042"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIsSubset other[1]: empty string",
+    "operator": "$setIsSubset",
+    "kind": "empty string",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSubset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected array."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: both operands of $setIsSubset must be arrays. Second argument is of type: string",
+      "code": 17042,
+      "error": "Location17042"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIsSubset other[1]: boolean",
+    "operator": "$setIsSubset",
+    "kind": "boolean",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSubset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected array."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: both operands of $setIsSubset must be arrays. Second argument is of type: bool",
+      "code": 17042,
+      "error": "Location17042"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIsSubset other[1]: false",
+    "operator": "$setIsSubset",
+    "kind": "false",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSubset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected array."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: both operands of $setIsSubset must be arrays. Second argument is of type: bool",
+      "code": 17042,
+      "error": "Location17042"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIsSubset other[1]: typed date",
+    "operator": "$setIsSubset",
+    "kind": "typed date",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSubset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected array."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: both operands of $setIsSubset must be arrays. Second argument is of type: date",
+      "code": 17042,
+      "error": "Location17042"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIsSubset other[1]: decimal128",
+    "operator": "$setIsSubset",
+    "kind": "decimal128",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSubset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected array."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: both operands of $setIsSubset must be arrays. Second argument is of type: decimal",
+      "code": 17042,
+      "error": "Location17042"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIsSubset other[1]: empty array",
+    "operator": "$setIsSubset",
+    "kind": "empty array",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSubset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setIsSubset other[1]: numeric array",
+    "operator": "$setIsSubset",
+    "kind": "numeric array",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSubset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setIsSubset other[1]: mixed array",
+    "operator": "$setIsSubset",
+    "kind": "mixed array",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSubset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setIsSubset other[1]: nested array",
+    "operator": "$setIsSubset",
+    "kind": "nested array",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSubset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setIsSubset other[1]: empty object",
+    "operator": "$setIsSubset",
+    "kind": "empty object",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSubset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected array."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: both operands of $setIsSubset must be arrays. Second argument is of type: object",
+      "code": 17042,
+      "error": "Location17042"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIsSubset other[1]: object",
+    "operator": "$setIsSubset",
+    "kind": "object",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSubset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected array."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: both operands of $setIsSubset must be arrays. Second argument is of type: object",
+      "code": 17042,
+      "error": "Location17042"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIsSubset other[1]: ISO date string",
+    "operator": "$setIsSubset",
+    "kind": "ISO date string",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSubset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected array."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: both operands of $setIsSubset must be arrays. Second argument is of type: string",
+      "code": 17042,
+      "error": "Location17042"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIsSubset empty arguments",
+    "operator": "$setIsSubset",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$setIsSubset": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSubset requires exactly two arrays."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $setIsSubset takes exactly 2 arguments. 0 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setIsSubset unknown option",
+    "operator": "$setIsSubset",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$setIsSubset": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSubset requires exactly two arrays."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $setIsSubset takes exactly 2 arguments. 1 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]
