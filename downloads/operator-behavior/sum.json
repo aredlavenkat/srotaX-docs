@@ -1,0 +1,1138 @@
+[
+  {
+    "id": "$sum baseline",
+    "operator": "$sum",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$sum": [
+        2,
+        3
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"5.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[0]: null",
+    "operator": "$sum",
+    "kind": "null",
+    "operand": "number[0]",
+    "expression": {
+      "$sum": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"3.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[0]: missing",
+    "operator": "$sum",
+    "kind": "missing",
+    "operand": "number[0]",
+    "expression": {
+      "$sum": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"3.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[0]: zero",
+    "operator": "$sum",
+    "kind": "zero",
+    "operand": "number[0]",
+    "expression": {
+      "$sum": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"3.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[0]: negative",
+    "operator": "$sum",
+    "kind": "negative",
+    "operand": "number[0]",
+    "expression": {
+      "$sum": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[0]: decimal",
+    "operator": "$sum",
+    "kind": "decimal",
+    "operand": "number[0]",
+    "expression": {
+      "$sum": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"5.5\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[0]: numeric string",
+    "operator": "$sum",
+    "kind": "numeric string",
+    "operand": "number[0]",
+    "expression": {
+      "$sum": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"3.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[0]: text",
+    "operator": "$sum",
+    "kind": "text",
+    "operand": "number[0]",
+    "expression": {
+      "$sum": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"3.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[0]: empty string",
+    "operator": "$sum",
+    "kind": "empty string",
+    "operand": "number[0]",
+    "expression": {
+      "$sum": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"3.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[0]: boolean",
+    "operator": "$sum",
+    "kind": "boolean",
+    "operand": "number[0]",
+    "expression": {
+      "$sum": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"3.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[0]: false",
+    "operator": "$sum",
+    "kind": "false",
+    "operand": "number[0]",
+    "expression": {
+      "$sum": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"3.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[0]: typed date",
+    "operator": "$sum",
+    "kind": "typed date",
+    "operand": "number[0]",
+    "expression": {
+      "$sum": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"3.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[0]: decimal128",
+    "operator": "$sum",
+    "kind": "decimal128",
+    "operand": "number[0]",
+    "expression": {
+      "$sum": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"4.25\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[0]: empty array",
+    "operator": "$sum",
+    "kind": "empty array",
+    "operand": "number[0]",
+    "expression": {
+      "$sum": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"3.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[0]: numeric array",
+    "operator": "$sum",
+    "kind": "numeric array",
+    "operand": "number[0]",
+    "expression": {
+      "$sum": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"3.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[0]: mixed array",
+    "operator": "$sum",
+    "kind": "mixed array",
+    "operand": "number[0]",
+    "expression": {
+      "$sum": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"3.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[0]: nested array",
+    "operator": "$sum",
+    "kind": "nested array",
+    "operand": "number[0]",
+    "expression": {
+      "$sum": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"3.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[0]: empty object",
+    "operator": "$sum",
+    "kind": "empty object",
+    "operand": "number[0]",
+    "expression": {
+      "$sum": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"3.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[0]: object",
+    "operator": "$sum",
+    "kind": "object",
+    "operand": "number[0]",
+    "expression": {
+      "$sum": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"3.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[0]: ISO date string",
+    "operator": "$sum",
+    "kind": "ISO date string",
+    "operand": "number[0]",
+    "expression": {
+      "$sum": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"3.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[1]: null",
+    "operator": "$sum",
+    "kind": "null",
+    "operand": "number[1]",
+    "expression": {
+      "$sum": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[1]: missing",
+    "operator": "$sum",
+    "kind": "missing",
+    "operand": "number[1]",
+    "expression": {
+      "$sum": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[1]: zero",
+    "operator": "$sum",
+    "kind": "zero",
+    "operand": "number[1]",
+    "expression": {
+      "$sum": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[1]: negative",
+    "operator": "$sum",
+    "kind": "negative",
+    "operand": "number[1]",
+    "expression": {
+      "$sum": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[1]: decimal",
+    "operator": "$sum",
+    "kind": "decimal",
+    "operand": "number[1]",
+    "expression": {
+      "$sum": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"4.5\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[1]: numeric string",
+    "operator": "$sum",
+    "kind": "numeric string",
+    "operand": "number[1]",
+    "expression": {
+      "$sum": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[1]: text",
+    "operator": "$sum",
+    "kind": "text",
+    "operand": "number[1]",
+    "expression": {
+      "$sum": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[1]: empty string",
+    "operator": "$sum",
+    "kind": "empty string",
+    "operand": "number[1]",
+    "expression": {
+      "$sum": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[1]: boolean",
+    "operator": "$sum",
+    "kind": "boolean",
+    "operand": "number[1]",
+    "expression": {
+      "$sum": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[1]: false",
+    "operator": "$sum",
+    "kind": "false",
+    "operand": "number[1]",
+    "expression": {
+      "$sum": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[1]: typed date",
+    "operator": "$sum",
+    "kind": "typed date",
+    "operand": "number[1]",
+    "expression": {
+      "$sum": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[1]: decimal128",
+    "operator": "$sum",
+    "kind": "decimal128",
+    "operand": "number[1]",
+    "expression": {
+      "$sum": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"3.25\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[1]: empty array",
+    "operator": "$sum",
+    "kind": "empty array",
+    "operand": "number[1]",
+    "expression": {
+      "$sum": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[1]: numeric array",
+    "operator": "$sum",
+    "kind": "numeric array",
+    "operand": "number[1]",
+    "expression": {
+      "$sum": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[1]: mixed array",
+    "operator": "$sum",
+    "kind": "mixed array",
+    "operand": "number[1]",
+    "expression": {
+      "$sum": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[1]: nested array",
+    "operator": "$sum",
+    "kind": "nested array",
+    "operand": "number[1]",
+    "expression": {
+      "$sum": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[1]: empty object",
+    "operator": "$sum",
+    "kind": "empty object",
+    "operand": "number[1]",
+    "expression": {
+      "$sum": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[1]: object",
+    "operator": "$sum",
+    "kind": "object",
+    "operand": "number[1]",
+    "expression": {
+      "$sum": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum number[1]: ISO date string",
+    "operator": "$sum",
+    "kind": "ISO date string",
+    "operand": "number[1]",
+    "expression": {
+      "$sum": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum single array: null",
+    "operator": "$sum",
+    "kind": "single operand null",
+    "operand": "single array expression",
+    "expression": {
+      "$sum": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum single array: missing",
+    "operator": "$sum",
+    "kind": "single operand missing",
+    "operand": "single array expression",
+    "expression": {
+      "$sum": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum single array: zero",
+    "operator": "$sum",
+    "kind": "single operand zero",
+    "operand": "single array expression",
+    "expression": {
+      "$sum": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum single array: negative",
+    "operator": "$sum",
+    "kind": "single operand negative",
+    "operand": "single array expression",
+    "expression": {
+      "$sum": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"-2.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum single array: decimal",
+    "operator": "$sum",
+    "kind": "single operand decimal",
+    "operand": "single array expression",
+    "expression": {
+      "$sum": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.5\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum single array: numeric string",
+    "operator": "$sum",
+    "kind": "single operand numeric string",
+    "operand": "single array expression",
+    "expression": {
+      "$sum": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum single array: text",
+    "operator": "$sum",
+    "kind": "single operand text",
+    "operand": "single array expression",
+    "expression": {
+      "$sum": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum single array: empty string",
+    "operator": "$sum",
+    "kind": "single operand empty string",
+    "operand": "single array expression",
+    "expression": {
+      "$sum": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum single array: boolean",
+    "operator": "$sum",
+    "kind": "single operand boolean",
+    "operand": "single array expression",
+    "expression": {
+      "$sum": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum single array: false",
+    "operator": "$sum",
+    "kind": "single operand false",
+    "operand": "single array expression",
+    "expression": {
+      "$sum": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum single array: typed date",
+    "operator": "$sum",
+    "kind": "single operand typed date",
+    "operand": "single array expression",
+    "expression": {
+      "$sum": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum single array: decimal128",
+    "operator": "$sum",
+    "kind": "single operand decimal128",
+    "operand": "single array expression",
+    "expression": {
+      "$sum": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.25\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum single array: empty array",
+    "operator": "$sum",
+    "kind": "single operand empty array",
+    "operand": "single array expression",
+    "expression": {
+      "$sum": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum single array: numeric array",
+    "operator": "$sum",
+    "kind": "single operand numeric array",
+    "operand": "single array expression",
+    "expression": {
+      "$sum": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"6.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum single array: mixed array",
+    "operator": "$sum",
+    "kind": "single operand mixed array",
+    "operand": "single array expression",
+    "expression": {
+      "$sum": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"4.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum single array: nested array",
+    "operator": "$sum",
+    "kind": "single operand nested array",
+    "operand": "single array expression",
+    "expression": {
+      "$sum": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum single array: empty object",
+    "operator": "$sum",
+    "kind": "single operand empty object",
+    "operand": "single array expression",
+    "expression": {
+      "$sum": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum single array: object",
+    "operator": "$sum",
+    "kind": "single operand object",
+    "operand": "single array expression",
+    "expression": {
+      "$sum": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum single array: ISO date string",
+    "operator": "$sum",
+    "kind": "single operand ISO date string",
+    "operand": "single array expression",
+    "expression": {
+      "$sum": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum empty arguments",
+    "operator": "$sum",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$sum": []
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sum unknown option",
+    "operator": "$sum",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$sum": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  }
+]

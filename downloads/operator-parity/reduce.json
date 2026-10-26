@@ -1,0 +1,2009 @@
+[
+  {
+    "id": "$reduce baseline",
+    "operator": "$reduce",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": 0,
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"3.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$reduce input: null",
+    "operator": "$reduce",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$reduce": {
+        "input": "$probe",
+        "initialValue": 0,
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reduce 'input' must resolve to an array"
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$reduce input: missing",
+    "operator": "$reduce",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$reduce": {
+        "input": "$probe",
+        "initialValue": 0,
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reduce 'input' must resolve to an array"
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$reduce input: zero",
+    "operator": "$reduce",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$reduce": {
+        "input": "$probe",
+        "initialValue": 0,
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reduce 'input' must resolve to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $reduce requires that 'input' be an array, found: 0",
+      "code": 40080,
+      "error": "Location40080"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reduce input: negative",
+    "operator": "$reduce",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$reduce": {
+        "input": "$probe",
+        "initialValue": 0,
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reduce 'input' must resolve to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $reduce requires that 'input' be an array, found: -2",
+      "code": 40080,
+      "error": "Location40080"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reduce input: decimal",
+    "operator": "$reduce",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$reduce": {
+        "input": "$probe",
+        "initialValue": 0,
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reduce 'input' must resolve to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $reduce requires that 'input' be an array, found: 2.5",
+      "code": 40080,
+      "error": "Location40080"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reduce input: numeric string",
+    "operator": "$reduce",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$reduce": {
+        "input": "$probe",
+        "initialValue": 0,
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reduce 'input' must resolve to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $reduce requires that 'input' be an array, found: \"12\"",
+      "code": 40080,
+      "error": "Location40080"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reduce input: text",
+    "operator": "$reduce",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$reduce": {
+        "input": "$probe",
+        "initialValue": 0,
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reduce 'input' must resolve to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $reduce requires that 'input' be an array, found: \"hello\"",
+      "code": 40080,
+      "error": "Location40080"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reduce input: empty string",
+    "operator": "$reduce",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$reduce": {
+        "input": "$probe",
+        "initialValue": 0,
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reduce 'input' must resolve to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $reduce requires that 'input' be an array, found: \"\"",
+      "code": 40080,
+      "error": "Location40080"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reduce input: boolean",
+    "operator": "$reduce",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$reduce": {
+        "input": "$probe",
+        "initialValue": 0,
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reduce 'input' must resolve to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $reduce requires that 'input' be an array, found: true",
+      "code": 40080,
+      "error": "Location40080"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reduce input: false",
+    "operator": "$reduce",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$reduce": {
+        "input": "$probe",
+        "initialValue": 0,
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reduce 'input' must resolve to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $reduce requires that 'input' be an array, found: false",
+      "code": 40080,
+      "error": "Location40080"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reduce input: typed date",
+    "operator": "$reduce",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$reduce": {
+        "input": "$probe",
+        "initialValue": 0,
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reduce 'input' must resolve to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $reduce requires that 'input' be an array, found: 2026-01-15T15:00:00.000Z",
+      "code": 40080,
+      "error": "Location40080"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reduce input: decimal128",
+    "operator": "$reduce",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$reduce": {
+        "input": "$probe",
+        "initialValue": 0,
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reduce 'input' must resolve to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $reduce requires that 'input' be an array, found: 1.25",
+      "code": 40080,
+      "error": "Location40080"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reduce input: empty array",
+    "operator": "$reduce",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$reduce": {
+        "input": "$probe",
+        "initialValue": 0,
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$reduce input: numeric array",
+    "operator": "$reduce",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$reduce": {
+        "input": "$probe",
+        "initialValue": 0,
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"6.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"6\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$reduce input: mixed array",
+    "operator": "$reduce",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$reduce": {
+        "input": "$probe",
+        "initialValue": 0,
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$reduce input: nested array",
+    "operator": "$reduce",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$reduce": {
+        "input": "$probe",
+        "initialValue": 0,
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$add only supports numeric types."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $add only supports numeric or date types, not array",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reduce input: empty object",
+    "operator": "$reduce",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$reduce": {
+        "input": "$probe",
+        "initialValue": 0,
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reduce 'input' must resolve to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $reduce requires that 'input' be an array, found: {}",
+      "code": 40080,
+      "error": "Location40080"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reduce input: object",
+    "operator": "$reduce",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$reduce": {
+        "input": "$probe",
+        "initialValue": 0,
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reduce 'input' must resolve to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $reduce requires that 'input' be an array, found: {x: 1}",
+      "code": 40080,
+      "error": "Location40080"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reduce input: ISO date string",
+    "operator": "$reduce",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$reduce": {
+        "input": "$probe",
+        "initialValue": 0,
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reduce 'input' must resolve to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $reduce requires that 'input' be an array, found: \"2026-01-15T15:00:00Z\"",
+      "code": 40080,
+      "error": "Location40080"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reduce initialValue: null",
+    "operator": "$reduce",
+    "kind": "null",
+    "operand": "initialValue",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": "$probe",
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$reduce initialValue: missing",
+    "operator": "$reduce",
+    "kind": "missing",
+    "operand": "initialValue",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": "$probe",
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$reduce initialValue: zero",
+    "operator": "$reduce",
+    "kind": "zero",
+    "operand": "initialValue",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": "$probe",
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"3.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$reduce initialValue: negative",
+    "operator": "$reduce",
+    "kind": "negative",
+    "operand": "initialValue",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": "$probe",
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$reduce initialValue: decimal",
+    "operator": "$reduce",
+    "kind": "decimal",
+    "operand": "initialValue",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": "$probe",
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"5.5\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"5.5\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$reduce initialValue: numeric string",
+    "operator": "$reduce",
+    "kind": "numeric string",
+    "operand": "initialValue",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": "$probe",
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$add only supports numeric types."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $add only supports numeric or date types, not string",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reduce initialValue: text",
+    "operator": "$reduce",
+    "kind": "text",
+    "operand": "initialValue",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": "$probe",
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$add only supports numeric types."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $add only supports numeric or date types, not string",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reduce initialValue: empty string",
+    "operator": "$reduce",
+    "kind": "empty string",
+    "operand": "initialValue",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": "$probe",
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$add only supports numeric types."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $add only supports numeric or date types, not string",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reduce initialValue: boolean",
+    "operator": "$reduce",
+    "kind": "boolean",
+    "operand": "initialValue",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": "$probe",
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$add only supports numeric types."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $add only supports numeric or date types, not bool",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reduce initialValue: false",
+    "operator": "$reduce",
+    "kind": "false",
+    "operand": "initialValue",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": "$probe",
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$add only supports numeric types."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $add only supports numeric or date types, not bool",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reduce initialValue: typed date",
+    "operator": "$reduce",
+    "kind": "typed date",
+    "operand": "initialValue",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": "$probe",
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1768489200003\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1768489200003\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$reduce initialValue: decimal128",
+    "operator": "$reduce",
+    "kind": "decimal128",
+    "operand": "initialValue",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": "$probe",
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"4.25\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"4.25\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$reduce initialValue: empty array",
+    "operator": "$reduce",
+    "kind": "empty array",
+    "operand": "initialValue",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": "$probe",
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$add only supports numeric types."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $add only supports numeric or date types, not array",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reduce initialValue: numeric array",
+    "operator": "$reduce",
+    "kind": "numeric array",
+    "operand": "initialValue",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": "$probe",
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$add only supports numeric types."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $add only supports numeric or date types, not array",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reduce initialValue: mixed array",
+    "operator": "$reduce",
+    "kind": "mixed array",
+    "operand": "initialValue",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": "$probe",
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$add only supports numeric types."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $add only supports numeric or date types, not array",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reduce initialValue: nested array",
+    "operator": "$reduce",
+    "kind": "nested array",
+    "operand": "initialValue",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": "$probe",
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$add only supports numeric types."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $add only supports numeric or date types, not array",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reduce initialValue: empty object",
+    "operator": "$reduce",
+    "kind": "empty object",
+    "operand": "initialValue",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": "$probe",
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$add only supports numeric types."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $add only supports numeric or date types, not object",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reduce initialValue: object",
+    "operator": "$reduce",
+    "kind": "object",
+    "operand": "initialValue",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": "$probe",
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$add only supports numeric types."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $add only supports numeric or date types, not object",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reduce initialValue: ISO date string",
+    "operator": "$reduce",
+    "kind": "ISO date string",
+    "operand": "initialValue",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": "$probe",
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$add only supports numeric types."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $add only supports numeric or date types, not string",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reduce in: null",
+    "operator": "$reduce",
+    "kind": "null",
+    "operand": "in",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": 0,
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$reduce in: missing",
+    "operator": "$reduce",
+    "kind": "missing",
+    "operand": "in",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": 0,
+        "in": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "present": false
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$reduce in: zero",
+    "operator": "$reduce",
+    "kind": "zero",
+    "operand": "in",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": 0,
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$reduce in: negative",
+    "operator": "$reduce",
+    "kind": "negative",
+    "operand": "in",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": 0,
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$reduce in: decimal",
+    "operator": "$reduce",
+    "kind": "decimal",
+    "operand": "in",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": 0,
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.5\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.5\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$reduce in: numeric string",
+    "operator": "$reduce",
+    "kind": "numeric string",
+    "operand": "in",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": 0,
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"12\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"12\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$reduce in: text",
+    "operator": "$reduce",
+    "kind": "text",
+    "operand": "in",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": 0,
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"hello\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"hello\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$reduce in: empty string",
+    "operator": "$reduce",
+    "kind": "empty string",
+    "operand": "in",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": 0,
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$reduce in: boolean",
+    "operator": "$reduce",
+    "kind": "boolean",
+    "operand": "in",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": 0,
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$reduce in: false",
+    "operator": "$reduce",
+    "kind": "false",
+    "operand": "in",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": 0,
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$reduce in: typed date",
+    "operator": "$reduce",
+    "kind": "typed date",
+    "operand": "in",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": 0,
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1768489200000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1768489200000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$reduce in: decimal128",
+    "operator": "$reduce",
+    "kind": "decimal128",
+    "operand": "in",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": 0,
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"1.25\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"1.25\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$reduce in: empty array",
+    "operator": "$reduce",
+    "kind": "empty array",
+    "operand": "in",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": 0,
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$reduce in: numeric array",
+    "operator": "$reduce",
+    "kind": "numeric array",
+    "operand": "in",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": 0,
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$reduce in: mixed array",
+    "operator": "$reduce",
+    "kind": "mixed array",
+    "operand": "in",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": 0,
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, null, \"x\", {\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, null, \"x\", {\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$reduce in: nested array",
+    "operator": "$reduce",
+    "kind": "nested array",
+    "operand": "in",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": 0,
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}], [{\"$numberInt\": \"3\"}]]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}], [{\"$numberInt\": \"3\"}]]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$reduce in: empty object",
+    "operator": "$reduce",
+    "kind": "empty object",
+    "operand": "in",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": 0,
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$reduce in: object",
+    "operator": "$reduce",
+    "kind": "object",
+    "operand": "in",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": 0,
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"x\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"x\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$reduce in: ISO date string",
+    "operator": "$reduce",
+    "kind": "ISO date string",
+    "operand": "in",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": 0,
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2026-01-15T15:00:00Z\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"2026-01-15T15:00:00Z\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$reduce omit input",
+    "operator": "$reduce",
+    "kind": "omitted named argument",
+    "operand": "input",
+    "expression": {
+      "$reduce": {
+        "initialValue": 0,
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reduce requires 'input', 'initialValue', and 'in' fields"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $reduce requires 'input' to be specified",
+      "code": 40077,
+      "error": "Location40077"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reduce omit initialValue",
+    "operator": "$reduce",
+    "kind": "omitted named argument",
+    "operand": "initialValue",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reduce requires 'input', 'initialValue', and 'in' fields"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $reduce requires 'initialValue' to be specified",
+      "code": 40078,
+      "error": "Location40078"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reduce omit in",
+    "operator": "$reduce",
+    "kind": "omitted named argument",
+    "operand": "in",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2
+        ],
+        "initialValue": 0
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reduce requires 'input', 'initialValue', and 'in' fields"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $reduce requires 'in' to be specified",
+      "code": 40079,
+      "error": "Location40079"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reduce empty arguments",
+    "operator": "$reduce",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$reduce": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reduce expects an object with fields: input, initialValue, in"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $reduce requires an object as an argument, found: array",
+      "code": 40075,
+      "error": "Location40075"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reduce unknown option",
+    "operator": "$reduce",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$reduce": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reduce requires 'input', 'initialValue', and 'in' fields"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $reduce found an unknown argument: unexpected",
+      "code": 40076,
+      "error": "Location40076"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "mongodb-9-boundary-cases.json:12",
+    "operator": "$reduce",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$reduce": {
+        "input": [
+          1,
+          2,
+          3
+        ],
+        "initialValue": 0,
+        "in": {
+          "$add": [
+            "$$value",
+            "$$this"
+          ]
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"6.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"6\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  }
+]

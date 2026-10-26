@@ -1,0 +1,1345 @@
+[
+  {
+    "id": "$dateToParts baseline",
+    "operator": "$dateToParts",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "UTC"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"year\": {\"$numberInt\": \"2024\"}, \"month\": {\"$numberInt\": \"1\"}, \"day\": {\"$numberInt\": \"2\"}, \"hour\": {\"$numberInt\": \"3\"}, \"minute\": {\"$numberInt\": \"4\"}, \"second\": {\"$numberInt\": \"5\"}, \"millisecond\": {\"$numberInt\": \"6\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToParts date: null",
+    "operator": "$dateToParts",
+    "kind": "null",
+    "operand": "date",
+    "expression": {
+      "$dateToParts": {
+        "date": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToParts date: missing",
+    "operator": "$dateToParts",
+    "kind": "missing",
+    "operand": "date",
+    "expression": {
+      "$dateToParts": {
+        "date": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToParts date: zero",
+    "operator": "$dateToParts",
+    "kind": "zero",
+    "operand": "date",
+    "expression": {
+      "$dateToParts": {
+        "date": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateToParts date: negative",
+    "operator": "$dateToParts",
+    "kind": "negative",
+    "operand": "date",
+    "expression": {
+      "$dateToParts": {
+        "date": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateToParts date: decimal",
+    "operator": "$dateToParts",
+    "kind": "decimal",
+    "operand": "date",
+    "expression": {
+      "$dateToParts": {
+        "date": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateToParts date: numeric string",
+    "operator": "$dateToParts",
+    "kind": "numeric string",
+    "operand": "date",
+    "expression": {
+      "$dateToParts": {
+        "date": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot convert value to date: 12"
+    }
+  },
+  {
+    "id": "$dateToParts date: text",
+    "operator": "$dateToParts",
+    "kind": "text",
+    "operand": "date",
+    "expression": {
+      "$dateToParts": {
+        "date": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot convert value to date: hello"
+    }
+  },
+  {
+    "id": "$dateToParts date: empty string",
+    "operator": "$dateToParts",
+    "kind": "empty string",
+    "operand": "date",
+    "expression": {
+      "$dateToParts": {
+        "date": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot convert value to date: "
+    }
+  },
+  {
+    "id": "$dateToParts date: boolean",
+    "operator": "$dateToParts",
+    "kind": "boolean",
+    "operand": "date",
+    "expression": {
+      "$dateToParts": {
+        "date": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateToParts date: false",
+    "operator": "$dateToParts",
+    "kind": "false",
+    "operand": "date",
+    "expression": {
+      "$dateToParts": {
+        "date": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateToParts date: typed date",
+    "operator": "$dateToParts",
+    "kind": "typed date",
+    "operand": "date",
+    "expression": {
+      "$dateToParts": {
+        "date": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"year\": {\"$numberInt\": \"2026\"}, \"month\": {\"$numberInt\": \"1\"}, \"day\": {\"$numberInt\": \"15\"}, \"hour\": {\"$numberInt\": \"15\"}, \"minute\": {\"$numberInt\": \"0\"}, \"second\": {\"$numberInt\": \"0\"}, \"millisecond\": {\"$numberInt\": \"0\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToParts date: decimal128",
+    "operator": "$dateToParts",
+    "kind": "decimal128",
+    "operand": "date",
+    "expression": {
+      "$dateToParts": {
+        "date": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateToParts date: empty array",
+    "operator": "$dateToParts",
+    "kind": "empty array",
+    "operand": "date",
+    "expression": {
+      "$dateToParts": {
+        "date": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateToParts date: numeric array",
+    "operator": "$dateToParts",
+    "kind": "numeric array",
+    "operand": "date",
+    "expression": {
+      "$dateToParts": {
+        "date": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateToParts date: mixed array",
+    "operator": "$dateToParts",
+    "kind": "mixed array",
+    "operand": "date",
+    "expression": {
+      "$dateToParts": {
+        "date": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateToParts date: nested array",
+    "operator": "$dateToParts",
+    "kind": "nested array",
+    "operand": "date",
+    "expression": {
+      "$dateToParts": {
+        "date": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateToParts date: empty object",
+    "operator": "$dateToParts",
+    "kind": "empty object",
+    "operand": "date",
+    "expression": {
+      "$dateToParts": {
+        "date": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateToParts date: object",
+    "operator": "$dateToParts",
+    "kind": "object",
+    "operand": "date",
+    "expression": {
+      "$dateToParts": {
+        "date": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$dateToParts date: ISO date string",
+    "operator": "$dateToParts",
+    "kind": "ISO date string",
+    "operand": "date",
+    "expression": {
+      "$dateToParts": {
+        "date": "$probe",
+        "timezone": "UTC"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"year\": {\"$numberInt\": \"2026\"}, \"month\": {\"$numberInt\": \"1\"}, \"day\": {\"$numberInt\": \"15\"}, \"hour\": {\"$numberInt\": \"15\"}, \"minute\": {\"$numberInt\": \"0\"}, \"second\": {\"$numberInt\": \"0\"}, \"millisecond\": {\"$numberInt\": \"0\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToParts timezone: null",
+    "operator": "$dateToParts",
+    "kind": "null",
+    "operand": "timezone",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToParts timezone: missing",
+    "operator": "$dateToParts",
+    "kind": "missing",
+    "operand": "timezone",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToParts timezone: zero",
+    "operator": "$dateToParts",
+    "kind": "zero",
+    "operand": "timezone",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateToParts timezone: negative",
+    "operator": "$dateToParts",
+    "kind": "negative",
+    "operand": "timezone",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateToParts timezone: decimal",
+    "operator": "$dateToParts",
+    "kind": "decimal",
+    "operand": "timezone",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateToParts timezone: numeric string",
+    "operator": "$dateToParts",
+    "kind": "numeric string",
+    "operand": "timezone",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "DateTimeException",
+      "message": "Invalid ID for region-based ZoneId, invalid format: 12"
+    }
+  },
+  {
+    "id": "$dateToParts timezone: text",
+    "operator": "$dateToParts",
+    "kind": "text",
+    "operand": "timezone",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "ZoneRulesException",
+      "message": "Unknown time-zone ID: hello"
+    }
+  },
+  {
+    "id": "$dateToParts timezone: empty string",
+    "operator": "$dateToParts",
+    "kind": "empty string",
+    "operand": "timezone",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "DateTimeException",
+      "message": "Invalid ID for ZoneOffset, invalid format: "
+    }
+  },
+  {
+    "id": "$dateToParts timezone: boolean",
+    "operator": "$dateToParts",
+    "kind": "boolean",
+    "operand": "timezone",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateToParts timezone: false",
+    "operator": "$dateToParts",
+    "kind": "false",
+    "operand": "timezone",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateToParts timezone: typed date",
+    "operator": "$dateToParts",
+    "kind": "typed date",
+    "operand": "timezone",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateToParts timezone: decimal128",
+    "operator": "$dateToParts",
+    "kind": "decimal128",
+    "operand": "timezone",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateToParts timezone: empty array",
+    "operator": "$dateToParts",
+    "kind": "empty array",
+    "operand": "timezone",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateToParts timezone: numeric array",
+    "operator": "$dateToParts",
+    "kind": "numeric array",
+    "operand": "timezone",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateToParts timezone: mixed array",
+    "operator": "$dateToParts",
+    "kind": "mixed array",
+    "operand": "timezone",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateToParts timezone: nested array",
+    "operator": "$dateToParts",
+    "kind": "nested array",
+    "operand": "timezone",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateToParts timezone: empty object",
+    "operator": "$dateToParts",
+    "kind": "empty object",
+    "operand": "timezone",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateToParts timezone: object",
+    "operator": "$dateToParts",
+    "kind": "object",
+    "operand": "timezone",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    }
+  },
+  {
+    "id": "$dateToParts timezone: ISO date string",
+    "operator": "$dateToParts",
+    "kind": "ISO date string",
+    "operand": "timezone",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "DateTimeException",
+      "message": "Invalid ID for region-based ZoneId, invalid format: 2026-01-15T15:00:00Z"
+    }
+  },
+  {
+    "id": "$dateToParts iso8601: null",
+    "operator": "$dateToParts",
+    "kind": "null",
+    "operand": "iso8601",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "UTC",
+        "iso8601": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "iso8601 must be boolean"
+    }
+  },
+  {
+    "id": "$dateToParts iso8601: missing",
+    "operator": "$dateToParts",
+    "kind": "missing",
+    "operand": "iso8601",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "UTC",
+        "iso8601": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "iso8601 must be boolean"
+    }
+  },
+  {
+    "id": "$dateToParts iso8601: zero",
+    "operator": "$dateToParts",
+    "kind": "zero",
+    "operand": "iso8601",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "UTC",
+        "iso8601": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "iso8601 must be boolean"
+    }
+  },
+  {
+    "id": "$dateToParts iso8601: negative",
+    "operator": "$dateToParts",
+    "kind": "negative",
+    "operand": "iso8601",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "UTC",
+        "iso8601": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "iso8601 must be boolean"
+    }
+  },
+  {
+    "id": "$dateToParts iso8601: decimal",
+    "operator": "$dateToParts",
+    "kind": "decimal",
+    "operand": "iso8601",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "UTC",
+        "iso8601": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "iso8601 must be boolean"
+    }
+  },
+  {
+    "id": "$dateToParts iso8601: numeric string",
+    "operator": "$dateToParts",
+    "kind": "numeric string",
+    "operand": "iso8601",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "UTC",
+        "iso8601": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "iso8601 must be boolean"
+    }
+  },
+  {
+    "id": "$dateToParts iso8601: text",
+    "operator": "$dateToParts",
+    "kind": "text",
+    "operand": "iso8601",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "UTC",
+        "iso8601": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "iso8601 must be boolean"
+    }
+  },
+  {
+    "id": "$dateToParts iso8601: empty string",
+    "operator": "$dateToParts",
+    "kind": "empty string",
+    "operand": "iso8601",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "UTC",
+        "iso8601": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "iso8601 must be boolean"
+    }
+  },
+  {
+    "id": "$dateToParts iso8601: boolean",
+    "operator": "$dateToParts",
+    "kind": "boolean",
+    "operand": "iso8601",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "UTC",
+        "iso8601": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"isoWeekYear\": {\"$numberInt\": \"2024\"}, \"isoWeek\": {\"$numberInt\": \"1\"}, \"isoDayOfWeek\": {\"$numberInt\": \"2\"}, \"hour\": {\"$numberInt\": \"3\"}, \"minute\": {\"$numberInt\": \"4\"}, \"second\": {\"$numberInt\": \"5\"}, \"millisecond\": {\"$numberInt\": \"6\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToParts iso8601: false",
+    "operator": "$dateToParts",
+    "kind": "false",
+    "operand": "iso8601",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "UTC",
+        "iso8601": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"year\": {\"$numberInt\": \"2024\"}, \"month\": {\"$numberInt\": \"1\"}, \"day\": {\"$numberInt\": \"2\"}, \"hour\": {\"$numberInt\": \"3\"}, \"minute\": {\"$numberInt\": \"4\"}, \"second\": {\"$numberInt\": \"5\"}, \"millisecond\": {\"$numberInt\": \"6\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToParts iso8601: typed date",
+    "operator": "$dateToParts",
+    "kind": "typed date",
+    "operand": "iso8601",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "UTC",
+        "iso8601": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "iso8601 must be boolean"
+    }
+  },
+  {
+    "id": "$dateToParts iso8601: decimal128",
+    "operator": "$dateToParts",
+    "kind": "decimal128",
+    "operand": "iso8601",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "UTC",
+        "iso8601": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "iso8601 must be boolean"
+    }
+  },
+  {
+    "id": "$dateToParts iso8601: empty array",
+    "operator": "$dateToParts",
+    "kind": "empty array",
+    "operand": "iso8601",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "UTC",
+        "iso8601": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "iso8601 must be boolean"
+    }
+  },
+  {
+    "id": "$dateToParts iso8601: numeric array",
+    "operator": "$dateToParts",
+    "kind": "numeric array",
+    "operand": "iso8601",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "UTC",
+        "iso8601": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "iso8601 must be boolean"
+    }
+  },
+  {
+    "id": "$dateToParts iso8601: mixed array",
+    "operator": "$dateToParts",
+    "kind": "mixed array",
+    "operand": "iso8601",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "UTC",
+        "iso8601": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "iso8601 must be boolean"
+    }
+  },
+  {
+    "id": "$dateToParts iso8601: nested array",
+    "operator": "$dateToParts",
+    "kind": "nested array",
+    "operand": "iso8601",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "UTC",
+        "iso8601": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "iso8601 must be boolean"
+    }
+  },
+  {
+    "id": "$dateToParts iso8601: empty object",
+    "operator": "$dateToParts",
+    "kind": "empty object",
+    "operand": "iso8601",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "UTC",
+        "iso8601": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "iso8601 must be boolean"
+    }
+  },
+  {
+    "id": "$dateToParts iso8601: object",
+    "operator": "$dateToParts",
+    "kind": "object",
+    "operand": "iso8601",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "UTC",
+        "iso8601": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "iso8601 must be boolean"
+    }
+  },
+  {
+    "id": "$dateToParts iso8601: ISO date string",
+    "operator": "$dateToParts",
+    "kind": "ISO date string",
+    "operand": "iso8601",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "UTC",
+        "iso8601": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "iso8601 must be boolean"
+    }
+  },
+  {
+    "id": "$dateToParts omit date",
+    "operator": "$dateToParts",
+    "kind": "omitted named argument",
+    "operand": "date",
+    "expression": {
+      "$dateToParts": {
+        "timezone": "UTC"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToParts omit timezone",
+    "operator": "$dateToParts",
+    "kind": "omitted named argument",
+    "operand": "timezone",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"year\": {\"$numberInt\": \"2024\"}, \"month\": {\"$numberInt\": \"1\"}, \"day\": {\"$numberInt\": \"2\"}, \"hour\": {\"$numberInt\": \"3\"}, \"minute\": {\"$numberInt\": \"4\"}, \"second\": {\"$numberInt\": \"5\"}, \"millisecond\": {\"$numberInt\": \"6\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToParts omit iso8601",
+    "operator": "$dateToParts",
+    "kind": "omitted named argument",
+    "operand": "iso8601",
+    "expression": {
+      "$dateToParts": {
+        "date": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "timezone": "UTC"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"year\": {\"$numberInt\": \"2024\"}, \"month\": {\"$numberInt\": \"1\"}, \"day\": {\"$numberInt\": \"2\"}, \"hour\": {\"$numberInt\": \"3\"}, \"minute\": {\"$numberInt\": \"4\"}, \"second\": {\"$numberInt\": \"5\"}, \"millisecond\": {\"$numberInt\": \"6\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dateToParts empty arguments",
+    "operator": "$dateToParts",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$dateToParts": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Date operator requires named arguments"
+    }
+  },
+  {
+    "id": "$dateToParts unknown option",
+    "operator": "$dateToParts",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$dateToParts": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  }
+]

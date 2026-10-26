@@ -1,0 +1,126 @@
+[
+  {
+    "id": "$fill example",
+    "stage": "$fill",
+    "kind": "example",
+    "pipeline": [
+      {
+        "$fill": {
+          "sortBy": {
+            "x": 1
+          },
+          "output": {
+            "y": {
+              "method": "linear"
+            }
+          }
+        }
+      }
+    ],
+    "input": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 1,
+        "y": null
+      },
+      {
+        "x": 2,
+        "y": 10
+      }
+    ],
+    "result": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 1,
+        "y": 5.0
+      },
+      {
+        "x": 2,
+        "y": 10
+      }
+    ]
+  },
+  {
+    "id": "$fill empty input",
+    "stage": "$fill",
+    "kind": "empty input",
+    "pipeline": [
+      {
+        "$fill": {
+          "sortBy": {
+            "x": 1
+          },
+          "output": {
+            "y": {
+              "method": "linear"
+            }
+          }
+        }
+      }
+    ],
+    "input": [],
+    "result": []
+  },
+  {
+    "id": "$fill invalid specification",
+    "stage": "$fill",
+    "kind": "invalid specification",
+    "pipeline": [
+      {
+        "$fill": null
+      }
+    ],
+    "input": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 1,
+        "y": null
+      },
+      {
+        "x": 2,
+        "y": 10
+      }
+    ],
+    "error": "IllegalArgumentException",
+    "message": "$fill stage requires an object"
+  },
+  {
+    "id": "$fill missing value fill",
+    "stage": "$fill",
+    "kind": "missing value fill",
+    "pipeline": [
+      {
+        "$fill": {
+          "sortBy": {
+            "x": 1
+          },
+          "output": {
+            "y": {
+              "value": 0
+            }
+          }
+        }
+      }
+    ],
+    "input": [
+      {
+        "x": 1
+      }
+    ],
+    "result": [
+      {
+        "x": 1,
+        "y": 0
+      }
+    ]
+  }
+]

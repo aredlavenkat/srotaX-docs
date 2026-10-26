@@ -1,0 +1,373 @@
+[
+  {
+    "id": "$dayOfWeek baseline",
+    "operator": "$dayOfWeek",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$dayOfWeek": {
+        "$toDate": "2024-01-02T03:04:05.006Z"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dayOfWeek input: null",
+    "operator": "$dayOfWeek",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$dayOfWeek": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofweek requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfWeek input: missing",
+    "operator": "$dayOfWeek",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$dayOfWeek": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofweek requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfWeek input: zero",
+    "operator": "$dayOfWeek",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$dayOfWeek": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofweek requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfWeek input: negative",
+    "operator": "$dayOfWeek",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$dayOfWeek": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofweek requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfWeek input: decimal",
+    "operator": "$dayOfWeek",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$dayOfWeek": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofweek requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfWeek input: numeric string",
+    "operator": "$dayOfWeek",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$dayOfWeek": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofweek requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfWeek input: text",
+    "operator": "$dayOfWeek",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$dayOfWeek": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofweek requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfWeek input: empty string",
+    "operator": "$dayOfWeek",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$dayOfWeek": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofweek requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfWeek input: boolean",
+    "operator": "$dayOfWeek",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$dayOfWeek": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofweek requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfWeek input: false",
+    "operator": "$dayOfWeek",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$dayOfWeek": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofweek requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfWeek input: typed date",
+    "operator": "$dayOfWeek",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$dayOfWeek": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"5\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dayOfWeek input: decimal128",
+    "operator": "$dayOfWeek",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$dayOfWeek": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofweek requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfWeek input: empty array",
+    "operator": "$dayOfWeek",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$dayOfWeek": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofweek requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfWeek input: numeric array",
+    "operator": "$dayOfWeek",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$dayOfWeek": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofweek requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfWeek input: mixed array",
+    "operator": "$dayOfWeek",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$dayOfWeek": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofweek requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfWeek input: nested array",
+    "operator": "$dayOfWeek",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$dayOfWeek": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofweek requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfWeek input: empty object",
+    "operator": "$dayOfWeek",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$dayOfWeek": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofweek requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfWeek input: object",
+    "operator": "$dayOfWeek",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$dayOfWeek": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofweek requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfWeek input: ISO date string",
+    "operator": "$dayOfWeek",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$dayOfWeek": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofweek requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfWeek empty arguments",
+    "operator": "$dayOfWeek",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$dayOfWeek": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofweek requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfWeek unknown option",
+    "operator": "$dayOfWeek",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$dayOfWeek": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofweek requires a Date input"
+    }
+  }
+]

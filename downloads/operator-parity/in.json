@@ -1,0 +1,1095 @@
+[
+  {
+    "id": "$in baseline",
+    "operator": "$in",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$in": [
+        2,
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$in value[0]: null",
+    "operator": "$in",
+    "kind": "null",
+    "operand": "value[0]",
+    "expression": {
+      "$in": [
+        "$probe",
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$in value[0]: missing",
+    "operator": "$in",
+    "kind": "missing",
+    "operand": "value[0]",
+    "expression": {
+      "$in": [
+        "$probe",
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$in value[0]: zero",
+    "operator": "$in",
+    "kind": "zero",
+    "operand": "value[0]",
+    "expression": {
+      "$in": [
+        "$probe",
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$in value[0]: negative",
+    "operator": "$in",
+    "kind": "negative",
+    "operand": "value[0]",
+    "expression": {
+      "$in": [
+        "$probe",
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$in value[0]: decimal",
+    "operator": "$in",
+    "kind": "decimal",
+    "operand": "value[0]",
+    "expression": {
+      "$in": [
+        "$probe",
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$in value[0]: numeric string",
+    "operator": "$in",
+    "kind": "numeric string",
+    "operand": "value[0]",
+    "expression": {
+      "$in": [
+        "$probe",
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$in value[0]: text",
+    "operator": "$in",
+    "kind": "text",
+    "operand": "value[0]",
+    "expression": {
+      "$in": [
+        "$probe",
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$in value[0]: empty string",
+    "operator": "$in",
+    "kind": "empty string",
+    "operand": "value[0]",
+    "expression": {
+      "$in": [
+        "$probe",
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$in value[0]: boolean",
+    "operator": "$in",
+    "kind": "boolean",
+    "operand": "value[0]",
+    "expression": {
+      "$in": [
+        "$probe",
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$in value[0]: false",
+    "operator": "$in",
+    "kind": "false",
+    "operand": "value[0]",
+    "expression": {
+      "$in": [
+        "$probe",
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$in value[0]: typed date",
+    "operator": "$in",
+    "kind": "typed date",
+    "operand": "value[0]",
+    "expression": {
+      "$in": [
+        "$probe",
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$in value[0]: decimal128",
+    "operator": "$in",
+    "kind": "decimal128",
+    "operand": "value[0]",
+    "expression": {
+      "$in": [
+        "$probe",
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$in value[0]: empty array",
+    "operator": "$in",
+    "kind": "empty array",
+    "operand": "value[0]",
+    "expression": {
+      "$in": [
+        "$probe",
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$in value[0]: numeric array",
+    "operator": "$in",
+    "kind": "numeric array",
+    "operand": "value[0]",
+    "expression": {
+      "$in": [
+        "$probe",
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$in value[0]: mixed array",
+    "operator": "$in",
+    "kind": "mixed array",
+    "operand": "value[0]",
+    "expression": {
+      "$in": [
+        "$probe",
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$in value[0]: nested array",
+    "operator": "$in",
+    "kind": "nested array",
+    "operand": "value[0]",
+    "expression": {
+      "$in": [
+        "$probe",
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$in value[0]: empty object",
+    "operator": "$in",
+    "kind": "empty object",
+    "operand": "value[0]",
+    "expression": {
+      "$in": [
+        "$probe",
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$in value[0]: object",
+    "operator": "$in",
+    "kind": "object",
+    "operand": "value[0]",
+    "expression": {
+      "$in": [
+        "$probe",
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$in value[0]: ISO date string",
+    "operator": "$in",
+    "kind": "ISO date string",
+    "operand": "value[0]",
+    "expression": {
+      "$in": [
+        "$probe",
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$in array[1]: null",
+    "operator": "$in",
+    "kind": "null",
+    "operand": "array[1]",
+    "expression": {
+      "$in": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$in requires the second argument to evaluate to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $in requires an array as a second argument, found: null",
+      "code": 40081,
+      "error": "Location40081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$in array[1]: missing",
+    "operator": "$in",
+    "kind": "missing",
+    "operand": "array[1]",
+    "expression": {
+      "$in": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$in requires the second argument to evaluate to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $in requires an array as a second argument, found: missing",
+      "code": 40081,
+      "error": "Location40081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$in array[1]: zero",
+    "operator": "$in",
+    "kind": "zero",
+    "operand": "array[1]",
+    "expression": {
+      "$in": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$in requires the second argument to evaluate to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $in requires an array as a second argument, found: int",
+      "code": 40081,
+      "error": "Location40081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$in array[1]: negative",
+    "operator": "$in",
+    "kind": "negative",
+    "operand": "array[1]",
+    "expression": {
+      "$in": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$in requires the second argument to evaluate to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $in requires an array as a second argument, found: int",
+      "code": 40081,
+      "error": "Location40081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$in array[1]: decimal",
+    "operator": "$in",
+    "kind": "decimal",
+    "operand": "array[1]",
+    "expression": {
+      "$in": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$in requires the second argument to evaluate to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $in requires an array as a second argument, found: double",
+      "code": 40081,
+      "error": "Location40081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$in array[1]: numeric string",
+    "operator": "$in",
+    "kind": "numeric string",
+    "operand": "array[1]",
+    "expression": {
+      "$in": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$in requires the second argument to evaluate to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $in requires an array as a second argument, found: string",
+      "code": 40081,
+      "error": "Location40081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$in array[1]: text",
+    "operator": "$in",
+    "kind": "text",
+    "operand": "array[1]",
+    "expression": {
+      "$in": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$in requires the second argument to evaluate to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $in requires an array as a second argument, found: string",
+      "code": 40081,
+      "error": "Location40081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$in array[1]: empty string",
+    "operator": "$in",
+    "kind": "empty string",
+    "operand": "array[1]",
+    "expression": {
+      "$in": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$in requires the second argument to evaluate to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $in requires an array as a second argument, found: string",
+      "code": 40081,
+      "error": "Location40081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$in array[1]: boolean",
+    "operator": "$in",
+    "kind": "boolean",
+    "operand": "array[1]",
+    "expression": {
+      "$in": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$in requires the second argument to evaluate to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $in requires an array as a second argument, found: bool",
+      "code": 40081,
+      "error": "Location40081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$in array[1]: false",
+    "operator": "$in",
+    "kind": "false",
+    "operand": "array[1]",
+    "expression": {
+      "$in": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$in requires the second argument to evaluate to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $in requires an array as a second argument, found: bool",
+      "code": 40081,
+      "error": "Location40081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$in array[1]: typed date",
+    "operator": "$in",
+    "kind": "typed date",
+    "operand": "array[1]",
+    "expression": {
+      "$in": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$in requires the second argument to evaluate to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $in requires an array as a second argument, found: date",
+      "code": 40081,
+      "error": "Location40081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$in array[1]: decimal128",
+    "operator": "$in",
+    "kind": "decimal128",
+    "operand": "array[1]",
+    "expression": {
+      "$in": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$in requires the second argument to evaluate to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $in requires an array as a second argument, found: decimal",
+      "code": 40081,
+      "error": "Location40081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$in array[1]: empty array",
+    "operator": "$in",
+    "kind": "empty array",
+    "operand": "array[1]",
+    "expression": {
+      "$in": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$in array[1]: numeric array",
+    "operator": "$in",
+    "kind": "numeric array",
+    "operand": "array[1]",
+    "expression": {
+      "$in": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$in array[1]: mixed array",
+    "operator": "$in",
+    "kind": "mixed array",
+    "operand": "array[1]",
+    "expression": {
+      "$in": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$in array[1]: nested array",
+    "operator": "$in",
+    "kind": "nested array",
+    "operand": "array[1]",
+    "expression": {
+      "$in": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$in array[1]: empty object",
+    "operator": "$in",
+    "kind": "empty object",
+    "operand": "array[1]",
+    "expression": {
+      "$in": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$in requires the second argument to evaluate to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $in requires an array as a second argument, found: object",
+      "code": 40081,
+      "error": "Location40081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$in array[1]: object",
+    "operator": "$in",
+    "kind": "object",
+    "operand": "array[1]",
+    "expression": {
+      "$in": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$in requires the second argument to evaluate to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $in requires an array as a second argument, found: object",
+      "code": 40081,
+      "error": "Location40081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$in array[1]: ISO date string",
+    "operator": "$in",
+    "kind": "ISO date string",
+    "operand": "array[1]",
+    "expression": {
+      "$in": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$in requires the second argument to evaluate to an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $in requires an array as a second argument, found: string",
+      "code": 40081,
+      "error": "Location40081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$in empty arguments",
+    "operator": "$in",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$in": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$in expects [searchExpr, candidates]"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $in takes exactly 2 arguments. 0 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$in unknown option",
+    "operator": "$in",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$in": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$in expects [searchExpr, candidates]"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $in takes exactly 2 arguments. 1 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

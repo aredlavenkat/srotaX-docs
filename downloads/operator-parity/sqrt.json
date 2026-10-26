@@ -1,0 +1,517 @@
+[
+  {
+    "id": "$sqrt baseline",
+    "operator": "$sqrt",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$sqrt": 4
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$sqrt input: null",
+    "operator": "$sqrt",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$sqrt": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$sqrt input: missing",
+    "operator": "$sqrt",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$sqrt": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$sqrt input: zero",
+    "operator": "$sqrt",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$sqrt": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$sqrt input: negative",
+    "operator": "$sqrt",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$sqrt": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sqrt does not support negative numbers."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $sqrt's argument must be greater than or equal to 0",
+      "code": 28714,
+      "error": "Location28714"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sqrt input: decimal",
+    "operator": "$sqrt",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$sqrt": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.5811388300841898\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.5811388300841898\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$sqrt input: numeric string",
+    "operator": "$sqrt",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$sqrt": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sqrt expects a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $sqrt only supports numeric types, not string",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sqrt input: text",
+    "operator": "$sqrt",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$sqrt": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sqrt expects a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $sqrt only supports numeric types, not string",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sqrt input: empty string",
+    "operator": "$sqrt",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$sqrt": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sqrt expects a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $sqrt only supports numeric types, not string",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sqrt input: boolean",
+    "operator": "$sqrt",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$sqrt": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sqrt expects a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $sqrt only supports numeric types, not bool",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sqrt input: false",
+    "operator": "$sqrt",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$sqrt": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sqrt expects a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $sqrt only supports numeric types, not bool",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sqrt input: typed date",
+    "operator": "$sqrt",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$sqrt": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sqrt expects a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $sqrt only supports numeric types, not date",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sqrt input: decimal128",
+    "operator": "$sqrt",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$sqrt": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.118033988749895\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"1.118033988749894848204586834365638\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$sqrt input: empty array",
+    "operator": "$sqrt",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$sqrt": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sqrt expects a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $sqrt only supports numeric types, not array",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sqrt input: numeric array",
+    "operator": "$sqrt",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$sqrt": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sqrt expects a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $sqrt only supports numeric types, not array",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sqrt input: mixed array",
+    "operator": "$sqrt",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$sqrt": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sqrt expects a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $sqrt only supports numeric types, not array",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sqrt input: nested array",
+    "operator": "$sqrt",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$sqrt": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sqrt expects a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $sqrt only supports numeric types, not array",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sqrt input: empty object",
+    "operator": "$sqrt",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$sqrt": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sqrt expects a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $sqrt only supports numeric types, not object",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sqrt input: object",
+    "operator": "$sqrt",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$sqrt": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sqrt expects a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $sqrt only supports numeric types, not object",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sqrt input: ISO date string",
+    "operator": "$sqrt",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$sqrt": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sqrt expects a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $sqrt only supports numeric types, not string",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sqrt empty arguments",
+    "operator": "$sqrt",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$sqrt": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sqrt expects a numeric argument."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $sqrt takes exactly 1 arguments. 0 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sqrt unknown option",
+    "operator": "$sqrt",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$sqrt": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sqrt expects a numeric argument."
+    },
+    "mongo": {
+      "message": "Failed to optimize pipeline :: caused by :: $sqrt only supports numeric types, not object",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "mongodb-9-boundary-cases.json:3",
+    "operator": "$sqrt",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$sqrt": -1
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sqrt does not support negative numbers."
+    },
+    "mongo": {
+      "message": "Failed to optimize pipeline :: caused by :: $sqrt's argument must be greater than or equal to 0",
+      "code": 28714,
+      "error": "Location28714"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

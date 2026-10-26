@@ -1,0 +1,371 @@
+[
+  {
+    "id": "$ln baseline",
+    "operator": "$ln",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$ln": 1
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ln input: null",
+    "operator": "$ln",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$ln": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ln expects a numeric argument."
+    }
+  },
+  {
+    "id": "$ln input: missing",
+    "operator": "$ln",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$ln": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ln expects a numeric argument."
+    }
+  },
+  {
+    "id": "$ln input: zero",
+    "operator": "$ln",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$ln": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ln expects a positive number."
+    }
+  },
+  {
+    "id": "$ln input: negative",
+    "operator": "$ln",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$ln": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ln expects a positive number."
+    }
+  },
+  {
+    "id": "$ln input: decimal",
+    "operator": "$ln",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$ln": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.9162907318741551\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ln input: numeric string",
+    "operator": "$ln",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$ln": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ln expects a numeric argument."
+    }
+  },
+  {
+    "id": "$ln input: text",
+    "operator": "$ln",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$ln": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ln expects a numeric argument."
+    }
+  },
+  {
+    "id": "$ln input: empty string",
+    "operator": "$ln",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$ln": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ln expects a numeric argument."
+    }
+  },
+  {
+    "id": "$ln input: boolean",
+    "operator": "$ln",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$ln": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ln expects a numeric argument."
+    }
+  },
+  {
+    "id": "$ln input: false",
+    "operator": "$ln",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$ln": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ln expects a numeric argument."
+    }
+  },
+  {
+    "id": "$ln input: typed date",
+    "operator": "$ln",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$ln": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ln expects a numeric argument."
+    }
+  },
+  {
+    "id": "$ln input: decimal128",
+    "operator": "$ln",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$ln": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.22314355131420976\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ln input: empty array",
+    "operator": "$ln",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$ln": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ln expects a numeric argument."
+    }
+  },
+  {
+    "id": "$ln input: numeric array",
+    "operator": "$ln",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$ln": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ln expects a numeric argument."
+    }
+  },
+  {
+    "id": "$ln input: mixed array",
+    "operator": "$ln",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$ln": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ln expects a numeric argument."
+    }
+  },
+  {
+    "id": "$ln input: nested array",
+    "operator": "$ln",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$ln": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ln expects a numeric argument."
+    }
+  },
+  {
+    "id": "$ln input: empty object",
+    "operator": "$ln",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$ln": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ln expects a numeric argument."
+    }
+  },
+  {
+    "id": "$ln input: object",
+    "operator": "$ln",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$ln": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ln expects a numeric argument."
+    }
+  },
+  {
+    "id": "$ln input: ISO date string",
+    "operator": "$ln",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$ln": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ln expects a numeric argument."
+    }
+  },
+  {
+    "id": "$ln empty arguments",
+    "operator": "$ln",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$ln": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ln expects a numeric argument."
+    }
+  },
+  {
+    "id": "$ln unknown option",
+    "operator": "$ln",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$ln": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ln expects a numeric argument."
+    }
+  }
+]

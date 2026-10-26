@@ -1,0 +1,496 @@
+[
+  {
+    "id": "$asinh baseline",
+    "operator": "$asinh",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$asinh": 0
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$asinh input: null",
+    "operator": "$asinh",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$asinh": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asinh expects a numeric argument"
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$asinh input: missing",
+    "operator": "$asinh",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$asinh": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asinh expects a numeric argument"
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$asinh input: zero",
+    "operator": "$asinh",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$asinh": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$asinh input: negative",
+    "operator": "$asinh",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$asinh": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"-1.4436354751788099\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"-1.4436354751788103\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$asinh input: decimal",
+    "operator": "$asinh",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$asinh": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.6472311463710958\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.6472311463710958\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$asinh input: numeric string",
+    "operator": "$asinh",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$asinh": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asinh expects a numeric argument"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $asinh only supports numeric types, not string",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$asinh input: text",
+    "operator": "$asinh",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$asinh": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asinh expects a numeric argument"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $asinh only supports numeric types, not string",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$asinh input: empty string",
+    "operator": "$asinh",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$asinh": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asinh expects a numeric argument"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $asinh only supports numeric types, not string",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$asinh input: boolean",
+    "operator": "$asinh",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$asinh": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asinh expects a numeric argument"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $asinh only supports numeric types, not bool",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$asinh input: false",
+    "operator": "$asinh",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$asinh": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asinh expects a numeric argument"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $asinh only supports numeric types, not bool",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$asinh input: typed date",
+    "operator": "$asinh",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$asinh": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asinh expects a numeric argument"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $asinh only supports numeric types, not date",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$asinh input: decimal128",
+    "operator": "$asinh",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$asinh": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.0475930126492587\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"1.047593012649258735898321233968753\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$asinh input: empty array",
+    "operator": "$asinh",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$asinh": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asinh expects a numeric argument"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $asinh only supports numeric types, not array",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$asinh input: numeric array",
+    "operator": "$asinh",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$asinh": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asinh expects a numeric argument"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $asinh only supports numeric types, not array",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$asinh input: mixed array",
+    "operator": "$asinh",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$asinh": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asinh expects a numeric argument"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $asinh only supports numeric types, not array",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$asinh input: nested array",
+    "operator": "$asinh",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$asinh": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asinh expects a numeric argument"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $asinh only supports numeric types, not array",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$asinh input: empty object",
+    "operator": "$asinh",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$asinh": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asinh expects a numeric argument"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $asinh only supports numeric types, not object",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$asinh input: object",
+    "operator": "$asinh",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$asinh": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asinh expects a numeric argument"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $asinh only supports numeric types, not object",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$asinh input: ISO date string",
+    "operator": "$asinh",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$asinh": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asinh expects a numeric argument"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $asinh only supports numeric types, not string",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$asinh empty arguments",
+    "operator": "$asinh",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$asinh": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asinh expects a numeric argument"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $asinh takes exactly 1 arguments. 0 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$asinh unknown option",
+    "operator": "$asinh",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$asinh": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$asinh expects a numeric argument"
+    },
+    "mongo": {
+      "message": "Failed to optimize pipeline :: caused by :: $asinh only supports numeric types, not object",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

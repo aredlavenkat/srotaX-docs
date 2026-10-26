@@ -1,0 +1,1274 @@
+[
+  {
+    "id": "$function baseline",
+    "operator": "$function",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": [
+          1
+        ],
+        "lang": "js"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$function body: null",
+    "operator": "$function",
+    "kind": "null",
+    "operand": "body",
+    "expression": {
+      "$function": {
+        "body": null,
+        "args": [
+          1
+        ],
+        "lang": "js"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'body' must be a JavaScript function body"
+    }
+  },
+  {
+    "id": "$function body: zero",
+    "operator": "$function",
+    "kind": "zero",
+    "operand": "body",
+    "expression": {
+      "$function": {
+        "body": 0,
+        "args": [
+          1
+        ],
+        "lang": "js"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'body' must be a JavaScript function body"
+    }
+  },
+  {
+    "id": "$function body: negative",
+    "operator": "$function",
+    "kind": "negative",
+    "operand": "body",
+    "expression": {
+      "$function": {
+        "body": -2,
+        "args": [
+          1
+        ],
+        "lang": "js"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'body' must be a JavaScript function body"
+    }
+  },
+  {
+    "id": "$function body: decimal",
+    "operator": "$function",
+    "kind": "decimal",
+    "operand": "body",
+    "expression": {
+      "$function": {
+        "body": 2.5,
+        "args": [
+          1
+        ],
+        "lang": "js"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'body' must be a JavaScript function body"
+    }
+  },
+  {
+    "id": "$function body: numeric string",
+    "operator": "$function",
+    "kind": "numeric string",
+    "operand": "body",
+    "expression": {
+      "$function": {
+        "body": "12",
+        "args": [
+          1
+        ],
+        "lang": "js"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "JavaScript function execution failed"
+    }
+  },
+  {
+    "id": "$function body: text",
+    "operator": "$function",
+    "kind": "text",
+    "operand": "body",
+    "expression": {
+      "$function": {
+        "body": "hello",
+        "args": [
+          1
+        ],
+        "lang": "js"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "JavaScript function execution failed"
+    }
+  },
+  {
+    "id": "$function body: empty string",
+    "operator": "$function",
+    "kind": "empty string",
+    "operand": "body",
+    "expression": {
+      "$function": {
+        "body": "",
+        "args": [
+          1
+        ],
+        "lang": "js"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "JavaScript function execution failed"
+    }
+  },
+  {
+    "id": "$function body: boolean",
+    "operator": "$function",
+    "kind": "boolean",
+    "operand": "body",
+    "expression": {
+      "$function": {
+        "body": true,
+        "args": [
+          1
+        ],
+        "lang": "js"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'body' must be a JavaScript function body"
+    }
+  },
+  {
+    "id": "$function body: false",
+    "operator": "$function",
+    "kind": "false",
+    "operand": "body",
+    "expression": {
+      "$function": {
+        "body": false,
+        "args": [
+          1
+        ],
+        "lang": "js"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'body' must be a JavaScript function body"
+    }
+  },
+  {
+    "id": "$function body: typed date",
+    "operator": "$function",
+    "kind": "typed date",
+    "operand": "body",
+    "expression": {
+      "$function": {
+        "body": {
+          "$date": "2026-01-15T15:00:00Z"
+        },
+        "args": [
+          1
+        ],
+        "lang": "js"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'body' must be a JavaScript function body"
+    }
+  },
+  {
+    "id": "$function body: decimal128",
+    "operator": "$function",
+    "kind": "decimal128",
+    "operand": "body",
+    "expression": {
+      "$function": {
+        "body": {
+          "$numberDecimal": "1.25"
+        },
+        "args": [
+          1
+        ],
+        "lang": "js"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'body' must be a JavaScript function body"
+    }
+  },
+  {
+    "id": "$function body: empty array",
+    "operator": "$function",
+    "kind": "empty array",
+    "operand": "body",
+    "expression": {
+      "$function": {
+        "body": [],
+        "args": [
+          1
+        ],
+        "lang": "js"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'body' must be a JavaScript function body"
+    }
+  },
+  {
+    "id": "$function body: numeric array",
+    "operator": "$function",
+    "kind": "numeric array",
+    "operand": "body",
+    "expression": {
+      "$function": {
+        "body": [
+          1,
+          2,
+          3
+        ],
+        "args": [
+          1
+        ],
+        "lang": "js"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'body' must be a JavaScript function body"
+    }
+  },
+  {
+    "id": "$function body: mixed array",
+    "operator": "$function",
+    "kind": "mixed array",
+    "operand": "body",
+    "expression": {
+      "$function": {
+        "body": [
+          1,
+          null,
+          "x",
+          3
+        ],
+        "args": [
+          1
+        ],
+        "lang": "js"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'body' must be a JavaScript function body"
+    }
+  },
+  {
+    "id": "$function body: nested array",
+    "operator": "$function",
+    "kind": "nested array",
+    "operand": "body",
+    "expression": {
+      "$function": {
+        "body": [
+          [
+            1,
+            2
+          ],
+          [
+            3
+          ]
+        ],
+        "args": [
+          1
+        ],
+        "lang": "js"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'body' must be a JavaScript function body"
+    }
+  },
+  {
+    "id": "$function body: empty object",
+    "operator": "$function",
+    "kind": "empty object",
+    "operand": "body",
+    "expression": {
+      "$function": {
+        "body": {},
+        "args": [
+          1
+        ],
+        "lang": "js"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'body' must be a JavaScript function body"
+    }
+  },
+  {
+    "id": "$function body: object",
+    "operator": "$function",
+    "kind": "object",
+    "operand": "body",
+    "expression": {
+      "$function": {
+        "body": {
+          "x": 1
+        },
+        "args": [
+          1
+        ],
+        "lang": "js"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'body' must be a JavaScript function body"
+    }
+  },
+  {
+    "id": "$function body: ISO date string",
+    "operator": "$function",
+    "kind": "ISO date string",
+    "operand": "body",
+    "expression": {
+      "$function": {
+        "body": "2026-01-15T15:00:00Z",
+        "args": [
+          1
+        ],
+        "lang": "js"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "JavaScript function execution failed"
+    }
+  },
+  {
+    "id": "$function args: null",
+    "operator": "$function",
+    "kind": "null",
+    "operand": "args",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": "$probe",
+        "lang": "js"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'args' must be an array"
+    }
+  },
+  {
+    "id": "$function args: missing",
+    "operator": "$function",
+    "kind": "missing",
+    "operand": "args",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": "$probe",
+        "lang": "js"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'args' must be an array"
+    }
+  },
+  {
+    "id": "$function args: zero",
+    "operator": "$function",
+    "kind": "zero",
+    "operand": "args",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": "$probe",
+        "lang": "js"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'args' must be an array"
+    }
+  },
+  {
+    "id": "$function args: negative",
+    "operator": "$function",
+    "kind": "negative",
+    "operand": "args",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": "$probe",
+        "lang": "js"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'args' must be an array"
+    }
+  },
+  {
+    "id": "$function args: decimal",
+    "operator": "$function",
+    "kind": "decimal",
+    "operand": "args",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": "$probe",
+        "lang": "js"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'args' must be an array"
+    }
+  },
+  {
+    "id": "$function args: numeric string",
+    "operator": "$function",
+    "kind": "numeric string",
+    "operand": "args",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": "$probe",
+        "lang": "js"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'args' must be an array"
+    }
+  },
+  {
+    "id": "$function args: text",
+    "operator": "$function",
+    "kind": "text",
+    "operand": "args",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": "$probe",
+        "lang": "js"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'args' must be an array"
+    }
+  },
+  {
+    "id": "$function args: empty string",
+    "operator": "$function",
+    "kind": "empty string",
+    "operand": "args",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": "$probe",
+        "lang": "js"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'args' must be an array"
+    }
+  },
+  {
+    "id": "$function args: boolean",
+    "operator": "$function",
+    "kind": "boolean",
+    "operand": "args",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": "$probe",
+        "lang": "js"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'args' must be an array"
+    }
+  },
+  {
+    "id": "$function args: false",
+    "operator": "$function",
+    "kind": "false",
+    "operand": "args",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": "$probe",
+        "lang": "js"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'args' must be an array"
+    }
+  },
+  {
+    "id": "$function args: typed date",
+    "operator": "$function",
+    "kind": "typed date",
+    "operand": "args",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": "$probe",
+        "lang": "js"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'args' must be an array"
+    }
+  },
+  {
+    "id": "$function args: decimal128",
+    "operator": "$function",
+    "kind": "decimal128",
+    "operand": "args",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": "$probe",
+        "lang": "js"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'args' must be an array"
+    }
+  },
+  {
+    "id": "$function args: empty array",
+    "operator": "$function",
+    "kind": "empty array",
+    "operand": "args",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": "$probe",
+        "lang": "js"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'args' must be an array"
+    }
+  },
+  {
+    "id": "$function args: numeric array",
+    "operator": "$function",
+    "kind": "numeric array",
+    "operand": "args",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": "$probe",
+        "lang": "js"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'args' must be an array"
+    }
+  },
+  {
+    "id": "$function args: mixed array",
+    "operator": "$function",
+    "kind": "mixed array",
+    "operand": "args",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": "$probe",
+        "lang": "js"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'args' must be an array"
+    }
+  },
+  {
+    "id": "$function args: nested array",
+    "operator": "$function",
+    "kind": "nested array",
+    "operand": "args",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": "$probe",
+        "lang": "js"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'args' must be an array"
+    }
+  },
+  {
+    "id": "$function args: empty object",
+    "operator": "$function",
+    "kind": "empty object",
+    "operand": "args",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": "$probe",
+        "lang": "js"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'args' must be an array"
+    }
+  },
+  {
+    "id": "$function args: object",
+    "operator": "$function",
+    "kind": "object",
+    "operand": "args",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": "$probe",
+        "lang": "js"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'args' must be an array"
+    }
+  },
+  {
+    "id": "$function args: ISO date string",
+    "operator": "$function",
+    "kind": "ISO date string",
+    "operand": "args",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": "$probe",
+        "lang": "js"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'args' must be an array"
+    }
+  },
+  {
+    "id": "$function lang: null",
+    "operator": "$function",
+    "kind": "null",
+    "operand": "lang",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": [
+          1
+        ],
+        "lang": null
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'lang' must be specified and set to 'js'"
+    }
+  },
+  {
+    "id": "$function lang: zero",
+    "operator": "$function",
+    "kind": "zero",
+    "operand": "lang",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": [
+          1
+        ],
+        "lang": 0
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'lang' must be specified and set to 'js'"
+    }
+  },
+  {
+    "id": "$function lang: negative",
+    "operator": "$function",
+    "kind": "negative",
+    "operand": "lang",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": [
+          1
+        ],
+        "lang": -2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'lang' must be specified and set to 'js'"
+    }
+  },
+  {
+    "id": "$function lang: decimal",
+    "operator": "$function",
+    "kind": "decimal",
+    "operand": "lang",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": [
+          1
+        ],
+        "lang": 2.5
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'lang' must be specified and set to 'js'"
+    }
+  },
+  {
+    "id": "$function lang: numeric string",
+    "operator": "$function",
+    "kind": "numeric string",
+    "operand": "lang",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": [
+          1
+        ],
+        "lang": "12"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'lang' must be specified and set to 'js'"
+    }
+  },
+  {
+    "id": "$function lang: text",
+    "operator": "$function",
+    "kind": "text",
+    "operand": "lang",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": [
+          1
+        ],
+        "lang": "hello"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'lang' must be specified and set to 'js'"
+    }
+  },
+  {
+    "id": "$function lang: empty string",
+    "operator": "$function",
+    "kind": "empty string",
+    "operand": "lang",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": [
+          1
+        ],
+        "lang": ""
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'lang' must be specified and set to 'js'"
+    }
+  },
+  {
+    "id": "$function lang: boolean",
+    "operator": "$function",
+    "kind": "boolean",
+    "operand": "lang",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": [
+          1
+        ],
+        "lang": true
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'lang' must be specified and set to 'js'"
+    }
+  },
+  {
+    "id": "$function lang: false",
+    "operator": "$function",
+    "kind": "false",
+    "operand": "lang",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": [
+          1
+        ],
+        "lang": false
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'lang' must be specified and set to 'js'"
+    }
+  },
+  {
+    "id": "$function lang: typed date",
+    "operator": "$function",
+    "kind": "typed date",
+    "operand": "lang",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": [
+          1
+        ],
+        "lang": {
+          "$date": "2026-01-15T15:00:00Z"
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'lang' must be specified and set to 'js'"
+    }
+  },
+  {
+    "id": "$function lang: decimal128",
+    "operator": "$function",
+    "kind": "decimal128",
+    "operand": "lang",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": [
+          1
+        ],
+        "lang": {
+          "$numberDecimal": "1.25"
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'lang' must be specified and set to 'js'"
+    }
+  },
+  {
+    "id": "$function lang: empty array",
+    "operator": "$function",
+    "kind": "empty array",
+    "operand": "lang",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": [
+          1
+        ],
+        "lang": []
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'lang' must be specified and set to 'js'"
+    }
+  },
+  {
+    "id": "$function lang: numeric array",
+    "operator": "$function",
+    "kind": "numeric array",
+    "operand": "lang",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": [
+          1
+        ],
+        "lang": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'lang' must be specified and set to 'js'"
+    }
+  },
+  {
+    "id": "$function lang: mixed array",
+    "operator": "$function",
+    "kind": "mixed array",
+    "operand": "lang",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": [
+          1
+        ],
+        "lang": [
+          1,
+          null,
+          "x",
+          3
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'lang' must be specified and set to 'js'"
+    }
+  },
+  {
+    "id": "$function lang: nested array",
+    "operator": "$function",
+    "kind": "nested array",
+    "operand": "lang",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": [
+          1
+        ],
+        "lang": [
+          [
+            1,
+            2
+          ],
+          [
+            3
+          ]
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'lang' must be specified and set to 'js'"
+    }
+  },
+  {
+    "id": "$function lang: empty object",
+    "operator": "$function",
+    "kind": "empty object",
+    "operand": "lang",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": [
+          1
+        ],
+        "lang": {}
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'lang' must be specified and set to 'js'"
+    }
+  },
+  {
+    "id": "$function lang: object",
+    "operator": "$function",
+    "kind": "object",
+    "operand": "lang",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": [
+          1
+        ],
+        "lang": {
+          "x": 1
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'lang' must be specified and set to 'js'"
+    }
+  },
+  {
+    "id": "$function lang: ISO date string",
+    "operator": "$function",
+    "kind": "ISO date string",
+    "operand": "lang",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": [
+          1
+        ],
+        "lang": "2026-01-15T15:00:00Z"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'lang' must be specified and set to 'js'"
+    }
+  },
+  {
+    "id": "$function omit body",
+    "operator": "$function",
+    "kind": "omitted named argument",
+    "operand": "body",
+    "expression": {
+      "$function": {
+        "args": [
+          1
+        ],
+        "lang": "js"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'body' must be a JavaScript function body"
+    }
+  },
+  {
+    "id": "$function omit args",
+    "operator": "$function",
+    "kind": "omitted named argument",
+    "operand": "args",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "lang": "js"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'args' must be an array"
+    }
+  },
+  {
+    "id": "$function omit lang",
+    "operator": "$function",
+    "kind": "omitted named argument",
+    "operand": "lang",
+    "expression": {
+      "$function": {
+        "body": "function(a) { return a + 1; }",
+        "args": [
+          1
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'lang' must be specified and set to 'js'"
+    }
+  },
+  {
+    "id": "$function empty arguments",
+    "operator": "$function",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$function": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function expects a document with 'body', 'args', and 'lang'"
+    }
+  },
+  {
+    "id": "$function unknown option",
+    "operator": "$function",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$function": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$function 'lang' must be specified and set to 'js'"
+    }
+  }
+]

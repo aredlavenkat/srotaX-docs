@@ -1,0 +1,823 @@
+[
+  {
+    "id": "$ltrim baseline",
+    "operator": "$ltrim",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$ltrim": {
+        "input": "  hi"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"hi\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ltrim input: null",
+    "operator": "$ltrim",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$ltrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ltrim input: missing",
+    "operator": "$ltrim",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$ltrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ltrim input: zero",
+    "operator": "$ltrim",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$ltrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim input must be a string"
+    }
+  },
+  {
+    "id": "$ltrim input: negative",
+    "operator": "$ltrim",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$ltrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim input must be a string"
+    }
+  },
+  {
+    "id": "$ltrim input: decimal",
+    "operator": "$ltrim",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$ltrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim input must be a string"
+    }
+  },
+  {
+    "id": "$ltrim input: numeric string",
+    "operator": "$ltrim",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$ltrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"12\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ltrim input: text",
+    "operator": "$ltrim",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$ltrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"hello\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ltrim input: empty string",
+    "operator": "$ltrim",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$ltrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ltrim input: boolean",
+    "operator": "$ltrim",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$ltrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim input must be a string"
+    }
+  },
+  {
+    "id": "$ltrim input: false",
+    "operator": "$ltrim",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$ltrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim input must be a string"
+    }
+  },
+  {
+    "id": "$ltrim input: typed date",
+    "operator": "$ltrim",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$ltrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim input must be a string"
+    }
+  },
+  {
+    "id": "$ltrim input: decimal128",
+    "operator": "$ltrim",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$ltrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim input must be a string"
+    }
+  },
+  {
+    "id": "$ltrim input: empty array",
+    "operator": "$ltrim",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$ltrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim input must be a string"
+    }
+  },
+  {
+    "id": "$ltrim input: numeric array",
+    "operator": "$ltrim",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$ltrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim input must be a string"
+    }
+  },
+  {
+    "id": "$ltrim input: mixed array",
+    "operator": "$ltrim",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$ltrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim input must be a string"
+    }
+  },
+  {
+    "id": "$ltrim input: nested array",
+    "operator": "$ltrim",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$ltrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim input must be a string"
+    }
+  },
+  {
+    "id": "$ltrim input: empty object",
+    "operator": "$ltrim",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$ltrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim input must be a string"
+    }
+  },
+  {
+    "id": "$ltrim input: object",
+    "operator": "$ltrim",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$ltrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim input must be a string"
+    }
+  },
+  {
+    "id": "$ltrim input: ISO date string",
+    "operator": "$ltrim",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$ltrim": {
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2026-01-15T15:00:00Z\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ltrim chars: null",
+    "operator": "$ltrim",
+    "kind": "null",
+    "operand": "chars",
+    "expression": {
+      "$ltrim": {
+        "input": "  hi",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ltrim chars: missing",
+    "operator": "$ltrim",
+    "kind": "missing",
+    "operand": "chars",
+    "expression": {
+      "$ltrim": {
+        "input": "  hi",
+        "chars": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ltrim chars: zero",
+    "operator": "$ltrim",
+    "kind": "zero",
+    "operand": "chars",
+    "expression": {
+      "$ltrim": {
+        "input": "  hi",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim chars must be a string"
+    }
+  },
+  {
+    "id": "$ltrim chars: negative",
+    "operator": "$ltrim",
+    "kind": "negative",
+    "operand": "chars",
+    "expression": {
+      "$ltrim": {
+        "input": "  hi",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim chars must be a string"
+    }
+  },
+  {
+    "id": "$ltrim chars: decimal",
+    "operator": "$ltrim",
+    "kind": "decimal",
+    "operand": "chars",
+    "expression": {
+      "$ltrim": {
+        "input": "  hi",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim chars must be a string"
+    }
+  },
+  {
+    "id": "$ltrim chars: numeric string",
+    "operator": "$ltrim",
+    "kind": "numeric string",
+    "operand": "chars",
+    "expression": {
+      "$ltrim": {
+        "input": "  hi",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"  hi\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ltrim chars: text",
+    "operator": "$ltrim",
+    "kind": "text",
+    "operand": "chars",
+    "expression": {
+      "$ltrim": {
+        "input": "  hi",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"  hi\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ltrim chars: empty string",
+    "operator": "$ltrim",
+    "kind": "empty string",
+    "operand": "chars",
+    "expression": {
+      "$ltrim": {
+        "input": "  hi",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": \"  hi\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ltrim chars: boolean",
+    "operator": "$ltrim",
+    "kind": "boolean",
+    "operand": "chars",
+    "expression": {
+      "$ltrim": {
+        "input": "  hi",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim chars must be a string"
+    }
+  },
+  {
+    "id": "$ltrim chars: false",
+    "operator": "$ltrim",
+    "kind": "false",
+    "operand": "chars",
+    "expression": {
+      "$ltrim": {
+        "input": "  hi",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim chars must be a string"
+    }
+  },
+  {
+    "id": "$ltrim chars: typed date",
+    "operator": "$ltrim",
+    "kind": "typed date",
+    "operand": "chars",
+    "expression": {
+      "$ltrim": {
+        "input": "  hi",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim chars must be a string"
+    }
+  },
+  {
+    "id": "$ltrim chars: decimal128",
+    "operator": "$ltrim",
+    "kind": "decimal128",
+    "operand": "chars",
+    "expression": {
+      "$ltrim": {
+        "input": "  hi",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim chars must be a string"
+    }
+  },
+  {
+    "id": "$ltrim chars: empty array",
+    "operator": "$ltrim",
+    "kind": "empty array",
+    "operand": "chars",
+    "expression": {
+      "$ltrim": {
+        "input": "  hi",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim chars must be a string"
+    }
+  },
+  {
+    "id": "$ltrim chars: numeric array",
+    "operator": "$ltrim",
+    "kind": "numeric array",
+    "operand": "chars",
+    "expression": {
+      "$ltrim": {
+        "input": "  hi",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim chars must be a string"
+    }
+  },
+  {
+    "id": "$ltrim chars: mixed array",
+    "operator": "$ltrim",
+    "kind": "mixed array",
+    "operand": "chars",
+    "expression": {
+      "$ltrim": {
+        "input": "  hi",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim chars must be a string"
+    }
+  },
+  {
+    "id": "$ltrim chars: nested array",
+    "operator": "$ltrim",
+    "kind": "nested array",
+    "operand": "chars",
+    "expression": {
+      "$ltrim": {
+        "input": "  hi",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim chars must be a string"
+    }
+  },
+  {
+    "id": "$ltrim chars: empty object",
+    "operator": "$ltrim",
+    "kind": "empty object",
+    "operand": "chars",
+    "expression": {
+      "$ltrim": {
+        "input": "  hi",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim chars must be a string"
+    }
+  },
+  {
+    "id": "$ltrim chars: object",
+    "operator": "$ltrim",
+    "kind": "object",
+    "operand": "chars",
+    "expression": {
+      "$ltrim": {
+        "input": "  hi",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim chars must be a string"
+    }
+  },
+  {
+    "id": "$ltrim chars: ISO date string",
+    "operator": "$ltrim",
+    "kind": "ISO date string",
+    "operand": "chars",
+    "expression": {
+      "$ltrim": {
+        "input": "  hi",
+        "chars": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"  hi\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ltrim omit input",
+    "operator": "$ltrim",
+    "kind": "omitted named argument",
+    "operand": "input",
+    "expression": {
+      "$ltrim": {}
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim requires input and optional chars"
+    }
+  },
+  {
+    "id": "$ltrim omit chars",
+    "operator": "$ltrim",
+    "kind": "omitted named argument",
+    "operand": "chars",
+    "expression": {
+      "$ltrim": {
+        "input": "  hi"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"hi\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ltrim empty arguments",
+    "operator": "$ltrim",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$ltrim": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim requires input and optional chars"
+    }
+  },
+  {
+    "id": "$ltrim unknown option",
+    "operator": "$ltrim",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$ltrim": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trim requires input and optional chars"
+    }
+  }
+]

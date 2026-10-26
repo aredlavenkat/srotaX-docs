@@ -1,0 +1,893 @@
+[
+  {
+    "id": "$concatArrays baseline",
+    "operator": "$concatArrays",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$concatArrays": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$concatArrays array[0]: null",
+    "operator": "$concatArrays",
+    "kind": "null",
+    "operand": "array[0]",
+    "expression": {
+      "$concatArrays": [
+        "$probe",
+        [
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$concatArrays array[0]: missing",
+    "operator": "$concatArrays",
+    "kind": "missing",
+    "operand": "array[0]",
+    "expression": {
+      "$concatArrays": [
+        "$probe",
+        [
+          2
+        ]
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$concatArrays array[0]: zero",
+    "operator": "$concatArrays",
+    "kind": "zero",
+    "operand": "array[0]",
+    "expression": {
+      "$concatArrays": [
+        "$probe",
+        [
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concatArrays only works with arrays"
+    }
+  },
+  {
+    "id": "$concatArrays array[0]: negative",
+    "operator": "$concatArrays",
+    "kind": "negative",
+    "operand": "array[0]",
+    "expression": {
+      "$concatArrays": [
+        "$probe",
+        [
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concatArrays only works with arrays"
+    }
+  },
+  {
+    "id": "$concatArrays array[0]: decimal",
+    "operator": "$concatArrays",
+    "kind": "decimal",
+    "operand": "array[0]",
+    "expression": {
+      "$concatArrays": [
+        "$probe",
+        [
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concatArrays only works with arrays"
+    }
+  },
+  {
+    "id": "$concatArrays array[0]: numeric string",
+    "operator": "$concatArrays",
+    "kind": "numeric string",
+    "operand": "array[0]",
+    "expression": {
+      "$concatArrays": [
+        "$probe",
+        [
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concatArrays only works with arrays"
+    }
+  },
+  {
+    "id": "$concatArrays array[0]: text",
+    "operator": "$concatArrays",
+    "kind": "text",
+    "operand": "array[0]",
+    "expression": {
+      "$concatArrays": [
+        "$probe",
+        [
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concatArrays only works with arrays"
+    }
+  },
+  {
+    "id": "$concatArrays array[0]: empty string",
+    "operator": "$concatArrays",
+    "kind": "empty string",
+    "operand": "array[0]",
+    "expression": {
+      "$concatArrays": [
+        "$probe",
+        [
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concatArrays only works with arrays"
+    }
+  },
+  {
+    "id": "$concatArrays array[0]: boolean",
+    "operator": "$concatArrays",
+    "kind": "boolean",
+    "operand": "array[0]",
+    "expression": {
+      "$concatArrays": [
+        "$probe",
+        [
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concatArrays only works with arrays"
+    }
+  },
+  {
+    "id": "$concatArrays array[0]: false",
+    "operator": "$concatArrays",
+    "kind": "false",
+    "operand": "array[0]",
+    "expression": {
+      "$concatArrays": [
+        "$probe",
+        [
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concatArrays only works with arrays"
+    }
+  },
+  {
+    "id": "$concatArrays array[0]: typed date",
+    "operator": "$concatArrays",
+    "kind": "typed date",
+    "operand": "array[0]",
+    "expression": {
+      "$concatArrays": [
+        "$probe",
+        [
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concatArrays only works with arrays"
+    }
+  },
+  {
+    "id": "$concatArrays array[0]: decimal128",
+    "operator": "$concatArrays",
+    "kind": "decimal128",
+    "operand": "array[0]",
+    "expression": {
+      "$concatArrays": [
+        "$probe",
+        [
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concatArrays only works with arrays"
+    }
+  },
+  {
+    "id": "$concatArrays array[0]: empty array",
+    "operator": "$concatArrays",
+    "kind": "empty array",
+    "operand": "array[0]",
+    "expression": {
+      "$concatArrays": [
+        "$probe",
+        [
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"2\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$concatArrays array[0]: numeric array",
+    "operator": "$concatArrays",
+    "kind": "numeric array",
+    "operand": "array[0]",
+    "expression": {
+      "$concatArrays": [
+        "$probe",
+        [
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$concatArrays array[0]: mixed array",
+    "operator": "$concatArrays",
+    "kind": "mixed array",
+    "operand": "array[0]",
+    "expression": {
+      "$concatArrays": [
+        "$probe",
+        [
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, null, \"x\", {\"$numberInt\": \"3\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$concatArrays array[0]: nested array",
+    "operator": "$concatArrays",
+    "kind": "nested array",
+    "operand": "array[0]",
+    "expression": {
+      "$concatArrays": [
+        "$probe",
+        [
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}], [{\"$numberInt\": \"3\"}], {\"$numberInt\": \"2\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$concatArrays array[0]: empty object",
+    "operator": "$concatArrays",
+    "kind": "empty object",
+    "operand": "array[0]",
+    "expression": {
+      "$concatArrays": [
+        "$probe",
+        [
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concatArrays only works with arrays"
+    }
+  },
+  {
+    "id": "$concatArrays array[0]: object",
+    "operator": "$concatArrays",
+    "kind": "object",
+    "operand": "array[0]",
+    "expression": {
+      "$concatArrays": [
+        "$probe",
+        [
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concatArrays only works with arrays"
+    }
+  },
+  {
+    "id": "$concatArrays array[0]: ISO date string",
+    "operator": "$concatArrays",
+    "kind": "ISO date string",
+    "operand": "array[0]",
+    "expression": {
+      "$concatArrays": [
+        "$probe",
+        [
+          2
+        ]
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concatArrays only works with arrays"
+    }
+  },
+  {
+    "id": "$concatArrays array[1]: null",
+    "operator": "$concatArrays",
+    "kind": "null",
+    "operand": "array[1]",
+    "expression": {
+      "$concatArrays": [
+        [
+          1
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$concatArrays array[1]: missing",
+    "operator": "$concatArrays",
+    "kind": "missing",
+    "operand": "array[1]",
+    "expression": {
+      "$concatArrays": [
+        [
+          1
+        ],
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$concatArrays array[1]: zero",
+    "operator": "$concatArrays",
+    "kind": "zero",
+    "operand": "array[1]",
+    "expression": {
+      "$concatArrays": [
+        [
+          1
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concatArrays only works with arrays"
+    }
+  },
+  {
+    "id": "$concatArrays array[1]: negative",
+    "operator": "$concatArrays",
+    "kind": "negative",
+    "operand": "array[1]",
+    "expression": {
+      "$concatArrays": [
+        [
+          1
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concatArrays only works with arrays"
+    }
+  },
+  {
+    "id": "$concatArrays array[1]: decimal",
+    "operator": "$concatArrays",
+    "kind": "decimal",
+    "operand": "array[1]",
+    "expression": {
+      "$concatArrays": [
+        [
+          1
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concatArrays only works with arrays"
+    }
+  },
+  {
+    "id": "$concatArrays array[1]: numeric string",
+    "operator": "$concatArrays",
+    "kind": "numeric string",
+    "operand": "array[1]",
+    "expression": {
+      "$concatArrays": [
+        [
+          1
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concatArrays only works with arrays"
+    }
+  },
+  {
+    "id": "$concatArrays array[1]: text",
+    "operator": "$concatArrays",
+    "kind": "text",
+    "operand": "array[1]",
+    "expression": {
+      "$concatArrays": [
+        [
+          1
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concatArrays only works with arrays"
+    }
+  },
+  {
+    "id": "$concatArrays array[1]: empty string",
+    "operator": "$concatArrays",
+    "kind": "empty string",
+    "operand": "array[1]",
+    "expression": {
+      "$concatArrays": [
+        [
+          1
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concatArrays only works with arrays"
+    }
+  },
+  {
+    "id": "$concatArrays array[1]: boolean",
+    "operator": "$concatArrays",
+    "kind": "boolean",
+    "operand": "array[1]",
+    "expression": {
+      "$concatArrays": [
+        [
+          1
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concatArrays only works with arrays"
+    }
+  },
+  {
+    "id": "$concatArrays array[1]: false",
+    "operator": "$concatArrays",
+    "kind": "false",
+    "operand": "array[1]",
+    "expression": {
+      "$concatArrays": [
+        [
+          1
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concatArrays only works with arrays"
+    }
+  },
+  {
+    "id": "$concatArrays array[1]: typed date",
+    "operator": "$concatArrays",
+    "kind": "typed date",
+    "operand": "array[1]",
+    "expression": {
+      "$concatArrays": [
+        [
+          1
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concatArrays only works with arrays"
+    }
+  },
+  {
+    "id": "$concatArrays array[1]: decimal128",
+    "operator": "$concatArrays",
+    "kind": "decimal128",
+    "operand": "array[1]",
+    "expression": {
+      "$concatArrays": [
+        [
+          1
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concatArrays only works with arrays"
+    }
+  },
+  {
+    "id": "$concatArrays array[1]: empty array",
+    "operator": "$concatArrays",
+    "kind": "empty array",
+    "operand": "array[1]",
+    "expression": {
+      "$concatArrays": [
+        [
+          1
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$concatArrays array[1]: numeric array",
+    "operator": "$concatArrays",
+    "kind": "numeric array",
+    "operand": "array[1]",
+    "expression": {
+      "$concatArrays": [
+        [
+          1
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$concatArrays array[1]: mixed array",
+    "operator": "$concatArrays",
+    "kind": "mixed array",
+    "operand": "array[1]",
+    "expression": {
+      "$concatArrays": [
+        [
+          1
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"1\"}, null, \"x\", {\"$numberInt\": \"3\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$concatArrays array[1]: nested array",
+    "operator": "$concatArrays",
+    "kind": "nested array",
+    "operand": "array[1]",
+    "expression": {
+      "$concatArrays": [
+        [
+          1
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}], [{\"$numberInt\": \"3\"}]]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$concatArrays array[1]: empty object",
+    "operator": "$concatArrays",
+    "kind": "empty object",
+    "operand": "array[1]",
+    "expression": {
+      "$concatArrays": [
+        [
+          1
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concatArrays only works with arrays"
+    }
+  },
+  {
+    "id": "$concatArrays array[1]: object",
+    "operator": "$concatArrays",
+    "kind": "object",
+    "operand": "array[1]",
+    "expression": {
+      "$concatArrays": [
+        [
+          1
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concatArrays only works with arrays"
+    }
+  },
+  {
+    "id": "$concatArrays array[1]: ISO date string",
+    "operator": "$concatArrays",
+    "kind": "ISO date string",
+    "operand": "array[1]",
+    "expression": {
+      "$concatArrays": [
+        [
+          1
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concatArrays only works with arrays"
+    }
+  },
+  {
+    "id": "$concatArrays empty arguments",
+    "operator": "$concatArrays",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$concatArrays": []
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    }
+  },
+  {
+    "id": "$concatArrays unknown option",
+    "operator": "$concatArrays",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$concatArrays": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$concatArrays expects a list of arrays"
+    }
+  }
+]

@@ -1,0 +1,124 @@
+[
+  {
+    "id": "$sort example",
+    "stage": "$sort",
+    "kind": "example",
+    "pipeline": [
+      {
+        "$sort": {
+          "score": -1,
+          "name": 1
+        }
+      }
+    ],
+    "input": [
+      {
+        "name": "B",
+        "score": 2
+      },
+      {
+        "name": "A",
+        "score": 3
+      }
+    ],
+    "result": [
+      {
+        "name": "A",
+        "score": 3
+      },
+      {
+        "name": "B",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "id": "$sort empty input",
+    "stage": "$sort",
+    "kind": "empty input",
+    "pipeline": [
+      {
+        "$sort": {
+          "score": -1,
+          "name": 1
+        }
+      }
+    ],
+    "input": [],
+    "result": []
+  },
+  {
+    "id": "$sort invalid specification",
+    "stage": "$sort",
+    "kind": "invalid specification",
+    "pipeline": [
+      {
+        "$sort": null
+      }
+    ],
+    "input": [
+      {
+        "name": "B",
+        "score": 2
+      },
+      {
+        "name": "A",
+        "score": 3
+      }
+    ],
+    "error": "IllegalArgumentException",
+    "message": "$sort expects an object with sort keys"
+  },
+  {
+    "id": "$sort invalid direction",
+    "stage": "$sort",
+    "kind": "invalid direction",
+    "pipeline": [
+      {
+        "$sort": {
+          "score": 0
+        }
+      }
+    ],
+    "input": [
+      {
+        "score": 1
+      },
+      {
+        "score": 2
+      }
+    ],
+    "error": "IllegalArgumentException",
+    "message": "$sort direction must be 1 or -1: 0"
+  },
+  {
+    "id": "$sort null and missing",
+    "stage": "$sort",
+    "kind": "null and missing",
+    "pipeline": [
+      {
+        "$sort": {
+          "score": 1
+        }
+      }
+    ],
+    "input": [
+      {
+        "score": 2
+      },
+      {
+        "score": null
+      },
+      {}
+    ],
+    "result": [
+      {
+        "score": null
+      },
+      {},
+      {
+        "score": 2
+      }
+    ]
+  }
+]

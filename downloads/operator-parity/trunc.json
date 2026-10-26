@@ -1,0 +1,1048 @@
+[
+  {
+    "id": "$trunc baseline",
+    "operator": "$trunc",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$trunc": [
+        1.29,
+        1
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$trunc number[0]: null",
+    "operator": "$trunc",
+    "kind": "null",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$trunc number[0]: missing",
+    "operator": "$trunc",
+    "kind": "missing",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$trunc number[0]: zero",
+    "operator": "$trunc",
+    "kind": "zero",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$trunc number[0]: negative",
+    "operator": "$trunc",
+    "kind": "negative",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$trunc number[0]: decimal",
+    "operator": "$trunc",
+    "kind": "decimal",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.5\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.5\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$trunc number[0]: numeric string",
+    "operator": "$trunc",
+    "kind": "numeric string",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $trunc only supports numeric types, not string",
+      "code": 51081,
+      "error": "Location51081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$trunc number[0]: text",
+    "operator": "$trunc",
+    "kind": "text",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $trunc only supports numeric types, not string",
+      "code": 51081,
+      "error": "Location51081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$trunc number[0]: empty string",
+    "operator": "$trunc",
+    "kind": "empty string",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $trunc only supports numeric types, not string",
+      "code": 51081,
+      "error": "Location51081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$trunc number[0]: boolean",
+    "operator": "$trunc",
+    "kind": "boolean",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $trunc only supports numeric types, not bool",
+      "code": 51081,
+      "error": "Location51081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$trunc number[0]: false",
+    "operator": "$trunc",
+    "kind": "false",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $trunc only supports numeric types, not bool",
+      "code": 51081,
+      "error": "Location51081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$trunc number[0]: typed date",
+    "operator": "$trunc",
+    "kind": "typed date",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $trunc only supports numeric types, not date",
+      "code": 51081,
+      "error": "Location51081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$trunc number[0]: decimal128",
+    "operator": "$trunc",
+    "kind": "decimal128",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"1.2\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$trunc number[0]: empty array",
+    "operator": "$trunc",
+    "kind": "empty array",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $trunc only supports numeric types, not array",
+      "code": 51081,
+      "error": "Location51081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$trunc number[0]: numeric array",
+    "operator": "$trunc",
+    "kind": "numeric array",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $trunc only supports numeric types, not array",
+      "code": 51081,
+      "error": "Location51081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$trunc number[0]: mixed array",
+    "operator": "$trunc",
+    "kind": "mixed array",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $trunc only supports numeric types, not array",
+      "code": 51081,
+      "error": "Location51081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$trunc number[0]: nested array",
+    "operator": "$trunc",
+    "kind": "nested array",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $trunc only supports numeric types, not array",
+      "code": 51081,
+      "error": "Location51081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$trunc number[0]: empty object",
+    "operator": "$trunc",
+    "kind": "empty object",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $trunc only supports numeric types, not object",
+      "code": 51081,
+      "error": "Location51081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$trunc number[0]: object",
+    "operator": "$trunc",
+    "kind": "object",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $trunc only supports numeric types, not object",
+      "code": 51081,
+      "error": "Location51081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$trunc number[0]: ISO date string",
+    "operator": "$trunc",
+    "kind": "ISO date string",
+    "operand": "number[0]",
+    "expression": {
+      "$trunc": [
+        "$probe",
+        1
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $trunc only supports numeric types, not string",
+      "code": 51081,
+      "error": "Location51081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$trunc place[1]: null",
+    "operator": "$trunc",
+    "kind": "null",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$trunc place[1]: missing",
+    "operator": "$trunc",
+    "kind": "missing",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$trunc place[1]: zero",
+    "operator": "$trunc",
+    "kind": "zero",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$trunc place[1]: negative",
+    "operator": "$trunc",
+    "kind": "negative",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$trunc place[1]: decimal",
+    "operator": "$trunc",
+    "kind": "decimal",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Precision must be integral"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: precision argument to  $trunc must be a integral value",
+      "code": 51082,
+      "error": "Location51082"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$trunc place[1]: numeric string",
+    "operator": "$trunc",
+    "kind": "numeric string",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type string to long",
+      "code": 16004,
+      "error": "Location16004"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$trunc place[1]: text",
+    "operator": "$trunc",
+    "kind": "text",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type string to long",
+      "code": 16004,
+      "error": "Location16004"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$trunc place[1]: empty string",
+    "operator": "$trunc",
+    "kind": "empty string",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type string to long",
+      "code": 16004,
+      "error": "Location16004"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$trunc place[1]: boolean",
+    "operator": "$trunc",
+    "kind": "boolean",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type bool to long",
+      "code": 16004,
+      "error": "Location16004"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$trunc place[1]: false",
+    "operator": "$trunc",
+    "kind": "false",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type bool to long",
+      "code": 16004,
+      "error": "Location16004"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$trunc place[1]: typed date",
+    "operator": "$trunc",
+    "kind": "typed date",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type date to long",
+      "code": 16004,
+      "error": "Location16004"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$trunc place[1]: decimal128",
+    "operator": "$trunc",
+    "kind": "decimal128",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Precision must be integral"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: precision argument to  $trunc must be a integral value",
+      "code": 51082,
+      "error": "Location51082"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$trunc place[1]: empty array",
+    "operator": "$trunc",
+    "kind": "empty array",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type array to long",
+      "code": 16004,
+      "error": "Location16004"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$trunc place[1]: numeric array",
+    "operator": "$trunc",
+    "kind": "numeric array",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type array to long",
+      "code": 16004,
+      "error": "Location16004"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$trunc place[1]: mixed array",
+    "operator": "$trunc",
+    "kind": "mixed array",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type array to long",
+      "code": 16004,
+      "error": "Location16004"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$trunc place[1]: nested array",
+    "operator": "$trunc",
+    "kind": "nested array",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type array to long",
+      "code": 16004,
+      "error": "Location16004"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$trunc place[1]: empty object",
+    "operator": "$trunc",
+    "kind": "empty object",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type object to long",
+      "code": 16004,
+      "error": "Location16004"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$trunc place[1]: object",
+    "operator": "$trunc",
+    "kind": "object",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type object to long",
+      "code": 16004,
+      "error": "Location16004"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$trunc place[1]: ISO date string",
+    "operator": "$trunc",
+    "kind": "ISO date string",
+    "operand": "place[1]",
+    "expression": {
+      "$trunc": [
+        1.29,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't convert from BSON type string to long",
+      "code": 16004,
+      "error": "Location16004"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$trunc empty arguments",
+    "operator": "$trunc",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$trunc": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$trunc requires [number, place?]"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $trunc takes at least 1 arguments, and at most 2, but 0 were passed in.",
+      "code": 28667,
+      "error": "Location28667"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$trunc unknown option",
+    "operator": "$trunc",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$trunc": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Failed to optimize pipeline :: caused by :: $trunc only supports numeric types, not object",
+      "code": 51081,
+      "error": "Location51081"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

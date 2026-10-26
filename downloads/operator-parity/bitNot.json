@@ -1,0 +1,827 @@
+[
+  {
+    "id": "$bitNot baseline",
+    "operator": "$bitNot",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$bitNot": 5
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-6\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-6\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$bitNot value: null",
+    "operator": "$bitNot",
+    "kind": "null",
+    "operand": "value",
+    "expression": {
+      "$bitNot": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$bitNot value: missing",
+    "operator": "$bitNot",
+    "kind": "missing",
+    "operand": "value",
+    "expression": {
+      "$bitNot": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$bitNot value: zero",
+    "operator": "$bitNot",
+    "kind": "zero",
+    "operand": "value",
+    "expression": {
+      "$bitNot": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$bitNot value: negative",
+    "operator": "$bitNot",
+    "kind": "negative",
+    "operand": "value",
+    "expression": {
+      "$bitNot": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$bitNot value: decimal",
+    "operator": "$bitNot",
+    "kind": "decimal",
+    "operand": "value",
+    "expression": {
+      "$bitNot": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitNot requires an int32 or int64; use $toInt or $toLong explicitly"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitNot only supports int and long, not: double.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitNot value: numeric string",
+    "operator": "$bitNot",
+    "kind": "numeric string",
+    "operand": "value",
+    "expression": {
+      "$bitNot": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitNot requires an int32 or int64; use $toInt or $toLong explicitly"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitNot only supports numeric types, not string",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitNot value: text",
+    "operator": "$bitNot",
+    "kind": "text",
+    "operand": "value",
+    "expression": {
+      "$bitNot": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitNot requires an int32 or int64; use $toInt or $toLong explicitly"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitNot only supports numeric types, not string",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitNot value: empty string",
+    "operator": "$bitNot",
+    "kind": "empty string",
+    "operand": "value",
+    "expression": {
+      "$bitNot": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitNot requires an int32 or int64; use $toInt or $toLong explicitly"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitNot only supports numeric types, not string",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitNot value: boolean",
+    "operator": "$bitNot",
+    "kind": "boolean",
+    "operand": "value",
+    "expression": {
+      "$bitNot": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitNot requires an int32 or int64; use $toInt or $toLong explicitly"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitNot only supports numeric types, not bool",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitNot value: false",
+    "operator": "$bitNot",
+    "kind": "false",
+    "operand": "value",
+    "expression": {
+      "$bitNot": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitNot requires an int32 or int64; use $toInt or $toLong explicitly"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitNot only supports numeric types, not bool",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitNot value: typed date",
+    "operator": "$bitNot",
+    "kind": "typed date",
+    "operand": "value",
+    "expression": {
+      "$bitNot": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitNot requires an int32 or int64; use $toInt or $toLong explicitly"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitNot only supports numeric types, not date",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitNot value: decimal128",
+    "operator": "$bitNot",
+    "kind": "decimal128",
+    "operand": "value",
+    "expression": {
+      "$bitNot": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitNot requires an int32 or int64; use $toInt or $toLong explicitly"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitNot only supports int and long, not: decimal.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitNot value: empty array",
+    "operator": "$bitNot",
+    "kind": "empty array",
+    "operand": "value",
+    "expression": {
+      "$bitNot": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitNot requires an int32 or int64; use $toInt or $toLong explicitly"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitNot only supports numeric types, not array",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitNot value: numeric array",
+    "operator": "$bitNot",
+    "kind": "numeric array",
+    "operand": "value",
+    "expression": {
+      "$bitNot": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitNot requires an int32 or int64; use $toInt or $toLong explicitly"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitNot only supports numeric types, not array",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitNot value: mixed array",
+    "operator": "$bitNot",
+    "kind": "mixed array",
+    "operand": "value",
+    "expression": {
+      "$bitNot": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitNot requires an int32 or int64; use $toInt or $toLong explicitly"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitNot only supports numeric types, not array",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitNot value: nested array",
+    "operator": "$bitNot",
+    "kind": "nested array",
+    "operand": "value",
+    "expression": {
+      "$bitNot": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitNot requires an int32 or int64; use $toInt or $toLong explicitly"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitNot only supports numeric types, not array",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitNot value: empty object",
+    "operator": "$bitNot",
+    "kind": "empty object",
+    "operand": "value",
+    "expression": {
+      "$bitNot": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitNot requires an int32 or int64; use $toInt or $toLong explicitly"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitNot only supports numeric types, not object",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitNot value: object",
+    "operator": "$bitNot",
+    "kind": "object",
+    "operand": "value",
+    "expression": {
+      "$bitNot": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitNot requires an int32 or int64; use $toInt or $toLong explicitly"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitNot only supports numeric types, not object",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitNot value: ISO date string",
+    "operator": "$bitNot",
+    "kind": "ISO date string",
+    "operand": "value",
+    "expression": {
+      "$bitNot": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitNot requires an int32 or int64; use $toInt or $toLong explicitly"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitNot only supports numeric types, not string",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitNot empty arguments",
+    "operator": "$bitNot",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$bitNot": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitNot requires exactly one operand"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $bitNot takes exactly 1 arguments. 0 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitNot unknown option",
+    "operator": "$bitNot",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$bitNot": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitNot requires an int32 or int64; use $toInt or $toLong explicitly"
+    },
+    "mongo": {
+      "message": "Failed to optimize pipeline :: caused by :: $bitNot only supports numeric types, not object",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "statistics-mongo-cases.json:84",
+    "operator": "$bitNot",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$bitNot": "$value"
+    },
+    "input": {
+      "value": 5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-6\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-6\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:85",
+    "operator": "$bitNot",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$bitNot": "$value"
+    },
+    "input": {
+      "value": {
+        "$numberLong": "5"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"-6\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberLong\": \"-6\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:86",
+    "operator": "$bitNot",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$bitNot": "$value"
+    },
+    "input": {
+      "value": -2147483648
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2147483647\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"2147483647\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:87",
+    "operator": "$bitNot",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$bitNot": "$value"
+    },
+    "input": {
+      "value": {
+        "$numberLong": "-9223372036854775808"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"9223372036854775807\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberLong\": \"9223372036854775807\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:88",
+    "operator": "$bitNot",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$bitNot": "$value"
+    },
+    "input": {
+      "value": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:89",
+    "operator": "$bitNot",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$bitNot": "$value"
+    },
+    "input": {
+      "value": 5.0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitNot requires an int32 or int64; use $toInt or $toLong explicitly"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitNot only supports int and long, not: double.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "statistics-mongo-cases.json:90",
+    "operator": "$bitNot",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$bitNot": "$value"
+    },
+    "input": {
+      "value": {
+        "$numberDecimal": "5"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitNot requires an int32 or int64; use $toInt or $toLong explicitly"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitNot only supports int and long, not: decimal.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "statistics-mongo-cases.json:91",
+    "operator": "$bitNot",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$bitNot": "$value"
+    },
+    "input": {
+      "value": "5"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitNot requires an int32 or int64; use $toInt or $toLong explicitly"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitNot only supports numeric types, not string",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "statistics-mongo-cases.json:92",
+    "operator": "$bitNot",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$bitNot": "$value"
+    },
+    "input": {
+      "value": [
+        5
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitNot requires an int32 or int64; use $toInt or $toLong explicitly"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitNot only supports numeric types, not array",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "statistics-mongo-cases.json:93",
+    "operator": "$bitNot",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$bitNot": [
+        5
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-6\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-6\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:94",
+    "operator": "$bitNot",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$bitNot": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitNot requires exactly one operand"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $bitNot takes exactly 1 arguments. 0 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "statistics-mongo-cases.json:95",
+    "operator": "$bitNot",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$bitNot": [
+        1,
+        2
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitNot requires exactly one operand"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $bitNot takes exactly 1 arguments. 2 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "statistics-mongo-cases.json:96",
+    "operator": "$bitNot",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$bitNot": "$missing"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:97",
+    "operator": "$bitNot",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$bitNot": {
+        "$toInt": 5.5
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-6\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-6\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:98",
+    "operator": "$bitNot",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$bitNot": {
+        "$literal": [
+          5
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitNot requires an int32 or int64; use $toInt or $toLong explicitly"
+    },
+    "mongo": {
+      "message": "Failed to optimize pipeline :: caused by :: $bitNot only supports numeric types, not array",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

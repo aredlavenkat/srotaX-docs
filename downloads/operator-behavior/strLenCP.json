@@ -1,0 +1,371 @@
+[
+  {
+    "id": "$strLenCP baseline",
+    "operator": "$strLenCP",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$strLenCP": "abc"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$strLenCP input: null",
+    "operator": "$strLenCP",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires a string."
+    }
+  },
+  {
+    "id": "$strLenCP input: missing",
+    "operator": "$strLenCP",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires a string."
+    }
+  },
+  {
+    "id": "$strLenCP input: zero",
+    "operator": "$strLenCP",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires a string."
+    }
+  },
+  {
+    "id": "$strLenCP input: negative",
+    "operator": "$strLenCP",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires a string."
+    }
+  },
+  {
+    "id": "$strLenCP input: decimal",
+    "operator": "$strLenCP",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires a string."
+    }
+  },
+  {
+    "id": "$strLenCP input: numeric string",
+    "operator": "$strLenCP",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$strLenCP input: text",
+    "operator": "$strLenCP",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"5\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$strLenCP input: empty string",
+    "operator": "$strLenCP",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$strLenCP input: boolean",
+    "operator": "$strLenCP",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires a string."
+    }
+  },
+  {
+    "id": "$strLenCP input: false",
+    "operator": "$strLenCP",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires a string."
+    }
+  },
+  {
+    "id": "$strLenCP input: typed date",
+    "operator": "$strLenCP",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires a string."
+    }
+  },
+  {
+    "id": "$strLenCP input: decimal128",
+    "operator": "$strLenCP",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires a string."
+    }
+  },
+  {
+    "id": "$strLenCP input: empty array",
+    "operator": "$strLenCP",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires a string."
+    }
+  },
+  {
+    "id": "$strLenCP input: numeric array",
+    "operator": "$strLenCP",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires a string."
+    }
+  },
+  {
+    "id": "$strLenCP input: mixed array",
+    "operator": "$strLenCP",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires a string."
+    }
+  },
+  {
+    "id": "$strLenCP input: nested array",
+    "operator": "$strLenCP",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires a string."
+    }
+  },
+  {
+    "id": "$strLenCP input: empty object",
+    "operator": "$strLenCP",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires a string."
+    }
+  },
+  {
+    "id": "$strLenCP input: object",
+    "operator": "$strLenCP",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires a string."
+    }
+  },
+  {
+    "id": "$strLenCP input: ISO date string",
+    "operator": "$strLenCP",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"20\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$strLenCP empty arguments",
+    "operator": "$strLenCP",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$strLenCP": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires one argument"
+    }
+  },
+  {
+    "id": "$strLenCP unknown option",
+    "operator": "$strLenCP",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$strLenCP": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires a string."
+    }
+  }
+]

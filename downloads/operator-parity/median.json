@@ -1,0 +1,1591 @@
+[
+  {
+    "id": "$median baseline",
+    "operator": "$median",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$median": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "method": "approximate"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"20.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"20.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$median input: null",
+    "operator": "$median",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$median": {
+        "input": "$probe",
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$median input: missing",
+    "operator": "$median",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$median": {
+        "input": "$probe",
+        "method": "approximate"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$median input: zero",
+    "operator": "$median",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$median": {
+        "input": "$probe",
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$median input: negative",
+    "operator": "$median",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$median": {
+        "input": "$probe",
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"-2.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"-2.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$median input: decimal",
+    "operator": "$median",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$median": {
+        "input": "$probe",
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.5\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.5\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$median input: numeric string",
+    "operator": "$median",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$median": {
+        "input": "$probe",
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$median input: text",
+    "operator": "$median",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$median": {
+        "input": "$probe",
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$median input: empty string",
+    "operator": "$median",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$median": {
+        "input": "$probe",
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$median input: boolean",
+    "operator": "$median",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$median": {
+        "input": "$probe",
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$median input: false",
+    "operator": "$median",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$median": {
+        "input": "$probe",
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$median input: typed date",
+    "operator": "$median",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$median": {
+        "input": "$probe",
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$median input: decimal128",
+    "operator": "$median",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$median": {
+        "input": "$probe",
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.25\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.25\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$median input: empty array",
+    "operator": "$median",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$median": {
+        "input": "$probe",
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$median input: numeric array",
+    "operator": "$median",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$median": {
+        "input": "$probe",
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$median input: mixed array",
+    "operator": "$median",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$median": {
+        "input": "$probe",
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$median input: nested array",
+    "operator": "$median",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$median": {
+        "input": "$probe",
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$median input: empty object",
+    "operator": "$median",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$median": {
+        "input": "$probe",
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$median input: object",
+    "operator": "$median",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$median": {
+        "input": "$probe",
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$median input: ISO date string",
+    "operator": "$median",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$median": {
+        "input": "$probe",
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$median method: null",
+    "operator": "$median",
+    "kind": "null",
+    "operand": "method",
+    "expression": {
+      "$median": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "method": null
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$median method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$median.method' is missing but a required field",
+      "code": 40414,
+      "error": "IDLFailedToParse"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$median method: zero",
+    "operator": "$median",
+    "kind": "zero",
+    "operand": "method",
+    "expression": {
+      "$median": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "method": 0
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$median method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$median.method' is the wrong type 'int', expected type 'string'",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$median method: negative",
+    "operator": "$median",
+    "kind": "negative",
+    "operand": "method",
+    "expression": {
+      "$median": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "method": -2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$median method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$median.method' is the wrong type 'int', expected type 'string'",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$median method: decimal",
+    "operator": "$median",
+    "kind": "decimal",
+    "operand": "method",
+    "expression": {
+      "$median": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "method": 2.5
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$median method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$median.method' is the wrong type 'double', expected type 'string'",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$median method: numeric string",
+    "operator": "$median",
+    "kind": "numeric string",
+    "operand": "method",
+    "expression": {
+      "$median": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "method": "12"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$median method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Currently only 'approximate' can be used as a percentile 'method'.",
+      "code": 2,
+      "error": "BadValue"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$median method: text",
+    "operator": "$median",
+    "kind": "text",
+    "operand": "method",
+    "expression": {
+      "$median": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "method": "hello"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$median method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Currently only 'approximate' can be used as a percentile 'method'.",
+      "code": 2,
+      "error": "BadValue"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$median method: empty string",
+    "operator": "$median",
+    "kind": "empty string",
+    "operand": "method",
+    "expression": {
+      "$median": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "method": ""
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$median method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Currently only 'approximate' can be used as a percentile 'method'.",
+      "code": 2,
+      "error": "BadValue"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$median method: boolean",
+    "operator": "$median",
+    "kind": "boolean",
+    "operand": "method",
+    "expression": {
+      "$median": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "method": true
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$median method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$median.method' is the wrong type 'bool', expected type 'string'",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$median method: false",
+    "operator": "$median",
+    "kind": "false",
+    "operand": "method",
+    "expression": {
+      "$median": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "method": false
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$median method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$median.method' is the wrong type 'bool', expected type 'string'",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$median method: typed date",
+    "operator": "$median",
+    "kind": "typed date",
+    "operand": "method",
+    "expression": {
+      "$median": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "method": {
+          "$date": "2026-01-15T15:00:00Z"
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$median method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$median.method' is the wrong type 'date', expected type 'string'",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$median method: decimal128",
+    "operator": "$median",
+    "kind": "decimal128",
+    "operand": "method",
+    "expression": {
+      "$median": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "method": {
+          "$numberDecimal": "1.25"
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$median method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$median.method' is the wrong type 'decimal', expected type 'string'",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$median method: empty array",
+    "operator": "$median",
+    "kind": "empty array",
+    "operand": "method",
+    "expression": {
+      "$median": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "method": []
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$median method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$median.method' is the wrong type 'array', expected type 'string'",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$median method: numeric array",
+    "operator": "$median",
+    "kind": "numeric array",
+    "operand": "method",
+    "expression": {
+      "$median": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "method": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$median method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$median.method' is the wrong type 'array', expected type 'string'",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$median method: mixed array",
+    "operator": "$median",
+    "kind": "mixed array",
+    "operand": "method",
+    "expression": {
+      "$median": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "method": [
+          1,
+          null,
+          "x",
+          3
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$median method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$median.method' is the wrong type 'array', expected type 'string'",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$median method: nested array",
+    "operator": "$median",
+    "kind": "nested array",
+    "operand": "method",
+    "expression": {
+      "$median": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "method": [
+          [
+            1,
+            2
+          ],
+          [
+            3
+          ]
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$median method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$median.method' is the wrong type 'array', expected type 'string'",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$median method: empty object",
+    "operator": "$median",
+    "kind": "empty object",
+    "operand": "method",
+    "expression": {
+      "$median": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "method": {}
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$median method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$median.method' is the wrong type 'object', expected type 'string'",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$median method: object",
+    "operator": "$median",
+    "kind": "object",
+    "operand": "method",
+    "expression": {
+      "$median": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "method": {
+          "x": 1
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$median method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$median.method' is the wrong type 'object', expected type 'string'",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$median method: ISO date string",
+    "operator": "$median",
+    "kind": "ISO date string",
+    "operand": "method",
+    "expression": {
+      "$median": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "method": "2026-01-15T15:00:00Z"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$median method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Currently only 'approximate' can be used as a percentile 'method'.",
+      "code": 2,
+      "error": "BadValue"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$median omit input",
+    "operator": "$median",
+    "kind": "omitted named argument",
+    "operand": "input",
+    "expression": {
+      "$median": {
+        "method": "approximate"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$median requires [input, method]"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$median.input' is missing but a required field",
+      "code": 40414,
+      "error": "IDLFailedToParse"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$median omit method",
+    "operator": "$median",
+    "kind": "omitted named argument",
+    "operand": "method",
+    "expression": {
+      "$median": {
+        "input": [
+          10,
+          20,
+          30,
+          40
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$median requires [input, method]"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$median.method' is missing but a required field",
+      "code": 40414,
+      "error": "IDLFailedToParse"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$median empty arguments",
+    "operator": "$median",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$median": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$median requires [input, method]"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: specification must be an object; found $median: []",
+      "code": 7436201,
+      "error": "Location7436201"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$median unknown option",
+    "operator": "$median",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$median": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$median requires [input, method]"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$median.unexpected' is an unknown field.",
+      "code": 40415,
+      "error": "IDLUnknownField"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "statistics-mongo-cases.json:0",
+    "operator": "$median",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$median": {
+        "input": "$values",
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "values": [
+        10,
+        20,
+        30
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"20.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"20.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:1",
+    "operator": "$median",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$median": {
+        "input": "$values",
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "values": [
+        10,
+        20,
+        30,
+        40
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"20.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"20.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:2",
+    "operator": "$median",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$median": {
+        "input": "$values",
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "values": []
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:3",
+    "operator": "$median",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$median": {
+        "input": "$values",
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "values": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:4",
+    "operator": "$median",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$median": {
+        "input": "$values",
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "values": 5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"5.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"5.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:5",
+    "operator": "$median",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$median": {
+        "input": "$values",
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "values": [
+        1,
+        "x",
+        null,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:6",
+    "operator": "$median",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$median": {
+        "input": "$values",
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "values": [
+        1,
+        [
+          50
+        ],
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:7",
+    "operator": "$median",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$median": {
+        "input": "$values",
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "values": [
+        "x",
+        null,
+        {}
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:8",
+    "operator": "$median",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$median": {
+        "input": "$values",
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "values": [
+        1,
+        {
+          "$numberDouble": "NaN"
+        },
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:9",
+    "operator": "$median",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$median": {
+        "input": "$values",
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "values": [
+        1,
+        {
+          "$numberDouble": "Infinity"
+        },
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"3.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"3.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:10",
+    "operator": "$median",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$median": {
+        "input": "$values",
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "values": [
+        {
+          "$numberDecimal": "1.2"
+        },
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:11",
+    "operator": "$median",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$median": {
+        "input": "$values",
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "values": [
+        1e+100,
+        2e+100,
+        3e+100
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0E100\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0E100\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:12",
+    "operator": "$median",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$median": {
+        "input": "$values",
+        "method": "approximate"
+      }
+    },
+    "input": {
+      "values": [
+        {
+          "$numberDouble": "Infinity"
+        }
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"Infinity\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"Infinity\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:13",
+    "operator": "$median",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$median": {
+        "input": "$missing",
+        "method": "approximate"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "statistics-mongo-cases.json:56",
+    "operator": "$median",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$median": {
+        "input": [
+          1,
+          2,
+          3
+        ],
+        "method": "continuous"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$median method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Currently only 'approximate' can be used as a percentile 'method'.",
+      "code": 2,
+      "error": "BadValue"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "statistics-mongo-cases.json:57",
+    "operator": "$median",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$median": {
+        "input": [
+          1,
+          2,
+          3
+        ],
+        "method": null
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$median method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$median.method' is missing but a required field",
+      "code": 40414,
+      "error": "IDLFailedToParse"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "statistics-mongo-cases.json:58",
+    "operator": "$median",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$median": {
+        "input": [
+          1,
+          2,
+          3
+        ],
+        "method": {
+          "$literal": "approximate"
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$median method must be the literal string approximate"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BSON field '$median.method' is the wrong type 'object', expected type 'string'",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

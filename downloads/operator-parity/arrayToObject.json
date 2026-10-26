@@ -1,0 +1,506 @@
+[
+  {
+    "id": "$arrayToObject baseline",
+    "operator": "$arrayToObject",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$arrayToObject": {
+        "$literal": [
+          {
+            "k": "a",
+            "v": 1
+          }
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"a\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"a\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$arrayToObject input: null",
+    "operator": "$arrayToObject",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$arrayToObject": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$arrayToObject input: missing",
+    "operator": "$arrayToObject",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$arrayToObject": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$arrayToObject input: zero",
+    "operator": "$arrayToObject",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$arrayToObject": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayToObject expects an array of {k, v} objects."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayToObject requires an array input, found: int",
+      "code": 40386,
+      "error": "Location40386"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayToObject input: negative",
+    "operator": "$arrayToObject",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$arrayToObject": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayToObject expects an array of {k, v} objects."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayToObject requires an array input, found: int",
+      "code": 40386,
+      "error": "Location40386"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayToObject input: decimal",
+    "operator": "$arrayToObject",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$arrayToObject": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayToObject expects an array of {k, v} objects."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayToObject requires an array input, found: double",
+      "code": 40386,
+      "error": "Location40386"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayToObject input: numeric string",
+    "operator": "$arrayToObject",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$arrayToObject": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayToObject expects an array of {k, v} objects."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayToObject requires an array input, found: string",
+      "code": 40386,
+      "error": "Location40386"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayToObject input: text",
+    "operator": "$arrayToObject",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$arrayToObject": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayToObject expects an array of {k, v} objects."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayToObject requires an array input, found: string",
+      "code": 40386,
+      "error": "Location40386"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayToObject input: empty string",
+    "operator": "$arrayToObject",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$arrayToObject": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayToObject expects an array of {k, v} objects."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayToObject requires an array input, found: string",
+      "code": 40386,
+      "error": "Location40386"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayToObject input: boolean",
+    "operator": "$arrayToObject",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$arrayToObject": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayToObject expects an array of {k, v} objects."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayToObject requires an array input, found: bool",
+      "code": 40386,
+      "error": "Location40386"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayToObject input: false",
+    "operator": "$arrayToObject",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$arrayToObject": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayToObject expects an array of {k, v} objects."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayToObject requires an array input, found: bool",
+      "code": 40386,
+      "error": "Location40386"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayToObject input: typed date",
+    "operator": "$arrayToObject",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$arrayToObject": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayToObject expects an array of {k, v} objects."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayToObject requires an array input, found: date",
+      "code": 40386,
+      "error": "Location40386"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayToObject input: decimal128",
+    "operator": "$arrayToObject",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$arrayToObject": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayToObject expects an array of {k, v} objects."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayToObject requires an array input, found: decimal",
+      "code": 40386,
+      "error": "Location40386"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayToObject input: empty array",
+    "operator": "$arrayToObject",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$arrayToObject": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": {}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$arrayToObject input: numeric array",
+    "operator": "$arrayToObject",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$arrayToObject": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayToObject elements must be objects with 'k' and 'v'."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unrecognised input type format for $arrayToObject: int",
+      "code": 40398,
+      "error": "Location40398"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayToObject input: mixed array",
+    "operator": "$arrayToObject",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$arrayToObject": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayToObject elements must be objects with 'k' and 'v'."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unrecognised input type format for $arrayToObject: int",
+      "code": 40398,
+      "error": "Location40398"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayToObject input: nested array",
+    "operator": "$arrayToObject",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$arrayToObject": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Object key must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayToObject requires an array of key-value pairs, where the key must be of type string. Found key type: int",
+      "code": 40395,
+      "error": "Location40395"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayToObject input: empty object",
+    "operator": "$arrayToObject",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$arrayToObject": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayToObject expects an array of {k, v} objects."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayToObject requires an array input, found: object",
+      "code": 40386,
+      "error": "Location40386"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayToObject input: object",
+    "operator": "$arrayToObject",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$arrayToObject": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayToObject expects an array of {k, v} objects."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayToObject requires an array input, found: object",
+      "code": 40386,
+      "error": "Location40386"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayToObject input: ISO date string",
+    "operator": "$arrayToObject",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$arrayToObject": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayToObject expects an array of {k, v} objects."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayToObject requires an array input, found: string",
+      "code": 40386,
+      "error": "Location40386"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayToObject empty arguments",
+    "operator": "$arrayToObject",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$arrayToObject": []
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $arrayToObject takes exactly 1 arguments. 0 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$arrayToObject unknown option",
+    "operator": "$arrayToObject",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$arrayToObject": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayToObject expects an array of {k, v} objects."
+    },
+    "mongo": {
+      "message": "Failed to optimize pipeline :: caused by :: $arrayToObject requires an array input, found: object",
+      "code": 40386,
+      "error": "Location40386"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

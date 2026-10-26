@@ -1,0 +1,910 @@
+[
+  {
+    "id": "$zip baseline",
+    "operator": "$zip",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$zip": {
+        "inputs": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$zip inputs: null",
+    "operator": "$zip",
+    "kind": "null",
+    "operand": "inputs",
+    "expression": {
+      "$zip": {
+        "inputs": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  },
+  {
+    "id": "$zip inputs: missing",
+    "operator": "$zip",
+    "kind": "missing",
+    "operand": "inputs",
+    "expression": {
+      "$zip": {
+        "inputs": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  },
+  {
+    "id": "$zip inputs: zero",
+    "operator": "$zip",
+    "kind": "zero",
+    "operand": "inputs",
+    "expression": {
+      "$zip": {
+        "inputs": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  },
+  {
+    "id": "$zip inputs: negative",
+    "operator": "$zip",
+    "kind": "negative",
+    "operand": "inputs",
+    "expression": {
+      "$zip": {
+        "inputs": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  },
+  {
+    "id": "$zip inputs: decimal",
+    "operator": "$zip",
+    "kind": "decimal",
+    "operand": "inputs",
+    "expression": {
+      "$zip": {
+        "inputs": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  },
+  {
+    "id": "$zip inputs: numeric string",
+    "operator": "$zip",
+    "kind": "numeric string",
+    "operand": "inputs",
+    "expression": {
+      "$zip": {
+        "inputs": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  },
+  {
+    "id": "$zip inputs: text",
+    "operator": "$zip",
+    "kind": "text",
+    "operand": "inputs",
+    "expression": {
+      "$zip": {
+        "inputs": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  },
+  {
+    "id": "$zip inputs: empty string",
+    "operator": "$zip",
+    "kind": "empty string",
+    "operand": "inputs",
+    "expression": {
+      "$zip": {
+        "inputs": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  },
+  {
+    "id": "$zip inputs: boolean",
+    "operator": "$zip",
+    "kind": "boolean",
+    "operand": "inputs",
+    "expression": {
+      "$zip": {
+        "inputs": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  },
+  {
+    "id": "$zip inputs: false",
+    "operator": "$zip",
+    "kind": "false",
+    "operand": "inputs",
+    "expression": {
+      "$zip": {
+        "inputs": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  },
+  {
+    "id": "$zip inputs: typed date",
+    "operator": "$zip",
+    "kind": "typed date",
+    "operand": "inputs",
+    "expression": {
+      "$zip": {
+        "inputs": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  },
+  {
+    "id": "$zip inputs: decimal128",
+    "operator": "$zip",
+    "kind": "decimal128",
+    "operand": "inputs",
+    "expression": {
+      "$zip": {
+        "inputs": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  },
+  {
+    "id": "$zip inputs: empty array",
+    "operator": "$zip",
+    "kind": "empty array",
+    "operand": "inputs",
+    "expression": {
+      "$zip": {
+        "inputs": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IndexOutOfBoundsException",
+      "message": "Index 0 out of bounds for length 0"
+    }
+  },
+  {
+    "id": "$zip inputs: numeric array",
+    "operator": "$zip",
+    "kind": "numeric array",
+    "operand": "inputs",
+    "expression": {
+      "$zip": {
+        "inputs": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Integer cannot be cast to class java.util.List (java.lang.Integer and java.util.List are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$zip inputs: mixed array",
+    "operator": "$zip",
+    "kind": "mixed array",
+    "operand": "inputs",
+    "expression": {
+      "$zip": {
+        "inputs": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Integer cannot be cast to class java.util.List (java.lang.Integer and java.util.List are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$zip inputs: nested array",
+    "operator": "$zip",
+    "kind": "nested array",
+    "operand": "inputs",
+    "expression": {
+      "$zip": {
+        "inputs": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"3\"}]]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$zip inputs: empty object",
+    "operator": "$zip",
+    "kind": "empty object",
+    "operand": "inputs",
+    "expression": {
+      "$zip": {
+        "inputs": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  },
+  {
+    "id": "$zip inputs: object",
+    "operator": "$zip",
+    "kind": "object",
+    "operand": "inputs",
+    "expression": {
+      "$zip": {
+        "inputs": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  },
+  {
+    "id": "$zip inputs: ISO date string",
+    "operator": "$zip",
+    "kind": "ISO date string",
+    "operand": "inputs",
+    "expression": {
+      "$zip": {
+        "inputs": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  },
+  {
+    "id": "$zip useLongestLength: null",
+    "operator": "$zip",
+    "kind": "null",
+    "operand": "useLongestLength",
+    "expression": {
+      "$zip": {
+        "inputs": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "useLongestLength": null
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  },
+  {
+    "id": "$zip useLongestLength: zero",
+    "operator": "$zip",
+    "kind": "zero",
+    "operand": "useLongestLength",
+    "expression": {
+      "$zip": {
+        "inputs": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "useLongestLength": 0
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  },
+  {
+    "id": "$zip useLongestLength: negative",
+    "operator": "$zip",
+    "kind": "negative",
+    "operand": "useLongestLength",
+    "expression": {
+      "$zip": {
+        "inputs": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "useLongestLength": -2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  },
+  {
+    "id": "$zip useLongestLength: decimal",
+    "operator": "$zip",
+    "kind": "decimal",
+    "operand": "useLongestLength",
+    "expression": {
+      "$zip": {
+        "inputs": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "useLongestLength": 2.5
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  },
+  {
+    "id": "$zip useLongestLength: numeric string",
+    "operator": "$zip",
+    "kind": "numeric string",
+    "operand": "useLongestLength",
+    "expression": {
+      "$zip": {
+        "inputs": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "useLongestLength": "12"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  },
+  {
+    "id": "$zip useLongestLength: text",
+    "operator": "$zip",
+    "kind": "text",
+    "operand": "useLongestLength",
+    "expression": {
+      "$zip": {
+        "inputs": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "useLongestLength": "hello"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  },
+  {
+    "id": "$zip useLongestLength: empty string",
+    "operator": "$zip",
+    "kind": "empty string",
+    "operand": "useLongestLength",
+    "expression": {
+      "$zip": {
+        "inputs": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "useLongestLength": ""
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  },
+  {
+    "id": "$zip useLongestLength: boolean",
+    "operator": "$zip",
+    "kind": "boolean",
+    "operand": "useLongestLength",
+    "expression": {
+      "$zip": {
+        "inputs": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "useLongestLength": true
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$zip useLongestLength: false",
+    "operator": "$zip",
+    "kind": "false",
+    "operand": "useLongestLength",
+    "expression": {
+      "$zip": {
+        "inputs": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "useLongestLength": false
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$zip useLongestLength: typed date",
+    "operator": "$zip",
+    "kind": "typed date",
+    "operand": "useLongestLength",
+    "expression": {
+      "$zip": {
+        "inputs": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "useLongestLength": {
+          "$date": "2026-01-15T15:00:00Z"
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  },
+  {
+    "id": "$zip useLongestLength: decimal128",
+    "operator": "$zip",
+    "kind": "decimal128",
+    "operand": "useLongestLength",
+    "expression": {
+      "$zip": {
+        "inputs": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "useLongestLength": {
+          "$numberDecimal": "1.25"
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  },
+  {
+    "id": "$zip useLongestLength: empty array",
+    "operator": "$zip",
+    "kind": "empty array",
+    "operand": "useLongestLength",
+    "expression": {
+      "$zip": {
+        "inputs": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "useLongestLength": []
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  },
+  {
+    "id": "$zip useLongestLength: numeric array",
+    "operator": "$zip",
+    "kind": "numeric array",
+    "operand": "useLongestLength",
+    "expression": {
+      "$zip": {
+        "inputs": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "useLongestLength": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  },
+  {
+    "id": "$zip useLongestLength: mixed array",
+    "operator": "$zip",
+    "kind": "mixed array",
+    "operand": "useLongestLength",
+    "expression": {
+      "$zip": {
+        "inputs": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "useLongestLength": [
+          1,
+          null,
+          "x",
+          3
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  },
+  {
+    "id": "$zip useLongestLength: nested array",
+    "operator": "$zip",
+    "kind": "nested array",
+    "operand": "useLongestLength",
+    "expression": {
+      "$zip": {
+        "inputs": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "useLongestLength": [
+          [
+            1,
+            2
+          ],
+          [
+            3
+          ]
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  },
+  {
+    "id": "$zip useLongestLength: empty object",
+    "operator": "$zip",
+    "kind": "empty object",
+    "operand": "useLongestLength",
+    "expression": {
+      "$zip": {
+        "inputs": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "useLongestLength": {}
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  },
+  {
+    "id": "$zip useLongestLength: object",
+    "operator": "$zip",
+    "kind": "object",
+    "operand": "useLongestLength",
+    "expression": {
+      "$zip": {
+        "inputs": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "useLongestLength": {
+          "x": 1
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  },
+  {
+    "id": "$zip useLongestLength: ISO date string",
+    "operator": "$zip",
+    "kind": "ISO date string",
+    "operand": "useLongestLength",
+    "expression": {
+      "$zip": {
+        "inputs": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "useLongestLength": "2026-01-15T15:00:00Z"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  },
+  {
+    "id": "$zip omit inputs",
+    "operator": "$zip",
+    "kind": "omitted named argument",
+    "operand": "inputs",
+    "expression": {
+      "$zip": {}
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  },
+  {
+    "id": "$zip omit useLongestLength",
+    "operator": "$zip",
+    "kind": "omitted named argument",
+    "operand": "useLongestLength",
+    "expression": {
+      "$zip": {
+        "inputs": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$zip empty arguments",
+    "operator": "$zip",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$zip": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip expects an object with 'inputs', optional 'useLongestLength'"
+    }
+  },
+  {
+    "id": "$zip unknown option",
+    "operator": "$zip",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$zip": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$zip inputs must be array of arrays and useLongestLength a boolean"
+    }
+  }
+]

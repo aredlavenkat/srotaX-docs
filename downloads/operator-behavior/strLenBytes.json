@@ -1,0 +1,371 @@
+[
+  {
+    "id": "$strLenBytes baseline",
+    "operator": "$strLenBytes",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$strLenBytes": "abc"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$strLenBytes input: null",
+    "operator": "$strLenBytes",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$strLenBytes": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenBytes requires a string."
+    }
+  },
+  {
+    "id": "$strLenBytes input: missing",
+    "operator": "$strLenBytes",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$strLenBytes": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenBytes requires a string."
+    }
+  },
+  {
+    "id": "$strLenBytes input: zero",
+    "operator": "$strLenBytes",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$strLenBytes": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenBytes requires a string."
+    }
+  },
+  {
+    "id": "$strLenBytes input: negative",
+    "operator": "$strLenBytes",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$strLenBytes": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenBytes requires a string."
+    }
+  },
+  {
+    "id": "$strLenBytes input: decimal",
+    "operator": "$strLenBytes",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$strLenBytes": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenBytes requires a string."
+    }
+  },
+  {
+    "id": "$strLenBytes input: numeric string",
+    "operator": "$strLenBytes",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$strLenBytes": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$strLenBytes input: text",
+    "operator": "$strLenBytes",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$strLenBytes": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"5\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$strLenBytes input: empty string",
+    "operator": "$strLenBytes",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$strLenBytes": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$strLenBytes input: boolean",
+    "operator": "$strLenBytes",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$strLenBytes": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenBytes requires a string."
+    }
+  },
+  {
+    "id": "$strLenBytes input: false",
+    "operator": "$strLenBytes",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$strLenBytes": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenBytes requires a string."
+    }
+  },
+  {
+    "id": "$strLenBytes input: typed date",
+    "operator": "$strLenBytes",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$strLenBytes": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenBytes requires a string."
+    }
+  },
+  {
+    "id": "$strLenBytes input: decimal128",
+    "operator": "$strLenBytes",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$strLenBytes": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenBytes requires a string."
+    }
+  },
+  {
+    "id": "$strLenBytes input: empty array",
+    "operator": "$strLenBytes",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$strLenBytes": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenBytes requires a string."
+    }
+  },
+  {
+    "id": "$strLenBytes input: numeric array",
+    "operator": "$strLenBytes",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$strLenBytes": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenBytes requires a string."
+    }
+  },
+  {
+    "id": "$strLenBytes input: mixed array",
+    "operator": "$strLenBytes",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$strLenBytes": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenBytes requires a string."
+    }
+  },
+  {
+    "id": "$strLenBytes input: nested array",
+    "operator": "$strLenBytes",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$strLenBytes": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenBytes requires a string."
+    }
+  },
+  {
+    "id": "$strLenBytes input: empty object",
+    "operator": "$strLenBytes",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$strLenBytes": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenBytes requires a string."
+    }
+  },
+  {
+    "id": "$strLenBytes input: object",
+    "operator": "$strLenBytes",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$strLenBytes": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenBytes requires a string."
+    }
+  },
+  {
+    "id": "$strLenBytes input: ISO date string",
+    "operator": "$strLenBytes",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$strLenBytes": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"20\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$strLenBytes empty arguments",
+    "operator": "$strLenBytes",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$strLenBytes": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenBytes requires a string."
+    }
+  },
+  {
+    "id": "$strLenBytes unknown option",
+    "operator": "$strLenBytes",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$strLenBytes": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenBytes requires a string."
+    }
+  }
+]

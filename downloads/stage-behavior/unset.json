@@ -1,0 +1,90 @@
+[
+  {
+    "id": "$unset example",
+    "stage": "$unset",
+    "kind": "example",
+    "pipeline": [
+      {
+        "$unset": [
+          "internal",
+          "address.secret"
+        ]
+      }
+    ],
+    "input": [
+      {
+        "name": "Pen",
+        "internal": 1,
+        "address": {
+          "city": "Toronto",
+          "secret": 2
+        }
+      }
+    ],
+    "result": [
+      {
+        "name": "Pen",
+        "address": {
+          "city": "Toronto"
+        }
+      }
+    ]
+  },
+  {
+    "id": "$unset empty input",
+    "stage": "$unset",
+    "kind": "empty input",
+    "pipeline": [
+      {
+        "$unset": [
+          "internal",
+          "address.secret"
+        ]
+      }
+    ],
+    "input": [],
+    "result": []
+  },
+  {
+    "id": "$unset invalid specification",
+    "stage": "$unset",
+    "kind": "invalid specification",
+    "pipeline": [
+      {
+        "$unset": null
+      }
+    ],
+    "input": [
+      {
+        "name": "Pen",
+        "internal": 1,
+        "address": {
+          "city": "Toronto",
+          "secret": 2
+        }
+      }
+    ],
+    "error": "IllegalArgumentException",
+    "message": "$unset stage requires a string or list of field names"
+  },
+  {
+    "id": "$unset missing field",
+    "stage": "$unset",
+    "kind": "missing field",
+    "pipeline": [
+      {
+        "$unset": "unknown"
+      }
+    ],
+    "input": [
+      {
+        "name": "Pen"
+      }
+    ],
+    "result": [
+      {
+        "name": "Pen"
+      }
+    ]
+  }
+]

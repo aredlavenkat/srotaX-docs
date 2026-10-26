@@ -1,0 +1,414 @@
+[
+  {
+    "id": "$allElementsTrue baseline",
+    "operator": "$allElementsTrue",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$allElementsTrue": [
+        [
+          true,
+          false
+        ]
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$allElementsTrue array[0]: null",
+    "operator": "$allElementsTrue",
+    "kind": "null",
+    "operand": "array[0]",
+    "expression": {
+      "$allElementsTrue": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$allElementsTrue array[0]: missing",
+    "operator": "$allElementsTrue",
+    "kind": "missing",
+    "operand": "array[0]",
+    "expression": {
+      "$allElementsTrue": [
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$allElementsTrue array[0]: zero",
+    "operator": "$allElementsTrue",
+    "kind": "zero",
+    "operand": "array[0]",
+    "expression": {
+      "$allElementsTrue": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$allElementsTrue array[0]: negative",
+    "operator": "$allElementsTrue",
+    "kind": "negative",
+    "operand": "array[0]",
+    "expression": {
+      "$allElementsTrue": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$allElementsTrue array[0]: decimal",
+    "operator": "$allElementsTrue",
+    "kind": "decimal",
+    "operand": "array[0]",
+    "expression": {
+      "$allElementsTrue": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$allElementsTrue array[0]: numeric string",
+    "operator": "$allElementsTrue",
+    "kind": "numeric string",
+    "operand": "array[0]",
+    "expression": {
+      "$allElementsTrue": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$allElementsTrue array[0]: text",
+    "operator": "$allElementsTrue",
+    "kind": "text",
+    "operand": "array[0]",
+    "expression": {
+      "$allElementsTrue": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$allElementsTrue array[0]: empty string",
+    "operator": "$allElementsTrue",
+    "kind": "empty string",
+    "operand": "array[0]",
+    "expression": {
+      "$allElementsTrue": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$allElementsTrue array[0]: boolean",
+    "operator": "$allElementsTrue",
+    "kind": "boolean",
+    "operand": "array[0]",
+    "expression": {
+      "$allElementsTrue": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$allElementsTrue array[0]: false",
+    "operator": "$allElementsTrue",
+    "kind": "false",
+    "operand": "array[0]",
+    "expression": {
+      "$allElementsTrue": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$allElementsTrue array[0]: typed date",
+    "operator": "$allElementsTrue",
+    "kind": "typed date",
+    "operand": "array[0]",
+    "expression": {
+      "$allElementsTrue": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$allElementsTrue array[0]: decimal128",
+    "operator": "$allElementsTrue",
+    "kind": "decimal128",
+    "operand": "array[0]",
+    "expression": {
+      "$allElementsTrue": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$allElementsTrue array[0]: empty array",
+    "operator": "$allElementsTrue",
+    "kind": "empty array",
+    "operand": "array[0]",
+    "expression": {
+      "$allElementsTrue": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$allElementsTrue array[0]: numeric array",
+    "operator": "$allElementsTrue",
+    "kind": "numeric array",
+    "operand": "array[0]",
+    "expression": {
+      "$allElementsTrue": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$allElementsTrue array[0]: mixed array",
+    "operator": "$allElementsTrue",
+    "kind": "mixed array",
+    "operand": "array[0]",
+    "expression": {
+      "$allElementsTrue": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$allElementsTrue array[0]: nested array",
+    "operator": "$allElementsTrue",
+    "kind": "nested array",
+    "operand": "array[0]",
+    "expression": {
+      "$allElementsTrue": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$allElementsTrue array[0]: empty object",
+    "operator": "$allElementsTrue",
+    "kind": "empty object",
+    "operand": "array[0]",
+    "expression": {
+      "$allElementsTrue": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$allElementsTrue array[0]: object",
+    "operator": "$allElementsTrue",
+    "kind": "object",
+    "operand": "array[0]",
+    "expression": {
+      "$allElementsTrue": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$allElementsTrue array[0]: ISO date string",
+    "operator": "$allElementsTrue",
+    "kind": "ISO date string",
+    "operand": "array[0]",
+    "expression": {
+      "$allElementsTrue": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$allElementsTrue empty arguments",
+    "operator": "$allElementsTrue",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$allElementsTrue": []
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$allElementsTrue unknown option",
+    "operator": "$allElementsTrue",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$allElementsTrue": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$allElementsTrue expects an array."
+    }
+  }
+]

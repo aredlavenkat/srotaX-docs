@@ -1,0 +1,673 @@
+[
+  {
+    "id": "$toArray baseline",
+    "operator": "$toArray",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$toArray": "[1,2]"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toArray input: null",
+    "operator": "$toArray",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$toArray": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toArray input: missing",
+    "operator": "$toArray",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$toArray": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toArray input: zero",
+    "operator": "$toArray",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$toArray": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    }
+  },
+  {
+    "id": "$toArray input: negative",
+    "operator": "$toArray",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$toArray": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    }
+  },
+  {
+    "id": "$toArray input: decimal",
+    "operator": "$toArray",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$toArray": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    }
+  },
+  {
+    "id": "$toArray input: numeric string",
+    "operator": "$toArray",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$toArray": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "JSON root must be array"
+    }
+  },
+  {
+    "id": "$toArray input: text",
+    "operator": "$toArray",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$toArray": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid JSON container"
+    }
+  },
+  {
+    "id": "$toArray input: empty string",
+    "operator": "$toArray",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$toArray": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid JSON container"
+    }
+  },
+  {
+    "id": "$toArray input: boolean",
+    "operator": "$toArray",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$toArray": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    }
+  },
+  {
+    "id": "$toArray input: false",
+    "operator": "$toArray",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$toArray": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    }
+  },
+  {
+    "id": "$toArray input: typed date",
+    "operator": "$toArray",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$toArray": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    }
+  },
+  {
+    "id": "$toArray input: decimal128",
+    "operator": "$toArray",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$toArray": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    }
+  },
+  {
+    "id": "$toArray input: empty array",
+    "operator": "$toArray",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$toArray": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    }
+  },
+  {
+    "id": "$toArray input: numeric array",
+    "operator": "$toArray",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$toArray": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    }
+  },
+  {
+    "id": "$toArray input: mixed array",
+    "operator": "$toArray",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$toArray": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    }
+  },
+  {
+    "id": "$toArray input: nested array",
+    "operator": "$toArray",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$toArray": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    }
+  },
+  {
+    "id": "$toArray input: empty object",
+    "operator": "$toArray",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$toArray": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    }
+  },
+  {
+    "id": "$toArray input: object",
+    "operator": "$toArray",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$toArray": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    }
+  },
+  {
+    "id": "$toArray input: ISO date string",
+    "operator": "$toArray",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$toArray": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid JSON container"
+    }
+  },
+  {
+    "id": "$toArray empty arguments",
+    "operator": "$toArray",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$toArray": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    }
+  },
+  {
+    "id": "$toArray unknown option",
+    "operator": "$toArray",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$toArray": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    }
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:0",
+    "operator": "$toArray",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toArray": "$value"
+    },
+    "input": {
+      "value": "[1,2147483648,9223372036854775808,1.5,null,{\"x\":true}]"
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberLong\": \"2147483648\"}, {\"$numberDouble\": \"9.223372036854776E18\"}, {\"$numberDouble\": \"1.5\"}, null, {\"x\": true}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:2",
+    "operator": "$toArray",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toArray": "$value"
+    },
+    "input": {
+      "value": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:4",
+    "operator": "$toArray",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toArray": "$value"
+    },
+    "input": {
+      "value": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid JSON container"
+    }
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:6",
+    "operator": "$toArray",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toArray": "$value"
+    },
+    "input": {
+      "value": "null"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "JSON root must be array"
+    }
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:8",
+    "operator": "$toArray",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toArray": "$value"
+    },
+    "input": {
+      "value": "123"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "JSON root must be array"
+    }
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:10",
+    "operator": "$toArray",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toArray": "$value"
+    },
+    "input": {
+      "value": "true"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "JSON root must be array"
+    }
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:12",
+    "operator": "$toArray",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toArray": "$value"
+    },
+    "input": {
+      "value": "[]"
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    }
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:14",
+    "operator": "$toArray",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toArray": "$value"
+    },
+    "input": {
+      "value": "{}"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "JSON root must be array"
+    }
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:16",
+    "operator": "$toArray",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toArray": "$value"
+    },
+    "input": {
+      "value": "[1,]"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid JSON container"
+    }
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:18",
+    "operator": "$toArray",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toArray": "$value"
+    },
+    "input": {
+      "value": "{\"x\":1,}"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid JSON container"
+    }
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:20",
+    "operator": "$toArray",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toArray": "$value"
+    },
+    "input": {
+      "value": "/*x*/ []"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid JSON container"
+    }
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:22",
+    "operator": "$toArray",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toArray": "$value"
+    },
+    "input": {
+      "value": "[] {}"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid JSON container"
+    }
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:24",
+    "operator": "$toArray",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toArray": "$value"
+    },
+    "input": {
+      "value": "{\"x\\u0000\":1}"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "JSON root must be array"
+    }
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:26",
+    "operator": "$toArray",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toArray": "$value"
+    },
+    "input": {
+      "value": "{\"x\":\"a\\u0000b\"}"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "JSON root must be array"
+    }
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:28",
+    "operator": "$toArray",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toArray": "$value"
+    },
+    "input": {
+      "value": "[1e400]"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "JSON number exceeds finite double range"
+    }
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:30",
+    "operator": "$toArray",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toArray": "$value"
+    },
+    "input": {
+      "value": 123
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    }
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:32",
+    "operator": "$toArray",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toArray": "$value"
+    },
+    "input": {
+      "value": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    }
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:34",
+    "operator": "$toArray",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toArray": "$value"
+    },
+    "input": {
+      "value": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    }
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:36",
+    "operator": "$toArray",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toArray": "$missing"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  }
+]

@@ -1,0 +1,492 @@
+[
+  {
+    "id": "$toDouble baseline",
+    "operator": "$toDouble",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$toDouble": "12.5"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"12.5\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"12.5\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toDouble input: null",
+    "operator": "$toDouble",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$toDouble": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toDouble input: missing",
+    "operator": "$toDouble",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$toDouble": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toDouble input: zero",
+    "operator": "$toDouble",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$toDouble": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toDouble input: negative",
+    "operator": "$toDouble",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$toDouble": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"-2.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"-2.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toDouble input: decimal",
+    "operator": "$toDouble",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$toDouble": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.5\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.5\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toDouble input: numeric string",
+    "operator": "$toDouble",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$toDouble": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"12.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"12.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toDouble input: text",
+    "operator": "$toDouble",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$toDouble": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target double"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Failed to parse number 'hello' in $convert with no onError value: Invalid number",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toDouble input: empty string",
+    "operator": "$toDouble",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$toDouble": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target double"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Failed to parse number '' in $convert with no onError value: Empty string",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toDouble input: boolean",
+    "operator": "$toDouble",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$toDouble": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toDouble input: false",
+    "operator": "$toDouble",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$toDouble": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toDouble input: typed date",
+    "operator": "$toDouble",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$toDouble": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.7684892E12\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.7684892E12\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toDouble input: decimal128",
+    "operator": "$toDouble",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$toDouble": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.25\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.25\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toDouble input: empty array",
+    "operator": "$toDouble",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$toDouble": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target double"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from array to double in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toDouble input: numeric array",
+    "operator": "$toDouble",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$toDouble": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target double"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from array to double in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toDouble input: mixed array",
+    "operator": "$toDouble",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$toDouble": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target double"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from array to double in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toDouble input: nested array",
+    "operator": "$toDouble",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$toDouble": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target double"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from array to double in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toDouble input: empty object",
+    "operator": "$toDouble",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$toDouble": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target double"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from object to double in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toDouble input: object",
+    "operator": "$toDouble",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$toDouble": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target double"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from object to double in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toDouble input: ISO date string",
+    "operator": "$toDouble",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$toDouble": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target double"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Failed to parse number '2026-01-15T15:00:00Z' in $convert with no onError value: Did not consume whole string",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toDouble empty arguments",
+    "operator": "$toDouble",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$toDouble": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target double"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $toDouble requires a single argument, got 0",
+      "code": 50723,
+      "error": "Location50723"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toDouble unknown option",
+    "operator": "$toDouble",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$toDouble": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target double"
+    },
+    "mongo": {
+      "message": "Failed to optimize pipeline :: caused by :: Unsupported conversion from object to double in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

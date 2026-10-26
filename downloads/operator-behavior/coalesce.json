@@ -1,0 +1,813 @@
+[
+  {
+    "id": "$coalesce baseline",
+    "operator": "$coalesce",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$coalesce": [
+        null,
+        "x"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"x\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[0]: null",
+    "operator": "$coalesce",
+    "kind": "null",
+    "operand": "value[0]",
+    "expression": {
+      "$coalesce": [
+        "$probe",
+        "x"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": \"x\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[0]: missing",
+    "operator": "$coalesce",
+    "kind": "missing",
+    "operand": "value[0]",
+    "expression": {
+      "$coalesce": [
+        "$probe",
+        "x"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"x\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[0]: zero",
+    "operator": "$coalesce",
+    "kind": "zero",
+    "operand": "value[0]",
+    "expression": {
+      "$coalesce": [
+        "$probe",
+        "x"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[0]: negative",
+    "operator": "$coalesce",
+    "kind": "negative",
+    "operand": "value[0]",
+    "expression": {
+      "$coalesce": [
+        "$probe",
+        "x"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[0]: decimal",
+    "operator": "$coalesce",
+    "kind": "decimal",
+    "operand": "value[0]",
+    "expression": {
+      "$coalesce": [
+        "$probe",
+        "x"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.5\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[0]: numeric string",
+    "operator": "$coalesce",
+    "kind": "numeric string",
+    "operand": "value[0]",
+    "expression": {
+      "$coalesce": [
+        "$probe",
+        "x"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"12\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[0]: text",
+    "operator": "$coalesce",
+    "kind": "text",
+    "operand": "value[0]",
+    "expression": {
+      "$coalesce": [
+        "$probe",
+        "x"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"hello\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[0]: empty string",
+    "operator": "$coalesce",
+    "kind": "empty string",
+    "operand": "value[0]",
+    "expression": {
+      "$coalesce": [
+        "$probe",
+        "x"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[0]: boolean",
+    "operator": "$coalesce",
+    "kind": "boolean",
+    "operand": "value[0]",
+    "expression": {
+      "$coalesce": [
+        "$probe",
+        "x"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[0]: false",
+    "operator": "$coalesce",
+    "kind": "false",
+    "operand": "value[0]",
+    "expression": {
+      "$coalesce": [
+        "$probe",
+        "x"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[0]: typed date",
+    "operator": "$coalesce",
+    "kind": "typed date",
+    "operand": "value[0]",
+    "expression": {
+      "$coalesce": [
+        "$probe",
+        "x"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1768489200000\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[0]: decimal128",
+    "operator": "$coalesce",
+    "kind": "decimal128",
+    "operand": "value[0]",
+    "expression": {
+      "$coalesce": [
+        "$probe",
+        "x"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"1.25\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[0]: empty array",
+    "operator": "$coalesce",
+    "kind": "empty array",
+    "operand": "value[0]",
+    "expression": {
+      "$coalesce": [
+        "$probe",
+        "x"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[0]: numeric array",
+    "operator": "$coalesce",
+    "kind": "numeric array",
+    "operand": "value[0]",
+    "expression": {
+      "$coalesce": [
+        "$probe",
+        "x"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[0]: mixed array",
+    "operator": "$coalesce",
+    "kind": "mixed array",
+    "operand": "value[0]",
+    "expression": {
+      "$coalesce": [
+        "$probe",
+        "x"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, null, \"x\", {\"$numberInt\": \"3\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[0]: nested array",
+    "operator": "$coalesce",
+    "kind": "nested array",
+    "operand": "value[0]",
+    "expression": {
+      "$coalesce": [
+        "$probe",
+        "x"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}], [{\"$numberInt\": \"3\"}]]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[0]: empty object",
+    "operator": "$coalesce",
+    "kind": "empty object",
+    "operand": "value[0]",
+    "expression": {
+      "$coalesce": [
+        "$probe",
+        "x"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[0]: object",
+    "operator": "$coalesce",
+    "kind": "object",
+    "operand": "value[0]",
+    "expression": {
+      "$coalesce": [
+        "$probe",
+        "x"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"x\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[0]: ISO date string",
+    "operator": "$coalesce",
+    "kind": "ISO date string",
+    "operand": "value[0]",
+    "expression": {
+      "$coalesce": [
+        "$probe",
+        "x"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2026-01-15T15:00:00Z\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[1]: null",
+    "operator": "$coalesce",
+    "kind": "null",
+    "operand": "value[1]",
+    "expression": {
+      "$coalesce": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[1]: missing",
+    "operator": "$coalesce",
+    "kind": "missing",
+    "operand": "value[1]",
+    "expression": {
+      "$coalesce": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[1]: zero",
+    "operator": "$coalesce",
+    "kind": "zero",
+    "operand": "value[1]",
+    "expression": {
+      "$coalesce": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[1]: negative",
+    "operator": "$coalesce",
+    "kind": "negative",
+    "operand": "value[1]",
+    "expression": {
+      "$coalesce": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[1]: decimal",
+    "operator": "$coalesce",
+    "kind": "decimal",
+    "operand": "value[1]",
+    "expression": {
+      "$coalesce": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.5\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[1]: numeric string",
+    "operator": "$coalesce",
+    "kind": "numeric string",
+    "operand": "value[1]",
+    "expression": {
+      "$coalesce": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"12\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[1]: text",
+    "operator": "$coalesce",
+    "kind": "text",
+    "operand": "value[1]",
+    "expression": {
+      "$coalesce": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"hello\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[1]: empty string",
+    "operator": "$coalesce",
+    "kind": "empty string",
+    "operand": "value[1]",
+    "expression": {
+      "$coalesce": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[1]: boolean",
+    "operator": "$coalesce",
+    "kind": "boolean",
+    "operand": "value[1]",
+    "expression": {
+      "$coalesce": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[1]: false",
+    "operator": "$coalesce",
+    "kind": "false",
+    "operand": "value[1]",
+    "expression": {
+      "$coalesce": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[1]: typed date",
+    "operator": "$coalesce",
+    "kind": "typed date",
+    "operand": "value[1]",
+    "expression": {
+      "$coalesce": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1768489200000\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[1]: decimal128",
+    "operator": "$coalesce",
+    "kind": "decimal128",
+    "operand": "value[1]",
+    "expression": {
+      "$coalesce": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"1.25\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[1]: empty array",
+    "operator": "$coalesce",
+    "kind": "empty array",
+    "operand": "value[1]",
+    "expression": {
+      "$coalesce": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[1]: numeric array",
+    "operator": "$coalesce",
+    "kind": "numeric array",
+    "operand": "value[1]",
+    "expression": {
+      "$coalesce": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[1]: mixed array",
+    "operator": "$coalesce",
+    "kind": "mixed array",
+    "operand": "value[1]",
+    "expression": {
+      "$coalesce": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, null, \"x\", {\"$numberInt\": \"3\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[1]: nested array",
+    "operator": "$coalesce",
+    "kind": "nested array",
+    "operand": "value[1]",
+    "expression": {
+      "$coalesce": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}], [{\"$numberInt\": \"3\"}]]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[1]: empty object",
+    "operator": "$coalesce",
+    "kind": "empty object",
+    "operand": "value[1]",
+    "expression": {
+      "$coalesce": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[1]: object",
+    "operator": "$coalesce",
+    "kind": "object",
+    "operand": "value[1]",
+    "expression": {
+      "$coalesce": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"x\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce value[1]: ISO date string",
+    "operator": "$coalesce",
+    "kind": "ISO date string",
+    "operand": "value[1]",
+    "expression": {
+      "$coalesce": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2026-01-15T15:00:00Z\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce empty arguments",
+    "operator": "$coalesce",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$coalesce": []
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$coalesce unknown option",
+    "operator": "$coalesce",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$coalesce": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$coalesce expects an array of expressions"
+    }
+  }
+]

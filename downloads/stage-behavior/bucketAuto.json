@@ -1,0 +1,107 @@
+[
+  {
+    "id": "$bucketAuto example",
+    "stage": "$bucketAuto",
+    "kind": "example",
+    "pipeline": [
+      {
+        "$bucketAuto": {
+          "groupBy": "$price",
+          "buckets": 2,
+          "output": {
+            "count": {
+              "$sum": 1
+            }
+          }
+        }
+      }
+    ],
+    "input": [
+      {
+        "price": 1
+      },
+      {
+        "price": 2
+      },
+      {
+        "price": 10
+      }
+    ],
+    "result": [
+      {
+        "_id": 1.0,
+        "count": 2.0
+      },
+      {
+        "_id": 5.5,
+        "count": 1.0
+      }
+    ]
+  },
+  {
+    "id": "$bucketAuto empty input",
+    "stage": "$bucketAuto",
+    "kind": "empty input",
+    "pipeline": [
+      {
+        "$bucketAuto": {
+          "groupBy": "$price",
+          "buckets": 2,
+          "output": {
+            "count": {
+              "$sum": 1
+            }
+          }
+        }
+      }
+    ],
+    "input": [],
+    "result": []
+  },
+  {
+    "id": "$bucketAuto invalid specification",
+    "stage": "$bucketAuto",
+    "kind": "invalid specification",
+    "pipeline": [
+      {
+        "$bucketAuto": null
+      }
+    ],
+    "input": [
+      {
+        "price": 1
+      },
+      {
+        "price": 2
+      },
+      {
+        "price": 10
+      }
+    ],
+    "error": "IllegalArgumentException",
+    "message": "$bucketAuto stage requires an object"
+  },
+  {
+    "id": "$bucketAuto no numeric values",
+    "stage": "$bucketAuto",
+    "kind": "no numeric values",
+    "pipeline": [
+      {
+        "$bucketAuto": {
+          "groupBy": "$price",
+          "buckets": 2
+        }
+      }
+    ],
+    "input": [
+      {},
+      {
+        "price": null
+      },
+      {
+        "price": "x"
+      }
+    ],
+    "result": []
+  }
+]

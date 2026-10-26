@@ -1,0 +1,1658 @@
+[
+  {
+    "id": "$setField baseline",
+    "operator": "$setField",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"a\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"a\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setField field: null",
+    "operator": "$setField",
+    "kind": "null",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: '$CURRENT.probe' is a field path reference which is not allowed in this context. Did you mean {$literal: '$CURRENT.probe'}?",
+      "code": 4161108,
+      "error": "Location4161108"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField field: missing",
+    "operator": "$setField",
+    "kind": "missing",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: '$CURRENT.probe' is a field path reference which is not allowed in this context. Did you mean {$literal: '$CURRENT.probe'}?",
+      "code": 4161108,
+      "error": "Location4161108"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField field: zero",
+    "operator": "$setField",
+    "kind": "zero",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: '$CURRENT.probe' is a field path reference which is not allowed in this context. Did you mean {$literal: '$CURRENT.probe'}?",
+      "code": 4161108,
+      "error": "Location4161108"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField field: negative",
+    "operator": "$setField",
+    "kind": "negative",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: '$CURRENT.probe' is a field path reference which is not allowed in this context. Did you mean {$literal: '$CURRENT.probe'}?",
+      "code": 4161108,
+      "error": "Location4161108"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField field: decimal",
+    "operator": "$setField",
+    "kind": "decimal",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: '$CURRENT.probe' is a field path reference which is not allowed in this context. Did you mean {$literal: '$CURRENT.probe'}?",
+      "code": 4161108,
+      "error": "Location4161108"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField field: numeric string",
+    "operator": "$setField",
+    "kind": "numeric string",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"12\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: '$CURRENT.probe' is a field path reference which is not allowed in this context. Did you mean {$literal: '$CURRENT.probe'}?",
+      "code": 4161108,
+      "error": "Location4161108"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$setField field: text",
+    "operator": "$setField",
+    "kind": "text",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"hello\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: '$CURRENT.probe' is a field path reference which is not allowed in this context. Did you mean {$literal: '$CURRENT.probe'}?",
+      "code": 4161108,
+      "error": "Location4161108"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$setField field: empty string",
+    "operator": "$setField",
+    "kind": "empty string",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: '$CURRENT.probe' is a field path reference which is not allowed in this context. Did you mean {$literal: '$CURRENT.probe'}?",
+      "code": 4161108,
+      "error": "Location4161108"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$setField field: boolean",
+    "operator": "$setField",
+    "kind": "boolean",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: '$CURRENT.probe' is a field path reference which is not allowed in this context. Did you mean {$literal: '$CURRENT.probe'}?",
+      "code": 4161108,
+      "error": "Location4161108"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField field: false",
+    "operator": "$setField",
+    "kind": "false",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: '$CURRENT.probe' is a field path reference which is not allowed in this context. Did you mean {$literal: '$CURRENT.probe'}?",
+      "code": 4161108,
+      "error": "Location4161108"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField field: typed date",
+    "operator": "$setField",
+    "kind": "typed date",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: '$CURRENT.probe' is a field path reference which is not allowed in this context. Did you mean {$literal: '$CURRENT.probe'}?",
+      "code": 4161108,
+      "error": "Location4161108"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField field: decimal128",
+    "operator": "$setField",
+    "kind": "decimal128",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: '$CURRENT.probe' is a field path reference which is not allowed in this context. Did you mean {$literal: '$CURRENT.probe'}?",
+      "code": 4161108,
+      "error": "Location4161108"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField field: empty array",
+    "operator": "$setField",
+    "kind": "empty array",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: '$CURRENT.probe' is a field path reference which is not allowed in this context. Did you mean {$literal: '$CURRENT.probe'}?",
+      "code": 4161108,
+      "error": "Location4161108"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField field: numeric array",
+    "operator": "$setField",
+    "kind": "numeric array",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: '$CURRENT.probe' is a field path reference which is not allowed in this context. Did you mean {$literal: '$CURRENT.probe'}?",
+      "code": 4161108,
+      "error": "Location4161108"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField field: mixed array",
+    "operator": "$setField",
+    "kind": "mixed array",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: '$CURRENT.probe' is a field path reference which is not allowed in this context. Did you mean {$literal: '$CURRENT.probe'}?",
+      "code": 4161108,
+      "error": "Location4161108"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField field: nested array",
+    "operator": "$setField",
+    "kind": "nested array",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: '$CURRENT.probe' is a field path reference which is not allowed in this context. Did you mean {$literal: '$CURRENT.probe'}?",
+      "code": 4161108,
+      "error": "Location4161108"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField field: empty object",
+    "operator": "$setField",
+    "kind": "empty object",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: '$CURRENT.probe' is a field path reference which is not allowed in this context. Did you mean {$literal: '$CURRENT.probe'}?",
+      "code": 4161108,
+      "error": "Location4161108"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField field: object",
+    "operator": "$setField",
+    "kind": "object",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: '$CURRENT.probe' is a field path reference which is not allowed in this context. Did you mean {$literal: '$CURRENT.probe'}?",
+      "code": 4161108,
+      "error": "Location4161108"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField field: ISO date string",
+    "operator": "$setField",
+    "kind": "ISO date string",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "field": "$probe",
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"2026-01-15T15:00:00Z\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: '$CURRENT.probe' is a field path reference which is not allowed in this context. Did you mean {$literal: '$CURRENT.probe'}?",
+      "code": 4161108,
+      "error": "Location4161108"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$setField input: null",
+    "operator": "$setField",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$setField input: missing",
+    "operator": "$setField",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$setField input: zero",
+    "operator": "$setField",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $setField requires 'input' to evaluate to type Object",
+      "code": 4161105,
+      "error": "Location4161105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField input: negative",
+    "operator": "$setField",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $setField requires 'input' to evaluate to type Object",
+      "code": 4161105,
+      "error": "Location4161105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField input: decimal",
+    "operator": "$setField",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $setField requires 'input' to evaluate to type Object",
+      "code": 4161105,
+      "error": "Location4161105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField input: numeric string",
+    "operator": "$setField",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $setField requires 'input' to evaluate to type Object",
+      "code": 4161105,
+      "error": "Location4161105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField input: text",
+    "operator": "$setField",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $setField requires 'input' to evaluate to type Object",
+      "code": 4161105,
+      "error": "Location4161105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField input: empty string",
+    "operator": "$setField",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $setField requires 'input' to evaluate to type Object",
+      "code": 4161105,
+      "error": "Location4161105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField input: boolean",
+    "operator": "$setField",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $setField requires 'input' to evaluate to type Object",
+      "code": 4161105,
+      "error": "Location4161105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField input: false",
+    "operator": "$setField",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $setField requires 'input' to evaluate to type Object",
+      "code": 4161105,
+      "error": "Location4161105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField input: typed date",
+    "operator": "$setField",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $setField requires 'input' to evaluate to type Object",
+      "code": 4161105,
+      "error": "Location4161105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField input: decimal128",
+    "operator": "$setField",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $setField requires 'input' to evaluate to type Object",
+      "code": 4161105,
+      "error": "Location4161105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField input: empty array",
+    "operator": "$setField",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $setField requires 'input' to evaluate to type Object",
+      "code": 4161105,
+      "error": "Location4161105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField input: numeric array",
+    "operator": "$setField",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $setField requires 'input' to evaluate to type Object",
+      "code": 4161105,
+      "error": "Location4161105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField input: mixed array",
+    "operator": "$setField",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $setField requires 'input' to evaluate to type Object",
+      "code": 4161105,
+      "error": "Location4161105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField input: nested array",
+    "operator": "$setField",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $setField requires 'input' to evaluate to type Object",
+      "code": 4161105,
+      "error": "Location4161105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField input: empty object",
+    "operator": "$setField",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"a\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setField input: object",
+    "operator": "$setField",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"x\": {\"$numberInt\": \"1\"}, \"a\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"x\": {\"$numberInt\": \"1\"}, \"a\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setField input: ISO date string",
+    "operator": "$setField",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": "$probe",
+        "value": 1
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires document input and string field."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $setField requires 'input' to evaluate to type Object",
+      "code": 4161105,
+      "error": "Location4161105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField value: null",
+    "operator": "$setField",
+    "kind": "null",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": null}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"a\": null}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setField value: missing",
+    "operator": "$setField",
+    "kind": "missing",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"a\": null}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$setField value: zero",
+    "operator": "$setField",
+    "kind": "zero",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": {\"$numberInt\": \"0\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"a\": {\"$numberInt\": \"0\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setField value: negative",
+    "operator": "$setField",
+    "kind": "negative",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": {\"$numberInt\": \"-2\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"a\": {\"$numberInt\": \"-2\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setField value: decimal",
+    "operator": "$setField",
+    "kind": "decimal",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": {\"$numberDouble\": \"2.5\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"a\": {\"$numberDouble\": \"2.5\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setField value: numeric string",
+    "operator": "$setField",
+    "kind": "numeric string",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": \"12\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"a\": \"12\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setField value: text",
+    "operator": "$setField",
+    "kind": "text",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": \"hello\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"a\": \"hello\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setField value: empty string",
+    "operator": "$setField",
+    "kind": "empty string",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": \"\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"a\": \"\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setField value: boolean",
+    "operator": "$setField",
+    "kind": "boolean",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": true}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"a\": true}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setField value: false",
+    "operator": "$setField",
+    "kind": "false",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": false}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"a\": false}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setField value: typed date",
+    "operator": "$setField",
+    "kind": "typed date",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": {\"$date\": {\"$numberLong\": \"1768489200000\"}}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"a\": {\"$date\": {\"$numberLong\": \"1768489200000\"}}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setField value: decimal128",
+    "operator": "$setField",
+    "kind": "decimal128",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": {\"$numberDecimal\": \"1.25\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"a\": {\"$numberDecimal\": \"1.25\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setField value: empty array",
+    "operator": "$setField",
+    "kind": "empty array",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": []}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"a\": []}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setField value: numeric array",
+    "operator": "$setField",
+    "kind": "numeric array",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}]}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"a\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}]}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setField value: mixed array",
+    "operator": "$setField",
+    "kind": "mixed array",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": [{\"$numberInt\": \"1\"}, null, \"x\", {\"$numberInt\": \"3\"}]}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"a\": [{\"$numberInt\": \"1\"}, null, \"x\", {\"$numberInt\": \"3\"}]}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setField value: nested array",
+    "operator": "$setField",
+    "kind": "nested array",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}], [{\"$numberInt\": \"3\"}]]}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"a\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}], [{\"$numberInt\": \"3\"}]]}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setField value: empty object",
+    "operator": "$setField",
+    "kind": "empty object",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": {}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"a\": {}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setField value: object",
+    "operator": "$setField",
+    "kind": "object",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": {\"x\": {\"$numberInt\": \"1\"}}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"a\": {\"x\": {\"$numberInt\": \"1\"}}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setField value: ISO date string",
+    "operator": "$setField",
+    "kind": "ISO date string",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {},
+        "value": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": \"2026-01-15T15:00:00Z\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"a\": \"2026-01-15T15:00:00Z\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$setField omit field",
+    "operator": "$setField",
+    "kind": "omitted named argument",
+    "operand": "field",
+    "expression": {
+      "$setField": {
+        "input": {},
+        "value": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires 'field', 'input', and 'value' keys."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $setField requires 'field' to be specified",
+      "code": 4161102,
+      "error": "Location4161102"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField omit input",
+    "operator": "$setField",
+    "kind": "omitted named argument",
+    "operand": "input",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "value": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires 'field', 'input', and 'value' keys."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $setField requires 'input' to be specified",
+      "code": 4161109,
+      "error": "Location4161109"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField omit value",
+    "operator": "$setField",
+    "kind": "omitted named argument",
+    "operand": "value",
+    "expression": {
+      "$setField": {
+        "field": "a",
+        "input": {}
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires 'field', 'input', and 'value' keys."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $setField requires 'value' to be specified",
+      "code": 4161103,
+      "error": "Location4161103"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField empty arguments",
+    "operator": "$setField",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$setField": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires 'field', 'input', and 'value' keys."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $setField only supports an object as its argument",
+      "code": 4161100,
+      "error": "Location4161100"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$setField unknown option",
+    "operator": "$setField",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$setField": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setField requires 'field', 'input', and 'value' keys."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $setField found an unknown argument: unexpected",
+      "code": 4161101,
+      "error": "Location4161101"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

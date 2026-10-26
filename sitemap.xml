@@ -2,666 +2,818 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.srotax.com/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/quickstart/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/verification/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/integration/java/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/integration/runtime/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/array-statistics/</loc>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/conditions/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/expressions/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/mongo-compatibility/</loc>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/operator-parity/</loc>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/schemas/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/stages/</loc>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/steps/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/abs/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/acos/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/acosh/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/add/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/allElementsTrue/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/and/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/anyElementTrue/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/arrayElemAt/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/arrayToObject/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/asin/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/asinh/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/atan/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/atan2/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/atanh/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/avg/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/binarySize/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/bitAnd/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/operators/bitNot/</loc>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/bitOr/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/bitXor/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/bsonSize/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/ceil/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/cmp/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/coalesce/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/concat/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/concatArrays/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/cond/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/convert/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/cos/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/cosh/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/dateAdd/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/dateDiff/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/dateFromParts/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/dateFromString/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/dateSubtract/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/dateToParts/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/dateToString/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/dateTrunc/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/dayOfMonth/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/dayOfWeek/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/dayOfYear/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/degreesToRadians/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/divide/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/endsWith/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/eq/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/exp/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/expr/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/filter/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/first/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/operators/firstN/</loc>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/floor/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/function/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/getField/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/gt/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/gte/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/hour/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/ifNull/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/in/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/indexOfArray/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/indexOfBytes/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/indexOfCP/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/isArray/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/isNumber/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/isoDayOfWeek/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/isoWeek/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/isoWeekYear/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/last/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/operators/lastN/</loc>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/let/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/literal/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/ln/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/log/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/log10/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/lt/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/lte/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/ltrim/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/map/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/max/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/operators/maxN/</loc>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/operators/median/</loc>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/mergeObjects/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/millisecond/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/min/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/minDistance/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/operators/minN/</loc>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/minute/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/mod/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/month/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/multiply/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/ne/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/nin/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/nor/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/not/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/objectToArray/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/or/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/operators/percentile/</loc>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/pow/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/radiansToDegrees/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/range/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/reduce/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/regexFind/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/regexFindAll/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/regexMatch/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/replaceAll/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/replaceOne/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/reverseArray/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/round/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/rtrim/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/second/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/setDifference/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/setEquals/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/setField/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/setIntersection/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/setIsSubset/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/setIsSuperset/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/setUnion/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/sin/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/sinh/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/size/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/slice/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/operators/sortArray/</loc>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/split/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/sqrt/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/startsWith/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/operators/stdDevPop/</loc>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/operators/stdDevSamp/</loc>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/strLenBytes/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/strLenCP/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/strcasecmp/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/substr/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/substrBytes/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/substrCP/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/subtract/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/sum/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/switch/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/tan/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/tanh/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/operators/toArray/</loc>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/toBool/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/toDate/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/toDecimal/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/toDouble/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/toInt/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/toLong/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/toLower/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/operators/toObject/</loc>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/toObjectId/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/toString/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/toUpper/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/operators/topN/</loc>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/trim/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/trunc/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/tsIncrement/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/tsSecond/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/type/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/unsetField/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/week/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/year/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/reference/operators/zip/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/stages/addFields/</loc>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/stages/bucket/</loc>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/stages/bucketAuto/</loc>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/stages/densify/</loc>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/stages/facet/</loc>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/stages/fill/</loc>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/stages/group/</loc>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/stages/limit/</loc>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/stages/lookup/</loc>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/stages/match/</loc>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/stages/project/</loc>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/stages/replaceRoot/</loc>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/stages/replaceWith/</loc>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/stages/set/</loc>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/stages/setWindowFields/</loc>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/stages/skip/</loc>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/stages/sort/</loc>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/stages/sortByCount/</loc>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/stages/subPipeline/</loc>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/stages/unset/</loc>
+         <lastmod>2026-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.srotax.com/reference/stages/unwind/</loc>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/studio/catalog/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/studio/change-sets/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/studio/contracts/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/studio/flows/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/studio/models/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/studio/order-fulfillment/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/studio/releases/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/studio/tables/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/studio/testing/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
     <url>
          <loc>https://docs.srotax.com/studio/trees/</loc>
-         <lastmod>2026-10-24</lastmod>
+         <lastmod>2026-10-26</lastmod>
     </url>
 </urlset>

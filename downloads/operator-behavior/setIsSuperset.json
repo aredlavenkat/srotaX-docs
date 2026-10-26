@@ -1,0 +1,933 @@
+[
+  {
+    "id": "$setIsSuperset baseline",
+    "operator": "$setIsSuperset",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$setIsSuperset": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setIsSuperset array[0]: null",
+    "operator": "$setIsSuperset",
+    "kind": "null",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSuperset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSuperset expects array operands"
+    }
+  },
+  {
+    "id": "$setIsSuperset array[0]: missing",
+    "operator": "$setIsSuperset",
+    "kind": "missing",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSuperset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSuperset expects array operands"
+    }
+  },
+  {
+    "id": "$setIsSuperset array[0]: zero",
+    "operator": "$setIsSuperset",
+    "kind": "zero",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSuperset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSuperset expects array operands"
+    }
+  },
+  {
+    "id": "$setIsSuperset array[0]: negative",
+    "operator": "$setIsSuperset",
+    "kind": "negative",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSuperset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSuperset expects array operands"
+    }
+  },
+  {
+    "id": "$setIsSuperset array[0]: decimal",
+    "operator": "$setIsSuperset",
+    "kind": "decimal",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSuperset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSuperset expects array operands"
+    }
+  },
+  {
+    "id": "$setIsSuperset array[0]: numeric string",
+    "operator": "$setIsSuperset",
+    "kind": "numeric string",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSuperset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSuperset expects array operands"
+    }
+  },
+  {
+    "id": "$setIsSuperset array[0]: text",
+    "operator": "$setIsSuperset",
+    "kind": "text",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSuperset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSuperset expects array operands"
+    }
+  },
+  {
+    "id": "$setIsSuperset array[0]: empty string",
+    "operator": "$setIsSuperset",
+    "kind": "empty string",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSuperset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSuperset expects array operands"
+    }
+  },
+  {
+    "id": "$setIsSuperset array[0]: boolean",
+    "operator": "$setIsSuperset",
+    "kind": "boolean",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSuperset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSuperset expects array operands"
+    }
+  },
+  {
+    "id": "$setIsSuperset array[0]: false",
+    "operator": "$setIsSuperset",
+    "kind": "false",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSuperset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSuperset expects array operands"
+    }
+  },
+  {
+    "id": "$setIsSuperset array[0]: typed date",
+    "operator": "$setIsSuperset",
+    "kind": "typed date",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSuperset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSuperset expects array operands"
+    }
+  },
+  {
+    "id": "$setIsSuperset array[0]: decimal128",
+    "operator": "$setIsSuperset",
+    "kind": "decimal128",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSuperset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSuperset expects array operands"
+    }
+  },
+  {
+    "id": "$setIsSuperset array[0]: empty array",
+    "operator": "$setIsSuperset",
+    "kind": "empty array",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSuperset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setIsSuperset array[0]: numeric array",
+    "operator": "$setIsSuperset",
+    "kind": "numeric array",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSuperset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setIsSuperset array[0]: mixed array",
+    "operator": "$setIsSuperset",
+    "kind": "mixed array",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSuperset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setIsSuperset array[0]: nested array",
+    "operator": "$setIsSuperset",
+    "kind": "nested array",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSuperset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setIsSuperset array[0]: empty object",
+    "operator": "$setIsSuperset",
+    "kind": "empty object",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSuperset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSuperset expects array operands"
+    }
+  },
+  {
+    "id": "$setIsSuperset array[0]: object",
+    "operator": "$setIsSuperset",
+    "kind": "object",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSuperset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSuperset expects array operands"
+    }
+  },
+  {
+    "id": "$setIsSuperset array[0]: ISO date string",
+    "operator": "$setIsSuperset",
+    "kind": "ISO date string",
+    "operand": "array[0]",
+    "expression": {
+      "$setIsSuperset": [
+        "$probe",
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSuperset expects array operands"
+    }
+  },
+  {
+    "id": "$setIsSuperset other[1]: null",
+    "operator": "$setIsSuperset",
+    "kind": "null",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSuperset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSuperset expects array operands"
+    }
+  },
+  {
+    "id": "$setIsSuperset other[1]: missing",
+    "operator": "$setIsSuperset",
+    "kind": "missing",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSuperset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSuperset expects array operands"
+    }
+  },
+  {
+    "id": "$setIsSuperset other[1]: zero",
+    "operator": "$setIsSuperset",
+    "kind": "zero",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSuperset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSuperset expects array operands"
+    }
+  },
+  {
+    "id": "$setIsSuperset other[1]: negative",
+    "operator": "$setIsSuperset",
+    "kind": "negative",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSuperset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSuperset expects array operands"
+    }
+  },
+  {
+    "id": "$setIsSuperset other[1]: decimal",
+    "operator": "$setIsSuperset",
+    "kind": "decimal",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSuperset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSuperset expects array operands"
+    }
+  },
+  {
+    "id": "$setIsSuperset other[1]: numeric string",
+    "operator": "$setIsSuperset",
+    "kind": "numeric string",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSuperset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSuperset expects array operands"
+    }
+  },
+  {
+    "id": "$setIsSuperset other[1]: text",
+    "operator": "$setIsSuperset",
+    "kind": "text",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSuperset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSuperset expects array operands"
+    }
+  },
+  {
+    "id": "$setIsSuperset other[1]: empty string",
+    "operator": "$setIsSuperset",
+    "kind": "empty string",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSuperset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSuperset expects array operands"
+    }
+  },
+  {
+    "id": "$setIsSuperset other[1]: boolean",
+    "operator": "$setIsSuperset",
+    "kind": "boolean",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSuperset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSuperset expects array operands"
+    }
+  },
+  {
+    "id": "$setIsSuperset other[1]: false",
+    "operator": "$setIsSuperset",
+    "kind": "false",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSuperset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSuperset expects array operands"
+    }
+  },
+  {
+    "id": "$setIsSuperset other[1]: typed date",
+    "operator": "$setIsSuperset",
+    "kind": "typed date",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSuperset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSuperset expects array operands"
+    }
+  },
+  {
+    "id": "$setIsSuperset other[1]: decimal128",
+    "operator": "$setIsSuperset",
+    "kind": "decimal128",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSuperset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSuperset expects array operands"
+    }
+  },
+  {
+    "id": "$setIsSuperset other[1]: empty array",
+    "operator": "$setIsSuperset",
+    "kind": "empty array",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSuperset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setIsSuperset other[1]: numeric array",
+    "operator": "$setIsSuperset",
+    "kind": "numeric array",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSuperset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setIsSuperset other[1]: mixed array",
+    "operator": "$setIsSuperset",
+    "kind": "mixed array",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSuperset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setIsSuperset other[1]: nested array",
+    "operator": "$setIsSuperset",
+    "kind": "nested array",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSuperset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$setIsSuperset other[1]: empty object",
+    "operator": "$setIsSuperset",
+    "kind": "empty object",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSuperset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSuperset expects array operands"
+    }
+  },
+  {
+    "id": "$setIsSuperset other[1]: object",
+    "operator": "$setIsSuperset",
+    "kind": "object",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSuperset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSuperset expects array operands"
+    }
+  },
+  {
+    "id": "$setIsSuperset other[1]: ISO date string",
+    "operator": "$setIsSuperset",
+    "kind": "ISO date string",
+    "operand": "other[1]",
+    "expression": {
+      "$setIsSuperset": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSuperset expects array operands"
+    }
+  },
+  {
+    "id": "$setIsSuperset empty arguments",
+    "operator": "$setIsSuperset",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$setIsSuperset": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSuperset requires exactly two arrays."
+    }
+  },
+  {
+    "id": "$setIsSuperset unknown option",
+    "operator": "$setIsSuperset",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$setIsSuperset": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$setIsSuperset requires exactly two arrays."
+    }
+  }
+]

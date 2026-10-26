@@ -1,0 +1,503 @@
+[
+  {
+    "id": "$size baseline",
+    "operator": "$size",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$size": {
+        "$literal": [
+          1,
+          2
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$size input: null",
+    "operator": "$size",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$size": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$size requires an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The argument to $size must be an array, but was of type: null",
+      "code": 17124,
+      "error": "Location17124"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$size input: missing",
+    "operator": "$size",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$size": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$size requires an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The argument to $size must be an array, but was of type: missing",
+      "code": 17124,
+      "error": "Location17124"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$size input: zero",
+    "operator": "$size",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$size": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$size requires an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The argument to $size must be an array, but was of type: int",
+      "code": 17124,
+      "error": "Location17124"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$size input: negative",
+    "operator": "$size",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$size": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$size requires an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The argument to $size must be an array, but was of type: int",
+      "code": 17124,
+      "error": "Location17124"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$size input: decimal",
+    "operator": "$size",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$size": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$size requires an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The argument to $size must be an array, but was of type: double",
+      "code": 17124,
+      "error": "Location17124"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$size input: numeric string",
+    "operator": "$size",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$size": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$size requires an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The argument to $size must be an array, but was of type: string",
+      "code": 17124,
+      "error": "Location17124"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$size input: text",
+    "operator": "$size",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$size": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$size requires an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The argument to $size must be an array, but was of type: string",
+      "code": 17124,
+      "error": "Location17124"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$size input: empty string",
+    "operator": "$size",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$size": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$size requires an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The argument to $size must be an array, but was of type: string",
+      "code": 17124,
+      "error": "Location17124"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$size input: boolean",
+    "operator": "$size",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$size": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$size requires an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The argument to $size must be an array, but was of type: bool",
+      "code": 17124,
+      "error": "Location17124"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$size input: false",
+    "operator": "$size",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$size": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$size requires an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The argument to $size must be an array, but was of type: bool",
+      "code": 17124,
+      "error": "Location17124"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$size input: typed date",
+    "operator": "$size",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$size": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$size requires an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The argument to $size must be an array, but was of type: date",
+      "code": 17124,
+      "error": "Location17124"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$size input: decimal128",
+    "operator": "$size",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$size": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$size requires an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The argument to $size must be an array, but was of type: decimal",
+      "code": 17124,
+      "error": "Location17124"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$size input: empty array",
+    "operator": "$size",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$size": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$size input: numeric array",
+    "operator": "$size",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$size": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$size input: mixed array",
+    "operator": "$size",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$size": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"4\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"4\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$size input: nested array",
+    "operator": "$size",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$size": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$size input: empty object",
+    "operator": "$size",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$size": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$size requires an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The argument to $size must be an array, but was of type: object",
+      "code": 17124,
+      "error": "Location17124"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$size input: object",
+    "operator": "$size",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$size": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$size requires an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The argument to $size must be an array, but was of type: object",
+      "code": 17124,
+      "error": "Location17124"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$size input: ISO date string",
+    "operator": "$size",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$size": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$size requires an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The argument to $size must be an array, but was of type: string",
+      "code": 17124,
+      "error": "Location17124"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$size empty arguments",
+    "operator": "$size",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$size": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$size requires one argument"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $size takes exactly 1 arguments. 0 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$size unknown option",
+    "operator": "$size",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$size": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$size requires an array"
+    },
+    "mongo": {
+      "message": "Failed to optimize pipeline :: caused by :: The argument to $size must be an array, but was of type: object",
+      "code": 17124,
+      "error": "Location17124"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

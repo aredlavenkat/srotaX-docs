@@ -1,0 +1,1304 @@
+[
+  {
+    "id": "$replaceAll baseline",
+    "operator": "$replaceAll",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"xbx\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$replaceAll input: null",
+    "operator": "$replaceAll",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$replaceAll": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$replaceAll input: missing",
+    "operator": "$replaceAll",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$replaceAll": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$replaceAll input: zero",
+    "operator": "$replaceAll",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$replaceAll": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll input: negative",
+    "operator": "$replaceAll",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$replaceAll": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll input: decimal",
+    "operator": "$replaceAll",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$replaceAll": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Double cannot be cast to class java.lang.String (java.lang.Double and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll input: numeric string",
+    "operator": "$replaceAll",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$replaceAll": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"12\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$replaceAll input: text",
+    "operator": "$replaceAll",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$replaceAll": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"hello\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$replaceAll input: empty string",
+    "operator": "$replaceAll",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$replaceAll": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$replaceAll input: boolean",
+    "operator": "$replaceAll",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$replaceAll": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll input: false",
+    "operator": "$replaceAll",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$replaceAll": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll input: typed date",
+    "operator": "$replaceAll",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$replaceAll": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.Date cannot be cast to class java.lang.String (java.util.Date and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll input: decimal128",
+    "operator": "$replaceAll",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$replaceAll": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.types.Decimal128 cannot be cast to class java.lang.String (org.bson.types.Decimal128 is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll input: empty array",
+    "operator": "$replaceAll",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$replaceAll": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll input: numeric array",
+    "operator": "$replaceAll",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$replaceAll": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll input: mixed array",
+    "operator": "$replaceAll",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$replaceAll": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll input: nested array",
+    "operator": "$replaceAll",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$replaceAll": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll input: empty object",
+    "operator": "$replaceAll",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$replaceAll": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll input: object",
+    "operator": "$replaceAll",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$replaceAll": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll input: ISO date string",
+    "operator": "$replaceAll",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$replaceAll": {
+        "input": "$probe",
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2026-01-15T15:00:00Z\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$replaceAll find: null",
+    "operator": "$replaceAll",
+    "kind": "null",
+    "operand": "find",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$replaceAll find: missing",
+    "operator": "$replaceAll",
+    "kind": "missing",
+    "operand": "find",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$replaceAll find: zero",
+    "operator": "$replaceAll",
+    "kind": "zero",
+    "operand": "find",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll find: negative",
+    "operator": "$replaceAll",
+    "kind": "negative",
+    "operand": "find",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll find: decimal",
+    "operator": "$replaceAll",
+    "kind": "decimal",
+    "operand": "find",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Double cannot be cast to class java.lang.String (java.lang.Double and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll find: numeric string",
+    "operator": "$replaceAll",
+    "kind": "numeric string",
+    "operand": "find",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"aba\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$replaceAll find: text",
+    "operator": "$replaceAll",
+    "kind": "text",
+    "operand": "find",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"aba\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$replaceAll find: empty string",
+    "operator": "$replaceAll",
+    "kind": "empty string",
+    "operand": "find",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": \"xaxbxax\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$replaceAll find: boolean",
+    "operator": "$replaceAll",
+    "kind": "boolean",
+    "operand": "find",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll find: false",
+    "operator": "$replaceAll",
+    "kind": "false",
+    "operand": "find",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll find: typed date",
+    "operator": "$replaceAll",
+    "kind": "typed date",
+    "operand": "find",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.Date cannot be cast to class java.lang.String (java.util.Date and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll find: decimal128",
+    "operator": "$replaceAll",
+    "kind": "decimal128",
+    "operand": "find",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.types.Decimal128 cannot be cast to class java.lang.String (org.bson.types.Decimal128 is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll find: empty array",
+    "operator": "$replaceAll",
+    "kind": "empty array",
+    "operand": "find",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll find: numeric array",
+    "operator": "$replaceAll",
+    "kind": "numeric array",
+    "operand": "find",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll find: mixed array",
+    "operator": "$replaceAll",
+    "kind": "mixed array",
+    "operand": "find",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll find: nested array",
+    "operator": "$replaceAll",
+    "kind": "nested array",
+    "operand": "find",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll find: empty object",
+    "operator": "$replaceAll",
+    "kind": "empty object",
+    "operand": "find",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll find: object",
+    "operator": "$replaceAll",
+    "kind": "object",
+    "operand": "find",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll find: ISO date string",
+    "operator": "$replaceAll",
+    "kind": "ISO date string",
+    "operand": "find",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "$probe",
+        "replacement": "x"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"aba\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$replaceAll replacement: null",
+    "operator": "$replaceAll",
+    "kind": "null",
+    "operand": "replacement",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$replaceAll replacement: missing",
+    "operator": "$replaceAll",
+    "kind": "missing",
+    "operand": "replacement",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$replaceAll replacement: zero",
+    "operator": "$replaceAll",
+    "kind": "zero",
+    "operand": "replacement",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll replacement: negative",
+    "operator": "$replaceAll",
+    "kind": "negative",
+    "operand": "replacement",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll replacement: decimal",
+    "operator": "$replaceAll",
+    "kind": "decimal",
+    "operand": "replacement",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Double cannot be cast to class java.lang.String (java.lang.Double and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll replacement: numeric string",
+    "operator": "$replaceAll",
+    "kind": "numeric string",
+    "operand": "replacement",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"12b12\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$replaceAll replacement: text",
+    "operator": "$replaceAll",
+    "kind": "text",
+    "operand": "replacement",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"hellobhello\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$replaceAll replacement: empty string",
+    "operator": "$replaceAll",
+    "kind": "empty string",
+    "operand": "replacement",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": \"b\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$replaceAll replacement: boolean",
+    "operator": "$replaceAll",
+    "kind": "boolean",
+    "operand": "replacement",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll replacement: false",
+    "operator": "$replaceAll",
+    "kind": "false",
+    "operand": "replacement",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll replacement: typed date",
+    "operator": "$replaceAll",
+    "kind": "typed date",
+    "operand": "replacement",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.Date cannot be cast to class java.lang.String (java.util.Date and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll replacement: decimal128",
+    "operator": "$replaceAll",
+    "kind": "decimal128",
+    "operand": "replacement",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.types.Decimal128 cannot be cast to class java.lang.String (org.bson.types.Decimal128 is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll replacement: empty array",
+    "operator": "$replaceAll",
+    "kind": "empty array",
+    "operand": "replacement",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll replacement: numeric array",
+    "operator": "$replaceAll",
+    "kind": "numeric array",
+    "operand": "replacement",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll replacement: mixed array",
+    "operator": "$replaceAll",
+    "kind": "mixed array",
+    "operand": "replacement",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll replacement: nested array",
+    "operator": "$replaceAll",
+    "kind": "nested array",
+    "operand": "replacement",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll replacement: empty object",
+    "operator": "$replaceAll",
+    "kind": "empty object",
+    "operand": "replacement",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll replacement: object",
+    "operator": "$replaceAll",
+    "kind": "object",
+    "operand": "replacement",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll replacement: ISO date string",
+    "operator": "$replaceAll",
+    "kind": "ISO date string",
+    "operand": "replacement",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "a",
+        "replacement": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2026-01-15T15:00:00Zb2026-01-15T15:00:00Z\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$replaceAll omit input",
+    "operator": "$replaceAll",
+    "kind": "omitted named argument",
+    "operand": "input",
+    "expression": {
+      "$replaceAll": {
+        "find": "a",
+        "replacement": "x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$replaceAll omit find",
+    "operator": "$replaceAll",
+    "kind": "omitted named argument",
+    "operand": "find",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "replacement": "x"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$replaceAll omit replacement",
+    "operator": "$replaceAll",
+    "kind": "omitted named argument",
+    "operand": "replacement",
+    "expression": {
+      "$replaceAll": {
+        "input": "aba",
+        "find": "a"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$replaceAll empty arguments",
+    "operator": "$replaceAll",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$replaceAll": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.util.Map (java.util.ArrayList and java.util.Map are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$replaceAll unknown option",
+    "operator": "$replaceAll",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$replaceAll": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  }
+]

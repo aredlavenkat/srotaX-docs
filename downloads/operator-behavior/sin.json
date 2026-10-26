@@ -1,0 +1,371 @@
+[
+  {
+    "id": "$sin baseline",
+    "operator": "$sin",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$sin": 0
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sin input: null",
+    "operator": "$sin",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$sin": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sin expects a numeric argument."
+    }
+  },
+  {
+    "id": "$sin input: missing",
+    "operator": "$sin",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$sin": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sin expects a numeric argument."
+    }
+  },
+  {
+    "id": "$sin input: zero",
+    "operator": "$sin",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$sin": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sin input: negative",
+    "operator": "$sin",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$sin": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"-0.9092974268256817\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sin input: decimal",
+    "operator": "$sin",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$sin": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.5984721441039564\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sin input: numeric string",
+    "operator": "$sin",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$sin": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sin expects a numeric argument."
+    }
+  },
+  {
+    "id": "$sin input: text",
+    "operator": "$sin",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$sin": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sin expects a numeric argument."
+    }
+  },
+  {
+    "id": "$sin input: empty string",
+    "operator": "$sin",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$sin": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sin expects a numeric argument."
+    }
+  },
+  {
+    "id": "$sin input: boolean",
+    "operator": "$sin",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$sin": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sin expects a numeric argument."
+    }
+  },
+  {
+    "id": "$sin input: false",
+    "operator": "$sin",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$sin": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sin expects a numeric argument."
+    }
+  },
+  {
+    "id": "$sin input: typed date",
+    "operator": "$sin",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$sin": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sin expects a numeric argument."
+    }
+  },
+  {
+    "id": "$sin input: decimal128",
+    "operator": "$sin",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$sin": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.9489846193555862\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$sin input: empty array",
+    "operator": "$sin",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$sin": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sin expects a numeric argument."
+    }
+  },
+  {
+    "id": "$sin input: numeric array",
+    "operator": "$sin",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$sin": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sin expects a numeric argument."
+    }
+  },
+  {
+    "id": "$sin input: mixed array",
+    "operator": "$sin",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$sin": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sin expects a numeric argument."
+    }
+  },
+  {
+    "id": "$sin input: nested array",
+    "operator": "$sin",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$sin": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sin expects a numeric argument."
+    }
+  },
+  {
+    "id": "$sin input: empty object",
+    "operator": "$sin",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$sin": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sin expects a numeric argument."
+    }
+  },
+  {
+    "id": "$sin input: object",
+    "operator": "$sin",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$sin": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sin expects a numeric argument."
+    }
+  },
+  {
+    "id": "$sin input: ISO date string",
+    "operator": "$sin",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$sin": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sin expects a numeric argument."
+    }
+  },
+  {
+    "id": "$sin empty arguments",
+    "operator": "$sin",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$sin": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sin expects a numeric argument."
+    }
+  },
+  {
+    "id": "$sin unknown option",
+    "operator": "$sin",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$sin": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sin expects a numeric argument."
+    }
+  }
+]

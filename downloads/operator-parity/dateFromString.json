@@ -1,0 +1,2585 @@
+[
+  {
+    "id": "$dateFromString baseline",
+    "operator": "$dateFromString",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString dateString: null",
+    "operator": "$dateFromString",
+    "kind": "null",
+    "operand": "dateString",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString dateString: missing",
+    "operator": "$dateFromString",
+    "kind": "missing",
+    "operand": "dateString",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString dateString: zero",
+    "operator": "$dateFromString",
+    "kind": "zero",
+    "operand": "dateString",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateFromString requires that 'dateString' be a string, found: int with value 0",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString dateString: negative",
+    "operator": "$dateFromString",
+    "kind": "negative",
+    "operand": "dateString",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateFromString requires that 'dateString' be a string, found: int with value -2",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString dateString: decimal",
+    "operator": "$dateFromString",
+    "kind": "decimal",
+    "operand": "dateString",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateFromString requires that 'dateString' be a string, found: double with value 2.5",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString dateString: numeric string",
+    "operator": "$dateFromString",
+    "kind": "numeric string",
+    "operand": "dateString",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Error parsing date string '12'; 0: Unexpected character '1'; 1: Unexpected character '2'",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString dateString: text",
+    "operator": "$dateFromString",
+    "kind": "text",
+    "operand": "dateString",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Error parsing date string 'hello'; 0: passing a time zone identifier as part of the string is not allowed 'h'",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString dateString: empty string",
+    "operator": "$dateFromString",
+    "kind": "empty string",
+    "operand": "dateString",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Error parsing date string ''; 0: Empty string '\u0000'",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString dateString: boolean",
+    "operator": "$dateFromString",
+    "kind": "boolean",
+    "operand": "dateString",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateFromString requires that 'dateString' be a string, found: bool with value true",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString dateString: false",
+    "operator": "$dateFromString",
+    "kind": "false",
+    "operand": "dateString",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateFromString requires that 'dateString' be a string, found: bool with value false",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString dateString: typed date",
+    "operator": "$dateFromString",
+    "kind": "typed date",
+    "operand": "dateString",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateFromString requires that 'dateString' be a string, found: date with value 2026-01-15T15:00:00.000Z",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString dateString: decimal128",
+    "operator": "$dateFromString",
+    "kind": "decimal128",
+    "operand": "dateString",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateFromString requires that 'dateString' be a string, found: decimal with value 1.25",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString dateString: empty array",
+    "operator": "$dateFromString",
+    "kind": "empty array",
+    "operand": "dateString",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateFromString requires that 'dateString' be a string, found: array with value []",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString dateString: numeric array",
+    "operator": "$dateFromString",
+    "kind": "numeric array",
+    "operand": "dateString",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateFromString requires that 'dateString' be a string, found: array with value [1, 2, 3]",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString dateString: mixed array",
+    "operator": "$dateFromString",
+    "kind": "mixed array",
+    "operand": "dateString",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateFromString requires that 'dateString' be a string, found: array with value [1, null, \"x\", 3]",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString dateString: nested array",
+    "operator": "$dateFromString",
+    "kind": "nested array",
+    "operand": "dateString",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateFromString requires that 'dateString' be a string, found: array with value [[1, 2], [3]]",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString dateString: empty object",
+    "operator": "$dateFromString",
+    "kind": "empty object",
+    "operand": "dateString",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateFromString requires that 'dateString' be a string, found: object with value {}",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString dateString: object",
+    "operator": "$dateFromString",
+    "kind": "object",
+    "operand": "dateString",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateFromString requires that 'dateString' be a string, found: object with value {x: 1}",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString dateString: ISO date string",
+    "operator": "$dateFromString",
+    "kind": "ISO date string",
+    "operand": "dateString",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1768489200000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1768489200000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString format: null",
+    "operator": "$dateFromString",
+    "kind": "null",
+    "operand": "format",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "format": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString format: missing",
+    "operator": "$dateFromString",
+    "kind": "missing",
+    "operand": "format",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "format": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString format: zero",
+    "operator": "$dateFromString",
+    "kind": "zero",
+    "operand": "format",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "format": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateFromString requires that 'format' be a string, found: int with value 0",
+      "code": 40684,
+      "error": "Location40684"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString format: negative",
+    "operator": "$dateFromString",
+    "kind": "negative",
+    "operand": "format",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "format": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateFromString requires that 'format' be a string, found: int with value -2",
+      "code": 40684,
+      "error": "Location40684"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString format: decimal",
+    "operator": "$dateFromString",
+    "kind": "decimal",
+    "operand": "format",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "format": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateFromString requires that 'format' be a string, found: double with value 2.5",
+      "code": 40684,
+      "error": "Location40684"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString format: numeric string",
+    "operator": "$dateFromString",
+    "kind": "numeric string",
+    "operand": "format",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "format": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Error parsing date string '2024-01-02T00:00:00Z'; 0: Format literal not found '2'; 1: Format literal not found '0'; 2: Trailing data '2'",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString format: text",
+    "operator": "$dateFromString",
+    "kind": "text",
+    "operand": "format",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "format": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Error parsing date string '2024-01-02T00:00:00Z'; 0: Format literal not found '2'; 1: Format literal not found '0'; 2: Format literal not found '2'; 3: Format literal not found '4'; 4: Format literal not found '-'; 5: Trailing data '0'",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString format: empty string",
+    "operator": "$dateFromString",
+    "kind": "empty string",
+    "operand": "format",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "format": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Error parsing date string '2024-01-02T00:00:00Z'; 0: Trailing data '2'",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString format: boolean",
+    "operator": "$dateFromString",
+    "kind": "boolean",
+    "operand": "format",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "format": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateFromString requires that 'format' be a string, found: bool with value true",
+      "code": 40684,
+      "error": "Location40684"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString format: false",
+    "operator": "$dateFromString",
+    "kind": "false",
+    "operand": "format",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "format": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateFromString requires that 'format' be a string, found: bool with value false",
+      "code": 40684,
+      "error": "Location40684"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString format: typed date",
+    "operator": "$dateFromString",
+    "kind": "typed date",
+    "operand": "format",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "format": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateFromString requires that 'format' be a string, found: date with value 2026-01-15T15:00:00.000Z",
+      "code": 40684,
+      "error": "Location40684"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString format: decimal128",
+    "operator": "$dateFromString",
+    "kind": "decimal128",
+    "operand": "format",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "format": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateFromString requires that 'format' be a string, found: decimal with value 1.25",
+      "code": 40684,
+      "error": "Location40684"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString format: empty array",
+    "operator": "$dateFromString",
+    "kind": "empty array",
+    "operand": "format",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "format": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateFromString requires that 'format' be a string, found: array with value []",
+      "code": 40684,
+      "error": "Location40684"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString format: numeric array",
+    "operator": "$dateFromString",
+    "kind": "numeric array",
+    "operand": "format",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "format": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateFromString requires that 'format' be a string, found: array with value [1, 2, 3]",
+      "code": 40684,
+      "error": "Location40684"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString format: mixed array",
+    "operator": "$dateFromString",
+    "kind": "mixed array",
+    "operand": "format",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "format": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateFromString requires that 'format' be a string, found: array with value [1, null, \"x\", 3]",
+      "code": 40684,
+      "error": "Location40684"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString format: nested array",
+    "operator": "$dateFromString",
+    "kind": "nested array",
+    "operand": "format",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "format": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateFromString requires that 'format' be a string, found: array with value [[1, 2], [3]]",
+      "code": 40684,
+      "error": "Location40684"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString format: empty object",
+    "operator": "$dateFromString",
+    "kind": "empty object",
+    "operand": "format",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "format": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateFromString requires that 'format' be a string, found: object with value {}",
+      "code": 40684,
+      "error": "Location40684"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString format: object",
+    "operator": "$dateFromString",
+    "kind": "object",
+    "operand": "format",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "format": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateFromString requires that 'format' be a string, found: object with value {x: 1}",
+      "code": 40684,
+      "error": "Location40684"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString format: ISO date string",
+    "operator": "$dateFromString",
+    "kind": "ISO date string",
+    "operand": "format",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "format": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Error parsing date string '2024-01-02T00:00:00Z'; 3: Format literal not found '4'; 8: Format literal not found '0'; 9: Format literal not found '2'; 11: Format literal not found '0'; 12: Format literal not found '0'",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString timezone: null",
+    "operator": "$dateFromString",
+    "kind": "null",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString timezone: missing",
+    "operator": "$dateFromString",
+    "kind": "missing",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "timezone": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString timezone: zero",
+    "operator": "$dateFromString",
+    "kind": "zero",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found int",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString timezone: negative",
+    "operator": "$dateFromString",
+    "kind": "negative",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found int",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString timezone: decimal",
+    "operator": "$dateFromString",
+    "kind": "decimal",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found double",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString timezone: numeric string",
+    "operator": "$dateFromString",
+    "kind": "numeric string",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: unrecognized time zone identifier: \"12\"",
+      "code": 40485,
+      "error": "Location40485"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString timezone: text",
+    "operator": "$dateFromString",
+    "kind": "text",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: unrecognized time zone identifier: \"hello\"",
+      "code": 40485,
+      "error": "Location40485"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString timezone: empty string",
+    "operator": "$dateFromString",
+    "kind": "empty string",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: unrecognized time zone identifier: \"\"",
+      "code": 40485,
+      "error": "Location40485"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString timezone: boolean",
+    "operator": "$dateFromString",
+    "kind": "boolean",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found bool",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString timezone: false",
+    "operator": "$dateFromString",
+    "kind": "false",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found bool",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString timezone: typed date",
+    "operator": "$dateFromString",
+    "kind": "typed date",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found date",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString timezone: decimal128",
+    "operator": "$dateFromString",
+    "kind": "decimal128",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found decimal",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString timezone: empty array",
+    "operator": "$dateFromString",
+    "kind": "empty array",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found array",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString timezone: numeric array",
+    "operator": "$dateFromString",
+    "kind": "numeric array",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found array",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString timezone: mixed array",
+    "operator": "$dateFromString",
+    "kind": "mixed array",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found array",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString timezone: nested array",
+    "operator": "$dateFromString",
+    "kind": "nested array",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found array",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString timezone: empty object",
+    "operator": "$dateFromString",
+    "kind": "empty object",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found object",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString timezone: object",
+    "operator": "$dateFromString",
+    "kind": "object",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found object",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString timezone: ISO date string",
+    "operator": "$dateFromString",
+    "kind": "ISO date string",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date string or format"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: unrecognized time zone identifier: \"2026-01-15T15:00:00Z\"",
+      "code": 40485,
+      "error": "Location40485"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString onError: null",
+    "operator": "$dateFromString",
+    "kind": "null",
+    "operand": "onError",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onError": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onError: missing",
+    "operator": "$dateFromString",
+    "kind": "missing",
+    "operand": "onError",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onError": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onError: zero",
+    "operator": "$dateFromString",
+    "kind": "zero",
+    "operand": "onError",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onError": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onError: negative",
+    "operator": "$dateFromString",
+    "kind": "negative",
+    "operand": "onError",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onError": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onError: decimal",
+    "operator": "$dateFromString",
+    "kind": "decimal",
+    "operand": "onError",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onError": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onError: numeric string",
+    "operator": "$dateFromString",
+    "kind": "numeric string",
+    "operand": "onError",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onError": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onError: text",
+    "operator": "$dateFromString",
+    "kind": "text",
+    "operand": "onError",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onError": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onError: empty string",
+    "operator": "$dateFromString",
+    "kind": "empty string",
+    "operand": "onError",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onError": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onError: boolean",
+    "operator": "$dateFromString",
+    "kind": "boolean",
+    "operand": "onError",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onError": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onError: false",
+    "operator": "$dateFromString",
+    "kind": "false",
+    "operand": "onError",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onError": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onError: typed date",
+    "operator": "$dateFromString",
+    "kind": "typed date",
+    "operand": "onError",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onError": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onError: decimal128",
+    "operator": "$dateFromString",
+    "kind": "decimal128",
+    "operand": "onError",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onError": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onError: empty array",
+    "operator": "$dateFromString",
+    "kind": "empty array",
+    "operand": "onError",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onError": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onError: numeric array",
+    "operator": "$dateFromString",
+    "kind": "numeric array",
+    "operand": "onError",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onError": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onError: mixed array",
+    "operator": "$dateFromString",
+    "kind": "mixed array",
+    "operand": "onError",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onError": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onError: nested array",
+    "operator": "$dateFromString",
+    "kind": "nested array",
+    "operand": "onError",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onError": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onError: empty object",
+    "operator": "$dateFromString",
+    "kind": "empty object",
+    "operand": "onError",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onError": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onError: object",
+    "operator": "$dateFromString",
+    "kind": "object",
+    "operand": "onError",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onError": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onError: ISO date string",
+    "operator": "$dateFromString",
+    "kind": "ISO date string",
+    "operand": "onError",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onError": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onNull: null",
+    "operator": "$dateFromString",
+    "kind": "null",
+    "operand": "onNull",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onNull: missing",
+    "operator": "$dateFromString",
+    "kind": "missing",
+    "operand": "onNull",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onNull": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onNull: zero",
+    "operator": "$dateFromString",
+    "kind": "zero",
+    "operand": "onNull",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onNull: negative",
+    "operator": "$dateFromString",
+    "kind": "negative",
+    "operand": "onNull",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onNull: decimal",
+    "operator": "$dateFromString",
+    "kind": "decimal",
+    "operand": "onNull",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onNull: numeric string",
+    "operator": "$dateFromString",
+    "kind": "numeric string",
+    "operand": "onNull",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onNull: text",
+    "operator": "$dateFromString",
+    "kind": "text",
+    "operand": "onNull",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onNull: empty string",
+    "operator": "$dateFromString",
+    "kind": "empty string",
+    "operand": "onNull",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onNull: boolean",
+    "operator": "$dateFromString",
+    "kind": "boolean",
+    "operand": "onNull",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onNull: false",
+    "operator": "$dateFromString",
+    "kind": "false",
+    "operand": "onNull",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onNull: typed date",
+    "operator": "$dateFromString",
+    "kind": "typed date",
+    "operand": "onNull",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onNull: decimal128",
+    "operator": "$dateFromString",
+    "kind": "decimal128",
+    "operand": "onNull",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onNull: empty array",
+    "operator": "$dateFromString",
+    "kind": "empty array",
+    "operand": "onNull",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onNull: numeric array",
+    "operator": "$dateFromString",
+    "kind": "numeric array",
+    "operand": "onNull",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onNull: mixed array",
+    "operator": "$dateFromString",
+    "kind": "mixed array",
+    "operand": "onNull",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onNull: nested array",
+    "operator": "$dateFromString",
+    "kind": "nested array",
+    "operand": "onNull",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onNull: empty object",
+    "operator": "$dateFromString",
+    "kind": "empty object",
+    "operand": "onNull",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onNull: object",
+    "operator": "$dateFromString",
+    "kind": "object",
+    "operand": "onNull",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString onNull: ISO date string",
+    "operator": "$dateFromString",
+    "kind": "ISO date string",
+    "operand": "onNull",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z",
+        "onNull": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString omit dateString",
+    "operator": "$dateFromString",
+    "kind": "omitted named argument",
+    "operand": "dateString",
+    "expression": {
+      "$dateFromString": {}
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateFromString requires dateString"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Missing 'dateString' parameter to $dateFromString",
+      "code": 40542,
+      "error": "Location40542"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString omit format",
+    "operator": "$dateFromString",
+    "kind": "omitted named argument",
+    "operand": "format",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString omit timezone",
+    "operator": "$dateFromString",
+    "kind": "omitted named argument",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString omit onError",
+    "operator": "$dateFromString",
+    "kind": "omitted named argument",
+    "operand": "onError",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString omit onNull",
+    "operator": "$dateFromString",
+    "kind": "omitted named argument",
+    "operand": "onNull",
+    "expression": {
+      "$dateFromString": {
+        "dateString": "2024-01-02T00:00:00Z"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromString empty arguments",
+    "operator": "$dateFromString",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$dateFromString": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateFromString requires dateString"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromString only supports an object as an argument, found: array",
+      "code": 40540,
+      "error": "Location40540"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromString unknown option",
+    "operator": "$dateFromString",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$dateFromString": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dateFromString requires dateString"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Unrecognized argument to $dateFromString: unexpected",
+      "code": 40541,
+      "error": "Location40541"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

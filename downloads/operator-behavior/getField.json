@@ -1,0 +1,906 @@
+[
+  {
+    "id": "$getField baseline",
+    "operator": "$getField",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$getField field: null",
+    "operator": "$getField",
+    "kind": "null",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    }
+  },
+  {
+    "id": "$getField field: missing",
+    "operator": "$getField",
+    "kind": "missing",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    }
+  },
+  {
+    "id": "$getField field: zero",
+    "operator": "$getField",
+    "kind": "zero",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    }
+  },
+  {
+    "id": "$getField field: negative",
+    "operator": "$getField",
+    "kind": "negative",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    }
+  },
+  {
+    "id": "$getField field: decimal",
+    "operator": "$getField",
+    "kind": "decimal",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    }
+  },
+  {
+    "id": "$getField field: numeric string",
+    "operator": "$getField",
+    "kind": "numeric string",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$getField field: text",
+    "operator": "$getField",
+    "kind": "text",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$getField field: empty string",
+    "operator": "$getField",
+    "kind": "empty string",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$getField field: boolean",
+    "operator": "$getField",
+    "kind": "boolean",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    }
+  },
+  {
+    "id": "$getField field: false",
+    "operator": "$getField",
+    "kind": "false",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    }
+  },
+  {
+    "id": "$getField field: typed date",
+    "operator": "$getField",
+    "kind": "typed date",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    }
+  },
+  {
+    "id": "$getField field: decimal128",
+    "operator": "$getField",
+    "kind": "decimal128",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    }
+  },
+  {
+    "id": "$getField field: empty array",
+    "operator": "$getField",
+    "kind": "empty array",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    }
+  },
+  {
+    "id": "$getField field: numeric array",
+    "operator": "$getField",
+    "kind": "numeric array",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    }
+  },
+  {
+    "id": "$getField field: mixed array",
+    "operator": "$getField",
+    "kind": "mixed array",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    }
+  },
+  {
+    "id": "$getField field: nested array",
+    "operator": "$getField",
+    "kind": "nested array",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    }
+  },
+  {
+    "id": "$getField field: empty object",
+    "operator": "$getField",
+    "kind": "empty object",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    }
+  },
+  {
+    "id": "$getField field: object",
+    "operator": "$getField",
+    "kind": "object",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    }
+  },
+  {
+    "id": "$getField field: ISO date string",
+    "operator": "$getField",
+    "kind": "ISO date string",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "field": "$probe",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$getField input: null",
+    "operator": "$getField",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    }
+  },
+  {
+    "id": "$getField input: missing",
+    "operator": "$getField",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    }
+  },
+  {
+    "id": "$getField input: zero",
+    "operator": "$getField",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    }
+  },
+  {
+    "id": "$getField input: negative",
+    "operator": "$getField",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    }
+  },
+  {
+    "id": "$getField input: decimal",
+    "operator": "$getField",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    }
+  },
+  {
+    "id": "$getField input: numeric string",
+    "operator": "$getField",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    }
+  },
+  {
+    "id": "$getField input: text",
+    "operator": "$getField",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    }
+  },
+  {
+    "id": "$getField input: empty string",
+    "operator": "$getField",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    }
+  },
+  {
+    "id": "$getField input: boolean",
+    "operator": "$getField",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    }
+  },
+  {
+    "id": "$getField input: false",
+    "operator": "$getField",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    }
+  },
+  {
+    "id": "$getField input: typed date",
+    "operator": "$getField",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    }
+  },
+  {
+    "id": "$getField input: decimal128",
+    "operator": "$getField",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    }
+  },
+  {
+    "id": "$getField input: empty array",
+    "operator": "$getField",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    }
+  },
+  {
+    "id": "$getField input: numeric array",
+    "operator": "$getField",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    }
+  },
+  {
+    "id": "$getField input: mixed array",
+    "operator": "$getField",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    }
+  },
+  {
+    "id": "$getField input: nested array",
+    "operator": "$getField",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    }
+  },
+  {
+    "id": "$getField input: empty object",
+    "operator": "$getField",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$getField input: object",
+    "operator": "$getField",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$getField input: ISO date string",
+    "operator": "$getField",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a",
+        "input": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires a document input and string field."
+    }
+  },
+  {
+    "id": "$getField omit field",
+    "operator": "$getField",
+    "kind": "omitted named argument",
+    "operand": "field",
+    "expression": {
+      "$getField": {
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires 'field' and 'input' keys."
+    }
+  },
+  {
+    "id": "$getField omit input",
+    "operator": "$getField",
+    "kind": "omitted named argument",
+    "operand": "input",
+    "expression": {
+      "$getField": {
+        "field": "a"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires 'field' and 'input' keys."
+    }
+  },
+  {
+    "id": "$getField empty arguments",
+    "operator": "$getField",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$getField": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires 'field' and 'input' keys."
+    }
+  },
+  {
+    "id": "$getField unknown option",
+    "operator": "$getField",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$getField": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$getField requires 'field' and 'input' keys."
+    }
+  },
+  {
+    "id": "mongodb-9-boundary-cases.json:1",
+    "operator": "$getField",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$getField": {
+        "field": "b",
+        "input": {
+          "a": 1
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  }
+]

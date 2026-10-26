@@ -1,0 +1,109 @@
+[
+  {
+    "id": "$lookup example",
+    "stage": "$lookup",
+    "kind": "example",
+    "pipeline": [
+      {
+        "$lookup": {
+          "from": [
+            {
+              "sku": "P1",
+              "price": 5
+            }
+          ],
+          "localField": "sku",
+          "foreignField": "sku",
+          "as": "products"
+        }
+      }
+    ],
+    "input": [
+      {
+        "sku": "P1"
+      },
+      {
+        "sku": "P2"
+      }
+    ],
+    "result": [
+      {
+        "sku": "P1",
+        "products": [
+          {
+            "sku": "P1",
+            "price": 5
+          }
+        ]
+      },
+      {
+        "sku": "P2",
+        "products": []
+      }
+    ]
+  },
+  {
+    "id": "$lookup empty input",
+    "stage": "$lookup",
+    "kind": "empty input",
+    "pipeline": [
+      {
+        "$lookup": {
+          "from": [
+            {
+              "sku": "P1",
+              "price": 5
+            }
+          ],
+          "localField": "sku",
+          "foreignField": "sku",
+          "as": "products"
+        }
+      }
+    ],
+    "input": [],
+    "result": []
+  },
+  {
+    "id": "$lookup invalid specification",
+    "stage": "$lookup",
+    "kind": "invalid specification",
+    "pipeline": [
+      {
+        "$lookup": null
+      }
+    ],
+    "input": [
+      {
+        "sku": "P1"
+      },
+      {
+        "sku": "P2"
+      }
+    ],
+    "error": "IllegalArgumentException",
+    "message": "$lookup stage expects an object specification"
+  },
+  {
+    "id": "$lookup missing named dataset",
+    "stage": "$lookup",
+    "kind": "missing named dataset",
+    "pipeline": [
+      {
+        "$lookup": {
+          "from": "products",
+          "localField": "sku",
+          "foreignField": "sku",
+          "as": "products"
+        }
+      }
+    ],
+    "input": [
+      {
+        "sku": "P1"
+      }
+    ],
+    "error": "IllegalArgumentException",
+    "message": "foreign collection 'products' not available"
+  }
+]

@@ -1,0 +1,373 @@
+[
+  {
+    "id": "$dayOfYear baseline",
+    "operator": "$dayOfYear",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$dayOfYear": {
+        "$toDate": "2024-01-02T03:04:05.006Z"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dayOfYear input: null",
+    "operator": "$dayOfYear",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$dayOfYear": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofyear requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfYear input: missing",
+    "operator": "$dayOfYear",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$dayOfYear": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofyear requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfYear input: zero",
+    "operator": "$dayOfYear",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$dayOfYear": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofyear requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfYear input: negative",
+    "operator": "$dayOfYear",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$dayOfYear": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofyear requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfYear input: decimal",
+    "operator": "$dayOfYear",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$dayOfYear": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofyear requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfYear input: numeric string",
+    "operator": "$dayOfYear",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$dayOfYear": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofyear requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfYear input: text",
+    "operator": "$dayOfYear",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$dayOfYear": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofyear requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfYear input: empty string",
+    "operator": "$dayOfYear",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$dayOfYear": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofyear requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfYear input: boolean",
+    "operator": "$dayOfYear",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$dayOfYear": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofyear requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfYear input: false",
+    "operator": "$dayOfYear",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$dayOfYear": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofyear requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfYear input: typed date",
+    "operator": "$dayOfYear",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$dayOfYear": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"15\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$dayOfYear input: decimal128",
+    "operator": "$dayOfYear",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$dayOfYear": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofyear requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfYear input: empty array",
+    "operator": "$dayOfYear",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$dayOfYear": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofyear requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfYear input: numeric array",
+    "operator": "$dayOfYear",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$dayOfYear": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofyear requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfYear input: mixed array",
+    "operator": "$dayOfYear",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$dayOfYear": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofyear requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfYear input: nested array",
+    "operator": "$dayOfYear",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$dayOfYear": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofyear requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfYear input: empty object",
+    "operator": "$dayOfYear",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$dayOfYear": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofyear requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfYear input: object",
+    "operator": "$dayOfYear",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$dayOfYear": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofyear requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfYear input: ISO date string",
+    "operator": "$dayOfYear",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$dayOfYear": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofyear requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfYear empty arguments",
+    "operator": "$dayOfYear",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$dayOfYear": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofyear requires a Date input"
+    }
+  },
+  {
+    "id": "$dayOfYear unknown option",
+    "operator": "$dayOfYear",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$dayOfYear": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$dayofyear requires a Date input"
+    }
+  }
+]

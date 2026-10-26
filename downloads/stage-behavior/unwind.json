@@ -1,0 +1,91 @@
+[
+  {
+    "id": "$unwind example",
+    "stage": "$unwind",
+    "kind": "example",
+    "pipeline": [
+      {
+        "$unwind": "$items"
+      }
+    ],
+    "input": [
+      {
+        "id": "A",
+        "items": [
+          1,
+          2
+        ]
+      }
+    ],
+    "result": [
+      {
+        "id": "A",
+        "items": 1
+      },
+      {
+        "id": "A",
+        "items": 2
+      }
+    ]
+  },
+  {
+    "id": "$unwind empty input",
+    "stage": "$unwind",
+    "kind": "empty input",
+    "pipeline": [
+      {
+        "$unwind": "$items"
+      }
+    ],
+    "input": [],
+    "result": []
+  },
+  {
+    "id": "$unwind invalid specification",
+    "stage": "$unwind",
+    "kind": "invalid specification",
+    "pipeline": [
+      {
+        "$unwind": null
+      }
+    ],
+    "input": [
+      {
+        "id": "A",
+        "items": [
+          1,
+          2
+        ]
+      }
+    ],
+    "error": "IllegalArgumentException",
+    "message": "$unwind stage requires a single string field path"
+  },
+  {
+    "id": "$unwind null missing empty and scalar",
+    "stage": "$unwind",
+    "kind": "null missing empty and scalar",
+    "pipeline": [
+      {
+        "$unwind": "$items"
+      }
+    ],
+    "input": [
+      {},
+      {
+        "items": null
+      },
+      {
+        "items": []
+      },
+      {
+        "items": 4
+      }
+    ],
+    "result": [
+      {
+        "items": 4
+      }
+    ]
+  }
+]

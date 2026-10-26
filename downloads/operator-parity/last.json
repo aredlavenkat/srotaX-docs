@@ -1,0 +1,500 @@
+[
+  {
+    "id": "$last baseline",
+    "operator": "$last",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$last": {
+        "$literal": [
+          1,
+          2
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$last input: null",
+    "operator": "$last",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$last": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$last input: missing",
+    "operator": "$last",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$last": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$last input: zero",
+    "operator": "$last",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$last": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $last's argument must be an array, but is int",
+      "code": 28689,
+      "error": "Location28689"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$last input: negative",
+    "operator": "$last",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$last": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $last's argument must be an array, but is int",
+      "code": 28689,
+      "error": "Location28689"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$last input: decimal",
+    "operator": "$last",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$last": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $last's argument must be an array, but is double",
+      "code": 28689,
+      "error": "Location28689"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$last input: numeric string",
+    "operator": "$last",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$last": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $last's argument must be an array, but is string",
+      "code": 28689,
+      "error": "Location28689"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$last input: text",
+    "operator": "$last",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$last": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $last's argument must be an array, but is string",
+      "code": 28689,
+      "error": "Location28689"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$last input: empty string",
+    "operator": "$last",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$last": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $last's argument must be an array, but is string",
+      "code": 28689,
+      "error": "Location28689"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$last input: boolean",
+    "operator": "$last",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$last": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $last's argument must be an array, but is bool",
+      "code": 28689,
+      "error": "Location28689"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$last input: false",
+    "operator": "$last",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$last": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $last's argument must be an array, but is bool",
+      "code": 28689,
+      "error": "Location28689"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$last input: typed date",
+    "operator": "$last",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$last": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $last's argument must be an array, but is date",
+      "code": 28689,
+      "error": "Location28689"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$last input: decimal128",
+    "operator": "$last",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$last": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $last's argument must be an array, but is decimal",
+      "code": 28689,
+      "error": "Location28689"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$last input: empty array",
+    "operator": "$last",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$last": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "present": false
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$last input: numeric array",
+    "operator": "$last",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$last": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$last input: mixed array",
+    "operator": "$last",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$last": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$last input: nested array",
+    "operator": "$last",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$last": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$last input: empty object",
+    "operator": "$last",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$last": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $last's argument must be an array, but is object",
+      "code": 28689,
+      "error": "Location28689"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$last input: object",
+    "operator": "$last",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$last": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $last's argument must be an array, but is object",
+      "code": 28689,
+      "error": "Location28689"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$last input: ISO date string",
+    "operator": "$last",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$last": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $last's argument must be an array, but is string",
+      "code": 28689,
+      "error": "Location28689"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$last empty arguments",
+    "operator": "$last",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$last": []
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $last takes exactly 1 arguments. 0 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$last unknown option",
+    "operator": "$last",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$last": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Failed to optimize pipeline :: caused by :: $last's argument must be an array, but is object",
+      "code": 28689,
+      "error": "Location28689"
+    },
+    "status": "DIFFERENCE"
+  }
+]

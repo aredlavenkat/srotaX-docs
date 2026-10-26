@@ -1,0 +1,373 @@
+[
+  {
+    "id": "$minute baseline",
+    "operator": "$minute",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$minute": {
+        "$toDate": "2024-01-02T03:04:05.006Z"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"4\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minute input: null",
+    "operator": "$minute",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$minute": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minute input: missing",
+    "operator": "$minute",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$minute": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minute input: zero",
+    "operator": "$minute",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$minute": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$minute input: negative",
+    "operator": "$minute",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$minute": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$minute input: decimal",
+    "operator": "$minute",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$minute": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$minute input: numeric string",
+    "operator": "$minute",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$minute": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot convert value to date: 12"
+    }
+  },
+  {
+    "id": "$minute input: text",
+    "operator": "$minute",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$minute": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot convert value to date: hello"
+    }
+  },
+  {
+    "id": "$minute input: empty string",
+    "operator": "$minute",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$minute": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot convert value to date: "
+    }
+  },
+  {
+    "id": "$minute input: boolean",
+    "operator": "$minute",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$minute": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$minute input: false",
+    "operator": "$minute",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$minute": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$minute input: typed date",
+    "operator": "$minute",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$minute": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minute input: decimal128",
+    "operator": "$minute",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$minute": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$minute input: empty array",
+    "operator": "$minute",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$minute": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$minute input: numeric array",
+    "operator": "$minute",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$minute": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$minute input: mixed array",
+    "operator": "$minute",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$minute": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$minute input: nested array",
+    "operator": "$minute",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$minute": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$minute input: empty object",
+    "operator": "$minute",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$minute": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$minute input: object",
+    "operator": "$minute",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$minute": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$minute input: ISO date string",
+    "operator": "$minute",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$minute": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minute empty arguments",
+    "operator": "$minute",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$minute": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "One date required"
+    }
+  },
+  {
+    "id": "$minute unknown option",
+    "operator": "$minute",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$minute": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  }
+]

@@ -1,0 +1,93 @@
+[
+  {
+    "id": "$subPipeline example",
+    "stage": "$subPipeline",
+    "kind": "example",
+    "pipeline": [
+      {
+        "$subPipeline": [
+          {
+            "pipeline": [
+              {
+                "$set": {
+                  "approved": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "input": [
+      {
+        "orderId": "A"
+      }
+    ],
+    "result": [
+      {
+        "orderId": "A",
+        "approved": true
+      }
+    ]
+  },
+  {
+    "id": "$subPipeline empty input",
+    "stage": "$subPipeline",
+    "kind": "empty input",
+    "pipeline": [
+      {
+        "$subPipeline": [
+          {
+            "pipeline": [
+              {
+                "$set": {
+                  "approved": true
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "input": [],
+    "result": []
+  },
+  {
+    "id": "$subPipeline invalid specification",
+    "stage": "$subPipeline",
+    "kind": "invalid specification",
+    "pipeline": [
+      {
+        "$subPipeline": null
+      }
+    ],
+    "input": [
+      {
+        "orderId": "A"
+      }
+    ],
+    "error": "IllegalArgumentException",
+    "message": "$subPipeline requires an array of steps"
+  },
+  {
+    "id": "$subPipeline missing resolver",
+    "stage": "$subPipeline",
+    "kind": "missing resolver",
+    "pipeline": [
+      {
+        "$subPipeline": [
+          {
+            "ref": "unknown"
+          }
+        ]
+      }
+    ],
+    "input": [
+      {
+        "orderId": "A"
+      }
+    ],
+    "error": "IllegalArgumentException",
+    "message": "Unknown pinned sub-pipeline: unknown"
+  }
+]

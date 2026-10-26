@@ -1,0 +1,1263 @@
+[
+  {
+    "id": "$regexFind baseline",
+    "operator": "$regexFind",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "ab"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"idx\": {\"$numberInt\": \"0\"}, \"captures\": [], \"match\": \"ab\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$regexFind input: null",
+    "operator": "$regexFind",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$regexFind": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "NullPointerException",
+      "message": "Cannot invoke \"java.lang.CharSequence.length()\" because \"this.text\" is null"
+    }
+  },
+  {
+    "id": "$regexFind input: missing",
+    "operator": "$regexFind",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$regexFind": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "NullPointerException",
+      "message": "Cannot invoke \"java.lang.CharSequence.length()\" because \"this.text\" is null"
+    }
+  },
+  {
+    "id": "$regexFind input: zero",
+    "operator": "$regexFind",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$regexFind": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind input: negative",
+    "operator": "$regexFind",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$regexFind": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind input: decimal",
+    "operator": "$regexFind",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$regexFind": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Double cannot be cast to class java.lang.String (java.lang.Double and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind input: numeric string",
+    "operator": "$regexFind",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$regexFind": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$regexFind input: text",
+    "operator": "$regexFind",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$regexFind": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$regexFind input: empty string",
+    "operator": "$regexFind",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$regexFind": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$regexFind input: boolean",
+    "operator": "$regexFind",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$regexFind": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind input: false",
+    "operator": "$regexFind",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$regexFind": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind input: typed date",
+    "operator": "$regexFind",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$regexFind": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.Date cannot be cast to class java.lang.String (java.util.Date and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind input: decimal128",
+    "operator": "$regexFind",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$regexFind": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.types.Decimal128 cannot be cast to class java.lang.String (org.bson.types.Decimal128 is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind input: empty array",
+    "operator": "$regexFind",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$regexFind": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind input: numeric array",
+    "operator": "$regexFind",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$regexFind": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind input: mixed array",
+    "operator": "$regexFind",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$regexFind": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind input: nested array",
+    "operator": "$regexFind",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$regexFind": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind input: empty object",
+    "operator": "$regexFind",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$regexFind": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind input: object",
+    "operator": "$regexFind",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$regexFind": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind input: ISO date string",
+    "operator": "$regexFind",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$regexFind": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$regexFind regex: null",
+    "operator": "$regexFind",
+    "kind": "null",
+    "operand": "regex",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "NullPointerException",
+      "message": "Cannot invoke \"String.isEmpty()\" because \"this.pattern\" is null"
+    }
+  },
+  {
+    "id": "$regexFind regex: missing",
+    "operator": "$regexFind",
+    "kind": "missing",
+    "operand": "regex",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "NullPointerException",
+      "message": "Cannot invoke \"String.isEmpty()\" because \"this.pattern\" is null"
+    }
+  },
+  {
+    "id": "$regexFind regex: zero",
+    "operator": "$regexFind",
+    "kind": "zero",
+    "operand": "regex",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind regex: negative",
+    "operator": "$regexFind",
+    "kind": "negative",
+    "operand": "regex",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind regex: decimal",
+    "operator": "$regexFind",
+    "kind": "decimal",
+    "operand": "regex",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Double cannot be cast to class java.lang.String (java.lang.Double and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind regex: numeric string",
+    "operator": "$regexFind",
+    "kind": "numeric string",
+    "operand": "regex",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$regexFind regex: text",
+    "operator": "$regexFind",
+    "kind": "text",
+    "operand": "regex",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$regexFind regex: empty string",
+    "operator": "$regexFind",
+    "kind": "empty string",
+    "operand": "regex",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"idx\": {\"$numberInt\": \"0\"}, \"captures\": [], \"match\": \"\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$regexFind regex: boolean",
+    "operator": "$regexFind",
+    "kind": "boolean",
+    "operand": "regex",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind regex: false",
+    "operator": "$regexFind",
+    "kind": "false",
+    "operand": "regex",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind regex: typed date",
+    "operator": "$regexFind",
+    "kind": "typed date",
+    "operand": "regex",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.Date cannot be cast to class java.lang.String (java.util.Date and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind regex: decimal128",
+    "operator": "$regexFind",
+    "kind": "decimal128",
+    "operand": "regex",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.types.Decimal128 cannot be cast to class java.lang.String (org.bson.types.Decimal128 is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind regex: empty array",
+    "operator": "$regexFind",
+    "kind": "empty array",
+    "operand": "regex",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind regex: numeric array",
+    "operator": "$regexFind",
+    "kind": "numeric array",
+    "operand": "regex",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind regex: mixed array",
+    "operator": "$regexFind",
+    "kind": "mixed array",
+    "operand": "regex",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind regex: nested array",
+    "operator": "$regexFind",
+    "kind": "nested array",
+    "operand": "regex",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind regex: empty object",
+    "operator": "$regexFind",
+    "kind": "empty object",
+    "operand": "regex",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind regex: object",
+    "operator": "$regexFind",
+    "kind": "object",
+    "operand": "regex",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind regex: ISO date string",
+    "operator": "$regexFind",
+    "kind": "ISO date string",
+    "operand": "regex",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$regexFind options: null",
+    "operator": "$regexFind",
+    "kind": "null",
+    "operand": "options",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "NullPointerException",
+      "message": "Cannot invoke \"String.matches(String)\" because \"options\" is null"
+    }
+  },
+  {
+    "id": "$regexFind options: missing",
+    "operator": "$regexFind",
+    "kind": "missing",
+    "operand": "options",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "NullPointerException",
+      "message": "Cannot invoke \"String.matches(String)\" because \"options\" is null"
+    }
+  },
+  {
+    "id": "$regexFind options: zero",
+    "operator": "$regexFind",
+    "kind": "zero",
+    "operand": "options",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind options: negative",
+    "operator": "$regexFind",
+    "kind": "negative",
+    "operand": "options",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind options: decimal",
+    "operator": "$regexFind",
+    "kind": "decimal",
+    "operand": "options",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Double cannot be cast to class java.lang.String (java.lang.Double and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind options: numeric string",
+    "operator": "$regexFind",
+    "kind": "numeric string",
+    "operand": "options",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Unsupported regex option"
+    }
+  },
+  {
+    "id": "$regexFind options: text",
+    "operator": "$regexFind",
+    "kind": "text",
+    "operand": "options",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Unsupported regex option"
+    }
+  },
+  {
+    "id": "$regexFind options: empty string",
+    "operator": "$regexFind",
+    "kind": "empty string",
+    "operand": "options",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"idx\": {\"$numberInt\": \"0\"}, \"captures\": [], \"match\": \"ab\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$regexFind options: boolean",
+    "operator": "$regexFind",
+    "kind": "boolean",
+    "operand": "options",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind options: false",
+    "operator": "$regexFind",
+    "kind": "false",
+    "operand": "options",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind options: typed date",
+    "operator": "$regexFind",
+    "kind": "typed date",
+    "operand": "options",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.Date cannot be cast to class java.lang.String (java.util.Date and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind options: decimal128",
+    "operator": "$regexFind",
+    "kind": "decimal128",
+    "operand": "options",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.types.Decimal128 cannot be cast to class java.lang.String (org.bson.types.Decimal128 is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind options: empty array",
+    "operator": "$regexFind",
+    "kind": "empty array",
+    "operand": "options",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind options: numeric array",
+    "operator": "$regexFind",
+    "kind": "numeric array",
+    "operand": "options",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind options: mixed array",
+    "operator": "$regexFind",
+    "kind": "mixed array",
+    "operand": "options",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind options: nested array",
+    "operator": "$regexFind",
+    "kind": "nested array",
+    "operand": "options",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind options: empty object",
+    "operator": "$regexFind",
+    "kind": "empty object",
+    "operand": "options",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind options: object",
+    "operator": "$regexFind",
+    "kind": "object",
+    "operand": "options",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind options: ISO date string",
+    "operator": "$regexFind",
+    "kind": "ISO date string",
+    "operand": "options",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Unsupported regex option"
+    }
+  },
+  {
+    "id": "$regexFind omit input",
+    "operator": "$regexFind",
+    "kind": "omitted named argument",
+    "operand": "input",
+    "expression": {
+      "$regexFind": {
+        "regex": "ab"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "NullPointerException",
+      "message": "Cannot invoke \"java.lang.CharSequence.length()\" because \"this.text\" is null"
+    }
+  },
+  {
+    "id": "$regexFind omit regex",
+    "operator": "$regexFind",
+    "kind": "omitted named argument",
+    "operand": "regex",
+    "expression": {
+      "$regexFind": {
+        "input": "abc"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "NullPointerException",
+      "message": "Cannot invoke \"String.isEmpty()\" because \"this.pattern\" is null"
+    }
+  },
+  {
+    "id": "$regexFind omit options",
+    "operator": "$regexFind",
+    "kind": "omitted named argument",
+    "operand": "options",
+    "expression": {
+      "$regexFind": {
+        "input": "abc",
+        "regex": "ab"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"idx\": {\"$numberInt\": \"0\"}, \"captures\": [], \"match\": \"ab\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$regexFind empty arguments",
+    "operator": "$regexFind",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$regexFind": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.util.Map (java.util.ArrayList and java.util.Map are in module java.base of loader 'bootstrap')"
+    }
+  },
+  {
+    "id": "$regexFind unknown option",
+    "operator": "$regexFind",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$regexFind": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "NullPointerException",
+      "message": "Cannot invoke \"String.isEmpty()\" because \"this.pattern\" is null"
+    }
+  }
+]

@@ -1,0 +1,1047 @@
+[
+  {
+    "id": "$mod baseline",
+    "operator": "$mod",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$mod": [
+        7,
+        3
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$mod left[0]: null",
+    "operator": "$mod",
+    "kind": "null",
+    "operand": "left[0]",
+    "expression": {
+      "$mod": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$mod left[0]: missing",
+    "operator": "$mod",
+    "kind": "missing",
+    "operand": "left[0]",
+    "expression": {
+      "$mod": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$mod left[0]: zero",
+    "operator": "$mod",
+    "kind": "zero",
+    "operand": "left[0]",
+    "expression": {
+      "$mod": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$mod left[0]: negative",
+    "operator": "$mod",
+    "kind": "negative",
+    "operand": "left[0]",
+    "expression": {
+      "$mod": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"-2.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-2\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$mod left[0]: decimal",
+    "operator": "$mod",
+    "kind": "decimal",
+    "operand": "left[0]",
+    "expression": {
+      "$mod": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.5\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.5\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$mod left[0]: numeric string",
+    "operator": "$mod",
+    "kind": "numeric string",
+    "operand": "left[0]",
+    "expression": {
+      "$mod": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mod only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $mod only supports numeric types, not string and int",
+      "code": 16611,
+      "error": "Location16611"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$mod left[0]: text",
+    "operator": "$mod",
+    "kind": "text",
+    "operand": "left[0]",
+    "expression": {
+      "$mod": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mod only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $mod only supports numeric types, not string and int",
+      "code": 16611,
+      "error": "Location16611"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$mod left[0]: empty string",
+    "operator": "$mod",
+    "kind": "empty string",
+    "operand": "left[0]",
+    "expression": {
+      "$mod": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mod only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $mod only supports numeric types, not string and int",
+      "code": 16611,
+      "error": "Location16611"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$mod left[0]: boolean",
+    "operator": "$mod",
+    "kind": "boolean",
+    "operand": "left[0]",
+    "expression": {
+      "$mod": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mod only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $mod only supports numeric types, not bool and int",
+      "code": 16611,
+      "error": "Location16611"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$mod left[0]: false",
+    "operator": "$mod",
+    "kind": "false",
+    "operand": "left[0]",
+    "expression": {
+      "$mod": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mod only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $mod only supports numeric types, not bool and int",
+      "code": 16611,
+      "error": "Location16611"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$mod left[0]: typed date",
+    "operator": "$mod",
+    "kind": "typed date",
+    "operand": "left[0]",
+    "expression": {
+      "$mod": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mod only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $mod only supports numeric types, not date and int",
+      "code": 16611,
+      "error": "Location16611"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$mod left[0]: decimal128",
+    "operator": "$mod",
+    "kind": "decimal128",
+    "operand": "left[0]",
+    "expression": {
+      "$mod": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.25\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"1.25\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$mod left[0]: empty array",
+    "operator": "$mod",
+    "kind": "empty array",
+    "operand": "left[0]",
+    "expression": {
+      "$mod": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mod only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $mod only supports numeric types, not array and int",
+      "code": 16611,
+      "error": "Location16611"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$mod left[0]: numeric array",
+    "operator": "$mod",
+    "kind": "numeric array",
+    "operand": "left[0]",
+    "expression": {
+      "$mod": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mod only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $mod only supports numeric types, not array and int",
+      "code": 16611,
+      "error": "Location16611"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$mod left[0]: mixed array",
+    "operator": "$mod",
+    "kind": "mixed array",
+    "operand": "left[0]",
+    "expression": {
+      "$mod": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mod only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $mod only supports numeric types, not array and int",
+      "code": 16611,
+      "error": "Location16611"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$mod left[0]: nested array",
+    "operator": "$mod",
+    "kind": "nested array",
+    "operand": "left[0]",
+    "expression": {
+      "$mod": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mod only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $mod only supports numeric types, not array and int",
+      "code": 16611,
+      "error": "Location16611"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$mod left[0]: empty object",
+    "operator": "$mod",
+    "kind": "empty object",
+    "operand": "left[0]",
+    "expression": {
+      "$mod": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mod only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $mod only supports numeric types, not object and int",
+      "code": 16611,
+      "error": "Location16611"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$mod left[0]: object",
+    "operator": "$mod",
+    "kind": "object",
+    "operand": "left[0]",
+    "expression": {
+      "$mod": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mod only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $mod only supports numeric types, not object and int",
+      "code": 16611,
+      "error": "Location16611"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$mod left[0]: ISO date string",
+    "operator": "$mod",
+    "kind": "ISO date string",
+    "operand": "left[0]",
+    "expression": {
+      "$mod": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mod only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $mod only supports numeric types, not string and int",
+      "code": 16611,
+      "error": "Location16611"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$mod right[1]: null",
+    "operator": "$mod",
+    "kind": "null",
+    "operand": "right[1]",
+    "expression": {
+      "$mod": [
+        7,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$mod right[1]: missing",
+    "operator": "$mod",
+    "kind": "missing",
+    "operand": "right[1]",
+    "expression": {
+      "$mod": [
+        7,
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$mod right[1]: zero",
+    "operator": "$mod",
+    "kind": "zero",
+    "operand": "right[1]",
+    "expression": {
+      "$mod": [
+        7,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "ArithmeticException",
+      "message": "$mod by zero"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: can't $mod by zero",
+      "code": 16610,
+      "error": "Location16610"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$mod right[1]: negative",
+    "operator": "$mod",
+    "kind": "negative",
+    "operand": "right[1]",
+    "expression": {
+      "$mod": [
+        7,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$mod right[1]: decimal",
+    "operator": "$mod",
+    "kind": "decimal",
+    "operand": "right[1]",
+    "expression": {
+      "$mod": [
+        7,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$mod right[1]: numeric string",
+    "operator": "$mod",
+    "kind": "numeric string",
+    "operand": "right[1]",
+    "expression": {
+      "$mod": [
+        7,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mod only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $mod only supports numeric types, not int and string",
+      "code": 16611,
+      "error": "Location16611"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$mod right[1]: text",
+    "operator": "$mod",
+    "kind": "text",
+    "operand": "right[1]",
+    "expression": {
+      "$mod": [
+        7,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mod only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $mod only supports numeric types, not int and string",
+      "code": 16611,
+      "error": "Location16611"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$mod right[1]: empty string",
+    "operator": "$mod",
+    "kind": "empty string",
+    "operand": "right[1]",
+    "expression": {
+      "$mod": [
+        7,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mod only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $mod only supports numeric types, not int and string",
+      "code": 16611,
+      "error": "Location16611"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$mod right[1]: boolean",
+    "operator": "$mod",
+    "kind": "boolean",
+    "operand": "right[1]",
+    "expression": {
+      "$mod": [
+        7,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mod only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $mod only supports numeric types, not int and bool",
+      "code": 16611,
+      "error": "Location16611"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$mod right[1]: false",
+    "operator": "$mod",
+    "kind": "false",
+    "operand": "right[1]",
+    "expression": {
+      "$mod": [
+        7,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mod only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $mod only supports numeric types, not int and bool",
+      "code": 16611,
+      "error": "Location16611"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$mod right[1]: typed date",
+    "operator": "$mod",
+    "kind": "typed date",
+    "operand": "right[1]",
+    "expression": {
+      "$mod": [
+        7,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mod only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $mod only supports numeric types, not int and date",
+      "code": 16611,
+      "error": "Location16611"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$mod right[1]: decimal128",
+    "operator": "$mod",
+    "kind": "decimal128",
+    "operand": "right[1]",
+    "expression": {
+      "$mod": [
+        7,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.75\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"0.75\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$mod right[1]: empty array",
+    "operator": "$mod",
+    "kind": "empty array",
+    "operand": "right[1]",
+    "expression": {
+      "$mod": [
+        7,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mod only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $mod only supports numeric types, not int and array",
+      "code": 16611,
+      "error": "Location16611"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$mod right[1]: numeric array",
+    "operator": "$mod",
+    "kind": "numeric array",
+    "operand": "right[1]",
+    "expression": {
+      "$mod": [
+        7,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mod only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $mod only supports numeric types, not int and array",
+      "code": 16611,
+      "error": "Location16611"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$mod right[1]: mixed array",
+    "operator": "$mod",
+    "kind": "mixed array",
+    "operand": "right[1]",
+    "expression": {
+      "$mod": [
+        7,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mod only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $mod only supports numeric types, not int and array",
+      "code": 16611,
+      "error": "Location16611"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$mod right[1]: nested array",
+    "operator": "$mod",
+    "kind": "nested array",
+    "operand": "right[1]",
+    "expression": {
+      "$mod": [
+        7,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mod only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $mod only supports numeric types, not int and array",
+      "code": 16611,
+      "error": "Location16611"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$mod right[1]: empty object",
+    "operator": "$mod",
+    "kind": "empty object",
+    "operand": "right[1]",
+    "expression": {
+      "$mod": [
+        7,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mod only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $mod only supports numeric types, not int and object",
+      "code": 16611,
+      "error": "Location16611"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$mod right[1]: object",
+    "operator": "$mod",
+    "kind": "object",
+    "operand": "right[1]",
+    "expression": {
+      "$mod": [
+        7,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mod only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $mod only supports numeric types, not int and object",
+      "code": 16611,
+      "error": "Location16611"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$mod right[1]: ISO date string",
+    "operator": "$mod",
+    "kind": "ISO date string",
+    "operand": "right[1]",
+    "expression": {
+      "$mod": [
+        7,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mod only supports numeric values."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $mod only supports numeric types, not int and string",
+      "code": 16611,
+      "error": "Location16611"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$mod empty arguments",
+    "operator": "$mod",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$mod": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mod requires exactly two arguments."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $mod takes exactly 2 arguments. 0 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$mod unknown option",
+    "operator": "$mod",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$mod": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mod requires exactly two arguments."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $mod takes exactly 2 arguments. 1 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

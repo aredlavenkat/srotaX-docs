@@ -1,0 +1,371 @@
+[
+  {
+    "id": "$cos baseline",
+    "operator": "$cos",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$cos": 0
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cos input: null",
+    "operator": "$cos",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$cos": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$cos expects a numeric argument."
+    }
+  },
+  {
+    "id": "$cos input: missing",
+    "operator": "$cos",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$cos": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$cos expects a numeric argument."
+    }
+  },
+  {
+    "id": "$cos input: zero",
+    "operator": "$cos",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$cos": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cos input: negative",
+    "operator": "$cos",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$cos": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"-0.4161468365471424\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cos input: decimal",
+    "operator": "$cos",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$cos": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"-0.8011436155469337\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cos input: numeric string",
+    "operator": "$cos",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$cos": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$cos expects a numeric argument."
+    }
+  },
+  {
+    "id": "$cos input: text",
+    "operator": "$cos",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$cos": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$cos expects a numeric argument."
+    }
+  },
+  {
+    "id": "$cos input: empty string",
+    "operator": "$cos",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$cos": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$cos expects a numeric argument."
+    }
+  },
+  {
+    "id": "$cos input: boolean",
+    "operator": "$cos",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$cos": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$cos expects a numeric argument."
+    }
+  },
+  {
+    "id": "$cos input: false",
+    "operator": "$cos",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$cos": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$cos expects a numeric argument."
+    }
+  },
+  {
+    "id": "$cos input: typed date",
+    "operator": "$cos",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$cos": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$cos expects a numeric argument."
+    }
+  },
+  {
+    "id": "$cos input: decimal128",
+    "operator": "$cos",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$cos": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.3153223623952687\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$cos input: empty array",
+    "operator": "$cos",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$cos": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$cos expects a numeric argument."
+    }
+  },
+  {
+    "id": "$cos input: numeric array",
+    "operator": "$cos",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$cos": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$cos expects a numeric argument."
+    }
+  },
+  {
+    "id": "$cos input: mixed array",
+    "operator": "$cos",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$cos": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$cos expects a numeric argument."
+    }
+  },
+  {
+    "id": "$cos input: nested array",
+    "operator": "$cos",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$cos": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$cos expects a numeric argument."
+    }
+  },
+  {
+    "id": "$cos input: empty object",
+    "operator": "$cos",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$cos": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$cos expects a numeric argument."
+    }
+  },
+  {
+    "id": "$cos input: object",
+    "operator": "$cos",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$cos": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$cos expects a numeric argument."
+    }
+  },
+  {
+    "id": "$cos input: ISO date string",
+    "operator": "$cos",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$cos": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$cos expects a numeric argument."
+    }
+  },
+  {
+    "id": "$cos empty arguments",
+    "operator": "$cos",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$cos": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$cos expects a numeric argument."
+    }
+  },
+  {
+    "id": "$cos unknown option",
+    "operator": "$cos",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$cos": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$cos expects a numeric argument."
+    }
+  }
+]

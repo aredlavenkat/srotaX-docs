@@ -1,0 +1,498 @@
+[
+  {
+    "id": "$strLenCP baseline",
+    "operator": "$strLenCP",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$strLenCP": "abc"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$strLenCP input: null",
+    "operator": "$strLenCP",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires a string."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $strLenCP requires a string argument, found: null",
+      "code": 34471,
+      "error": "Location34471"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$strLenCP input: missing",
+    "operator": "$strLenCP",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires a string."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $strLenCP requires a string argument, found: missing",
+      "code": 34471,
+      "error": "Location34471"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$strLenCP input: zero",
+    "operator": "$strLenCP",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires a string."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $strLenCP requires a string argument, found: int",
+      "code": 34471,
+      "error": "Location34471"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$strLenCP input: negative",
+    "operator": "$strLenCP",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires a string."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $strLenCP requires a string argument, found: int",
+      "code": 34471,
+      "error": "Location34471"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$strLenCP input: decimal",
+    "operator": "$strLenCP",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires a string."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $strLenCP requires a string argument, found: double",
+      "code": 34471,
+      "error": "Location34471"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$strLenCP input: numeric string",
+    "operator": "$strLenCP",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$strLenCP input: text",
+    "operator": "$strLenCP",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"5\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"5\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$strLenCP input: empty string",
+    "operator": "$strLenCP",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$strLenCP input: boolean",
+    "operator": "$strLenCP",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires a string."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $strLenCP requires a string argument, found: bool",
+      "code": 34471,
+      "error": "Location34471"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$strLenCP input: false",
+    "operator": "$strLenCP",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires a string."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $strLenCP requires a string argument, found: bool",
+      "code": 34471,
+      "error": "Location34471"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$strLenCP input: typed date",
+    "operator": "$strLenCP",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires a string."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $strLenCP requires a string argument, found: date",
+      "code": 34471,
+      "error": "Location34471"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$strLenCP input: decimal128",
+    "operator": "$strLenCP",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires a string."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $strLenCP requires a string argument, found: decimal",
+      "code": 34471,
+      "error": "Location34471"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$strLenCP input: empty array",
+    "operator": "$strLenCP",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires a string."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $strLenCP requires a string argument, found: array",
+      "code": 34471,
+      "error": "Location34471"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$strLenCP input: numeric array",
+    "operator": "$strLenCP",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires a string."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $strLenCP requires a string argument, found: array",
+      "code": 34471,
+      "error": "Location34471"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$strLenCP input: mixed array",
+    "operator": "$strLenCP",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires a string."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $strLenCP requires a string argument, found: array",
+      "code": 34471,
+      "error": "Location34471"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$strLenCP input: nested array",
+    "operator": "$strLenCP",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires a string."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $strLenCP requires a string argument, found: array",
+      "code": 34471,
+      "error": "Location34471"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$strLenCP input: empty object",
+    "operator": "$strLenCP",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires a string."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $strLenCP requires a string argument, found: object",
+      "code": 34471,
+      "error": "Location34471"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$strLenCP input: object",
+    "operator": "$strLenCP",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires a string."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $strLenCP requires a string argument, found: object",
+      "code": 34471,
+      "error": "Location34471"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$strLenCP input: ISO date string",
+    "operator": "$strLenCP",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$strLenCP": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"20\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"20\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$strLenCP empty arguments",
+    "operator": "$strLenCP",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$strLenCP": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires one argument"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $strLenCP takes exactly 1 arguments. 0 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$strLenCP unknown option",
+    "operator": "$strLenCP",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$strLenCP": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$strLenCP requires a string."
+    },
+    "mongo": {
+      "message": "Failed to optimize pipeline :: caused by :: $strLenCP requires a string argument, found: object",
+      "code": 34471,
+      "error": "Location34471"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

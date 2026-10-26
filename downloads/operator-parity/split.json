@@ -1,0 +1,1047 @@
+[
+  {
+    "id": "$split baseline",
+    "operator": "$split",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$split": [
+        "a,b",
+        ","
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [\"a\", \"b\"]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [\"a\", \"b\"]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$split input[0]: null",
+    "operator": "$split",
+    "kind": "null",
+    "operand": "input[0]",
+    "expression": {
+      "$split": [
+        "$probe",
+        ","
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split arguments must be strings."
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$split input[0]: missing",
+    "operator": "$split",
+    "kind": "missing",
+    "operand": "input[0]",
+    "expression": {
+      "$split": [
+        "$probe",
+        ","
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split arguments must be strings."
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$split input[0]: zero",
+    "operator": "$split",
+    "kind": "zero",
+    "operand": "input[0]",
+    "expression": {
+      "$split": [
+        "$probe",
+        ","
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split arguments must be strings."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $split requires an expression that evaluates to a string as a first argument, found: int",
+      "code": 40085,
+      "error": "Location40085"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$split input[0]: negative",
+    "operator": "$split",
+    "kind": "negative",
+    "operand": "input[0]",
+    "expression": {
+      "$split": [
+        "$probe",
+        ","
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split arguments must be strings."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $split requires an expression that evaluates to a string as a first argument, found: int",
+      "code": 40085,
+      "error": "Location40085"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$split input[0]: decimal",
+    "operator": "$split",
+    "kind": "decimal",
+    "operand": "input[0]",
+    "expression": {
+      "$split": [
+        "$probe",
+        ","
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split arguments must be strings."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $split requires an expression that evaluates to a string as a first argument, found: double",
+      "code": 40085,
+      "error": "Location40085"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$split input[0]: numeric string",
+    "operator": "$split",
+    "kind": "numeric string",
+    "operand": "input[0]",
+    "expression": {
+      "$split": [
+        "$probe",
+        ","
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": [\"12\"]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [\"12\"]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$split input[0]: text",
+    "operator": "$split",
+    "kind": "text",
+    "operand": "input[0]",
+    "expression": {
+      "$split": [
+        "$probe",
+        ","
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": [\"hello\"]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [\"hello\"]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$split input[0]: empty string",
+    "operator": "$split",
+    "kind": "empty string",
+    "operand": "input[0]",
+    "expression": {
+      "$split": [
+        "$probe",
+        ","
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": [\"\"]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [\"\"]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$split input[0]: boolean",
+    "operator": "$split",
+    "kind": "boolean",
+    "operand": "input[0]",
+    "expression": {
+      "$split": [
+        "$probe",
+        ","
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split arguments must be strings."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $split requires an expression that evaluates to a string as a first argument, found: bool",
+      "code": 40085,
+      "error": "Location40085"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$split input[0]: false",
+    "operator": "$split",
+    "kind": "false",
+    "operand": "input[0]",
+    "expression": {
+      "$split": [
+        "$probe",
+        ","
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split arguments must be strings."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $split requires an expression that evaluates to a string as a first argument, found: bool",
+      "code": 40085,
+      "error": "Location40085"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$split input[0]: typed date",
+    "operator": "$split",
+    "kind": "typed date",
+    "operand": "input[0]",
+    "expression": {
+      "$split": [
+        "$probe",
+        ","
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split arguments must be strings."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $split requires an expression that evaluates to a string as a first argument, found: date",
+      "code": 40085,
+      "error": "Location40085"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$split input[0]: decimal128",
+    "operator": "$split",
+    "kind": "decimal128",
+    "operand": "input[0]",
+    "expression": {
+      "$split": [
+        "$probe",
+        ","
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split arguments must be strings."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $split requires an expression that evaluates to a string as a first argument, found: decimal",
+      "code": 40085,
+      "error": "Location40085"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$split input[0]: empty array",
+    "operator": "$split",
+    "kind": "empty array",
+    "operand": "input[0]",
+    "expression": {
+      "$split": [
+        "$probe",
+        ","
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split arguments must be strings."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $split requires an expression that evaluates to a string as a first argument, found: array",
+      "code": 40085,
+      "error": "Location40085"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$split input[0]: numeric array",
+    "operator": "$split",
+    "kind": "numeric array",
+    "operand": "input[0]",
+    "expression": {
+      "$split": [
+        "$probe",
+        ","
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split arguments must be strings."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $split requires an expression that evaluates to a string as a first argument, found: array",
+      "code": 40085,
+      "error": "Location40085"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$split input[0]: mixed array",
+    "operator": "$split",
+    "kind": "mixed array",
+    "operand": "input[0]",
+    "expression": {
+      "$split": [
+        "$probe",
+        ","
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split arguments must be strings."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $split requires an expression that evaluates to a string as a first argument, found: array",
+      "code": 40085,
+      "error": "Location40085"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$split input[0]: nested array",
+    "operator": "$split",
+    "kind": "nested array",
+    "operand": "input[0]",
+    "expression": {
+      "$split": [
+        "$probe",
+        ","
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split arguments must be strings."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $split requires an expression that evaluates to a string as a first argument, found: array",
+      "code": 40085,
+      "error": "Location40085"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$split input[0]: empty object",
+    "operator": "$split",
+    "kind": "empty object",
+    "operand": "input[0]",
+    "expression": {
+      "$split": [
+        "$probe",
+        ","
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split arguments must be strings."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $split requires an expression that evaluates to a string as a first argument, found: object",
+      "code": 40085,
+      "error": "Location40085"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$split input[0]: object",
+    "operator": "$split",
+    "kind": "object",
+    "operand": "input[0]",
+    "expression": {
+      "$split": [
+        "$probe",
+        ","
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split arguments must be strings."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $split requires an expression that evaluates to a string as a first argument, found: object",
+      "code": 40085,
+      "error": "Location40085"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$split input[0]: ISO date string",
+    "operator": "$split",
+    "kind": "ISO date string",
+    "operand": "input[0]",
+    "expression": {
+      "$split": [
+        "$probe",
+        ","
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": [\"2026-01-15T15:00:00Z\"]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [\"2026-01-15T15:00:00Z\"]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$split delimiter[1]: null",
+    "operator": "$split",
+    "kind": "null",
+    "operand": "delimiter[1]",
+    "expression": {
+      "$split": [
+        "a,b",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split arguments must be strings."
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$split delimiter[1]: missing",
+    "operator": "$split",
+    "kind": "missing",
+    "operand": "delimiter[1]",
+    "expression": {
+      "$split": [
+        "a,b",
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split arguments must be strings."
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$split delimiter[1]: zero",
+    "operator": "$split",
+    "kind": "zero",
+    "operand": "delimiter[1]",
+    "expression": {
+      "$split": [
+        "a,b",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split arguments must be strings."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $split requires an expression that evaluates to a string or regular expression as a second argument, found: int",
+      "code": 40086,
+      "error": "Location40086"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$split delimiter[1]: negative",
+    "operator": "$split",
+    "kind": "negative",
+    "operand": "delimiter[1]",
+    "expression": {
+      "$split": [
+        "a,b",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split arguments must be strings."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $split requires an expression that evaluates to a string or regular expression as a second argument, found: int",
+      "code": 40086,
+      "error": "Location40086"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$split delimiter[1]: decimal",
+    "operator": "$split",
+    "kind": "decimal",
+    "operand": "delimiter[1]",
+    "expression": {
+      "$split": [
+        "a,b",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split arguments must be strings."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $split requires an expression that evaluates to a string or regular expression as a second argument, found: double",
+      "code": 40086,
+      "error": "Location40086"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$split delimiter[1]: numeric string",
+    "operator": "$split",
+    "kind": "numeric string",
+    "operand": "delimiter[1]",
+    "expression": {
+      "$split": [
+        "a,b",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": [\"a,b\"]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [\"a,b\"]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$split delimiter[1]: text",
+    "operator": "$split",
+    "kind": "text",
+    "operand": "delimiter[1]",
+    "expression": {
+      "$split": [
+        "a,b",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": [\"a,b\"]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [\"a,b\"]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$split delimiter[1]: empty string",
+    "operator": "$split",
+    "kind": "empty string",
+    "operand": "delimiter[1]",
+    "expression": {
+      "$split": [
+        "a,b",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split delimiter must not be empty"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $split requires a non-empty separator",
+      "code": 40087,
+      "error": "Location40087"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$split delimiter[1]: boolean",
+    "operator": "$split",
+    "kind": "boolean",
+    "operand": "delimiter[1]",
+    "expression": {
+      "$split": [
+        "a,b",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split arguments must be strings."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $split requires an expression that evaluates to a string or regular expression as a second argument, found: bool",
+      "code": 40086,
+      "error": "Location40086"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$split delimiter[1]: false",
+    "operator": "$split",
+    "kind": "false",
+    "operand": "delimiter[1]",
+    "expression": {
+      "$split": [
+        "a,b",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split arguments must be strings."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $split requires an expression that evaluates to a string or regular expression as a second argument, found: bool",
+      "code": 40086,
+      "error": "Location40086"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$split delimiter[1]: typed date",
+    "operator": "$split",
+    "kind": "typed date",
+    "operand": "delimiter[1]",
+    "expression": {
+      "$split": [
+        "a,b",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split arguments must be strings."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $split requires an expression that evaluates to a string or regular expression as a second argument, found: date",
+      "code": 40086,
+      "error": "Location40086"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$split delimiter[1]: decimal128",
+    "operator": "$split",
+    "kind": "decimal128",
+    "operand": "delimiter[1]",
+    "expression": {
+      "$split": [
+        "a,b",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split arguments must be strings."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $split requires an expression that evaluates to a string or regular expression as a second argument, found: decimal",
+      "code": 40086,
+      "error": "Location40086"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$split delimiter[1]: empty array",
+    "operator": "$split",
+    "kind": "empty array",
+    "operand": "delimiter[1]",
+    "expression": {
+      "$split": [
+        "a,b",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split arguments must be strings."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $split requires an expression that evaluates to a string or regular expression as a second argument, found: array",
+      "code": 40086,
+      "error": "Location40086"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$split delimiter[1]: numeric array",
+    "operator": "$split",
+    "kind": "numeric array",
+    "operand": "delimiter[1]",
+    "expression": {
+      "$split": [
+        "a,b",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split arguments must be strings."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $split requires an expression that evaluates to a string or regular expression as a second argument, found: array",
+      "code": 40086,
+      "error": "Location40086"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$split delimiter[1]: mixed array",
+    "operator": "$split",
+    "kind": "mixed array",
+    "operand": "delimiter[1]",
+    "expression": {
+      "$split": [
+        "a,b",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split arguments must be strings."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $split requires an expression that evaluates to a string or regular expression as a second argument, found: array",
+      "code": 40086,
+      "error": "Location40086"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$split delimiter[1]: nested array",
+    "operator": "$split",
+    "kind": "nested array",
+    "operand": "delimiter[1]",
+    "expression": {
+      "$split": [
+        "a,b",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split arguments must be strings."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $split requires an expression that evaluates to a string or regular expression as a second argument, found: array",
+      "code": 40086,
+      "error": "Location40086"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$split delimiter[1]: empty object",
+    "operator": "$split",
+    "kind": "empty object",
+    "operand": "delimiter[1]",
+    "expression": {
+      "$split": [
+        "a,b",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split arguments must be strings."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $split requires an expression that evaluates to a string or regular expression as a second argument, found: object",
+      "code": 40086,
+      "error": "Location40086"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$split delimiter[1]: object",
+    "operator": "$split",
+    "kind": "object",
+    "operand": "delimiter[1]",
+    "expression": {
+      "$split": [
+        "a,b",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split arguments must be strings."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $split requires an expression that evaluates to a string or regular expression as a second argument, found: object",
+      "code": 40086,
+      "error": "Location40086"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$split delimiter[1]: ISO date string",
+    "operator": "$split",
+    "kind": "ISO date string",
+    "operand": "delimiter[1]",
+    "expression": {
+      "$split": [
+        "a,b",
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": [\"a,b\"]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [\"a,b\"]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$split empty arguments",
+    "operator": "$split",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$split": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split requires [string, delimiter]"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $split takes exactly 2 arguments. 0 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$split unknown option",
+    "operator": "$split",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$split": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$split requires [string, delimiter]"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $split takes exactly 2 arguments. 1 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

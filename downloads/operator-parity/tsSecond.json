@@ -1,0 +1,504 @@
+[
+  {
+    "id": "$tsSecond baseline",
+    "operator": "$tsSecond",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$tsSecond": {
+        "t": 10,
+        "i": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"10\"}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Failed to optimize pipeline :: caused by ::  Argument to $tsSecond must be a timestamp, but is object",
+      "code": 5687301,
+      "error": "Location5687301"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$tsSecond input: null",
+    "operator": "$tsSecond",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$tsSecond": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$tsSecond input: missing",
+    "operator": "$tsSecond",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$tsSecond": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$tsSecond input: zero",
+    "operator": "$tsSecond",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$tsSecond": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tsSecond expects a timestamp object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by ::  Argument to $tsSecond must be a timestamp, but is int",
+      "code": 5687301,
+      "error": "Location5687301"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$tsSecond input: negative",
+    "operator": "$tsSecond",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$tsSecond": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tsSecond expects a timestamp object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by ::  Argument to $tsSecond must be a timestamp, but is int",
+      "code": 5687301,
+      "error": "Location5687301"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$tsSecond input: decimal",
+    "operator": "$tsSecond",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$tsSecond": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tsSecond expects a timestamp object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by ::  Argument to $tsSecond must be a timestamp, but is double",
+      "code": 5687301,
+      "error": "Location5687301"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$tsSecond input: numeric string",
+    "operator": "$tsSecond",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$tsSecond": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tsSecond expects a timestamp object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by ::  Argument to $tsSecond must be a timestamp, but is string",
+      "code": 5687301,
+      "error": "Location5687301"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$tsSecond input: text",
+    "operator": "$tsSecond",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$tsSecond": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tsSecond expects a timestamp object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by ::  Argument to $tsSecond must be a timestamp, but is string",
+      "code": 5687301,
+      "error": "Location5687301"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$tsSecond input: empty string",
+    "operator": "$tsSecond",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$tsSecond": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tsSecond expects a timestamp object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by ::  Argument to $tsSecond must be a timestamp, but is string",
+      "code": 5687301,
+      "error": "Location5687301"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$tsSecond input: boolean",
+    "operator": "$tsSecond",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$tsSecond": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tsSecond expects a timestamp object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by ::  Argument to $tsSecond must be a timestamp, but is bool",
+      "code": 5687301,
+      "error": "Location5687301"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$tsSecond input: false",
+    "operator": "$tsSecond",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$tsSecond": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tsSecond expects a timestamp object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by ::  Argument to $tsSecond must be a timestamp, but is bool",
+      "code": 5687301,
+      "error": "Location5687301"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$tsSecond input: typed date",
+    "operator": "$tsSecond",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$tsSecond": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tsSecond expects a timestamp object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by ::  Argument to $tsSecond must be a timestamp, but is date",
+      "code": 5687301,
+      "error": "Location5687301"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$tsSecond input: decimal128",
+    "operator": "$tsSecond",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$tsSecond": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tsSecond expects a timestamp object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by ::  Argument to $tsSecond must be a timestamp, but is decimal",
+      "code": 5687301,
+      "error": "Location5687301"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$tsSecond input: empty array",
+    "operator": "$tsSecond",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$tsSecond": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tsSecond expects a timestamp object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by ::  Argument to $tsSecond must be a timestamp, but is array",
+      "code": 5687301,
+      "error": "Location5687301"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$tsSecond input: numeric array",
+    "operator": "$tsSecond",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$tsSecond": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tsSecond expects a timestamp object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by ::  Argument to $tsSecond must be a timestamp, but is array",
+      "code": 5687301,
+      "error": "Location5687301"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$tsSecond input: mixed array",
+    "operator": "$tsSecond",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$tsSecond": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tsSecond expects a timestamp object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by ::  Argument to $tsSecond must be a timestamp, but is array",
+      "code": 5687301,
+      "error": "Location5687301"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$tsSecond input: nested array",
+    "operator": "$tsSecond",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$tsSecond": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tsSecond expects a timestamp object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by ::  Argument to $tsSecond must be a timestamp, but is array",
+      "code": 5687301,
+      "error": "Location5687301"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$tsSecond input: empty object",
+    "operator": "$tsSecond",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$tsSecond": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by ::  Argument to $tsSecond must be a timestamp, but is object",
+      "code": 5687301,
+      "error": "Location5687301"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$tsSecond input: object",
+    "operator": "$tsSecond",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$tsSecond": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by ::  Argument to $tsSecond must be a timestamp, but is object",
+      "code": 5687301,
+      "error": "Location5687301"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$tsSecond input: ISO date string",
+    "operator": "$tsSecond",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$tsSecond": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tsSecond expects a timestamp object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by ::  Argument to $tsSecond must be a timestamp, but is string",
+      "code": 5687301,
+      "error": "Location5687301"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$tsSecond empty arguments",
+    "operator": "$tsSecond",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$tsSecond": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tsSecond expects a timestamp object"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $tsSecond takes exactly 1 arguments. 0 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$tsSecond unknown option",
+    "operator": "$tsSecond",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$tsSecond": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Failed to optimize pipeline :: caused by ::  Argument to $tsSecond must be a timestamp, but is object",
+      "code": 5687301,
+      "error": "Location5687301"
+    },
+    "status": "DIFFERENCE"
+  }
+]

@@ -1,0 +1,496 @@
+[
+  {
+    "id": "$floor baseline",
+    "operator": "$floor",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$floor": 1.8
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$floor input: null",
+    "operator": "$floor",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$floor": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$floor input: missing",
+    "operator": "$floor",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$floor": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$floor input: zero",
+    "operator": "$floor",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$floor": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$floor input: negative",
+    "operator": "$floor",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$floor": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"-2.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-2\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$floor input: decimal",
+    "operator": "$floor",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$floor": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$floor input: numeric string",
+    "operator": "$floor",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$floor": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$floor requires a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $floor only supports numeric types, not string",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$floor input: text",
+    "operator": "$floor",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$floor": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$floor requires a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $floor only supports numeric types, not string",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$floor input: empty string",
+    "operator": "$floor",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$floor": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$floor requires a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $floor only supports numeric types, not string",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$floor input: boolean",
+    "operator": "$floor",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$floor": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$floor requires a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $floor only supports numeric types, not bool",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$floor input: false",
+    "operator": "$floor",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$floor": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$floor requires a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $floor only supports numeric types, not bool",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$floor input: typed date",
+    "operator": "$floor",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$floor": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$floor requires a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $floor only supports numeric types, not date",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$floor input: decimal128",
+    "operator": "$floor",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$floor": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"1\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$floor input: empty array",
+    "operator": "$floor",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$floor": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$floor requires a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $floor only supports numeric types, not array",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$floor input: numeric array",
+    "operator": "$floor",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$floor": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$floor requires a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $floor only supports numeric types, not array",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$floor input: mixed array",
+    "operator": "$floor",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$floor": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$floor requires a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $floor only supports numeric types, not array",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$floor input: nested array",
+    "operator": "$floor",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$floor": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$floor requires a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $floor only supports numeric types, not array",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$floor input: empty object",
+    "operator": "$floor",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$floor": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$floor requires a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $floor only supports numeric types, not object",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$floor input: object",
+    "operator": "$floor",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$floor": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$floor requires a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $floor only supports numeric types, not object",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$floor input: ISO date string",
+    "operator": "$floor",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$floor": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$floor requires a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $floor only supports numeric types, not string",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$floor empty arguments",
+    "operator": "$floor",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$floor": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$floor requires a numeric argument."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $floor takes exactly 1 arguments. 0 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$floor unknown option",
+    "operator": "$floor",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$floor": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$floor requires a numeric argument."
+    },
+    "mongo": {
+      "message": "Failed to optimize pipeline :: caused by :: $floor only supports numeric types, not object",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

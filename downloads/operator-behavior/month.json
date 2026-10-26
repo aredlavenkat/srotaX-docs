@@ -1,0 +1,373 @@
+[
+  {
+    "id": "$month baseline",
+    "operator": "$month",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$month": {
+        "$toDate": "2024-01-02T03:04:05.006Z"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$month input: null",
+    "operator": "$month",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$month": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$month input: missing",
+    "operator": "$month",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$month": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$month input: zero",
+    "operator": "$month",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$month": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$month input: negative",
+    "operator": "$month",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$month": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$month input: decimal",
+    "operator": "$month",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$month": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$month input: numeric string",
+    "operator": "$month",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$month": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot convert value to date: 12"
+    }
+  },
+  {
+    "id": "$month input: text",
+    "operator": "$month",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$month": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot convert value to date: hello"
+    }
+  },
+  {
+    "id": "$month input: empty string",
+    "operator": "$month",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$month": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot convert value to date: "
+    }
+  },
+  {
+    "id": "$month input: boolean",
+    "operator": "$month",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$month": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$month input: false",
+    "operator": "$month",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$month": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$month input: typed date",
+    "operator": "$month",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$month": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$month input: decimal128",
+    "operator": "$month",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$month": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$month input: empty array",
+    "operator": "$month",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$month": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$month input: numeric array",
+    "operator": "$month",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$month": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$month input: mixed array",
+    "operator": "$month",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$month": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$month input: nested array",
+    "operator": "$month",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$month": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$month input: empty object",
+    "operator": "$month",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$month": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$month input: object",
+    "operator": "$month",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$month": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  },
+  {
+    "id": "$month input: ISO date string",
+    "operator": "$month",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$month": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$month empty arguments",
+    "operator": "$month",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$month": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "One date required"
+    }
+  },
+  {
+    "id": "$month unknown option",
+    "operator": "$month",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$month": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    }
+  }
+]

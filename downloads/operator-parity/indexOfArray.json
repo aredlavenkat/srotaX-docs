@@ -1,0 +1,1093 @@
+[
+  {
+    "id": "$indexOfArray baseline",
+    "operator": "$indexOfArray",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$indexOfArray": [
+        [
+          1,
+          2
+        ],
+        2
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfArray array[0]: null",
+    "operator": "$indexOfArray",
+    "kind": "null",
+    "operand": "array[0]",
+    "expression": {
+      "$indexOfArray": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfArray array[0]: missing",
+    "operator": "$indexOfArray",
+    "kind": "missing",
+    "operand": "array[0]",
+    "expression": {
+      "$indexOfArray": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfArray array[0]: zero",
+    "operator": "$indexOfArray",
+    "kind": "zero",
+    "operand": "array[0]",
+    "expression": {
+      "$indexOfArray": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfArray first argument must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfArray requires an array as a first argument, found: int",
+      "code": 40090,
+      "error": "Location40090"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfArray array[0]: negative",
+    "operator": "$indexOfArray",
+    "kind": "negative",
+    "operand": "array[0]",
+    "expression": {
+      "$indexOfArray": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfArray first argument must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfArray requires an array as a first argument, found: int",
+      "code": 40090,
+      "error": "Location40090"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfArray array[0]: decimal",
+    "operator": "$indexOfArray",
+    "kind": "decimal",
+    "operand": "array[0]",
+    "expression": {
+      "$indexOfArray": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfArray first argument must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfArray requires an array as a first argument, found: double",
+      "code": 40090,
+      "error": "Location40090"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfArray array[0]: numeric string",
+    "operator": "$indexOfArray",
+    "kind": "numeric string",
+    "operand": "array[0]",
+    "expression": {
+      "$indexOfArray": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfArray first argument must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfArray requires an array as a first argument, found: string",
+      "code": 40090,
+      "error": "Location40090"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfArray array[0]: text",
+    "operator": "$indexOfArray",
+    "kind": "text",
+    "operand": "array[0]",
+    "expression": {
+      "$indexOfArray": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfArray first argument must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfArray requires an array as a first argument, found: string",
+      "code": 40090,
+      "error": "Location40090"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfArray array[0]: empty string",
+    "operator": "$indexOfArray",
+    "kind": "empty string",
+    "operand": "array[0]",
+    "expression": {
+      "$indexOfArray": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfArray first argument must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfArray requires an array as a first argument, found: string",
+      "code": 40090,
+      "error": "Location40090"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfArray array[0]: boolean",
+    "operator": "$indexOfArray",
+    "kind": "boolean",
+    "operand": "array[0]",
+    "expression": {
+      "$indexOfArray": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfArray first argument must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfArray requires an array as a first argument, found: bool",
+      "code": 40090,
+      "error": "Location40090"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfArray array[0]: false",
+    "operator": "$indexOfArray",
+    "kind": "false",
+    "operand": "array[0]",
+    "expression": {
+      "$indexOfArray": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfArray first argument must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfArray requires an array as a first argument, found: bool",
+      "code": 40090,
+      "error": "Location40090"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfArray array[0]: typed date",
+    "operator": "$indexOfArray",
+    "kind": "typed date",
+    "operand": "array[0]",
+    "expression": {
+      "$indexOfArray": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfArray first argument must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfArray requires an array as a first argument, found: date",
+      "code": 40090,
+      "error": "Location40090"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfArray array[0]: decimal128",
+    "operator": "$indexOfArray",
+    "kind": "decimal128",
+    "operand": "array[0]",
+    "expression": {
+      "$indexOfArray": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfArray first argument must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfArray requires an array as a first argument, found: decimal",
+      "code": 40090,
+      "error": "Location40090"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfArray array[0]: empty array",
+    "operator": "$indexOfArray",
+    "kind": "empty array",
+    "operand": "array[0]",
+    "expression": {
+      "$indexOfArray": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfArray array[0]: numeric array",
+    "operator": "$indexOfArray",
+    "kind": "numeric array",
+    "operand": "array[0]",
+    "expression": {
+      "$indexOfArray": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfArray array[0]: mixed array",
+    "operator": "$indexOfArray",
+    "kind": "mixed array",
+    "operand": "array[0]",
+    "expression": {
+      "$indexOfArray": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfArray array[0]: nested array",
+    "operator": "$indexOfArray",
+    "kind": "nested array",
+    "operand": "array[0]",
+    "expression": {
+      "$indexOfArray": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfArray array[0]: empty object",
+    "operator": "$indexOfArray",
+    "kind": "empty object",
+    "operand": "array[0]",
+    "expression": {
+      "$indexOfArray": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfArray first argument must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfArray requires an array as a first argument, found: object",
+      "code": 40090,
+      "error": "Location40090"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfArray array[0]: object",
+    "operator": "$indexOfArray",
+    "kind": "object",
+    "operand": "array[0]",
+    "expression": {
+      "$indexOfArray": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfArray first argument must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfArray requires an array as a first argument, found: object",
+      "code": 40090,
+      "error": "Location40090"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfArray array[0]: ISO date string",
+    "operator": "$indexOfArray",
+    "kind": "ISO date string",
+    "operand": "array[0]",
+    "expression": {
+      "$indexOfArray": [
+        "$probe",
+        2
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfArray first argument must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $indexOfArray requires an array as a first argument, found: string",
+      "code": 40090,
+      "error": "Location40090"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfArray search[1]: null",
+    "operator": "$indexOfArray",
+    "kind": "null",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfArray": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfArray search[1]: missing",
+    "operator": "$indexOfArray",
+    "kind": "missing",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfArray": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfArray search[1]: zero",
+    "operator": "$indexOfArray",
+    "kind": "zero",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfArray": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfArray search[1]: negative",
+    "operator": "$indexOfArray",
+    "kind": "negative",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfArray": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfArray search[1]: decimal",
+    "operator": "$indexOfArray",
+    "kind": "decimal",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfArray": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfArray search[1]: numeric string",
+    "operator": "$indexOfArray",
+    "kind": "numeric string",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfArray": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfArray search[1]: text",
+    "operator": "$indexOfArray",
+    "kind": "text",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfArray": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfArray search[1]: empty string",
+    "operator": "$indexOfArray",
+    "kind": "empty string",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfArray": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfArray search[1]: boolean",
+    "operator": "$indexOfArray",
+    "kind": "boolean",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfArray": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfArray search[1]: false",
+    "operator": "$indexOfArray",
+    "kind": "false",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfArray": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfArray search[1]: typed date",
+    "operator": "$indexOfArray",
+    "kind": "typed date",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfArray": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfArray search[1]: decimal128",
+    "operator": "$indexOfArray",
+    "kind": "decimal128",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfArray": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfArray search[1]: empty array",
+    "operator": "$indexOfArray",
+    "kind": "empty array",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfArray": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfArray search[1]: numeric array",
+    "operator": "$indexOfArray",
+    "kind": "numeric array",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfArray": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfArray search[1]: mixed array",
+    "operator": "$indexOfArray",
+    "kind": "mixed array",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfArray": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfArray search[1]: nested array",
+    "operator": "$indexOfArray",
+    "kind": "nested array",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfArray": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfArray search[1]: empty object",
+    "operator": "$indexOfArray",
+    "kind": "empty object",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfArray": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfArray search[1]: object",
+    "operator": "$indexOfArray",
+    "kind": "object",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfArray": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfArray search[1]: ISO date string",
+    "operator": "$indexOfArray",
+    "kind": "ISO date string",
+    "operand": "search[1]",
+    "expression": {
+      "$indexOfArray": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$indexOfArray empty arguments",
+    "operator": "$indexOfArray",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$indexOfArray": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfArray expects 2 to 4 arguments: [array, search, start?, end?]"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $indexOfArray takes at least 2 arguments, and at most 4, but 0 were passed in.",
+      "code": 28667,
+      "error": "Location28667"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$indexOfArray unknown option",
+    "operator": "$indexOfArray",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$indexOfArray": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$indexOfArray expects 2 to 4 arguments: [array, search, start?, end?]"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $indexOfArray takes at least 2 arguments, and at most 4, but 1 were passed in.",
+      "code": 28667,
+      "error": "Location28667"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

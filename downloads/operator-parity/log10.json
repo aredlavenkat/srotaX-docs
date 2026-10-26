@@ -1,0 +1,498 @@
+[
+  {
+    "id": "$log10 baseline",
+    "operator": "$log10",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$log10": 100
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$log10 input: null",
+    "operator": "$log10",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$log10": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log10 expects a numeric argument."
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$log10 input: missing",
+    "operator": "$log10",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$log10": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log10 expects a numeric argument."
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$log10 input: zero",
+    "operator": "$log10",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$log10": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log10 expects a positive number."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $log10's argument must be a positive number, but is 0",
+      "code": 28761,
+      "error": "Location28761"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$log10 input: negative",
+    "operator": "$log10",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$log10": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log10 expects a positive number."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $log10's argument must be a positive number, but is -2",
+      "code": 28761,
+      "error": "Location28761"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$log10 input: decimal",
+    "operator": "$log10",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$log10": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.3979400086720376\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.3979400086720376\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$log10 input: numeric string",
+    "operator": "$log10",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$log10": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log10 expects a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $log10 only supports numeric types, not string",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$log10 input: text",
+    "operator": "$log10",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$log10": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log10 expects a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $log10 only supports numeric types, not string",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$log10 input: empty string",
+    "operator": "$log10",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$log10": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log10 expects a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $log10 only supports numeric types, not string",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$log10 input: boolean",
+    "operator": "$log10",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$log10": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log10 expects a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $log10 only supports numeric types, not bool",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$log10 input: false",
+    "operator": "$log10",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$log10": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log10 expects a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $log10 only supports numeric types, not bool",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$log10 input: typed date",
+    "operator": "$log10",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$log10": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log10 expects a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $log10 only supports numeric types, not date",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$log10 input: decimal128",
+    "operator": "$log10",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$log10": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.09691001300805642\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"0.09691001300805641435878331582652092\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$log10 input: empty array",
+    "operator": "$log10",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$log10": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log10 expects a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $log10 only supports numeric types, not array",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$log10 input: numeric array",
+    "operator": "$log10",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$log10": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log10 expects a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $log10 only supports numeric types, not array",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$log10 input: mixed array",
+    "operator": "$log10",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$log10": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log10 expects a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $log10 only supports numeric types, not array",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$log10 input: nested array",
+    "operator": "$log10",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$log10": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log10 expects a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $log10 only supports numeric types, not array",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$log10 input: empty object",
+    "operator": "$log10",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$log10": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log10 expects a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $log10 only supports numeric types, not object",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$log10 input: object",
+    "operator": "$log10",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$log10": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log10 expects a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $log10 only supports numeric types, not object",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$log10 input: ISO date string",
+    "operator": "$log10",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$log10": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log10 expects a numeric argument."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $log10 only supports numeric types, not string",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$log10 empty arguments",
+    "operator": "$log10",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$log10": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log10 expects a numeric argument."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $log10 takes exactly 1 arguments. 0 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$log10 unknown option",
+    "operator": "$log10",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$log10": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$log10 expects a numeric argument."
+    },
+    "mongo": {
+      "message": "Failed to optimize pipeline :: caused by :: $log10 only supports numeric types, not object",
+      "code": 28765,
+      "error": "Location28765"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

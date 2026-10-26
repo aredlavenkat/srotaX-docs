@@ -1,0 +1,1438 @@
+[
+  {
+    "id": "$min baseline",
+    "operator": "$min",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$min": [
+        2,
+        3
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[0]: null",
+    "operator": "$min",
+    "kind": "null",
+    "operand": "value[0]",
+    "expression": {
+      "$min": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[0]: missing",
+    "operator": "$min",
+    "kind": "missing",
+    "operand": "value[0]",
+    "expression": {
+      "$min": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[0]: zero",
+    "operator": "$min",
+    "kind": "zero",
+    "operand": "value[0]",
+    "expression": {
+      "$min": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[0]: negative",
+    "operator": "$min",
+    "kind": "negative",
+    "operand": "value[0]",
+    "expression": {
+      "$min": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[0]: decimal",
+    "operator": "$min",
+    "kind": "decimal",
+    "operand": "value[0]",
+    "expression": {
+      "$min": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.5\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.5\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[0]: numeric string",
+    "operator": "$min",
+    "kind": "numeric string",
+    "operand": "value[0]",
+    "expression": {
+      "$min": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[0]: text",
+    "operator": "$min",
+    "kind": "text",
+    "operand": "value[0]",
+    "expression": {
+      "$min": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[0]: empty string",
+    "operator": "$min",
+    "kind": "empty string",
+    "operand": "value[0]",
+    "expression": {
+      "$min": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[0]: boolean",
+    "operator": "$min",
+    "kind": "boolean",
+    "operand": "value[0]",
+    "expression": {
+      "$min": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[0]: false",
+    "operator": "$min",
+    "kind": "false",
+    "operand": "value[0]",
+    "expression": {
+      "$min": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[0]: typed date",
+    "operator": "$min",
+    "kind": "typed date",
+    "operand": "value[0]",
+    "expression": {
+      "$min": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[0]: decimal128",
+    "operator": "$min",
+    "kind": "decimal128",
+    "operand": "value[0]",
+    "expression": {
+      "$min": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"1.25\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"1.25\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[0]: empty array",
+    "operator": "$min",
+    "kind": "empty array",
+    "operand": "value[0]",
+    "expression": {
+      "$min": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[0]: numeric array",
+    "operator": "$min",
+    "kind": "numeric array",
+    "operand": "value[0]",
+    "expression": {
+      "$min": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[0]: mixed array",
+    "operator": "$min",
+    "kind": "mixed array",
+    "operand": "value[0]",
+    "expression": {
+      "$min": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[0]: nested array",
+    "operator": "$min",
+    "kind": "nested array",
+    "operand": "value[0]",
+    "expression": {
+      "$min": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[0]: empty object",
+    "operator": "$min",
+    "kind": "empty object",
+    "operand": "value[0]",
+    "expression": {
+      "$min": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[0]: object",
+    "operator": "$min",
+    "kind": "object",
+    "operand": "value[0]",
+    "expression": {
+      "$min": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[0]: ISO date string",
+    "operator": "$min",
+    "kind": "ISO date string",
+    "operand": "value[0]",
+    "expression": {
+      "$min": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[1]: null",
+    "operator": "$min",
+    "kind": "null",
+    "operand": "value[1]",
+    "expression": {
+      "$min": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[1]: missing",
+    "operator": "$min",
+    "kind": "missing",
+    "operand": "value[1]",
+    "expression": {
+      "$min": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[1]: zero",
+    "operator": "$min",
+    "kind": "zero",
+    "operand": "value[1]",
+    "expression": {
+      "$min": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[1]: negative",
+    "operator": "$min",
+    "kind": "negative",
+    "operand": "value[1]",
+    "expression": {
+      "$min": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[1]: decimal",
+    "operator": "$min",
+    "kind": "decimal",
+    "operand": "value[1]",
+    "expression": {
+      "$min": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[1]: numeric string",
+    "operator": "$min",
+    "kind": "numeric string",
+    "operand": "value[1]",
+    "expression": {
+      "$min": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[1]: text",
+    "operator": "$min",
+    "kind": "text",
+    "operand": "value[1]",
+    "expression": {
+      "$min": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[1]: empty string",
+    "operator": "$min",
+    "kind": "empty string",
+    "operand": "value[1]",
+    "expression": {
+      "$min": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[1]: boolean",
+    "operator": "$min",
+    "kind": "boolean",
+    "operand": "value[1]",
+    "expression": {
+      "$min": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[1]: false",
+    "operator": "$min",
+    "kind": "false",
+    "operand": "value[1]",
+    "expression": {
+      "$min": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[1]: typed date",
+    "operator": "$min",
+    "kind": "typed date",
+    "operand": "value[1]",
+    "expression": {
+      "$min": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[1]: decimal128",
+    "operator": "$min",
+    "kind": "decimal128",
+    "operand": "value[1]",
+    "expression": {
+      "$min": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"1.25\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"1.25\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[1]: empty array",
+    "operator": "$min",
+    "kind": "empty array",
+    "operand": "value[1]",
+    "expression": {
+      "$min": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[1]: numeric array",
+    "operator": "$min",
+    "kind": "numeric array",
+    "operand": "value[1]",
+    "expression": {
+      "$min": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[1]: mixed array",
+    "operator": "$min",
+    "kind": "mixed array",
+    "operand": "value[1]",
+    "expression": {
+      "$min": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[1]: nested array",
+    "operator": "$min",
+    "kind": "nested array",
+    "operand": "value[1]",
+    "expression": {
+      "$min": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[1]: empty object",
+    "operator": "$min",
+    "kind": "empty object",
+    "operand": "value[1]",
+    "expression": {
+      "$min": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[1]: object",
+    "operator": "$min",
+    "kind": "object",
+    "operand": "value[1]",
+    "expression": {
+      "$min": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min value[1]: ISO date string",
+    "operator": "$min",
+    "kind": "ISO date string",
+    "operand": "value[1]",
+    "expression": {
+      "$min": [
+        2,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min single array: null",
+    "operator": "$min",
+    "kind": "single operand null",
+    "operand": "single array expression",
+    "expression": {
+      "$min": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min single array: missing",
+    "operator": "$min",
+    "kind": "single operand missing",
+    "operand": "single array expression",
+    "expression": {
+      "$min": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min single array: zero",
+    "operator": "$min",
+    "kind": "single operand zero",
+    "operand": "single array expression",
+    "expression": {
+      "$min": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min single array: negative",
+    "operator": "$min",
+    "kind": "single operand negative",
+    "operand": "single array expression",
+    "expression": {
+      "$min": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min single array: decimal",
+    "operator": "$min",
+    "kind": "single operand decimal",
+    "operand": "single array expression",
+    "expression": {
+      "$min": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.5\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.5\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min single array: numeric string",
+    "operator": "$min",
+    "kind": "single operand numeric string",
+    "operand": "single array expression",
+    "expression": {
+      "$min": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"12\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"12\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min single array: text",
+    "operator": "$min",
+    "kind": "single operand text",
+    "operand": "single array expression",
+    "expression": {
+      "$min": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"hello\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"hello\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min single array: empty string",
+    "operator": "$min",
+    "kind": "single operand empty string",
+    "operand": "single array expression",
+    "expression": {
+      "$min": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min single array: boolean",
+    "operator": "$min",
+    "kind": "single operand boolean",
+    "operand": "single array expression",
+    "expression": {
+      "$min": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": true}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min single array: false",
+    "operator": "$min",
+    "kind": "single operand false",
+    "operand": "single array expression",
+    "expression": {
+      "$min": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": false}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min single array: typed date",
+    "operator": "$min",
+    "kind": "single operand typed date",
+    "operand": "single array expression",
+    "expression": {
+      "$min": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1768489200000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1768489200000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min single array: decimal128",
+    "operator": "$min",
+    "kind": "single operand decimal128",
+    "operand": "single array expression",
+    "expression": {
+      "$min": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"1.25\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"1.25\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min single array: empty array",
+    "operator": "$min",
+    "kind": "single operand empty array",
+    "operand": "single array expression",
+    "expression": {
+      "$min": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min single array: numeric array",
+    "operator": "$min",
+    "kind": "single operand numeric array",
+    "operand": "single array expression",
+    "expression": {
+      "$min": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min single array: mixed array",
+    "operator": "$min",
+    "kind": "single operand mixed array",
+    "operand": "single array expression",
+    "expression": {
+      "$min": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min single array: nested array",
+    "operator": "$min",
+    "kind": "single operand nested array",
+    "operand": "single array expression",
+    "expression": {
+      "$min": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min single array: empty object",
+    "operator": "$min",
+    "kind": "single operand empty object",
+    "operand": "single array expression",
+    "expression": {
+      "$min": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min single array: object",
+    "operator": "$min",
+    "kind": "single operand object",
+    "operand": "single array expression",
+    "expression": {
+      "$min": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"x\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"x\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min single array: ISO date string",
+    "operator": "$min",
+    "kind": "single operand ISO date string",
+    "operand": "single array expression",
+    "expression": {
+      "$min": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2026-01-15T15:00:00Z\"}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": \"2026-01-15T15:00:00Z\"}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min empty arguments",
+    "operator": "$min",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$min": []
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$min unknown option",
+    "operator": "$min",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$min": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"unexpected\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"unexpected\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  }
+]

@@ -1,0 +1,371 @@
+[
+  {
+    "id": "$ceil baseline",
+    "operator": "$ceil",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$ceil": 1.2
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ceil input: null",
+    "operator": "$ceil",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$ceil": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ceil input: missing",
+    "operator": "$ceil",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$ceil": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ceil input: zero",
+    "operator": "$ceil",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$ceil": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ceil input: negative",
+    "operator": "$ceil",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$ceil": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"-2.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ceil input: decimal",
+    "operator": "$ceil",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$ceil": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"3.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ceil input: numeric string",
+    "operator": "$ceil",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$ceil": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ceil requires a numeric argument."
+    }
+  },
+  {
+    "id": "$ceil input: text",
+    "operator": "$ceil",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$ceil": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ceil requires a numeric argument."
+    }
+  },
+  {
+    "id": "$ceil input: empty string",
+    "operator": "$ceil",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$ceil": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ceil requires a numeric argument."
+    }
+  },
+  {
+    "id": "$ceil input: boolean",
+    "operator": "$ceil",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$ceil": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ceil requires a numeric argument."
+    }
+  },
+  {
+    "id": "$ceil input: false",
+    "operator": "$ceil",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$ceil": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ceil requires a numeric argument."
+    }
+  },
+  {
+    "id": "$ceil input: typed date",
+    "operator": "$ceil",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$ceil": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ceil requires a numeric argument."
+    }
+  },
+  {
+    "id": "$ceil input: decimal128",
+    "operator": "$ceil",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$ceil": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ceil input: empty array",
+    "operator": "$ceil",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$ceil": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ceil requires a numeric argument."
+    }
+  },
+  {
+    "id": "$ceil input: numeric array",
+    "operator": "$ceil",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$ceil": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ceil requires a numeric argument."
+    }
+  },
+  {
+    "id": "$ceil input: mixed array",
+    "operator": "$ceil",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$ceil": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ceil requires a numeric argument."
+    }
+  },
+  {
+    "id": "$ceil input: nested array",
+    "operator": "$ceil",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$ceil": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ceil requires a numeric argument."
+    }
+  },
+  {
+    "id": "$ceil input: empty object",
+    "operator": "$ceil",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$ceil": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ceil requires a numeric argument."
+    }
+  },
+  {
+    "id": "$ceil input: object",
+    "operator": "$ceil",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$ceil": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ceil requires a numeric argument."
+    }
+  },
+  {
+    "id": "$ceil input: ISO date string",
+    "operator": "$ceil",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$ceil": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ceil requires a numeric argument."
+    }
+  },
+  {
+    "id": "$ceil empty arguments",
+    "operator": "$ceil",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$ceil": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ceil requires a numeric argument."
+    }
+  },
+  {
+    "id": "$ceil unknown option",
+    "operator": "$ceil",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$ceil": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ceil requires a numeric argument."
+    }
+  }
+]

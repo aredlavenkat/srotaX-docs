@@ -1,0 +1,6107 @@
+[
+  {
+    "id": "$dateFromParts baseline",
+    "operator": "$dateFromParts",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts year: null",
+    "operator": "$dateFromParts",
+    "kind": "null",
+    "operand": "year",
+    "expression": {
+      "$dateFromParts": {
+        "year": "$probe",
+        "month": 1,
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts year: missing",
+    "operator": "$dateFromParts",
+    "kind": "missing",
+    "operand": "year",
+    "expression": {
+      "$dateFromParts": {
+        "year": "$probe",
+        "month": 1,
+        "day": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts year: zero",
+    "operator": "$dateFromParts",
+    "kind": "zero",
+    "operand": "year",
+    "expression": {
+      "$dateFromParts": {
+        "year": "$probe",
+        "month": 1,
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Year must be 1..9999"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'year' must evaluate to an integer in the range 1 to 9999, found 0",
+      "code": 40523,
+      "error": "Location40523"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts year: negative",
+    "operator": "$dateFromParts",
+    "kind": "negative",
+    "operand": "year",
+    "expression": {
+      "$dateFromParts": {
+        "year": "$probe",
+        "month": 1,
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Year must be 1..9999"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'year' must evaluate to an integer in the range 1 to 9999, found -2",
+      "code": 40523,
+      "error": "Location40523"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts year: decimal",
+    "operator": "$dateFromParts",
+    "kind": "decimal",
+    "operand": "year",
+    "expression": {
+      "$dateFromParts": {
+        "year": "$probe",
+        "month": 1,
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "year must be an int64"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'year' must evaluate to an integer, found double with value 2.5",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts year: numeric string",
+    "operator": "$dateFromParts",
+    "kind": "numeric string",
+    "operand": "year",
+    "expression": {
+      "$dateFromParts": {
+        "year": "$probe",
+        "month": 1,
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "year must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'year' must evaluate to an integer, found string with value \"12\"",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts year: text",
+    "operator": "$dateFromParts",
+    "kind": "text",
+    "operand": "year",
+    "expression": {
+      "$dateFromParts": {
+        "year": "$probe",
+        "month": 1,
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "year must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'year' must evaluate to an integer, found string with value \"hello\"",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts year: empty string",
+    "operator": "$dateFromParts",
+    "kind": "empty string",
+    "operand": "year",
+    "expression": {
+      "$dateFromParts": {
+        "year": "$probe",
+        "month": 1,
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "year must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'year' must evaluate to an integer, found string with value \"\"",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts year: boolean",
+    "operator": "$dateFromParts",
+    "kind": "boolean",
+    "operand": "year",
+    "expression": {
+      "$dateFromParts": {
+        "year": "$probe",
+        "month": 1,
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "year must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'year' must evaluate to an integer, found bool with value true",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts year: false",
+    "operator": "$dateFromParts",
+    "kind": "false",
+    "operand": "year",
+    "expression": {
+      "$dateFromParts": {
+        "year": "$probe",
+        "month": 1,
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "year must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'year' must evaluate to an integer, found bool with value false",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts year: typed date",
+    "operator": "$dateFromParts",
+    "kind": "typed date",
+    "operand": "year",
+    "expression": {
+      "$dateFromParts": {
+        "year": "$probe",
+        "month": 1,
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "year must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'year' must evaluate to an integer, found date with value 2026-01-15T15:00:00.000Z",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts year: decimal128",
+    "operator": "$dateFromParts",
+    "kind": "decimal128",
+    "operand": "year",
+    "expression": {
+      "$dateFromParts": {
+        "year": "$probe",
+        "month": 1,
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "year must be an int64"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'year' must evaluate to an integer, found decimal with value 1.25",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts year: empty array",
+    "operator": "$dateFromParts",
+    "kind": "empty array",
+    "operand": "year",
+    "expression": {
+      "$dateFromParts": {
+        "year": "$probe",
+        "month": 1,
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "year must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'year' must evaluate to an integer, found array with value []",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts year: numeric array",
+    "operator": "$dateFromParts",
+    "kind": "numeric array",
+    "operand": "year",
+    "expression": {
+      "$dateFromParts": {
+        "year": "$probe",
+        "month": 1,
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "year must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'year' must evaluate to an integer, found array with value [1, 2, 3]",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts year: mixed array",
+    "operator": "$dateFromParts",
+    "kind": "mixed array",
+    "operand": "year",
+    "expression": {
+      "$dateFromParts": {
+        "year": "$probe",
+        "month": 1,
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "year must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'year' must evaluate to an integer, found array with value [1, null, \"x\", 3]",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts year: nested array",
+    "operator": "$dateFromParts",
+    "kind": "nested array",
+    "operand": "year",
+    "expression": {
+      "$dateFromParts": {
+        "year": "$probe",
+        "month": 1,
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "year must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'year' must evaluate to an integer, found array with value [[1, 2], [3]]",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts year: empty object",
+    "operator": "$dateFromParts",
+    "kind": "empty object",
+    "operand": "year",
+    "expression": {
+      "$dateFromParts": {
+        "year": "$probe",
+        "month": 1,
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "year must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'year' must evaluate to an integer, found object with value {}",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts year: object",
+    "operator": "$dateFromParts",
+    "kind": "object",
+    "operand": "year",
+    "expression": {
+      "$dateFromParts": {
+        "year": "$probe",
+        "month": 1,
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "year must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'year' must evaluate to an integer, found object with value {x: 1}",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts year: ISO date string",
+    "operator": "$dateFromParts",
+    "kind": "ISO date string",
+    "operand": "year",
+    "expression": {
+      "$dateFromParts": {
+        "year": "$probe",
+        "month": 1,
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "year must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'year' must evaluate to an integer, found string with value \"2026-01-15T15:00:00Z\"",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts month: null",
+    "operator": "$dateFromParts",
+    "kind": "null",
+    "operand": "month",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": "$probe",
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts month: missing",
+    "operator": "$dateFromParts",
+    "kind": "missing",
+    "operand": "month",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": "$probe",
+        "day": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts month: zero",
+    "operator": "$dateFromParts",
+    "kind": "zero",
+    "operand": "month",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": "$probe",
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1701475200000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1701475200000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts month: negative",
+    "operator": "$dateFromParts",
+    "kind": "negative",
+    "operand": "month",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": "$probe",
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1696204800000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1696204800000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts month: decimal",
+    "operator": "$dateFromParts",
+    "kind": "decimal",
+    "operand": "month",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": "$probe",
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "month must be an int64"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'month' must evaluate to an integer, found double with value 2.5",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts month: numeric string",
+    "operator": "$dateFromParts",
+    "kind": "numeric string",
+    "operand": "month",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": "$probe",
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "month must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'month' must evaluate to an integer, found string with value \"12\"",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts month: text",
+    "operator": "$dateFromParts",
+    "kind": "text",
+    "operand": "month",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": "$probe",
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "month must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'month' must evaluate to an integer, found string with value \"hello\"",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts month: empty string",
+    "operator": "$dateFromParts",
+    "kind": "empty string",
+    "operand": "month",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": "$probe",
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "month must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'month' must evaluate to an integer, found string with value \"\"",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts month: boolean",
+    "operator": "$dateFromParts",
+    "kind": "boolean",
+    "operand": "month",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": "$probe",
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "month must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'month' must evaluate to an integer, found bool with value true",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts month: false",
+    "operator": "$dateFromParts",
+    "kind": "false",
+    "operand": "month",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": "$probe",
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "month must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'month' must evaluate to an integer, found bool with value false",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts month: typed date",
+    "operator": "$dateFromParts",
+    "kind": "typed date",
+    "operand": "month",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": "$probe",
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "month must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'month' must evaluate to an integer, found date with value 2026-01-15T15:00:00.000Z",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts month: decimal128",
+    "operator": "$dateFromParts",
+    "kind": "decimal128",
+    "operand": "month",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": "$probe",
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "month must be an int64"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'month' must evaluate to an integer, found decimal with value 1.25",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts month: empty array",
+    "operator": "$dateFromParts",
+    "kind": "empty array",
+    "operand": "month",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": "$probe",
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "month must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'month' must evaluate to an integer, found array with value []",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts month: numeric array",
+    "operator": "$dateFromParts",
+    "kind": "numeric array",
+    "operand": "month",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": "$probe",
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "month must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'month' must evaluate to an integer, found array with value [1, 2, 3]",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts month: mixed array",
+    "operator": "$dateFromParts",
+    "kind": "mixed array",
+    "operand": "month",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": "$probe",
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "month must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'month' must evaluate to an integer, found array with value [1, null, \"x\", 3]",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts month: nested array",
+    "operator": "$dateFromParts",
+    "kind": "nested array",
+    "operand": "month",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": "$probe",
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "month must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'month' must evaluate to an integer, found array with value [[1, 2], [3]]",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts month: empty object",
+    "operator": "$dateFromParts",
+    "kind": "empty object",
+    "operand": "month",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": "$probe",
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "month must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'month' must evaluate to an integer, found object with value {}",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts month: object",
+    "operator": "$dateFromParts",
+    "kind": "object",
+    "operand": "month",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": "$probe",
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "month must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'month' must evaluate to an integer, found object with value {x: 1}",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts month: ISO date string",
+    "operator": "$dateFromParts",
+    "kind": "ISO date string",
+    "operand": "month",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": "$probe",
+        "day": 2
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "month must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'month' must evaluate to an integer, found string with value \"2026-01-15T15:00:00Z\"",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts day: null",
+    "operator": "$dateFromParts",
+    "kind": "null",
+    "operand": "day",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts day: missing",
+    "operator": "$dateFromParts",
+    "kind": "missing",
+    "operand": "day",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts day: zero",
+    "operator": "$dateFromParts",
+    "kind": "zero",
+    "operand": "day",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1703980800000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1703980800000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts day: negative",
+    "operator": "$dateFromParts",
+    "kind": "negative",
+    "operand": "day",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1703808000000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1703808000000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts day: decimal",
+    "operator": "$dateFromParts",
+    "kind": "decimal",
+    "operand": "day",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "day must be an int64"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'day' must evaluate to an integer, found double with value 2.5",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts day: numeric string",
+    "operator": "$dateFromParts",
+    "kind": "numeric string",
+    "operand": "day",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "day must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'day' must evaluate to an integer, found string with value \"12\"",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts day: text",
+    "operator": "$dateFromParts",
+    "kind": "text",
+    "operand": "day",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "day must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'day' must evaluate to an integer, found string with value \"hello\"",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts day: empty string",
+    "operator": "$dateFromParts",
+    "kind": "empty string",
+    "operand": "day",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "day must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'day' must evaluate to an integer, found string with value \"\"",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts day: boolean",
+    "operator": "$dateFromParts",
+    "kind": "boolean",
+    "operand": "day",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "day must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'day' must evaluate to an integer, found bool with value true",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts day: false",
+    "operator": "$dateFromParts",
+    "kind": "false",
+    "operand": "day",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "day must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'day' must evaluate to an integer, found bool with value false",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts day: typed date",
+    "operator": "$dateFromParts",
+    "kind": "typed date",
+    "operand": "day",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "day must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'day' must evaluate to an integer, found date with value 2026-01-15T15:00:00.000Z",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts day: decimal128",
+    "operator": "$dateFromParts",
+    "kind": "decimal128",
+    "operand": "day",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "day must be an int64"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'day' must evaluate to an integer, found decimal with value 1.25",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts day: empty array",
+    "operator": "$dateFromParts",
+    "kind": "empty array",
+    "operand": "day",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "day must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'day' must evaluate to an integer, found array with value []",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts day: numeric array",
+    "operator": "$dateFromParts",
+    "kind": "numeric array",
+    "operand": "day",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "day must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'day' must evaluate to an integer, found array with value [1, 2, 3]",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts day: mixed array",
+    "operator": "$dateFromParts",
+    "kind": "mixed array",
+    "operand": "day",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "day must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'day' must evaluate to an integer, found array with value [1, null, \"x\", 3]",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts day: nested array",
+    "operator": "$dateFromParts",
+    "kind": "nested array",
+    "operand": "day",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "day must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'day' must evaluate to an integer, found array with value [[1, 2], [3]]",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts day: empty object",
+    "operator": "$dateFromParts",
+    "kind": "empty object",
+    "operand": "day",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "day must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'day' must evaluate to an integer, found object with value {}",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts day: object",
+    "operator": "$dateFromParts",
+    "kind": "object",
+    "operand": "day",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "day must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'day' must evaluate to an integer, found object with value {x: 1}",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts day: ISO date string",
+    "operator": "$dateFromParts",
+    "kind": "ISO date string",
+    "operand": "day",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "day must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'day' must evaluate to an integer, found string with value \"2026-01-15T15:00:00Z\"",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts hour: null",
+    "operator": "$dateFromParts",
+    "kind": "null",
+    "operand": "hour",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "hour": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts hour: missing",
+    "operator": "$dateFromParts",
+    "kind": "missing",
+    "operand": "hour",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "hour": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts hour: zero",
+    "operator": "$dateFromParts",
+    "kind": "zero",
+    "operand": "hour",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "hour": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts hour: negative",
+    "operator": "$dateFromParts",
+    "kind": "negative",
+    "operand": "hour",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "hour": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704146400000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704146400000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts hour: decimal",
+    "operator": "$dateFromParts",
+    "kind": "decimal",
+    "operand": "hour",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "hour": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "hour must be an int64"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'hour' must evaluate to an integer, found double with value 2.5",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts hour: numeric string",
+    "operator": "$dateFromParts",
+    "kind": "numeric string",
+    "operand": "hour",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "hour": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "hour must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'hour' must evaluate to an integer, found string with value \"12\"",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts hour: text",
+    "operator": "$dateFromParts",
+    "kind": "text",
+    "operand": "hour",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "hour": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "hour must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'hour' must evaluate to an integer, found string with value \"hello\"",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts hour: empty string",
+    "operator": "$dateFromParts",
+    "kind": "empty string",
+    "operand": "hour",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "hour": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "hour must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'hour' must evaluate to an integer, found string with value \"\"",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts hour: boolean",
+    "operator": "$dateFromParts",
+    "kind": "boolean",
+    "operand": "hour",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "hour": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "hour must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'hour' must evaluate to an integer, found bool with value true",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts hour: false",
+    "operator": "$dateFromParts",
+    "kind": "false",
+    "operand": "hour",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "hour": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "hour must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'hour' must evaluate to an integer, found bool with value false",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts hour: typed date",
+    "operator": "$dateFromParts",
+    "kind": "typed date",
+    "operand": "hour",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "hour": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "hour must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'hour' must evaluate to an integer, found date with value 2026-01-15T15:00:00.000Z",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts hour: decimal128",
+    "operator": "$dateFromParts",
+    "kind": "decimal128",
+    "operand": "hour",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "hour": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "hour must be an int64"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'hour' must evaluate to an integer, found decimal with value 1.25",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts hour: empty array",
+    "operator": "$dateFromParts",
+    "kind": "empty array",
+    "operand": "hour",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "hour": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "hour must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'hour' must evaluate to an integer, found array with value []",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts hour: numeric array",
+    "operator": "$dateFromParts",
+    "kind": "numeric array",
+    "operand": "hour",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "hour": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "hour must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'hour' must evaluate to an integer, found array with value [1, 2, 3]",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts hour: mixed array",
+    "operator": "$dateFromParts",
+    "kind": "mixed array",
+    "operand": "hour",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "hour": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "hour must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'hour' must evaluate to an integer, found array with value [1, null, \"x\", 3]",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts hour: nested array",
+    "operator": "$dateFromParts",
+    "kind": "nested array",
+    "operand": "hour",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "hour": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "hour must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'hour' must evaluate to an integer, found array with value [[1, 2], [3]]",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts hour: empty object",
+    "operator": "$dateFromParts",
+    "kind": "empty object",
+    "operand": "hour",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "hour": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "hour must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'hour' must evaluate to an integer, found object with value {}",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts hour: object",
+    "operator": "$dateFromParts",
+    "kind": "object",
+    "operand": "hour",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "hour": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "hour must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'hour' must evaluate to an integer, found object with value {x: 1}",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts hour: ISO date string",
+    "operator": "$dateFromParts",
+    "kind": "ISO date string",
+    "operand": "hour",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "hour": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "hour must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'hour' must evaluate to an integer, found string with value \"2026-01-15T15:00:00Z\"",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts minute: null",
+    "operator": "$dateFromParts",
+    "kind": "null",
+    "operand": "minute",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "minute": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts minute: missing",
+    "operator": "$dateFromParts",
+    "kind": "missing",
+    "operand": "minute",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "minute": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts minute: zero",
+    "operator": "$dateFromParts",
+    "kind": "zero",
+    "operand": "minute",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "minute": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts minute: negative",
+    "operator": "$dateFromParts",
+    "kind": "negative",
+    "operand": "minute",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "minute": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153480000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153480000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts minute: decimal",
+    "operator": "$dateFromParts",
+    "kind": "decimal",
+    "operand": "minute",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "minute": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "minute must be an int64"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'minute' must evaluate to an integer, found double with value 2.5",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts minute: numeric string",
+    "operator": "$dateFromParts",
+    "kind": "numeric string",
+    "operand": "minute",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "minute": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "minute must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'minute' must evaluate to an integer, found string with value \"12\"",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts minute: text",
+    "operator": "$dateFromParts",
+    "kind": "text",
+    "operand": "minute",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "minute": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "minute must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'minute' must evaluate to an integer, found string with value \"hello\"",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts minute: empty string",
+    "operator": "$dateFromParts",
+    "kind": "empty string",
+    "operand": "minute",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "minute": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "minute must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'minute' must evaluate to an integer, found string with value \"\"",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts minute: boolean",
+    "operator": "$dateFromParts",
+    "kind": "boolean",
+    "operand": "minute",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "minute": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "minute must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'minute' must evaluate to an integer, found bool with value true",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts minute: false",
+    "operator": "$dateFromParts",
+    "kind": "false",
+    "operand": "minute",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "minute": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "minute must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'minute' must evaluate to an integer, found bool with value false",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts minute: typed date",
+    "operator": "$dateFromParts",
+    "kind": "typed date",
+    "operand": "minute",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "minute": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "minute must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'minute' must evaluate to an integer, found date with value 2026-01-15T15:00:00.000Z",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts minute: decimal128",
+    "operator": "$dateFromParts",
+    "kind": "decimal128",
+    "operand": "minute",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "minute": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "minute must be an int64"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'minute' must evaluate to an integer, found decimal with value 1.25",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts minute: empty array",
+    "operator": "$dateFromParts",
+    "kind": "empty array",
+    "operand": "minute",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "minute": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "minute must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'minute' must evaluate to an integer, found array with value []",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts minute: numeric array",
+    "operator": "$dateFromParts",
+    "kind": "numeric array",
+    "operand": "minute",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "minute": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "minute must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'minute' must evaluate to an integer, found array with value [1, 2, 3]",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts minute: mixed array",
+    "operator": "$dateFromParts",
+    "kind": "mixed array",
+    "operand": "minute",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "minute": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "minute must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'minute' must evaluate to an integer, found array with value [1, null, \"x\", 3]",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts minute: nested array",
+    "operator": "$dateFromParts",
+    "kind": "nested array",
+    "operand": "minute",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "minute": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "minute must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'minute' must evaluate to an integer, found array with value [[1, 2], [3]]",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts minute: empty object",
+    "operator": "$dateFromParts",
+    "kind": "empty object",
+    "operand": "minute",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "minute": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "minute must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'minute' must evaluate to an integer, found object with value {}",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts minute: object",
+    "operator": "$dateFromParts",
+    "kind": "object",
+    "operand": "minute",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "minute": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "minute must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'minute' must evaluate to an integer, found object with value {x: 1}",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts minute: ISO date string",
+    "operator": "$dateFromParts",
+    "kind": "ISO date string",
+    "operand": "minute",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "minute": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "minute must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'minute' must evaluate to an integer, found string with value \"2026-01-15T15:00:00Z\"",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts second: null",
+    "operator": "$dateFromParts",
+    "kind": "null",
+    "operand": "second",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "second": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts second: missing",
+    "operator": "$dateFromParts",
+    "kind": "missing",
+    "operand": "second",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "second": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts second: zero",
+    "operator": "$dateFromParts",
+    "kind": "zero",
+    "operand": "second",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "second": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts second: negative",
+    "operator": "$dateFromParts",
+    "kind": "negative",
+    "operand": "second",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "second": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153598000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153598000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts second: decimal",
+    "operator": "$dateFromParts",
+    "kind": "decimal",
+    "operand": "second",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "second": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "second must be an int64"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'second' must evaluate to an integer, found double with value 2.5",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts second: numeric string",
+    "operator": "$dateFromParts",
+    "kind": "numeric string",
+    "operand": "second",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "second": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "second must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'second' must evaluate to an integer, found string with value \"12\"",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts second: text",
+    "operator": "$dateFromParts",
+    "kind": "text",
+    "operand": "second",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "second": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "second must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'second' must evaluate to an integer, found string with value \"hello\"",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts second: empty string",
+    "operator": "$dateFromParts",
+    "kind": "empty string",
+    "operand": "second",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "second": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "second must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'second' must evaluate to an integer, found string with value \"\"",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts second: boolean",
+    "operator": "$dateFromParts",
+    "kind": "boolean",
+    "operand": "second",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "second": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "second must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'second' must evaluate to an integer, found bool with value true",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts second: false",
+    "operator": "$dateFromParts",
+    "kind": "false",
+    "operand": "second",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "second": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "second must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'second' must evaluate to an integer, found bool with value false",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts second: typed date",
+    "operator": "$dateFromParts",
+    "kind": "typed date",
+    "operand": "second",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "second": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "second must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'second' must evaluate to an integer, found date with value 2026-01-15T15:00:00.000Z",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts second: decimal128",
+    "operator": "$dateFromParts",
+    "kind": "decimal128",
+    "operand": "second",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "second": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "second must be an int64"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'second' must evaluate to an integer, found decimal with value 1.25",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts second: empty array",
+    "operator": "$dateFromParts",
+    "kind": "empty array",
+    "operand": "second",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "second": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "second must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'second' must evaluate to an integer, found array with value []",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts second: numeric array",
+    "operator": "$dateFromParts",
+    "kind": "numeric array",
+    "operand": "second",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "second": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "second must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'second' must evaluate to an integer, found array with value [1, 2, 3]",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts second: mixed array",
+    "operator": "$dateFromParts",
+    "kind": "mixed array",
+    "operand": "second",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "second": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "second must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'second' must evaluate to an integer, found array with value [1, null, \"x\", 3]",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts second: nested array",
+    "operator": "$dateFromParts",
+    "kind": "nested array",
+    "operand": "second",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "second": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "second must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'second' must evaluate to an integer, found array with value [[1, 2], [3]]",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts second: empty object",
+    "operator": "$dateFromParts",
+    "kind": "empty object",
+    "operand": "second",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "second": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "second must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'second' must evaluate to an integer, found object with value {}",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts second: object",
+    "operator": "$dateFromParts",
+    "kind": "object",
+    "operand": "second",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "second": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "second must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'second' must evaluate to an integer, found object with value {x: 1}",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts second: ISO date string",
+    "operator": "$dateFromParts",
+    "kind": "ISO date string",
+    "operand": "second",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "second": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "second must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'second' must evaluate to an integer, found string with value \"2026-01-15T15:00:00Z\"",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts millisecond: null",
+    "operator": "$dateFromParts",
+    "kind": "null",
+    "operand": "millisecond",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "millisecond": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts millisecond: missing",
+    "operator": "$dateFromParts",
+    "kind": "missing",
+    "operand": "millisecond",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "millisecond": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts millisecond: zero",
+    "operator": "$dateFromParts",
+    "kind": "zero",
+    "operand": "millisecond",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "millisecond": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts millisecond: negative",
+    "operator": "$dateFromParts",
+    "kind": "negative",
+    "operand": "millisecond",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "millisecond": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153599998\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153599998\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts millisecond: decimal",
+    "operator": "$dateFromParts",
+    "kind": "decimal",
+    "operand": "millisecond",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "millisecond": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "millisecond must be an int64"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'millisecond' must evaluate to an integer, found double with value 2.5",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts millisecond: numeric string",
+    "operator": "$dateFromParts",
+    "kind": "numeric string",
+    "operand": "millisecond",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "millisecond": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "millisecond must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'millisecond' must evaluate to an integer, found string with value \"12\"",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts millisecond: text",
+    "operator": "$dateFromParts",
+    "kind": "text",
+    "operand": "millisecond",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "millisecond": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "millisecond must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'millisecond' must evaluate to an integer, found string with value \"hello\"",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts millisecond: empty string",
+    "operator": "$dateFromParts",
+    "kind": "empty string",
+    "operand": "millisecond",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "millisecond": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "millisecond must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'millisecond' must evaluate to an integer, found string with value \"\"",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts millisecond: boolean",
+    "operator": "$dateFromParts",
+    "kind": "boolean",
+    "operand": "millisecond",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "millisecond": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "millisecond must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'millisecond' must evaluate to an integer, found bool with value true",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts millisecond: false",
+    "operator": "$dateFromParts",
+    "kind": "false",
+    "operand": "millisecond",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "millisecond": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "millisecond must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'millisecond' must evaluate to an integer, found bool with value false",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts millisecond: typed date",
+    "operator": "$dateFromParts",
+    "kind": "typed date",
+    "operand": "millisecond",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "millisecond": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "millisecond must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'millisecond' must evaluate to an integer, found date with value 2026-01-15T15:00:00.000Z",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts millisecond: decimal128",
+    "operator": "$dateFromParts",
+    "kind": "decimal128",
+    "operand": "millisecond",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "millisecond": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "millisecond must be an int64"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'millisecond' must evaluate to an integer, found decimal with value 1.25",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts millisecond: empty array",
+    "operator": "$dateFromParts",
+    "kind": "empty array",
+    "operand": "millisecond",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "millisecond": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "millisecond must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'millisecond' must evaluate to an integer, found array with value []",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts millisecond: numeric array",
+    "operator": "$dateFromParts",
+    "kind": "numeric array",
+    "operand": "millisecond",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "millisecond": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "millisecond must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'millisecond' must evaluate to an integer, found array with value [1, 2, 3]",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts millisecond: mixed array",
+    "operator": "$dateFromParts",
+    "kind": "mixed array",
+    "operand": "millisecond",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "millisecond": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "millisecond must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'millisecond' must evaluate to an integer, found array with value [1, null, \"x\", 3]",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts millisecond: nested array",
+    "operator": "$dateFromParts",
+    "kind": "nested array",
+    "operand": "millisecond",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "millisecond": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "millisecond must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'millisecond' must evaluate to an integer, found array with value [[1, 2], [3]]",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts millisecond: empty object",
+    "operator": "$dateFromParts",
+    "kind": "empty object",
+    "operand": "millisecond",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "millisecond": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "millisecond must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'millisecond' must evaluate to an integer, found object with value {}",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts millisecond: object",
+    "operator": "$dateFromParts",
+    "kind": "object",
+    "operand": "millisecond",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "millisecond": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "millisecond must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'millisecond' must evaluate to an integer, found object with value {x: 1}",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts millisecond: ISO date string",
+    "operator": "$dateFromParts",
+    "kind": "ISO date string",
+    "operand": "millisecond",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "millisecond": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "millisecond must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: 'millisecond' must evaluate to an integer, found string with value \"2026-01-15T15:00:00Z\"",
+      "code": 40515,
+      "error": "Location40515"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts isoWeekYear: null",
+    "operator": "$dateFromParts",
+    "kind": "null",
+    "operand": "isoWeekYear",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeekYear": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoWeekYear: missing",
+    "operator": "$dateFromParts",
+    "kind": "missing",
+    "operand": "isoWeekYear",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeekYear": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoWeekYear: zero",
+    "operator": "$dateFromParts",
+    "kind": "zero",
+    "operand": "isoWeekYear",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeekYear": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot mix ISO week and calendar fields"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts isoWeekYear: negative",
+    "operator": "$dateFromParts",
+    "kind": "negative",
+    "operand": "isoWeekYear",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeekYear": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot mix ISO week and calendar fields"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts isoWeekYear: decimal",
+    "operator": "$dateFromParts",
+    "kind": "decimal",
+    "operand": "isoWeekYear",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeekYear": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot mix ISO week and calendar fields"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts isoWeekYear: numeric string",
+    "operator": "$dateFromParts",
+    "kind": "numeric string",
+    "operand": "isoWeekYear",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeekYear": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot mix ISO week and calendar fields"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts isoWeekYear: text",
+    "operator": "$dateFromParts",
+    "kind": "text",
+    "operand": "isoWeekYear",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeekYear": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot mix ISO week and calendar fields"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts isoWeekYear: empty string",
+    "operator": "$dateFromParts",
+    "kind": "empty string",
+    "operand": "isoWeekYear",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeekYear": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot mix ISO week and calendar fields"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts isoWeekYear: boolean",
+    "operator": "$dateFromParts",
+    "kind": "boolean",
+    "operand": "isoWeekYear",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeekYear": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot mix ISO week and calendar fields"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts isoWeekYear: false",
+    "operator": "$dateFromParts",
+    "kind": "false",
+    "operand": "isoWeekYear",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeekYear": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot mix ISO week and calendar fields"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts isoWeekYear: typed date",
+    "operator": "$dateFromParts",
+    "kind": "typed date",
+    "operand": "isoWeekYear",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeekYear": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot mix ISO week and calendar fields"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts isoWeekYear: decimal128",
+    "operator": "$dateFromParts",
+    "kind": "decimal128",
+    "operand": "isoWeekYear",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeekYear": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot mix ISO week and calendar fields"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts isoWeekYear: empty array",
+    "operator": "$dateFromParts",
+    "kind": "empty array",
+    "operand": "isoWeekYear",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeekYear": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot mix ISO week and calendar fields"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts isoWeekYear: numeric array",
+    "operator": "$dateFromParts",
+    "kind": "numeric array",
+    "operand": "isoWeekYear",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeekYear": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot mix ISO week and calendar fields"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts isoWeekYear: mixed array",
+    "operator": "$dateFromParts",
+    "kind": "mixed array",
+    "operand": "isoWeekYear",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeekYear": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot mix ISO week and calendar fields"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts isoWeekYear: nested array",
+    "operator": "$dateFromParts",
+    "kind": "nested array",
+    "operand": "isoWeekYear",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeekYear": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot mix ISO week and calendar fields"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts isoWeekYear: empty object",
+    "operator": "$dateFromParts",
+    "kind": "empty object",
+    "operand": "isoWeekYear",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeekYear": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot mix ISO week and calendar fields"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts isoWeekYear: object",
+    "operator": "$dateFromParts",
+    "kind": "object",
+    "operand": "isoWeekYear",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeekYear": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot mix ISO week and calendar fields"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts isoWeekYear: ISO date string",
+    "operator": "$dateFromParts",
+    "kind": "ISO date string",
+    "operand": "isoWeekYear",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeekYear": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot mix ISO week and calendar fields"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts isoWeek: null",
+    "operator": "$dateFromParts",
+    "kind": "null",
+    "operand": "isoWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoWeek: missing",
+    "operator": "$dateFromParts",
+    "kind": "missing",
+    "operand": "isoWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeek": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoWeek: zero",
+    "operator": "$dateFromParts",
+    "kind": "zero",
+    "operand": "isoWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoWeek: negative",
+    "operator": "$dateFromParts",
+    "kind": "negative",
+    "operand": "isoWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoWeek: decimal",
+    "operator": "$dateFromParts",
+    "kind": "decimal",
+    "operand": "isoWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoWeek: numeric string",
+    "operator": "$dateFromParts",
+    "kind": "numeric string",
+    "operand": "isoWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoWeek: text",
+    "operator": "$dateFromParts",
+    "kind": "text",
+    "operand": "isoWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoWeek: empty string",
+    "operator": "$dateFromParts",
+    "kind": "empty string",
+    "operand": "isoWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoWeek: boolean",
+    "operator": "$dateFromParts",
+    "kind": "boolean",
+    "operand": "isoWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoWeek: false",
+    "operator": "$dateFromParts",
+    "kind": "false",
+    "operand": "isoWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoWeek: typed date",
+    "operator": "$dateFromParts",
+    "kind": "typed date",
+    "operand": "isoWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoWeek: decimal128",
+    "operator": "$dateFromParts",
+    "kind": "decimal128",
+    "operand": "isoWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoWeek: empty array",
+    "operator": "$dateFromParts",
+    "kind": "empty array",
+    "operand": "isoWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoWeek: numeric array",
+    "operator": "$dateFromParts",
+    "kind": "numeric array",
+    "operand": "isoWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoWeek: mixed array",
+    "operator": "$dateFromParts",
+    "kind": "mixed array",
+    "operand": "isoWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoWeek: nested array",
+    "operator": "$dateFromParts",
+    "kind": "nested array",
+    "operand": "isoWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoWeek: empty object",
+    "operator": "$dateFromParts",
+    "kind": "empty object",
+    "operand": "isoWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoWeek: object",
+    "operator": "$dateFromParts",
+    "kind": "object",
+    "operand": "isoWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoWeek: ISO date string",
+    "operator": "$dateFromParts",
+    "kind": "ISO date string",
+    "operand": "isoWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoDayOfWeek: null",
+    "operator": "$dateFromParts",
+    "kind": "null",
+    "operand": "isoDayOfWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoDayOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoDayOfWeek: missing",
+    "operator": "$dateFromParts",
+    "kind": "missing",
+    "operand": "isoDayOfWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoDayOfWeek": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoDayOfWeek: zero",
+    "operator": "$dateFromParts",
+    "kind": "zero",
+    "operand": "isoDayOfWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoDayOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoDayOfWeek: negative",
+    "operator": "$dateFromParts",
+    "kind": "negative",
+    "operand": "isoDayOfWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoDayOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoDayOfWeek: decimal",
+    "operator": "$dateFromParts",
+    "kind": "decimal",
+    "operand": "isoDayOfWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoDayOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoDayOfWeek: numeric string",
+    "operator": "$dateFromParts",
+    "kind": "numeric string",
+    "operand": "isoDayOfWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoDayOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoDayOfWeek: text",
+    "operator": "$dateFromParts",
+    "kind": "text",
+    "operand": "isoDayOfWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoDayOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoDayOfWeek: empty string",
+    "operator": "$dateFromParts",
+    "kind": "empty string",
+    "operand": "isoDayOfWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoDayOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoDayOfWeek: boolean",
+    "operator": "$dateFromParts",
+    "kind": "boolean",
+    "operand": "isoDayOfWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoDayOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoDayOfWeek: false",
+    "operator": "$dateFromParts",
+    "kind": "false",
+    "operand": "isoDayOfWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoDayOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoDayOfWeek: typed date",
+    "operator": "$dateFromParts",
+    "kind": "typed date",
+    "operand": "isoDayOfWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoDayOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoDayOfWeek: decimal128",
+    "operator": "$dateFromParts",
+    "kind": "decimal128",
+    "operand": "isoDayOfWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoDayOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoDayOfWeek: empty array",
+    "operator": "$dateFromParts",
+    "kind": "empty array",
+    "operand": "isoDayOfWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoDayOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoDayOfWeek: numeric array",
+    "operator": "$dateFromParts",
+    "kind": "numeric array",
+    "operand": "isoDayOfWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoDayOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoDayOfWeek: mixed array",
+    "operator": "$dateFromParts",
+    "kind": "mixed array",
+    "operand": "isoDayOfWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoDayOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoDayOfWeek: nested array",
+    "operator": "$dateFromParts",
+    "kind": "nested array",
+    "operand": "isoDayOfWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoDayOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoDayOfWeek: empty object",
+    "operator": "$dateFromParts",
+    "kind": "empty object",
+    "operand": "isoDayOfWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoDayOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoDayOfWeek: object",
+    "operator": "$dateFromParts",
+    "kind": "object",
+    "operand": "isoDayOfWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoDayOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts isoDayOfWeek: ISO date string",
+    "operator": "$dateFromParts",
+    "kind": "ISO date string",
+    "operand": "isoDayOfWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "isoDayOfWeek": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts does not allow mixing natural dates with ISO dates",
+      "code": 40489,
+      "error": "Location40489"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateFromParts timezone: null",
+    "operator": "$dateFromParts",
+    "kind": "null",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts timezone: missing",
+    "operator": "$dateFromParts",
+    "kind": "missing",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "timezone": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts timezone: zero",
+    "operator": "$dateFromParts",
+    "kind": "zero",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found int",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts timezone: negative",
+    "operator": "$dateFromParts",
+    "kind": "negative",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found int",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts timezone: decimal",
+    "operator": "$dateFromParts",
+    "kind": "decimal",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found double",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts timezone: numeric string",
+    "operator": "$dateFromParts",
+    "kind": "numeric string",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "DateTimeException",
+      "message": "Invalid ID for region-based ZoneId, invalid format: 12"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: unrecognized time zone identifier: \"12\"",
+      "code": 40485,
+      "error": "Location40485"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts timezone: text",
+    "operator": "$dateFromParts",
+    "kind": "text",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "ZoneRulesException",
+      "message": "Unknown time-zone ID: hello"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: unrecognized time zone identifier: \"hello\"",
+      "code": 40485,
+      "error": "Location40485"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts timezone: empty string",
+    "operator": "$dateFromParts",
+    "kind": "empty string",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "DateTimeException",
+      "message": "Invalid ID for ZoneOffset, invalid format: "
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: unrecognized time zone identifier: \"\"",
+      "code": 40485,
+      "error": "Location40485"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts timezone: boolean",
+    "operator": "$dateFromParts",
+    "kind": "boolean",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found bool",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts timezone: false",
+    "operator": "$dateFromParts",
+    "kind": "false",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found bool",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts timezone: typed date",
+    "operator": "$dateFromParts",
+    "kind": "typed date",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found date",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts timezone: decimal128",
+    "operator": "$dateFromParts",
+    "kind": "decimal128",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found decimal",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts timezone: empty array",
+    "operator": "$dateFromParts",
+    "kind": "empty array",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found array",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts timezone: numeric array",
+    "operator": "$dateFromParts",
+    "kind": "numeric array",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found array",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts timezone: mixed array",
+    "operator": "$dateFromParts",
+    "kind": "mixed array",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found array",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts timezone: nested array",
+    "operator": "$dateFromParts",
+    "kind": "nested array",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found array",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts timezone: empty object",
+    "operator": "$dateFromParts",
+    "kind": "empty object",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found object",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts timezone: object",
+    "operator": "$dateFromParts",
+    "kind": "object",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found object",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts timezone: ISO date string",
+    "operator": "$dateFromParts",
+    "kind": "ISO date string",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "DateTimeException",
+      "message": "Invalid ID for region-based ZoneId, invalid format: 2026-01-15T15:00:00Z"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: unrecognized time zone identifier: \"2026-01-15T15:00:00Z\"",
+      "code": 40485,
+      "error": "Location40485"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts omit year",
+    "operator": "$dateFromParts",
+    "kind": "omitted named argument",
+    "operand": "year",
+    "expression": {
+      "$dateFromParts": {
+        "month": 1,
+        "day": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "year or isoWeekYear is required"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts requires either 'year' or 'isoWeekYear' to be present",
+      "code": 40516,
+      "error": "Location40516"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts omit month",
+    "operator": "$dateFromParts",
+    "kind": "omitted named argument",
+    "operand": "month",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "day": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts omit day",
+    "operator": "$dateFromParts",
+    "kind": "omitted named argument",
+    "operand": "day",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704067200000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704067200000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts omit hour",
+    "operator": "$dateFromParts",
+    "kind": "omitted named argument",
+    "operand": "hour",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts omit minute",
+    "operator": "$dateFromParts",
+    "kind": "omitted named argument",
+    "operand": "minute",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts omit second",
+    "operator": "$dateFromParts",
+    "kind": "omitted named argument",
+    "operand": "second",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts omit millisecond",
+    "operator": "$dateFromParts",
+    "kind": "omitted named argument",
+    "operand": "millisecond",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts omit isoWeekYear",
+    "operator": "$dateFromParts",
+    "kind": "omitted named argument",
+    "operand": "isoWeekYear",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts omit isoWeek",
+    "operator": "$dateFromParts",
+    "kind": "omitted named argument",
+    "operand": "isoWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts omit isoDayOfWeek",
+    "operator": "$dateFromParts",
+    "kind": "omitted named argument",
+    "operand": "isoDayOfWeek",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts omit timezone",
+    "operator": "$dateFromParts",
+    "kind": "omitted named argument",
+    "operand": "timezone",
+    "expression": {
+      "$dateFromParts": {
+        "year": 2024,
+        "month": 1,
+        "day": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704153600000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateFromParts empty arguments",
+    "operator": "$dateFromParts",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$dateFromParts": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Date operator requires named arguments"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateFromParts only supports an object as its argument",
+      "code": 40519,
+      "error": "Location40519"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateFromParts unknown option",
+    "operator": "$dateFromParts",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$dateFromParts": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "year or isoWeekYear is required"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Unrecognized argument to $dateFromParts: unexpected",
+      "code": 40518,
+      "error": "Location40518"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

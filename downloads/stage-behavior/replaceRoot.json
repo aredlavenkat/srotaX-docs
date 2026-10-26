@@ -1,0 +1,78 @@
+[
+  {
+    "id": "$replaceRoot example",
+    "stage": "$replaceRoot",
+    "kind": "example",
+    "pipeline": [
+      {
+        "$replaceRoot": {
+          "newRoot": "$address"
+        }
+      }
+    ],
+    "input": [
+      {
+        "name": "Alice",
+        "address": {
+          "city": "Toronto"
+        }
+      }
+    ],
+    "result": [
+      {
+        "city": "Toronto"
+      }
+    ]
+  },
+  {
+    "id": "$replaceRoot empty input",
+    "stage": "$replaceRoot",
+    "kind": "empty input",
+    "pipeline": [
+      {
+        "$replaceRoot": {
+          "newRoot": "$address"
+        }
+      }
+    ],
+    "input": [],
+    "result": []
+  },
+  {
+    "id": "$replaceRoot invalid specification",
+    "stage": "$replaceRoot",
+    "kind": "invalid specification",
+    "pipeline": [
+      {
+        "$replaceRoot": null
+      }
+    ],
+    "input": [
+      {
+        "name": "Alice",
+        "address": {
+          "city": "Toronto"
+        }
+      }
+    ],
+    "error": "IllegalArgumentException",
+    "message": "$replaceRoot requires 'newRoot' field"
+  },
+  {
+    "id": "$replaceRoot missing root",
+    "stage": "$replaceRoot",
+    "kind": "missing root",
+    "pipeline": [
+      {
+        "$replaceRoot": {
+          "newRoot": "$address"
+        }
+      }
+    ],
+    "input": [
+      {}
+    ],
+    "error": "IllegalArgumentException",
+    "message": "$replaceRoot evaluated to non-object: null"
+  }
+]

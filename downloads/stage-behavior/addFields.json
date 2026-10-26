@@ -1,0 +1,99 @@
+[
+  {
+    "id": "$addFields example",
+    "stage": "$addFields",
+    "kind": "example",
+    "pipeline": [
+      {
+        "$addFields": {
+          "total": {
+            "$multiply": [
+              "$quantity",
+              "$price"
+            ]
+          }
+        }
+      }
+    ],
+    "input": [
+      {
+        "quantity": 2,
+        "price": 5,
+        "orderId": "A"
+      }
+    ],
+    "result": [
+      {
+        "quantity": 2,
+        "price": 5,
+        "orderId": "A",
+        "total": 10.0
+      }
+    ]
+  },
+  {
+    "id": "$addFields empty input",
+    "stage": "$addFields",
+    "kind": "empty input",
+    "pipeline": [
+      {
+        "$addFields": {
+          "total": {
+            "$multiply": [
+              "$quantity",
+              "$price"
+            ]
+          }
+        }
+      }
+    ],
+    "input": [],
+    "result": []
+  },
+  {
+    "id": "$addFields invalid specification",
+    "stage": "$addFields",
+    "kind": "invalid specification",
+    "pipeline": [
+      {
+        "$addFields": null
+      }
+    ],
+    "input": [
+      {
+        "quantity": 2,
+        "price": 5,
+        "orderId": "A"
+      }
+    ],
+    "error": "IllegalArgumentException",
+    "message": "$addFields stage requires an object"
+  },
+  {
+    "id": "$addFields null and missing source",
+    "stage": "$addFields",
+    "kind": "null and missing source",
+    "pipeline": [
+      {
+        "$addFields": {
+          "copy": "$value"
+        }
+      }
+    ],
+    "input": [
+      {},
+      {
+        "value": null
+      }
+    ],
+    "result": [
+      {
+        "copy": null
+      },
+      {
+        "value": null,
+        "copy": null
+      }
+    ]
+  }
+]

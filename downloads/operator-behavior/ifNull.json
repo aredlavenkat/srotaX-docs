@@ -1,0 +1,813 @@
+[
+  {
+    "id": "$ifNull baseline",
+    "operator": "$ifNull",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$ifNull": [
+        null,
+        "fallback"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"fallback\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull input[0]: null",
+    "operator": "$ifNull",
+    "kind": "null",
+    "operand": "input[0]",
+    "expression": {
+      "$ifNull": [
+        "$probe",
+        "fallback"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": \"fallback\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull input[0]: missing",
+    "operator": "$ifNull",
+    "kind": "missing",
+    "operand": "input[0]",
+    "expression": {
+      "$ifNull": [
+        "$probe",
+        "fallback"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"fallback\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull input[0]: zero",
+    "operator": "$ifNull",
+    "kind": "zero",
+    "operand": "input[0]",
+    "expression": {
+      "$ifNull": [
+        "$probe",
+        "fallback"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull input[0]: negative",
+    "operator": "$ifNull",
+    "kind": "negative",
+    "operand": "input[0]",
+    "expression": {
+      "$ifNull": [
+        "$probe",
+        "fallback"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull input[0]: decimal",
+    "operator": "$ifNull",
+    "kind": "decimal",
+    "operand": "input[0]",
+    "expression": {
+      "$ifNull": [
+        "$probe",
+        "fallback"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.5\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull input[0]: numeric string",
+    "operator": "$ifNull",
+    "kind": "numeric string",
+    "operand": "input[0]",
+    "expression": {
+      "$ifNull": [
+        "$probe",
+        "fallback"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"12\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull input[0]: text",
+    "operator": "$ifNull",
+    "kind": "text",
+    "operand": "input[0]",
+    "expression": {
+      "$ifNull": [
+        "$probe",
+        "fallback"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"hello\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull input[0]: empty string",
+    "operator": "$ifNull",
+    "kind": "empty string",
+    "operand": "input[0]",
+    "expression": {
+      "$ifNull": [
+        "$probe",
+        "fallback"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull input[0]: boolean",
+    "operator": "$ifNull",
+    "kind": "boolean",
+    "operand": "input[0]",
+    "expression": {
+      "$ifNull": [
+        "$probe",
+        "fallback"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull input[0]: false",
+    "operator": "$ifNull",
+    "kind": "false",
+    "operand": "input[0]",
+    "expression": {
+      "$ifNull": [
+        "$probe",
+        "fallback"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull input[0]: typed date",
+    "operator": "$ifNull",
+    "kind": "typed date",
+    "operand": "input[0]",
+    "expression": {
+      "$ifNull": [
+        "$probe",
+        "fallback"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1768489200000\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull input[0]: decimal128",
+    "operator": "$ifNull",
+    "kind": "decimal128",
+    "operand": "input[0]",
+    "expression": {
+      "$ifNull": [
+        "$probe",
+        "fallback"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"1.25\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull input[0]: empty array",
+    "operator": "$ifNull",
+    "kind": "empty array",
+    "operand": "input[0]",
+    "expression": {
+      "$ifNull": [
+        "$probe",
+        "fallback"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull input[0]: numeric array",
+    "operator": "$ifNull",
+    "kind": "numeric array",
+    "operand": "input[0]",
+    "expression": {
+      "$ifNull": [
+        "$probe",
+        "fallback"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull input[0]: mixed array",
+    "operator": "$ifNull",
+    "kind": "mixed array",
+    "operand": "input[0]",
+    "expression": {
+      "$ifNull": [
+        "$probe",
+        "fallback"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, null, \"x\", {\"$numberInt\": \"3\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull input[0]: nested array",
+    "operator": "$ifNull",
+    "kind": "nested array",
+    "operand": "input[0]",
+    "expression": {
+      "$ifNull": [
+        "$probe",
+        "fallback"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}], [{\"$numberInt\": \"3\"}]]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull input[0]: empty object",
+    "operator": "$ifNull",
+    "kind": "empty object",
+    "operand": "input[0]",
+    "expression": {
+      "$ifNull": [
+        "$probe",
+        "fallback"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull input[0]: object",
+    "operator": "$ifNull",
+    "kind": "object",
+    "operand": "input[0]",
+    "expression": {
+      "$ifNull": [
+        "$probe",
+        "fallback"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"x\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull input[0]: ISO date string",
+    "operator": "$ifNull",
+    "kind": "ISO date string",
+    "operand": "input[0]",
+    "expression": {
+      "$ifNull": [
+        "$probe",
+        "fallback"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2026-01-15T15:00:00Z\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull fallback[1]: null",
+    "operator": "$ifNull",
+    "kind": "null",
+    "operand": "fallback[1]",
+    "expression": {
+      "$ifNull": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull fallback[1]: missing",
+    "operator": "$ifNull",
+    "kind": "missing",
+    "operand": "fallback[1]",
+    "expression": {
+      "$ifNull": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull fallback[1]: zero",
+    "operator": "$ifNull",
+    "kind": "zero",
+    "operand": "fallback[1]",
+    "expression": {
+      "$ifNull": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull fallback[1]: negative",
+    "operator": "$ifNull",
+    "kind": "negative",
+    "operand": "fallback[1]",
+    "expression": {
+      "$ifNull": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull fallback[1]: decimal",
+    "operator": "$ifNull",
+    "kind": "decimal",
+    "operand": "fallback[1]",
+    "expression": {
+      "$ifNull": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.5\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull fallback[1]: numeric string",
+    "operator": "$ifNull",
+    "kind": "numeric string",
+    "operand": "fallback[1]",
+    "expression": {
+      "$ifNull": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"12\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull fallback[1]: text",
+    "operator": "$ifNull",
+    "kind": "text",
+    "operand": "fallback[1]",
+    "expression": {
+      "$ifNull": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"hello\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull fallback[1]: empty string",
+    "operator": "$ifNull",
+    "kind": "empty string",
+    "operand": "fallback[1]",
+    "expression": {
+      "$ifNull": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull fallback[1]: boolean",
+    "operator": "$ifNull",
+    "kind": "boolean",
+    "operand": "fallback[1]",
+    "expression": {
+      "$ifNull": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull fallback[1]: false",
+    "operator": "$ifNull",
+    "kind": "false",
+    "operand": "fallback[1]",
+    "expression": {
+      "$ifNull": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull fallback[1]: typed date",
+    "operator": "$ifNull",
+    "kind": "typed date",
+    "operand": "fallback[1]",
+    "expression": {
+      "$ifNull": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1768489200000\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull fallback[1]: decimal128",
+    "operator": "$ifNull",
+    "kind": "decimal128",
+    "operand": "fallback[1]",
+    "expression": {
+      "$ifNull": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"1.25\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull fallback[1]: empty array",
+    "operator": "$ifNull",
+    "kind": "empty array",
+    "operand": "fallback[1]",
+    "expression": {
+      "$ifNull": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull fallback[1]: numeric array",
+    "operator": "$ifNull",
+    "kind": "numeric array",
+    "operand": "fallback[1]",
+    "expression": {
+      "$ifNull": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull fallback[1]: mixed array",
+    "operator": "$ifNull",
+    "kind": "mixed array",
+    "operand": "fallback[1]",
+    "expression": {
+      "$ifNull": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, null, \"x\", {\"$numberInt\": \"3\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull fallback[1]: nested array",
+    "operator": "$ifNull",
+    "kind": "nested array",
+    "operand": "fallback[1]",
+    "expression": {
+      "$ifNull": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}], [{\"$numberInt\": \"3\"}]]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull fallback[1]: empty object",
+    "operator": "$ifNull",
+    "kind": "empty object",
+    "operand": "fallback[1]",
+    "expression": {
+      "$ifNull": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull fallback[1]: object",
+    "operator": "$ifNull",
+    "kind": "object",
+    "operand": "fallback[1]",
+    "expression": {
+      "$ifNull": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"x\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull fallback[1]: ISO date string",
+    "operator": "$ifNull",
+    "kind": "ISO date string",
+    "operand": "fallback[1]",
+    "expression": {
+      "$ifNull": [
+        null,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2026-01-15T15:00:00Z\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$ifNull empty arguments",
+    "operator": "$ifNull",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$ifNull": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$ifNull requires at least two arguments"
+    }
+  },
+  {
+    "id": "$ifNull unknown option",
+    "operator": "$ifNull",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$ifNull": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  }
+]

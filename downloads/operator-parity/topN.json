@@ -1,0 +1,1770 @@
+[
+  {
+    "id": "$topN baseline",
+    "operator": "$topN",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": -1,
+        "n": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"3\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"3\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$topN input: null",
+    "operator": "$topN",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$topN": {
+        "input": "$probe",
+        "sortBy": -1,
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$firstN input must be an array"
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$topN input: missing",
+    "operator": "$topN",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$topN": {
+        "input": "$probe",
+        "sortBy": -1,
+        "n": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$firstN input must be an array"
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$topN input: zero",
+    "operator": "$topN",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$topN": {
+        "input": "$probe",
+        "sortBy": -1,
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The input argument to $topN must be an array, but was of type: int",
+      "code": 721211,
+      "error": "Location721211"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN input: negative",
+    "operator": "$topN",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$topN": {
+        "input": "$probe",
+        "sortBy": -1,
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The input argument to $topN must be an array, but was of type: int",
+      "code": 721211,
+      "error": "Location721211"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN input: decimal",
+    "operator": "$topN",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$topN": {
+        "input": "$probe",
+        "sortBy": -1,
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The input argument to $topN must be an array, but was of type: double",
+      "code": 721211,
+      "error": "Location721211"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN input: numeric string",
+    "operator": "$topN",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$topN": {
+        "input": "$probe",
+        "sortBy": -1,
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The input argument to $topN must be an array, but was of type: string",
+      "code": 721211,
+      "error": "Location721211"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN input: text",
+    "operator": "$topN",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$topN": {
+        "input": "$probe",
+        "sortBy": -1,
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The input argument to $topN must be an array, but was of type: string",
+      "code": 721211,
+      "error": "Location721211"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN input: empty string",
+    "operator": "$topN",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$topN": {
+        "input": "$probe",
+        "sortBy": -1,
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The input argument to $topN must be an array, but was of type: string",
+      "code": 721211,
+      "error": "Location721211"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN input: boolean",
+    "operator": "$topN",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$topN": {
+        "input": "$probe",
+        "sortBy": -1,
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The input argument to $topN must be an array, but was of type: bool",
+      "code": 721211,
+      "error": "Location721211"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN input: false",
+    "operator": "$topN",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$topN": {
+        "input": "$probe",
+        "sortBy": -1,
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The input argument to $topN must be an array, but was of type: bool",
+      "code": 721211,
+      "error": "Location721211"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN input: typed date",
+    "operator": "$topN",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$topN": {
+        "input": "$probe",
+        "sortBy": -1,
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The input argument to $topN must be an array, but was of type: date",
+      "code": 721211,
+      "error": "Location721211"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN input: decimal128",
+    "operator": "$topN",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$topN": {
+        "input": "$probe",
+        "sortBy": -1,
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The input argument to $topN must be an array, but was of type: decimal",
+      "code": 721211,
+      "error": "Location721211"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN input: empty array",
+    "operator": "$topN",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$topN": {
+        "input": "$probe",
+        "sortBy": -1,
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$topN input: numeric array",
+    "operator": "$topN",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$topN": {
+        "input": "$probe",
+        "sortBy": -1,
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"3\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"3\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$topN input: mixed array",
+    "operator": "$topN",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$topN": {
+        "input": "$probe",
+        "sortBy": -1,
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [\"x\", {\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [\"x\", {\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$topN input: nested array",
+    "operator": "$topN",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$topN": {
+        "input": "$probe",
+        "sortBy": -1,
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"3\"}], [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"3\"}], [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$topN input: empty object",
+    "operator": "$topN",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$topN": {
+        "input": "$probe",
+        "sortBy": -1,
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The input argument to $topN must be an array, but was of type: object",
+      "code": 721211,
+      "error": "Location721211"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN input: object",
+    "operator": "$topN",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$topN": {
+        "input": "$probe",
+        "sortBy": -1,
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The input argument to $topN must be an array, but was of type: object",
+      "code": 721211,
+      "error": "Location721211"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN input: ISO date string",
+    "operator": "$topN",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$topN": {
+        "input": "$probe",
+        "sortBy": -1,
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The input argument to $topN must be an array, but was of type: string",
+      "code": 721211,
+      "error": "Location721211"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN sortBy: null",
+    "operator": "$topN",
+    "kind": "null",
+    "operand": "sortBy",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": null,
+        "n": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sort direction must be 1 or -1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $sort is invalid: use 1/-1 to sort the whole element, or {field:1/-1} to sort embedded fields",
+      "code": 2942507,
+      "error": "Location2942507"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN sortBy: zero",
+    "operator": "$topN",
+    "kind": "zero",
+    "operand": "sortBy",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": 0,
+        "n": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sort direction must be 1 or -1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $sort element value must be either 1 or -1",
+      "code": 2942506,
+      "error": "Location2942506"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN sortBy: negative",
+    "operator": "$topN",
+    "kind": "negative",
+    "operand": "sortBy",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": -2,
+        "n": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sort direction must be 1 or -1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $sort element value must be either 1 or -1",
+      "code": 2942506,
+      "error": "Location2942506"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN sortBy: decimal",
+    "operator": "$topN",
+    "kind": "decimal",
+    "operand": "sortBy",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": 2.5,
+        "n": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sort direction must be 1 or -1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $sort element value must be either 1 or -1",
+      "code": 2942506,
+      "error": "Location2942506"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN sortBy: numeric string",
+    "operator": "$topN",
+    "kind": "numeric string",
+    "operand": "sortBy",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": "12",
+        "n": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sort direction must be 1 or -1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $sort is invalid: use 1/-1 to sort the whole element, or {field:1/-1} to sort embedded fields",
+      "code": 2942507,
+      "error": "Location2942507"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN sortBy: text",
+    "operator": "$topN",
+    "kind": "text",
+    "operand": "sortBy",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": "hello",
+        "n": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sort direction must be 1 or -1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $sort is invalid: use 1/-1 to sort the whole element, or {field:1/-1} to sort embedded fields",
+      "code": 2942507,
+      "error": "Location2942507"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN sortBy: empty string",
+    "operator": "$topN",
+    "kind": "empty string",
+    "operand": "sortBy",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": "",
+        "n": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sort direction must be 1 or -1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $sort is invalid: use 1/-1 to sort the whole element, or {field:1/-1} to sort embedded fields",
+      "code": 2942507,
+      "error": "Location2942507"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN sortBy: boolean",
+    "operator": "$topN",
+    "kind": "boolean",
+    "operand": "sortBy",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": true,
+        "n": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sort direction must be 1 or -1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $sort is invalid: use 1/-1 to sort the whole element, or {field:1/-1} to sort embedded fields",
+      "code": 2942507,
+      "error": "Location2942507"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN sortBy: false",
+    "operator": "$topN",
+    "kind": "false",
+    "operand": "sortBy",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": false,
+        "n": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sort direction must be 1 or -1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $sort is invalid: use 1/-1 to sort the whole element, or {field:1/-1} to sort embedded fields",
+      "code": 2942507,
+      "error": "Location2942507"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN sortBy: typed date",
+    "operator": "$topN",
+    "kind": "typed date",
+    "operand": "sortBy",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": {
+          "$date": "2026-01-15T15:00:00Z"
+        },
+        "n": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sort direction must be 1 or -1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $sort is invalid: use 1/-1 to sort the whole element, or {field:1/-1} to sort embedded fields",
+      "code": 2942507,
+      "error": "Location2942507"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN sortBy: decimal128",
+    "operator": "$topN",
+    "kind": "decimal128",
+    "operand": "sortBy",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": {
+          "$numberDecimal": "1.25"
+        },
+        "n": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sort direction must be 1 or -1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $sort element value must be either 1 or -1",
+      "code": 2942506,
+      "error": "Location2942506"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN sortBy: empty array",
+    "operator": "$topN",
+    "kind": "empty array",
+    "operand": "sortBy",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": [],
+        "n": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sort direction must be 1 or -1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $sort is invalid: use 1/-1 to sort the whole element, or {field:1/-1} to sort embedded fields",
+      "code": 2942507,
+      "error": "Location2942507"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN sortBy: numeric array",
+    "operator": "$topN",
+    "kind": "numeric array",
+    "operand": "sortBy",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": [
+          1,
+          2,
+          3
+        ],
+        "n": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sort direction must be 1 or -1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $sort is invalid: use 1/-1 to sort the whole element, or {field:1/-1} to sort embedded fields",
+      "code": 2942507,
+      "error": "Location2942507"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN sortBy: mixed array",
+    "operator": "$topN",
+    "kind": "mixed array",
+    "operand": "sortBy",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": [
+          1,
+          null,
+          "x",
+          3
+        ],
+        "n": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sort direction must be 1 or -1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $sort is invalid: use 1/-1 to sort the whole element, or {field:1/-1} to sort embedded fields",
+      "code": 2942507,
+      "error": "Location2942507"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN sortBy: nested array",
+    "operator": "$topN",
+    "kind": "nested array",
+    "operand": "sortBy",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": [
+          [
+            1,
+            2
+          ],
+          [
+            3
+          ]
+        ],
+        "n": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sort direction must be 1 or -1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $sort is invalid: use 1/-1 to sort the whole element, or {field:1/-1} to sort embedded fields",
+      "code": 2942507,
+      "error": "Location2942507"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN sortBy: empty object",
+    "operator": "$topN",
+    "kind": "empty object",
+    "operand": "sortBy",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": {},
+        "n": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sortBy must not be empty"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BadValue: The sort pattern is empty when it should be a set of fields.",
+      "code": 2942505,
+      "error": "Location2942505"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN sortBy: object",
+    "operator": "$topN",
+    "kind": "object",
+    "operand": "sortBy",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": {
+          "x": 1
+        },
+        "n": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"3\"}, {\"$numberInt\": \"1\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"3\"}, {\"$numberInt\": \"1\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$topN sortBy: ISO date string",
+    "operator": "$topN",
+    "kind": "ISO date string",
+    "operand": "sortBy",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": "2026-01-15T15:00:00Z",
+        "n": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sort direction must be 1 or -1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $sort is invalid: use 1/-1 to sort the whole element, or {field:1/-1} to sort embedded fields",
+      "code": 2942507,
+      "error": "Location2942507"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN n: null",
+    "operator": "$topN",
+    "kind": "null",
+    "operand": "n",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": -1,
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$firstN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$topN n: missing",
+    "operator": "$topN",
+    "kind": "missing",
+    "operand": "n",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": -1,
+        "n": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$firstN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$topN n: zero",
+    "operator": "$topN",
+    "kind": "zero",
+    "operand": "n",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": -1,
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$firstN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$topN n: negative",
+    "operator": "$topN",
+    "kind": "negative",
+    "operand": "n",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": -1,
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$firstN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $topN requires 'n' to be non-negative",
+      "code": 721212,
+      "error": "Location721212"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN n: decimal",
+    "operator": "$topN",
+    "kind": "decimal",
+    "operand": "n",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": -1,
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$firstN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The 'n' argument to $topN must be an integer, but was of type: double",
+      "code": 721210,
+      "error": "Location721210"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN n: numeric string",
+    "operator": "$topN",
+    "kind": "numeric string",
+    "operand": "n",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": -1,
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$firstN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The 'n' argument to $topN must be an integer, but was of type: string",
+      "code": 721210,
+      "error": "Location721210"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN n: text",
+    "operator": "$topN",
+    "kind": "text",
+    "operand": "n",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": -1,
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$firstN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The 'n' argument to $topN must be an integer, but was of type: string",
+      "code": 721210,
+      "error": "Location721210"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN n: empty string",
+    "operator": "$topN",
+    "kind": "empty string",
+    "operand": "n",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": -1,
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$firstN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The 'n' argument to $topN must be an integer, but was of type: string",
+      "code": 721210,
+      "error": "Location721210"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN n: boolean",
+    "operator": "$topN",
+    "kind": "boolean",
+    "operand": "n",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": -1,
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$firstN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The 'n' argument to $topN must be an integer, but was of type: bool",
+      "code": 721210,
+      "error": "Location721210"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN n: false",
+    "operator": "$topN",
+    "kind": "false",
+    "operand": "n",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": -1,
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$firstN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The 'n' argument to $topN must be an integer, but was of type: bool",
+      "code": 721210,
+      "error": "Location721210"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN n: typed date",
+    "operator": "$topN",
+    "kind": "typed date",
+    "operand": "n",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": -1,
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$firstN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The 'n' argument to $topN must be an integer, but was of type: date",
+      "code": 721210,
+      "error": "Location721210"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN n: decimal128",
+    "operator": "$topN",
+    "kind": "decimal128",
+    "operand": "n",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": -1,
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$firstN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The 'n' argument to $topN must be an integer, but was of type: decimal",
+      "code": 721210,
+      "error": "Location721210"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN n: empty array",
+    "operator": "$topN",
+    "kind": "empty array",
+    "operand": "n",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": -1,
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$firstN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The 'n' argument to $topN must be an integer, but was of type: array",
+      "code": 721210,
+      "error": "Location721210"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN n: numeric array",
+    "operator": "$topN",
+    "kind": "numeric array",
+    "operand": "n",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": -1,
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$firstN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The 'n' argument to $topN must be an integer, but was of type: array",
+      "code": 721210,
+      "error": "Location721210"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN n: mixed array",
+    "operator": "$topN",
+    "kind": "mixed array",
+    "operand": "n",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": -1,
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$firstN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The 'n' argument to $topN must be an integer, but was of type: array",
+      "code": 721210,
+      "error": "Location721210"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN n: nested array",
+    "operator": "$topN",
+    "kind": "nested array",
+    "operand": "n",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": -1,
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$firstN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The 'n' argument to $topN must be an integer, but was of type: array",
+      "code": 721210,
+      "error": "Location721210"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN n: empty object",
+    "operator": "$topN",
+    "kind": "empty object",
+    "operand": "n",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": -1,
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$firstN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The 'n' argument to $topN must be an integer, but was of type: object",
+      "code": 721210,
+      "error": "Location721210"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN n: object",
+    "operator": "$topN",
+    "kind": "object",
+    "operand": "n",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": -1,
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$firstN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The 'n' argument to $topN must be an integer, but was of type: object",
+      "code": 721210,
+      "error": "Location721210"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN n: ISO date string",
+    "operator": "$topN",
+    "kind": "ISO date string",
+    "operand": "n",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": -1,
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$firstN n must be a positive 64-bit integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The 'n' argument to $topN must be an integer, but was of type: string",
+      "code": 721210,
+      "error": "Location721210"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN omit input",
+    "operator": "$topN",
+    "kind": "omitted named argument",
+    "operand": "input",
+    "expression": {
+      "$topN": {
+        "sortBy": -1,
+        "n": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$topN requires input, sortBy and n"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $topN requires 'input' to be specified",
+      "code": 7212111,
+      "error": "Location7212111"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN omit sortBy",
+    "operator": "$topN",
+    "kind": "omitted named argument",
+    "operand": "sortBy",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$topN requires input, sortBy and n"
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$topN omit n",
+    "operator": "$topN",
+    "kind": "omitted named argument",
+    "operand": "n",
+    "expression": {
+      "$topN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": -1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$topN requires input, sortBy and n"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $topN requires 'n' to be specified",
+      "code": 7212110,
+      "error": "Location7212110"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN empty arguments",
+    "operator": "$topN",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$topN": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$topN requires input, sortBy and n"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $topN requires an object as an argument, found: array",
+      "code": 721218,
+      "error": "Location721218"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$topN unknown option",
+    "operator": "$topN",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$topN": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$topN requires input, sortBy and n"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $topN found an unknown argument: unexpected",
+      "code": 721219,
+      "error": "Location721219"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

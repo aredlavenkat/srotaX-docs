@@ -1,0 +1,1054 @@
+[
+  {
+    "id": "$range baseline",
+    "operator": "$range",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$range": [
+        0,
+        3
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberLong\": \"0\"}, {\"$numberLong\": \"1\"}, {\"$numberLong\": \"2\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"0\"}, {\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$range start[0]: null",
+    "operator": "$range",
+    "kind": "null",
+    "operand": "start[0]",
+    "expression": {
+      "$range": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$range start argument must resolve to a numeric value"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires a numeric starting value, found value of type: null",
+      "code": 34443,
+      "error": "Location34443"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$range start[0]: missing",
+    "operator": "$range",
+    "kind": "missing",
+    "operand": "start[0]",
+    "expression": {
+      "$range": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$range start argument must resolve to a numeric value"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires a numeric starting value, found value of type: missing",
+      "code": 34443,
+      "error": "Location34443"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$range start[0]: zero",
+    "operator": "$range",
+    "kind": "zero",
+    "operand": "start[0]",
+    "expression": {
+      "$range": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberLong\": \"0\"}, {\"$numberLong\": \"1\"}, {\"$numberLong\": \"2\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"0\"}, {\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$range start[0]: negative",
+    "operator": "$range",
+    "kind": "negative",
+    "operand": "start[0]",
+    "expression": {
+      "$range": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberLong\": \"-2\"}, {\"$numberLong\": \"-1\"}, {\"$numberLong\": \"0\"}, {\"$numberLong\": \"1\"}, {\"$numberLong\": \"2\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"-2\"}, {\"$numberInt\": \"-1\"}, {\"$numberInt\": \"0\"}, {\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$range start[0]: decimal",
+    "operator": "$range",
+    "kind": "decimal",
+    "operand": "start[0]",
+    "expression": {
+      "$range": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"2.5\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires a starting value that can be represented as a 32-bit integer, found value: 2.5",
+      "code": 34444,
+      "error": "Location34444"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$range start[0]: numeric string",
+    "operator": "$range",
+    "kind": "numeric string",
+    "operand": "start[0]",
+    "expression": {
+      "$range": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$range start argument must resolve to a numeric value"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires a numeric starting value, found value of type: string",
+      "code": 34443,
+      "error": "Location34443"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$range start[0]: text",
+    "operator": "$range",
+    "kind": "text",
+    "operand": "start[0]",
+    "expression": {
+      "$range": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$range start argument must resolve to a numeric value"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires a numeric starting value, found value of type: string",
+      "code": 34443,
+      "error": "Location34443"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$range start[0]: empty string",
+    "operator": "$range",
+    "kind": "empty string",
+    "operand": "start[0]",
+    "expression": {
+      "$range": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$range start argument must resolve to a numeric value"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires a numeric starting value, found value of type: string",
+      "code": 34443,
+      "error": "Location34443"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$range start[0]: boolean",
+    "operator": "$range",
+    "kind": "boolean",
+    "operand": "start[0]",
+    "expression": {
+      "$range": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$range start argument must resolve to a numeric value"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires a numeric starting value, found value of type: bool",
+      "code": 34443,
+      "error": "Location34443"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$range start[0]: false",
+    "operator": "$range",
+    "kind": "false",
+    "operand": "start[0]",
+    "expression": {
+      "$range": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$range start argument must resolve to a numeric value"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires a numeric starting value, found value of type: bool",
+      "code": 34443,
+      "error": "Location34443"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$range start[0]: typed date",
+    "operator": "$range",
+    "kind": "typed date",
+    "operand": "start[0]",
+    "expression": {
+      "$range": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$range start argument must resolve to a numeric value"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires a numeric starting value, found value of type: date",
+      "code": 34443,
+      "error": "Location34443"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$range start[0]: decimal128",
+    "operator": "$range",
+    "kind": "decimal128",
+    "operand": "start[0]",
+    "expression": {
+      "$range": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"1.25\"}, {\"$numberDouble\": \"2.25\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires a starting value that can be represented as a 32-bit integer, found value: 1.25",
+      "code": 34444,
+      "error": "Location34444"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$range start[0]: empty array",
+    "operator": "$range",
+    "kind": "empty array",
+    "operand": "start[0]",
+    "expression": {
+      "$range": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$range start argument must resolve to a numeric value"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires a numeric starting value, found value of type: array",
+      "code": 34443,
+      "error": "Location34443"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$range start[0]: numeric array",
+    "operator": "$range",
+    "kind": "numeric array",
+    "operand": "start[0]",
+    "expression": {
+      "$range": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$range start argument must resolve to a numeric value"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires a numeric starting value, found value of type: array",
+      "code": 34443,
+      "error": "Location34443"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$range start[0]: mixed array",
+    "operator": "$range",
+    "kind": "mixed array",
+    "operand": "start[0]",
+    "expression": {
+      "$range": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$range start argument must resolve to a numeric value"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires a numeric starting value, found value of type: array",
+      "code": 34443,
+      "error": "Location34443"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$range start[0]: nested array",
+    "operator": "$range",
+    "kind": "nested array",
+    "operand": "start[0]",
+    "expression": {
+      "$range": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$range start argument must resolve to a numeric value"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires a numeric starting value, found value of type: array",
+      "code": 34443,
+      "error": "Location34443"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$range start[0]: empty object",
+    "operator": "$range",
+    "kind": "empty object",
+    "operand": "start[0]",
+    "expression": {
+      "$range": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$range start argument must resolve to a numeric value"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires a numeric starting value, found value of type: object",
+      "code": 34443,
+      "error": "Location34443"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$range start[0]: object",
+    "operator": "$range",
+    "kind": "object",
+    "operand": "start[0]",
+    "expression": {
+      "$range": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$range start argument must resolve to a numeric value"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires a numeric starting value, found value of type: object",
+      "code": 34443,
+      "error": "Location34443"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$range start[0]: ISO date string",
+    "operator": "$range",
+    "kind": "ISO date string",
+    "operand": "start[0]",
+    "expression": {
+      "$range": [
+        "$probe",
+        3
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$range start argument must resolve to a numeric value"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires a numeric starting value, found value of type: string",
+      "code": 34443,
+      "error": "Location34443"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$range end[1]: null",
+    "operator": "$range",
+    "kind": "null",
+    "operand": "end[1]",
+    "expression": {
+      "$range": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$range end argument must resolve to a numeric value"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires a numeric ending value, found value of type: null",
+      "code": 34445,
+      "error": "Location34445"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$range end[1]: missing",
+    "operator": "$range",
+    "kind": "missing",
+    "operand": "end[1]",
+    "expression": {
+      "$range": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$range end argument must resolve to a numeric value"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires a numeric ending value, found value of type: missing",
+      "code": 34445,
+      "error": "Location34445"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$range end[1]: zero",
+    "operator": "$range",
+    "kind": "zero",
+    "operand": "end[1]",
+    "expression": {
+      "$range": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$range end[1]: negative",
+    "operator": "$range",
+    "kind": "negative",
+    "operand": "end[1]",
+    "expression": {
+      "$range": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$range end[1]: decimal",
+    "operator": "$range",
+    "kind": "decimal",
+    "operand": "end[1]",
+    "expression": {
+      "$range": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"0.0\"}, {\"$numberDouble\": \"1.0\"}, {\"$numberDouble\": \"2.0\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires an ending value that can be represented as a 32-bit integer, found value: 2.5",
+      "code": 34446,
+      "error": "Location34446"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$range end[1]: numeric string",
+    "operator": "$range",
+    "kind": "numeric string",
+    "operand": "end[1]",
+    "expression": {
+      "$range": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$range end argument must resolve to a numeric value"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires a numeric ending value, found value of type: string",
+      "code": 34445,
+      "error": "Location34445"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$range end[1]: text",
+    "operator": "$range",
+    "kind": "text",
+    "operand": "end[1]",
+    "expression": {
+      "$range": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$range end argument must resolve to a numeric value"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires a numeric ending value, found value of type: string",
+      "code": 34445,
+      "error": "Location34445"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$range end[1]: empty string",
+    "operator": "$range",
+    "kind": "empty string",
+    "operand": "end[1]",
+    "expression": {
+      "$range": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$range end argument must resolve to a numeric value"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires a numeric ending value, found value of type: string",
+      "code": 34445,
+      "error": "Location34445"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$range end[1]: boolean",
+    "operator": "$range",
+    "kind": "boolean",
+    "operand": "end[1]",
+    "expression": {
+      "$range": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$range end argument must resolve to a numeric value"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires a numeric ending value, found value of type: bool",
+      "code": 34445,
+      "error": "Location34445"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$range end[1]: false",
+    "operator": "$range",
+    "kind": "false",
+    "operand": "end[1]",
+    "expression": {
+      "$range": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$range end argument must resolve to a numeric value"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires a numeric ending value, found value of type: bool",
+      "code": 34445,
+      "error": "Location34445"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$range end[1]: typed date",
+    "operator": "$range",
+    "kind": "typed date",
+    "operand": "end[1]",
+    "expression": {
+      "$range": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$range end argument must resolve to a numeric value"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires a numeric ending value, found value of type: date",
+      "code": 34445,
+      "error": "Location34445"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$range end[1]: decimal128",
+    "operator": "$range",
+    "kind": "decimal128",
+    "operand": "end[1]",
+    "expression": {
+      "$range": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberDouble\": \"0.0\"}, {\"$numberDouble\": \"1.0\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires an ending value that can be represented as a 32-bit integer, found value: 1.25",
+      "code": 34446,
+      "error": "Location34446"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$range end[1]: empty array",
+    "operator": "$range",
+    "kind": "empty array",
+    "operand": "end[1]",
+    "expression": {
+      "$range": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$range end argument must resolve to a numeric value"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires a numeric ending value, found value of type: array",
+      "code": 34445,
+      "error": "Location34445"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$range end[1]: numeric array",
+    "operator": "$range",
+    "kind": "numeric array",
+    "operand": "end[1]",
+    "expression": {
+      "$range": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$range end argument must resolve to a numeric value"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires a numeric ending value, found value of type: array",
+      "code": 34445,
+      "error": "Location34445"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$range end[1]: mixed array",
+    "operator": "$range",
+    "kind": "mixed array",
+    "operand": "end[1]",
+    "expression": {
+      "$range": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$range end argument must resolve to a numeric value"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires a numeric ending value, found value of type: array",
+      "code": 34445,
+      "error": "Location34445"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$range end[1]: nested array",
+    "operator": "$range",
+    "kind": "nested array",
+    "operand": "end[1]",
+    "expression": {
+      "$range": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$range end argument must resolve to a numeric value"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires a numeric ending value, found value of type: array",
+      "code": 34445,
+      "error": "Location34445"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$range end[1]: empty object",
+    "operator": "$range",
+    "kind": "empty object",
+    "operand": "end[1]",
+    "expression": {
+      "$range": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$range end argument must resolve to a numeric value"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires a numeric ending value, found value of type: object",
+      "code": 34445,
+      "error": "Location34445"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$range end[1]: object",
+    "operator": "$range",
+    "kind": "object",
+    "operand": "end[1]",
+    "expression": {
+      "$range": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$range end argument must resolve to a numeric value"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires a numeric ending value, found value of type: object",
+      "code": 34445,
+      "error": "Location34445"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$range end[1]: ISO date string",
+    "operator": "$range",
+    "kind": "ISO date string",
+    "operand": "end[1]",
+    "expression": {
+      "$range": [
+        0,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$range end argument must resolve to a numeric value"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $range requires a numeric ending value, found value of type: string",
+      "code": 34445,
+      "error": "Location34445"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$range empty arguments",
+    "operator": "$range",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$range": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$range expects [start, end, step?]"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $range takes at least 2 arguments, and at most 3, but 0 were passed in.",
+      "code": 28667,
+      "error": "Location28667"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$range unknown option",
+    "operator": "$range",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$range": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$range expects [start, end, step?]"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $range takes at least 2 arguments, and at most 3, but 1 were passed in.",
+      "code": 28667,
+      "error": "Location28667"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

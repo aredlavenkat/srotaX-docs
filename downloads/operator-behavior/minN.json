@@ -1,0 +1,929 @@
+[
+  {
+    "id": "$minN baseline",
+    "operator": "$minN",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$minN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minN input: null",
+    "operator": "$minN",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$minN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN input must be an array"
+    }
+  },
+  {
+    "id": "$minN input: missing",
+    "operator": "$minN",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$minN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN input must be an array"
+    }
+  },
+  {
+    "id": "$minN input: zero",
+    "operator": "$minN",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$minN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN input must be an array"
+    }
+  },
+  {
+    "id": "$minN input: negative",
+    "operator": "$minN",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$minN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN input must be an array"
+    }
+  },
+  {
+    "id": "$minN input: decimal",
+    "operator": "$minN",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$minN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN input must be an array"
+    }
+  },
+  {
+    "id": "$minN input: numeric string",
+    "operator": "$minN",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$minN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN input must be an array"
+    }
+  },
+  {
+    "id": "$minN input: text",
+    "operator": "$minN",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$minN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN input must be an array"
+    }
+  },
+  {
+    "id": "$minN input: empty string",
+    "operator": "$minN",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$minN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN input must be an array"
+    }
+  },
+  {
+    "id": "$minN input: boolean",
+    "operator": "$minN",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$minN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN input must be an array"
+    }
+  },
+  {
+    "id": "$minN input: false",
+    "operator": "$minN",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$minN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN input must be an array"
+    }
+  },
+  {
+    "id": "$minN input: typed date",
+    "operator": "$minN",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$minN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN input must be an array"
+    }
+  },
+  {
+    "id": "$minN input: decimal128",
+    "operator": "$minN",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$minN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN input must be an array"
+    }
+  },
+  {
+    "id": "$minN input: empty array",
+    "operator": "$minN",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$minN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minN input: numeric array",
+    "operator": "$minN",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$minN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minN input: mixed array",
+    "operator": "$minN",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$minN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"3\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minN input: nested array",
+    "operator": "$minN",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$minN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}], [{\"$numberInt\": \"3\"}]]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$minN input: empty object",
+    "operator": "$minN",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$minN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN input must be an array"
+    }
+  },
+  {
+    "id": "$minN input: object",
+    "operator": "$minN",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$minN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN input must be an array"
+    }
+  },
+  {
+    "id": "$minN input: ISO date string",
+    "operator": "$minN",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$minN": {
+        "input": "$probe",
+        "n": 2
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN input must be an array"
+    }
+  },
+  {
+    "id": "$minN n: null",
+    "operator": "$minN",
+    "kind": "null",
+    "operand": "n",
+    "expression": {
+      "$minN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$minN n: missing",
+    "operator": "$minN",
+    "kind": "missing",
+    "operand": "n",
+    "expression": {
+      "$minN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$minN n: zero",
+    "operator": "$minN",
+    "kind": "zero",
+    "operand": "n",
+    "expression": {
+      "$minN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$minN n: negative",
+    "operator": "$minN",
+    "kind": "negative",
+    "operand": "n",
+    "expression": {
+      "$minN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$minN n: decimal",
+    "operator": "$minN",
+    "kind": "decimal",
+    "operand": "n",
+    "expression": {
+      "$minN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$minN n: numeric string",
+    "operator": "$minN",
+    "kind": "numeric string",
+    "operand": "n",
+    "expression": {
+      "$minN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$minN n: text",
+    "operator": "$minN",
+    "kind": "text",
+    "operand": "n",
+    "expression": {
+      "$minN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$minN n: empty string",
+    "operator": "$minN",
+    "kind": "empty string",
+    "operand": "n",
+    "expression": {
+      "$minN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$minN n: boolean",
+    "operator": "$minN",
+    "kind": "boolean",
+    "operand": "n",
+    "expression": {
+      "$minN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$minN n: false",
+    "operator": "$minN",
+    "kind": "false",
+    "operand": "n",
+    "expression": {
+      "$minN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$minN n: typed date",
+    "operator": "$minN",
+    "kind": "typed date",
+    "operand": "n",
+    "expression": {
+      "$minN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$minN n: decimal128",
+    "operator": "$minN",
+    "kind": "decimal128",
+    "operand": "n",
+    "expression": {
+      "$minN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$minN n: empty array",
+    "operator": "$minN",
+    "kind": "empty array",
+    "operand": "n",
+    "expression": {
+      "$minN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$minN n: numeric array",
+    "operator": "$minN",
+    "kind": "numeric array",
+    "operand": "n",
+    "expression": {
+      "$minN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$minN n: mixed array",
+    "operator": "$minN",
+    "kind": "mixed array",
+    "operand": "n",
+    "expression": {
+      "$minN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$minN n: nested array",
+    "operator": "$minN",
+    "kind": "nested array",
+    "operand": "n",
+    "expression": {
+      "$minN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$minN n: empty object",
+    "operator": "$minN",
+    "kind": "empty object",
+    "operand": "n",
+    "expression": {
+      "$minN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$minN n: object",
+    "operator": "$minN",
+    "kind": "object",
+    "operand": "n",
+    "expression": {
+      "$minN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$minN n: ISO date string",
+    "operator": "$minN",
+    "kind": "ISO date string",
+    "operand": "n",
+    "expression": {
+      "$minN": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "n": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN n must be a positive 64-bit integer"
+    }
+  },
+  {
+    "id": "$minN omit input",
+    "operator": "$minN",
+    "kind": "omitted named argument",
+    "operand": "input",
+    "expression": {
+      "$minN": {
+        "n": 2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN requires input and n"
+    }
+  },
+  {
+    "id": "$minN omit n",
+    "operator": "$minN",
+    "kind": "omitted named argument",
+    "operand": "n",
+    "expression": {
+      "$minN": {
+        "input": [
+          3,
+          1,
+          2
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN requires input and n"
+    }
+  },
+  {
+    "id": "$minN empty arguments",
+    "operator": "$minN",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$minN": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN requires input and n"
+    }
+  },
+  {
+    "id": "$minN unknown option",
+    "operator": "$minN",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$minN": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$minN requires input and n"
+    }
+  }
+]

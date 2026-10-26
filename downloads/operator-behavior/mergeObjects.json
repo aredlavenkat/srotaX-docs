@@ -1,0 +1,893 @@
+[
+  {
+    "id": "$mergeObjects baseline",
+    "operator": "$mergeObjects",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$mergeObjects": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        }
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"a\": {\"$numberInt\": \"1\"}, \"b\": {\"$numberInt\": \"2\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$mergeObjects object[0]: null",
+    "operator": "$mergeObjects",
+    "kind": "null",
+    "operand": "object[0]",
+    "expression": {
+      "$mergeObjects": [
+        "$probe",
+        {
+          "b": 2
+        }
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"b\": {\"$numberInt\": \"2\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$mergeObjects object[0]: missing",
+    "operator": "$mergeObjects",
+    "kind": "missing",
+    "operand": "object[0]",
+    "expression": {
+      "$mergeObjects": [
+        "$probe",
+        {
+          "b": 2
+        }
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"b\": {\"$numberInt\": \"2\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$mergeObjects object[0]: zero",
+    "operator": "$mergeObjects",
+    "kind": "zero",
+    "operand": "object[0]",
+    "expression": {
+      "$mergeObjects": [
+        "$probe",
+        {
+          "b": 2
+        }
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mergeObjects only accepts documents (objects)."
+    }
+  },
+  {
+    "id": "$mergeObjects object[0]: negative",
+    "operator": "$mergeObjects",
+    "kind": "negative",
+    "operand": "object[0]",
+    "expression": {
+      "$mergeObjects": [
+        "$probe",
+        {
+          "b": 2
+        }
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mergeObjects only accepts documents (objects)."
+    }
+  },
+  {
+    "id": "$mergeObjects object[0]: decimal",
+    "operator": "$mergeObjects",
+    "kind": "decimal",
+    "operand": "object[0]",
+    "expression": {
+      "$mergeObjects": [
+        "$probe",
+        {
+          "b": 2
+        }
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mergeObjects only accepts documents (objects)."
+    }
+  },
+  {
+    "id": "$mergeObjects object[0]: numeric string",
+    "operator": "$mergeObjects",
+    "kind": "numeric string",
+    "operand": "object[0]",
+    "expression": {
+      "$mergeObjects": [
+        "$probe",
+        {
+          "b": 2
+        }
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mergeObjects only accepts documents (objects)."
+    }
+  },
+  {
+    "id": "$mergeObjects object[0]: text",
+    "operator": "$mergeObjects",
+    "kind": "text",
+    "operand": "object[0]",
+    "expression": {
+      "$mergeObjects": [
+        "$probe",
+        {
+          "b": 2
+        }
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mergeObjects only accepts documents (objects)."
+    }
+  },
+  {
+    "id": "$mergeObjects object[0]: empty string",
+    "operator": "$mergeObjects",
+    "kind": "empty string",
+    "operand": "object[0]",
+    "expression": {
+      "$mergeObjects": [
+        "$probe",
+        {
+          "b": 2
+        }
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mergeObjects only accepts documents (objects)."
+    }
+  },
+  {
+    "id": "$mergeObjects object[0]: boolean",
+    "operator": "$mergeObjects",
+    "kind": "boolean",
+    "operand": "object[0]",
+    "expression": {
+      "$mergeObjects": [
+        "$probe",
+        {
+          "b": 2
+        }
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mergeObjects only accepts documents (objects)."
+    }
+  },
+  {
+    "id": "$mergeObjects object[0]: false",
+    "operator": "$mergeObjects",
+    "kind": "false",
+    "operand": "object[0]",
+    "expression": {
+      "$mergeObjects": [
+        "$probe",
+        {
+          "b": 2
+        }
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mergeObjects only accepts documents (objects)."
+    }
+  },
+  {
+    "id": "$mergeObjects object[0]: typed date",
+    "operator": "$mergeObjects",
+    "kind": "typed date",
+    "operand": "object[0]",
+    "expression": {
+      "$mergeObjects": [
+        "$probe",
+        {
+          "b": 2
+        }
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mergeObjects only accepts documents (objects)."
+    }
+  },
+  {
+    "id": "$mergeObjects object[0]: decimal128",
+    "operator": "$mergeObjects",
+    "kind": "decimal128",
+    "operand": "object[0]",
+    "expression": {
+      "$mergeObjects": [
+        "$probe",
+        {
+          "b": 2
+        }
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mergeObjects only accepts documents (objects)."
+    }
+  },
+  {
+    "id": "$mergeObjects object[0]: empty array",
+    "operator": "$mergeObjects",
+    "kind": "empty array",
+    "operand": "object[0]",
+    "expression": {
+      "$mergeObjects": [
+        "$probe",
+        {
+          "b": 2
+        }
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mergeObjects only accepts documents (objects)."
+    }
+  },
+  {
+    "id": "$mergeObjects object[0]: numeric array",
+    "operator": "$mergeObjects",
+    "kind": "numeric array",
+    "operand": "object[0]",
+    "expression": {
+      "$mergeObjects": [
+        "$probe",
+        {
+          "b": 2
+        }
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mergeObjects only accepts documents (objects)."
+    }
+  },
+  {
+    "id": "$mergeObjects object[0]: mixed array",
+    "operator": "$mergeObjects",
+    "kind": "mixed array",
+    "operand": "object[0]",
+    "expression": {
+      "$mergeObjects": [
+        "$probe",
+        {
+          "b": 2
+        }
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mergeObjects only accepts documents (objects)."
+    }
+  },
+  {
+    "id": "$mergeObjects object[0]: nested array",
+    "operator": "$mergeObjects",
+    "kind": "nested array",
+    "operand": "object[0]",
+    "expression": {
+      "$mergeObjects": [
+        "$probe",
+        {
+          "b": 2
+        }
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mergeObjects only accepts documents (objects)."
+    }
+  },
+  {
+    "id": "$mergeObjects object[0]: empty object",
+    "operator": "$mergeObjects",
+    "kind": "empty object",
+    "operand": "object[0]",
+    "expression": {
+      "$mergeObjects": [
+        "$probe",
+        {
+          "b": 2
+        }
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"b\": {\"$numberInt\": \"2\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$mergeObjects object[0]: object",
+    "operator": "$mergeObjects",
+    "kind": "object",
+    "operand": "object[0]",
+    "expression": {
+      "$mergeObjects": [
+        "$probe",
+        {
+          "b": 2
+        }
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"x\": {\"$numberInt\": \"1\"}, \"b\": {\"$numberInt\": \"2\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$mergeObjects object[0]: ISO date string",
+    "operator": "$mergeObjects",
+    "kind": "ISO date string",
+    "operand": "object[0]",
+    "expression": {
+      "$mergeObjects": [
+        "$probe",
+        {
+          "b": 2
+        }
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mergeObjects only accepts documents (objects)."
+    }
+  },
+  {
+    "id": "$mergeObjects object[1]: null",
+    "operator": "$mergeObjects",
+    "kind": "null",
+    "operand": "object[1]",
+    "expression": {
+      "$mergeObjects": [
+        {
+          "a": 1
+        },
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$mergeObjects object[1]: missing",
+    "operator": "$mergeObjects",
+    "kind": "missing",
+    "operand": "object[1]",
+    "expression": {
+      "$mergeObjects": [
+        {
+          "a": 1
+        },
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"a\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$mergeObjects object[1]: zero",
+    "operator": "$mergeObjects",
+    "kind": "zero",
+    "operand": "object[1]",
+    "expression": {
+      "$mergeObjects": [
+        {
+          "a": 1
+        },
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mergeObjects only accepts documents (objects)."
+    }
+  },
+  {
+    "id": "$mergeObjects object[1]: negative",
+    "operator": "$mergeObjects",
+    "kind": "negative",
+    "operand": "object[1]",
+    "expression": {
+      "$mergeObjects": [
+        {
+          "a": 1
+        },
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mergeObjects only accepts documents (objects)."
+    }
+  },
+  {
+    "id": "$mergeObjects object[1]: decimal",
+    "operator": "$mergeObjects",
+    "kind": "decimal",
+    "operand": "object[1]",
+    "expression": {
+      "$mergeObjects": [
+        {
+          "a": 1
+        },
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mergeObjects only accepts documents (objects)."
+    }
+  },
+  {
+    "id": "$mergeObjects object[1]: numeric string",
+    "operator": "$mergeObjects",
+    "kind": "numeric string",
+    "operand": "object[1]",
+    "expression": {
+      "$mergeObjects": [
+        {
+          "a": 1
+        },
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mergeObjects only accepts documents (objects)."
+    }
+  },
+  {
+    "id": "$mergeObjects object[1]: text",
+    "operator": "$mergeObjects",
+    "kind": "text",
+    "operand": "object[1]",
+    "expression": {
+      "$mergeObjects": [
+        {
+          "a": 1
+        },
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mergeObjects only accepts documents (objects)."
+    }
+  },
+  {
+    "id": "$mergeObjects object[1]: empty string",
+    "operator": "$mergeObjects",
+    "kind": "empty string",
+    "operand": "object[1]",
+    "expression": {
+      "$mergeObjects": [
+        {
+          "a": 1
+        },
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mergeObjects only accepts documents (objects)."
+    }
+  },
+  {
+    "id": "$mergeObjects object[1]: boolean",
+    "operator": "$mergeObjects",
+    "kind": "boolean",
+    "operand": "object[1]",
+    "expression": {
+      "$mergeObjects": [
+        {
+          "a": 1
+        },
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mergeObjects only accepts documents (objects)."
+    }
+  },
+  {
+    "id": "$mergeObjects object[1]: false",
+    "operator": "$mergeObjects",
+    "kind": "false",
+    "operand": "object[1]",
+    "expression": {
+      "$mergeObjects": [
+        {
+          "a": 1
+        },
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mergeObjects only accepts documents (objects)."
+    }
+  },
+  {
+    "id": "$mergeObjects object[1]: typed date",
+    "operator": "$mergeObjects",
+    "kind": "typed date",
+    "operand": "object[1]",
+    "expression": {
+      "$mergeObjects": [
+        {
+          "a": 1
+        },
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mergeObjects only accepts documents (objects)."
+    }
+  },
+  {
+    "id": "$mergeObjects object[1]: decimal128",
+    "operator": "$mergeObjects",
+    "kind": "decimal128",
+    "operand": "object[1]",
+    "expression": {
+      "$mergeObjects": [
+        {
+          "a": 1
+        },
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mergeObjects only accepts documents (objects)."
+    }
+  },
+  {
+    "id": "$mergeObjects object[1]: empty array",
+    "operator": "$mergeObjects",
+    "kind": "empty array",
+    "operand": "object[1]",
+    "expression": {
+      "$mergeObjects": [
+        {
+          "a": 1
+        },
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mergeObjects only accepts documents (objects)."
+    }
+  },
+  {
+    "id": "$mergeObjects object[1]: numeric array",
+    "operator": "$mergeObjects",
+    "kind": "numeric array",
+    "operand": "object[1]",
+    "expression": {
+      "$mergeObjects": [
+        {
+          "a": 1
+        },
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mergeObjects only accepts documents (objects)."
+    }
+  },
+  {
+    "id": "$mergeObjects object[1]: mixed array",
+    "operator": "$mergeObjects",
+    "kind": "mixed array",
+    "operand": "object[1]",
+    "expression": {
+      "$mergeObjects": [
+        {
+          "a": 1
+        },
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mergeObjects only accepts documents (objects)."
+    }
+  },
+  {
+    "id": "$mergeObjects object[1]: nested array",
+    "operator": "$mergeObjects",
+    "kind": "nested array",
+    "operand": "object[1]",
+    "expression": {
+      "$mergeObjects": [
+        {
+          "a": 1
+        },
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mergeObjects only accepts documents (objects)."
+    }
+  },
+  {
+    "id": "$mergeObjects object[1]: empty object",
+    "operator": "$mergeObjects",
+    "kind": "empty object",
+    "operand": "object[1]",
+    "expression": {
+      "$mergeObjects": [
+        {
+          "a": 1
+        },
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$mergeObjects object[1]: object",
+    "operator": "$mergeObjects",
+    "kind": "object",
+    "operand": "object[1]",
+    "expression": {
+      "$mergeObjects": [
+        {
+          "a": 1
+        },
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": {\"$numberInt\": \"1\"}, \"x\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$mergeObjects object[1]: ISO date string",
+    "operator": "$mergeObjects",
+    "kind": "ISO date string",
+    "operand": "object[1]",
+    "expression": {
+      "$mergeObjects": [
+        {
+          "a": 1
+        },
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$mergeObjects only accepts documents (objects)."
+    }
+  },
+  {
+    "id": "$mergeObjects empty arguments",
+    "operator": "$mergeObjects",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$mergeObjects": []
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$mergeObjects unknown option",
+    "operator": "$mergeObjects",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$mergeObjects": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"unexpected\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    }
+  }
+]

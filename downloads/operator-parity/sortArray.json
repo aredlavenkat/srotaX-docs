@@ -1,0 +1,1116 @@
+[
+  {
+    "id": "$sortArray baseline",
+    "operator": "$sortArray",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$sortArray": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$sortArray input: null",
+    "operator": "$sortArray",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$sortArray": {
+        "input": "$probe",
+        "sortBy": 1
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$sortArray input: missing",
+    "operator": "$sortArray",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$sortArray": {
+        "input": "$probe",
+        "sortBy": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$sortArray input: zero",
+    "operator": "$sortArray",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$sortArray": {
+        "input": "$probe",
+        "sortBy": 1
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The input argument to $sortArray must be an array, but was of type: int",
+      "code": 2942504,
+      "error": "Location2942504"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray input: negative",
+    "operator": "$sortArray",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$sortArray": {
+        "input": "$probe",
+        "sortBy": 1
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The input argument to $sortArray must be an array, but was of type: int",
+      "code": 2942504,
+      "error": "Location2942504"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray input: decimal",
+    "operator": "$sortArray",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$sortArray": {
+        "input": "$probe",
+        "sortBy": 1
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The input argument to $sortArray must be an array, but was of type: double",
+      "code": 2942504,
+      "error": "Location2942504"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray input: numeric string",
+    "operator": "$sortArray",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$sortArray": {
+        "input": "$probe",
+        "sortBy": 1
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The input argument to $sortArray must be an array, but was of type: string",
+      "code": 2942504,
+      "error": "Location2942504"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray input: text",
+    "operator": "$sortArray",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$sortArray": {
+        "input": "$probe",
+        "sortBy": 1
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The input argument to $sortArray must be an array, but was of type: string",
+      "code": 2942504,
+      "error": "Location2942504"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray input: empty string",
+    "operator": "$sortArray",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$sortArray": {
+        "input": "$probe",
+        "sortBy": 1
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The input argument to $sortArray must be an array, but was of type: string",
+      "code": 2942504,
+      "error": "Location2942504"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray input: boolean",
+    "operator": "$sortArray",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$sortArray": {
+        "input": "$probe",
+        "sortBy": 1
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The input argument to $sortArray must be an array, but was of type: bool",
+      "code": 2942504,
+      "error": "Location2942504"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray input: false",
+    "operator": "$sortArray",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$sortArray": {
+        "input": "$probe",
+        "sortBy": 1
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The input argument to $sortArray must be an array, but was of type: bool",
+      "code": 2942504,
+      "error": "Location2942504"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray input: typed date",
+    "operator": "$sortArray",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$sortArray": {
+        "input": "$probe",
+        "sortBy": 1
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The input argument to $sortArray must be an array, but was of type: date",
+      "code": 2942504,
+      "error": "Location2942504"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray input: decimal128",
+    "operator": "$sortArray",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$sortArray": {
+        "input": "$probe",
+        "sortBy": 1
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The input argument to $sortArray must be an array, but was of type: decimal",
+      "code": 2942504,
+      "error": "Location2942504"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray input: empty array",
+    "operator": "$sortArray",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$sortArray": {
+        "input": "$probe",
+        "sortBy": 1
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$sortArray input: numeric array",
+    "operator": "$sortArray",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$sortArray": {
+        "input": "$probe",
+        "sortBy": 1
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$sortArray input: mixed array",
+    "operator": "$sortArray",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$sortArray": {
+        "input": "$probe",
+        "sortBy": 1
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [null, {\"$numberInt\": \"1\"}, {\"$numberInt\": \"3\"}, \"x\"]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [null, {\"$numberInt\": \"1\"}, {\"$numberInt\": \"3\"}, \"x\"]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$sortArray input: nested array",
+    "operator": "$sortArray",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$sortArray": {
+        "input": "$probe",
+        "sortBy": 1
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}], [{\"$numberInt\": \"3\"}]]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}], [{\"$numberInt\": \"3\"}]]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$sortArray input: empty object",
+    "operator": "$sortArray",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$sortArray": {
+        "input": "$probe",
+        "sortBy": 1
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The input argument to $sortArray must be an array, but was of type: object",
+      "code": 2942504,
+      "error": "Location2942504"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray input: object",
+    "operator": "$sortArray",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$sortArray": {
+        "input": "$probe",
+        "sortBy": 1
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The input argument to $sortArray must be an array, but was of type: object",
+      "code": 2942504,
+      "error": "Location2942504"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray input: ISO date string",
+    "operator": "$sortArray",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$sortArray": {
+        "input": "$probe",
+        "sortBy": 1
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray input must be an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The input argument to $sortArray must be an array, but was of type: string",
+      "code": 2942504,
+      "error": "Location2942504"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray sortBy: null",
+    "operator": "$sortArray",
+    "kind": "null",
+    "operand": "sortBy",
+    "expression": {
+      "$sortArray": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": null
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sort direction must be 1 or -1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $sort is invalid: use 1/-1 to sort the whole element, or {field:1/-1} to sort embedded fields",
+      "code": 2942507,
+      "error": "Location2942507"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray sortBy: zero",
+    "operator": "$sortArray",
+    "kind": "zero",
+    "operand": "sortBy",
+    "expression": {
+      "$sortArray": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": 0
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sort direction must be 1 or -1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $sort element value must be either 1 or -1",
+      "code": 2942506,
+      "error": "Location2942506"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray sortBy: negative",
+    "operator": "$sortArray",
+    "kind": "negative",
+    "operand": "sortBy",
+    "expression": {
+      "$sortArray": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": -2
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sort direction must be 1 or -1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $sort element value must be either 1 or -1",
+      "code": 2942506,
+      "error": "Location2942506"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray sortBy: decimal",
+    "operator": "$sortArray",
+    "kind": "decimal",
+    "operand": "sortBy",
+    "expression": {
+      "$sortArray": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": 2.5
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sort direction must be 1 or -1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $sort element value must be either 1 or -1",
+      "code": 2942506,
+      "error": "Location2942506"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray sortBy: numeric string",
+    "operator": "$sortArray",
+    "kind": "numeric string",
+    "operand": "sortBy",
+    "expression": {
+      "$sortArray": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": "12"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sort direction must be 1 or -1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $sort is invalid: use 1/-1 to sort the whole element, or {field:1/-1} to sort embedded fields",
+      "code": 2942507,
+      "error": "Location2942507"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray sortBy: text",
+    "operator": "$sortArray",
+    "kind": "text",
+    "operand": "sortBy",
+    "expression": {
+      "$sortArray": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": "hello"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sort direction must be 1 or -1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $sort is invalid: use 1/-1 to sort the whole element, or {field:1/-1} to sort embedded fields",
+      "code": 2942507,
+      "error": "Location2942507"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray sortBy: empty string",
+    "operator": "$sortArray",
+    "kind": "empty string",
+    "operand": "sortBy",
+    "expression": {
+      "$sortArray": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": ""
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sort direction must be 1 or -1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $sort is invalid: use 1/-1 to sort the whole element, or {field:1/-1} to sort embedded fields",
+      "code": 2942507,
+      "error": "Location2942507"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray sortBy: boolean",
+    "operator": "$sortArray",
+    "kind": "boolean",
+    "operand": "sortBy",
+    "expression": {
+      "$sortArray": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": true
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sort direction must be 1 or -1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $sort is invalid: use 1/-1 to sort the whole element, or {field:1/-1} to sort embedded fields",
+      "code": 2942507,
+      "error": "Location2942507"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray sortBy: false",
+    "operator": "$sortArray",
+    "kind": "false",
+    "operand": "sortBy",
+    "expression": {
+      "$sortArray": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": false
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sort direction must be 1 or -1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $sort is invalid: use 1/-1 to sort the whole element, or {field:1/-1} to sort embedded fields",
+      "code": 2942507,
+      "error": "Location2942507"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray sortBy: typed date",
+    "operator": "$sortArray",
+    "kind": "typed date",
+    "operand": "sortBy",
+    "expression": {
+      "$sortArray": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": {
+          "$date": "2026-01-15T15:00:00Z"
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sort direction must be 1 or -1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $sort is invalid: use 1/-1 to sort the whole element, or {field:1/-1} to sort embedded fields",
+      "code": 2942507,
+      "error": "Location2942507"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray sortBy: decimal128",
+    "operator": "$sortArray",
+    "kind": "decimal128",
+    "operand": "sortBy",
+    "expression": {
+      "$sortArray": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": {
+          "$numberDecimal": "1.25"
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sort direction must be 1 or -1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $sort element value must be either 1 or -1",
+      "code": 2942506,
+      "error": "Location2942506"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray sortBy: empty array",
+    "operator": "$sortArray",
+    "kind": "empty array",
+    "operand": "sortBy",
+    "expression": {
+      "$sortArray": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": []
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sort direction must be 1 or -1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $sort is invalid: use 1/-1 to sort the whole element, or {field:1/-1} to sort embedded fields",
+      "code": 2942507,
+      "error": "Location2942507"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray sortBy: numeric array",
+    "operator": "$sortArray",
+    "kind": "numeric array",
+    "operand": "sortBy",
+    "expression": {
+      "$sortArray": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sort direction must be 1 or -1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $sort is invalid: use 1/-1 to sort the whole element, or {field:1/-1} to sort embedded fields",
+      "code": 2942507,
+      "error": "Location2942507"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray sortBy: mixed array",
+    "operator": "$sortArray",
+    "kind": "mixed array",
+    "operand": "sortBy",
+    "expression": {
+      "$sortArray": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": [
+          1,
+          null,
+          "x",
+          3
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sort direction must be 1 or -1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $sort is invalid: use 1/-1 to sort the whole element, or {field:1/-1} to sort embedded fields",
+      "code": 2942507,
+      "error": "Location2942507"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray sortBy: nested array",
+    "operator": "$sortArray",
+    "kind": "nested array",
+    "operand": "sortBy",
+    "expression": {
+      "$sortArray": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": [
+          [
+            1,
+            2
+          ],
+          [
+            3
+          ]
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sort direction must be 1 or -1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $sort is invalid: use 1/-1 to sort the whole element, or {field:1/-1} to sort embedded fields",
+      "code": 2942507,
+      "error": "Location2942507"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray sortBy: empty object",
+    "operator": "$sortArray",
+    "kind": "empty object",
+    "operand": "sortBy",
+    "expression": {
+      "$sortArray": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": {}
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sortBy must not be empty"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: BadValue: The sort pattern is empty when it should be a set of fields.",
+      "code": 2942505,
+      "error": "Location2942505"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray sortBy: object",
+    "operator": "$sortArray",
+    "kind": "object",
+    "operand": "sortBy",
+    "expression": {
+      "$sortArray": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": {
+          "x": 1
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"3\"}, {\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"3\"}, {\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$sortArray sortBy: ISO date string",
+    "operator": "$sortArray",
+    "kind": "ISO date string",
+    "operand": "sortBy",
+    "expression": {
+      "$sortArray": {
+        "input": [
+          3,
+          1,
+          2
+        ],
+        "sortBy": "2026-01-15T15:00:00Z"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray sort direction must be 1 or -1"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: The $sort is invalid: use 1/-1 to sort the whole element, or {field:1/-1} to sort embedded fields",
+      "code": 2942507,
+      "error": "Location2942507"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray omit input",
+    "operator": "$sortArray",
+    "kind": "omitted named argument",
+    "operand": "input",
+    "expression": {
+      "$sortArray": {
+        "sortBy": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray requires input and sortBy"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $sortArray requires 'input' to be specified",
+      "code": 2942502,
+      "error": "Location2942502"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray omit sortBy",
+    "operator": "$sortArray",
+    "kind": "omitted named argument",
+    "operand": "sortBy",
+    "expression": {
+      "$sortArray": {
+        "input": [
+          3,
+          1,
+          2
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray requires input and sortBy"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $sortArray requires 'sortBy' to be specified",
+      "code": 2942503,
+      "error": "Location2942503"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray empty arguments",
+    "operator": "$sortArray",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$sortArray": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray requires input and sortBy"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $sortArray requires an object as an argument, found: array",
+      "code": 2942500,
+      "error": "Location2942500"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$sortArray unknown option",
+    "operator": "$sortArray",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$sortArray": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$sortArray requires input and sortBy"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $sortArray found an unknown argument: unexpected",
+      "code": 2942501,
+      "error": "Location2942501"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

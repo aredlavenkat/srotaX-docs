@@ -1,0 +1,373 @@
+[
+  {
+    "id": "$millisecond baseline",
+    "operator": "$millisecond",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$millisecond": {
+        "$toDate": "2024-01-02T03:04:05.006Z"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"6\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$millisecond input: null",
+    "operator": "$millisecond",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$millisecond": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$millisecond: expected date, date-string, or timestamp for field '$probe', but got: null"
+    }
+  },
+  {
+    "id": "$millisecond input: missing",
+    "operator": "$millisecond",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$millisecond": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$millisecond: expected date, date-string, or timestamp for field '$probe', but got: null"
+    }
+  },
+  {
+    "id": "$millisecond input: zero",
+    "operator": "$millisecond",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$millisecond": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$millisecond input: negative",
+    "operator": "$millisecond",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$millisecond": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$millisecond input: decimal",
+    "operator": "$millisecond",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$millisecond": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$millisecond input: numeric string",
+    "operator": "$millisecond",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$millisecond": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$millisecond input: text",
+    "operator": "$millisecond",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$millisecond": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$millisecond: expected date, date-string, or timestamp for field '$probe', but got: hello"
+    }
+  },
+  {
+    "id": "$millisecond input: empty string",
+    "operator": "$millisecond",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$millisecond": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$millisecond: expected date, date-string, or timestamp for field '$probe', but got: "
+    }
+  },
+  {
+    "id": "$millisecond input: boolean",
+    "operator": "$millisecond",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$millisecond": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$millisecond: expected date, date-string, or timestamp for field '$probe', but got: true"
+    }
+  },
+  {
+    "id": "$millisecond input: false",
+    "operator": "$millisecond",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$millisecond": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$millisecond: expected date, date-string, or timestamp for field '$probe', but got: false"
+    }
+  },
+  {
+    "id": "$millisecond input: typed date",
+    "operator": "$millisecond",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$millisecond": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$millisecond input: decimal128",
+    "operator": "$millisecond",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$millisecond": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$millisecond input: empty array",
+    "operator": "$millisecond",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$millisecond": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$millisecond: expected date, date-string, or timestamp for field '$probe', but got: []"
+    }
+  },
+  {
+    "id": "$millisecond input: numeric array",
+    "operator": "$millisecond",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$millisecond": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$millisecond: expected date, date-string, or timestamp for field '$probe', but got: [1, 2, 3]"
+    }
+  },
+  {
+    "id": "$millisecond input: mixed array",
+    "operator": "$millisecond",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$millisecond": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$millisecond: expected date, date-string, or timestamp for field '$probe', but got: [1, null, x, 3]"
+    }
+  },
+  {
+    "id": "$millisecond input: nested array",
+    "operator": "$millisecond",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$millisecond": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$millisecond: expected date, date-string, or timestamp for field '$probe', but got: [[1, 2], [3]]"
+    }
+  },
+  {
+    "id": "$millisecond input: empty object",
+    "operator": "$millisecond",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$millisecond": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$millisecond: expected date, date-string, or timestamp for field '$probe', but got: Document{{}}"
+    }
+  },
+  {
+    "id": "$millisecond input: object",
+    "operator": "$millisecond",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$millisecond": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$millisecond: expected date, date-string, or timestamp for field '$probe', but got: Document{{x=1}}"
+    }
+  },
+  {
+    "id": "$millisecond input: ISO date string",
+    "operator": "$millisecond",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$millisecond": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$millisecond empty arguments",
+    "operator": "$millisecond",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$millisecond": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$millisecond: expected date, date-string, or timestamp for field '[]', but got: []"
+    }
+  },
+  {
+    "id": "$millisecond unknown option",
+    "operator": "$millisecond",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$millisecond": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "RuntimeException",
+      "message": "$millisecond: expected date, date-string, or timestamp for field 'Document{{unexpected=1}}', but got: {unexpected=1}"
+    }
+  }
+]

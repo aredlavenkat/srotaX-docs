@@ -1,0 +1,371 @@
+[
+  {
+    "id": "$toLong baseline",
+    "operator": "$toLong",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$toLong": "12"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"12\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toLong input: null",
+    "operator": "$toLong",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$toLong": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toLong input: missing",
+    "operator": "$toLong",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$toLong": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toLong input: zero",
+    "operator": "$toLong",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$toLong": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toLong input: negative",
+    "operator": "$toLong",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$toLong": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"-2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toLong input: decimal",
+    "operator": "$toLong",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$toLong": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toLong input: numeric string",
+    "operator": "$toLong",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$toLong": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"12\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toLong input: text",
+    "operator": "$toLong",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$toLong": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target long"
+    }
+  },
+  {
+    "id": "$toLong input: empty string",
+    "operator": "$toLong",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$toLong": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target long"
+    }
+  },
+  {
+    "id": "$toLong input: boolean",
+    "operator": "$toLong",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$toLong": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"1\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toLong input: false",
+    "operator": "$toLong",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$toLong": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toLong input: typed date",
+    "operator": "$toLong",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$toLong": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"1768489200000\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toLong input: decimal128",
+    "operator": "$toLong",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$toLong": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"1\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toLong input: empty array",
+    "operator": "$toLong",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$toLong": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target long"
+    }
+  },
+  {
+    "id": "$toLong input: numeric array",
+    "operator": "$toLong",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$toLong": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target long"
+    }
+  },
+  {
+    "id": "$toLong input: mixed array",
+    "operator": "$toLong",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$toLong": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target long"
+    }
+  },
+  {
+    "id": "$toLong input: nested array",
+    "operator": "$toLong",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$toLong": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target long"
+    }
+  },
+  {
+    "id": "$toLong input: empty object",
+    "operator": "$toLong",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$toLong": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target long"
+    }
+  },
+  {
+    "id": "$toLong input: object",
+    "operator": "$toLong",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$toLong": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target long"
+    }
+  },
+  {
+    "id": "$toLong input: ISO date string",
+    "operator": "$toLong",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$toLong": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target long"
+    }
+  },
+  {
+    "id": "$toLong empty arguments",
+    "operator": "$toLong",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$toLong": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target long"
+    }
+  },
+  {
+    "id": "$toLong unknown option",
+    "operator": "$toLong",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$toLong": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target long"
+    }
+  }
+]

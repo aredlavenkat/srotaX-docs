@@ -1,0 +1,580 @@
+[
+  {
+    "id": "$round baseline",
+    "operator": "$round",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$round": [
+        2.5
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$round number[0]: null",
+    "operator": "$round",
+    "kind": "null",
+    "operand": "number[0]",
+    "expression": {
+      "$round": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$round number[0]: missing",
+    "operator": "$round",
+    "kind": "missing",
+    "operand": "number[0]",
+    "expression": {
+      "$round": [
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$round number[0]: zero",
+    "operator": "$round",
+    "kind": "zero",
+    "operand": "number[0]",
+    "expression": {
+      "$round": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$round number[0]: negative",
+    "operator": "$round",
+    "kind": "negative",
+    "operand": "number[0]",
+    "expression": {
+      "$round": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$round number[0]: decimal",
+    "operator": "$round",
+    "kind": "decimal",
+    "operand": "number[0]",
+    "expression": {
+      "$round": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$round number[0]: numeric string",
+    "operator": "$round",
+    "kind": "numeric string",
+    "operand": "number[0]",
+    "expression": {
+      "$round": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $round only supports numeric types, not string",
+      "code": 51081,
+      "error": "Location51081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$round number[0]: text",
+    "operator": "$round",
+    "kind": "text",
+    "operand": "number[0]",
+    "expression": {
+      "$round": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $round only supports numeric types, not string",
+      "code": 51081,
+      "error": "Location51081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$round number[0]: empty string",
+    "operator": "$round",
+    "kind": "empty string",
+    "operand": "number[0]",
+    "expression": {
+      "$round": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $round only supports numeric types, not string",
+      "code": 51081,
+      "error": "Location51081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$round number[0]: boolean",
+    "operator": "$round",
+    "kind": "boolean",
+    "operand": "number[0]",
+    "expression": {
+      "$round": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $round only supports numeric types, not bool",
+      "code": 51081,
+      "error": "Location51081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$round number[0]: false",
+    "operator": "$round",
+    "kind": "false",
+    "operand": "number[0]",
+    "expression": {
+      "$round": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $round only supports numeric types, not bool",
+      "code": 51081,
+      "error": "Location51081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$round number[0]: typed date",
+    "operator": "$round",
+    "kind": "typed date",
+    "operand": "number[0]",
+    "expression": {
+      "$round": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $round only supports numeric types, not date",
+      "code": 51081,
+      "error": "Location51081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$round number[0]: decimal128",
+    "operator": "$round",
+    "kind": "decimal128",
+    "operand": "number[0]",
+    "expression": {
+      "$round": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"1\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$round number[0]: empty array",
+    "operator": "$round",
+    "kind": "empty array",
+    "operand": "number[0]",
+    "expression": {
+      "$round": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $round only supports numeric types, not array",
+      "code": 51081,
+      "error": "Location51081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$round number[0]: numeric array",
+    "operator": "$round",
+    "kind": "numeric array",
+    "operand": "number[0]",
+    "expression": {
+      "$round": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $round only supports numeric types, not array",
+      "code": 51081,
+      "error": "Location51081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$round number[0]: mixed array",
+    "operator": "$round",
+    "kind": "mixed array",
+    "operand": "number[0]",
+    "expression": {
+      "$round": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $round only supports numeric types, not array",
+      "code": 51081,
+      "error": "Location51081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$round number[0]: nested array",
+    "operator": "$round",
+    "kind": "nested array",
+    "operand": "number[0]",
+    "expression": {
+      "$round": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $round only supports numeric types, not array",
+      "code": 51081,
+      "error": "Location51081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$round number[0]: empty object",
+    "operator": "$round",
+    "kind": "empty object",
+    "operand": "number[0]",
+    "expression": {
+      "$round": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $round only supports numeric types, not object",
+      "code": 51081,
+      "error": "Location51081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$round number[0]: object",
+    "operator": "$round",
+    "kind": "object",
+    "operand": "number[0]",
+    "expression": {
+      "$round": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $round only supports numeric types, not object",
+      "code": 51081,
+      "error": "Location51081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$round number[0]: ISO date string",
+    "operator": "$round",
+    "kind": "ISO date string",
+    "operand": "number[0]",
+    "expression": {
+      "$round": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $round only supports numeric types, not string",
+      "code": 51081,
+      "error": "Location51081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$round empty arguments",
+    "operator": "$round",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$round": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$round requires [number, place?]"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $round takes at least 1 arguments, and at most 2, but 0 were passed in.",
+      "code": 28667,
+      "error": "Location28667"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$round unknown option",
+    "operator": "$round",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$round": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Number and integer precision required"
+    },
+    "mongo": {
+      "message": "Failed to optimize pipeline :: caused by :: $round only supports numeric types, not object",
+      "code": 51081,
+      "error": "Location51081"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "mongodb-9-boundary-cases.json:6",
+    "operator": "$round",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$round": [
+        2.345,
+        2
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.34\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.35\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "mongodb-9-boundary-cases.json:7",
+    "operator": "$round",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$round": [
+        2.5,
+        0
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.0\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  }
+]

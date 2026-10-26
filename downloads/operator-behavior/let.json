@@ -1,0 +1,911 @@
+[
+  {
+    "id": "$let baseline",
+    "operator": "$let",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$$a"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let vars: null",
+    "operator": "$let",
+    "kind": "null",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let vars: missing",
+    "operator": "$let",
+    "kind": "missing",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let vars: zero",
+    "operator": "$let",
+    "kind": "zero",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let vars: negative",
+    "operator": "$let",
+    "kind": "negative",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let vars: decimal",
+    "operator": "$let",
+    "kind": "decimal",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let vars: numeric string",
+    "operator": "$let",
+    "kind": "numeric string",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let vars: text",
+    "operator": "$let",
+    "kind": "text",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let vars: empty string",
+    "operator": "$let",
+    "kind": "empty string",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let vars: boolean",
+    "operator": "$let",
+    "kind": "boolean",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let vars: false",
+    "operator": "$let",
+    "kind": "false",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let vars: typed date",
+    "operator": "$let",
+    "kind": "typed date",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let vars: decimal128",
+    "operator": "$let",
+    "kind": "decimal128",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let vars: empty array",
+    "operator": "$let",
+    "kind": "empty array",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let vars: numeric array",
+    "operator": "$let",
+    "kind": "numeric array",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let vars: mixed array",
+    "operator": "$let",
+    "kind": "mixed array",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let vars: nested array",
+    "operator": "$let",
+    "kind": "nested array",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let vars: empty object",
+    "operator": "$let",
+    "kind": "empty object",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let vars: object",
+    "operator": "$let",
+    "kind": "object",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let vars: ISO date string",
+    "operator": "$let",
+    "kind": "ISO date string",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "vars": "$probe",
+        "in": "$$a"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let in: null",
+    "operator": "$let",
+    "kind": "null",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let in: missing",
+    "operator": "$let",
+    "kind": "missing",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let in: zero",
+    "operator": "$let",
+    "kind": "zero",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let in: negative",
+    "operator": "$let",
+    "kind": "negative",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"-2\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let in: decimal",
+    "operator": "$let",
+    "kind": "decimal",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"2.5\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let in: numeric string",
+    "operator": "$let",
+    "kind": "numeric string",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"12\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let in: text",
+    "operator": "$let",
+    "kind": "text",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"hello\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let in: empty string",
+    "operator": "$let",
+    "kind": "empty string",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let in: boolean",
+    "operator": "$let",
+    "kind": "boolean",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let in: false",
+    "operator": "$let",
+    "kind": "false",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let in: typed date",
+    "operator": "$let",
+    "kind": "typed date",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1768489200000\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let in: decimal128",
+    "operator": "$let",
+    "kind": "decimal128",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDecimal\": \"1.25\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let in: empty array",
+    "operator": "$let",
+    "kind": "empty array",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let in: numeric array",
+    "operator": "$let",
+    "kind": "numeric array",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}, {\"$numberInt\": \"3\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let in: mixed array",
+    "operator": "$let",
+    "kind": "mixed array",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"1\"}, null, \"x\", {\"$numberInt\": \"3\"}]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let in: nested array",
+    "operator": "$let",
+    "kind": "nested array",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}], [{\"$numberInt\": \"3\"}]]}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let in: empty object",
+    "operator": "$let",
+    "kind": "empty object",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": {}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let in: object",
+    "operator": "$let",
+    "kind": "object",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"x\": {\"$numberInt\": \"1\"}}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let in: ISO date string",
+    "operator": "$let",
+    "kind": "ISO date string",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        },
+        "in": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2026-01-15T15:00:00Z\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let omit vars",
+    "operator": "$let",
+    "kind": "omitted named argument",
+    "operand": "vars",
+    "expression": {
+      "$let": {
+        "in": "$$a"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$let omit in",
+    "operator": "$let",
+    "kind": "omitted named argument",
+    "operand": "in",
+    "expression": {
+      "$let": {
+        "vars": {
+          "a": 2
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$let requires an 'in' expression"
+    }
+  },
+  {
+    "id": "$let empty arguments",
+    "operator": "$let",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$let": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$let expects an object with 'vars' and 'in'"
+    }
+  },
+  {
+    "id": "$let unknown option",
+    "operator": "$let",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$let": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$let requires an 'in' expression"
+    }
+  },
+  {
+    "id": "mongodb-9-boundary-cases.json:13",
+    "operator": "$let",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$let": {
+        "vars": {
+          "total": 5
+        },
+        "in": {
+          "$add": [
+            "$$total",
+            2
+          ]
+        }
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"7.0\"}}",
+      "present": true
+    }
+  }
+]

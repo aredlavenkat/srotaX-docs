@@ -1,0 +1,411 @@
+[
+  {
+    "id": "$not baseline",
+    "operator": "$not",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$not": [
+        true
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$not expression[0]: null",
+    "operator": "$not",
+    "kind": "null",
+    "operand": "expression[0]",
+    "expression": {
+      "$not": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$not expression[0]: missing",
+    "operator": "$not",
+    "kind": "missing",
+    "operand": "expression[0]",
+    "expression": {
+      "$not": [
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$not expression[0]: zero",
+    "operator": "$not",
+    "kind": "zero",
+    "operand": "expression[0]",
+    "expression": {
+      "$not": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$not expression[0]: negative",
+    "operator": "$not",
+    "kind": "negative",
+    "operand": "expression[0]",
+    "expression": {
+      "$not": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$not expression[0]: decimal",
+    "operator": "$not",
+    "kind": "decimal",
+    "operand": "expression[0]",
+    "expression": {
+      "$not": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$not expression[0]: numeric string",
+    "operator": "$not",
+    "kind": "numeric string",
+    "operand": "expression[0]",
+    "expression": {
+      "$not": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$not expression[0]: text",
+    "operator": "$not",
+    "kind": "text",
+    "operand": "expression[0]",
+    "expression": {
+      "$not": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$not expression[0]: empty string",
+    "operator": "$not",
+    "kind": "empty string",
+    "operand": "expression[0]",
+    "expression": {
+      "$not": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$not expression[0]: boolean",
+    "operator": "$not",
+    "kind": "boolean",
+    "operand": "expression[0]",
+    "expression": {
+      "$not": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$not expression[0]: false",
+    "operator": "$not",
+    "kind": "false",
+    "operand": "expression[0]",
+    "expression": {
+      "$not": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": true}",
+      "present": true
+    }
+  },
+  {
+    "id": "$not expression[0]: typed date",
+    "operator": "$not",
+    "kind": "typed date",
+    "operand": "expression[0]",
+    "expression": {
+      "$not": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$not expression[0]: decimal128",
+    "operator": "$not",
+    "kind": "decimal128",
+    "operand": "expression[0]",
+    "expression": {
+      "$not": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$not expression[0]: empty array",
+    "operator": "$not",
+    "kind": "empty array",
+    "operand": "expression[0]",
+    "expression": {
+      "$not": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$not expression[0]: numeric array",
+    "operator": "$not",
+    "kind": "numeric array",
+    "operand": "expression[0]",
+    "expression": {
+      "$not": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$not expression[0]: mixed array",
+    "operator": "$not",
+    "kind": "mixed array",
+    "operand": "expression[0]",
+    "expression": {
+      "$not": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$not expression[0]: nested array",
+    "operator": "$not",
+    "kind": "nested array",
+    "operand": "expression[0]",
+    "expression": {
+      "$not": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$not expression[0]: empty object",
+    "operator": "$not",
+    "kind": "empty object",
+    "operand": "expression[0]",
+    "expression": {
+      "$not": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$not expression[0]: object",
+    "operator": "$not",
+    "kind": "object",
+    "operand": "expression[0]",
+    "expression": {
+      "$not": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$not expression[0]: ISO date string",
+    "operator": "$not",
+    "kind": "ISO date string",
+    "operand": "expression[0]",
+    "expression": {
+      "$not": [
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  },
+  {
+    "id": "$not empty arguments",
+    "operator": "$not",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$not": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$not requires one argument"
+    }
+  },
+  {
+    "id": "$not unknown option",
+    "operator": "$not",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$not": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": false}",
+      "present": true
+    }
+  }
+]

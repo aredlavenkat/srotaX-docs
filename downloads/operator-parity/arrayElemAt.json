@@ -1,0 +1,1130 @@
+[
+  {
+    "id": "$arrayElemAt baseline",
+    "operator": "$arrayElemAt",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$arrayElemAt": [
+        [
+          1,
+          2
+        ],
+        -1
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"2\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$arrayElemAt array[0]: null",
+    "operator": "$arrayElemAt",
+    "kind": "null",
+    "operand": "array[0]",
+    "expression": {
+      "$arrayElemAt": [
+        "$probe",
+        -1
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$arrayElemAt array[0]: missing",
+    "operator": "$arrayElemAt",
+    "kind": "missing",
+    "operand": "array[0]",
+    "expression": {
+      "$arrayElemAt": [
+        "$probe",
+        -1
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$arrayElemAt array[0]: zero",
+    "operator": "$arrayElemAt",
+    "kind": "zero",
+    "operand": "array[0]",
+    "expression": {
+      "$arrayElemAt": [
+        "$probe",
+        -1
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayElemAt requires a List and an integer index"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayElemAt's first argument must be an array, but is int",
+      "code": 28689,
+      "error": "Location28689"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayElemAt array[0]: negative",
+    "operator": "$arrayElemAt",
+    "kind": "negative",
+    "operand": "array[0]",
+    "expression": {
+      "$arrayElemAt": [
+        "$probe",
+        -1
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayElemAt requires a List and an integer index"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayElemAt's first argument must be an array, but is int",
+      "code": 28689,
+      "error": "Location28689"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayElemAt array[0]: decimal",
+    "operator": "$arrayElemAt",
+    "kind": "decimal",
+    "operand": "array[0]",
+    "expression": {
+      "$arrayElemAt": [
+        "$probe",
+        -1
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayElemAt requires a List and an integer index"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayElemAt's first argument must be an array, but is double",
+      "code": 28689,
+      "error": "Location28689"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayElemAt array[0]: numeric string",
+    "operator": "$arrayElemAt",
+    "kind": "numeric string",
+    "operand": "array[0]",
+    "expression": {
+      "$arrayElemAt": [
+        "$probe",
+        -1
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayElemAt requires a List and an integer index"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayElemAt's first argument must be an array, but is string",
+      "code": 28689,
+      "error": "Location28689"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayElemAt array[0]: text",
+    "operator": "$arrayElemAt",
+    "kind": "text",
+    "operand": "array[0]",
+    "expression": {
+      "$arrayElemAt": [
+        "$probe",
+        -1
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayElemAt requires a List and an integer index"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayElemAt's first argument must be an array, but is string",
+      "code": 28689,
+      "error": "Location28689"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayElemAt array[0]: empty string",
+    "operator": "$arrayElemAt",
+    "kind": "empty string",
+    "operand": "array[0]",
+    "expression": {
+      "$arrayElemAt": [
+        "$probe",
+        -1
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayElemAt requires a List and an integer index"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayElemAt's first argument must be an array, but is string",
+      "code": 28689,
+      "error": "Location28689"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayElemAt array[0]: boolean",
+    "operator": "$arrayElemAt",
+    "kind": "boolean",
+    "operand": "array[0]",
+    "expression": {
+      "$arrayElemAt": [
+        "$probe",
+        -1
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayElemAt requires a List and an integer index"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayElemAt's first argument must be an array, but is bool",
+      "code": 28689,
+      "error": "Location28689"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayElemAt array[0]: false",
+    "operator": "$arrayElemAt",
+    "kind": "false",
+    "operand": "array[0]",
+    "expression": {
+      "$arrayElemAt": [
+        "$probe",
+        -1
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayElemAt requires a List and an integer index"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayElemAt's first argument must be an array, but is bool",
+      "code": 28689,
+      "error": "Location28689"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayElemAt array[0]: typed date",
+    "operator": "$arrayElemAt",
+    "kind": "typed date",
+    "operand": "array[0]",
+    "expression": {
+      "$arrayElemAt": [
+        "$probe",
+        -1
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayElemAt requires a List and an integer index"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayElemAt's first argument must be an array, but is date",
+      "code": 28689,
+      "error": "Location28689"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayElemAt array[0]: decimal128",
+    "operator": "$arrayElemAt",
+    "kind": "decimal128",
+    "operand": "array[0]",
+    "expression": {
+      "$arrayElemAt": [
+        "$probe",
+        -1
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayElemAt requires a List and an integer index"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayElemAt's first argument must be an array, but is decimal",
+      "code": 28689,
+      "error": "Location28689"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayElemAt array[0]: empty array",
+    "operator": "$arrayElemAt",
+    "kind": "empty array",
+    "operand": "array[0]",
+    "expression": {
+      "$arrayElemAt": [
+        "$probe",
+        -1
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "present": false
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$arrayElemAt array[0]: numeric array",
+    "operator": "$arrayElemAt",
+    "kind": "numeric array",
+    "operand": "array[0]",
+    "expression": {
+      "$arrayElemAt": [
+        "$probe",
+        -1
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$arrayElemAt array[0]: mixed array",
+    "operator": "$arrayElemAt",
+    "kind": "mixed array",
+    "operand": "array[0]",
+    "expression": {
+      "$arrayElemAt": [
+        "$probe",
+        -1
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$arrayElemAt array[0]: nested array",
+    "operator": "$arrayElemAt",
+    "kind": "nested array",
+    "operand": "array[0]",
+    "expression": {
+      "$arrayElemAt": [
+        "$probe",
+        -1
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"3\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$arrayElemAt array[0]: empty object",
+    "operator": "$arrayElemAt",
+    "kind": "empty object",
+    "operand": "array[0]",
+    "expression": {
+      "$arrayElemAt": [
+        "$probe",
+        -1
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayElemAt requires a List and an integer index"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayElemAt's first argument must be an array, but is object",
+      "code": 28689,
+      "error": "Location28689"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayElemAt array[0]: object",
+    "operator": "$arrayElemAt",
+    "kind": "object",
+    "operand": "array[0]",
+    "expression": {
+      "$arrayElemAt": [
+        "$probe",
+        -1
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayElemAt requires a List and an integer index"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayElemAt's first argument must be an array, but is object",
+      "code": 28689,
+      "error": "Location28689"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayElemAt array[0]: ISO date string",
+    "operator": "$arrayElemAt",
+    "kind": "ISO date string",
+    "operand": "array[0]",
+    "expression": {
+      "$arrayElemAt": [
+        "$probe",
+        -1
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayElemAt requires a List and an integer index"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayElemAt's first argument must be an array, but is string",
+      "code": 28689,
+      "error": "Location28689"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayElemAt index[1]: null",
+    "operator": "$arrayElemAt",
+    "kind": "null",
+    "operand": "index[1]",
+    "expression": {
+      "$arrayElemAt": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayElemAt requires a List and an integer index"
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$arrayElemAt index[1]: missing",
+    "operator": "$arrayElemAt",
+    "kind": "missing",
+    "operand": "index[1]",
+    "expression": {
+      "$arrayElemAt": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayElemAt requires a List and an integer index"
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$arrayElemAt index[1]: zero",
+    "operator": "$arrayElemAt",
+    "kind": "zero",
+    "operand": "index[1]",
+    "expression": {
+      "$arrayElemAt": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$arrayElemAt index[1]: negative",
+    "operator": "$arrayElemAt",
+    "kind": "negative",
+    "operand": "index[1]",
+    "expression": {
+      "$arrayElemAt": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"1\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$arrayElemAt index[1]: decimal",
+    "operator": "$arrayElemAt",
+    "kind": "decimal",
+    "operand": "index[1]",
+    "expression": {
+      "$arrayElemAt": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Index must be an int32"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayElemAt's second argument must be representable as a 32-bit integer: 2.5",
+      "code": 28691,
+      "error": "Location28691"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayElemAt index[1]: numeric string",
+    "operator": "$arrayElemAt",
+    "kind": "numeric string",
+    "operand": "index[1]",
+    "expression": {
+      "$arrayElemAt": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayElemAt requires a List and an integer index"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayElemAt's second argument must be a numeric value, but is string",
+      "code": 28690,
+      "error": "Location28690"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayElemAt index[1]: text",
+    "operator": "$arrayElemAt",
+    "kind": "text",
+    "operand": "index[1]",
+    "expression": {
+      "$arrayElemAt": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayElemAt requires a List and an integer index"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayElemAt's second argument must be a numeric value, but is string",
+      "code": 28690,
+      "error": "Location28690"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayElemAt index[1]: empty string",
+    "operator": "$arrayElemAt",
+    "kind": "empty string",
+    "operand": "index[1]",
+    "expression": {
+      "$arrayElemAt": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayElemAt requires a List and an integer index"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayElemAt's second argument must be a numeric value, but is string",
+      "code": 28690,
+      "error": "Location28690"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayElemAt index[1]: boolean",
+    "operator": "$arrayElemAt",
+    "kind": "boolean",
+    "operand": "index[1]",
+    "expression": {
+      "$arrayElemAt": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayElemAt requires a List and an integer index"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayElemAt's second argument must be a numeric value, but is bool",
+      "code": 28690,
+      "error": "Location28690"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayElemAt index[1]: false",
+    "operator": "$arrayElemAt",
+    "kind": "false",
+    "operand": "index[1]",
+    "expression": {
+      "$arrayElemAt": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayElemAt requires a List and an integer index"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayElemAt's second argument must be a numeric value, but is bool",
+      "code": 28690,
+      "error": "Location28690"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayElemAt index[1]: typed date",
+    "operator": "$arrayElemAt",
+    "kind": "typed date",
+    "operand": "index[1]",
+    "expression": {
+      "$arrayElemAt": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayElemAt requires a List and an integer index"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayElemAt's second argument must be a numeric value, but is date",
+      "code": 28690,
+      "error": "Location28690"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayElemAt index[1]: decimal128",
+    "operator": "$arrayElemAt",
+    "kind": "decimal128",
+    "operand": "index[1]",
+    "expression": {
+      "$arrayElemAt": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Index must be an int32"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayElemAt's second argument must be representable as a 32-bit integer: 1.25",
+      "code": 28691,
+      "error": "Location28691"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayElemAt index[1]: empty array",
+    "operator": "$arrayElemAt",
+    "kind": "empty array",
+    "operand": "index[1]",
+    "expression": {
+      "$arrayElemAt": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayElemAt requires a List and an integer index"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayElemAt's second argument must be a numeric value, but is array",
+      "code": 28690,
+      "error": "Location28690"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayElemAt index[1]: numeric array",
+    "operator": "$arrayElemAt",
+    "kind": "numeric array",
+    "operand": "index[1]",
+    "expression": {
+      "$arrayElemAt": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayElemAt requires a List and an integer index"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayElemAt's second argument must be a numeric value, but is array",
+      "code": 28690,
+      "error": "Location28690"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayElemAt index[1]: mixed array",
+    "operator": "$arrayElemAt",
+    "kind": "mixed array",
+    "operand": "index[1]",
+    "expression": {
+      "$arrayElemAt": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayElemAt requires a List and an integer index"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayElemAt's second argument must be a numeric value, but is array",
+      "code": 28690,
+      "error": "Location28690"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayElemAt index[1]: nested array",
+    "operator": "$arrayElemAt",
+    "kind": "nested array",
+    "operand": "index[1]",
+    "expression": {
+      "$arrayElemAt": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayElemAt requires a List and an integer index"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayElemAt's second argument must be a numeric value, but is array",
+      "code": 28690,
+      "error": "Location28690"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayElemAt index[1]: empty object",
+    "operator": "$arrayElemAt",
+    "kind": "empty object",
+    "operand": "index[1]",
+    "expression": {
+      "$arrayElemAt": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayElemAt requires a List and an integer index"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayElemAt's second argument must be a numeric value, but is object",
+      "code": 28690,
+      "error": "Location28690"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayElemAt index[1]: object",
+    "operator": "$arrayElemAt",
+    "kind": "object",
+    "operand": "index[1]",
+    "expression": {
+      "$arrayElemAt": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayElemAt requires a List and an integer index"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayElemAt's second argument must be a numeric value, but is object",
+      "code": 28690,
+      "error": "Location28690"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayElemAt index[1]: ISO date string",
+    "operator": "$arrayElemAt",
+    "kind": "ISO date string",
+    "operand": "index[1]",
+    "expression": {
+      "$arrayElemAt": [
+        [
+          1,
+          2
+        ],
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayElemAt requires a List and an integer index"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $arrayElemAt's second argument must be a numeric value, but is string",
+      "code": 28690,
+      "error": "Location28690"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayElemAt empty arguments",
+    "operator": "$arrayElemAt",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$arrayElemAt": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayElemAt expects [array, index]"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $arrayElemAt takes exactly 2 arguments. 0 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$arrayElemAt unknown option",
+    "operator": "$arrayElemAt",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$arrayElemAt": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$arrayElemAt expects [array, index]"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $arrayElemAt takes exactly 2 arguments. 1 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "mongodb-9-boundary-cases.json:0",
+    "operator": "$arrayElemAt",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$arrayElemAt": [
+        [
+          1
+        ],
+        5
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "present": false
+    },
+    "status": "DIFFERENCE"
+  }
+]

@@ -1,0 +1,1624 @@
+[
+  {
+    "id": "$regexFindAll baseline",
+    "operator": "$regexFindAll",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "ab"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [{\"idx\": {\"$numberInt\": \"0\"}, \"captures\": [], \"match\": \"ab\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"match\": \"ab\", \"idx\": {\"$numberInt\": \"0\"}, \"captures\": []}]}",
+      "present": true
+    },
+    "status": "FIELD_ORDER_DIFFERENCE"
+  },
+  {
+    "id": "$regexFindAll input: null",
+    "operator": "$regexFindAll",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$regexFindAll": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "NullPointerException",
+      "message": "Cannot invoke \"java.lang.CharSequence.length()\" because \"this.text\" is null"
+    },
+    "mongo": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$regexFindAll input: missing",
+    "operator": "$regexFindAll",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$regexFindAll": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "NullPointerException",
+      "message": "Cannot invoke \"java.lang.CharSequence.length()\" because \"this.text\" is null"
+    },
+    "mongo": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$regexFindAll input: zero",
+    "operator": "$regexFindAll",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$regexFindAll": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'input' to be of type string",
+      "code": 51104,
+      "error": "Location51104"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll input: negative",
+    "operator": "$regexFindAll",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$regexFindAll": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'input' to be of type string",
+      "code": 51104,
+      "error": "Location51104"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll input: decimal",
+    "operator": "$regexFindAll",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$regexFindAll": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Double cannot be cast to class java.lang.String (java.lang.Double and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'input' to be of type string",
+      "code": 51104,
+      "error": "Location51104"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll input: numeric string",
+    "operator": "$regexFindAll",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$regexFindAll": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$regexFindAll input: text",
+    "operator": "$regexFindAll",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$regexFindAll": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$regexFindAll input: empty string",
+    "operator": "$regexFindAll",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$regexFindAll": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$regexFindAll input: boolean",
+    "operator": "$regexFindAll",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$regexFindAll": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'input' to be of type string",
+      "code": 51104,
+      "error": "Location51104"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll input: false",
+    "operator": "$regexFindAll",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$regexFindAll": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'input' to be of type string",
+      "code": 51104,
+      "error": "Location51104"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll input: typed date",
+    "operator": "$regexFindAll",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$regexFindAll": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.Date cannot be cast to class java.lang.String (java.util.Date and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'input' to be of type string",
+      "code": 51104,
+      "error": "Location51104"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll input: decimal128",
+    "operator": "$regexFindAll",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$regexFindAll": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.types.Decimal128 cannot be cast to class java.lang.String (org.bson.types.Decimal128 is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'input' to be of type string",
+      "code": 51104,
+      "error": "Location51104"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll input: empty array",
+    "operator": "$regexFindAll",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$regexFindAll": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'input' to be of type string",
+      "code": 51104,
+      "error": "Location51104"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll input: numeric array",
+    "operator": "$regexFindAll",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$regexFindAll": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'input' to be of type string",
+      "code": 51104,
+      "error": "Location51104"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll input: mixed array",
+    "operator": "$regexFindAll",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$regexFindAll": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'input' to be of type string",
+      "code": 51104,
+      "error": "Location51104"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll input: nested array",
+    "operator": "$regexFindAll",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$regexFindAll": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'input' to be of type string",
+      "code": 51104,
+      "error": "Location51104"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll input: empty object",
+    "operator": "$regexFindAll",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$regexFindAll": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'input' to be of type string",
+      "code": 51104,
+      "error": "Location51104"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll input: object",
+    "operator": "$regexFindAll",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$regexFindAll": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'input' to be of type string",
+      "code": 51104,
+      "error": "Location51104"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll input: ISO date string",
+    "operator": "$regexFindAll",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$regexFindAll": {
+        "input": "$probe",
+        "regex": "ab"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$regexFindAll regex: null",
+    "operator": "$regexFindAll",
+    "kind": "null",
+    "operand": "regex",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "NullPointerException",
+      "message": "Cannot invoke \"String.isEmpty()\" because \"this.pattern\" is null"
+    },
+    "mongo": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$regexFindAll regex: missing",
+    "operator": "$regexFindAll",
+    "kind": "missing",
+    "operand": "regex",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "NullPointerException",
+      "message": "Cannot invoke \"String.isEmpty()\" because \"this.pattern\" is null"
+    },
+    "mongo": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$regexFindAll regex: zero",
+    "operator": "$regexFindAll",
+    "kind": "zero",
+    "operand": "regex",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'regex' to be of type string or regex",
+      "code": 51105,
+      "error": "Location51105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll regex: negative",
+    "operator": "$regexFindAll",
+    "kind": "negative",
+    "operand": "regex",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'regex' to be of type string or regex",
+      "code": 51105,
+      "error": "Location51105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll regex: decimal",
+    "operator": "$regexFindAll",
+    "kind": "decimal",
+    "operand": "regex",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Double cannot be cast to class java.lang.String (java.lang.Double and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'regex' to be of type string or regex",
+      "code": 51105,
+      "error": "Location51105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll regex: numeric string",
+    "operator": "$regexFindAll",
+    "kind": "numeric string",
+    "operand": "regex",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$regexFindAll regex: text",
+    "operator": "$regexFindAll",
+    "kind": "text",
+    "operand": "regex",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$regexFindAll regex: empty string",
+    "operator": "$regexFindAll",
+    "kind": "empty string",
+    "operand": "regex",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"idx\": {\"$numberInt\": \"0\"}, \"captures\": [], \"match\": \"\"}, {\"idx\": {\"$numberInt\": \"1\"}, \"captures\": [], \"match\": \"\"}, {\"idx\": {\"$numberInt\": \"2\"}, \"captures\": [], \"match\": \"\"}, {\"idx\": {\"$numberInt\": \"3\"}, \"captures\": [], \"match\": \"\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"match\": \"\", \"idx\": {\"$numberInt\": \"0\"}, \"captures\": []}, {\"match\": \"\", \"idx\": {\"$numberInt\": \"1\"}, \"captures\": []}, {\"match\": \"\", \"idx\": {\"$numberInt\": \"2\"}, \"captures\": []}]}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$regexFindAll regex: boolean",
+    "operator": "$regexFindAll",
+    "kind": "boolean",
+    "operand": "regex",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'regex' to be of type string or regex",
+      "code": 51105,
+      "error": "Location51105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll regex: false",
+    "operator": "$regexFindAll",
+    "kind": "false",
+    "operand": "regex",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'regex' to be of type string or regex",
+      "code": 51105,
+      "error": "Location51105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll regex: typed date",
+    "operator": "$regexFindAll",
+    "kind": "typed date",
+    "operand": "regex",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.Date cannot be cast to class java.lang.String (java.util.Date and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'regex' to be of type string or regex",
+      "code": 51105,
+      "error": "Location51105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll regex: decimal128",
+    "operator": "$regexFindAll",
+    "kind": "decimal128",
+    "operand": "regex",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.types.Decimal128 cannot be cast to class java.lang.String (org.bson.types.Decimal128 is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'regex' to be of type string or regex",
+      "code": 51105,
+      "error": "Location51105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll regex: empty array",
+    "operator": "$regexFindAll",
+    "kind": "empty array",
+    "operand": "regex",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'regex' to be of type string or regex",
+      "code": 51105,
+      "error": "Location51105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll regex: numeric array",
+    "operator": "$regexFindAll",
+    "kind": "numeric array",
+    "operand": "regex",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'regex' to be of type string or regex",
+      "code": 51105,
+      "error": "Location51105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll regex: mixed array",
+    "operator": "$regexFindAll",
+    "kind": "mixed array",
+    "operand": "regex",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'regex' to be of type string or regex",
+      "code": 51105,
+      "error": "Location51105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll regex: nested array",
+    "operator": "$regexFindAll",
+    "kind": "nested array",
+    "operand": "regex",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'regex' to be of type string or regex",
+      "code": 51105,
+      "error": "Location51105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll regex: empty object",
+    "operator": "$regexFindAll",
+    "kind": "empty object",
+    "operand": "regex",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'regex' to be of type string or regex",
+      "code": 51105,
+      "error": "Location51105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll regex: object",
+    "operator": "$regexFindAll",
+    "kind": "object",
+    "operand": "regex",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'regex' to be of type string or regex",
+      "code": 51105,
+      "error": "Location51105"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll regex: ISO date string",
+    "operator": "$regexFindAll",
+    "kind": "ISO date string",
+    "operand": "regex",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$regexFindAll options: null",
+    "operator": "$regexFindAll",
+    "kind": "null",
+    "operand": "options",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "NullPointerException",
+      "message": "Cannot invoke \"String.matches(String)\" because \"options\" is null"
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"match\": \"ab\", \"idx\": {\"$numberInt\": \"0\"}, \"captures\": []}]}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$regexFindAll options: missing",
+    "operator": "$regexFindAll",
+    "kind": "missing",
+    "operand": "options",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "NullPointerException",
+      "message": "Cannot invoke \"String.matches(String)\" because \"options\" is null"
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"match\": \"ab\", \"idx\": {\"$numberInt\": \"0\"}, \"captures\": []}]}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$regexFindAll options: zero",
+    "operator": "$regexFindAll",
+    "kind": "zero",
+    "operand": "options",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'options' to be of type string",
+      "code": 51106,
+      "error": "Location51106"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll options: negative",
+    "operator": "$regexFindAll",
+    "kind": "negative",
+    "operand": "options",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'options' to be of type string",
+      "code": 51106,
+      "error": "Location51106"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll options: decimal",
+    "operator": "$regexFindAll",
+    "kind": "decimal",
+    "operand": "options",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Double cannot be cast to class java.lang.String (java.lang.Double and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'options' to be of type string",
+      "code": 51106,
+      "error": "Location51106"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll options: numeric string",
+    "operator": "$regexFindAll",
+    "kind": "numeric string",
+    "operand": "options",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Unsupported regex option"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll invalid flag in regex options: 1",
+      "code": 51108,
+      "error": "Location51108"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll options: text",
+    "operator": "$regexFindAll",
+    "kind": "text",
+    "operand": "options",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Unsupported regex option"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll invalid flag in regex options: h",
+      "code": 51108,
+      "error": "Location51108"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll options: empty string",
+    "operator": "$regexFindAll",
+    "kind": "empty string",
+    "operand": "options",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"idx\": {\"$numberInt\": \"0\"}, \"captures\": [], \"match\": \"ab\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"match\": \"ab\", \"idx\": {\"$numberInt\": \"0\"}, \"captures\": []}]}",
+      "present": true
+    },
+    "status": "FIELD_ORDER_DIFFERENCE"
+  },
+  {
+    "id": "$regexFindAll options: boolean",
+    "operator": "$regexFindAll",
+    "kind": "boolean",
+    "operand": "options",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'options' to be of type string",
+      "code": 51106,
+      "error": "Location51106"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll options: false",
+    "operator": "$regexFindAll",
+    "kind": "false",
+    "operand": "options",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'options' to be of type string",
+      "code": 51106,
+      "error": "Location51106"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll options: typed date",
+    "operator": "$regexFindAll",
+    "kind": "typed date",
+    "operand": "options",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.Date cannot be cast to class java.lang.String (java.util.Date and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'options' to be of type string",
+      "code": 51106,
+      "error": "Location51106"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll options: decimal128",
+    "operator": "$regexFindAll",
+    "kind": "decimal128",
+    "operand": "options",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.types.Decimal128 cannot be cast to class java.lang.String (org.bson.types.Decimal128 is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'options' to be of type string",
+      "code": 51106,
+      "error": "Location51106"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll options: empty array",
+    "operator": "$regexFindAll",
+    "kind": "empty array",
+    "operand": "options",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'options' to be of type string",
+      "code": 51106,
+      "error": "Location51106"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll options: numeric array",
+    "operator": "$regexFindAll",
+    "kind": "numeric array",
+    "operand": "options",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'options' to be of type string",
+      "code": 51106,
+      "error": "Location51106"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll options: mixed array",
+    "operator": "$regexFindAll",
+    "kind": "mixed array",
+    "operand": "options",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'options' to be of type string",
+      "code": 51106,
+      "error": "Location51106"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll options: nested array",
+    "operator": "$regexFindAll",
+    "kind": "nested array",
+    "operand": "options",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'options' to be of type string",
+      "code": 51106,
+      "error": "Location51106"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll options: empty object",
+    "operator": "$regexFindAll",
+    "kind": "empty object",
+    "operand": "options",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'options' to be of type string",
+      "code": 51106,
+      "error": "Location51106"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll options: object",
+    "operator": "$regexFindAll",
+    "kind": "object",
+    "operand": "options",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll needs 'options' to be of type string",
+      "code": 51106,
+      "error": "Location51106"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll options: ISO date string",
+    "operator": "$regexFindAll",
+    "kind": "ISO date string",
+    "operand": "options",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "ab",
+        "options": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Unsupported regex option"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $regexFindAll invalid flag in regex options: 2",
+      "code": 51108,
+      "error": "Location51108"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll omit input",
+    "operator": "$regexFindAll",
+    "kind": "omitted named argument",
+    "operand": "input",
+    "expression": {
+      "$regexFindAll": {
+        "regex": "ab"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "NullPointerException",
+      "message": "Cannot invoke \"java.lang.CharSequence.length()\" because \"this.text\" is null"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $regexFindAll requires 'input' parameter",
+      "code": 31022,
+      "error": "Location31022"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll omit regex",
+    "operator": "$regexFindAll",
+    "kind": "omitted named argument",
+    "operand": "regex",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "NullPointerException",
+      "message": "Cannot invoke \"String.isEmpty()\" because \"this.pattern\" is null"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $regexFindAll requires 'regex' parameter",
+      "code": 31023,
+      "error": "Location31023"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll omit options",
+    "operator": "$regexFindAll",
+    "kind": "omitted named argument",
+    "operand": "options",
+    "expression": {
+      "$regexFindAll": {
+        "input": "abc",
+        "regex": "ab"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [{\"idx\": {\"$numberInt\": \"0\"}, \"captures\": [], \"match\": \"ab\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"match\": \"ab\", \"idx\": {\"$numberInt\": \"0\"}, \"captures\": []}]}",
+      "present": true
+    },
+    "status": "FIELD_ORDER_DIFFERENCE"
+  },
+  {
+    "id": "$regexFindAll empty arguments",
+    "operator": "$regexFindAll",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$regexFindAll": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "ClassCastException",
+      "message": "class java.util.ArrayList cannot be cast to class java.util.Map (java.util.ArrayList and java.util.Map are in module java.base of loader 'bootstrap')"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $regexFindAll expects an object of named arguments but found: array",
+      "code": 51103,
+      "error": "Location51103"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$regexFindAll unknown option",
+    "operator": "$regexFindAll",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$regexFindAll": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "NullPointerException",
+      "message": "Cannot invoke \"String.isEmpty()\" because \"this.pattern\" is null"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $regexFindAll found an unknown argument: unexpected",
+      "code": 31024,
+      "error": "Location31024"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

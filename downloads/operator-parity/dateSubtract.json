@@ -1,0 +1,2349 @@
+[
+  {
+    "id": "$dateSubtract baseline",
+    "operator": "$dateSubtract",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704078245006\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704078245006\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateSubtract startDate: null",
+    "operator": "$dateSubtract",
+    "kind": "null",
+    "operand": "startDate",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": "$probe",
+        "unit": "day",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateSubtract startDate: missing",
+    "operator": "$dateSubtract",
+    "kind": "missing",
+    "operand": "startDate",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": "$probe",
+        "unit": "day",
+        "amount": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateSubtract startDate: zero",
+    "operator": "$dateSubtract",
+    "kind": "zero",
+    "operand": "startDate",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": "$probe",
+        "unit": "day",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract requires startDate to be convertible to a date",
+      "code": 5166403,
+      "error": "Location5166403"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract startDate: negative",
+    "operator": "$dateSubtract",
+    "kind": "negative",
+    "operand": "startDate",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": "$probe",
+        "unit": "day",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract requires startDate to be convertible to a date",
+      "code": 5166403,
+      "error": "Location5166403"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract startDate: decimal",
+    "operator": "$dateSubtract",
+    "kind": "decimal",
+    "operand": "startDate",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": "$probe",
+        "unit": "day",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract requires startDate to be convertible to a date",
+      "code": 5166403,
+      "error": "Location5166403"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract startDate: numeric string",
+    "operator": "$dateSubtract",
+    "kind": "numeric string",
+    "operand": "startDate",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": "$probe",
+        "unit": "day",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot convert value to date: 12"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract requires startDate to be convertible to a date",
+      "code": 5166403,
+      "error": "Location5166403"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract startDate: text",
+    "operator": "$dateSubtract",
+    "kind": "text",
+    "operand": "startDate",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": "$probe",
+        "unit": "day",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot convert value to date: hello"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract requires startDate to be convertible to a date",
+      "code": 5166403,
+      "error": "Location5166403"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract startDate: empty string",
+    "operator": "$dateSubtract",
+    "kind": "empty string",
+    "operand": "startDate",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": "$probe",
+        "unit": "day",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Cannot convert value to date: "
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract requires startDate to be convertible to a date",
+      "code": 5166403,
+      "error": "Location5166403"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract startDate: boolean",
+    "operator": "$dateSubtract",
+    "kind": "boolean",
+    "operand": "startDate",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": "$probe",
+        "unit": "day",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract requires startDate to be convertible to a date",
+      "code": 5166403,
+      "error": "Location5166403"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract startDate: false",
+    "operator": "$dateSubtract",
+    "kind": "false",
+    "operand": "startDate",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": "$probe",
+        "unit": "day",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract requires startDate to be convertible to a date",
+      "code": 5166403,
+      "error": "Location5166403"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract startDate: typed date",
+    "operator": "$dateSubtract",
+    "kind": "typed date",
+    "operand": "startDate",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": "$probe",
+        "unit": "day",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1768402800000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1768402800000\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateSubtract startDate: decimal128",
+    "operator": "$dateSubtract",
+    "kind": "decimal128",
+    "operand": "startDate",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": "$probe",
+        "unit": "day",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract requires startDate to be convertible to a date",
+      "code": 5166403,
+      "error": "Location5166403"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract startDate: empty array",
+    "operator": "$dateSubtract",
+    "kind": "empty array",
+    "operand": "startDate",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": "$probe",
+        "unit": "day",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract requires startDate to be convertible to a date",
+      "code": 5166403,
+      "error": "Location5166403"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract startDate: numeric array",
+    "operator": "$dateSubtract",
+    "kind": "numeric array",
+    "operand": "startDate",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": "$probe",
+        "unit": "day",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract requires startDate to be convertible to a date",
+      "code": 5166403,
+      "error": "Location5166403"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract startDate: mixed array",
+    "operator": "$dateSubtract",
+    "kind": "mixed array",
+    "operand": "startDate",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": "$probe",
+        "unit": "day",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract requires startDate to be convertible to a date",
+      "code": 5166403,
+      "error": "Location5166403"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract startDate: nested array",
+    "operator": "$dateSubtract",
+    "kind": "nested array",
+    "operand": "startDate",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": "$probe",
+        "unit": "day",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract requires startDate to be convertible to a date",
+      "code": 5166403,
+      "error": "Location5166403"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract startDate: empty object",
+    "operator": "$dateSubtract",
+    "kind": "empty object",
+    "operand": "startDate",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": "$probe",
+        "unit": "day",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract requires startDate to be convertible to a date",
+      "code": 5166403,
+      "error": "Location5166403"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract startDate: object",
+    "operator": "$dateSubtract",
+    "kind": "object",
+    "operand": "startDate",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": "$probe",
+        "unit": "day",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Expected a date; convert strings with $toDate"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract requires startDate to be convertible to a date",
+      "code": 5166403,
+      "error": "Location5166403"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract startDate: ISO date string",
+    "operator": "$dateSubtract",
+    "kind": "ISO date string",
+    "operand": "startDate",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": "$probe",
+        "unit": "day",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1768402800000\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract requires startDate to be convertible to a date",
+      "code": 5166403,
+      "error": "Location5166403"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateSubtract unit: null",
+    "operator": "$dateSubtract",
+    "kind": "null",
+    "operand": "unit",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateSubtract unit: missing",
+    "operator": "$dateSubtract",
+    "kind": "missing",
+    "operand": "unit",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "amount": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateSubtract unit: zero",
+    "operator": "$dateSubtract",
+    "kind": "zero",
+    "operand": "unit",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract requires 'unit' to be a string, but got int",
+      "code": 5439013,
+      "error": "Location5439013"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract unit: negative",
+    "operator": "$dateSubtract",
+    "kind": "negative",
+    "operand": "unit",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract requires 'unit' to be a string, but got int",
+      "code": 5439013,
+      "error": "Location5439013"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract unit: decimal",
+    "operator": "$dateSubtract",
+    "kind": "decimal",
+    "operand": "unit",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract requires 'unit' to be a string, but got double",
+      "code": 5439013,
+      "error": "Location5439013"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract unit: numeric string",
+    "operator": "$dateSubtract",
+    "kind": "numeric string",
+    "operand": "unit",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date unit: 12"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract parameter 'unit' value parsing failed :: caused by :: unknown time unit value: 12",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract unit: text",
+    "operator": "$dateSubtract",
+    "kind": "text",
+    "operand": "unit",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date unit: hello"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract parameter 'unit' value parsing failed :: caused by :: unknown time unit value: hello",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract unit: empty string",
+    "operator": "$dateSubtract",
+    "kind": "empty string",
+    "operand": "unit",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date unit: "
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract parameter 'unit' value parsing failed :: caused by :: unknown time unit value: ",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract unit: boolean",
+    "operator": "$dateSubtract",
+    "kind": "boolean",
+    "operand": "unit",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract requires 'unit' to be a string, but got bool",
+      "code": 5439013,
+      "error": "Location5439013"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract unit: false",
+    "operator": "$dateSubtract",
+    "kind": "false",
+    "operand": "unit",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract requires 'unit' to be a string, but got bool",
+      "code": 5439013,
+      "error": "Location5439013"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract unit: typed date",
+    "operator": "$dateSubtract",
+    "kind": "typed date",
+    "operand": "unit",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract requires 'unit' to be a string, but got date",
+      "code": 5439013,
+      "error": "Location5439013"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract unit: decimal128",
+    "operator": "$dateSubtract",
+    "kind": "decimal128",
+    "operand": "unit",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract requires 'unit' to be a string, but got decimal",
+      "code": 5439013,
+      "error": "Location5439013"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract unit: empty array",
+    "operator": "$dateSubtract",
+    "kind": "empty array",
+    "operand": "unit",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract requires 'unit' to be a string, but got array",
+      "code": 5439013,
+      "error": "Location5439013"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract unit: numeric array",
+    "operator": "$dateSubtract",
+    "kind": "numeric array",
+    "operand": "unit",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract requires 'unit' to be a string, but got array",
+      "code": 5439013,
+      "error": "Location5439013"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract unit: mixed array",
+    "operator": "$dateSubtract",
+    "kind": "mixed array",
+    "operand": "unit",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract requires 'unit' to be a string, but got array",
+      "code": 5439013,
+      "error": "Location5439013"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract unit: nested array",
+    "operator": "$dateSubtract",
+    "kind": "nested array",
+    "operand": "unit",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract requires 'unit' to be a string, but got array",
+      "code": 5439013,
+      "error": "Location5439013"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract unit: empty object",
+    "operator": "$dateSubtract",
+    "kind": "empty object",
+    "operand": "unit",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract requires 'unit' to be a string, but got object",
+      "code": 5439013,
+      "error": "Location5439013"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract unit: object",
+    "operator": "$dateSubtract",
+    "kind": "object",
+    "operand": "unit",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "unit must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract requires 'unit' to be a string, but got object",
+      "code": 5439013,
+      "error": "Location5439013"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract unit: ISO date string",
+    "operator": "$dateSubtract",
+    "kind": "ISO date string",
+    "operand": "unit",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "$probe",
+        "amount": 1
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid date unit: 2026-01-15T15:00:00Z"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract parameter 'unit' value parsing failed :: caused by :: unknown time unit value: 2026-01-15T15:00:00Z",
+      "code": 9,
+      "error": "FailedToParse"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract amount: null",
+    "operator": "$dateSubtract",
+    "kind": "null",
+    "operand": "amount",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateSubtract amount: missing",
+    "operator": "$dateSubtract",
+    "kind": "missing",
+    "operand": "amount",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateSubtract amount: zero",
+    "operator": "$dateSubtract",
+    "kind": "zero",
+    "operand": "amount",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704164645006\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704164645006\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateSubtract amount: negative",
+    "operator": "$dateSubtract",
+    "kind": "negative",
+    "operand": "amount",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704337445006\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704337445006\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateSubtract amount: decimal",
+    "operator": "$dateSubtract",
+    "kind": "decimal",
+    "operand": "amount",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "amount must be an int64"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract expects integer amount of time units",
+      "code": 5166405,
+      "error": "Location5166405"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract amount: numeric string",
+    "operator": "$dateSubtract",
+    "kind": "numeric string",
+    "operand": "amount",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "amount must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract expects integer amount of time units",
+      "code": 5166405,
+      "error": "Location5166405"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract amount: text",
+    "operator": "$dateSubtract",
+    "kind": "text",
+    "operand": "amount",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "amount must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract expects integer amount of time units",
+      "code": 5166405,
+      "error": "Location5166405"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract amount: empty string",
+    "operator": "$dateSubtract",
+    "kind": "empty string",
+    "operand": "amount",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "amount must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract expects integer amount of time units",
+      "code": 5166405,
+      "error": "Location5166405"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract amount: boolean",
+    "operator": "$dateSubtract",
+    "kind": "boolean",
+    "operand": "amount",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "amount must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract expects integer amount of time units",
+      "code": 5166405,
+      "error": "Location5166405"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract amount: false",
+    "operator": "$dateSubtract",
+    "kind": "false",
+    "operand": "amount",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "amount must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract expects integer amount of time units",
+      "code": 5166405,
+      "error": "Location5166405"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract amount: typed date",
+    "operator": "$dateSubtract",
+    "kind": "typed date",
+    "operand": "amount",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "amount must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract expects integer amount of time units",
+      "code": 5166405,
+      "error": "Location5166405"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract amount: decimal128",
+    "operator": "$dateSubtract",
+    "kind": "decimal128",
+    "operand": "amount",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "amount must be an int64"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract expects integer amount of time units",
+      "code": 5166405,
+      "error": "Location5166405"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract amount: empty array",
+    "operator": "$dateSubtract",
+    "kind": "empty array",
+    "operand": "amount",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "amount must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract expects integer amount of time units",
+      "code": 5166405,
+      "error": "Location5166405"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract amount: numeric array",
+    "operator": "$dateSubtract",
+    "kind": "numeric array",
+    "operand": "amount",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "amount must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract expects integer amount of time units",
+      "code": 5166405,
+      "error": "Location5166405"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract amount: mixed array",
+    "operator": "$dateSubtract",
+    "kind": "mixed array",
+    "operand": "amount",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "amount must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract expects integer amount of time units",
+      "code": 5166405,
+      "error": "Location5166405"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract amount: nested array",
+    "operator": "$dateSubtract",
+    "kind": "nested array",
+    "operand": "amount",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "amount must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract expects integer amount of time units",
+      "code": 5166405,
+      "error": "Location5166405"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract amount: empty object",
+    "operator": "$dateSubtract",
+    "kind": "empty object",
+    "operand": "amount",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "amount must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract expects integer amount of time units",
+      "code": 5166405,
+      "error": "Location5166405"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract amount: object",
+    "operator": "$dateSubtract",
+    "kind": "object",
+    "operand": "amount",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "amount must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract expects integer amount of time units",
+      "code": 5166405,
+      "error": "Location5166405"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract amount: ISO date string",
+    "operator": "$dateSubtract",
+    "kind": "ISO date string",
+    "operand": "amount",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "amount must be an integer"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $dateSubtract expects integer amount of time units",
+      "code": 5166405,
+      "error": "Location5166405"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract timezone: null",
+    "operator": "$dateSubtract",
+    "kind": "null",
+    "operand": "timezone",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": 1,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateSubtract timezone: missing",
+    "operator": "$dateSubtract",
+    "kind": "missing",
+    "operand": "timezone",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": 1,
+        "timezone": "$probe"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateSubtract timezone: zero",
+    "operator": "$dateSubtract",
+    "kind": "zero",
+    "operand": "timezone",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": 1,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found int",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract timezone: negative",
+    "operator": "$dateSubtract",
+    "kind": "negative",
+    "operand": "timezone",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": 1,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found int",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract timezone: decimal",
+    "operator": "$dateSubtract",
+    "kind": "decimal",
+    "operand": "timezone",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": 1,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found double",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract timezone: numeric string",
+    "operator": "$dateSubtract",
+    "kind": "numeric string",
+    "operand": "timezone",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": 1,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "DateTimeException",
+      "message": "Invalid ID for region-based ZoneId, invalid format: 12"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: unrecognized time zone identifier: \"12\"",
+      "code": 40485,
+      "error": "Location40485"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract timezone: text",
+    "operator": "$dateSubtract",
+    "kind": "text",
+    "operand": "timezone",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": 1,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "ZoneRulesException",
+      "message": "Unknown time-zone ID: hello"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: unrecognized time zone identifier: \"hello\"",
+      "code": 40485,
+      "error": "Location40485"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract timezone: empty string",
+    "operator": "$dateSubtract",
+    "kind": "empty string",
+    "operand": "timezone",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": 1,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "DateTimeException",
+      "message": "Invalid ID for ZoneOffset, invalid format: "
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: unrecognized time zone identifier: \"\"",
+      "code": 40485,
+      "error": "Location40485"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract timezone: boolean",
+    "operator": "$dateSubtract",
+    "kind": "boolean",
+    "operand": "timezone",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": 1,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found bool",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract timezone: false",
+    "operator": "$dateSubtract",
+    "kind": "false",
+    "operand": "timezone",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": 1,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found bool",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract timezone: typed date",
+    "operator": "$dateSubtract",
+    "kind": "typed date",
+    "operand": "timezone",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": 1,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found date",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract timezone: decimal128",
+    "operator": "$dateSubtract",
+    "kind": "decimal128",
+    "operand": "timezone",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": 1,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found decimal",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract timezone: empty array",
+    "operator": "$dateSubtract",
+    "kind": "empty array",
+    "operand": "timezone",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": 1,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found array",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract timezone: numeric array",
+    "operator": "$dateSubtract",
+    "kind": "numeric array",
+    "operand": "timezone",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": 1,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found array",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract timezone: mixed array",
+    "operator": "$dateSubtract",
+    "kind": "mixed array",
+    "operand": "timezone",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": 1,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found array",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract timezone: nested array",
+    "operator": "$dateSubtract",
+    "kind": "nested array",
+    "operand": "timezone",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": 1,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found array",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract timezone: empty object",
+    "operator": "$dateSubtract",
+    "kind": "empty object",
+    "operand": "timezone",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": 1,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found object",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract timezone: object",
+    "operator": "$dateSubtract",
+    "kind": "object",
+    "operand": "timezone",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": 1,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "timezone must be a string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: timezone must evaluate to a string, found object",
+      "code": 40517,
+      "error": "Location40517"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract timezone: ISO date string",
+    "operator": "$dateSubtract",
+    "kind": "ISO date string",
+    "operand": "timezone",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": 1,
+        "timezone": "$probe"
+      }
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "DateTimeException",
+      "message": "Invalid ID for region-based ZoneId, invalid format: 2026-01-15T15:00:00Z"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: unrecognized time zone identifier: \"2026-01-15T15:00:00Z\"",
+      "code": 40485,
+      "error": "Location40485"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract omit startDate",
+    "operator": "$dateSubtract",
+    "kind": "omitted named argument",
+    "operand": "startDate",
+    "expression": {
+      "$dateSubtract": {
+        "unit": "day",
+        "amount": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateSubtract requires startDate, unit, and amount to be present",
+      "code": 5166402,
+      "error": "Location5166402"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateSubtract omit unit",
+    "operator": "$dateSubtract",
+    "kind": "omitted named argument",
+    "operand": "unit",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "amount": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateSubtract requires startDate, unit, and amount to be present",
+      "code": 5166402,
+      "error": "Location5166402"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateSubtract omit amount",
+    "operator": "$dateSubtract",
+    "kind": "omitted named argument",
+    "operand": "amount",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day"
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateSubtract requires startDate, unit, and amount to be present",
+      "code": 5166402,
+      "error": "Location5166402"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$dateSubtract omit timezone",
+    "operator": "$dateSubtract",
+    "kind": "omitted named argument",
+    "operand": "timezone",
+    "expression": {
+      "$dateSubtract": {
+        "startDate": {
+          "$toDate": "2024-01-02T03:04:05.006Z"
+        },
+        "unit": "day",
+        "amount": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704078245006\"}}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$date\": {\"$numberLong\": \"1704078245006\"}}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$dateSubtract empty arguments",
+    "operator": "$dateSubtract",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$dateSubtract": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Date operator requires named arguments"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $dateSubtract expects an object as its argument",
+      "code": 5166400,
+      "error": "Location5166400"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$dateSubtract unknown option",
+    "operator": "$dateSubtract",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$dateSubtract": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Unrecognized argument to $dateSubtract: unexpected. Expected arguments are startDate, unit, amount, and optionally timezone.",
+      "code": 5166401,
+      "error": "Location5166401"
+    },
+    "status": "DIFFERENCE"
+  }
+]

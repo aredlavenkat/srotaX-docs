@@ -1,0 +1,371 @@
+[
+  {
+    "id": "$tanh baseline",
+    "operator": "$tanh",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$tanh": 0
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$tanh input: null",
+    "operator": "$tanh",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$tanh": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tanh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$tanh input: missing",
+    "operator": "$tanh",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$tanh": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tanh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$tanh input: zero",
+    "operator": "$tanh",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$tanh": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$tanh input: negative",
+    "operator": "$tanh",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$tanh": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"-0.9640275800758169\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$tanh input: decimal",
+    "operator": "$tanh",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$tanh": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.9866142981514303\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$tanh input: numeric string",
+    "operator": "$tanh",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$tanh": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tanh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$tanh input: text",
+    "operator": "$tanh",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$tanh": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tanh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$tanh input: empty string",
+    "operator": "$tanh",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$tanh": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tanh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$tanh input: boolean",
+    "operator": "$tanh",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$tanh": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tanh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$tanh input: false",
+    "operator": "$tanh",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$tanh": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tanh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$tanh input: typed date",
+    "operator": "$tanh",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$tanh": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tanh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$tanh input: decimal128",
+    "operator": "$tanh",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$tanh": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.8482836399575129\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$tanh input: empty array",
+    "operator": "$tanh",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$tanh": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tanh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$tanh input: numeric array",
+    "operator": "$tanh",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$tanh": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tanh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$tanh input: mixed array",
+    "operator": "$tanh",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$tanh": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tanh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$tanh input: nested array",
+    "operator": "$tanh",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$tanh": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tanh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$tanh input: empty object",
+    "operator": "$tanh",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$tanh": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tanh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$tanh input: object",
+    "operator": "$tanh",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$tanh": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tanh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$tanh input: ISO date string",
+    "operator": "$tanh",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$tanh": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tanh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$tanh empty arguments",
+    "operator": "$tanh",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$tanh": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tanh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$tanh unknown option",
+    "operator": "$tanh",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$tanh": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$tanh expects a numeric argument"
+    }
+  }
+]

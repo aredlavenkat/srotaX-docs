@@ -1,0 +1,1049 @@
+[
+  {
+    "id": "$bitOr baseline",
+    "operator": "$bitOr",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$bitOr": [
+        3,
+        5
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"7\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"7\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$bitOr integer[0]: null",
+    "operator": "$bitOr",
+    "kind": "null",
+    "operand": "integer[0]",
+    "expression": {
+      "$bitOr": [
+        "$probe",
+        5
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitOr expects numeric operands"
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$bitOr integer[0]: missing",
+    "operator": "$bitOr",
+    "kind": "missing",
+    "operand": "integer[0]",
+    "expression": {
+      "$bitOr": [
+        "$probe",
+        5
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitOr expects numeric operands"
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$bitOr integer[0]: zero",
+    "operator": "$bitOr",
+    "kind": "zero",
+    "operand": "integer[0]",
+    "expression": {
+      "$bitOr": [
+        "$probe",
+        5
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"5\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"5\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$bitOr integer[0]: negative",
+    "operator": "$bitOr",
+    "kind": "negative",
+    "operand": "integer[0]",
+    "expression": {
+      "$bitOr": [
+        "$probe",
+        5
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"-1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$bitOr integer[0]: decimal",
+    "operator": "$bitOr",
+    "kind": "decimal",
+    "operand": "integer[0]",
+    "expression": {
+      "$bitOr": [
+        "$probe",
+        5
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"7\"}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitOr only supports int and long operands.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$bitOr integer[0]: numeric string",
+    "operator": "$bitOr",
+    "kind": "numeric string",
+    "operand": "integer[0]",
+    "expression": {
+      "$bitOr": [
+        "$probe",
+        5
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitOr expects numeric operands"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitOr only supports int and long operands.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitOr integer[0]: text",
+    "operator": "$bitOr",
+    "kind": "text",
+    "operand": "integer[0]",
+    "expression": {
+      "$bitOr": [
+        "$probe",
+        5
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitOr expects numeric operands"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitOr only supports int and long operands.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitOr integer[0]: empty string",
+    "operator": "$bitOr",
+    "kind": "empty string",
+    "operand": "integer[0]",
+    "expression": {
+      "$bitOr": [
+        "$probe",
+        5
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitOr expects numeric operands"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitOr only supports int and long operands.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitOr integer[0]: boolean",
+    "operator": "$bitOr",
+    "kind": "boolean",
+    "operand": "integer[0]",
+    "expression": {
+      "$bitOr": [
+        "$probe",
+        5
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitOr expects numeric operands"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitOr only supports int and long operands.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitOr integer[0]: false",
+    "operator": "$bitOr",
+    "kind": "false",
+    "operand": "integer[0]",
+    "expression": {
+      "$bitOr": [
+        "$probe",
+        5
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitOr expects numeric operands"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitOr only supports int and long operands.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitOr integer[0]: typed date",
+    "operator": "$bitOr",
+    "kind": "typed date",
+    "operand": "integer[0]",
+    "expression": {
+      "$bitOr": [
+        "$probe",
+        5
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitOr expects numeric operands"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitOr only supports int and long operands.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitOr integer[0]: decimal128",
+    "operator": "$bitOr",
+    "kind": "decimal128",
+    "operand": "integer[0]",
+    "expression": {
+      "$bitOr": [
+        "$probe",
+        5
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"5\"}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitOr only supports int and long operands.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$bitOr integer[0]: empty array",
+    "operator": "$bitOr",
+    "kind": "empty array",
+    "operand": "integer[0]",
+    "expression": {
+      "$bitOr": [
+        "$probe",
+        5
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitOr expects numeric operands"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitOr only supports int and long operands.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitOr integer[0]: numeric array",
+    "operator": "$bitOr",
+    "kind": "numeric array",
+    "operand": "integer[0]",
+    "expression": {
+      "$bitOr": [
+        "$probe",
+        5
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitOr expects numeric operands"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitOr only supports int and long operands.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitOr integer[0]: mixed array",
+    "operator": "$bitOr",
+    "kind": "mixed array",
+    "operand": "integer[0]",
+    "expression": {
+      "$bitOr": [
+        "$probe",
+        5
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitOr expects numeric operands"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitOr only supports int and long operands.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitOr integer[0]: nested array",
+    "operator": "$bitOr",
+    "kind": "nested array",
+    "operand": "integer[0]",
+    "expression": {
+      "$bitOr": [
+        "$probe",
+        5
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitOr expects numeric operands"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitOr only supports int and long operands.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitOr integer[0]: empty object",
+    "operator": "$bitOr",
+    "kind": "empty object",
+    "operand": "integer[0]",
+    "expression": {
+      "$bitOr": [
+        "$probe",
+        5
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitOr expects numeric operands"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitOr only supports int and long operands.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitOr integer[0]: object",
+    "operator": "$bitOr",
+    "kind": "object",
+    "operand": "integer[0]",
+    "expression": {
+      "$bitOr": [
+        "$probe",
+        5
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitOr expects numeric operands"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitOr only supports int and long operands.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitOr integer[0]: ISO date string",
+    "operator": "$bitOr",
+    "kind": "ISO date string",
+    "operand": "integer[0]",
+    "expression": {
+      "$bitOr": [
+        "$probe",
+        5
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitOr expects numeric operands"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitOr only supports int and long operands.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitOr integer[1]: null",
+    "operator": "$bitOr",
+    "kind": "null",
+    "operand": "integer[1]",
+    "expression": {
+      "$bitOr": [
+        3,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitOr expects numeric operands"
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$bitOr integer[1]: missing",
+    "operator": "$bitOr",
+    "kind": "missing",
+    "operand": "integer[1]",
+    "expression": {
+      "$bitOr": [
+        3,
+        "$probe"
+      ]
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitOr expects numeric operands"
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$bitOr integer[1]: zero",
+    "operator": "$bitOr",
+    "kind": "zero",
+    "operand": "integer[1]",
+    "expression": {
+      "$bitOr": [
+        3,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"3\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"3\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$bitOr integer[1]: negative",
+    "operator": "$bitOr",
+    "kind": "negative",
+    "operand": "integer[1]",
+    "expression": {
+      "$bitOr": [
+        3,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"-1\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"-1\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$bitOr integer[1]: decimal",
+    "operator": "$bitOr",
+    "kind": "decimal",
+    "operand": "integer[1]",
+    "expression": {
+      "$bitOr": [
+        3,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"3\"}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitOr only supports int and long operands.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$bitOr integer[1]: numeric string",
+    "operator": "$bitOr",
+    "kind": "numeric string",
+    "operand": "integer[1]",
+    "expression": {
+      "$bitOr": [
+        3,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitOr expects numeric operands"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitOr only supports int and long operands.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitOr integer[1]: text",
+    "operator": "$bitOr",
+    "kind": "text",
+    "operand": "integer[1]",
+    "expression": {
+      "$bitOr": [
+        3,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitOr expects numeric operands"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitOr only supports int and long operands.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitOr integer[1]: empty string",
+    "operator": "$bitOr",
+    "kind": "empty string",
+    "operand": "integer[1]",
+    "expression": {
+      "$bitOr": [
+        3,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitOr expects numeric operands"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitOr only supports int and long operands.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitOr integer[1]: boolean",
+    "operator": "$bitOr",
+    "kind": "boolean",
+    "operand": "integer[1]",
+    "expression": {
+      "$bitOr": [
+        3,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitOr expects numeric operands"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitOr only supports int and long operands.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitOr integer[1]: false",
+    "operator": "$bitOr",
+    "kind": "false",
+    "operand": "integer[1]",
+    "expression": {
+      "$bitOr": [
+        3,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitOr expects numeric operands"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitOr only supports int and long operands.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitOr integer[1]: typed date",
+    "operator": "$bitOr",
+    "kind": "typed date",
+    "operand": "integer[1]",
+    "expression": {
+      "$bitOr": [
+        3,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitOr expects numeric operands"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitOr only supports int and long operands.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitOr integer[1]: decimal128",
+    "operator": "$bitOr",
+    "kind": "decimal128",
+    "operand": "integer[1]",
+    "expression": {
+      "$bitOr": [
+        3,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberLong\": \"3\"}}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitOr only supports int and long operands.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$bitOr integer[1]: empty array",
+    "operator": "$bitOr",
+    "kind": "empty array",
+    "operand": "integer[1]",
+    "expression": {
+      "$bitOr": [
+        3,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitOr expects numeric operands"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitOr only supports int and long operands.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitOr integer[1]: numeric array",
+    "operator": "$bitOr",
+    "kind": "numeric array",
+    "operand": "integer[1]",
+    "expression": {
+      "$bitOr": [
+        3,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitOr expects numeric operands"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitOr only supports int and long operands.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitOr integer[1]: mixed array",
+    "operator": "$bitOr",
+    "kind": "mixed array",
+    "operand": "integer[1]",
+    "expression": {
+      "$bitOr": [
+        3,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitOr expects numeric operands"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitOr only supports int and long operands.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitOr integer[1]: nested array",
+    "operator": "$bitOr",
+    "kind": "nested array",
+    "operand": "integer[1]",
+    "expression": {
+      "$bitOr": [
+        3,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitOr expects numeric operands"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitOr only supports int and long operands.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitOr integer[1]: empty object",
+    "operator": "$bitOr",
+    "kind": "empty object",
+    "operand": "integer[1]",
+    "expression": {
+      "$bitOr": [
+        3,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitOr expects numeric operands"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitOr only supports int and long operands.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitOr integer[1]: object",
+    "operator": "$bitOr",
+    "kind": "object",
+    "operand": "integer[1]",
+    "expression": {
+      "$bitOr": [
+        3,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitOr expects numeric operands"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitOr only supports int and long operands.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitOr integer[1]: ISO date string",
+    "operator": "$bitOr",
+    "kind": "ISO date string",
+    "operand": "integer[1]",
+    "expression": {
+      "$bitOr": [
+        3,
+        "$probe"
+      ]
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitOr expects numeric operands"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $bitOr only supports int and long operands.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$bitOr empty arguments",
+    "operator": "$bitOr",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$bitOr": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitOr expects an array of at least two numeric operands"
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"$numberInt\": \"0\"}}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$bitOr unknown option",
+    "operator": "$bitOr",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$bitOr": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$bitOr expects an array of at least two numeric operands"
+    },
+    "mongo": {
+      "message": "Failed to optimize pipeline :: caused by :: $bitOr only supports int and long operands.",
+      "code": 14,
+      "error": "TypeMismatch"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

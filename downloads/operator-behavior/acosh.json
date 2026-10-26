@@ -1,0 +1,371 @@
+[
+  {
+    "id": "$acosh baseline",
+    "operator": "$acosh",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$acosh": 1
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.0\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$acosh input: null",
+    "operator": "$acosh",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$acosh input: missing",
+    "operator": "$acosh",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$acosh input: zero",
+    "operator": "$acosh",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh is undefined for values less than 1"
+    }
+  },
+  {
+    "id": "$acosh input: negative",
+    "operator": "$acosh",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh is undefined for values less than 1"
+    }
+  },
+  {
+    "id": "$acosh input: decimal",
+    "operator": "$acosh",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"1.566799236972411\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$acosh input: numeric string",
+    "operator": "$acosh",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$acosh input: text",
+    "operator": "$acosh",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$acosh input: empty string",
+    "operator": "$acosh",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$acosh input: boolean",
+    "operator": "$acosh",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$acosh input: false",
+    "operator": "$acosh",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$acosh input: typed date",
+    "operator": "$acosh",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$acosh input: decimal128",
+    "operator": "$acosh",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"$numberDouble\": \"0.6931471805599453\"}}",
+      "present": true
+    }
+  },
+  {
+    "id": "$acosh input: empty array",
+    "operator": "$acosh",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$acosh input: numeric array",
+    "operator": "$acosh",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$acosh input: mixed array",
+    "operator": "$acosh",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$acosh input: nested array",
+    "operator": "$acosh",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$acosh input: empty object",
+    "operator": "$acosh",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$acosh input: object",
+    "operator": "$acosh",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$acosh input: ISO date string",
+    "operator": "$acosh",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$acosh": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$acosh empty arguments",
+    "operator": "$acosh",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$acosh": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    }
+  },
+  {
+    "id": "$acosh unknown option",
+    "operator": "$acosh",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$acosh": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$acosh expects a numeric argument"
+    }
+  }
+]

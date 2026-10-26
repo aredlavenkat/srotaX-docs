@@ -1,0 +1,501 @@
+[
+  {
+    "id": "$reverseArray baseline",
+    "operator": "$reverseArray",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$reverseArray": {
+        "$literal": [
+          1,
+          2
+        ]
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"2\"}, {\"$numberInt\": \"1\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"2\"}, {\"$numberInt\": \"1\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$reverseArray input: null",
+    "operator": "$reverseArray",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$reverseArray": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$reverseArray input: missing",
+    "operator": "$reverseArray",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$reverseArray": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$reverseArray input: zero",
+    "operator": "$reverseArray",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$reverseArray": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reverseArray expects an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The argument to $reverseArray must be an array, but was of type: int",
+      "code": 34435,
+      "error": "Location34435"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reverseArray input: negative",
+    "operator": "$reverseArray",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$reverseArray": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reverseArray expects an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The argument to $reverseArray must be an array, but was of type: int",
+      "code": 34435,
+      "error": "Location34435"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reverseArray input: decimal",
+    "operator": "$reverseArray",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$reverseArray": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reverseArray expects an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The argument to $reverseArray must be an array, but was of type: double",
+      "code": 34435,
+      "error": "Location34435"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reverseArray input: numeric string",
+    "operator": "$reverseArray",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$reverseArray": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reverseArray expects an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The argument to $reverseArray must be an array, but was of type: string",
+      "code": 34435,
+      "error": "Location34435"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reverseArray input: text",
+    "operator": "$reverseArray",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$reverseArray": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reverseArray expects an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The argument to $reverseArray must be an array, but was of type: string",
+      "code": 34435,
+      "error": "Location34435"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reverseArray input: empty string",
+    "operator": "$reverseArray",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$reverseArray": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reverseArray expects an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The argument to $reverseArray must be an array, but was of type: string",
+      "code": 34435,
+      "error": "Location34435"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reverseArray input: boolean",
+    "operator": "$reverseArray",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$reverseArray": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reverseArray expects an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The argument to $reverseArray must be an array, but was of type: bool",
+      "code": 34435,
+      "error": "Location34435"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reverseArray input: false",
+    "operator": "$reverseArray",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$reverseArray": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reverseArray expects an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The argument to $reverseArray must be an array, but was of type: bool",
+      "code": 34435,
+      "error": "Location34435"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reverseArray input: typed date",
+    "operator": "$reverseArray",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$reverseArray": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reverseArray expects an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The argument to $reverseArray must be an array, but was of type: date",
+      "code": 34435,
+      "error": "Location34435"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reverseArray input: decimal128",
+    "operator": "$reverseArray",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$reverseArray": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reverseArray expects an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The argument to $reverseArray must be an array, but was of type: decimal",
+      "code": 34435,
+      "error": "Location34435"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reverseArray input: empty array",
+    "operator": "$reverseArray",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$reverseArray": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$reverseArray input: numeric array",
+    "operator": "$reverseArray",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$reverseArray": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"3\"}, {\"$numberInt\": \"2\"}, {\"$numberInt\": \"1\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"3\"}, {\"$numberInt\": \"2\"}, {\"$numberInt\": \"1\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$reverseArray input: mixed array",
+    "operator": "$reverseArray",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$reverseArray": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"$numberInt\": \"3\"}, \"x\", null, {\"$numberInt\": \"1\"}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"$numberInt\": \"3\"}, \"x\", null, {\"$numberInt\": \"1\"}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$reverseArray input: nested array",
+    "operator": "$reverseArray",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$reverseArray": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"3\"}], [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [[{\"$numberInt\": \"3\"}], [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$reverseArray input: empty object",
+    "operator": "$reverseArray",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$reverseArray": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reverseArray expects an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The argument to $reverseArray must be an array, but was of type: object",
+      "code": 34435,
+      "error": "Location34435"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reverseArray input: object",
+    "operator": "$reverseArray",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$reverseArray": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reverseArray expects an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The argument to $reverseArray must be an array, but was of type: object",
+      "code": 34435,
+      "error": "Location34435"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reverseArray input: ISO date string",
+    "operator": "$reverseArray",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$reverseArray": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reverseArray expects an array"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: The argument to $reverseArray must be an array, but was of type: string",
+      "code": 34435,
+      "error": "Location34435"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$reverseArray empty arguments",
+    "operator": "$reverseArray",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$reverseArray": []
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $reverseArray takes exactly 1 arguments. 0 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$reverseArray unknown option",
+    "operator": "$reverseArray",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$reverseArray": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$reverseArray expects an array"
+    },
+    "mongo": {
+      "message": "Failed to optimize pipeline :: caused by :: The argument to $reverseArray must be an array, but was of type: object",
+      "code": 34435,
+      "error": "Location34435"
+    },
+    "status": "BOTH_REJECTED"
+  }
+]

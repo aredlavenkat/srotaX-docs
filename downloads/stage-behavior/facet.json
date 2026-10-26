@@ -1,0 +1,100 @@
+[
+  {
+    "id": "$facet example",
+    "stage": "$facet",
+    "kind": "example",
+    "pipeline": [
+      {
+        "$facet": {
+          "first": [
+            {
+              "$limit": 1
+            }
+          ],
+          "names": [
+            {
+              "$project": {
+                "name": 1
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "input": [
+      {
+        "name": "A"
+      },
+      {
+        "name": "B"
+      }
+    ],
+    "result": [
+      {
+        "first": [
+          {
+            "name": "A"
+          }
+        ],
+        "names": [
+          {
+            "name": "A"
+          },
+          {
+            "name": "B"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "$facet empty input",
+    "stage": "$facet",
+    "kind": "empty input",
+    "pipeline": [
+      {
+        "$facet": {
+          "first": [
+            {
+              "$limit": 1
+            }
+          ],
+          "names": [
+            {
+              "$project": {
+                "name": 1
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "input": [],
+    "result": [
+      {
+        "first": [],
+        "names": []
+      }
+    ]
+  },
+  {
+    "id": "$facet invalid specification",
+    "stage": "$facet",
+    "kind": "invalid specification",
+    "pipeline": [
+      {
+        "$facet": null
+      }
+    ],
+    "input": [
+      {
+        "name": "A"
+      },
+      {
+        "name": "B"
+      }
+    ],
+    "error": "IllegalArgumentException",
+    "message": "$facet stage requires an object as its argument"
+  }
+]

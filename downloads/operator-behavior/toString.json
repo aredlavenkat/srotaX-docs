@@ -1,0 +1,371 @@
+[
+  {
+    "id": "$toString baseline",
+    "operator": "$toString",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$toString": 12
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": \"12\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toString input: null",
+    "operator": "$toString",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$toString": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toString input: missing",
+    "operator": "$toString",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$toString": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toString input: zero",
+    "operator": "$toString",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$toString": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "bson": "{\"v\": \"0\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toString input: negative",
+    "operator": "$toString",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$toString": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "bson": "{\"v\": \"-2\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toString input: decimal",
+    "operator": "$toString",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$toString": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2.5\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toString input: numeric string",
+    "operator": "$toString",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$toString": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"12\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toString input: text",
+    "operator": "$toString",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$toString": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"hello\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toString input: empty string",
+    "operator": "$toString",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$toString": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "bson": "{\"v\": \"\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toString input: boolean",
+    "operator": "$toString",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$toString": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "bson": "{\"v\": \"true\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toString input: false",
+    "operator": "$toString",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$toString": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "bson": "{\"v\": \"false\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toString input: typed date",
+    "operator": "$toString",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$toString": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2026-01-15T15:00:00.000Z\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toString input: decimal128",
+    "operator": "$toString",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$toString": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": \"1.25\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toString input: empty array",
+    "operator": "$toString",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$toString": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target string"
+    }
+  },
+  {
+    "id": "$toString input: numeric array",
+    "operator": "$toString",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$toString": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target string"
+    }
+  },
+  {
+    "id": "$toString input: mixed array",
+    "operator": "$toString",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$toString": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target string"
+    }
+  },
+  {
+    "id": "$toString input: nested array",
+    "operator": "$toString",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$toString": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target string"
+    }
+  },
+  {
+    "id": "$toString input: empty object",
+    "operator": "$toString",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$toString": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target string"
+    }
+  },
+  {
+    "id": "$toString input: object",
+    "operator": "$toString",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$toString": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target string"
+    }
+  },
+  {
+    "id": "$toString input: ISO date string",
+    "operator": "$toString",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$toString": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "bson": "{\"v\": \"2026-01-15T15:00:00Z\"}",
+      "present": true
+    }
+  },
+  {
+    "id": "$toString empty arguments",
+    "operator": "$toString",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$toString": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target string"
+    }
+  },
+  {
+    "id": "$toString unknown option",
+    "operator": "$toString",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$toString": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$convert failed for target string"
+    }
+  }
+]

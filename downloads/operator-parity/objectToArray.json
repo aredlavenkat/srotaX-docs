@@ -1,0 +1,499 @@
+[
+  {
+    "id": "$objectToArray baseline",
+    "operator": "$objectToArray",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$objectToArray": {
+        "a": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [{\"k\": \"a\", \"v\": {\"$numberInt\": \"1\"}}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"k\": \"a\", \"v\": {\"$numberInt\": \"1\"}}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$objectToArray input: null",
+    "operator": "$objectToArray",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$objectToArray": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$objectToArray requires a document input."
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$objectToArray input: missing",
+    "operator": "$objectToArray",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$objectToArray": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$objectToArray requires a document input."
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "DIFFERENCE"
+  },
+  {
+    "id": "$objectToArray input: zero",
+    "operator": "$objectToArray",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$objectToArray": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$objectToArray requires a document input."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $objectToArray requires a document input, found: int",
+      "code": 40390,
+      "error": "Location40390"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$objectToArray input: negative",
+    "operator": "$objectToArray",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$objectToArray": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$objectToArray requires a document input."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $objectToArray requires a document input, found: int",
+      "code": 40390,
+      "error": "Location40390"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$objectToArray input: decimal",
+    "operator": "$objectToArray",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$objectToArray": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$objectToArray requires a document input."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $objectToArray requires a document input, found: double",
+      "code": 40390,
+      "error": "Location40390"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$objectToArray input: numeric string",
+    "operator": "$objectToArray",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$objectToArray": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$objectToArray requires a document input."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $objectToArray requires a document input, found: string",
+      "code": 40390,
+      "error": "Location40390"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$objectToArray input: text",
+    "operator": "$objectToArray",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$objectToArray": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$objectToArray requires a document input."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $objectToArray requires a document input, found: string",
+      "code": 40390,
+      "error": "Location40390"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$objectToArray input: empty string",
+    "operator": "$objectToArray",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$objectToArray": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$objectToArray requires a document input."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $objectToArray requires a document input, found: string",
+      "code": 40390,
+      "error": "Location40390"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$objectToArray input: boolean",
+    "operator": "$objectToArray",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$objectToArray": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$objectToArray requires a document input."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $objectToArray requires a document input, found: bool",
+      "code": 40390,
+      "error": "Location40390"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$objectToArray input: false",
+    "operator": "$objectToArray",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$objectToArray": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$objectToArray requires a document input."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $objectToArray requires a document input, found: bool",
+      "code": 40390,
+      "error": "Location40390"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$objectToArray input: typed date",
+    "operator": "$objectToArray",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$objectToArray": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$objectToArray requires a document input."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $objectToArray requires a document input, found: date",
+      "code": 40390,
+      "error": "Location40390"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$objectToArray input: decimal128",
+    "operator": "$objectToArray",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$objectToArray": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$objectToArray requires a document input."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $objectToArray requires a document input, found: decimal",
+      "code": 40390,
+      "error": "Location40390"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$objectToArray input: empty array",
+    "operator": "$objectToArray",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$objectToArray": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$objectToArray requires a document input."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $objectToArray requires a document input, found: array",
+      "code": 40390,
+      "error": "Location40390"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$objectToArray input: numeric array",
+    "operator": "$objectToArray",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$objectToArray": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$objectToArray requires a document input."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $objectToArray requires a document input, found: array",
+      "code": 40390,
+      "error": "Location40390"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$objectToArray input: mixed array",
+    "operator": "$objectToArray",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$objectToArray": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$objectToArray requires a document input."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $objectToArray requires a document input, found: array",
+      "code": 40390,
+      "error": "Location40390"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$objectToArray input: nested array",
+    "operator": "$objectToArray",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$objectToArray": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$objectToArray requires a document input."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $objectToArray requires a document input, found: array",
+      "code": 40390,
+      "error": "Location40390"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$objectToArray input: empty object",
+    "operator": "$objectToArray",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$objectToArray": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": []}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$objectToArray input: object",
+    "operator": "$objectToArray",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$objectToArray": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "bson": "{\"v\": [{\"k\": \"x\", \"v\": {\"$numberInt\": \"1\"}}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"k\": \"x\", \"v\": {\"$numberInt\": \"1\"}}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$objectToArray input: ISO date string",
+    "operator": "$objectToArray",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$objectToArray": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$objectToArray requires a document input."
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: $objectToArray requires a document input, found: string",
+      "code": 40390,
+      "error": "Location40390"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$objectToArray empty arguments",
+    "operator": "$objectToArray",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$objectToArray": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "$objectToArray requires a document input."
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: Expression $objectToArray takes exactly 1 arguments. 0 were passed in.",
+      "code": 16020,
+      "error": "Location16020"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$objectToArray unknown option",
+    "operator": "$objectToArray",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$objectToArray": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": [{\"k\": \"unexpected\", \"v\": {\"$numberInt\": \"1\"}}]}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": [{\"k\": \"unexpected\", \"v\": {\"$numberInt\": \"1\"}}]}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  }
+]

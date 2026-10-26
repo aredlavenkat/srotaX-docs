@@ -1,0 +1,911 @@
+[
+  {
+    "id": "$toObject baseline",
+    "operator": "$toObject",
+    "kind": "baseline",
+    "operand": "all",
+    "expression": {
+      "$toObject": "{\"name\":\"Alex\"}"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": {\"name\": \"Alex\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"name\": \"Alex\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toObject input: null",
+    "operator": "$toObject",
+    "kind": "null",
+    "operand": "input",
+    "expression": {
+      "$toObject": "$probe"
+    },
+    "input": {
+      "probe": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toObject input: missing",
+    "operator": "$toObject",
+    "kind": "missing",
+    "operand": "input",
+    "expression": {
+      "$toObject": "$probe"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "$toObject input: zero",
+    "operator": "$toObject",
+    "kind": "zero",
+    "operand": "input",
+    "expression": {
+      "$toObject": "$probe"
+    },
+    "input": {
+      "probe": 0
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from int to object in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toObject input: negative",
+    "operator": "$toObject",
+    "kind": "negative",
+    "operand": "input",
+    "expression": {
+      "$toObject": "$probe"
+    },
+    "input": {
+      "probe": -2
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from int to object in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toObject input: decimal",
+    "operator": "$toObject",
+    "kind": "decimal",
+    "operand": "input",
+    "expression": {
+      "$toObject": "$probe"
+    },
+    "input": {
+      "probe": 2.5
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from double to object in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toObject input: numeric string",
+    "operator": "$toObject",
+    "kind": "numeric string",
+    "operand": "input",
+    "expression": {
+      "$toObject": "$probe"
+    },
+    "input": {
+      "probe": "12"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "JSON root must be object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Unexpected standalone value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toObject input: text",
+    "operator": "$toObject",
+    "kind": "text",
+    "operand": "input",
+    "expression": {
+      "$toObject": "$probe"
+    },
+    "input": {
+      "probe": "hello"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid JSON container"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toObject input: empty string",
+    "operator": "$toObject",
+    "kind": "empty string",
+    "operand": "input",
+    "expression": {
+      "$toObject": "$probe"
+    },
+    "input": {
+      "probe": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid JSON container"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toObject input: boolean",
+    "operator": "$toObject",
+    "kind": "boolean",
+    "operand": "input",
+    "expression": {
+      "$toObject": "$probe"
+    },
+    "input": {
+      "probe": true
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from bool to object in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toObject input: false",
+    "operator": "$toObject",
+    "kind": "false",
+    "operand": "input",
+    "expression": {
+      "$toObject": "$probe"
+    },
+    "input": {
+      "probe": false
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from bool to object in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toObject input: typed date",
+    "operator": "$toObject",
+    "kind": "typed date",
+    "operand": "input",
+    "expression": {
+      "$toObject": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$date": "2026-01-15T15:00:00Z"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from date to object in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toObject input: decimal128",
+    "operator": "$toObject",
+    "kind": "decimal128",
+    "operand": "input",
+    "expression": {
+      "$toObject": "$probe"
+    },
+    "input": {
+      "probe": {
+        "$numberDecimal": "1.25"
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from decimal to object in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toObject input: empty array",
+    "operator": "$toObject",
+    "kind": "empty array",
+    "operand": "input",
+    "expression": {
+      "$toObject": "$probe"
+    },
+    "input": {
+      "probe": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from array to object in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toObject input: numeric array",
+    "operator": "$toObject",
+    "kind": "numeric array",
+    "operand": "input",
+    "expression": {
+      "$toObject": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        2,
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from array to object in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toObject input: mixed array",
+    "operator": "$toObject",
+    "kind": "mixed array",
+    "operand": "input",
+    "expression": {
+      "$toObject": "$probe"
+    },
+    "input": {
+      "probe": [
+        1,
+        null,
+        "x",
+        3
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from array to object in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toObject input: nested array",
+    "operator": "$toObject",
+    "kind": "nested array",
+    "operand": "input",
+    "expression": {
+      "$toObject": "$probe"
+    },
+    "input": {
+      "probe": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from array to object in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toObject input: empty object",
+    "operator": "$toObject",
+    "kind": "empty object",
+    "operand": "input",
+    "expression": {
+      "$toObject": "$probe"
+    },
+    "input": {
+      "probe": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from object to object in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toObject input: object",
+    "operator": "$toObject",
+    "kind": "object",
+    "operand": "input",
+    "expression": {
+      "$toObject": "$probe"
+    },
+    "input": {
+      "probe": {
+        "x": 1
+      }
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from object to object in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toObject input: ISO date string",
+    "operator": "$toObject",
+    "kind": "ISO date string",
+    "operand": "input",
+    "expression": {
+      "$toObject": "$probe"
+    },
+    "input": {
+      "probe": "2026-01-15T15:00:00Z"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid JSON container"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Unexpected standalone value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toObject empty arguments",
+    "operator": "$toObject",
+    "kind": "empty arguments",
+    "operand": "all",
+    "expression": {
+      "$toObject": []
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    },
+    "mongo": {
+      "message": "Invalid $project :: caused by :: $toObject requires a single argument, got 0",
+      "code": 50723,
+      "error": "Location50723"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "$toObject unknown option",
+    "operator": "$toObject",
+    "kind": "unknown option",
+    "operand": "all",
+    "expression": {
+      "$toObject": {
+        "unexpected": 1
+      }
+    },
+    "input": {},
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    },
+    "mongo": {
+      "message": "Failed to optimize pipeline :: caused by :: Unsupported conversion from object to object in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:38",
+    "operator": "$toObject",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toObject": "$value"
+    },
+    "input": {
+      "value": "{\"a\":1,\"a\":2,\"nested\":{\"$date\":\"2020\"},\"x\":[1,2]}"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"a\": {\"$numberInt\": \"2\"}, \"nested\": {\"$date\": \"2020\"}, \"x\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"a\": {\"$numberInt\": \"2\"}, \"nested\": {\"$date\": \"2020\"}, \"x\": [{\"$numberInt\": \"1\"}, {\"$numberInt\": \"2\"}]}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:40",
+    "operator": "$toObject",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toObject": "$value"
+    },
+    "input": {
+      "value": null
+    },
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:42",
+    "operator": "$toObject",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toObject": "$value"
+    },
+    "input": {
+      "value": ""
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid JSON container"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:44",
+    "operator": "$toObject",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toObject": "$value"
+    },
+    "input": {
+      "value": "null"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "JSON root must be object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Unexpected standalone value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:46",
+    "operator": "$toObject",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toObject": "$value"
+    },
+    "input": {
+      "value": "123"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "JSON root must be object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Unexpected standalone value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:48",
+    "operator": "$toObject",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toObject": "$value"
+    },
+    "input": {
+      "value": "true"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "JSON root must be object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Unexpected standalone value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:50",
+    "operator": "$toObject",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toObject": "$value"
+    },
+    "input": {
+      "value": "[]"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "JSON root must be object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Input doesn't match expected type 'object'",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:52",
+    "operator": "$toObject",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toObject": "$value"
+    },
+    "input": {
+      "value": "{}"
+    },
+    "srotax": {
+      "bson": "{\"v\": {}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:54",
+    "operator": "$toObject",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toObject": "$value"
+    },
+    "input": {
+      "value": "[1,]"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid JSON container"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:56",
+    "operator": "$toObject",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toObject": "$value"
+    },
+    "input": {
+      "value": "{\"x\":1,}"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid JSON container"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:58",
+    "operator": "$toObject",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toObject": "$value"
+    },
+    "input": {
+      "value": "/*x*/ []"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid JSON container"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:60",
+    "operator": "$toObject",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toObject": "$value"
+    },
+    "input": {
+      "value": "[] {}"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Invalid JSON container"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:62",
+    "operator": "$toObject",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toObject": "$value"
+    },
+    "input": {
+      "value": "{\"x\\u0000\":1}"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "JSON field names cannot contain null bytes"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON: Illegal embedded null byte",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:64",
+    "operator": "$toObject",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toObject": "$value"
+    },
+    "input": {
+      "value": "{\"x\":\"a\\u0000b\"}"
+    },
+    "srotax": {
+      "bson": "{\"v\": {\"x\": \"a\\u0000b\"}}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": {\"x\": \"a\\u0000b\"}}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:66",
+    "operator": "$toObject",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toObject": "$value"
+    },
+    "input": {
+      "value": "[1e400]"
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "JSON root must be object"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Input doesn't represent valid JSON",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:68",
+    "operator": "$toObject",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toObject": "$value"
+    },
+    "input": {
+      "value": 123
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from int to object in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:70",
+    "operator": "$toObject",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toObject": "$value"
+    },
+    "input": {
+      "value": []
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from array to object in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:72",
+    "operator": "$toObject",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toObject": "$value"
+    },
+    "input": {
+      "value": {}
+    },
+    "srotax": {
+      "error": "IllegalArgumentException",
+      "message": "Container conversion requires a JSON string"
+    },
+    "mongo": {
+      "message": "Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: Unsupported conversion from object to object in $convert with no onError value",
+      "code": 241,
+      "error": "ConversionFailure"
+    },
+    "status": "BOTH_REJECTED"
+  },
+  {
+    "id": "json-conversion-mongo-cases.json:74",
+    "operator": "$toObject",
+    "kind": "boundary example",
+    "operand": "all",
+    "expression": {
+      "$toObject": "$missing"
+    },
+    "input": {},
+    "srotax": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "mongo": {
+      "bson": "{\"v\": null}",
+      "present": true
+    },
+    "status": "EXACT_MATCH"
+  }
+]
