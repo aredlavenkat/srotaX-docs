@@ -1,0 +1,97 @@
+[
+  {
+    "id": "$densify example",
+    "stage": "$densify",
+    "kind": "example",
+    "pipeline": [
+      {
+        "$densify": {
+          "field": "x",
+          "range": {
+            "step": 1,
+            "bounds": "full"
+          }
+        }
+      }
+    ],
+    "input": [
+      {
+        "x": 1
+      },
+      {
+        "x": 3
+      }
+    ],
+    "result": [
+      {
+        "x": 1
+      },
+      {
+        "x": 2.0
+      },
+      {
+        "x": 3
+      }
+    ]
+  },
+  {
+    "id": "$densify empty input",
+    "stage": "$densify",
+    "kind": "empty input",
+    "pipeline": [
+      {
+        "$densify": {
+          "field": "x",
+          "range": {
+            "step": 1,
+            "bounds": "full"
+          }
+        }
+      }
+    ],
+    "input": [],
+    "result": []
+  },
+  {
+    "id": "$densify invalid specification",
+    "stage": "$densify",
+    "kind": "invalid specification",
+    "pipeline": [
+      {
+        "$densify": null
+      }
+    ],
+    "input": [
+      {
+        "x": 1
+      },
+      {
+        "x": 3
+      }
+    ],
+    "error": "IllegalArgumentException",
+    "message": "$densify stage requires an object"
+  },
+  {
+    "id": "$densify null field",
+    "stage": "$densify",
+    "kind": "null field",
+    "pipeline": [
+      {
+        "$densify": {
+          "field": "x",
+          "range": {
+            "step": 1
+          }
+        }
+      }
+    ],
+    "input": [
+      {
+        "x": null
+      }
+    ],
+    "error": "IllegalArgumentException",
+    "message": "$densify field 'x' must have at least one non-null value"
+  }
+]

@@ -1,0 +1,115 @@
+[
+  {
+    "id": "$project example",
+    "stage": "$project",
+    "kind": "example",
+    "pipeline": [
+      {
+        "$project": {
+          "name": 1,
+          "total": {
+            "$multiply": [
+              "$quantity",
+              "$price"
+            ]
+          }
+        }
+      }
+    ],
+    "input": [
+      {
+        "_id": 7,
+        "name": "Pen",
+        "quantity": 2,
+        "price": 5
+      }
+    ],
+    "result": [
+      {
+        "name": "Pen",
+        "total": 10.0
+      }
+    ]
+  },
+  {
+    "id": "$project empty input",
+    "stage": "$project",
+    "kind": "empty input",
+    "pipeline": [
+      {
+        "$project": {
+          "name": 1,
+          "total": {
+            "$multiply": [
+              "$quantity",
+              "$price"
+            ]
+          }
+        }
+      }
+    ],
+    "input": [],
+    "result": []
+  },
+  {
+    "id": "$project invalid specification",
+    "stage": "$project",
+    "kind": "invalid specification",
+    "pipeline": [
+      {
+        "$project": null
+      }
+    ],
+    "input": [
+      {
+        "_id": 7,
+        "name": "Pen",
+        "quantity": 2,
+        "price": 5
+      }
+    ],
+    "error": "IllegalArgumentException",
+    "message": "$project stage requires an object"
+  },
+  {
+    "id": "$project exclusion only",
+    "stage": "$project",
+    "kind": "exclusion only",
+    "pipeline": [
+      {
+        "$project": {
+          "price": 0
+        }
+      }
+    ],
+    "input": [
+      {
+        "name": "Pen",
+        "price": 5
+      }
+    ],
+    "result": [
+      {}
+    ]
+  },
+  {
+    "id": "$project missing field",
+    "stage": "$project",
+    "kind": "missing field",
+    "pipeline": [
+      {
+        "$project": {
+          "unknown": 1
+        }
+      }
+    ],
+    "input": [
+      {}
+    ],
+    "result": [
+      {
+        "unknown": null
+      }
+    ]
+  }
+]

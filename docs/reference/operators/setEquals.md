@@ -1,23 +1,57 @@
 # $setEquals
 
+## Definition
+
 Tests unordered set equality.
 
-**Category:** Sets. **Studio Visual entry:** Available. This page describes Core expression execution; Studio also checks field types and authoring permissions.
+**Expression operator** · Sets · Studio Visual: available. Studio validates the complete expression separately.
 
-## Syntax and arguments
+## Syntax
 
-Supply an ordered array of arguments.
+```text
+{ "$setEquals": [ <array>, <other>, ... ] }
+```
 
-| Argument | Metadata input types | Required | Evaluation |
-| --- | --- | --- | --- |
-| `array` | ARRAY | Yes | Expression evaluated against the input |
-| `other` | ARRAY | Yes | Expression evaluated against the input |
+Replace angle-bracket placeholders with expressions or values.
 
-Argument count: minimum 2; maximum variadic.
+Optional parameters may be omitted.
 
-Declared result types: **BOOLEAN**. Actual result types for tested inputs appear below. Metadata is an authoring hint; where a case differs, use the observed result and treat the discrepancy as a limitation.
+## Parameters
 
-## Example
+| Parameter | Required | Description |
+| --- | --- | --- |
+| `array` | See argument count below | Expression supplying the source array. |
+| `other` | See argument count below | Expression supplying the other array for the set operation. |
+
+Arguments are positional: keep the order shown. Supply 2 or more arguments.
+
+## Behavior
+
+The following observations use the example expression below. Each row substitutes one argument while retaining the other example arguments. A missing field differs from an explicit null; the result shown is what Core actually returned.
+
+For the `array` argument:
+
+| Input case | Supplied value | Result |
+| --- | --- | --- |
+| null | null | Error — $setEquals arguments must resolve to arrays. |
+| missing | Field absent | Error — $setEquals arguments must resolve to arrays. |
+| decimal | 2.5 | Error — $setEquals arguments must resolve to arrays. |
+| numeric string | "12" | Error — $setEquals arguments must resolve to arrays. |
+| text | "hello" | Error — $setEquals arguments must resolve to arrays. |
+| boolean | true | Error — $setEquals arguments must resolve to arrays. |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error — $setEquals arguments must resolve to arrays. |
+| empty array | [] | false |
+| numeric array | [1,2,3] | false |
+| object | {"x":1} | Error — $setEquals arguments must resolve to arrays. |
+
+### Argument handling
+
+| Invocation | Result |
+| --- | --- |
+| {"$setEquals":[]} | Error — $setEquals requires at least two arrays. |
+| {"$setEquals":{"unexpected":1}} | Error — $setEquals requires at least two arrays. |
+
+## Examples
 
 Expression:
 ```json
@@ -42,73 +76,73 @@ Input document:
 
 **Observed SrotaX result:** false.
 
-## Behavior for different inputs
+## Detailed input cases
+
+<details markdown="1">
+<summary>Expand the complete argument-by-argument test matrix</summary>
+
 
 Each table changes **only the indicated argument** from the example above. Other arguments retain their baseline values. Values normally come from the input field `probe`; literal configuration arguments are replaced directly. “Missing” means the field is absent, not explicitly null. Numeric strings are strings, not numbers.
 
-### Argument: `array[0]`
+**Argument: `array[0]`**
 
 | Input case | Supplied value | SrotaX result |
 | --- | --- | --- |
-| null | null | Error: IllegalArgumentException — $setEquals arguments must resolve to arrays. |
-| missing | Field absent | Error: IllegalArgumentException — $setEquals arguments must resolve to arrays. |
-| zero | 0 | Error: IllegalArgumentException — $setEquals arguments must resolve to arrays. |
-| negative | -2 | Error: IllegalArgumentException — $setEquals arguments must resolve to arrays. |
-| decimal | 2.5 | Error: IllegalArgumentException — $setEquals arguments must resolve to arrays. |
-| numeric string | "12" | Error: IllegalArgumentException — $setEquals arguments must resolve to arrays. |
-| text | "hello" | Error: IllegalArgumentException — $setEquals arguments must resolve to arrays. |
-| empty string | "" | Error: IllegalArgumentException — $setEquals arguments must resolve to arrays. |
-| boolean | true | Error: IllegalArgumentException — $setEquals arguments must resolve to arrays. |
-| false | false | Error: IllegalArgumentException — $setEquals arguments must resolve to arrays. |
-| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error: IllegalArgumentException — $setEquals arguments must resolve to arrays. |
-| decimal128 | {"$numberDecimal":"1.25"} | Error: IllegalArgumentException — $setEquals arguments must resolve to arrays. |
+| null | null | Error — $setEquals arguments must resolve to arrays. |
+| missing | Field absent | Error — $setEquals arguments must resolve to arrays. |
+| zero | 0 | Error — $setEquals arguments must resolve to arrays. |
+| negative | -2 | Error — $setEquals arguments must resolve to arrays. |
+| decimal | 2.5 | Error — $setEquals arguments must resolve to arrays. |
+| numeric string | "12" | Error — $setEquals arguments must resolve to arrays. |
+| text | "hello" | Error — $setEquals arguments must resolve to arrays. |
+| empty string | "" | Error — $setEquals arguments must resolve to arrays. |
+| boolean | true | Error — $setEquals arguments must resolve to arrays. |
+| false | false | Error — $setEquals arguments must resolve to arrays. |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error — $setEquals arguments must resolve to arrays. |
+| decimal128 | {"$numberDecimal":"1.25"} | Error — $setEquals arguments must resolve to arrays. |
 | empty array | [] | false |
 | numeric array | [1,2,3] | false |
 | mixed array | [1,null,"x",3] | false |
 | nested array | [[1,2],[3]] | false |
-| empty object | {} | Error: IllegalArgumentException — $setEquals arguments must resolve to arrays. |
-| object | {"x":1} | Error: IllegalArgumentException — $setEquals arguments must resolve to arrays. |
-| ISO date string | "2026-01-15T15:00:00Z" | Error: IllegalArgumentException — $setEquals arguments must resolve to arrays. |
+| empty object | {} | Error — $setEquals arguments must resolve to arrays. |
+| object | {"x":1} | Error — $setEquals arguments must resolve to arrays. |
+| ISO date string | "2026-01-15T15:00:00Z" | Error — $setEquals arguments must resolve to arrays. |
 
-### Argument: `other[1]`
+**Argument: `other[1]`**
 
 | Input case | Supplied value | SrotaX result |
 | --- | --- | --- |
-| null | null | Error: IllegalArgumentException — $setEquals arguments must resolve to arrays. |
-| missing | Field absent | Error: IllegalArgumentException — $setEquals arguments must resolve to arrays. |
-| zero | 0 | Error: IllegalArgumentException — $setEquals arguments must resolve to arrays. |
-| negative | -2 | Error: IllegalArgumentException — $setEquals arguments must resolve to arrays. |
-| decimal | 2.5 | Error: IllegalArgumentException — $setEquals arguments must resolve to arrays. |
-| numeric string | "12" | Error: IllegalArgumentException — $setEquals arguments must resolve to arrays. |
-| text | "hello" | Error: IllegalArgumentException — $setEquals arguments must resolve to arrays. |
-| empty string | "" | Error: IllegalArgumentException — $setEquals arguments must resolve to arrays. |
-| boolean | true | Error: IllegalArgumentException — $setEquals arguments must resolve to arrays. |
-| false | false | Error: IllegalArgumentException — $setEquals arguments must resolve to arrays. |
-| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error: IllegalArgumentException — $setEquals arguments must resolve to arrays. |
-| decimal128 | {"$numberDecimal":"1.25"} | Error: IllegalArgumentException — $setEquals arguments must resolve to arrays. |
+| null | null | Error — $setEquals arguments must resolve to arrays. |
+| missing | Field absent | Error — $setEquals arguments must resolve to arrays. |
+| zero | 0 | Error — $setEquals arguments must resolve to arrays. |
+| negative | -2 | Error — $setEquals arguments must resolve to arrays. |
+| decimal | 2.5 | Error — $setEquals arguments must resolve to arrays. |
+| numeric string | "12" | Error — $setEquals arguments must resolve to arrays. |
+| text | "hello" | Error — $setEquals arguments must resolve to arrays. |
+| empty string | "" | Error — $setEquals arguments must resolve to arrays. |
+| boolean | true | Error — $setEquals arguments must resolve to arrays. |
+| false | false | Error — $setEquals arguments must resolve to arrays. |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error — $setEquals arguments must resolve to arrays. |
+| decimal128 | {"$numberDecimal":"1.25"} | Error — $setEquals arguments must resolve to arrays. |
 | empty array | [] | false |
 | numeric array | [1,2,3] | false |
 | mixed array | [1,null,"x",3] | false |
 | nested array | [[1,2],[3]] | false |
-| empty object | {} | Error: IllegalArgumentException — $setEquals arguments must resolve to arrays. |
-| object | {"x":1} | Error: IllegalArgumentException — $setEquals arguments must resolve to arrays. |
-| ISO date string | "2026-01-15T15:00:00Z" | Error: IllegalArgumentException — $setEquals arguments must resolve to arrays. |
+| empty object | {} | Error — $setEquals arguments must resolve to arrays. |
+| object | {"x":1} | Error — $setEquals arguments must resolve to arrays. |
+| ISO date string | "2026-01-15T15:00:00Z" | Error — $setEquals arguments must resolve to arrays. |
 
-## Invalid invocation shapes
 
-| Invocation | SrotaX result |
-| --- | --- |
-| {"$setEquals":[]} | Error: IllegalArgumentException — $setEquals requires at least two arrays. |
-| {"$setEquals":{"unexpected":1}} | Error: IllegalArgumentException — $setEquals requires at least two arrays. |
+</details>
 
-## Scope and reproducibility
+## Verification
 
 This page records **41 executed cases**. It covers individual argument substitutions, not every cross-product of arguments, locale, daylight-saving transitions, numeric overflow, collation or resource limits. No untested behavior is guaranteed.
 
 [Download exact expressions, inputs and SrotaX results](../../downloads/operator-behavior/setEquals.json). Errors are observed messages, not stable public error codes. The reference generator reads the checked-in execution report; do not edit generated observations by hand.
 
 <!-- BEGIN MONGO PARITY -->
-## MongoDB differences (removable section)
+## MongoDB differences
 
 Compared with **MongoDB 9.0.4**: **9 exact BSON matches**, **32 both rejected**, **0 value/type/acceptance differences**, **0 object-field-order differences**.
 

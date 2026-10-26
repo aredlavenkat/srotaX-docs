@@ -1,0 +1,116 @@
+[
+  {
+    "id": "$setWindowFields example",
+    "stage": "$setWindowFields",
+    "kind": "example",
+    "pipeline": [
+      {
+        "$setWindowFields": {
+          "sortBy": {
+            "score": 1
+          },
+          "output": {
+            "rank": {
+              "$rank": {}
+            }
+          }
+        }
+      }
+    ],
+    "input": [
+      {
+        "score": 20
+      },
+      {
+        "score": 10
+      },
+      {
+        "score": 20
+      }
+    ],
+    "result": [
+      {
+        "score": 20,
+        "rank": 2
+      },
+      {
+        "score": 10,
+        "rank": 1
+      },
+      {
+        "score": 20,
+        "rank": 2
+      }
+    ]
+  },
+  {
+    "id": "$setWindowFields empty input",
+    "stage": "$setWindowFields",
+    "kind": "empty input",
+    "pipeline": [
+      {
+        "$setWindowFields": {
+          "sortBy": {
+            "score": 1
+          },
+          "output": {
+            "rank": {
+              "$rank": {}
+            }
+          }
+        }
+      }
+    ],
+    "input": [],
+    "result": []
+  },
+  {
+    "id": "$setWindowFields invalid specification",
+    "stage": "$setWindowFields",
+    "kind": "invalid specification",
+    "pipeline": [
+      {
+        "$setWindowFields": null
+      }
+    ],
+    "input": [
+      {
+        "score": 20
+      },
+      {
+        "score": 10
+      },
+      {
+        "score": 20
+      }
+    ],
+    "error": "IllegalArgumentException",
+    "message": "$setWindowFields stage expects an object"
+  },
+  {
+    "id": "$setWindowFields unsupported sum",
+    "stage": "$setWindowFields",
+    "kind": "unsupported sum",
+    "pipeline": [
+      {
+        "$setWindowFields": {
+          "sortBy": {
+            "score": 1
+          },
+          "output": {
+            "total": {
+              "$sum": "$score"
+            }
+          }
+        }
+      }
+    ],
+    "input": [
+      {
+        "score": 10
+      }
+    ],
+    "error": "IllegalArgumentException",
+    "message": "Unsupported window function: $sum"
+  }
+]

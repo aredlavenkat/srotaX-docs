@@ -21,6 +21,7 @@ plugins:
 markdown_extensions:
   - admonition
   - tables
+  - md_in_html
   - pymdownx.superfences
 nav:
   - Get started:
@@ -51,27 +52,11 @@ nav:
     # BEGIN GENERATED OPERATOR NAV
     - Operators:
       - Overview: reference/operators.md
-      - "Advanced":
-        - "$expr": reference/operators/expr.md
-        - "$function": reference/operators/function.md
       - "Arithmetic":
         - "$abs": reference/operators/abs.md
-        - "$acos": reference/operators/acos.md
-        - "$acosh": reference/operators/acosh.md
         - "$add": reference/operators/add.md
-        - "$asin": reference/operators/asin.md
-        - "$asinh": reference/operators/asinh.md
-        - "$atan": reference/operators/atan.md
-        - "$atan2": reference/operators/atan2.md
-        - "$atanh": reference/operators/atanh.md
         - "$avg": reference/operators/avg.md
-        - "$bitAnd": reference/operators/bitAnd.md
-        - "$bitOr": reference/operators/bitOr.md
-        - "$bitXor": reference/operators/bitXor.md
         - "$ceil": reference/operators/ceil.md
-        - "$cos": reference/operators/cos.md
-        - "$cosh": reference/operators/cosh.md
-        - "$degreesToRadians": reference/operators/degreesToRadians.md
         - "$divide": reference/operators/divide.md
         - "$exp": reference/operators/exp.md
         - "$floor": reference/operators/floor.md
@@ -82,17 +67,12 @@ nav:
         - "$mod": reference/operators/mod.md
         - "$multiply": reference/operators/multiply.md
         - "$pow": reference/operators/pow.md
-        - "$radiansToDegrees": reference/operators/radiansToDegrees.md
         - "$round": reference/operators/round.md
-        - "$sin": reference/operators/sin.md
-        - "$sinh": reference/operators/sinh.md
         - "$sqrt": reference/operators/sqrt.md
         - "$subtract": reference/operators/subtract.md
         - "$sum": reference/operators/sum.md
-        - "$tan": reference/operators/tan.md
-        - "$tanh": reference/operators/tanh.md
         - "$trunc": reference/operators/trunc.md
-      - "Arrays":
+      - "Array":
         - "$arrayElemAt": reference/operators/arrayElemAt.md
         - "$arrayToObject": reference/operators/arrayToObject.md
         - "$concatArrays": reference/operators/concatArrays.md
@@ -118,7 +98,15 @@ nav:
         - "$topN": reference/operators/topN.md
         - "$zip": reference/operators/zip.md
       - "Bitwise":
+        - "$bitAnd": reference/operators/bitAnd.md
         - "$bitNot": reference/operators/bitNot.md
+        - "$bitOr": reference/operators/bitOr.md
+        - "$bitXor": reference/operators/bitXor.md
+      - "Boolean":
+        - "$and": reference/operators/and.md
+        - "$nor": reference/operators/nor.md
+        - "$not": reference/operators/not.md
+        - "$or": reference/operators/or.md
       - "Comparison":
         - "$cmp": reference/operators/cmp.md
         - "$eq": reference/operators/eq.md
@@ -135,7 +123,7 @@ nav:
         - "$ifNull": reference/operators/ifNull.md
         - "$let": reference/operators/let.md
         - "$switch": reference/operators/switch.md
-      - "Dates":
+      - "Date":
         - "$dateAdd": reference/operators/dateAdd.md
         - "$dateDiff": reference/operators/dateDiff.md
         - "$dateFromParts": reference/operators/dateFromParts.md
@@ -159,17 +147,15 @@ nav:
         - "$tsSecond": reference/operators/tsSecond.md
         - "$week": reference/operators/week.md
         - "$year": reference/operators/year.md
-      - "Logic":
-        - "$and": reference/operators/and.md
-        - "$nor": reference/operators/nor.md
-        - "$not": reference/operators/not.md
-        - "$or": reference/operators/or.md
-      - "Objects":
+      - "Miscellaneous":
+        - "$expr": reference/operators/expr.md
+        - "$function": reference/operators/function.md
+      - "Object":
         - "$getField": reference/operators/getField.md
         - "$mergeObjects": reference/operators/mergeObjects.md
         - "$setField": reference/operators/setField.md
         - "$unsetField": reference/operators/unsetField.md
-      - "Sets":
+      - "Set":
         - "$allElementsTrue": reference/operators/allElementsTrue.md
         - "$anyElementTrue": reference/operators/anyElementTrue.md
         - "$setDifference": reference/operators/setDifference.md
@@ -183,7 +169,7 @@ nav:
         - "$percentile": reference/operators/percentile.md
         - "$stdDevPop": reference/operators/stdDevPop.md
         - "$stdDevSamp": reference/operators/stdDevSamp.md
-      - "Text":
+      - "String":
         - "$concat": reference/operators/concat.md
         - "$endsWith": reference/operators/endsWith.md
         - "$indexOfBytes": reference/operators/indexOfBytes.md
@@ -206,7 +192,23 @@ nav:
         - "$toLower": reference/operators/toLower.md
         - "$toUpper": reference/operators/toUpper.md
         - "$trim": reference/operators/trim.md
-      - "Types and conversion":
+      - "Trigonometry":
+        - "$acos": reference/operators/acos.md
+        - "$acosh": reference/operators/acosh.md
+        - "$asin": reference/operators/asin.md
+        - "$asinh": reference/operators/asinh.md
+        - "$atan": reference/operators/atan.md
+        - "$atan2": reference/operators/atan2.md
+        - "$atanh": reference/operators/atanh.md
+        - "$cos": reference/operators/cos.md
+        - "$cosh": reference/operators/cosh.md
+        - "$degreesToRadians": reference/operators/degreesToRadians.md
+        - "$radiansToDegrees": reference/operators/radiansToDegrees.md
+        - "$sin": reference/operators/sin.md
+        - "$sinh": reference/operators/sinh.md
+        - "$tan": reference/operators/tan.md
+        - "$tanh": reference/operators/tanh.md
+      - "Type and conversion":
         - "$binarySize": reference/operators/binarySize.md
         - "$bsonSize": reference/operators/bsonSize.md
         - "$convert": reference/operators/convert.md
@@ -223,6 +225,36 @@ nav:
         - "$toObjectId": reference/operators/toObjectId.md
         - "$toString": reference/operators/toString.md
         - "$type": reference/operators/type.md
+    - Stages:
+      - Overview: reference/stages.md
+      - "Reshape documents":
+        - "$addFields": reference/stages/addFields.md
+        - "$project": reference/stages/project.md
+        - "$replaceRoot": reference/stages/replaceRoot.md
+        - "$replaceWith": reference/stages/replaceWith.md
+        - "$set": reference/stages/set.md
+        - "$unset": reference/stages/unset.md
+        - "$unwind": reference/stages/unwind.md
+      - "Filter and order":
+        - "$limit": reference/stages/limit.md
+        - "$match": reference/stages/match.md
+        - "$skip": reference/stages/skip.md
+        - "$sort": reference/stages/sort.md
+      - "Group and summarize":
+        - "$bucket": reference/stages/bucket.md
+        - "$bucketAuto": reference/stages/bucketAuto.md
+        - "$group": reference/stages/group.md
+        - "$sortByCount": reference/stages/sortByCount.md
+      - "Combine pipelines":
+        - "$facet": reference/stages/facet.md
+        - "$lookup": reference/stages/lookup.md
+      - "Window and sequence":
+        - "$densify": reference/stages/densify.md
+        - "$fill": reference/stages/fill.md
+        - "$setWindowFields": reference/stages/setWindowFields.md
+      - "Core extensions":
+        - "$subPipeline": reference/stages/subPipeline.md
+    - Reference verification: reference/operator-parity.md
     # END GENERATED OPERATOR NAV
     - Verification: verification.md
 extra_css:

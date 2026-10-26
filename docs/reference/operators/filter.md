@@ -1,24 +1,62 @@
 # $filter
 
+## Definition
+
 Keeps array elements satisfying a boolean condition.
 
-**Category:** Arrays. **Studio Visual entry:** Not exposed. This page describes Core expression execution; Studio also checks field types and authoring permissions.
+**Expression operator** · Arrays · Studio Visual: not exposed. Studio validates the complete expression separately.
 
-## Syntax and arguments
+## Syntax
 
-Supply an object with the named arguments below.
+```text
+{
+  "$filter": {
+    "input": <input>,
+    "as": <as>,
+    "cond": <cond>
+  }
+}
+```
 
-| Argument | Metadata input types | Required | Evaluation |
-| --- | --- | --- | --- |
-| `input` | ARRAY | Yes | Expression evaluated against the input |
-| `as` | STRING | No | Literal configuration |
-| `cond` | BOOLEAN | Yes | Expression evaluated against the input |
+Replace angle-bracket placeholders with expressions or values.
 
-Argument count: minimum 2; maximum 3.
+Optional parameters may be omitted.
 
-Declared result types: **ARRAY**. Actual result types for tested inputs appear below. Metadata is an authoring hint; where a case differs, use the observed result and treat the discrepancy as a limitation.
+## Parameters
 
-## Example
+| Parameter | Required | Description |
+| --- | --- | --- |
+| `input` | Yes | Expression supplying the value to process. A field reference such as `"$price"` reads from the current document. |
+| `as` | No | Literal variable name for the current array item; defaults to `"this"`. Refer to it as `$$name` in the nested expression. |
+| `cond` | Yes | Condition evaluated for each array item. Items with a matching condition are retained. |
+
+## Behavior
+
+The following observations use the example expression below. Each row substitutes one argument while retaining the other example arguments. A missing field differs from an explicit null; the result shown is what Core actually returned.
+
+For the `input` argument:
+
+| Input case | Supplied value | Result |
+| --- | --- | --- |
+| null | null | [] |
+| missing | Field absent | [] |
+| decimal | 2.5 | [] |
+| numeric string | "12" | [] |
+| text | "hello" | [] |
+| boolean | true | [] |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | [] |
+| empty array | [] | [] |
+| numeric array | [1,2,3] | [2,3] |
+| object | {"x":1} | [] |
+
+### Argument handling
+
+| Invocation | Result |
+| --- | --- |
+| {"$filter":[]} | Error — $filter expects an object |
+| {"$filter":{"unexpected":1}} | [] |
+
+## Examples
 
 Expression:
 ```json
@@ -46,11 +84,15 @@ Input document:
 
 **Observed SrotaX result:** [2].
 
-## Behavior for different inputs
+## Detailed input cases
+
+<details markdown="1">
+<summary>Expand the complete argument-by-argument test matrix</summary>
+
 
 Each table changes **only the indicated argument** from the example above. Other arguments retain their baseline values. Values normally come from the input field `probe`; literal configuration arguments are replaced directly. “Missing” means the field is absent, not explicitly null. Numeric strings are strings, not numbers.
 
-### Argument: `input`
+**Argument: `input`**
 
 | Input case | Supplied value | SrotaX result |
 | --- | --- | --- |
@@ -75,31 +117,31 @@ Each table changes **only the indicated argument** from the example above. Other
 | ISO date string | "2026-01-15T15:00:00Z" | [] |
 | omitted named argument | Argument removed | [] |
 
-### Argument: `as`
+**Argument: `as`**
 
 | Input case | Supplied value | SrotaX result |
 | --- | --- | --- |
-| null | null | Error: NullPointerException — Cannot invoke "Object.toString()" because the return value of "java.util.Map.get(Object)" is null |
-| zero | 0 | Error: IllegalArgumentException — Undefined variable: $$x |
-| negative | -2 | Error: IllegalArgumentException — Undefined variable: $$x |
-| decimal | 2.5 | Error: IllegalArgumentException — Undefined variable: $$x |
-| numeric string | "12" | Error: IllegalArgumentException — Undefined variable: $$x |
-| text | "hello" | Error: IllegalArgumentException — Undefined variable: $$x |
-| empty string | "" | Error: IllegalArgumentException — Undefined variable: $$x |
-| boolean | true | Error: IllegalArgumentException — Undefined variable: $$x |
-| false | false | Error: IllegalArgumentException — Undefined variable: $$x |
-| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error: IllegalArgumentException — Undefined variable: $$x |
-| decimal128 | {"$numberDecimal":"1.25"} | Error: IllegalArgumentException — Undefined variable: $$x |
-| empty array | [] | Error: IllegalArgumentException — Undefined variable: $$x |
-| numeric array | [1,2,3] | Error: IllegalArgumentException — Undefined variable: $$x |
-| mixed array | [1,null,"x",3] | Error: IllegalArgumentException — Undefined variable: $$x |
-| nested array | [[1,2],[3]] | Error: IllegalArgumentException — Undefined variable: $$x |
-| empty object | {} | Error: IllegalArgumentException — Undefined variable: $$x |
-| object | {"x":1} | Error: IllegalArgumentException — Undefined variable: $$x |
-| ISO date string | "2026-01-15T15:00:00Z" | Error: IllegalArgumentException — Undefined variable: $$x |
-| omitted named argument | Argument removed | Error: IllegalArgumentException — Undefined variable: $$x |
+| null | null | Error — Cannot invoke "Object.toString()" because the return value of "java.util.Map.get(Object)" is null |
+| zero | 0 | Error — Undefined variable: $$x |
+| negative | -2 | Error — Undefined variable: $$x |
+| decimal | 2.5 | Error — Undefined variable: $$x |
+| numeric string | "12" | Error — Undefined variable: $$x |
+| text | "hello" | Error — Undefined variable: $$x |
+| empty string | "" | Error — Undefined variable: $$x |
+| boolean | true | Error — Undefined variable: $$x |
+| false | false | Error — Undefined variable: $$x |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error — Undefined variable: $$x |
+| decimal128 | {"$numberDecimal":"1.25"} | Error — Undefined variable: $$x |
+| empty array | [] | Error — Undefined variable: $$x |
+| numeric array | [1,2,3] | Error — Undefined variable: $$x |
+| mixed array | [1,null,"x",3] | Error — Undefined variable: $$x |
+| nested array | [[1,2],[3]] | Error — Undefined variable: $$x |
+| empty object | {} | Error — Undefined variable: $$x |
+| object | {"x":1} | Error — Undefined variable: $$x |
+| ISO date string | "2026-01-15T15:00:00Z" | Error — Undefined variable: $$x |
+| omitted named argument | Argument removed | Error — Undefined variable: $$x |
 
-### Argument: `cond`
+**Argument: `cond`**
 
 | Input case | Supplied value | SrotaX result |
 | --- | --- | --- |
@@ -124,16 +166,12 @@ Each table changes **only the indicated argument** from the example above. Other
 | ISO date string | "2026-01-15T15:00:00Z" | [] |
 | omitted named argument | Argument removed | [] |
 
-## Invalid invocation shapes
 
-| Invocation | SrotaX result |
-| --- | --- |
-| {"$filter":[]} | Error: IllegalArgumentException — $filter expects an object |
-| {"$filter":{"unexpected":1}} | [] |
+</details>
 
 ## Additional boundary examples
 
-<details>
+<details markdown="1">
 <summary>Show 2 tested examples</summary>
 
 Expression:
@@ -178,36 +216,39 @@ Input:
 
 </details>
 
-## Scope and reproducibility
+## Verification
 
 This page records **64 executed cases**. It covers individual argument substitutions, not every cross-product of arguments, locale, daylight-saving transitions, numeric overflow, collation or resource limits. No untested behavior is guaranteed.
 
 [Download exact expressions, inputs and SrotaX results](../../downloads/operator-behavior/filter.json). Errors are observed messages, not stable public error codes. The reference generator reads the checked-in execution report; do not edit generated observations by hand.
 
 <!-- BEGIN MONGO PARITY -->
-## MongoDB differences (removable section)
+## MongoDB differences
 
 Compared with **MongoDB 9.0.4**: **10 exact BSON matches**, **20 both rejected**, **34 value/type/acceptance differences**, **0 object-field-order differences**.
 
 “Exact” includes numeric BSON types and object key order. A value of `3` as int32 differs from `3.0` as double. Object-field-order differences are reported separately; object key ordering is not enforced by the engine regression baseline. Both rejected does not mean the error codes or messages match. This is finite-case evidence, not full compatibility certification.
 
+<details markdown="1">
+<summary>Show observed differences</summary>
+
 | Tested case | SrotaX | MongoDB |
 | --- | --- | --- |
 | input / null | [] | null |
 | input / missing | [] | null |
-| input / zero | [] | Error: Location28651 — Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not int |
-| input / negative | [] | Error: Location28651 — Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not int |
-| input / decimal | [] | Error: Location28651 — Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not double |
-| input / numeric string | [] | Error: Location28651 — Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not string |
-| input / text | [] | Error: Location28651 — Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not string |
-| input / empty string | [] | Error: Location28651 — Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not string |
-| input / boolean | [] | Error: Location28651 — Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not bool |
-| input / false | [] | Error: Location28651 — Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not bool |
-| input / typed date | [] | Error: Location28651 — Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not date |
-| input / decimal128 | [] | Error: Location28651 — Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not decimal |
-| input / empty object | [] | Error: Location28651 — Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not object |
-| input / object | [] | Error: Location28651 — Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not object |
-| input / ISO date string | [] | Error: Location28651 — Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not string |
+| input / zero | [] | Error — Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not int |
+| input / negative | [] | Error — Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not int |
+| input / decimal | [] | Error — Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not double |
+| input / numeric string | [] | Error — Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not string |
+| input / text | [] | Error — Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not string |
+| input / empty string | [] | Error — Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not string |
+| input / boolean | [] | Error — Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not bool |
+| input / false | [] | Error — Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not bool |
+| input / typed date | [] | Error — Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not date |
+| input / decimal128 | [] | Error — Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not decimal |
+| input / empty object | [] | Error — Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not object |
+| input / object | [] | Error — Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not object |
+| input / ISO date string | [] | Error — Executor error during aggregate command on namespace: fluxion_operator_parity_disposable.$cmd.aggregate :: caused by :: input to $filter must be an array not string |
 | cond / negative | [] | [1,2] |
 | cond / decimal | [] | [1,2] |
 | cond / numeric string | [] | [1,2] |
@@ -222,11 +263,13 @@ Compared with **MongoDB 9.0.4**: **10 exact BSON matches**, **20 both rejected**
 | cond / empty object | [] | [1,2] |
 | cond / object | [] | [1,2] |
 | cond / ISO date string | [] | [1,2] |
-| input / omitted named argument | [] | Error: Location28648 — Invalid $project :: caused by :: Missing 'input' parameter to $filter |
-| cond / omitted named argument | [] | Error: Location28650 — Invalid $project :: caused by :: Missing 'cond' parameter to $filter |
-| all / unknown option | [] | Error: Location28647 — Invalid $project :: caused by :: Unrecognized parameter to $filter: unexpected |
+| input / omitted named argument | [] | Error — Invalid $project :: caused by :: Missing 'input' parameter to $filter |
+| cond / omitted named argument | [] | Error — Invalid $project :: caused by :: Missing 'cond' parameter to $filter |
+| all / unknown option | [] | Error — Invalid $project :: caused by :: Unrecognized parameter to $filter: unexpected |
 | all / boundary example | [1,2,3] | [1] |
 | all / boundary example | [] | null |
+
+</details>
 
 [Download full comparison evidence](../../downloads/operator-parity/filter.json).
 

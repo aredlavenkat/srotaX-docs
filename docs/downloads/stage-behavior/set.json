@@ -1,0 +1,99 @@
+[
+  {
+    "id": "$set example",
+    "stage": "$set",
+    "kind": "example",
+    "pipeline": [
+      {
+        "$set": {
+          "total": {
+            "$multiply": [
+              "$quantity",
+              "$price"
+            ]
+          }
+        }
+      }
+    ],
+    "input": [
+      {
+        "quantity": 2,
+        "price": 5,
+        "orderId": "A"
+      }
+    ],
+    "result": [
+      {
+        "quantity": 2,
+        "price": 5,
+        "orderId": "A",
+        "total": 10.0
+      }
+    ]
+  },
+  {
+    "id": "$set empty input",
+    "stage": "$set",
+    "kind": "empty input",
+    "pipeline": [
+      {
+        "$set": {
+          "total": {
+            "$multiply": [
+              "$quantity",
+              "$price"
+            ]
+          }
+        }
+      }
+    ],
+    "input": [],
+    "result": []
+  },
+  {
+    "id": "$set invalid specification",
+    "stage": "$set",
+    "kind": "invalid specification",
+    "pipeline": [
+      {
+        "$set": null
+      }
+    ],
+    "input": [
+      {
+        "quantity": 2,
+        "price": 5,
+        "orderId": "A"
+      }
+    ],
+    "error": "IllegalArgumentException",
+    "message": "$set expects an object"
+  },
+  {
+    "id": "$set null and missing source",
+    "stage": "$set",
+    "kind": "null and missing source",
+    "pipeline": [
+      {
+        "$set": {
+          "copy": "$value"
+        }
+      }
+    ],
+    "input": [
+      {},
+      {
+        "value": null
+      }
+    ],
+    "result": [
+      {
+        "copy": null
+      },
+      {
+        "value": null,
+        "copy": null
+      }
+    ]
+  }
+]

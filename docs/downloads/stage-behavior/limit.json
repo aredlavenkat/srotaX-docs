@@ -1,0 +1,90 @@
+[
+  {
+    "id": "$limit example",
+    "stage": "$limit",
+    "kind": "example",
+    "pipeline": [
+      {
+        "$limit": 1
+      }
+    ],
+    "input": [
+      {
+        "x": 1
+      },
+      {
+        "x": 2
+      }
+    ],
+    "result": [
+      {
+        "x": 1
+      }
+    ]
+  },
+  {
+    "id": "$limit empty input",
+    "stage": "$limit",
+    "kind": "empty input",
+    "pipeline": [
+      {
+        "$limit": 1
+      }
+    ],
+    "input": [],
+    "result": []
+  },
+  {
+    "id": "$limit invalid specification",
+    "stage": "$limit",
+    "kind": "invalid specification",
+    "pipeline": [
+      {
+        "$limit": null
+      }
+    ],
+    "input": [
+      {
+        "x": 1
+      },
+      {
+        "x": 2
+      }
+    ],
+    "error": "IllegalArgumentException",
+    "message": "$limit stage requires a numeric argument"
+  },
+  {
+    "id": "$limit negative count",
+    "stage": "$limit",
+    "kind": "negative count",
+    "pipeline": [
+      {
+        "$limit": -1
+      }
+    ],
+    "input": [
+      {
+        "x": 1
+      }
+    ],
+    "error": "IllegalArgumentException",
+    "message": "$limit cannot be negative"
+  },
+  {
+    "id": "$limit zero count",
+    "stage": "$limit",
+    "kind": "zero count",
+    "pipeline": [
+      {
+        "$limit": 0
+      }
+    ],
+    "input": [
+      {
+        "x": 1
+      }
+    ],
+    "result": []
+  }
+]

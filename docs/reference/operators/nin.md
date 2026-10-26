@@ -1,23 +1,57 @@
 # $nin
 
+## Definition
+
 Negates array membership.
 
-**Category:** Comparison. **Studio Visual entry:** Not exposed. This page describes Core expression execution; Studio also checks field types and authoring permissions.
+**Expression operator** · Comparison · Studio Visual: not exposed. Studio validates the complete expression separately.
 
-## Syntax and arguments
+## Syntax
 
-Supply an ordered array of arguments.
+```text
+{ "$nin": [ <value>, <array> ] }
+```
 
-| Argument | Metadata input types | Required | Evaluation |
-| --- | --- | --- | --- |
-| `value` | ANY | Yes | Expression evaluated against the input |
-| `array` | ARRAY | Yes | Expression evaluated against the input |
+Replace angle-bracket placeholders with expressions or values.
 
-Argument count: minimum 2; maximum 2.
+Optional parameters may be omitted.
 
-Declared result types: **BOOLEAN**. Actual result types for tested inputs appear below. Metadata is an authoring hint; where a case differs, use the observed result and treat the discrepancy as a limitation.
+## Parameters
 
-## Example
+| Parameter | Required | Description |
+| --- | --- | --- |
+| `value` | Yes | Expression supplying the value to evaluate. |
+| `array` | Yes | Expression supplying the source array. |
+
+Arguments are positional: keep the order shown. The authoring signature accepts 2–2 arguments.
+
+## Behavior
+
+The following observations use the example expression below. Each row substitutes one argument while retaining the other example arguments. A missing field differs from an explicit null; the result shown is what Core actually returned.
+
+For the `value` argument:
+
+| Input case | Supplied value | Result |
+| --- | --- | --- |
+| null | null | true |
+| missing | Field absent | true |
+| decimal | 2.5 | true |
+| numeric string | "12" | true |
+| text | "hello" | true |
+| boolean | true | true |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | true |
+| empty array | [] | true |
+| numeric array | [1,2,3] | true |
+| object | {"x":1} | true |
+
+### Argument handling
+
+| Invocation | Result |
+| --- | --- |
+| {"$nin":[]} | Error — $in expects [searchExpr, candidates] |
+| {"$nin":{"unexpected":1}} | Error — $in expects [searchExpr, candidates] |
+
+## Examples
 
 Expression:
 ```json
@@ -39,11 +73,15 @@ Input document:
 
 **Observed SrotaX result:** false.
 
-## Behavior for different inputs
+## Detailed input cases
+
+<details markdown="1">
+<summary>Expand the complete argument-by-argument test matrix</summary>
+
 
 Each table changes **only the indicated argument** from the example above. Other arguments retain their baseline values. Values normally come from the input field `probe`; literal configuration arguments are replaced directly. “Missing” means the field is absent, not explicitly null. Numeric strings are strings, not numbers.
 
-### Argument: `value[0]`
+**Argument: `value[0]`**
 
 | Input case | Supplied value | SrotaX result |
 | --- | --- | --- |
@@ -67,45 +105,41 @@ Each table changes **only the indicated argument** from the example above. Other
 | object | {"x":1} | true |
 | ISO date string | "2026-01-15T15:00:00Z" | true |
 
-### Argument: `array[1]`
+**Argument: `array[1]`**
 
 | Input case | Supplied value | SrotaX result |
 | --- | --- | --- |
-| null | null | Error: IllegalArgumentException — $in requires the second argument to evaluate to an array |
-| missing | Field absent | Error: IllegalArgumentException — $in requires the second argument to evaluate to an array |
-| zero | 0 | Error: IllegalArgumentException — $in requires the second argument to evaluate to an array |
-| negative | -2 | Error: IllegalArgumentException — $in requires the second argument to evaluate to an array |
-| decimal | 2.5 | Error: IllegalArgumentException — $in requires the second argument to evaluate to an array |
-| numeric string | "12" | Error: IllegalArgumentException — $in requires the second argument to evaluate to an array |
-| text | "hello" | Error: IllegalArgumentException — $in requires the second argument to evaluate to an array |
-| empty string | "" | Error: IllegalArgumentException — $in requires the second argument to evaluate to an array |
-| boolean | true | Error: IllegalArgumentException — $in requires the second argument to evaluate to an array |
-| false | false | Error: IllegalArgumentException — $in requires the second argument to evaluate to an array |
-| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error: IllegalArgumentException — $in requires the second argument to evaluate to an array |
-| decimal128 | {"$numberDecimal":"1.25"} | Error: IllegalArgumentException — $in requires the second argument to evaluate to an array |
+| null | null | Error — $in requires the second argument to evaluate to an array |
+| missing | Field absent | Error — $in requires the second argument to evaluate to an array |
+| zero | 0 | Error — $in requires the second argument to evaluate to an array |
+| negative | -2 | Error — $in requires the second argument to evaluate to an array |
+| decimal | 2.5 | Error — $in requires the second argument to evaluate to an array |
+| numeric string | "12" | Error — $in requires the second argument to evaluate to an array |
+| text | "hello" | Error — $in requires the second argument to evaluate to an array |
+| empty string | "" | Error — $in requires the second argument to evaluate to an array |
+| boolean | true | Error — $in requires the second argument to evaluate to an array |
+| false | false | Error — $in requires the second argument to evaluate to an array |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error — $in requires the second argument to evaluate to an array |
+| decimal128 | {"$numberDecimal":"1.25"} | Error — $in requires the second argument to evaluate to an array |
 | empty array | [] | true |
 | numeric array | [1,2,3] | false |
 | mixed array | [1,null,"x",3] | true |
 | nested array | [[1,2],[3]] | true |
-| empty object | {} | Error: IllegalArgumentException — $in requires the second argument to evaluate to an array |
-| object | {"x":1} | Error: IllegalArgumentException — $in requires the second argument to evaluate to an array |
-| ISO date string | "2026-01-15T15:00:00Z" | Error: IllegalArgumentException — $in requires the second argument to evaluate to an array |
+| empty object | {} | Error — $in requires the second argument to evaluate to an array |
+| object | {"x":1} | Error — $in requires the second argument to evaluate to an array |
+| ISO date string | "2026-01-15T15:00:00Z" | Error — $in requires the second argument to evaluate to an array |
 
-## Invalid invocation shapes
 
-| Invocation | SrotaX result |
-| --- | --- |
-| {"$nin":[]} | Error: IllegalArgumentException — $in expects [searchExpr, candidates] |
-| {"$nin":{"unexpected":1}} | Error: IllegalArgumentException — $in expects [searchExpr, candidates] |
+</details>
 
-## Scope and reproducibility
+## Verification
 
 This page records **41 executed cases**. It covers individual argument substitutions, not every cross-product of arguments, locale, daylight-saving transitions, numeric overflow, collation or resource limits. No untested behavior is guaranteed.
 
 [Download exact expressions, inputs and SrotaX results](../../downloads/operator-behavior/nin.json). Errors are observed messages, not stable public error codes. The reference generator reads the checked-in execution report; do not edit generated observations by hand.
 
 <!-- BEGIN MONGO PARITY -->
-## MongoDB differences (removable section)
+## MongoDB differences
 
 This name is a SrotaX extension or belongs to another MongoDB context. It is **not compared as a MongoDB aggregation expression**. This is not a missing implementation failure.
 

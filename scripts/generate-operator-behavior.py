@@ -1,5 +1,6 @@
 """Generate engineer-facing operator pages from executed cases. Mongo sections are removable."""
-import argparse,json,collections,html
+import argparse,json,collections
+from operator_prose import parameter_description, syntax as operator_syntax
 from pathlib import Path
 root=Path(__file__).resolve().parents[1]
 p=argparse.ArgumentParser();p.add_argument('--report',type=Path,required=True);p.add_argument('--without-mongo',action='store_true');a=p.parse_args()
@@ -21,7 +22,7 @@ def plain(v):
   return {k:plain(x) for k,x in v.items()}
  return v
 def describe(v):
- if 'error' in v:return 'Error: '+v['error']+' — '+v.get('message','')[:180]
+ if 'error' in v:return 'Error — '+v.get('message',v['error'])[:180]
  if not v.get('present'):return 'Missing (field omitted)'
  raw=json.loads(v['bson'])['v']
  if isinstance(raw,dict) and len(raw)==1:
@@ -34,29 +35,60 @@ index=['# Operator behavior reference','',f"**{len(by)} registered expression op
 for d in catalog['engineOperators']:
  op=d['name'];slug=op[1:];cases=by[op];baseline=next(c for c in cases if c['kind']=='baseline')
  index.append(f"| [{op}](operators/{slug}.md) | {cell(d['description'])} | {len(cases)} |")
- lines=[f'# {op}','',d['description'].replace('Mongo 6 numeric format tokens','supported numeric format tokens').replace('Mongo-style','JSON-style'),'',f"**Category:** {d['category']}. **Studio Visual entry:** {'Available' if op in visual else 'Not exposed'}. This page describes Core expression execution; Studio also checks field types and authoring permissions.",'','## Syntax and arguments','']
+ lines=[f'# {op}', '', '## Definition', '', d['description'].replace('Mongo 6 numeric format tokens','supported numeric format tokens').replace('Mongo-style','JSON-style'), '', f"**Expression operator** · {d['category']} · Studio Visual: {'available' if op in visual else 'not exposed'}. Studio validates the complete expression separately.", '', '## Syntax', '', '```text', operator_syntax(d), '```', '', 'Replace angle-bracket placeholders with expressions or values.']
  syntax=d['argumentSyntax']
- lines += [{'SINGLE':'Supply one expression as the operator value.','POSITIONAL':'Supply an ordered array of arguments.','NAMED':'Supply an object with the named arguments below.'}[syntax],'']
- lines+=['| Argument | Metadata input types | Required | Evaluation |','| --- | --- | --- | --- |']
- for arg in d['operands']:lines.append(f"| `{arg['name']}` | {', '.join(arg['acceptedTypes'])} | {'Yes' if arg['required'] else 'No'} | {'Literal configuration' if arg.get('evaluation')=='LITERAL' else 'Expression evaluated against the input'} |")
- lines+=['',f"Argument count: minimum {d['minArguments']}; maximum {d['maxArguments'] if d['maxArguments']>=0 else 'variadic'}.",'',f"Declared result types: **{', '.join(d['resultTypes'])}**. Actual result types for tested inputs appear below. Metadata is an authoring hint; where a case differs, use the observed result and treat the discrepancy as a limitation."]
+ if syntax=='SINGLE':
+  lines+=['',parameter_description(op,d['operands'][0]), '', 'The value goes directly after the operator name; do not add an `input` wrapper.']
+ else:
+  lines+=['','Optional parameters may be omitted.','','## Parameters','','| Parameter | Required | Description |','| --- | --- | --- |']
+  for arg in d['operands']:
+   requirement='Yes' if arg['required'] else 'No'
+   if d['maxArguments']<0:requirement='See argument count below'
+   if op=='$dateFromParts' and arg['name'] in ['year','isoWeekYear']:requirement='One year form'
+   lines.append(f"| `{arg['name']}` | {requirement} | {parameter_description(op,arg)} |")
+  if syntax=='POSITIONAL':
+   lines+=['',f"Arguments are positional: keep the order shown. Supply {d['minArguments']} or more arguments." if d['maxArguments']<0 else f"Arguments are positional: keep the order shown. The authoring signature accepts {d['minArguments']}–{d['maxArguments']} arguments."]
+ if op=='$zip':lines+=['','`defaults` is also accepted by Core as a literal array of padding values, one per input array. It is used only with `useLongestLength: true`; missing padding entries use null. This option is not listed by the current Visual catalog.']
  if op in ['$sum','$avg','$min','$max']:
   lines+=['','A single array-valued expression is also supported, for example `{"'+op+'": "$items"}`. With multiple operands, array arguments are not recursively flattened.']
  if op=='$range':
   lines+=['','**Resource limit:** very large ranges can exhaust engine memory. Bound range sizes before execution; an extreme-endpoint probe exhausted the test JVM and is excluded from the bounded tables below.']
  if op=='$convert':
   lines+=['','Supported `to` target names: `array`, `object`, `bool`, `double`, `string`, `date`, `int`, `long`, `decimal`. Array/object conversion parses a JSON string with the matching root. `onError` supplies a conversion-failure fallback; `onNull` supplies a null/missing fallback. Native ObjectId and UUID authoring remain outside the supported SrotaX scope.']
+  lines+=['','## Supported values','','`to` accepts a **numeric BSON type code or a string type name**. Names are case-sensitive: use `"int"` or `"string"`, not `"INT"` or `"STRING"`.','','| String target | Numeric code | Result |','| --- | ---: | --- |','| `"double"` | `1` | Floating-point number |','| `"string"` | `2` | String |','| `"object"` | `3` | Object parsed from a JSON object string, existing object inputs are rejected |','| `"array"` | `4` | Array parsed from a JSON array string, existing array inputs are rejected |','| `"bool"` | `8` | Boolean |','| `"date"` | `9` | Date |','| `"int"` | `16` | Signed 32-bit integer |','| `"long"` | `18` | Signed 64-bit integer |','| `"decimal"` | `19` | Decimal number |','','Core additionally implements `"objectId"` / `7`, but native ObjectId authoring is outside SrotaX product scope. UUID is not a supported target.','','For example, these first two expressions both convert `"42"` to an integer; the third converts `42` to a string:',*code({'$convert':{'input':'42','to':'int'}}),'',*code({'$convert':{'input':'42','to':16}}),'',*code({'$convert':{'input':42,'to':'string'}}),'','With a non-null input, an unsupported string target throws unless `onError` is supplied. Unsupported numeric codes throw before `onError` is evaluated. A null input returns `onNull` (or null) before checking the target; a null target with non-null input returns null.']
+
+ if any(x['name']=='unit' for x in d['operands']):
+  lines+=['','## Supported values','','`unit`: `"year"`, `"quarter"`, `"month"`, `"week"`, `"day"`, `"hour"`, `"minute"`, `"second"`, `"millisecond"`. Names are case-sensitive. An omitted timezone defaults to UTC for these named date operators. Where supported, `startOfWeek` defaults to Sunday and accepts full weekday names or three-letter abbreviations, case-insensitively.']
+ if op in ['$regexFind','$regexFindAll','$regexMatch']:
+  lines+=['','## Supported values','','`options` accepts any combination of `i` (case-insensitive), `m` (multiline anchors), `s` (dot matches newlines), and `x` (ignore pattern whitespace/comments). Omit it or use `""` for no flags. Patterns use Java regular-expression behavior.']
+ if op in ['$median','$percentile']:
+  lines+=['','## Supported values','','`method` must be the literal `"approximate"`. See the results below for the engine’s numeric behavior.']
+ if op=='$function':
+  lines+=['','## Supported values','','`lang` must be `"js"` (case-insensitive). `body` is a JavaScript function string, for example `"function(x) { return x + 1; }"`. Arguments are evaluated before invocation. The engine applies a two-second execution timeout.']
+ if op in ['$dateToString','$dateFromString']:
+  tokens=['%Y','%m','%d','%H','%M','%S','%L','%j','%G','%V','%u','%z','%%']
+  if op=='$dateToString':tokens+=['%w','%U','%Z']
+  lines+=['','## Supported values','','Supported `format` tokens: '+', '.join('`'+t+'`' for t in tokens)+'. Unsupported tokens raise an error. For example, `%Y-%m-%d` represents year-month-day.']
+ lines+=['','## Behavior','','The following observations use the example expression below. Each row substitutes one argument while retaining the other example arguments. A missing field differs from an explicit null; the result shown is what Core actually returned.']
  if d['category'].lower().find('date')>=0:
-  lines+=['','**Test environment:** JVM timezone `America/Toronto`, locale `en-IN`. Some calendar operators use the JVM default timezone; results without an explicit timezone must not be assumed to use UTC. The tables record this environment.']
- lines+=['','## Example' ,'', 'Expression:',*code(baseline['expression']),'','Input document:',*code(baseline['input']),'', '**Observed SrotaX result:** '+result(baseline['srotax'])+'.']
+  lines+=['','Date cases use JVM timezone `America/Toronto` and locale `en-IN`. Named date operators with timezone support generally default to UTC; older single-date extraction operators can use the JVM timezone.']
+ primary=d['operands'][0]['name']
+ summary=[c for c in cases if c['kind'] in ['null','missing','decimal','numeric string','text','boolean','typed date','empty array','numeric array','object'] and c['operand'].split('[')[0]==primary]
+ if summary:
+  lines+=['','For the `'+primary+'` argument:','','| Input case | Supplied value | Result |','| --- | --- | --- |']
+  for c in summary:lines.append('| '+cell(c['kind'])+' | '+('Field absent' if c['kind']=='missing' else cell(compact(c['input'].get('probe',c['expression'][op]))))+' | '+result(c['srotax'])+' |')
+ lines+=['','### Argument handling','','| Invocation | Result |','| --- | --- |']
+ for c in cases:
+  if c['kind'] in ['empty arguments','unknown option']:lines.append('| '+cell(compact(c['expression']))+' | '+result(c['srotax'])+' |')
+ lines+=['','## Examples' ,'', 'Expression:',*code(baseline['expression']),'','Input document:',*code(baseline['input']),'', '**Observed SrotaX result:** '+result(baseline['srotax'])+'.']
  if 'error' in baseline['srotax']:
   lines+=['','This baseline is rejected by the engine. Registration does not imply this combination works.']
- lines+=['','## Behavior for different inputs','','Each table changes **only the indicated argument** from the example above. Other arguments retain their baseline values. Values normally come from the input field `probe`; literal configuration arguments are replaced directly. “Missing” means the field is absent, not explicitly null. Numeric strings are strings, not numbers.','']
+ lines+=['','## Detailed input cases','','<details markdown="1">','<summary>Expand the complete argument-by-argument test matrix</summary>','','','Each table changes **only the indicated argument** from the example above. Other arguments retain their baseline values. Values normally come from the input field `probe`; literal configuration arguments are replaced directly. “Missing” means the field is absent, not explicitly null. Numeric strings are strings, not numbers.','']
  groups=collections.defaultdict(list)
  for c in cases:
   if c['kind'] not in ['baseline','boundary example','empty arguments','unknown option']:groups[c['operand']].append(c)
  for operand,rows in groups.items():
-  lines+=['### Argument: `'+operand+'`','','| Input case | Supplied value | SrotaX result |','| --- | --- | --- |']
+  lines+=['**Argument: `'+operand+'`**','','| Input case | Supplied value | SrotaX result |','| --- | --- | --- |']
   for c in rows:
    if c['kind']=='omitted named argument':supplied='Argument removed'
    elif 'missing' in c['kind']:supplied='Field absent'
@@ -66,19 +98,17 @@ for d in catalog['engineOperators']:
     supplied=compact(args.get(argname)) if isinstance(args,dict) else compact(args)
    lines.append('| '+cell(c['kind'])+' | '+cell(supplied)+' | '+result(c['srotax'])+' |')
   lines.append('')
- lines+=['## Invalid invocation shapes','','| Invocation | SrotaX result |','| --- | --- |']
- for c in cases:
-  if c['kind'] in ['empty arguments','unknown option']:lines.append('| '+cell(compact(c['expression']))+' | '+result(c['srotax'])+' |')
+ lines+=['','</details>']
  extra=[c for c in cases if c['kind']=='boundary example']
  if extra:
-  lines+=['','## Additional boundary examples','','<details>','<summary>Show '+str(len(extra))+' tested examples</summary>','']
+  lines+=['','## Additional boundary examples','','<details markdown="1">','<summary>Show '+str(len(extra))+' tested examples</summary>','']
   for c in extra:lines+=['Expression:',*code(c['expression']),'','Input:',*code(c['input']),'','**SrotaX:** '+result(c['srotax'])+'.','']
   lines+=['</details>']
- lines+=['','## Scope and reproducibility','',f'This page records **{len(cases)} executed cases**. It covers individual argument substitutions, not every cross-product of arguments, locale, daylight-saving transitions, numeric overflow, collation or resource limits. No untested behavior is guaranteed.','',f'[Download exact expressions, inputs and SrotaX results](../../downloads/operator-behavior/{slug}.json). Errors are observed messages, not stable public error codes. The reference generator reads the checked-in execution report; do not edit generated observations by hand.']
+ lines+=['','## Verification','',f'This page records **{len(cases)} executed cases**. It covers individual argument substitutions, not every cross-product of arguments, locale, daylight-saving transitions, numeric overflow, collation or resource limits. No untested behavior is guaranteed.','',f'[Download exact expressions, inputs and SrotaX results](../../downloads/operator-behavior/{slug}.json). Errors are observed messages, not stable public error codes. The reference generator reads the checked-in execution report; do not edit generated observations by hand.']
  downloads=root/'docs/downloads/operator-behavior';downloads.mkdir(parents=True,exist_ok=True)
  (downloads/(slug+'.json')).write_text(json.dumps([{k:v for k,v in c.items() if k not in ['mongo','status']} for c in cases],indent=2)+'\n')
  if not a.without_mongo:
-  lines+=['','<!-- BEGIN MONGO PARITY -->','## MongoDB differences (removable section)','']
+  lines+=['','<!-- BEGIN MONGO PARITY -->','## MongoDB differences','']
   if cases[0]['status']=='NOT_COMPARABLE_EXPRESSION':lines+=['This name is a SrotaX extension or belongs to another MongoDB context. It is **not compared as a MongoDB aggregation expression**. This is not a missing implementation failure.']
   elif report['mongoVersion']=='not run':lines+=['Live MongoDB comparison has not run for these cases.']
   else:
@@ -86,8 +116,9 @@ for d in catalog['engineOperators']:
    lines += [f"Compared with **MongoDB {report['mongoVersion']}**: **{counts['EXACT_MATCH']} exact BSON matches**, **{counts['BOTH_REJECTED']} both rejected**, **{counts['DIFFERENCE']} value/type/acceptance differences**, **{counts['FIELD_ORDER_DIFFERENCE']} object-field-order differences**.",'','“Exact” includes numeric BSON types and object key order. A value of `3` as int32 differs from `3.0` as double. Object-field-order differences are reported separately; object key ordering is not enforced by the engine regression baseline. Both rejected does not mean the error codes or messages match. This is finite-case evidence, not full compatibility certification.']
    diff=[c for c in cases if c['status'].endswith('DIFFERENCE')]
    if diff:
-    lines+=['','| Tested case | SrotaX | MongoDB |','| --- | --- | --- |']
+    lines+=['','<details markdown="1">','<summary>Show observed differences</summary>','','| Tested case | SrotaX | MongoDB |','| --- | --- | --- |']
     for c in diff:lines.append('| '+cell(c['operand']+' / '+c['kind'])+' | '+result(c['srotax'])+' | '+result(c['mongo'])+' |')
+    lines+=['','</details>']
    else:lines+=['','No differences were observed in the compared cases.']
    parity=root/'docs/downloads/operator-parity';parity.mkdir(parents=True,exist_ok=True)
    (parity/(slug+'.json')).write_text(json.dumps(cases,indent=2)+'\n')

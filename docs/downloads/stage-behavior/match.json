@@ -1,0 +1,92 @@
+[
+  {
+    "id": "$match example",
+    "stage": "$match",
+    "kind": "example",
+    "pipeline": [
+      {
+        "$match": {
+          "score": {
+            "$gte": 10
+          }
+        }
+      }
+    ],
+    "input": [
+      {
+        "score": 5
+      },
+      {
+        "score": 12
+      }
+    ],
+    "result": [
+      {
+        "score": 12
+      }
+    ]
+  },
+  {
+    "id": "$match empty input",
+    "stage": "$match",
+    "kind": "empty input",
+    "pipeline": [
+      {
+        "$match": {
+          "score": {
+            "$gte": 10
+          }
+        }
+      }
+    ],
+    "input": [],
+    "result": []
+  },
+  {
+    "id": "$match invalid specification",
+    "stage": "$match",
+    "kind": "invalid specification",
+    "pipeline": [
+      {
+        "$match": null
+      }
+    ],
+    "input": [
+      {
+        "score": 5
+      },
+      {
+        "score": 12
+      }
+    ],
+    "error": "IllegalArgumentException",
+    "message": "$match stage requires a condition object"
+  },
+  {
+    "id": "$match null and missing",
+    "stage": "$match",
+    "kind": "null and missing",
+    "pipeline": [
+      {
+        "$match": {
+          "score": null
+        }
+      }
+    ],
+    "input": [
+      {},
+      {
+        "score": null
+      },
+      {
+        "score": 1
+      }
+    ],
+    "result": [
+      {},
+      {
+        "score": null
+      }
+    ]
+  }
+]

@@ -1,0 +1,94 @@
+[
+  {
+    "id": "$skip example",
+    "stage": "$skip",
+    "kind": "example",
+    "pipeline": [
+      {
+        "$skip": 1
+      }
+    ],
+    "input": [
+      {
+        "x": 1
+      },
+      {
+        "x": 2
+      }
+    ],
+    "result": [
+      {
+        "x": 2
+      }
+    ]
+  },
+  {
+    "id": "$skip empty input",
+    "stage": "$skip",
+    "kind": "empty input",
+    "pipeline": [
+      {
+        "$skip": 1
+      }
+    ],
+    "input": [],
+    "result": []
+  },
+  {
+    "id": "$skip invalid specification",
+    "stage": "$skip",
+    "kind": "invalid specification",
+    "pipeline": [
+      {
+        "$skip": null
+      }
+    ],
+    "input": [
+      {
+        "x": 1
+      },
+      {
+        "x": 2
+      }
+    ],
+    "error": "IllegalArgumentException",
+    "message": "$skip stage requires a numeric argument"
+  },
+  {
+    "id": "$skip negative count",
+    "stage": "$skip",
+    "kind": "negative count",
+    "pipeline": [
+      {
+        "$skip": -1
+      }
+    ],
+    "input": [
+      {
+        "x": 1
+      }
+    ],
+    "error": "IllegalArgumentException",
+    "message": "$skip cannot be negative"
+  },
+  {
+    "id": "$skip zero count",
+    "stage": "$skip",
+    "kind": "zero count",
+    "pipeline": [
+      {
+        "$skip": 0
+      }
+    ],
+    "input": [
+      {
+        "x": 1
+      }
+    ],
+    "result": [
+      {
+        "x": 1
+      }
+    ]
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "$replaceWith example",
+    "stage": "$replaceWith",
+    "kind": "example",
+    "pipeline": [
+      {
+        "$replaceWith": "$address"
+      }
+    ],
+    "input": [
+      {
+        "name": "Alice",
+        "address": {
+          "city": "Toronto"
+        }
+      }
+    ],
+    "result": [
+      {
+        "city": "Toronto"
+      }
+    ]
+  },
+  {
+    "id": "$replaceWith empty input",
+    "stage": "$replaceWith",
+    "kind": "empty input",
+    "pipeline": [
+      {
+        "$replaceWith": "$address"
+      }
+    ],
+    "input": [],
+    "result": []
+  },
+  {
+    "id": "$replaceWith invalid specification",
+    "stage": "$replaceWith",
+    "kind": "invalid specification",
+    "pipeline": [
+      {
+        "$replaceWith": null
+      }
+    ],
+    "input": [
+      {
+        "name": "Alice",
+        "address": {
+          "city": "Toronto"
+        }
+      }
+    ],
+    "error": "IllegalArgumentException",
+    "message": "$replaceWith stage requires an expression"
+  },
+  {
+    "id": "$replaceWith missing root",
+    "stage": "$replaceWith",
+    "kind": "missing root",
+    "pipeline": [
+      {
+        "$replaceWith": "$address"
+      }
+    ],
+    "input": [
+      {}
+    ],
+    "error": "IllegalArgumentException",
+    "message": "$replaceRoot evaluated to non-object: null"
+  }
+]

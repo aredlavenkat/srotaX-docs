@@ -1,24 +1,66 @@
 # $percentile
 
+## Definition
+
 Computes single-document statistics, ignoring nonnumeric values.
 
-**Category:** Statistics. **Studio Visual entry:** Available. This page describes Core expression execution; Studio also checks field types and authoring permissions.
+**Expression operator** · Statistics · Studio Visual: available. Studio validates the complete expression separately.
 
-## Syntax and arguments
+## Syntax
 
-Supply an object with the named arguments below.
+```text
+{
+  "$percentile": {
+    "input": <input>,
+    "p": <p>,
+    "method": <method>
+  }
+}
+```
 
-| Argument | Metadata input types | Required | Evaluation |
-| --- | --- | --- | --- |
-| `input` | ANY | Yes | Expression evaluated against the input |
-| `p` | ARRAY | Yes | Literal configuration |
-| `method` | STRING | Yes | Literal configuration |
+Replace angle-bracket placeholders with expressions or values.
 
-Argument count: minimum 3; maximum 3.
+Optional parameters may be omitted.
 
-Declared result types: **ARRAY**. Actual result types for tested inputs appear below. Metadata is an authoring hint; where a case differs, use the observed result and treat the discrepancy as a limitation.
+## Parameters
 
-## Example
+| Parameter | Required | Description |
+| --- | --- | --- |
+| `input` | Yes | Expression supplying the value to process. A field reference such as `"$price"` reads from the current document. |
+| `p` | Yes | Array of requested percentiles, each between `0` and `1` inclusive. |
+| `method` | Yes | Literal `"approximate"`. Other method names are rejected. |
+
+## Supported values
+
+`method` must be the literal `"approximate"`. See the results below for the engine’s numeric behavior.
+
+## Behavior
+
+The following observations use the example expression below. Each row substitutes one argument while retaining the other example arguments. A missing field differs from an explicit null; the result shown is what Core actually returned.
+
+For the `input` argument:
+
+| Input case | Supplied value | Result |
+| --- | --- | --- |
+| null | null | [null,null,null] |
+| missing | Field absent | [null,null,null] |
+| decimal | 2.5 | [2.5,2.5,2.5] |
+| numeric string | "12" | [null,null,null] |
+| text | "hello" | [null,null,null] |
+| boolean | true | [null,null,null] |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | [null,null,null] |
+| empty array | [] | [null,null,null] |
+| numeric array | [1,2,3] | [1.0,2.0,3.0] |
+| object | {"x":1} | [null,null,null] |
+
+### Argument handling
+
+| Invocation | Result |
+| --- | --- |
+| {"$percentile":[]} | Error — $percentile requires [method, p, input] |
+| {"$percentile":{"unexpected":1}} | Error — $percentile requires [method, p, input] |
+
+## Examples
 
 Expression:
 ```json
@@ -47,11 +89,15 @@ Input document:
 
 **Observed SrotaX result:** [10.0,20.0,40.0].
 
-## Behavior for different inputs
+## Detailed input cases
+
+<details markdown="1">
+<summary>Expand the complete argument-by-argument test matrix</summary>
+
 
 Each table changes **only the indicated argument** from the example above. Other arguments retain their baseline values. Values normally come from the input field `probe`; literal configuration arguments are replaced directly. “Missing” means the field is absent, not explicitly null. Numeric strings are strings, not numbers.
 
-### Argument: `input`
+**Argument: `input`**
 
 | Input case | Supplied value | SrotaX result |
 | --- | --- | --- |
@@ -74,66 +120,62 @@ Each table changes **only the indicated argument** from the example above. Other
 | empty object | {} | [null,null,null] |
 | object | {"x":1} | [null,null,null] |
 | ISO date string | "2026-01-15T15:00:00Z" | [null,null,null] |
-| omitted named argument | Argument removed | Error: IllegalArgumentException — $percentile requires [method, p, input] |
+| omitted named argument | Argument removed | Error — $percentile requires [method, p, input] |
 
-### Argument: `p`
-
-| Input case | Supplied value | SrotaX result |
-| --- | --- | --- |
-| null | null | Error: IllegalArgumentException — $percentile p must be an array |
-| zero | 0 | Error: IllegalArgumentException — $percentile p must be an array |
-| negative | -2 | Error: IllegalArgumentException — $percentile p must be an array |
-| decimal | 2.5 | Error: IllegalArgumentException — $percentile p must be an array |
-| numeric string | "12" | Error: IllegalArgumentException — $percentile p must be an array |
-| text | "hello" | Error: IllegalArgumentException — $percentile p must be an array |
-| empty string | "" | Error: IllegalArgumentException — $percentile p must be an array |
-| boolean | true | Error: IllegalArgumentException — $percentile p must be an array |
-| false | false | Error: IllegalArgumentException — $percentile p must be an array |
-| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error: IllegalArgumentException — $percentile p must be an array |
-| decimal128 | {"$numberDecimal":"1.25"} | Error: IllegalArgumentException — $percentile p must be an array |
-| empty array | [] | Error: IllegalArgumentException — $percentile p must be an array |
-| numeric array | [1,2,3] | Error: IllegalArgumentException — $percentile p values must be numbers from 0 to 1 |
-| mixed array | [1,null,"x",3] | Error: IllegalArgumentException — $percentile p values must be numbers from 0 to 1 |
-| nested array | [[1,2],[3]] | Error: IllegalArgumentException — $percentile p values must be numbers from 0 to 1 |
-| empty object | {} | Error: IllegalArgumentException — $percentile p must be an array |
-| object | {"x":1} | Error: IllegalArgumentException — $percentile p must be an array |
-| ISO date string | "2026-01-15T15:00:00Z" | Error: IllegalArgumentException — $percentile p must be an array |
-| omitted named argument | Argument removed | Error: IllegalArgumentException — $percentile requires [method, p, input] |
-
-### Argument: `method`
+**Argument: `p`**
 
 | Input case | Supplied value | SrotaX result |
 | --- | --- | --- |
-| null | null | Error: IllegalArgumentException — $percentile method must be the literal string approximate |
-| zero | 0 | Error: IllegalArgumentException — $percentile method must be the literal string approximate |
-| negative | -2 | Error: IllegalArgumentException — $percentile method must be the literal string approximate |
-| decimal | 2.5 | Error: IllegalArgumentException — $percentile method must be the literal string approximate |
-| numeric string | "12" | Error: IllegalArgumentException — $percentile method must be the literal string approximate |
-| text | "hello" | Error: IllegalArgumentException — $percentile method must be the literal string approximate |
-| empty string | "" | Error: IllegalArgumentException — $percentile method must be the literal string approximate |
-| boolean | true | Error: IllegalArgumentException — $percentile method must be the literal string approximate |
-| false | false | Error: IllegalArgumentException — $percentile method must be the literal string approximate |
-| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error: IllegalArgumentException — $percentile method must be the literal string approximate |
-| decimal128 | {"$numberDecimal":"1.25"} | Error: IllegalArgumentException — $percentile method must be the literal string approximate |
-| empty array | [] | Error: IllegalArgumentException — $percentile method must be the literal string approximate |
-| numeric array | [1,2,3] | Error: IllegalArgumentException — $percentile method must be the literal string approximate |
-| mixed array | [1,null,"x",3] | Error: IllegalArgumentException — $percentile method must be the literal string approximate |
-| nested array | [[1,2],[3]] | Error: IllegalArgumentException — $percentile method must be the literal string approximate |
-| empty object | {} | Error: IllegalArgumentException — $percentile method must be the literal string approximate |
-| object | {"x":1} | Error: IllegalArgumentException — $percentile method must be the literal string approximate |
-| ISO date string | "2026-01-15T15:00:00Z" | Error: IllegalArgumentException — $percentile method must be the literal string approximate |
-| omitted named argument | Argument removed | Error: IllegalArgumentException — $percentile requires [method, p, input] |
+| null | null | Error — $percentile p must be an array |
+| zero | 0 | Error — $percentile p must be an array |
+| negative | -2 | Error — $percentile p must be an array |
+| decimal | 2.5 | Error — $percentile p must be an array |
+| numeric string | "12" | Error — $percentile p must be an array |
+| text | "hello" | Error — $percentile p must be an array |
+| empty string | "" | Error — $percentile p must be an array |
+| boolean | true | Error — $percentile p must be an array |
+| false | false | Error — $percentile p must be an array |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error — $percentile p must be an array |
+| decimal128 | {"$numberDecimal":"1.25"} | Error — $percentile p must be an array |
+| empty array | [] | Error — $percentile p must be an array |
+| numeric array | [1,2,3] | Error — $percentile p values must be numbers from 0 to 1 |
+| mixed array | [1,null,"x",3] | Error — $percentile p values must be numbers from 0 to 1 |
+| nested array | [[1,2],[3]] | Error — $percentile p values must be numbers from 0 to 1 |
+| empty object | {} | Error — $percentile p must be an array |
+| object | {"x":1} | Error — $percentile p must be an array |
+| ISO date string | "2026-01-15T15:00:00Z" | Error — $percentile p must be an array |
+| omitted named argument | Argument removed | Error — $percentile requires [method, p, input] |
 
-## Invalid invocation shapes
+**Argument: `method`**
 
-| Invocation | SrotaX result |
-| --- | --- |
-| {"$percentile":[]} | Error: IllegalArgumentException — $percentile requires [method, p, input] |
-| {"$percentile":{"unexpected":1}} | Error: IllegalArgumentException — $percentile requires [method, p, input] |
+| Input case | Supplied value | SrotaX result |
+| --- | --- | --- |
+| null | null | Error — $percentile method must be the literal string approximate |
+| zero | 0 | Error — $percentile method must be the literal string approximate |
+| negative | -2 | Error — $percentile method must be the literal string approximate |
+| decimal | 2.5 | Error — $percentile method must be the literal string approximate |
+| numeric string | "12" | Error — $percentile method must be the literal string approximate |
+| text | "hello" | Error — $percentile method must be the literal string approximate |
+| empty string | "" | Error — $percentile method must be the literal string approximate |
+| boolean | true | Error — $percentile method must be the literal string approximate |
+| false | false | Error — $percentile method must be the literal string approximate |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error — $percentile method must be the literal string approximate |
+| decimal128 | {"$numberDecimal":"1.25"} | Error — $percentile method must be the literal string approximate |
+| empty array | [] | Error — $percentile method must be the literal string approximate |
+| numeric array | [1,2,3] | Error — $percentile method must be the literal string approximate |
+| mixed array | [1,null,"x",3] | Error — $percentile method must be the literal string approximate |
+| nested array | [[1,2],[3]] | Error — $percentile method must be the literal string approximate |
+| empty object | {} | Error — $percentile method must be the literal string approximate |
+| object | {"x":1} | Error — $percentile method must be the literal string approximate |
+| ISO date string | "2026-01-15T15:00:00Z" | Error — $percentile method must be the literal string approximate |
+| omitted named argument | Argument removed | Error — $percentile requires [method, p, input] |
+
+
+</details>
 
 ## Additional boundary examples
 
-<details>
+<details markdown="1">
 <summary>Show 25 tested examples</summary>
 
 Expression:
@@ -581,7 +623,7 @@ Input:
 {}
 ```
 
-**SrotaX:** Error: IllegalArgumentException — $percentile method must be the literal string approximate.
+**SrotaX:** Error — $percentile method must be the literal string approximate.
 
 Expression:
 ```json
@@ -605,7 +647,7 @@ Input:
 {}
 ```
 
-**SrotaX:** Error: IllegalArgumentException — $percentile method must be the literal string approximate.
+**SrotaX:** Error — $percentile method must be the literal string approximate.
 
 Expression:
 ```json
@@ -631,7 +673,7 @@ Input:
 {}
 ```
 
-**SrotaX:** Error: IllegalArgumentException — $percentile method must be the literal string approximate.
+**SrotaX:** Error — $percentile method must be the literal string approximate.
 
 Expression:
 ```json
@@ -658,7 +700,7 @@ Input:
 }
 ```
 
-**SrotaX:** Error: IllegalArgumentException — $percentile p must be an array.
+**SrotaX:** Error — $percentile p must be an array.
 
 Expression:
 ```json
@@ -687,7 +729,7 @@ Input:
 }
 ```
 
-**SrotaX:** Error: IllegalArgumentException — $percentile p values must be numbers from 0 to 1.
+**SrotaX:** Error — $percentile p values must be numbers from 0 to 1.
 
 Expression:
 ```json
@@ -716,7 +758,7 @@ Input:
 }
 ```
 
-**SrotaX:** Error: IllegalArgumentException — $percentile p values must be numbers from 0 to 1.
+**SrotaX:** Error — $percentile p values must be numbers from 0 to 1.
 
 Expression:
 ```json
@@ -745,7 +787,7 @@ Input:
 }
 ```
 
-**SrotaX:** Error: IllegalArgumentException — $percentile p values must be numbers from 0 to 1.
+**SrotaX:** Error — $percentile p values must be numbers from 0 to 1.
 
 Expression:
 ```json
@@ -774,7 +816,7 @@ Input:
 }
 ```
 
-**SrotaX:** Error: IllegalArgumentException — $percentile p values must be numbers from 0 to 1.
+**SrotaX:** Error — $percentile p values must be numbers from 0 to 1.
 
 Expression:
 ```json
@@ -832,7 +874,7 @@ Input:
 }
 ```
 
-**SrotaX:** Error: IllegalArgumentException — $percentile p must be constant.
+**SrotaX:** Error — $percentile p must be constant.
 
 Expression:
 ```json
@@ -870,14 +912,14 @@ Input:
 
 </details>
 
-## Scope and reproducibility
+## Verification
 
 This page records **86 executed cases**. It covers individual argument substitutions, not every cross-product of arguments, locale, daylight-saving transitions, numeric overflow, collation or resource limits. No untested behavior is guaranteed.
 
 [Download exact expressions, inputs and SrotaX results](../../downloads/operator-behavior/percentile.json). Errors are observed messages, not stable public error codes. The reference generator reads the checked-in execution report; do not edit generated observations by hand.
 
 <!-- BEGIN MONGO PARITY -->
-## MongoDB differences (removable section)
+## MongoDB differences
 
 Compared with **MongoDB 9.0.4**: **36 exact BSON matches**, **50 both rejected**, **0 value/type/acceptance differences**, **0 object-field-order differences**.
 

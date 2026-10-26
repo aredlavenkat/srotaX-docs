@@ -1,22 +1,50 @@
 # $bitNot
 
+## Definition
+
 Flips int32 or int64 bits, preserving integer width.
 
-**Category:** Bitwise. **Studio Visual entry:** Available. This page describes Core expression execution; Studio also checks field types and authoring permissions.
+**Expression operator** · Bitwise · Studio Visual: available. Studio validates the complete expression separately.
 
-## Syntax and arguments
+## Syntax
 
-Supply one expression as the operator value.
+```text
+{ "$bitNot": <expression> }
+```
 
-| Argument | Metadata input types | Required | Evaluation |
-| --- | --- | --- | --- |
-| `value` | INT, LONG, MISSING, NULL | Yes | Expression evaluated against the input |
+Replace angle-bracket placeholders with expressions or values.
 
-Argument count: minimum 1; maximum 1.
+Expression supplying the value to evaluate.
 
-Declared result types: **INT, LONG, NULL**. Actual result types for tested inputs appear below. Metadata is an authoring hint; where a case differs, use the observed result and treat the discrepancy as a limitation.
+The value goes directly after the operator name; do not add an `input` wrapper.
 
-## Example
+## Behavior
+
+The following observations use the example expression below. Each row substitutes one argument while retaining the other example arguments. A missing field differs from an explicit null; the result shown is what Core actually returned.
+
+For the `value` argument:
+
+| Input case | Supplied value | Result |
+| --- | --- | --- |
+| null | null | null |
+| missing | Field absent | null |
+| decimal | 2.5 | Error — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
+| numeric string | "12" | Error — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
+| text | "hello" | Error — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
+| boolean | true | Error — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
+| empty array | [] | Error — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
+| numeric array | [1,2,3] | Error — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
+| object | {"x":1} | Error — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
+
+### Argument handling
+
+| Invocation | Result |
+| --- | --- |
+| {"$bitNot":[]} | Error — $bitNot requires exactly one operand |
+| {"$bitNot":{"unexpected":1}} | Error — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
+
+## Examples
 
 Expression:
 ```json
@@ -32,11 +60,15 @@ Input document:
 
 **Observed SrotaX result:** -6 (int32).
 
-## Behavior for different inputs
+## Detailed input cases
+
+<details markdown="1">
+<summary>Expand the complete argument-by-argument test matrix</summary>
+
 
 Each table changes **only the indicated argument** from the example above. Other arguments retain their baseline values. Values normally come from the input field `probe`; literal configuration arguments are replaced directly. “Missing” means the field is absent, not explicitly null. Numeric strings are strings, not numbers.
 
-### Argument: `value`
+**Argument: `value`**
 
 | Input case | Supplied value | SrotaX result |
 | --- | --- | --- |
@@ -44,32 +76,28 @@ Each table changes **only the indicated argument** from the example above. Other
 | missing | Field absent | null |
 | zero | 0 | -1 (int32) |
 | negative | -2 | 1 (int32) |
-| decimal | 2.5 | Error: IllegalArgumentException — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
-| numeric string | "12" | Error: IllegalArgumentException — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
-| text | "hello" | Error: IllegalArgumentException — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
-| empty string | "" | Error: IllegalArgumentException — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
-| boolean | true | Error: IllegalArgumentException — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
-| false | false | Error: IllegalArgumentException — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
-| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error: IllegalArgumentException — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
-| decimal128 | {"$numberDecimal":"1.25"} | Error: IllegalArgumentException — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
-| empty array | [] | Error: IllegalArgumentException — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
-| numeric array | [1,2,3] | Error: IllegalArgumentException — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
-| mixed array | [1,null,"x",3] | Error: IllegalArgumentException — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
-| nested array | [[1,2],[3]] | Error: IllegalArgumentException — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
-| empty object | {} | Error: IllegalArgumentException — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
-| object | {"x":1} | Error: IllegalArgumentException — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
-| ISO date string | "2026-01-15T15:00:00Z" | Error: IllegalArgumentException — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
+| decimal | 2.5 | Error — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
+| numeric string | "12" | Error — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
+| text | "hello" | Error — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
+| empty string | "" | Error — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
+| boolean | true | Error — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
+| false | false | Error — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
+| decimal128 | {"$numberDecimal":"1.25"} | Error — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
+| empty array | [] | Error — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
+| numeric array | [1,2,3] | Error — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
+| mixed array | [1,null,"x",3] | Error — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
+| nested array | [[1,2],[3]] | Error — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
+| empty object | {} | Error — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
+| object | {"x":1} | Error — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
+| ISO date string | "2026-01-15T15:00:00Z" | Error — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
 
-## Invalid invocation shapes
 
-| Invocation | SrotaX result |
-| --- | --- |
-| {"$bitNot":[]} | Error: IllegalArgumentException — $bitNot requires exactly one operand |
-| {"$bitNot":{"unexpected":1}} | Error: IllegalArgumentException — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly |
+</details>
 
 ## Additional boundary examples
 
-<details>
+<details markdown="1">
 <summary>Show 15 tested examples</summary>
 
 Expression:
@@ -170,7 +198,7 @@ Input:
 }
 ```
 
-**SrotaX:** Error: IllegalArgumentException — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly.
+**SrotaX:** Error — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly.
 
 Expression:
 ```json
@@ -188,7 +216,7 @@ Input:
 }
 ```
 
-**SrotaX:** Error: IllegalArgumentException — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly.
+**SrotaX:** Error — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly.
 
 Expression:
 ```json
@@ -204,7 +232,7 @@ Input:
 }
 ```
 
-**SrotaX:** Error: IllegalArgumentException — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly.
+**SrotaX:** Error — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly.
 
 Expression:
 ```json
@@ -222,7 +250,7 @@ Input:
 }
 ```
 
-**SrotaX:** Error: IllegalArgumentException — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly.
+**SrotaX:** Error — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly.
 
 Expression:
 ```json
@@ -252,7 +280,7 @@ Input:
 {}
 ```
 
-**SrotaX:** Error: IllegalArgumentException — $bitNot requires exactly one operand.
+**SrotaX:** Error — $bitNot requires exactly one operand.
 
 Expression:
 ```json
@@ -269,7 +297,7 @@ Input:
 {}
 ```
 
-**SrotaX:** Error: IllegalArgumentException — $bitNot requires exactly one operand.
+**SrotaX:** Error — $bitNot requires exactly one operand.
 
 Expression:
 ```json
@@ -317,18 +345,18 @@ Input:
 {}
 ```
 
-**SrotaX:** Error: IllegalArgumentException — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly.
+**SrotaX:** Error — $bitNot requires an int32 or int64; use $toInt or $toLong explicitly.
 
 </details>
 
-## Scope and reproducibility
+## Verification
 
 This page records **37 executed cases**. It covers individual argument substitutions, not every cross-product of arguments, locale, daylight-saving transitions, numeric overflow, collation or resource limits. No untested behavior is guaranteed.
 
 [Download exact expressions, inputs and SrotaX results](../../downloads/operator-behavior/bitNot.json). Errors are observed messages, not stable public error codes. The reference generator reads the checked-in execution report; do not edit generated observations by hand.
 
 <!-- BEGIN MONGO PARITY -->
-## MongoDB differences (removable section)
+## MongoDB differences
 
 Compared with **MongoDB 9.0.4**: **13 exact BSON matches**, **24 both rejected**, **0 value/type/acceptance differences**, **0 object-field-order differences**.
 

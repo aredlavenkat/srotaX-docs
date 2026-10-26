@@ -1,0 +1,732 @@
+[
+  {
+    "name": "$match",
+    "category": "Filter and order",
+    "definition": "Retains documents that satisfy a condition object.",
+    "syntax": {
+      "$match": {
+        "score": {
+          "$gte": 10
+        }
+      }
+    },
+    "parameters": [
+      {
+        "name": "condition",
+        "required": "Yes",
+        "description": "Field predicates or logical expressions. Use `$expr` for an expression comparison."
+      }
+    ],
+    "behavior": [
+      "All top-level field predicates must match. An empty condition retains all documents.",
+      "`$expr` retains a document only when its expression returns boolean true.",
+      "A failed match removes the document from the output list; it does not modify the document.",
+      "Supported field predicates: `$eq`, `$ne`, `$gt`, `$gte`, `$lt`, `$lte`, `$in`, `$nin`, `$exists`, `$size`, `$all`, `$elemMatch`, `$regex` (with `$options`), `$type`, `$not`. Logical groups: `$and`, `$or`, `$nor`, `$not`."
+    ],
+    "limitations": [
+      "Query predicates and expression operators have different argument shapes. The expression parity suite does not certify query matching."
+    ]
+  },
+  {
+    "name": "$addFields",
+    "category": "Reshape documents",
+    "definition": "Adds or replaces fields while retaining other fields.",
+    "syntax": {
+      "$addFields": {
+        "total": {
+          "$multiply": [
+            "$quantity",
+            "$price"
+          ]
+        }
+      }
+    },
+    "parameters": [
+      {
+        "name": "field: expression",
+        "required": "Yes",
+        "description": "Destination field path and expression. A dotted path writes a nested object field."
+      }
+    ],
+    "behavior": [
+      "One output document is returned for each input document.",
+      "Direct field expressions read the incoming document. Use a later stage when one assignment depends on a previous assignment.",
+      "Nested writes use shallow document copies in this handler. Do not rely on direct Core stage calls to provide SrotaX\u2019s immutable-input authoring guarantees."
+    ],
+    "limitations": []
+  },
+  {
+    "name": "$set",
+    "category": "Reshape documents",
+    "definition": "Adds or replaces fields while retaining other fields.",
+    "syntax": {
+      "$set": {
+        "total": {
+          "$multiply": [
+            "$quantity",
+            "$price"
+          ]
+        }
+      }
+    },
+    "parameters": [
+      {
+        "name": "field: expression",
+        "required": "Yes",
+        "description": "Destination field path and expression. A dotted path writes a nested object field."
+      }
+    ],
+    "behavior": [
+      "One output document is returned for each input document.",
+      "Direct field expressions read the incoming document. Use a later stage when one assignment depends on a previous assignment.",
+      "Nested writes use shallow document copies in this handler. Do not rely on direct Core stage calls to provide SrotaX\u2019s immutable-input authoring guarantees."
+    ],
+    "limitations": []
+  },
+  {
+    "name": "$project",
+    "category": "Reshape documents",
+    "definition": "Builds each output document from explicitly selected or computed fields.",
+    "syntax": {
+      "$project": {
+        "name": 1,
+        "total": {
+          "$multiply": [
+            "$quantity",
+            "$price"
+          ]
+        }
+      }
+    },
+    "parameters": [
+      {
+        "name": "field: 1",
+        "required": "No",
+        "description": "Copy the named field."
+      },
+      {
+        "name": "field: 0",
+        "required": "No",
+        "description": "Skip this field when building the new document."
+      },
+      {
+        "name": "field: expression",
+        "required": "No",
+        "description": "Compute the destination field. Use `$literal` to assign a literal 0 or 1."
+      }
+    ],
+    "behavior": [
+      "Only fields explicitly added by the specification appear in the output. `_id` is not included automatically.",
+      "A zero entry is skipped; an exclusion-only projection returns an empty object rather than all other fields. Use `$unset` to remove fields while retaining the rest.",
+      "The handler recognizes numeric 0/1 flags. Boolean values are computed values, not inclusion/exclusion flags."
+    ],
+    "limitations": [
+      "MongoDB supports exclusion projections and includes `_id` by default; this handler does neither."
+    ]
+  },
+  {
+    "name": "$unset",
+    "category": "Reshape documents",
+    "definition": "Removes named fields from each document.",
+    "syntax": {
+      "$unset": [
+        "internal",
+        "address.secret"
+      ]
+    },
+    "parameters": [
+      {
+        "name": "fields",
+        "required": "Yes",
+        "description": "A field-name string or an array of field-name strings. Dotted paths traverse nested objects."
+      }
+    ],
+    "behavior": [
+      "Other fields remain in the output. Missing paths are ignored.",
+      "The handler copies the top-level object only; nested removal can affect shared nested maps in direct Core calls."
+    ],
+    "limitations": []
+  },
+  {
+    "name": "$limit",
+    "category": "Filter and order",
+    "definition": "Keeps the first N documents.",
+    "syntax": {
+      "$limit": 1
+    },
+    "parameters": [
+      {
+        "name": "count",
+        "required": "Yes",
+        "description": "Nonnegative numeric count. Use an integer; the handler converts a Number through Java intValue()."
+      }
+    ],
+    "behavior": [
+      "Document order is preserved.",
+      "Zero returns an empty list.",
+      "Negative values raise an error. A count larger than the list returns the whole list."
+    ],
+    "limitations": [
+      "Core accepts zero and truncates fractional numeric counts. Do not infer MongoDB argument validation from this permissive conversion."
+    ]
+  },
+  {
+    "name": "$skip",
+    "category": "Filter and order",
+    "definition": "Drops the first N documents.",
+    "syntax": {
+      "$skip": 1
+    },
+    "parameters": [
+      {
+        "name": "count",
+        "required": "Yes",
+        "description": "Nonnegative numeric count. Use an integer; the handler converts a Number through Java intValue()."
+      }
+    ],
+    "behavior": [
+      "Document order is preserved.",
+      "Zero retains all input documents.",
+      "Negative values raise an error. A count larger than the list returns an empty list."
+    ],
+    "limitations": [
+      "Core accepts zero and truncates fractional numeric counts. Do not infer MongoDB argument validation from this permissive conversion."
+    ]
+  },
+  {
+    "name": "$sort",
+    "category": "Filter and order",
+    "definition": "Orders documents by one or more fields.",
+    "syntax": {
+      "$sort": {
+        "score": -1,
+        "name": 1
+      }
+    },
+    "parameters": [
+      {
+        "name": "field: direction",
+        "required": "Yes",
+        "description": "Sort field path and direction: `1` ascending or `-1` descending. Fields are compared in specification order."
+      }
+    ],
+    "behavior": [
+      "Sorts the document list, not an array inside one document. Use the `$sortArray` expression for an array.",
+      "Equal keys keep their incoming order. Missing/null values sort before non-null values in ascending order.",
+      "Unsupported comparison values fall back to their string representations. There is no database collation setting."
+    ],
+    "limitations": [
+      "The implementation uses Core value comparison and a string fallback, not database collation."
+    ]
+  },
+  {
+    "name": "$unwind",
+    "category": "Reshape documents",
+    "definition": "Produces one document for each element of an array field.",
+    "syntax": {
+      "$unwind": "$items"
+    },
+    "parameters": [
+      {
+        "name": "path",
+        "required": "Yes",
+        "description": "String field path, normally prefixed with `$`. Only the string form is implemented."
+      }
+    ],
+    "behavior": [
+      "An empty array, null or missing field emits no document.",
+      "A non-null scalar emits the original document once.",
+      "Nested field handling uses shallow copies; prefer array expressions for document-local list transformations."
+    ],
+    "limitations": [
+      "The object form with `includeArrayIndex` or `preserveNullAndEmptyArrays` is not implemented."
+    ]
+  },
+  {
+    "name": "$replaceRoot",
+    "category": "Reshape documents",
+    "definition": "Replaces the entire document with an object expression.",
+    "syntax": {
+      "$replaceRoot": {
+        "newRoot": "$address"
+      }
+    },
+    "parameters": [
+      {
+        "name": "newRoot",
+        "required": "Yes",
+        "description": "Expression resolving to an object. The object becomes the complete output document."
+      }
+    ],
+    "behavior": [
+      "The result must be an object. Null, missing or scalar values raise an error.",
+      "Other fields from the original document are not retained."
+    ],
+    "limitations": []
+  },
+  {
+    "name": "$replaceWith",
+    "category": "Reshape documents",
+    "definition": "Replaces the entire document with an object expression.",
+    "syntax": {
+      "$replaceWith": "$address"
+    },
+    "parameters": [
+      {
+        "name": "expression",
+        "required": "Yes",
+        "description": "Expression resolving to an object. The object becomes the complete output document."
+      }
+    ],
+    "behavior": [
+      "The result must be an object. Null, missing or scalar values raise an error.",
+      "Other fields from the original document are not retained."
+    ],
+    "limitations": []
+  },
+  {
+    "name": "$group",
+    "category": "Group and summarize",
+    "definition": "Combines documents sharing a grouping key and computes accumulator outputs.",
+    "syntax": {
+      "$group": {
+        "_id": "$category",
+        "total": {
+          "$sum": "$amount"
+        }
+      }
+    },
+    "parameters": [
+      {
+        "name": "_id",
+        "required": "Yes",
+        "description": "Grouping expression; use null for one group across all documents."
+      },
+      {
+        "name": "field: accumulator",
+        "required": "No",
+        "description": "One accumulator expression per output field, for example `{\"$sum\":\"$amount\"}`."
+      }
+    ],
+    "behavior": [
+      "Produces one output per grouping key; this is a list-level aggregation.",
+      "Accumulator operators run in grouping context, separate from expression operators with the same names.",
+      "Use a fresh execution context for independent requests; reusing a state store can accumulate groups across calls."
+    ],
+    "limitations": [
+      "Expression-operator parity results do not certify grouping accumulators."
+    ]
+  },
+  {
+    "name": "$sortByCount",
+    "category": "Group and summarize",
+    "definition": "Counts documents per grouping value and sorts groups by descending count.",
+    "syntax": {
+      "$sortByCount": "$category"
+    },
+    "parameters": [
+      {
+        "name": "expression",
+        "required": "Yes",
+        "description": "Expression used as the grouping key."
+      }
+    ],
+    "behavior": [
+      "Internally executes `$group` with a count followed by `$sort` on count descending.",
+      "Output fields are `_id` and `count`. Equal-count ordering is not a business ordering guarantee."
+    ],
+    "limitations": []
+  },
+  {
+    "name": "$bucket",
+    "category": "Group and summarize",
+    "definition": "Groups numeric values into explicit lower-inclusive, upper-exclusive ranges.",
+    "syntax": {
+      "$bucket": {
+        "groupBy": "$price",
+        "boundaries": [
+          0,
+          10,
+          20
+        ],
+        "default": "other",
+        "output": {
+          "count": {
+            "$sum": 1
+          }
+        }
+      }
+    },
+    "parameters": [
+      {
+        "name": "groupBy",
+        "required": "Yes",
+        "description": "Expression resolving to the numeric value to classify."
+      },
+      {
+        "name": "boundaries",
+        "required": "Yes",
+        "description": "At least two numeric boundaries in ascending order. Adjacent values define ranges."
+      },
+      {
+        "name": "default",
+        "required": "No",
+        "description": "Label for values outside the ranges or for nonnumeric/null/missing values."
+      },
+      {
+        "name": "output",
+        "required": "No",
+        "description": "Accumulator output fields. Omitted output produces only `_id`; explicitly add count with `$sum: 1`."
+      }
+    ],
+    "behavior": [
+      "Only populated buckets appear, in boundary order followed by the default bucket.",
+      "Without a default, unmatched values are skipped.",
+      "Boundary comparison uses doubles. Use a fresh context for independent requests."
+    ],
+    "limitations": [
+      "MongoDB errors for unmatched values without a default and supplies a default count when output is omitted. Core skips those values and does not add count automatically."
+    ]
+  },
+  {
+    "name": "$bucketAuto",
+    "category": "Group and summarize",
+    "definition": "Divides the numeric value range into equal-width buckets.",
+    "syntax": {
+      "$bucketAuto": {
+        "groupBy": "$price",
+        "buckets": 2,
+        "output": {
+          "count": {
+            "$sum": 1
+          }
+        }
+      }
+    },
+    "parameters": [
+      {
+        "name": "groupBy",
+        "required": "Yes",
+        "description": "Numeric expression used to compute the value range. Nonnumeric values are ignored."
+      },
+      {
+        "name": "buckets",
+        "required": "Yes",
+        "description": "Positive integer number of buckets."
+      },
+      {
+        "name": "output",
+        "required": "No",
+        "description": "Supported accumulators: `$sum`, `$avg`, `$min`, `$max`, `$push`, `$addToSet`, `$first`, `$last`. No default count is added."
+      }
+    ],
+    "behavior": [
+      "This implementation uses equal-width ranges, not equal document populations.",
+      "Each `_id` is the numeric lower bound. Empty buckets can appear. The final upper bound is maximum + 1.",
+      "With no numeric values the output is empty. Granularity is not implemented."
+    ],
+    "limitations": [
+      "MongoDB aims for balanced bucket populations and returns `_id.min`/`_id.max`. Core uses equal widths and a scalar `_id`."
+    ]
+  },
+  {
+    "name": "$facet",
+    "category": "Combine pipelines",
+    "definition": "Runs named child pipelines over the same input list and collects their results.",
+    "syntax": {
+      "$facet": {
+        "first": [
+          {
+            "$limit": 1
+          }
+        ],
+        "names": [
+          {
+            "$project": {
+              "name": 1
+            }
+          }
+        ]
+      }
+    },
+    "parameters": [
+      {
+        "name": "name: pipeline",
+        "required": "Yes",
+        "description": "Output field name mapped to an array of stage objects."
+      }
+    ],
+    "behavior": [
+      "Returns one object with an array for each named branch, including empty branch results.",
+      "Each branch receives a top-level copy of each input document. Nested objects are not deeply isolated by this handler.",
+      "Unknown branch stages and non-array branch pipelines raise errors."
+    ],
+    "limitations": [
+      "No MongoDB memory-size or disk-spill behavior is provided by this in-memory handler."
+    ]
+  },
+  {
+    "name": "$lookup",
+    "category": "Combine pipelines",
+    "definition": "Adds matching records from a host-provided in-memory dataset.",
+    "syntax": {
+      "$lookup": {
+        "from": [
+          {
+            "sku": "P1",
+            "price": 5
+          }
+        ],
+        "localField": "sku",
+        "foreignField": "sku",
+        "as": "products"
+      }
+    },
+    "parameters": [
+      {
+        "name": "from",
+        "required": "Yes",
+        "description": "Array/object of foreign records, or a dataset name provided in execution globals under `foreignCollections`."
+      },
+      {
+        "name": "localField",
+        "required": "Yes",
+        "description": "Local join field path."
+      },
+      {
+        "name": "foreignField",
+        "required": "Yes",
+        "description": "Foreign join field path."
+      },
+      {
+        "name": "as",
+        "required": "No",
+        "description": "Output field containing matched foreign records. Defaults to `results`."
+      },
+      {
+        "name": "cacheOptions",
+        "required": "No",
+        "description": "Cache settings; `maxEntries` defaults to 1024 distinct keys. Size the host dataset accordingly."
+      }
+    ],
+    "behavior": [
+      "There is no database connection or collection read. The host supplies all records.",
+      "No match yields an empty array. Lookup uses key equality in the in-memory index.",
+      "An index stops loading after its configured key limit; large datasets can therefore omit matches.",
+      "A named dataset must be present even when input is empty."
+    ],
+    "limitations": [
+      "Database collection access, correlated lookup pipelines and MongoDB index behavior are not implemented."
+    ]
+  },
+  {
+    "name": "$densify",
+    "category": "Window and sequence",
+    "definition": "Inserts documents for missing numeric or date positions.",
+    "syntax": {
+      "$densify": {
+        "field": "x",
+        "range": {
+          "step": 1,
+          "bounds": "full"
+        }
+      }
+    },
+    "parameters": [
+      {
+        "name": "field",
+        "required": "Yes",
+        "description": "Numeric/date field path."
+      },
+      {
+        "name": "range.step",
+        "required": "Yes",
+        "description": "Positive increment."
+      },
+      {
+        "name": "range.bounds",
+        "required": "No",
+        "description": "`\"full\"` (default) or `[lower, upper]`."
+      },
+      {
+        "name": "range.unit",
+        "required": "For dates",
+        "description": "`\"millisecond\"`, `\"second\"`, `\"minute\"`, `\"hour\"`, or `\"day\"`."
+      },
+      {
+        "name": "partitionByFields",
+        "required": "No",
+        "description": "Nonempty array of field paths identifying independent partitions."
+      }
+    ],
+    "behavior": [
+      "Processes gaps within each partition. Generated documents carry the densified field and partition fields.",
+      "Null field values are rejected. Keep generation ranges bounded to avoid large allocations."
+    ],
+    "limitations": [
+      "The `\"partition\"` bounds token and larger calendar units are not implemented. No live MongoDB stage parity is claimed."
+    ]
+  },
+  {
+    "name": "$fill",
+    "category": "Window and sequence",
+    "definition": "Replaces null or missing values using a value expression or interpolation.",
+    "syntax": {
+      "$fill": {
+        "sortBy": {
+          "x": 1
+        },
+        "output": {
+          "y": {
+            "method": "linear"
+          }
+        }
+      }
+    },
+    "parameters": [
+      {
+        "name": "sortBy",
+        "required": "Yes",
+        "description": "Exactly one sort field with direction 1 or -1, including for value-based fill."
+      },
+      {
+        "name": "partitionBy",
+        "required": "No",
+        "description": "Expression grouping rows into independent partitions."
+      },
+      {
+        "name": "output",
+        "required": "Yes",
+        "description": "Nonempty object mapping destination fields to `{value: expression}` or `{method: name}`."
+      },
+      {
+        "name": "method",
+        "required": "When interpolating",
+        "description": "`\"locf\"` carries the last known value; `\"linear\"` interpolates between numeric endpoints."
+      }
+    ],
+    "behavior": [
+      "Existing non-null values are preserved. Rows are sorted within each partition.",
+      "Linear fill requires surrounding values; leading/trailing gaps without both endpoints remain unfilled.",
+      "Use `partitionBy`; a `partitionByFields` option is not implemented in this handler."
+    ],
+    "limitations": [
+      "This handler requires single-field sortBy and implements a subset of fill configuration."
+    ]
+  },
+  {
+    "name": "$setWindowFields",
+    "category": "Window and sequence",
+    "definition": "Adds values computed over an ordered partition of documents.",
+    "syntax": {
+      "$setWindowFields": {
+        "sortBy": {
+          "score": 1
+        },
+        "output": {
+          "rank": {
+            "$rank": {}
+          }
+        }
+      }
+    },
+    "parameters": [
+      {
+        "name": "partitionBy",
+        "required": "No",
+        "description": "Expression identifying independent partitions."
+      },
+      {
+        "name": "sortBy",
+        "required": "Yes",
+        "description": "Exactly one field with numeric direction 1 or -1."
+      },
+      {
+        "name": "output",
+        "required": "Yes",
+        "description": "Nonempty object of output fields, each containing one supported window function."
+      },
+      {
+        "name": "window.documents",
+        "required": "No",
+        "description": "Two bounds: integer offsets, `\"current\"`, or `\"unbounded\"`. Default is unbounded-to-current."
+      }
+    ],
+    "behavior": [
+      "Supported functions: `$shift`, `$rank`, `$denseRank`, `$derivative`, `$integral`, `$expMovingAvg`, `$stdDevPop`, `$stdDevSamp`, `$covariancePop`, `$covarianceSamp`.",
+      "Only document-position windows are implemented. Range/time windows are rejected.",
+      "A function supported as an expression or grouping accumulator is not automatically a supported window function."
+    ],
+    "limitations": [
+      "This is a subset of MongoDB window functionality; range windows and other window accumulators are not implemented."
+    ]
+  },
+  {
+    "name": "$subPipeline",
+    "category": "Core extensions",
+    "definition": "Executes inline child pipelines or resolves child references through the caller\u2019s execution context.",
+    "syntax": {
+      "$subPipeline": [
+        {
+          "pipeline": [
+            {
+              "$set": {
+                "approved": true
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "parameters": [
+      {
+        "name": "steps",
+        "required": "Yes",
+        "description": "Array of child entries, executed sequentially."
+      },
+      {
+        "name": "pipeline or ref",
+        "required": "One per child",
+        "description": "Inline stage array or reference resolved by the host. `version` can accompany ref."
+      },
+      {
+        "name": "input",
+        "required": "No",
+        "description": "Expression selecting child input documents."
+      },
+      {
+        "name": "output",
+        "required": "No",
+        "description": "Destination for a child result; mapped children must return exactly one document."
+      },
+      {
+        "name": "when",
+        "required": "No",
+        "description": "Boolean expression controlling whether a child runs."
+      },
+      {
+        "name": "globals",
+        "required": "No",
+        "description": "Child global-variable overrides."
+      },
+      {
+        "name": "onError",
+        "required": "No",
+        "description": "`\"bubble\"`, `\"skip\"`, or inherited behavior."
+      },
+      {
+        "name": "parallel / merge",
+        "required": "No",
+        "description": "Parallel child array; merge modes `\"concat\"`, `\"zip\"`, or `\"facet\"`."
+      }
+    ],
+    "behavior": [
+      "A reference requires a resolver in the execution context; there is no global pipeline registry.",
+      "Mapped output preserves the parent and inserts the child result.",
+      "This is the Core mechanism behind host-managed composition. Configure SrotaX asset dependencies through Call Flow, not raw registry names."
+    ],
+    "limitations": [
+      "`$subPipeline` is a Core extension, not a MongoDB stage."
+    ]
+  }
+]

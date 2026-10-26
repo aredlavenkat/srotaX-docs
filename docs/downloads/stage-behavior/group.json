@@ -1,0 +1,111 @@
+[
+  {
+    "id": "$group example",
+    "stage": "$group",
+    "kind": "example",
+    "pipeline": [
+      {
+        "$group": {
+          "_id": "$category",
+          "total": {
+            "$sum": "$amount"
+          }
+        }
+      }
+    ],
+    "input": [
+      {
+        "category": "A",
+        "amount": 2
+      },
+      {
+        "category": "A",
+        "amount": 3
+      },
+      {
+        "category": "B",
+        "amount": 1
+      }
+    ],
+    "result": [
+      {
+        "_id": "A",
+        "total": 5
+      },
+      {
+        "_id": "B",
+        "total": 1
+      }
+    ]
+  },
+  {
+    "id": "$group empty input",
+    "stage": "$group",
+    "kind": "empty input",
+    "pipeline": [
+      {
+        "$group": {
+          "_id": "$category",
+          "total": {
+            "$sum": "$amount"
+          }
+        }
+      }
+    ],
+    "input": [],
+    "result": []
+  },
+  {
+    "id": "$group invalid specification",
+    "stage": "$group",
+    "kind": "invalid specification",
+    "pipeline": [
+      {
+        "$group": null
+      }
+    ],
+    "input": [
+      {
+        "category": "A",
+        "amount": 2
+      },
+      {
+        "category": "A",
+        "amount": 3
+      },
+      {
+        "category": "B",
+        "amount": 1
+      }
+    ],
+    "error": "IllegalArgumentException",
+    "message": "$group stage must be a document"
+  },
+  {
+    "id": "$group null and missing group",
+    "stage": "$group",
+    "kind": "null and missing group",
+    "pipeline": [
+      {
+        "$group": {
+          "_id": "$category",
+          "count": {
+            "$sum": 1
+          }
+        }
+      }
+    ],
+    "input": [
+      {},
+      {
+        "category": null
+      }
+    ],
+    "result": [
+      {
+        "_id": null,
+        "count": 2
+      }
+    ]
+  }
+]

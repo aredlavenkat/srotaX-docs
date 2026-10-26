@@ -1,0 +1,1458 @@
+[ {
+  "id" : "$match example",
+  "stage" : "$match",
+  "kind" : "example",
+  "pipeline" : [ {
+    "$match" : {
+      "score" : {
+        "$gte" : 10
+      }
+    }
+  } ],
+  "input" : [ {
+    "score" : 5
+  }, {
+    "score" : 12
+  } ],
+  "result" : [ {
+    "score" : 12
+  } ]
+}, {
+  "id" : "$match empty input",
+  "stage" : "$match",
+  "kind" : "empty input",
+  "pipeline" : [ {
+    "$match" : {
+      "score" : {
+        "$gte" : 10
+      }
+    }
+  } ],
+  "input" : [ ],
+  "result" : [ ]
+}, {
+  "id" : "$match invalid specification",
+  "stage" : "$match",
+  "kind" : "invalid specification",
+  "pipeline" : [ {
+    "$match" : null
+  } ],
+  "input" : [ {
+    "score" : 5
+  }, {
+    "score" : 12
+  } ],
+  "error" : "IllegalArgumentException",
+  "message" : "$match stage requires a condition object"
+}, {
+  "id" : "$match null and missing",
+  "stage" : "$match",
+  "kind" : "null and missing",
+  "pipeline" : [ {
+    "$match" : {
+      "score" : null
+    }
+  } ],
+  "input" : [ { }, {
+    "score" : null
+  }, {
+    "score" : 1
+  } ],
+  "result" : [ { }, {
+    "score" : null
+  } ]
+}, {
+  "id" : "$addFields example",
+  "stage" : "$addFields",
+  "kind" : "example",
+  "pipeline" : [ {
+    "$addFields" : {
+      "total" : {
+        "$multiply" : [ "$quantity", "$price" ]
+      }
+    }
+  } ],
+  "input" : [ {
+    "quantity" : 2,
+    "price" : 5,
+    "orderId" : "A"
+  } ],
+  "result" : [ {
+    "quantity" : 2,
+    "price" : 5,
+    "orderId" : "A",
+    "total" : 10.0
+  } ]
+}, {
+  "id" : "$addFields empty input",
+  "stage" : "$addFields",
+  "kind" : "empty input",
+  "pipeline" : [ {
+    "$addFields" : {
+      "total" : {
+        "$multiply" : [ "$quantity", "$price" ]
+      }
+    }
+  } ],
+  "input" : [ ],
+  "result" : [ ]
+}, {
+  "id" : "$addFields invalid specification",
+  "stage" : "$addFields",
+  "kind" : "invalid specification",
+  "pipeline" : [ {
+    "$addFields" : null
+  } ],
+  "input" : [ {
+    "quantity" : 2,
+    "price" : 5,
+    "orderId" : "A"
+  } ],
+  "error" : "IllegalArgumentException",
+  "message" : "$addFields stage requires an object"
+}, {
+  "id" : "$addFields null and missing source",
+  "stage" : "$addFields",
+  "kind" : "null and missing source",
+  "pipeline" : [ {
+    "$addFields" : {
+      "copy" : "$value"
+    }
+  } ],
+  "input" : [ { }, {
+    "value" : null
+  } ],
+  "result" : [ {
+    "copy" : null
+  }, {
+    "value" : null,
+    "copy" : null
+  } ]
+}, {
+  "id" : "$set example",
+  "stage" : "$set",
+  "kind" : "example",
+  "pipeline" : [ {
+    "$set" : {
+      "total" : {
+        "$multiply" : [ "$quantity", "$price" ]
+      }
+    }
+  } ],
+  "input" : [ {
+    "quantity" : 2,
+    "price" : 5,
+    "orderId" : "A"
+  } ],
+  "result" : [ {
+    "quantity" : 2,
+    "price" : 5,
+    "orderId" : "A",
+    "total" : 10.0
+  } ]
+}, {
+  "id" : "$set empty input",
+  "stage" : "$set",
+  "kind" : "empty input",
+  "pipeline" : [ {
+    "$set" : {
+      "total" : {
+        "$multiply" : [ "$quantity", "$price" ]
+      }
+    }
+  } ],
+  "input" : [ ],
+  "result" : [ ]
+}, {
+  "id" : "$set invalid specification",
+  "stage" : "$set",
+  "kind" : "invalid specification",
+  "pipeline" : [ {
+    "$set" : null
+  } ],
+  "input" : [ {
+    "quantity" : 2,
+    "price" : 5,
+    "orderId" : "A"
+  } ],
+  "error" : "IllegalArgumentException",
+  "message" : "$set expects an object"
+}, {
+  "id" : "$set null and missing source",
+  "stage" : "$set",
+  "kind" : "null and missing source",
+  "pipeline" : [ {
+    "$set" : {
+      "copy" : "$value"
+    }
+  } ],
+  "input" : [ { }, {
+    "value" : null
+  } ],
+  "result" : [ {
+    "copy" : null
+  }, {
+    "value" : null,
+    "copy" : null
+  } ]
+}, {
+  "id" : "$project example",
+  "stage" : "$project",
+  "kind" : "example",
+  "pipeline" : [ {
+    "$project" : {
+      "name" : 1,
+      "total" : {
+        "$multiply" : [ "$quantity", "$price" ]
+      }
+    }
+  } ],
+  "input" : [ {
+    "_id" : 7,
+    "name" : "Pen",
+    "quantity" : 2,
+    "price" : 5
+  } ],
+  "result" : [ {
+    "name" : "Pen",
+    "total" : 10.0
+  } ]
+}, {
+  "id" : "$project empty input",
+  "stage" : "$project",
+  "kind" : "empty input",
+  "pipeline" : [ {
+    "$project" : {
+      "name" : 1,
+      "total" : {
+        "$multiply" : [ "$quantity", "$price" ]
+      }
+    }
+  } ],
+  "input" : [ ],
+  "result" : [ ]
+}, {
+  "id" : "$project invalid specification",
+  "stage" : "$project",
+  "kind" : "invalid specification",
+  "pipeline" : [ {
+    "$project" : null
+  } ],
+  "input" : [ {
+    "_id" : 7,
+    "name" : "Pen",
+    "quantity" : 2,
+    "price" : 5
+  } ],
+  "error" : "IllegalArgumentException",
+  "message" : "$project stage requires an object"
+}, {
+  "id" : "$project exclusion only",
+  "stage" : "$project",
+  "kind" : "exclusion only",
+  "pipeline" : [ {
+    "$project" : {
+      "price" : 0
+    }
+  } ],
+  "input" : [ {
+    "name" : "Pen",
+    "price" : 5
+  } ],
+  "result" : [ { } ]
+}, {
+  "id" : "$project missing field",
+  "stage" : "$project",
+  "kind" : "missing field",
+  "pipeline" : [ {
+    "$project" : {
+      "unknown" : 1
+    }
+  } ],
+  "input" : [ { } ],
+  "result" : [ {
+    "unknown" : null
+  } ]
+}, {
+  "id" : "$unset example",
+  "stage" : "$unset",
+  "kind" : "example",
+  "pipeline" : [ {
+    "$unset" : [ "internal", "address.secret" ]
+  } ],
+  "input" : [ {
+    "name" : "Pen",
+    "internal" : 1,
+    "address" : {
+      "city" : "Toronto",
+      "secret" : 2
+    }
+  } ],
+  "result" : [ {
+    "name" : "Pen",
+    "address" : {
+      "city" : "Toronto"
+    }
+  } ]
+}, {
+  "id" : "$unset empty input",
+  "stage" : "$unset",
+  "kind" : "empty input",
+  "pipeline" : [ {
+    "$unset" : [ "internal", "address.secret" ]
+  } ],
+  "input" : [ ],
+  "result" : [ ]
+}, {
+  "id" : "$unset invalid specification",
+  "stage" : "$unset",
+  "kind" : "invalid specification",
+  "pipeline" : [ {
+    "$unset" : null
+  } ],
+  "input" : [ {
+    "name" : "Pen",
+    "internal" : 1,
+    "address" : {
+      "city" : "Toronto",
+      "secret" : 2
+    }
+  } ],
+  "error" : "IllegalArgumentException",
+  "message" : "$unset stage requires a string or list of field names"
+}, {
+  "id" : "$unset missing field",
+  "stage" : "$unset",
+  "kind" : "missing field",
+  "pipeline" : [ {
+    "$unset" : "unknown"
+  } ],
+  "input" : [ {
+    "name" : "Pen"
+  } ],
+  "result" : [ {
+    "name" : "Pen"
+  } ]
+}, {
+  "id" : "$limit example",
+  "stage" : "$limit",
+  "kind" : "example",
+  "pipeline" : [ {
+    "$limit" : 1
+  } ],
+  "input" : [ {
+    "x" : 1
+  }, {
+    "x" : 2
+  } ],
+  "result" : [ {
+    "x" : 1
+  } ]
+}, {
+  "id" : "$limit empty input",
+  "stage" : "$limit",
+  "kind" : "empty input",
+  "pipeline" : [ {
+    "$limit" : 1
+  } ],
+  "input" : [ ],
+  "result" : [ ]
+}, {
+  "id" : "$limit invalid specification",
+  "stage" : "$limit",
+  "kind" : "invalid specification",
+  "pipeline" : [ {
+    "$limit" : null
+  } ],
+  "input" : [ {
+    "x" : 1
+  }, {
+    "x" : 2
+  } ],
+  "error" : "IllegalArgumentException",
+  "message" : "$limit stage requires a numeric argument"
+}, {
+  "id" : "$limit negative count",
+  "stage" : "$limit",
+  "kind" : "negative count",
+  "pipeline" : [ {
+    "$limit" : -1
+  } ],
+  "input" : [ {
+    "x" : 1
+  } ],
+  "error" : "IllegalArgumentException",
+  "message" : "$limit cannot be negative"
+}, {
+  "id" : "$limit zero count",
+  "stage" : "$limit",
+  "kind" : "zero count",
+  "pipeline" : [ {
+    "$limit" : 0
+  } ],
+  "input" : [ {
+    "x" : 1
+  } ],
+  "result" : [ ]
+}, {
+  "id" : "$skip example",
+  "stage" : "$skip",
+  "kind" : "example",
+  "pipeline" : [ {
+    "$skip" : 1
+  } ],
+  "input" : [ {
+    "x" : 1
+  }, {
+    "x" : 2
+  } ],
+  "result" : [ {
+    "x" : 2
+  } ]
+}, {
+  "id" : "$skip empty input",
+  "stage" : "$skip",
+  "kind" : "empty input",
+  "pipeline" : [ {
+    "$skip" : 1
+  } ],
+  "input" : [ ],
+  "result" : [ ]
+}, {
+  "id" : "$skip invalid specification",
+  "stage" : "$skip",
+  "kind" : "invalid specification",
+  "pipeline" : [ {
+    "$skip" : null
+  } ],
+  "input" : [ {
+    "x" : 1
+  }, {
+    "x" : 2
+  } ],
+  "error" : "IllegalArgumentException",
+  "message" : "$skip stage requires a numeric argument"
+}, {
+  "id" : "$skip negative count",
+  "stage" : "$skip",
+  "kind" : "negative count",
+  "pipeline" : [ {
+    "$skip" : -1
+  } ],
+  "input" : [ {
+    "x" : 1
+  } ],
+  "error" : "IllegalArgumentException",
+  "message" : "$skip cannot be negative"
+}, {
+  "id" : "$skip zero count",
+  "stage" : "$skip",
+  "kind" : "zero count",
+  "pipeline" : [ {
+    "$skip" : 0
+  } ],
+  "input" : [ {
+    "x" : 1
+  } ],
+  "result" : [ {
+    "x" : 1
+  } ]
+}, {
+  "id" : "$sort example",
+  "stage" : "$sort",
+  "kind" : "example",
+  "pipeline" : [ {
+    "$sort" : {
+      "score" : -1,
+      "name" : 1
+    }
+  } ],
+  "input" : [ {
+    "name" : "B",
+    "score" : 2
+  }, {
+    "name" : "A",
+    "score" : 3
+  } ],
+  "result" : [ {
+    "name" : "A",
+    "score" : 3
+  }, {
+    "name" : "B",
+    "score" : 2
+  } ]
+}, {
+  "id" : "$sort empty input",
+  "stage" : "$sort",
+  "kind" : "empty input",
+  "pipeline" : [ {
+    "$sort" : {
+      "score" : -1,
+      "name" : 1
+    }
+  } ],
+  "input" : [ ],
+  "result" : [ ]
+}, {
+  "id" : "$sort invalid specification",
+  "stage" : "$sort",
+  "kind" : "invalid specification",
+  "pipeline" : [ {
+    "$sort" : null
+  } ],
+  "input" : [ {
+    "name" : "B",
+    "score" : 2
+  }, {
+    "name" : "A",
+    "score" : 3
+  } ],
+  "error" : "IllegalArgumentException",
+  "message" : "$sort expects an object with sort keys"
+}, {
+  "id" : "$sort invalid direction",
+  "stage" : "$sort",
+  "kind" : "invalid direction",
+  "pipeline" : [ {
+    "$sort" : {
+      "score" : 0
+    }
+  } ],
+  "input" : [ {
+    "score" : 1
+  }, {
+    "score" : 2
+  } ],
+  "error" : "IllegalArgumentException",
+  "message" : "$sort direction must be 1 or -1: 0"
+}, {
+  "id" : "$sort null and missing",
+  "stage" : "$sort",
+  "kind" : "null and missing",
+  "pipeline" : [ {
+    "$sort" : {
+      "score" : 1
+    }
+  } ],
+  "input" : [ {
+    "score" : 2
+  }, {
+    "score" : null
+  }, { } ],
+  "result" : [ {
+    "score" : null
+  }, { }, {
+    "score" : 2
+  } ]
+}, {
+  "id" : "$unwind example",
+  "stage" : "$unwind",
+  "kind" : "example",
+  "pipeline" : [ {
+    "$unwind" : "$items"
+  } ],
+  "input" : [ {
+    "id" : "A",
+    "items" : [ 1, 2 ]
+  } ],
+  "result" : [ {
+    "id" : "A",
+    "items" : 1
+  }, {
+    "id" : "A",
+    "items" : 2
+  } ]
+}, {
+  "id" : "$unwind empty input",
+  "stage" : "$unwind",
+  "kind" : "empty input",
+  "pipeline" : [ {
+    "$unwind" : "$items"
+  } ],
+  "input" : [ ],
+  "result" : [ ]
+}, {
+  "id" : "$unwind invalid specification",
+  "stage" : "$unwind",
+  "kind" : "invalid specification",
+  "pipeline" : [ {
+    "$unwind" : null
+  } ],
+  "input" : [ {
+    "id" : "A",
+    "items" : [ 1, 2 ]
+  } ],
+  "error" : "IllegalArgumentException",
+  "message" : "$unwind stage requires a single string field path"
+}, {
+  "id" : "$unwind null missing empty and scalar",
+  "stage" : "$unwind",
+  "kind" : "null missing empty and scalar",
+  "pipeline" : [ {
+    "$unwind" : "$items"
+  } ],
+  "input" : [ { }, {
+    "items" : null
+  }, {
+    "items" : [ ]
+  }, {
+    "items" : 4
+  } ],
+  "result" : [ {
+    "items" : 4
+  } ]
+}, {
+  "id" : "$replaceRoot example",
+  "stage" : "$replaceRoot",
+  "kind" : "example",
+  "pipeline" : [ {
+    "$replaceRoot" : {
+      "newRoot" : "$address"
+    }
+  } ],
+  "input" : [ {
+    "name" : "Alice",
+    "address" : {
+      "city" : "Toronto"
+    }
+  } ],
+  "result" : [ {
+    "city" : "Toronto"
+  } ]
+}, {
+  "id" : "$replaceRoot empty input",
+  "stage" : "$replaceRoot",
+  "kind" : "empty input",
+  "pipeline" : [ {
+    "$replaceRoot" : {
+      "newRoot" : "$address"
+    }
+  } ],
+  "input" : [ ],
+  "result" : [ ]
+}, {
+  "id" : "$replaceRoot invalid specification",
+  "stage" : "$replaceRoot",
+  "kind" : "invalid specification",
+  "pipeline" : [ {
+    "$replaceRoot" : null
+  } ],
+  "input" : [ {
+    "name" : "Alice",
+    "address" : {
+      "city" : "Toronto"
+    }
+  } ],
+  "error" : "IllegalArgumentException",
+  "message" : "$replaceRoot requires 'newRoot' field"
+}, {
+  "id" : "$replaceRoot missing root",
+  "stage" : "$replaceRoot",
+  "kind" : "missing root",
+  "pipeline" : [ {
+    "$replaceRoot" : {
+      "newRoot" : "$address"
+    }
+  } ],
+  "input" : [ { } ],
+  "error" : "IllegalArgumentException",
+  "message" : "$replaceRoot evaluated to non-object: null"
+}, {
+  "id" : "$replaceWith example",
+  "stage" : "$replaceWith",
+  "kind" : "example",
+  "pipeline" : [ {
+    "$replaceWith" : "$address"
+  } ],
+  "input" : [ {
+    "name" : "Alice",
+    "address" : {
+      "city" : "Toronto"
+    }
+  } ],
+  "result" : [ {
+    "city" : "Toronto"
+  } ]
+}, {
+  "id" : "$replaceWith empty input",
+  "stage" : "$replaceWith",
+  "kind" : "empty input",
+  "pipeline" : [ {
+    "$replaceWith" : "$address"
+  } ],
+  "input" : [ ],
+  "result" : [ ]
+}, {
+  "id" : "$replaceWith invalid specification",
+  "stage" : "$replaceWith",
+  "kind" : "invalid specification",
+  "pipeline" : [ {
+    "$replaceWith" : null
+  } ],
+  "input" : [ {
+    "name" : "Alice",
+    "address" : {
+      "city" : "Toronto"
+    }
+  } ],
+  "error" : "IllegalArgumentException",
+  "message" : "$replaceWith stage requires an expression"
+}, {
+  "id" : "$replaceWith missing root",
+  "stage" : "$replaceWith",
+  "kind" : "missing root",
+  "pipeline" : [ {
+    "$replaceWith" : "$address"
+  } ],
+  "input" : [ { } ],
+  "error" : "IllegalArgumentException",
+  "message" : "$replaceRoot evaluated to non-object: null"
+}, {
+  "id" : "$group example",
+  "stage" : "$group",
+  "kind" : "example",
+  "pipeline" : [ {
+    "$group" : {
+      "_id" : "$category",
+      "total" : {
+        "$sum" : "$amount"
+      }
+    }
+  } ],
+  "input" : [ {
+    "category" : "A",
+    "amount" : 2
+  }, {
+    "category" : "A",
+    "amount" : 3
+  }, {
+    "category" : "B",
+    "amount" : 1
+  } ],
+  "result" : [ {
+    "_id" : "A",
+    "total" : 5
+  }, {
+    "_id" : "B",
+    "total" : 1
+  } ]
+}, {
+  "id" : "$group empty input",
+  "stage" : "$group",
+  "kind" : "empty input",
+  "pipeline" : [ {
+    "$group" : {
+      "_id" : "$category",
+      "total" : {
+        "$sum" : "$amount"
+      }
+    }
+  } ],
+  "input" : [ ],
+  "result" : [ ]
+}, {
+  "id" : "$group invalid specification",
+  "stage" : "$group",
+  "kind" : "invalid specification",
+  "pipeline" : [ {
+    "$group" : null
+  } ],
+  "input" : [ {
+    "category" : "A",
+    "amount" : 2
+  }, {
+    "category" : "A",
+    "amount" : 3
+  }, {
+    "category" : "B",
+    "amount" : 1
+  } ],
+  "error" : "IllegalArgumentException",
+  "message" : "$group stage must be a document"
+}, {
+  "id" : "$group null and missing group",
+  "stage" : "$group",
+  "kind" : "null and missing group",
+  "pipeline" : [ {
+    "$group" : {
+      "_id" : "$category",
+      "count" : {
+        "$sum" : 1
+      }
+    }
+  } ],
+  "input" : [ { }, {
+    "category" : null
+  } ],
+  "result" : [ {
+    "_id" : null,
+    "count" : 2
+  } ]
+}, {
+  "id" : "$sortByCount example",
+  "stage" : "$sortByCount",
+  "kind" : "example",
+  "pipeline" : [ {
+    "$sortByCount" : "$category"
+  } ],
+  "input" : [ {
+    "category" : "A"
+  }, {
+    "category" : "A"
+  }, {
+    "category" : "B"
+  } ],
+  "result" : [ {
+    "_id" : "A",
+    "count" : 2
+  }, {
+    "_id" : "B",
+    "count" : 1
+  } ]
+}, {
+  "id" : "$sortByCount empty input",
+  "stage" : "$sortByCount",
+  "kind" : "empty input",
+  "pipeline" : [ {
+    "$sortByCount" : "$category"
+  } ],
+  "input" : [ ],
+  "result" : [ ]
+}, {
+  "id" : "$sortByCount invalid specification",
+  "stage" : "$sortByCount",
+  "kind" : "invalid specification",
+  "pipeline" : [ {
+    "$sortByCount" : null
+  } ],
+  "input" : [ {
+    "category" : "A"
+  }, {
+    "category" : "A"
+  }, {
+    "category" : "B"
+  } ],
+  "error" : "IllegalArgumentException",
+  "message" : "$sortByCount requires a grouping expression"
+}, {
+  "id" : "$bucket example",
+  "stage" : "$bucket",
+  "kind" : "example",
+  "pipeline" : [ {
+    "$bucket" : {
+      "groupBy" : "$price",
+      "boundaries" : [ 0, 10, 20 ],
+      "default" : "other",
+      "output" : {
+        "count" : {
+          "$sum" : 1
+        }
+      }
+    }
+  } ],
+  "input" : [ {
+    "price" : 3
+  }, {
+    "price" : 14
+  }, {
+    "price" : 30
+  } ],
+  "result" : [ {
+    "_id" : 0.0,
+    "count" : 1
+  }, {
+    "_id" : 10.0,
+    "count" : 1
+  }, {
+    "_id" : "other",
+    "count" : 1
+  } ]
+}, {
+  "id" : "$bucket empty input",
+  "stage" : "$bucket",
+  "kind" : "empty input",
+  "pipeline" : [ {
+    "$bucket" : {
+      "groupBy" : "$price",
+      "boundaries" : [ 0, 10, 20 ],
+      "default" : "other",
+      "output" : {
+        "count" : {
+          "$sum" : 1
+        }
+      }
+    }
+  } ],
+  "input" : [ ],
+  "result" : [ ]
+}, {
+  "id" : "$bucket invalid specification",
+  "stage" : "$bucket",
+  "kind" : "invalid specification",
+  "pipeline" : [ {
+    "$bucket" : null
+  } ],
+  "input" : [ {
+    "price" : 3
+  }, {
+    "price" : 14
+  }, {
+    "price" : 30
+  } ],
+  "error" : "IllegalArgumentException",
+  "message" : "$bucket stage requires an object"
+}, {
+  "id" : "$bucket unmatched without default",
+  "stage" : "$bucket",
+  "kind" : "unmatched without default",
+  "pipeline" : [ {
+    "$bucket" : {
+      "groupBy" : "$price",
+      "boundaries" : [ 0, 10 ]
+    }
+  } ],
+  "input" : [ {
+    "price" : 20
+  }, { }, {
+    "price" : null
+  } ],
+  "result" : [ ]
+}, {
+  "id" : "$bucketAuto example",
+  "stage" : "$bucketAuto",
+  "kind" : "example",
+  "pipeline" : [ {
+    "$bucketAuto" : {
+      "groupBy" : "$price",
+      "buckets" : 2,
+      "output" : {
+        "count" : {
+          "$sum" : 1
+        }
+      }
+    }
+  } ],
+  "input" : [ {
+    "price" : 1
+  }, {
+    "price" : 2
+  }, {
+    "price" : 10
+  } ],
+  "result" : [ {
+    "_id" : 1.0,
+    "count" : 2.0
+  }, {
+    "_id" : 5.5,
+    "count" : 1.0
+  } ]
+}, {
+  "id" : "$bucketAuto empty input",
+  "stage" : "$bucketAuto",
+  "kind" : "empty input",
+  "pipeline" : [ {
+    "$bucketAuto" : {
+      "groupBy" : "$price",
+      "buckets" : 2,
+      "output" : {
+        "count" : {
+          "$sum" : 1
+        }
+      }
+    }
+  } ],
+  "input" : [ ],
+  "result" : [ ]
+}, {
+  "id" : "$bucketAuto invalid specification",
+  "stage" : "$bucketAuto",
+  "kind" : "invalid specification",
+  "pipeline" : [ {
+    "$bucketAuto" : null
+  } ],
+  "input" : [ {
+    "price" : 1
+  }, {
+    "price" : 2
+  }, {
+    "price" : 10
+  } ],
+  "error" : "IllegalArgumentException",
+  "message" : "$bucketAuto stage requires an object"
+}, {
+  "id" : "$bucketAuto no numeric values",
+  "stage" : "$bucketAuto",
+  "kind" : "no numeric values",
+  "pipeline" : [ {
+    "$bucketAuto" : {
+      "groupBy" : "$price",
+      "buckets" : 2
+    }
+  } ],
+  "input" : [ { }, {
+    "price" : null
+  }, {
+    "price" : "x"
+  } ],
+  "result" : [ ]
+}, {
+  "id" : "$facet example",
+  "stage" : "$facet",
+  "kind" : "example",
+  "pipeline" : [ {
+    "$facet" : {
+      "first" : [ {
+        "$limit" : 1
+      } ],
+      "names" : [ {
+        "$project" : {
+          "name" : 1
+        }
+      } ]
+    }
+  } ],
+  "input" : [ {
+    "name" : "A"
+  }, {
+    "name" : "B"
+  } ],
+  "result" : [ {
+    "first" : [ {
+      "name" : "A"
+    } ],
+    "names" : [ {
+      "name" : "A"
+    }, {
+      "name" : "B"
+    } ]
+  } ]
+}, {
+  "id" : "$facet empty input",
+  "stage" : "$facet",
+  "kind" : "empty input",
+  "pipeline" : [ {
+    "$facet" : {
+      "first" : [ {
+        "$limit" : 1
+      } ],
+      "names" : [ {
+        "$project" : {
+          "name" : 1
+        }
+      } ]
+    }
+  } ],
+  "input" : [ ],
+  "result" : [ {
+    "first" : [ ],
+    "names" : [ ]
+  } ]
+}, {
+  "id" : "$facet invalid specification",
+  "stage" : "$facet",
+  "kind" : "invalid specification",
+  "pipeline" : [ {
+    "$facet" : null
+  } ],
+  "input" : [ {
+    "name" : "A"
+  }, {
+    "name" : "B"
+  } ],
+  "error" : "IllegalArgumentException",
+  "message" : "$facet stage requires an object as its argument"
+}, {
+  "id" : "$lookup example",
+  "stage" : "$lookup",
+  "kind" : "example",
+  "pipeline" : [ {
+    "$lookup" : {
+      "from" : [ {
+        "sku" : "P1",
+        "price" : 5
+      } ],
+      "localField" : "sku",
+      "foreignField" : "sku",
+      "as" : "products"
+    }
+  } ],
+  "input" : [ {
+    "sku" : "P1"
+  }, {
+    "sku" : "P2"
+  } ],
+  "result" : [ {
+    "sku" : "P1",
+    "products" : [ {
+      "sku" : "P1",
+      "price" : 5
+    } ]
+  }, {
+    "sku" : "P2",
+    "products" : [ ]
+  } ]
+}, {
+  "id" : "$lookup empty input",
+  "stage" : "$lookup",
+  "kind" : "empty input",
+  "pipeline" : [ {
+    "$lookup" : {
+      "from" : [ {
+        "sku" : "P1",
+        "price" : 5
+      } ],
+      "localField" : "sku",
+      "foreignField" : "sku",
+      "as" : "products"
+    }
+  } ],
+  "input" : [ ],
+  "result" : [ ]
+}, {
+  "id" : "$lookup invalid specification",
+  "stage" : "$lookup",
+  "kind" : "invalid specification",
+  "pipeline" : [ {
+    "$lookup" : null
+  } ],
+  "input" : [ {
+    "sku" : "P1"
+  }, {
+    "sku" : "P2"
+  } ],
+  "error" : "IllegalArgumentException",
+  "message" : "$lookup stage expects an object specification"
+}, {
+  "id" : "$lookup missing named dataset",
+  "stage" : "$lookup",
+  "kind" : "missing named dataset",
+  "pipeline" : [ {
+    "$lookup" : {
+      "from" : "products",
+      "localField" : "sku",
+      "foreignField" : "sku",
+      "as" : "products"
+    }
+  } ],
+  "input" : [ {
+    "sku" : "P1"
+  } ],
+  "error" : "IllegalArgumentException",
+  "message" : "foreign collection 'products' not available"
+}, {
+  "id" : "$densify example",
+  "stage" : "$densify",
+  "kind" : "example",
+  "pipeline" : [ {
+    "$densify" : {
+      "field" : "x",
+      "range" : {
+        "step" : 1,
+        "bounds" : "full"
+      }
+    }
+  } ],
+  "input" : [ {
+    "x" : 1
+  }, {
+    "x" : 3
+  } ],
+  "result" : [ {
+    "x" : 1
+  }, {
+    "x" : 2.0
+  }, {
+    "x" : 3
+  } ]
+}, {
+  "id" : "$densify empty input",
+  "stage" : "$densify",
+  "kind" : "empty input",
+  "pipeline" : [ {
+    "$densify" : {
+      "field" : "x",
+      "range" : {
+        "step" : 1,
+        "bounds" : "full"
+      }
+    }
+  } ],
+  "input" : [ ],
+  "result" : [ ]
+}, {
+  "id" : "$densify invalid specification",
+  "stage" : "$densify",
+  "kind" : "invalid specification",
+  "pipeline" : [ {
+    "$densify" : null
+  } ],
+  "input" : [ {
+    "x" : 1
+  }, {
+    "x" : 3
+  } ],
+  "error" : "IllegalArgumentException",
+  "message" : "$densify stage requires an object"
+}, {
+  "id" : "$densify null field",
+  "stage" : "$densify",
+  "kind" : "null field",
+  "pipeline" : [ {
+    "$densify" : {
+      "field" : "x",
+      "range" : {
+        "step" : 1
+      }
+    }
+  } ],
+  "input" : [ {
+    "x" : null
+  } ],
+  "error" : "IllegalArgumentException",
+  "message" : "$densify field 'x' must have at least one non-null value"
+}, {
+  "id" : "$fill example",
+  "stage" : "$fill",
+  "kind" : "example",
+  "pipeline" : [ {
+    "$fill" : {
+      "sortBy" : {
+        "x" : 1
+      },
+      "output" : {
+        "y" : {
+          "method" : "linear"
+        }
+      }
+    }
+  } ],
+  "input" : [ {
+    "x" : 0,
+    "y" : 0
+  }, {
+    "x" : 1,
+    "y" : null
+  }, {
+    "x" : 2,
+    "y" : 10
+  } ],
+  "result" : [ {
+    "x" : 0,
+    "y" : 0
+  }, {
+    "x" : 1,
+    "y" : 5.0
+  }, {
+    "x" : 2,
+    "y" : 10
+  } ]
+}, {
+  "id" : "$fill empty input",
+  "stage" : "$fill",
+  "kind" : "empty input",
+  "pipeline" : [ {
+    "$fill" : {
+      "sortBy" : {
+        "x" : 1
+      },
+      "output" : {
+        "y" : {
+          "method" : "linear"
+        }
+      }
+    }
+  } ],
+  "input" : [ ],
+  "result" : [ ]
+}, {
+  "id" : "$fill invalid specification",
+  "stage" : "$fill",
+  "kind" : "invalid specification",
+  "pipeline" : [ {
+    "$fill" : null
+  } ],
+  "input" : [ {
+    "x" : 0,
+    "y" : 0
+  }, {
+    "x" : 1,
+    "y" : null
+  }, {
+    "x" : 2,
+    "y" : 10
+  } ],
+  "error" : "IllegalArgumentException",
+  "message" : "$fill stage requires an object"
+}, {
+  "id" : "$fill missing value fill",
+  "stage" : "$fill",
+  "kind" : "missing value fill",
+  "pipeline" : [ {
+    "$fill" : {
+      "sortBy" : {
+        "x" : 1
+      },
+      "output" : {
+        "y" : {
+          "value" : 0
+        }
+      }
+    }
+  } ],
+  "input" : [ {
+    "x" : 1
+  } ],
+  "result" : [ {
+    "x" : 1,
+    "y" : 0
+  } ]
+}, {
+  "id" : "$setWindowFields example",
+  "stage" : "$setWindowFields",
+  "kind" : "example",
+  "pipeline" : [ {
+    "$setWindowFields" : {
+      "sortBy" : {
+        "score" : 1
+      },
+      "output" : {
+        "rank" : {
+          "$rank" : { }
+        }
+      }
+    }
+  } ],
+  "input" : [ {
+    "score" : 20
+  }, {
+    "score" : 10
+  }, {
+    "score" : 20
+  } ],
+  "result" : [ {
+    "score" : 20,
+    "rank" : 2
+  }, {
+    "score" : 10,
+    "rank" : 1
+  }, {
+    "score" : 20,
+    "rank" : 2
+  } ]
+}, {
+  "id" : "$setWindowFields empty input",
+  "stage" : "$setWindowFields",
+  "kind" : "empty input",
+  "pipeline" : [ {
+    "$setWindowFields" : {
+      "sortBy" : {
+        "score" : 1
+      },
+      "output" : {
+        "rank" : {
+          "$rank" : { }
+        }
+      }
+    }
+  } ],
+  "input" : [ ],
+  "result" : [ ]
+}, {
+  "id" : "$setWindowFields invalid specification",
+  "stage" : "$setWindowFields",
+  "kind" : "invalid specification",
+  "pipeline" : [ {
+    "$setWindowFields" : null
+  } ],
+  "input" : [ {
+    "score" : 20
+  }, {
+    "score" : 10
+  }, {
+    "score" : 20
+  } ],
+  "error" : "IllegalArgumentException",
+  "message" : "$setWindowFields stage expects an object"
+}, {
+  "id" : "$setWindowFields unsupported sum",
+  "stage" : "$setWindowFields",
+  "kind" : "unsupported sum",
+  "pipeline" : [ {
+    "$setWindowFields" : {
+      "sortBy" : {
+        "score" : 1
+      },
+      "output" : {
+        "total" : {
+          "$sum" : "$score"
+        }
+      }
+    }
+  } ],
+  "input" : [ {
+    "score" : 10
+  } ],
+  "error" : "IllegalArgumentException",
+  "message" : "Unsupported window function: $sum"
+}, {
+  "id" : "$subPipeline example",
+  "stage" : "$subPipeline",
+  "kind" : "example",
+  "pipeline" : [ {
+    "$subPipeline" : [ {
+      "pipeline" : [ {
+        "$set" : {
+          "approved" : true
+        }
+      } ]
+    } ]
+  } ],
+  "input" : [ {
+    "orderId" : "A"
+  } ],
+  "result" : [ {
+    "orderId" : "A",
+    "approved" : true
+  } ]
+}, {
+  "id" : "$subPipeline empty input",
+  "stage" : "$subPipeline",
+  "kind" : "empty input",
+  "pipeline" : [ {
+    "$subPipeline" : [ {
+      "pipeline" : [ {
+        "$set" : {
+          "approved" : true
+        }
+      } ]
+    } ]
+  } ],
+  "input" : [ ],
+  "result" : [ ]
+}, {
+  "id" : "$subPipeline invalid specification",
+  "stage" : "$subPipeline",
+  "kind" : "invalid specification",
+  "pipeline" : [ {
+    "$subPipeline" : null
+  } ],
+  "input" : [ {
+    "orderId" : "A"
+  } ],
+  "error" : "IllegalArgumentException",
+  "message" : "$subPipeline requires an array of steps"
+}, {
+  "id" : "$subPipeline missing resolver",
+  "stage" : "$subPipeline",
+  "kind" : "missing resolver",
+  "pipeline" : [ {
+    "$subPipeline" : [ {
+      "ref" : "unknown"
+    } ]
+  } ],
+  "input" : [ {
+    "orderId" : "A"
+  } ],
+  "error" : "IllegalArgumentException",
+  "message" : "Unknown pinned sub-pipeline: unknown"
+} ]

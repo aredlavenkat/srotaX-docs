@@ -1,0 +1,7 @@
+{
+  "registrySha256": "365727e718847b0ab49aa7801d73dfe49578265227be1dc097fc8d88fdb4b38a",
+  "handlersSha256": "907400753b74b54f1c0a6fbc5c1919830dfe15c57f372ae066838f5c788f4343",
+  "caseCount": 86,
+  "stageCount": 21,
+  "scope": "Core PipelineExecutor; no live MongoDB stage comparison"
+}

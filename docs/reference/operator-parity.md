@@ -2,7 +2,7 @@
 
 Each operator page has two independent parts:
 
-1. **SrotaX behavior:** syntax, a runnable example, concrete input/result tables, invalid invocation behavior, additional boundaries and downloadable regression cases.
+1. **SrotaX behavior:** definition, syntax, plain-language parameters, behavior, runnable examples and downloadable regression cases. Full input matrices are collapsed by default.
 2. **MongoDB differences:** a separately marked final section with live comparison results and exact evidence.
 
 The behavior tables are the documented contract for their tested inputs. They do not promise behavior for every input combination. Metadata types are authoring hints; observed runtime behavior can be broader or stricter. A compiler or Data Contract may reject an input before it reaches the engine.
@@ -51,3 +51,23 @@ python scripts/generate-operator-behavior.py \
 ```
 
 To remove only one page's comparison section, delete the block between `BEGIN MONGO PARITY` and `END MONGO PARITY`. Regeneration restores it unless the omission option is used.
+
+
+## Stage reference
+
+The [stage reference](stages.md) follows the same structure. Its 86 cases cover all 21 registered Core stages and run through PipelineExecutor with a fresh context. These are Core behavior checks, not live MongoDB stage parity tests.
+
+Regenerate both reference sections and the grouped navigation:
+
+```sh
+python scripts/generate-reference.py
+```
+
+Use `--without-mongo` to omit the comparison blocks from both operators and stages. Keep `reference/stage-catalog.json` prose and `examples/stages.json` examples aligned with the implementation. Stage verification runs with JDK 21 and the Core build:
+
+```sh
+mvn -f ../fluxion-core-engine/pom.xml test-compile dependency:build-classpath -Dmdep.outputFile=target/docs-classpath.txt
+sh scripts/verify-stages.sh
+```
+
+The verifier compares actual results against `verification/stage-behavior.json`. Its `--record` option refreshes evidence only after intentional changes have been reviewed. Generated pages must not be edited by hand.

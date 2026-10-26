@@ -31,10 +31,26 @@ if report_path.exists():
  if len(report['cases'])!=report['caseCount']:errors.append('Behavior report case count differs')
  for name in names:
   page=(root/'docs/reference/operators'/f'{name[1:]}.md').read_text()
-  for heading in ['## Syntax and arguments','## Behavior for different inputs','## Scope and reproducibility']:
+  for heading in ['## Definition','## Syntax','## Behavior','## Examples','## Verification']:
    if heading not in page:errors.append(f'{name}: missing {heading}')
   if page.count('<!-- BEGIN MONGO PARITY -->')!=page.count('<!-- END MONGO PARITY -->'):errors.append(f'{name}: unbalanced parity block')
   download=json.loads((root/'docs/downloads/operator-behavior'/f'{name[1:]}.json').read_text())
   if len(download)!=sum(c['operator']==name for c in report['cases']):errors.append(f'{name}: stale behavior download')
+stage_catalog_path=root/'reference/stage-catalog.json'
+if stage_catalog_path.exists():
+ stages=json.loads(stage_catalog_path.read_text())
+ cases=json.loads((root/'verification/stage-behavior.json').read_text())
+ inputs=json.loads((root/'examples/stages.json').read_text())
+ if [{k:v for k,v in c.items() if k not in ['result','error','message']} for c in cases]!=inputs:errors.append('Stage evidence inputs differ from executable cases')
+ if {d['name'] for d in stages}!={c['stage'] for c in cases}:errors.append('Stage case coverage differs from catalog')
+ nav=(root/'mkdocs.yml').read_text()
+ for kind,items in [('operators',catalog['engineOperators']),('stages',stages)]:
+  for item in items:
+   path=f"reference/{kind}/{item['name'][1:]}.md"
+   if nav.count(': '+path+'\n')!=1:errors.append('Navigation missing or duplicated: '+path)
+   text=(root/'docs'/path).read_text()
+   for heading in ['## Definition','## Syntax','## Behavior','## Examples']:
+    if heading not in text:errors.append(path+' missing '+heading)
+   if 'Metadata input types' in text or '## Signature (engine metadata)' in text:errors.append(path+' contains obsolete metadata layout')
 if errors:raise SystemExit('\n'.join(errors))
 print('PASS: local links, JSON blocks, fixtures, and operator page coverage')

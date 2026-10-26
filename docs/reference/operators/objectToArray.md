@@ -1,22 +1,50 @@
 # $objectToArray
 
+## Definition
+
 Converts object fields to key/value entries.
 
-**Category:** Arrays. **Studio Visual entry:** Available. This page describes Core expression execution; Studio also checks field types and authoring permissions.
+**Expression operator** · Arrays · Studio Visual: available. Studio validates the complete expression separately.
 
-## Syntax and arguments
+## Syntax
 
-Supply one expression as the operator value.
+```text
+{ "$objectToArray": <expression> }
+```
 
-| Argument | Metadata input types | Required | Evaluation |
-| --- | --- | --- | --- |
-| `input` | OBJECT | Yes | Expression evaluated against the input |
+Replace angle-bracket placeholders with expressions or values.
 
-Argument count: minimum 1; maximum 1.
+Expression supplying the value to process. A field reference such as `"$price"` reads from the current document.
 
-Declared result types: **ARRAY**. Actual result types for tested inputs appear below. Metadata is an authoring hint; where a case differs, use the observed result and treat the discrepancy as a limitation.
+The value goes directly after the operator name; do not add an `input` wrapper.
 
-## Example
+## Behavior
+
+The following observations use the example expression below. Each row substitutes one argument while retaining the other example arguments. A missing field differs from an explicit null; the result shown is what Core actually returned.
+
+For the `input` argument:
+
+| Input case | Supplied value | Result |
+| --- | --- | --- |
+| null | null | Error — $objectToArray requires a document input. |
+| missing | Field absent | Error — $objectToArray requires a document input. |
+| decimal | 2.5 | Error — $objectToArray requires a document input. |
+| numeric string | "12" | Error — $objectToArray requires a document input. |
+| text | "hello" | Error — $objectToArray requires a document input. |
+| boolean | true | Error — $objectToArray requires a document input. |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error — $objectToArray requires a document input. |
+| empty array | [] | Error — $objectToArray requires a document input. |
+| numeric array | [1,2,3] | Error — $objectToArray requires a document input. |
+| object | {"x":1} | [{"k":"x","v":1}] |
+
+### Argument handling
+
+| Invocation | Result |
+| --- | --- |
+| {"$objectToArray":[]} | Error — $objectToArray requires a document input. |
+| {"$objectToArray":{"unexpected":1}} | [{"k":"unexpected","v":1}] |
+
+## Examples
 
 Expression:
 ```json
@@ -34,58 +62,63 @@ Input document:
 
 **Observed SrotaX result:** [{"k":"a","v":1}].
 
-## Behavior for different inputs
+## Detailed input cases
+
+<details markdown="1">
+<summary>Expand the complete argument-by-argument test matrix</summary>
+
 
 Each table changes **only the indicated argument** from the example above. Other arguments retain their baseline values. Values normally come from the input field `probe`; literal configuration arguments are replaced directly. “Missing” means the field is absent, not explicitly null. Numeric strings are strings, not numbers.
 
-### Argument: `input`
+**Argument: `input`**
 
 | Input case | Supplied value | SrotaX result |
 | --- | --- | --- |
-| null | null | Error: IllegalArgumentException — $objectToArray requires a document input. |
-| missing | Field absent | Error: IllegalArgumentException — $objectToArray requires a document input. |
-| zero | 0 | Error: IllegalArgumentException — $objectToArray requires a document input. |
-| negative | -2 | Error: IllegalArgumentException — $objectToArray requires a document input. |
-| decimal | 2.5 | Error: IllegalArgumentException — $objectToArray requires a document input. |
-| numeric string | "12" | Error: IllegalArgumentException — $objectToArray requires a document input. |
-| text | "hello" | Error: IllegalArgumentException — $objectToArray requires a document input. |
-| empty string | "" | Error: IllegalArgumentException — $objectToArray requires a document input. |
-| boolean | true | Error: IllegalArgumentException — $objectToArray requires a document input. |
-| false | false | Error: IllegalArgumentException — $objectToArray requires a document input. |
-| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error: IllegalArgumentException — $objectToArray requires a document input. |
-| decimal128 | {"$numberDecimal":"1.25"} | Error: IllegalArgumentException — $objectToArray requires a document input. |
-| empty array | [] | Error: IllegalArgumentException — $objectToArray requires a document input. |
-| numeric array | [1,2,3] | Error: IllegalArgumentException — $objectToArray requires a document input. |
-| mixed array | [1,null,"x",3] | Error: IllegalArgumentException — $objectToArray requires a document input. |
-| nested array | [[1,2],[3]] | Error: IllegalArgumentException — $objectToArray requires a document input. |
+| null | null | Error — $objectToArray requires a document input. |
+| missing | Field absent | Error — $objectToArray requires a document input. |
+| zero | 0 | Error — $objectToArray requires a document input. |
+| negative | -2 | Error — $objectToArray requires a document input. |
+| decimal | 2.5 | Error — $objectToArray requires a document input. |
+| numeric string | "12" | Error — $objectToArray requires a document input. |
+| text | "hello" | Error — $objectToArray requires a document input. |
+| empty string | "" | Error — $objectToArray requires a document input. |
+| boolean | true | Error — $objectToArray requires a document input. |
+| false | false | Error — $objectToArray requires a document input. |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error — $objectToArray requires a document input. |
+| decimal128 | {"$numberDecimal":"1.25"} | Error — $objectToArray requires a document input. |
+| empty array | [] | Error — $objectToArray requires a document input. |
+| numeric array | [1,2,3] | Error — $objectToArray requires a document input. |
+| mixed array | [1,null,"x",3] | Error — $objectToArray requires a document input. |
+| nested array | [[1,2],[3]] | Error — $objectToArray requires a document input. |
 | empty object | {} | [] |
 | object | {"x":1} | [{"k":"x","v":1}] |
-| ISO date string | "2026-01-15T15:00:00Z" | Error: IllegalArgumentException — $objectToArray requires a document input. |
+| ISO date string | "2026-01-15T15:00:00Z" | Error — $objectToArray requires a document input. |
 
-## Invalid invocation shapes
 
-| Invocation | SrotaX result |
-| --- | --- |
-| {"$objectToArray":[]} | Error: IllegalArgumentException — $objectToArray requires a document input. |
-| {"$objectToArray":{"unexpected":1}} | [{"k":"unexpected","v":1}] |
+</details>
 
-## Scope and reproducibility
+## Verification
 
 This page records **22 executed cases**. It covers individual argument substitutions, not every cross-product of arguments, locale, daylight-saving transitions, numeric overflow, collation or resource limits. No untested behavior is guaranteed.
 
 [Download exact expressions, inputs and SrotaX results](../../downloads/operator-behavior/objectToArray.json). Errors are observed messages, not stable public error codes. The reference generator reads the checked-in execution report; do not edit generated observations by hand.
 
 <!-- BEGIN MONGO PARITY -->
-## MongoDB differences (removable section)
+## MongoDB differences
 
 Compared with **MongoDB 9.0.4**: **4 exact BSON matches**, **16 both rejected**, **2 value/type/acceptance differences**, **0 object-field-order differences**.
 
 “Exact” includes numeric BSON types and object key order. A value of `3` as int32 differs from `3.0` as double. Object-field-order differences are reported separately; object key ordering is not enforced by the engine regression baseline. Both rejected does not mean the error codes or messages match. This is finite-case evidence, not full compatibility certification.
 
+<details markdown="1">
+<summary>Show observed differences</summary>
+
 | Tested case | SrotaX | MongoDB |
 | --- | --- | --- |
-| input / null | Error: IllegalArgumentException — $objectToArray requires a document input. | null |
-| input / missing | Error: IllegalArgumentException — $objectToArray requires a document input. | null |
+| input / null | Error — $objectToArray requires a document input. | null |
+| input / missing | Error — $objectToArray requires a document input. | null |
+
+</details>
 
 [Download full comparison evidence](../../downloads/operator-parity/objectToArray.json).
 

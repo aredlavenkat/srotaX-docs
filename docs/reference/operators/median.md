@@ -1,23 +1,64 @@
 # $median
 
+## Definition
+
 Computes single-document statistics, ignoring nonnumeric values.
 
-**Category:** Statistics. **Studio Visual entry:** Available. This page describes Core expression execution; Studio also checks field types and authoring permissions.
+**Expression operator** · Statistics · Studio Visual: available. Studio validates the complete expression separately.
 
-## Syntax and arguments
+## Syntax
 
-Supply an object with the named arguments below.
+```text
+{
+  "$median": {
+    "input": <input>,
+    "method": <method>
+  }
+}
+```
 
-| Argument | Metadata input types | Required | Evaluation |
-| --- | --- | --- | --- |
-| `input` | ANY | Yes | Expression evaluated against the input |
-| `method` | STRING | Yes | Literal configuration |
+Replace angle-bracket placeholders with expressions or values.
 
-Argument count: minimum 2; maximum 2.
+Optional parameters may be omitted.
 
-Declared result types: **DOUBLE, NULL**. Actual result types for tested inputs appear below. Metadata is an authoring hint; where a case differs, use the observed result and treat the discrepancy as a limitation.
+## Parameters
 
-## Example
+| Parameter | Required | Description |
+| --- | --- | --- |
+| `input` | Yes | Expression supplying the value to process. A field reference such as `"$price"` reads from the current document. |
+| `method` | Yes | Literal `"approximate"`. Other method names are rejected. |
+
+## Supported values
+
+`method` must be the literal `"approximate"`. See the results below for the engine’s numeric behavior.
+
+## Behavior
+
+The following observations use the example expression below. Each row substitutes one argument while retaining the other example arguments. A missing field differs from an explicit null; the result shown is what Core actually returned.
+
+For the `input` argument:
+
+| Input case | Supplied value | Result |
+| --- | --- | --- |
+| null | null | null |
+| missing | Field absent | null |
+| decimal | 2.5 | 2.5 (double) |
+| numeric string | "12" | null |
+| text | "hello" | null |
+| boolean | true | null |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | null |
+| empty array | [] | null |
+| numeric array | [1,2,3] | 2.0 (double) |
+| object | {"x":1} | null |
+
+### Argument handling
+
+| Invocation | Result |
+| --- | --- |
+| {"$median":[]} | Error — $median requires [input, method] |
+| {"$median":{"unexpected":1}} | Error — $median requires [input, method] |
+
+## Examples
 
 Expression:
 ```json
@@ -41,11 +82,15 @@ Input document:
 
 **Observed SrotaX result:** 20.0 (double).
 
-## Behavior for different inputs
+## Detailed input cases
+
+<details markdown="1">
+<summary>Expand the complete argument-by-argument test matrix</summary>
+
 
 Each table changes **only the indicated argument** from the example above. Other arguments retain their baseline values. Values normally come from the input field `probe`; literal configuration arguments are replaced directly. “Missing” means the field is absent, not explicitly null. Numeric strings are strings, not numbers.
 
-### Argument: `input`
+**Argument: `input`**
 
 | Input case | Supplied value | SrotaX result |
 | --- | --- | --- |
@@ -68,42 +113,38 @@ Each table changes **only the indicated argument** from the example above. Other
 | empty object | {} | null |
 | object | {"x":1} | null |
 | ISO date string | "2026-01-15T15:00:00Z" | null |
-| omitted named argument | Argument removed | Error: IllegalArgumentException — $median requires [input, method] |
+| omitted named argument | Argument removed | Error — $median requires [input, method] |
 
-### Argument: `method`
+**Argument: `method`**
 
 | Input case | Supplied value | SrotaX result |
 | --- | --- | --- |
-| null | null | Error: IllegalArgumentException — $median method must be the literal string approximate |
-| zero | 0 | Error: IllegalArgumentException — $median method must be the literal string approximate |
-| negative | -2 | Error: IllegalArgumentException — $median method must be the literal string approximate |
-| decimal | 2.5 | Error: IllegalArgumentException — $median method must be the literal string approximate |
-| numeric string | "12" | Error: IllegalArgumentException — $median method must be the literal string approximate |
-| text | "hello" | Error: IllegalArgumentException — $median method must be the literal string approximate |
-| empty string | "" | Error: IllegalArgumentException — $median method must be the literal string approximate |
-| boolean | true | Error: IllegalArgumentException — $median method must be the literal string approximate |
-| false | false | Error: IllegalArgumentException — $median method must be the literal string approximate |
-| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error: IllegalArgumentException — $median method must be the literal string approximate |
-| decimal128 | {"$numberDecimal":"1.25"} | Error: IllegalArgumentException — $median method must be the literal string approximate |
-| empty array | [] | Error: IllegalArgumentException — $median method must be the literal string approximate |
-| numeric array | [1,2,3] | Error: IllegalArgumentException — $median method must be the literal string approximate |
-| mixed array | [1,null,"x",3] | Error: IllegalArgumentException — $median method must be the literal string approximate |
-| nested array | [[1,2],[3]] | Error: IllegalArgumentException — $median method must be the literal string approximate |
-| empty object | {} | Error: IllegalArgumentException — $median method must be the literal string approximate |
-| object | {"x":1} | Error: IllegalArgumentException — $median method must be the literal string approximate |
-| ISO date string | "2026-01-15T15:00:00Z" | Error: IllegalArgumentException — $median method must be the literal string approximate |
-| omitted named argument | Argument removed | Error: IllegalArgumentException — $median requires [input, method] |
+| null | null | Error — $median method must be the literal string approximate |
+| zero | 0 | Error — $median method must be the literal string approximate |
+| negative | -2 | Error — $median method must be the literal string approximate |
+| decimal | 2.5 | Error — $median method must be the literal string approximate |
+| numeric string | "12" | Error — $median method must be the literal string approximate |
+| text | "hello" | Error — $median method must be the literal string approximate |
+| empty string | "" | Error — $median method must be the literal string approximate |
+| boolean | true | Error — $median method must be the literal string approximate |
+| false | false | Error — $median method must be the literal string approximate |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error — $median method must be the literal string approximate |
+| decimal128 | {"$numberDecimal":"1.25"} | Error — $median method must be the literal string approximate |
+| empty array | [] | Error — $median method must be the literal string approximate |
+| numeric array | [1,2,3] | Error — $median method must be the literal string approximate |
+| mixed array | [1,null,"x",3] | Error — $median method must be the literal string approximate |
+| nested array | [[1,2],[3]] | Error — $median method must be the literal string approximate |
+| empty object | {} | Error — $median method must be the literal string approximate |
+| object | {"x":1} | Error — $median method must be the literal string approximate |
+| ISO date string | "2026-01-15T15:00:00Z" | Error — $median method must be the literal string approximate |
+| omitted named argument | Argument removed | Error — $median requires [input, method] |
 
-## Invalid invocation shapes
 
-| Invocation | SrotaX result |
-| --- | --- |
-| {"$median":[]} | Error: IllegalArgumentException — $median requires [input, method] |
-| {"$median":{"unexpected":1}} | Error: IllegalArgumentException — $median requires [input, method] |
+</details>
 
 ## Additional boundary examples
 
-<details>
+<details markdown="1">
 <summary>Show 17 tested examples</summary>
 
 Expression:
@@ -439,7 +480,7 @@ Input:
 {}
 ```
 
-**SrotaX:** Error: IllegalArgumentException — $median method must be the literal string approximate.
+**SrotaX:** Error — $median method must be the literal string approximate.
 
 Expression:
 ```json
@@ -460,7 +501,7 @@ Input:
 {}
 ```
 
-**SrotaX:** Error: IllegalArgumentException — $median method must be the literal string approximate.
+**SrotaX:** Error — $median method must be the literal string approximate.
 
 Expression:
 ```json
@@ -483,18 +524,18 @@ Input:
 {}
 ```
 
-**SrotaX:** Error: IllegalArgumentException — $median method must be the literal string approximate.
+**SrotaX:** Error — $median method must be the literal string approximate.
 
 </details>
 
-## Scope and reproducibility
+## Verification
 
 This page records **59 executed cases**. It covers individual argument substitutions, not every cross-product of arguments, locale, daylight-saving transitions, numeric overflow, collation or resource limits. No untested behavior is guaranteed.
 
 [Download exact expressions, inputs and SrotaX results](../../downloads/operator-behavior/median.json). Errors are observed messages, not stable public error codes. The reference generator reads the checked-in execution report; do not edit generated observations by hand.
 
 <!-- BEGIN MONGO PARITY -->
-## MongoDB differences (removable section)
+## MongoDB differences
 
 Compared with **MongoDB 9.0.4**: **34 exact BSON matches**, **25 both rejected**, **0 value/type/acceptance differences**, **0 object-field-order differences**.
 

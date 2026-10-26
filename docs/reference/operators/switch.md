@@ -1,23 +1,60 @@
 # $switch
 
+## Definition
+
 Selects the first branch with a true boolean condition.
 
-**Category:** Conditional. **Studio Visual entry:** Not exposed. This page describes Core expression execution; Studio also checks field types and authoring permissions.
+**Expression operator** · Conditional · Studio Visual: not exposed. Studio validates the complete expression separately.
 
-## Syntax and arguments
+## Syntax
 
-Supply an object with the named arguments below.
+```text
+{
+  "$switch": {
+    "branches": <branches>,
+    "default": <default>
+  }
+}
+```
 
-| Argument | Metadata input types | Required | Evaluation |
-| --- | --- | --- | --- |
-| `branches` | ARRAY | Yes | Expression evaluated against the input |
-| `default` | ANY | No | Expression evaluated against the input |
+Replace angle-bracket placeholders with expressions or values.
 
-Argument count: minimum 1; maximum 2.
+Optional parameters may be omitted.
 
-Declared result types: **ANY**. Actual result types for tested inputs appear below. Metadata is an authoring hint; where a case differs, use the observed result and treat the discrepancy as a limitation.
+## Parameters
 
-## Example
+| Parameter | Required | Description |
+| --- | --- | --- |
+| `branches` | Yes | Array of objects containing `case` and `then` expressions, evaluated in order. |
+| `default` | No | Result expression used when no branch matches. The current engine returns null when this is omitted. |
+
+## Behavior
+
+The following observations use the example expression below. Each row substitutes one argument while retaining the other example arguments. A missing field differs from an explicit null; the result shown is what Core actually returned.
+
+For the `branches` argument:
+
+| Input case | Supplied value | Result |
+| --- | --- | --- |
+| null | null | Error — $switch 'branches' must be a list |
+| missing | Field absent | Error — $switch 'branches' must be a list |
+| decimal | 2.5 | Error — $switch 'branches' must be a list |
+| numeric string | "12" | Error — $switch 'branches' must be a list |
+| text | "hello" | Error — $switch 'branches' must be a list |
+| boolean | true | Error — $switch 'branches' must be a list |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error — $switch 'branches' must be a list |
+| empty array | [] | Error — $switch 'branches' must be a list |
+| numeric array | [1,2,3] | Error — $switch 'branches' must be a list |
+| object | {"x":1} | Error — $switch 'branches' must be a list |
+
+### Argument handling
+
+| Invocation | Result |
+| --- | --- |
+| {"$switch":[]} | Error — $switch requires a document with 'branches' and optional 'default' |
+| {"$switch":{"unexpected":1}} | Error — $switch 'branches' must be a list |
+
+## Examples
 
 Expression:
 ```json
@@ -41,36 +78,40 @@ Input document:
 
 **Observed SrotaX result:** "yes".
 
-## Behavior for different inputs
+## Detailed input cases
+
+<details markdown="1">
+<summary>Expand the complete argument-by-argument test matrix</summary>
+
 
 Each table changes **only the indicated argument** from the example above. Other arguments retain their baseline values. Values normally come from the input field `probe`; literal configuration arguments are replaced directly. “Missing” means the field is absent, not explicitly null. Numeric strings are strings, not numbers.
 
-### Argument: `branches`
+**Argument: `branches`**
 
 | Input case | Supplied value | SrotaX result |
 | --- | --- | --- |
-| null | null | Error: IllegalArgumentException — $switch 'branches' must be a list |
-| missing | Field absent | Error: IllegalArgumentException — $switch 'branches' must be a list |
-| zero | 0 | Error: IllegalArgumentException — $switch 'branches' must be a list |
-| negative | -2 | Error: IllegalArgumentException — $switch 'branches' must be a list |
-| decimal | 2.5 | Error: IllegalArgumentException — $switch 'branches' must be a list |
-| numeric string | "12" | Error: IllegalArgumentException — $switch 'branches' must be a list |
-| text | "hello" | Error: IllegalArgumentException — $switch 'branches' must be a list |
-| empty string | "" | Error: IllegalArgumentException — $switch 'branches' must be a list |
-| boolean | true | Error: IllegalArgumentException — $switch 'branches' must be a list |
-| false | false | Error: IllegalArgumentException — $switch 'branches' must be a list |
-| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error: IllegalArgumentException — $switch 'branches' must be a list |
-| decimal128 | {"$numberDecimal":"1.25"} | Error: IllegalArgumentException — $switch 'branches' must be a list |
-| empty array | [] | Error: IllegalArgumentException — $switch 'branches' must be a list |
-| numeric array | [1,2,3] | Error: IllegalArgumentException — $switch 'branches' must be a list |
-| mixed array | [1,null,"x",3] | Error: IllegalArgumentException — $switch 'branches' must be a list |
-| nested array | [[1,2],[3]] | Error: IllegalArgumentException — $switch 'branches' must be a list |
-| empty object | {} | Error: IllegalArgumentException — $switch 'branches' must be a list |
-| object | {"x":1} | Error: IllegalArgumentException — $switch 'branches' must be a list |
-| ISO date string | "2026-01-15T15:00:00Z" | Error: IllegalArgumentException — $switch 'branches' must be a list |
-| omitted named argument | Argument removed | Error: IllegalArgumentException — $switch 'branches' must be a list |
+| null | null | Error — $switch 'branches' must be a list |
+| missing | Field absent | Error — $switch 'branches' must be a list |
+| zero | 0 | Error — $switch 'branches' must be a list |
+| negative | -2 | Error — $switch 'branches' must be a list |
+| decimal | 2.5 | Error — $switch 'branches' must be a list |
+| numeric string | "12" | Error — $switch 'branches' must be a list |
+| text | "hello" | Error — $switch 'branches' must be a list |
+| empty string | "" | Error — $switch 'branches' must be a list |
+| boolean | true | Error — $switch 'branches' must be a list |
+| false | false | Error — $switch 'branches' must be a list |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error — $switch 'branches' must be a list |
+| decimal128 | {"$numberDecimal":"1.25"} | Error — $switch 'branches' must be a list |
+| empty array | [] | Error — $switch 'branches' must be a list |
+| numeric array | [1,2,3] | Error — $switch 'branches' must be a list |
+| mixed array | [1,null,"x",3] | Error — $switch 'branches' must be a list |
+| nested array | [[1,2],[3]] | Error — $switch 'branches' must be a list |
+| empty object | {} | Error — $switch 'branches' must be a list |
+| object | {"x":1} | Error — $switch 'branches' must be a list |
+| ISO date string | "2026-01-15T15:00:00Z" | Error — $switch 'branches' must be a list |
+| omitted named argument | Argument removed | Error — $switch 'branches' must be a list |
 
-### Argument: `default`
+**Argument: `default`**
 
 | Input case | Supplied value | SrotaX result |
 | --- | --- | --- |
@@ -95,21 +136,17 @@ Each table changes **only the indicated argument** from the example above. Other
 | ISO date string | "2026-01-15T15:00:00Z" | "yes" |
 | omitted named argument | Argument removed | "yes" |
 
-## Invalid invocation shapes
 
-| Invocation | SrotaX result |
-| --- | --- |
-| {"$switch":[]} | Error: IllegalArgumentException — $switch requires a document with 'branches' and optional 'default' |
-| {"$switch":{"unexpected":1}} | Error: IllegalArgumentException — $switch 'branches' must be a list |
+</details>
 
-## Scope and reproducibility
+## Verification
 
 This page records **43 executed cases**. It covers individual argument substitutions, not every cross-product of arguments, locale, daylight-saving transitions, numeric overflow, collation or resource limits. No untested behavior is guaranteed.
 
 [Download exact expressions, inputs and SrotaX results](../../downloads/operator-behavior/switch.json). Errors are observed messages, not stable public error codes. The reference generator reads the checked-in execution report; do not edit generated observations by hand.
 
 <!-- BEGIN MONGO PARITY -->
-## MongoDB differences (removable section)
+## MongoDB differences
 
 Compared with **MongoDB 9.0.4**: **21 exact BSON matches**, **22 both rejected**, **0 value/type/acceptance differences**, **0 object-field-order differences**.
 

@@ -1,0 +1,124 @@
+[
+  {
+    "id": "$bucket example",
+    "stage": "$bucket",
+    "kind": "example",
+    "pipeline": [
+      {
+        "$bucket": {
+          "groupBy": "$price",
+          "boundaries": [
+            0,
+            10,
+            20
+          ],
+          "default": "other",
+          "output": {
+            "count": {
+              "$sum": 1
+            }
+          }
+        }
+      }
+    ],
+    "input": [
+      {
+        "price": 3
+      },
+      {
+        "price": 14
+      },
+      {
+        "price": 30
+      }
+    ],
+    "result": [
+      {
+        "_id": 0.0,
+        "count": 1
+      },
+      {
+        "_id": 10.0,
+        "count": 1
+      },
+      {
+        "_id": "other",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": "$bucket empty input",
+    "stage": "$bucket",
+    "kind": "empty input",
+    "pipeline": [
+      {
+        "$bucket": {
+          "groupBy": "$price",
+          "boundaries": [
+            0,
+            10,
+            20
+          ],
+          "default": "other",
+          "output": {
+            "count": {
+              "$sum": 1
+            }
+          }
+        }
+      }
+    ],
+    "input": [],
+    "result": []
+  },
+  {
+    "id": "$bucket invalid specification",
+    "stage": "$bucket",
+    "kind": "invalid specification",
+    "pipeline": [
+      {
+        "$bucket": null
+      }
+    ],
+    "input": [
+      {
+        "price": 3
+      },
+      {
+        "price": 14
+      },
+      {
+        "price": 30
+      }
+    ],
+    "error": "IllegalArgumentException",
+    "message": "$bucket stage requires an object"
+  },
+  {
+    "id": "$bucket unmatched without default",
+    "stage": "$bucket",
+    "kind": "unmatched without default",
+    "pipeline": [
+      {
+        "$bucket": {
+          "groupBy": "$price",
+          "boundaries": [
+            0,
+            10
+          ]
+        }
+      }
+    ],
+    "input": [
+      {
+        "price": 20
+      },
+      {},
+      {
+        "price": null
+      }
+    ],
+    "result": []
+  }
+]

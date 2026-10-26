@@ -1,0 +1,68 @@
+[
+  {
+    "id": "$sortByCount example",
+    "stage": "$sortByCount",
+    "kind": "example",
+    "pipeline": [
+      {
+        "$sortByCount": "$category"
+      }
+    ],
+    "input": [
+      {
+        "category": "A"
+      },
+      {
+        "category": "A"
+      },
+      {
+        "category": "B"
+      }
+    ],
+    "result": [
+      {
+        "_id": "A",
+        "count": 2
+      },
+      {
+        "_id": "B",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": "$sortByCount empty input",
+    "stage": "$sortByCount",
+    "kind": "empty input",
+    "pipeline": [
+      {
+        "$sortByCount": "$category"
+      }
+    ],
+    "input": [],
+    "result": []
+  },
+  {
+    "id": "$sortByCount invalid specification",
+    "stage": "$sortByCount",
+    "kind": "invalid specification",
+    "pipeline": [
+      {
+        "$sortByCount": null
+      }
+    ],
+    "input": [
+      {
+        "category": "A"
+      },
+      {
+        "category": "A"
+      },
+      {
+        "category": "B"
+      }
+    ],
+    "error": "IllegalArgumentException",
+    "message": "$sortByCount requires a grouping expression"
+  }
+]

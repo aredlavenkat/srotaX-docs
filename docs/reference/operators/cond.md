@@ -1,24 +1,58 @@
 # $cond
 
+## Definition
+
 Evaluates Mongo truthiness and lazily returns the selected branch.
 
-**Category:** Conditional. **Studio Visual entry:** Available. This page describes Core expression execution; Studio also checks field types and authoring permissions.
+**Expression operator** · Conditional · Studio Visual: available. Studio validates the complete expression separately.
 
-## Syntax and arguments
+## Syntax
 
-Supply an ordered array of arguments.
+```text
+{ "$cond": [ <if>, <then>, <else> ] }
+```
 
-| Argument | Metadata input types | Required | Evaluation |
-| --- | --- | --- | --- |
-| `if` | ANY | Yes | Expression evaluated against the input |
-| `then` | ANY | Yes | Expression evaluated against the input |
-| `else` | ANY | Yes | Expression evaluated against the input |
+Replace angle-bracket placeholders with expressions or values.
 
-Argument count: minimum 3; maximum 3.
+Optional parameters may be omitted.
 
-Declared result types: **ANY**. Actual result types for tested inputs appear below. Metadata is an authoring hint; where a case differs, use the observed result and treat the discrepancy as a limitation.
+## Parameters
 
-## Example
+| Parameter | Required | Description |
+| --- | --- | --- |
+| `if` | Yes | Condition expression that selects the result branch. |
+| `then` | Yes | Result expression selected when the condition is true. |
+| `else` | Yes | Result expression selected when the condition is false. |
+
+Arguments are positional: keep the order shown. The authoring signature accepts 3–3 arguments.
+
+## Behavior
+
+The following observations use the example expression below. Each row substitutes one argument while retaining the other example arguments. A missing field differs from an explicit null; the result shown is what Core actually returned.
+
+For the `if` argument:
+
+| Input case | Supplied value | Result |
+| --- | --- | --- |
+| null | null | "no" |
+| missing | Field absent | "no" |
+| decimal | 2.5 | "yes" |
+| numeric string | "12" | "yes" |
+| text | "hello" | "yes" |
+| boolean | true | "yes" |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | "yes" |
+| empty array | [] | "yes" |
+| numeric array | [1,2,3] | "yes" |
+| object | {"x":1} | "yes" |
+
+### Argument handling
+
+| Invocation | Result |
+| --- | --- |
+| {"$cond":[]} | Error — $cond requires {if, then, else} or an array of three arguments |
+| {"$cond":{"unexpected":1}} | Error — $cond requires exactly if, then and else |
+
+## Examples
 
 Expression:
 ```json
@@ -38,11 +72,15 @@ Input document:
 
 **Observed SrotaX result:** "yes".
 
-## Behavior for different inputs
+## Detailed input cases
+
+<details markdown="1">
+<summary>Expand the complete argument-by-argument test matrix</summary>
+
 
 Each table changes **only the indicated argument** from the example above. Other arguments retain their baseline values. Values normally come from the input field `probe`; literal configuration arguments are replaced directly. “Missing” means the field is absent, not explicitly null. Numeric strings are strings, not numbers.
 
-### Argument: `if[0]`
+**Argument: `if[0]`**
 
 | Input case | Supplied value | SrotaX result |
 | --- | --- | --- |
@@ -66,7 +104,7 @@ Each table changes **only the indicated argument** from the example above. Other
 | object | {"x":1} | "yes" |
 | ISO date string | "2026-01-15T15:00:00Z" | "yes" |
 
-### Argument: `then[1]`
+**Argument: `then[1]`**
 
 | Input case | Supplied value | SrotaX result |
 | --- | --- | --- |
@@ -90,7 +128,7 @@ Each table changes **only the indicated argument** from the example above. Other
 | object | {"x":1} | {"x":1} |
 | ISO date string | "2026-01-15T15:00:00Z" | "2026-01-15T15:00:00Z" |
 
-### Argument: `else[2]`
+**Argument: `else[2]`**
 
 | Input case | Supplied value | SrotaX result |
 | --- | --- | --- |
@@ -114,16 +152,12 @@ Each table changes **only the indicated argument** from the example above. Other
 | object | {"x":1} | "yes" |
 | ISO date string | "2026-01-15T15:00:00Z" | "yes" |
 
-## Invalid invocation shapes
 
-| Invocation | SrotaX result |
-| --- | --- |
-| {"$cond":[]} | Error: IllegalArgumentException — $cond requires {if, then, else} or an array of three arguments |
-| {"$cond":{"unexpected":1}} | Error: IllegalArgumentException — $cond requires exactly if, then and else |
+</details>
 
 ## Additional boundary examples
 
-<details>
+<details markdown="1">
 <summary>Show 1 tested examples</summary>
 
 Expression:
@@ -151,23 +185,28 @@ Input:
 
 </details>
 
-## Scope and reproducibility
+## Verification
 
 This page records **61 executed cases**. It covers individual argument substitutions, not every cross-product of arguments, locale, daylight-saving transitions, numeric overflow, collation or resource limits. No untested behavior is guaranteed.
 
 [Download exact expressions, inputs and SrotaX results](../../downloads/operator-behavior/cond.json). Errors are observed messages, not stable public error codes. The reference generator reads the checked-in execution report; do not edit generated observations by hand.
 
 <!-- BEGIN MONGO PARITY -->
-## MongoDB differences (removable section)
+## MongoDB differences
 
 Compared with **MongoDB 9.0.4**: **57 exact BSON matches**, **2 both rejected**, **2 value/type/acceptance differences**, **0 object-field-order differences**.
 
 “Exact” includes numeric BSON types and object key order. A value of `3` as int32 differs from `3.0` as double. Object-field-order differences are reported separately; object key ordering is not enforced by the engine regression baseline. Both rejected does not mean the error codes or messages match. This is finite-case evidence, not full compatibility certification.
 
+<details markdown="1">
+<summary>Show observed differences</summary>
+
 | Tested case | SrotaX | MongoDB |
 | --- | --- | --- |
 | then[1] / missing | null | Missing (field omitted) |
-| all / boundary example | "yes" | Error: BadValue — Failed to optimize pipeline :: caused by :: can't $divide by zero |
+| all / boundary example | "yes" | Error — Failed to optimize pipeline :: caused by :: can't $divide by zero |
+
+</details>
 
 [Download full comparison evidence](../../downloads/operator-parity/cond.json).
 

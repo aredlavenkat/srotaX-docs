@@ -1,23 +1,57 @@
 # $ifNull
 
+## Definition
+
 Uses a fallback when the first expression is null or missing.
 
-**Category:** Conditional. **Studio Visual entry:** Available. This page describes Core expression execution; Studio also checks field types and authoring permissions.
+**Expression operator** · Conditional · Studio Visual: available. Studio validates the complete expression separately.
 
-## Syntax and arguments
+## Syntax
 
-Supply an ordered array of arguments.
+```text
+{ "$ifNull": [ <input>, <fallback>, ... ] }
+```
 
-| Argument | Metadata input types | Required | Evaluation |
-| --- | --- | --- | --- |
-| `input` | ANY | Yes | Expression evaluated against the input |
-| `fallback` | ANY | Yes | Expression evaluated against the input |
+Replace angle-bracket placeholders with expressions or values.
 
-Argument count: minimum 2; maximum variadic.
+Optional parameters may be omitted.
 
-Declared result types: **ANY**. Actual result types for tested inputs appear below. Metadata is an authoring hint; where a case differs, use the observed result and treat the discrepancy as a limitation.
+## Parameters
 
-## Example
+| Parameter | Required | Description |
+| --- | --- | --- |
+| `input` | See argument count below | Expression supplying the value to process. A field reference such as `"$price"` reads from the current document. |
+| `fallback` | See argument count below | Expression to use when the preceding input is null or missing. |
+
+Arguments are positional: keep the order shown. Supply 2 or more arguments.
+
+## Behavior
+
+The following observations use the example expression below. Each row substitutes one argument while retaining the other example arguments. A missing field differs from an explicit null; the result shown is what Core actually returned.
+
+For the `input` argument:
+
+| Input case | Supplied value | Result |
+| --- | --- | --- |
+| null | null | "fallback" |
+| missing | Field absent | "fallback" |
+| decimal | 2.5 | 2.5 (double) |
+| numeric string | "12" | "12" |
+| text | "hello" | "hello" |
+| boolean | true | true |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | {'$numberLong': '1768489200000'} (date) |
+| empty array | [] | [] |
+| numeric array | [1,2,3] | [1,2,3] |
+| object | {"x":1} | {"x":1} |
+
+### Argument handling
+
+| Invocation | Result |
+| --- | --- |
+| {"$ifNull":[]} | Error — $ifNull requires at least two arguments |
+| {"$ifNull":{"unexpected":1}} | null |
+
+## Examples
 
 Expression:
 ```json
@@ -36,11 +70,15 @@ Input document:
 
 **Observed SrotaX result:** "fallback".
 
-## Behavior for different inputs
+## Detailed input cases
+
+<details markdown="1">
+<summary>Expand the complete argument-by-argument test matrix</summary>
+
 
 Each table changes **only the indicated argument** from the example above. Other arguments retain their baseline values. Values normally come from the input field `probe`; literal configuration arguments are replaced directly. “Missing” means the field is absent, not explicitly null. Numeric strings are strings, not numbers.
 
-### Argument: `input[0]`
+**Argument: `input[0]`**
 
 | Input case | Supplied value | SrotaX result |
 | --- | --- | --- |
@@ -64,7 +102,7 @@ Each table changes **only the indicated argument** from the example above. Other
 | object | {"x":1} | {"x":1} |
 | ISO date string | "2026-01-15T15:00:00Z" | "2026-01-15T15:00:00Z" |
 
-### Argument: `fallback[1]`
+**Argument: `fallback[1]`**
 
 | Input case | Supplied value | SrotaX result |
 | --- | --- | --- |
@@ -88,30 +126,31 @@ Each table changes **only the indicated argument** from the example above. Other
 | object | {"x":1} | {"x":1} |
 | ISO date string | "2026-01-15T15:00:00Z" | "2026-01-15T15:00:00Z" |
 
-## Invalid invocation shapes
 
-| Invocation | SrotaX result |
-| --- | --- |
-| {"$ifNull":[]} | Error: IllegalArgumentException — $ifNull requires at least two arguments |
-| {"$ifNull":{"unexpected":1}} | null |
+</details>
 
-## Scope and reproducibility
+## Verification
 
 This page records **41 executed cases**. It covers individual argument substitutions, not every cross-product of arguments, locale, daylight-saving transitions, numeric overflow, collation or resource limits. No untested behavior is guaranteed.
 
 [Download exact expressions, inputs and SrotaX results](../../downloads/operator-behavior/ifNull.json). Errors are observed messages, not stable public error codes. The reference generator reads the checked-in execution report; do not edit generated observations by hand.
 
 <!-- BEGIN MONGO PARITY -->
-## MongoDB differences (removable section)
+## MongoDB differences
 
 Compared with **MongoDB 9.0.4**: **38 exact BSON matches**, **1 both rejected**, **2 value/type/acceptance differences**, **0 object-field-order differences**.
 
 “Exact” includes numeric BSON types and object key order. A value of `3` as int32 differs from `3.0` as double. Object-field-order differences are reported separately; object key ordering is not enforced by the engine regression baseline. Both rejected does not mean the error codes or messages match. This is finite-case evidence, not full compatibility certification.
 
+<details markdown="1">
+<summary>Show observed differences</summary>
+
 | Tested case | SrotaX | MongoDB |
 | --- | --- | --- |
 | fallback[1] / missing | null | Missing (field omitted) |
-| all / unknown option | null | Error: Location1257300 — Invalid $project :: caused by :: $ifNull needs at least two arguments, had: 1 |
+| all / unknown option | null | Error — Invalid $project :: caused by :: $ifNull needs at least two arguments, had: 1 |
+
+</details>
 
 [Download full comparison evidence](../../downloads/operator-parity/ifNull.json).
 

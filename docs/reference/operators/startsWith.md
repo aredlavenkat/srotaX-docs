@@ -1,23 +1,57 @@
 # $startsWith
 
+## Definition
+
 Checks a literal text prefix.
 
-**Category:** Text. **Studio Visual entry:** Not exposed. This page describes Core expression execution; Studio also checks field types and authoring permissions.
+**Expression operator** · Text · Studio Visual: not exposed. Studio validates the complete expression separately.
 
-## Syntax and arguments
+## Syntax
 
-Supply an ordered array of arguments.
+```text
+{ "$startsWith": [ <input>, <text> ] }
+```
 
-| Argument | Metadata input types | Required | Evaluation |
-| --- | --- | --- | --- |
-| `input` | STRING | Yes | Expression evaluated against the input |
-| `text` | STRING | Yes | Expression evaluated against the input |
+Replace angle-bracket placeholders with expressions or values.
 
-Argument count: minimum 2; maximum 2.
+Optional parameters may be omitted.
 
-Declared result types: **BOOLEAN**. Actual result types for tested inputs appear below. Metadata is an authoring hint; where a case differs, use the observed result and treat the discrepancy as a limitation.
+## Parameters
 
-## Example
+| Parameter | Required | Description |
+| --- | --- | --- |
+| `input` | Yes | Expression supplying the value to process. A field reference such as `"$price"` reads from the current document. |
+| `text` | Yes | Expression supplying the text value. |
+
+Arguments are positional: keep the order shown. The authoring signature accepts 2–2 arguments.
+
+## Behavior
+
+The following observations use the example expression below. Each row substitutes one argument while retaining the other example arguments. A missing field differs from an explicit null; the result shown is what Core actually returned.
+
+For the `input` argument:
+
+| Input case | Supplied value | Result |
+| --- | --- | --- |
+| null | null | Error — Cannot invoke "String.startsWith(String)" because "input" is null |
+| missing | Field absent | Error — Cannot invoke "String.startsWith(String)" because "input" is null |
+| decimal | 2.5 | Error — class java.lang.Double cannot be cast to class java.lang.String (java.lang.Double and java.lang.String are in module java.base of loader 'bootstrap') |
+| numeric string | "12" | false |
+| text | "hello" | false |
+| boolean | true | Error — class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap') |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error — class java.util.Date cannot be cast to class java.lang.String (java.util.Date and java.lang.String are in module java.base of loader 'bootstrap') |
+| empty array | [] | Error — class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap') |
+| numeric array | [1,2,3] | Error — class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap') |
+| object | {"x":1} | Error — class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstr |
+
+### Argument handling
+
+| Invocation | Result |
+| --- | --- |
+| {"$startsWith":[]} | Error — $startsWith expects [string, prefix] |
+| {"$startsWith":{"unexpected":1}} | Error — class org.bson.Document cannot be cast to class java.util.List (org.bson.Document is in unnamed module of loader 'app'; java.util.List is in module java.base of loader 'bootstrap') |
+
+## Examples
 
 Expression:
 ```json
@@ -36,73 +70,73 @@ Input document:
 
 **Observed SrotaX result:** true.
 
-## Behavior for different inputs
+## Detailed input cases
+
+<details markdown="1">
+<summary>Expand the complete argument-by-argument test matrix</summary>
+
 
 Each table changes **only the indicated argument** from the example above. Other arguments retain their baseline values. Values normally come from the input field `probe`; literal configuration arguments are replaced directly. “Missing” means the field is absent, not explicitly null. Numeric strings are strings, not numbers.
 
-### Argument: `input[0]`
+**Argument: `input[0]`**
 
 | Input case | Supplied value | SrotaX result |
 | --- | --- | --- |
-| null | null | Error: NullPointerException — Cannot invoke "String.startsWith(String)" because "input" is null |
-| missing | Field absent | Error: NullPointerException — Cannot invoke "String.startsWith(String)" because "input" is null |
-| zero | 0 | Error: ClassCastException — class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap') |
-| negative | -2 | Error: ClassCastException — class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap') |
-| decimal | 2.5 | Error: ClassCastException — class java.lang.Double cannot be cast to class java.lang.String (java.lang.Double and java.lang.String are in module java.base of loader 'bootstrap') |
+| null | null | Error — Cannot invoke "String.startsWith(String)" because "input" is null |
+| missing | Field absent | Error — Cannot invoke "String.startsWith(String)" because "input" is null |
+| zero | 0 | Error — class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap') |
+| negative | -2 | Error — class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap') |
+| decimal | 2.5 | Error — class java.lang.Double cannot be cast to class java.lang.String (java.lang.Double and java.lang.String are in module java.base of loader 'bootstrap') |
 | numeric string | "12" | false |
 | text | "hello" | false |
 | empty string | "" | false |
-| boolean | true | Error: ClassCastException — class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap') |
-| false | false | Error: ClassCastException — class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap') |
-| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error: ClassCastException — class java.util.Date cannot be cast to class java.lang.String (java.util.Date and java.lang.String are in module java.base of loader 'bootstrap') |
-| decimal128 | {"$numberDecimal":"1.25"} | Error: ClassCastException — class org.bson.types.Decimal128 cannot be cast to class java.lang.String (org.bson.types.Decimal128 is in unnamed module of loader 'app'; java.lang.String is in module java.base of |
-| empty array | [] | Error: ClassCastException — class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap') |
-| numeric array | [1,2,3] | Error: ClassCastException — class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap') |
-| mixed array | [1,null,"x",3] | Error: ClassCastException — class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap') |
-| nested array | [[1,2],[3]] | Error: ClassCastException — class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap') |
-| empty object | {} | Error: ClassCastException — class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstr |
-| object | {"x":1} | Error: ClassCastException — class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstr |
+| boolean | true | Error — class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap') |
+| false | false | Error — class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap') |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error — class java.util.Date cannot be cast to class java.lang.String (java.util.Date and java.lang.String are in module java.base of loader 'bootstrap') |
+| decimal128 | {"$numberDecimal":"1.25"} | Error — class org.bson.types.Decimal128 cannot be cast to class java.lang.String (org.bson.types.Decimal128 is in unnamed module of loader 'app'; java.lang.String is in module java.base of |
+| empty array | [] | Error — class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap') |
+| numeric array | [1,2,3] | Error — class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap') |
+| mixed array | [1,null,"x",3] | Error — class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap') |
+| nested array | [[1,2],[3]] | Error — class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap') |
+| empty object | {} | Error — class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstr |
+| object | {"x":1} | Error — class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstr |
 | ISO date string | "2026-01-15T15:00:00Z" | false |
 
-### Argument: `text[1]`
+**Argument: `text[1]`**
 
 | Input case | Supplied value | SrotaX result |
 | --- | --- | --- |
-| null | null | Error: NullPointerException — Cannot invoke "String.length()" because "prefix" is null |
-| missing | Field absent | Error: NullPointerException — Cannot invoke "String.length()" because "prefix" is null |
-| zero | 0 | Error: ClassCastException — class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap') |
-| negative | -2 | Error: ClassCastException — class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap') |
-| decimal | 2.5 | Error: ClassCastException — class java.lang.Double cannot be cast to class java.lang.String (java.lang.Double and java.lang.String are in module java.base of loader 'bootstrap') |
+| null | null | Error — Cannot invoke "String.length()" because "prefix" is null |
+| missing | Field absent | Error — Cannot invoke "String.length()" because "prefix" is null |
+| zero | 0 | Error — class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap') |
+| negative | -2 | Error — class java.lang.Integer cannot be cast to class java.lang.String (java.lang.Integer and java.lang.String are in module java.base of loader 'bootstrap') |
+| decimal | 2.5 | Error — class java.lang.Double cannot be cast to class java.lang.String (java.lang.Double and java.lang.String are in module java.base of loader 'bootstrap') |
 | numeric string | "12" | false |
 | text | "hello" | false |
 | empty string | "" | true |
-| boolean | true | Error: ClassCastException — class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap') |
-| false | false | Error: ClassCastException — class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap') |
-| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error: ClassCastException — class java.util.Date cannot be cast to class java.lang.String (java.util.Date and java.lang.String are in module java.base of loader 'bootstrap') |
-| decimal128 | {"$numberDecimal":"1.25"} | Error: ClassCastException — class org.bson.types.Decimal128 cannot be cast to class java.lang.String (org.bson.types.Decimal128 is in unnamed module of loader 'app'; java.lang.String is in module java.base of |
-| empty array | [] | Error: ClassCastException — class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap') |
-| numeric array | [1,2,3] | Error: ClassCastException — class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap') |
-| mixed array | [1,null,"x",3] | Error: ClassCastException — class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap') |
-| nested array | [[1,2],[3]] | Error: ClassCastException — class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap') |
-| empty object | {} | Error: ClassCastException — class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstr |
-| object | {"x":1} | Error: ClassCastException — class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstr |
+| boolean | true | Error — class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap') |
+| false | false | Error — class java.lang.Boolean cannot be cast to class java.lang.String (java.lang.Boolean and java.lang.String are in module java.base of loader 'bootstrap') |
+| typed date | {"$date":"2026-01-15T15:00:00Z"} | Error — class java.util.Date cannot be cast to class java.lang.String (java.util.Date and java.lang.String are in module java.base of loader 'bootstrap') |
+| decimal128 | {"$numberDecimal":"1.25"} | Error — class org.bson.types.Decimal128 cannot be cast to class java.lang.String (org.bson.types.Decimal128 is in unnamed module of loader 'app'; java.lang.String is in module java.base of |
+| empty array | [] | Error — class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap') |
+| numeric array | [1,2,3] | Error — class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap') |
+| mixed array | [1,null,"x",3] | Error — class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap') |
+| nested array | [[1,2],[3]] | Error — class java.util.ArrayList cannot be cast to class java.lang.String (java.util.ArrayList and java.lang.String are in module java.base of loader 'bootstrap') |
+| empty object | {} | Error — class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstr |
+| object | {"x":1} | Error — class org.bson.Document cannot be cast to class java.lang.String (org.bson.Document is in unnamed module of loader 'app'; java.lang.String is in module java.base of loader 'bootstr |
 | ISO date string | "2026-01-15T15:00:00Z" | false |
 
-## Invalid invocation shapes
 
-| Invocation | SrotaX result |
-| --- | --- |
-| {"$startsWith":[]} | Error: IllegalArgumentException — $startsWith expects [string, prefix] |
-| {"$startsWith":{"unexpected":1}} | Error: ClassCastException — class org.bson.Document cannot be cast to class java.util.List (org.bson.Document is in unnamed module of loader 'app'; java.util.List is in module java.base of loader 'bootstrap') |
+</details>
 
-## Scope and reproducibility
+## Verification
 
 This page records **41 executed cases**. It covers individual argument substitutions, not every cross-product of arguments, locale, daylight-saving transitions, numeric overflow, collation or resource limits. No untested behavior is guaranteed.
 
 [Download exact expressions, inputs and SrotaX results](../../downloads/operator-behavior/startsWith.json). Errors are observed messages, not stable public error codes. The reference generator reads the checked-in execution report; do not edit generated observations by hand.
 
 <!-- BEGIN MONGO PARITY -->
-## MongoDB differences (removable section)
+## MongoDB differences
 
 This name is a SrotaX extension or belongs to another MongoDB context. It is **not compared as a MongoDB aggregation expression**. This is not a missing implementation failure.
 
